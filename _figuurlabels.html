@@ -1,0 +1,17 @@
+<script>
+// Zet het label "Figuur 1.1." van elk bijschrift in een aparte span (vet via stijl.scss).
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("figcaption.quarto-float-caption").forEach(function (cap) {
+    var n = cap.firstChild;
+    while (n && n.nodeType === 3 && !n.textContent.trim()) n = n.nextSibling;
+    if (!n || n.nodeType !== 3) return;
+    var m = n.textContent.match(/^\s*((Figuur|Tabel) [\d.]+[.:])\s*/);
+    if (!m) return;
+    var s = document.createElement("span");
+    s.className = "bijschrift-label";
+    s.textContent = m[1];
+    n.textContent = n.textContent.slice(m[0].length);
+    cap.insertBefore(s, n);
+  });
+});
+</script>

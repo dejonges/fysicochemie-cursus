@@ -48,9 +48,8 @@ Het aantal mogelijke trillingsmodi neemt echter zeer sterk toe naarmate de frequ
 
 Dit resultaat staat bekend als de *ultravioletcatastrofe*, ook wel de Rayleigh-Jeans-catastrofe. De voorspelling was duidelijk in tegenspraak met experimenten. In werkelijkheid neemt de intensiteit van de warmtestraling na een bepaalde frequentie juist sterk af, zodat slechts een beperkte hoeveelheid energie wordt uitgestraald (zie Figuur [-@fig-uvcatastrophe]).
 
-::: {#fig-uvcatastrophe}
+::: {#fig-uvcatastrophe .breed}
 ```{python}
-#| out-width: 80%
 #| renderings: [light, dark]
 fig.toon(fig.uv_catastrofe)
 ```
@@ -84,9 +83,8 @@ E_{\text{X-ray}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{0.1\times10^{
 Tussen een radiogolf en een röntgenfoton zit dus een factor van ongeveer $10^{10}$ in energie, hoewel beide "gewoon" elektromagnetische straling zijn. Dit verklaart meteen waarom radiogolven volledig onschadelijk zijn voor chemische bindingen (energie per foton veel kleiner dan een bindingsenergie), terwijl röntgenstraling en ultraviolet licht chemische bindingen kunnen breken of elektronen kunnen losmaken: hun fotonenergie ligt in dezelfde grootteorde als de energieverschillen tussen elektronische toestanden in atomen en moleculen.
 :::
 
-::: {#fig-spectrum-bindingen}
+::: {#fig-spectrum-bindingen .breed}
 ```{python}
-#| out-width: 85%
 #| renderings: [light, dark]
 fig.toon(fig.spectrum_bindingen)
 ```
@@ -106,7 +104,6 @@ Deze hypothese bood een verklaring voor het foto-elektrisch effect. Wanneer elek
 
 ::: {#fig-photoelectric}
 ```{python}
-#| out-width: 70%
 #| renderings: [light, dark]
 fig.toon(fig.foto_elektrisch)
 ```
@@ -127,7 +124,6 @@ De werkfunctie is een materiaaleigenschap. Typische waarden liggen tussen ongeve
 
 ::: {#fig-ek-frequentie}
 ```{python}
-#| out-width: 75%
 #| renderings: [light, dark]
 fig.toon(fig.ek_frequentie)
 ```
@@ -181,9 +177,8 @@ Reeds in de negentiende eeuw was experimenteel bekend dat verhit waterstofgas li
 
 Bohr vertrok van het klassieke beeld van een elektron dat in een cirkelvormige baan rond de kern beweegt, gehouden door de Coulombaantrekking, maar voegde daaraan een niet-klassiek postulaat toe: enkel die banen zijn toegelaten waarvoor het impulsmoment een geheel veelvoud is van $\hbar= \frac{h}{2 \pi}$, $$p r = m_ev r = n\hbar, \qquad n=1,2,3,\ldots$$ Door deze kwantisatievoorwaarde te combineren met de klassieke voorwaarde dat de Coulombkracht precies de centripetale kracht levert, $\dfrac{e^2}{4\pi\varepsilon_0r^2}=\dfrac{m_ev^2}{r}$, volgen zowel de toegelaten baanstralen als de bijbehorende energieën: $$r_n = n^2a_0, \qquad a_0=\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}\approx52.9\,\mathrm{pm} \quad\text{(de Bohr-straal)},$$ $$E_n = -\frac{m_ee^4}{8\varepsilon_0^2h^2}\frac{1}{n^2} = -\frac{13{,}6~\mathrm{eV}}{n^2}, \qquad n=1,2,3,\ldots$$ Deze laatste uitdrukking is exact dezelfde vergelijking die we verderop ([-@sec-waterstofatoom]) via de Schrödingervergelijking zullen terugvinden. Bohrs model gaf dus, ondanks zijn eenvoudige en deels ad-hoc karakter, reeds het volledig correcte energiespectrum van het waterstofatoom, en daarmee automatisch ook de correcte Rydberg-formule voor het waterstofspectrum ([-@sec-atomaire-spectra]).
 
-::: {#fig-bohr-model}
+::: {#fig-bohr-model .smal}
 ```{python}
-#| out-width: 60%
 #| renderings: [light, dark]
 fig.toon(fig.bohr)
 ```
@@ -357,9 +352,8 @@ Een *atomair orbitaal* is een toegelaten ruimtelijke golffunctie voor een elektr
 
 In de praktijk worden orbitalen vaak voorgesteld door een oppervlak dat een bepaald percentage, bijvoorbeeld $90\,\%$ of $95\,\%$, van de totale waarschijnlijkheid omsluit. De vorm van dit oppervlak hangt af van de vorm van de golffunctie. Op die manier ontstaan de karakteristieke vormen van $s$-, $p$- en andere orbitalen (zie Figuur [-@fig-orbitalen]).
 
-::: {#fig-orbitalen}
+::: {#fig-orbitalen .vol}
 ```{python}
-#| out-width: 90%
 #| renderings: [light, dark]
 fig.toon(fig.orbitalen)
 ```
@@ -422,9 +416,8 @@ Wanneer een waterstofatoom terugvalt van de eerste aangeslagen toestand ($n=2$) 
 
 Het voorbeeld hierboven illustreert een algemeen principe dat veel breder toepasbaar is dan het waterstofatoom alleen: telkens wanneer een elektron overgaat van een hoger naar een lager energieniveau, wordt het energieverschil uitgezonden als een foton met een welbepaalde frequentie. Omgekeerd kan een atoom een foton absorberen, op voorwaarde dat de fotonenergie exact overeenkomt met het verschil tussen twee toegelaten energieniveaus. Dit verklaart waarom atomen en moleculen niet om het even welke golflengte absorberen of uitzenden, maar uitsluitend welbepaalde, karakteristieke golflengten. Dit leidt uiteindelijk tot een specifiek *lijnenspectrum* van een element.
 
-::: {#fig-placeholder}
+::: {#fig-placeholder .breed}
 ```{python}
-#| out-width: 80%
 #| renderings: [light, dark]
 fig.toon(fig.waterstof)
 ```
@@ -572,9 +565,8 @@ Een enkelvoudige binding bestaat steeds uit ëën $\sigma$-binding; een dubbele 
 
 Het aantal elektronen in bindende versus antibindende orbitalen bepaalt of, en hoe sterk, een molecule bijeengehouden wordt. Dit wordt gekwantificeerd door de *bindingsorde*: $$\text{bindingsorde} = \frac{(\text{aantal bindende elektronen}) - (\text{aantal antibindende elektronen})}{2}$$ Een bindingsorde van nul betekent dat er, netto, geen enkele binding overblijft: een dergelijke molecule is niet stabiel.
 
-::: {#fig-mo-h2}
+::: {#fig-mo-h2 .breed}
 ```{python}
-#| out-width: 85%
 #| renderings: [light, dark]
 fig.toon(fig.molecuulorbitalen)
 ```
@@ -604,7 +596,6 @@ Deze evenwichtsafstand is niet zomaar een geometrisch detail: zij bepaalt, zoals
 
 ::: {#fig-morse-h2}
 ```{python}
-#| out-width: 75%
 #| renderings: [light, dark]
 fig.toon(fig.morse_h2)
 ```
