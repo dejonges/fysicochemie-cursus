@@ -3,4 +3,6 @@ _book/
 /.luarc.json
 
 /.quarto/
+
 **/*.quarto_ipynb
+__pycache__/

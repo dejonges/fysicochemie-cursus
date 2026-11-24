@@ -14,10 +14,12 @@ $headings-color: inherit;
 body { -webkit-font-smoothing: antialiased; font-weight: 400; }
 
 // ----- Hoofdstuktitel: groot en licht, met "Hoofdstuk n" als klein opschrift -----
-h1.title, .quarto-title h1 {
-  display: flex;
+h1.title .quarto-section-identifier {
+  display: flex;               // opschrift "Hoofdstuk n" boven de titel
   flex-direction: column;
   align-items: flex-start;
+}
+h1.title, .quarto-title h1 {
   font-size: 2.7rem;
   font-weight: 400;
   letter-spacing: -0.015em;
@@ -104,7 +106,8 @@ main figure img, main .quarto-figure img { border-radius: 12px; }
 // ----- Menubalk bovenaan: tabbladen met onderstreping -----
 .navbar { border-bottom: 1px solid var(--rand); box-shadow: none; padding-top: 0.4rem; padding-bottom: 0; }
 .navbar .navbar-title { font-family: $headings-font-family; font-weight: 500; font-size: 1.45rem; letter-spacing: -0.01em; }
-.navbar .nav-link { padding: 0.9rem 0.85rem !important; border-bottom: 2px solid transparent; font-weight: 500; }
+.navbar .navbar-brand-container, .navbar .navbar-title { max-width: none !important; overflow: visible; white-space: nowrap; }
+.navbar .nav-link { white-space: nowrap; padding: 0.9rem 0.85rem !important; border-bottom: 2px solid transparent; font-weight: 500; }
 .navbar .nav-link:hover { border-bottom-color: var(--rand); }
 .navbar .nav-link.active, .navbar .nav-link.show { border-bottom-color: currentColor; color: $body-color !important; }
 .navbar .dropdown-menu { border-radius: 12px; border-color: var(--rand); padding: 0.4rem; font-size: 0.96rem; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
