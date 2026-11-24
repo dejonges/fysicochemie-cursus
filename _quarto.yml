@@ -65,6 +65,7 @@ format:
     toc: true
     toc-depth: 3
     toc-title: "Op deze pagina"
+    include-in-header: _docent.html
     html-math-method: mathjax
     include-before-body: _macros.html
     fig-align: center
