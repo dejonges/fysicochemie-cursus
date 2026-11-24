@@ -1,0 +1,16 @@
+/*-- scss:defaults --*/
+// ===== Kleuren voor de DONKERE weergave =====
+$primary:      #5cc8dc;
+$body-bg:      #10171d;
+$body-color:   #e2e8f0;
+$link-color:   $primary;
+
+/*-- scss:rules --*/
+:root {
+  --accent:        #5cc8dc;
+  --accent-zacht:  #15303a;
+  --accent-2:      #f29a66;
+  --rand:          #26323c;
+  --kaart:         #151f27;
+  --gedempt:       #94a3b8;
+}

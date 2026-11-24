@@ -11,7 +11,8 @@ Bij elke wijziging op `main` bouwt GitHub de site opnieuw en publiceert ze op Gi
 
 ## Opmaak aanpassen
 
-- **`stijl.scss`**: kleuren, lettergrootte, regelafstand, ruimte tussen opsommingsitems en tabelstijl. Elke regel heeft uitleg in het Nederlands.
+- **`kleuren-licht.scss`** en **`kleuren-donker.scss`**: de kleuren van de lichte en donkere weergave.
+- **`stijl.scss`**: lettertypes, lettergrootte, regelafstand, ruimte tussen opsommingsitems en tabelstijl. Elke regel heeft uitleg in het Nederlands.
 - **Eén tabel anders**: zet achter het bijschrift van de tabel bijvoorbeeld `{tbl-colwidths="[20,80]"}` voor kolombreedtes, of `{.striped .hover}` voor een andere stijl.
 - **`_quarto.yml`**: titel, hoofdstukvolgorde, thema (`cosmo`/`darkly`, zie https://bootswatch.com voor alternatieven).
 

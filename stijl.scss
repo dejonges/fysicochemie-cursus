@@ -1,23 +1,107 @@
 /*-- scss:defaults --*/
-// ===== Pas hier de huisstijl aan =====
-$primary:          #1d6fa5;   // kleur van links, knoppen en accenten
+// ===== Lettertypes en maten (voor licht én donker) =====
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap');
+
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+$headings-font-family:   "Fraunces", Georgia, serif;   // titels: modern met een academisch randje
+$font-family-monospace:  "JetBrains Mono", ui-monospace, monospace;
 $font-size-root:   17px;      // basisgrootte van de tekst
-$line-height-base: 1.6;       // regelafstand in lopende tekst
+$line-height-base: 1.65;      // regelafstand in lopende tekst
+$headings-font-weight: 600;
 
 /*-- scss:rules --*/
+// ----- Titels -----
+h1.title, .quarto-title h1 {
+  font-size: 2.4rem;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+}
+.quarto-title-block .quarto-title {
+  padding-bottom: 0.9rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 3px solid var(--accent);
+}
+main h2 {
+  margin-top: 2.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid var(--rand);
+}
+main h3 { margin-top: 1.8rem; }
+.header-section-number { color: var(--accent); font-weight: 700; margin-right: 0.15em; }
+.chapter-number { color: var(--accent); }
+
+// ----- Links -----
+main a { text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
+main a:hover { border-bottom-color: currentColor; }
+
+// ----- Kaders (definitie, voorbeeld, toepassing, besluit, oefening) -----
+div.callout {
+  border-radius: 12px;
+  border: 1px solid var(--rand);
+  border-left-width: 5px;
+  background: var(--kaart);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 14px rgba(15, 23, 42, 0.04);
+  margin: 1.6rem 0;
+}
+div.callout .callout-header { border-radius: 0 10px 0 0; }
+div.callout .callout-title-container { font-family: $font-family-sans-serif; font-weight: 600; letter-spacing: 0.01em; }
+
 // ----- Opsommingen -----
-$lijst-afstand: 0.25rem;      // ruimte tussen twee items in een opsomming
+$lijst-afstand: 0.3rem;      // ruimte tussen twee items in een opsomming
 main li { margin-bottom: $lijst-afstand; }
 main li > p { margin-bottom: 0; }
 main ul, main ol { margin-bottom: 1rem; }
+main ul li::marker { color: var(--accent); }
+main ol li::marker { color: var(--accent); font-weight: 600; }
 
 // ----- Tabellen -----
 main table {
   width: auto;                 // tabel niet over de volle breedte uitrekken
   margin-left: auto;           // tabel centreren
   margin-right: auto;
-  font-size: 0.95em;
+  font-size: 0.93em;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  overflow: hidden;
 }
-main table th { border-bottom: 2px solid currentColor; }
-main table td, main table th { padding: 0.35rem 0.8rem; }
-main table tbody tr:nth-child(odd) { background: rgba(127, 127, 127, 0.07); }  // zebrastrepen
+main table thead th {
+  background: var(--accent-zacht);
+  border-bottom: 2px solid var(--accent) !important;
+  font-weight: 600;
+}
+main table td, main table th { padding: 0.45rem 0.9rem; border-top: 0; }
+main table tbody tr:nth-child(even) { background: var(--accent-zacht); background: color-mix(in srgb, var(--accent-zacht) 45%, transparent); }
+main table caption, .table-caption, figcaption { color: var(--gedempt); font-size: 0.9em; }
+
+// ----- Formules -----
+// Brede formules scrollen horizontaal in plaats van de pagina te verbreden
+main span.math.display, main .quarto-figure .math.display { display: block; }
+mjx-container[display="true"] { padding: 0.35rem 0; overflow-x: auto; overflow-y: hidden; }
+
+// ----- Figuren -----
+main figure img, main .quarto-figure img { border-radius: 10px; }
+figcaption { margin-top: 0.5rem; }
+
+// ----- Navigatie links -----
+.sidebar-navigation .sidebar-item a.active,
+.sidebar-navigation .sidebar-link.active {
+  background: var(--accent-zacht);
+  color: var(--accent) !important;
+  border-radius: 8px;
+  font-weight: 600;
+}
+.sidebar-navigation .sidebar-link { padding: 0.25rem 0.55rem; border-radius: 8px; }
+.sidebar-title { font-family: $headings-font-family; font-size: 1.35rem; }
+
+// ----- Inhoudstafel rechts -----
+#TOC .nav-link.active, #TOC a.active { color: var(--accent) !important; border-left-color: var(--accent) !important; }
+
+// ----- Vorige / volgende hoofdstuk -----
+.page-navigation .nav-page a {
+  border: 1px solid var(--rand);
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+}
+.page-navigation .nav-page a:hover { border-color: var(--accent); }

@@ -29,8 +29,8 @@ book:
 format:
   html:
     theme:
-      light: [cosmo, stijl.scss]
-      dark: [darkly, stijl.scss]
+      light: [cosmo, kleuren-licht.scss, stijl.scss]
+      dark: [darkly, kleuren-donker.scss, stijl.scss]
     number-sections: true
     number-depth: 3
     toc: true
