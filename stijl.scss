@@ -16,6 +16,9 @@ $headings-color: inherit;
 // ----- Titels -----
 // Hoofdstukopening zoals in een boek: groot nummer, titel eronder, fijne lijn
 h1.title, .quarto-title h1 {
+  display: flex;               // nummer boven de titel, zonder inspringing
+  flex-direction: column;
+  align-items: flex-start;
   font-size: 2.3rem;
   font-weight: 600;
   letter-spacing: -0.005em;
