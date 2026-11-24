@@ -5,6 +5,8 @@ $secondary:    #64748b;
 $body-bg:      #fbfaf6;   // achtergrond van de pagina: warm papierwit
 $body-color:   #22262b;   // tekstkleur
 $link-color:   $primary;
+$navbar-bg:    $body-bg;   // achtergrond van de menubalk bovenaan
+$navbar-fg:    $body-color;
 
 /*-- scss:rules --*/
 :root {

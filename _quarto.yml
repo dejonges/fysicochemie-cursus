@@ -11,6 +11,30 @@ book:
   date: "2026-2027"
   search: true
   page-navigation: true
+  navbar:
+    left:
+      - text: "Over de cursus"
+        href: index.qmd
+      - text: "Thermodynamica"
+        menu:
+          - energie.qmd
+          - spontaniteit.qmd
+          - niet-reagerend-evenwicht.qmd
+          - reagerend-evenwicht.qmd
+          - elektrochemie.qmd
+      - text: "Structuur van materie"
+        menu:
+          - kwantum.qmd
+          - intermoleculair.qmd
+          - kristallografie.qmd
+      - text: "Kinetiek en oppervlakken"
+        menu:
+          - kinetica.qmd
+          - oppervlaktechemie.qmd
+    right:
+      - text: "Toledo"
+        href: https://toledo.kuleuven.be
+        icon: box-arrow-up-right
   chapters:
     - index.qmd
     - energie.qmd

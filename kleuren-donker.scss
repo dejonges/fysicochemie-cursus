@@ -4,6 +4,8 @@ $primary:      #5cc8dc;
 $body-bg:      #10171d;
 $body-color:   #e2e8f0;
 $link-color:   $primary;
+$navbar-bg:    $body-bg;   // achtergrond van de menubalk bovenaan
+$navbar-fg:    $body-color;
 
 /*-- scss:rules --*/
 :root {

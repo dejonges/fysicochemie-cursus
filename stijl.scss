@@ -136,3 +136,9 @@ figcaption { margin-top: 0.5rem; }
   padding: 0.6rem 1rem;
 }
 .page-navigation .nav-page a:hover { border-color: var(--accent); }
+
+// ----- Menubalk bovenaan -----
+.navbar { border-bottom: 1px solid var(--rand); font-family: $font-family-sans-serif; }
+.navbar .navbar-title { font-family: $headings-font-family; font-weight: 600; font-size: 1.25rem; }
+.navbar .nav-link:hover, .navbar .nav-link.active { color: var(--accent) !important; }
+.navbar .dropdown-menu { border-radius: 6px; border-color: var(--rand); font-size: 0.95rem; }
