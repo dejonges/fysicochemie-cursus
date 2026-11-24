@@ -1,0 +1,3 @@
+Source Sans 3 (Adobe), SIL Open Font License 1.1 – vrij te gebruiken en mee te verspreiden.
+Bron: https://github.com/adobe-fonts/source-sans
+Wordt door huisstijl.py ingeladen zodat de figuren hetzelfde lettertype hebben als de tekst op de site.

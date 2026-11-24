@@ -16,6 +16,29 @@ Bij elke wijziging op `main` bouwt GitHub de site opnieuw en publiceert ze op Gi
 - **Eén tabel anders**: zet achter het bijschrift van de tabel bijvoorbeeld `{tbl-colwidths="[20,80]"}` voor kolombreedtes, of `{.striped .hover}` voor een andere stijl.
 - **`_quarto.yml`**: titel, hoofdstukvolgorde, thema (`cosmo`/`darkly`, zie https://bootswatch.com voor alternatieven).
 
+## Figuren
+
+Figuren worden bij het bouwen getekend met Python (matplotlib), zodat ze dezelfde stijl hebben als de tekst en meeschakelen met het lichte en donkere thema.
+
+- **`_figuren/huisstijl.py`** en **`_figuren/fysicochemie.mplstyle`**: kleuren, lettertype en lijnen. Kleuren altijd via `K` (bv. `K.accent`, `K.blauw`).
+- **`_figuren/h1.py`**, **`h2.py`**, ...: één functie per figuur. Gegevens van echte gassen komen uit `_figuren/toestand.py`.
+- In een hoofdstuk staat een figuur zo (het bijschrift onderaan, verwijzen met `@fig-boyle`):
+
+````markdown
+::: {#fig-boyle}
+```{python}
+#| out-width: 70%
+#| renderings: [light, dark]
+fig.toon(fig.boyle)
+```
+
+Isothermen voor een ideaal gas.
+:::
+````
+
+- Lokaal bouwen vraagt Python met de pakketten uit `requirements.txt` (`pip install -r requirements.txt`).
+- Een figuur los bekijken: `cd _figuren && python3 -c "import h1; h1.boyle().savefig('test.png')"`.
+
 ## Opnieuw omzetten vanuit LaTeX
 
 `tools/tex2qmd.py` zet de LaTeX-hoofdstukken om naar `.qmd`:

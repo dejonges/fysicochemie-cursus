@@ -1,5 +1,13 @@
 # Energie en de eerste hoofdwet van de thermodynamica {#sec-ch-energie}
 
+```{python}
+#| include: false
+# Figuren van dit hoofdstuk: zie _figuren/h1.py (stijl in _figuren/huisstijl.py)
+import sys
+sys.path.insert(0, "_figuren")
+import h1 as fig
+```
+
 ## Waarom thermodynamica?
 
 Een procesingenieur krijgt de opdracht een nieuwe gascompressor te dimensioneren voor een chemische installatie. Het gas moet worden samengeperst alvorens het naar een reactor wordt gestuurd. Al tijdens de eerste simulaties blijkt dat de temperatuur van het gas aanzienlijk stijgt tijdens de compressie. Deze temperatuurstijging heeft belangrijke gevolgen. Hogere temperaturen kunnen de levensduur van de compressor verkorten, stellen hogere eisen aan de gebruikte materialen en verhogen het energieverbruik van de volledige installatie. Om deze redenen worden industriële compressoren vaak opgebouwd uit meerdere compressietrappen die onderling worden gekoeld.
@@ -121,7 +129,15 @@ De eenvoudigste test van de ideale gaswet is de wet van Boyle: bij constante tem
 -   Voor stikstof bij $0{}^{\circ}\mathrm{C}$ en drukken tot $10\,\mathrm{bar}$ bedraagt de afwijking minder dan $0.5\%$: de ideale gaswet is een uitstekende benadering. Bij $100\,\mathrm{bar}$ bedraagt de afwijking reeds $5\%$; bij $500\,\mathrm{bar}$ meer dan $30\%$.
 -   Voor $\ce{CO2}$ bij $40{}^{\circ}\mathrm{C}$ en $100\,\mathrm{bar}$ bedraagt de afwijking meer dan $20\%$, en bij lagere temperaturen kan condensatie optreden, hetgeen de ideale gaswet volledig ongeldig maakt.
 
-![Isothermen voor een ideaal gas waarbij $p \propto \frac{1}{V}$. Voor een ideaal gas blijft deze relatie geldig voor het volledige bereik.](afbeeldingen/Boyle.png){#fig-boyle width="50%"}
+::: {#fig-boyle}
+```{python}
+#| out-width: 70%
+#| renderings: [light, dark]
+fig.toon(fig.boyle)
+```
+
+Isothermen voor een ideaal gas waarbij $p \propto \frac{1}{V}$. Voor een ideaal gas blijft deze relatie geldig voor het volledige bereik.
+:::
 
 #### Joule--Thomson-effect
 
@@ -131,7 +147,15 @@ Een tweede experimentele observatie is het Joule--Thomson-effect: wanneer een ga
 
 De meest in het oog springende afwijking is de condensatie zelf (zie Figuur [-@fig-afwijkingboyle]). De ideale gaswet voorspelt dat een gas bij willekeurig hoge druk een arbitrair klein volume kan bereiken. In werkelijkheid evenwel condenseert elk gas bij voldoende hoge druk en voldoende lage temperatuur tot een vloeistof met een eindig, nagenoeg constant volume. De ideale gaswet heeft geen verklaring voor het bestaan van een vloeistoffase, laat staan voor de kritische temperatuur boven dewelke vloeibaarheid onmogelijk is. Een gas boven de kritische temperatuur ($T_c$) zal bij compressie nooit condenseren. Voor $\ce{CO2}$ bedraagt de kritische temperatuur $31.04{}^{\circ}\mathrm{C}$.
 
-![Het gedrag van reële gassen ($\ce{CO2}$) onder veranderende druk en temperatuur. De curves tonen duidelijke afwijkingen van het ideaal gedrag onder specifieke omstandigheden. De horizontale lijnen tonen de condenstatiezone (C $\to$ E).](afbeeldingen/AfwijkingBoyle.png){#fig-afwijkingboyle width="50%"}
+::: {#fig-afwijkingboyle}
+```{python}
+#| out-width: 75%
+#| renderings: [light, dark]
+fig.toon(fig.isothermen_co2)
+```
+
+Het gedrag van reële gassen ($\ce{CO2}$) onder veranderende druk en temperatuur. De curves tonen duidelijke afwijkingen van het ideaal gedrag onder specifieke omstandigheden. De horizontale lijnen tonen de condenstatiezone (C $\to$ E).
+:::
 
 ### De compressibiliteitsfactor als kwantitatieve maat
 
@@ -156,7 +180,15 @@ Tabel [↗](#tbl-z) geeft $Z$ voor koolstofdioxide bij verschillende condities. 
 
 Een opmerkelijke empirische observatie is dat, wanneer $Z$ wordt uitgezet tegen de *gereduceerde druk* $p_r = p/p_c$ voor verschillende gassen bij dezelfde *gereduceerde temperatuur* $T_r = T/T_c$, alle gassen nagenoeg op dezelfde curve vallen (zie Figuur [-@fig-compchart]). Dit is de *wet van corresponderende toestanden*. De compressibiliteitsfactor blijkt dus in eerste benadering een universele functie te zijn van $T_r$ en $p_r$, onafhankelijk van de chemische identiteit van het gas. Deze wet vormt de basis van de zogenaamde algemene compressibiliteitskaarten die door ingenieurs worden gebruikt wanneer geen specifieke toestandsvergelijking beschikbaar is.
 
-![Algemene compressibiliteitscurve van specifieke gassen waarbij Z uitgedrukt wordt ten opzichte van $p_r$.](afbeeldingen/compchart.jpeg){#fig-compchart width="80%"}
+::: {#fig-compchart}
+```{python}
+#| out-width: 85%
+#| renderings: [light, dark]
+fig.toon(fig.compressibiliteitskaart)
+```
+
+Algemene compressibiliteitscurve van specifieke gassen waarbij Z uitgedrukt wordt ten opzichte van $p_r$.
+:::
 
 Twee fundamentele effecten liggen aan de basis van alle geobserveerde afwijkingen:
 
@@ -165,7 +197,15 @@ Twee fundamentele effecten liggen aan de basis van alle geobserveerde afwijkinge
 
 De balans tussen beide effecten verklaart de niet-monotone afhankelijkheid van $Z$ van de druk (zie Figuur [-@fig-z]): bij lage druk domineren de aantrekkingskrachten ($Z < 1$), bij hoge druk domineert het eindige volume ($Z > 1$). Tussen beide door is er een zogenaamde *Boyle-temperatuur* waarvoor $Z = 1$ over een breed drukbereik.
 
-![Compressiefactor in functie van $p$ voor specifieke gassen](afbeeldingen/Z.png){#fig-z width="50%"}
+::: {#fig-z}
+```{python}
+#| out-width: 75%
+#| renderings: [light, dark]
+fig.toon(fig.compressiefactor)
+```
+
+Compressiefactor in functie van $p$ voor specifieke gassen
+:::
 
 ### De vergelijking van Van der Waals: een fysische afleiding
 
@@ -543,6 +583,16 @@ Het is belangrijk te beseffen dat de temperatuur niet stijgt omdat het volume kl
 Daarom voelen compressoren tijdens bedrijf warm aan. In industriële installaties wordt het gas na de compressor vaak opnieuw gekoeld voordat het verder in het proces wordt gebruikt.
 :::
 
+::: {#fig-compressie}
+```{python}
+#| out-width: 75%
+#| renderings: [light, dark]
+fig.toon(fig.compressie_pv)
+```
+
+Compressie van 1 mol lucht van $1\,\mathrm{bar}$ naar $8\,\mathrm{bar}$, vertrekkend van $20{}^{\circ}\mathrm{C}$. Bij isotherme compressie wordt het gas perfect gekoeld; bij adiabatische compressie blijft alle arbeid als interne energie in het gas en stijgt de temperatuur tot ongeveer $258{}^{\circ}\mathrm{C}$. Het gekleurde vlak is de extra arbeid die daarvoor nodig is.
+:::
+
 ::: {.callout-tip}
 ## Voorbeeld: Arbeid bij isotherme compressie van een ideaal gas
 
@@ -761,6 +811,16 @@ Wanneer een stof van fase verandert - smelten, verdampen, sublimeren - wordt war
 Voor water bedraagt $\Delta H_{\text{fus}} \approx 6.0\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ bij $0{}^{\circ}\mathrm{C}$, en $\Delta H_{\text{vap}} \approx 40.7\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ bij $100{}^{\circ}\mathrm{C}$.
 
 Tijdens een faseovergang bij constante druk geldt dus $\Delta H_{\text{trans}} = Q_p$, terwijl $\Delta T = 0$. Deze overgangen worden in de volgende hoofdstukken uitgebreid gebruikt bij de berekening van fase-evenwichten.
+
+::: {#fig-opwarmcurve}
+```{python}
+#| out-width: 80%
+#| renderings: [light, dark]
+fig.toon(fig.opwarmcurve_water)
+```
+
+Temperatuur van $1\,\mathrm{kg}$ water bij gelijkmatige warmtetoevoer, van ijs bij $-20{}^{\circ}\mathrm{C}$ tot stoom bij $120{}^{\circ}\mathrm{C}$. Tijdens smelten en verdampen blijft de temperatuur constant; verdampen vraagt ruim vijf keer meer warmte dan het opwarmen van vloeibaar water van $0$ tot $100{}^{\circ}\mathrm{C}$.
+:::
 
 ::: {.callout-tip}
 ## Voorbeeld: Verdampen van water
