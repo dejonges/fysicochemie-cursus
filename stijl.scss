@@ -105,8 +105,9 @@ main figure img, main .quarto-figure img { border-radius: 12px; }
 
 // ----- Breedte van de figuren (getekend met Python) -----
 // Standaard 70% van de tekstbreedte, gecentreerd; het bijschrift volgt dezelfde breedte.
-// Andere breedte per figuur met een klasse:  ::: {#fig-naam .smal}  (55%)  .breed (85%)  .vol (100%)
+// Andere breedte per figuur met een klasse:  ::: {#fig-naam .klein}  (40%)  .smal (55%)  .breed (85%)  .vol (100%)
 main div.quarto-float:has(.cell) > figure { width: 70%; margin-inline: auto; }
+main div.quarto-float.klein:has(.cell) > figure { width: 40%; }
 main div.quarto-float.smal:has(.cell) > figure { width: 55%; }
 main div.quarto-float.breed:has(.cell) > figure { width: 85%; }
 main div.quarto-float.vol:has(.cell) > figure { width: 100%; }

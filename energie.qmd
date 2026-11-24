@@ -129,7 +129,7 @@ De eenvoudigste test van de ideale gaswet is de wet van Boyle: bij constante tem
 -   Voor stikstof bij $0{}^{\circ}\mathrm{C}$ en drukken tot $10\,\mathrm{bar}$ bedraagt de afwijking minder dan $0.5\%$: de ideale gaswet is een uitstekende benadering. Bij $100\,\mathrm{bar}$ bedraagt de afwijking reeds $5\%$; bij $500\,\mathrm{bar}$ meer dan $30\%$.
 -   Voor $\ce{CO2}$ bij $40{}^{\circ}\mathrm{C}$ en $100\,\mathrm{bar}$ bedraagt de afwijking meer dan $20\%$, en bij lagere temperaturen kan condensatie optreden, hetgeen de ideale gaswet volledig ongeldig maakt.
 
-::: {#fig-boyle}
+::: {#fig-boyle .klein}
 ```{python}
 #| renderings: [light, dark]
 fig.toon(fig.boyle)

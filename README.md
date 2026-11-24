@@ -35,7 +35,7 @@ Isothermen voor een ideaal gas.
 :::
 ````
 
-- **Breedte**: standaard 70% van de tekstbreedte, gecentreerd, en het bijschrift volgt dezelfde breedte. Een andere breedte geef je met een klasse achter het label: `::: {#fig-boyle .smal}` (55%), `.breed` (85%) of `.vol` (100%). De percentages zelf staan in `stijl.scss` onder "Breedte van de figuren". Op een gsm is elke figuur volle breedte.
+- **Breedte**: standaard 70% van de tekstbreedte, gecentreerd, en het bijschrift volgt dezelfde breedte. Een andere breedte geef je met een klasse achter het label: `::: {#fig-boyle .klein}` (40%), `.smal` (55%), `.breed` (85%) of `.vol` (100%). De percentages zelf staan in `stijl.scss` onder "Breedte van de figuren". Op een gsm is elke figuur volle breedte.
 - Lokaal bouwen vraagt Python met de pakketten uit `requirements.txt` (`pip install -r requirements.txt`).
 - Een figuur los bekijken: `cd _figuren && python3 -c "import h1; h1.boyle().savefig('test.png')"`.
 
