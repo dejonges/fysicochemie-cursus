@@ -1,0 +1,43 @@
+::: {.callout-note}
+## Probeer zelf: de Arrhenius-grafiek
+
+Schuif aan de activeringsenergie en de temperatuur. Hoe groter $E_a$, hoe steiler de rechte en hoe gevoeliger $k$ is voor temperatuur. De oranje lijn is de ammoniaksynthese ($E_a \approx 230\,\mathrm{kJ\,mol^{-1}}$) ter vergelijking.
+
+```{ojs}
+//| echo: false
+viewof Ea = Inputs.range([20, 250], {value: 64, step: 1, label: "Eₐ (kJ/mol)"})
+viewof T2 = Inputs.range([300, 800], {value: 350, step: 5, label: "T (K)"})
+```
+
+```{ojs}
+//| echo: false
+R = 8.314
+lnRatio = (E, T) => -(E * 1000 / R) * (1 / T - 1 / 300)
+arrData = {
+  const rows = [];
+  for (let T = 280; T <= 800; T += 4) {
+    rows.push({invT: 1000 / T, lnk: lnRatio(Ea, T), reactie: "jouw reactie"});
+    rows.push({invT: 1000 / T, lnk: lnRatio(230, T), reactie: "NH₃-synthese"});
+  }
+  return rows.filter(d => d.lnk <= 60);
+}
+Plot.plot({
+  height: 320,
+  x: {label: "1000 / T (K⁻¹)", domain: [1.25, 3.6]},
+  y: {label: "ln(k / k bij 300 K)", domain: [-2, 60], grid: true},
+  color: {domain: ["jouw reactie", "NH₃-synthese"], range: ["#2a6f97", "#e07a3f"], legend: true},
+  marks: [
+    Plot.ruleY([0]),
+    Plot.line(arrData, {x: "invT", y: "lnk", stroke: "reactie", strokeWidth: 2.5}),
+    Plot.dot([{invT: 1000 / T2, lnk: lnRatio(Ea, T2)}].filter(d => d.lnk <= 60),
+             {x: "invT", y: "lnk", r: 6, fill: "#2a6f97"})
+  ]
+})
+```
+
+```{ojs}
+//| echo: false
+fmt = x => x < 1e4 ? x.toLocaleString("nl-BE", {maximumFractionDigits: 2}) : x.toExponential(1).replace("e+", " × 10^")
+md`Bij **${T2} K** is $k$ een factor **${fmt(Math.exp(lnRatio(Ea, T2)))}** groter dan bij 300 K.`
+```
+:::

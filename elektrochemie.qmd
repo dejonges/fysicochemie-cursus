@@ -1,0 +1,293 @@
+# Elektrochemische thermodynamica {#sec-ch-elektrochemie}
+
+## Van chemische naar elektrische energie
+
+In de vorige hoofdstukken werd aangetoond dat een spontane chemische reactie steeds gepaard gaat met een daling van de Gibbs-vrije energie. Deze afname vormt de thermodynamische drijvende kracht achter iedere chemische omzetting en bepaalt tegelijkertijd de maximaal beschikbare arbeid die uit een reactie kan worden gewonnen.
+
+Tot nu toe werd deze arbeid vooral beschouwd vanuit het standpunt van warmte-uitwisseling of mechanische arbeid. Chemische reacties kunnen echter ook rechtstreeks elektrische arbeid leveren. Dit principe vormt de basis van batterijen, brandstofcellen en talrijke elektrochemische processen. Omgekeerd kan elektrische arbeid ook worden gebruikt om een niet-spontane chemische reactie af te dwingen. Elektrolyse-installaties voor de productie van waterstof, de raffinage van metalen en de productie van chloor zijn hiervan bekende voorbeelden.
+
+Opmerkelijk is dat hiervoor geen nieuwe thermodynamica nodig is. Dezelfde begrippen die in de vorige hoofdstukken werden opgebouwd, blijven volledig geldig. De chemische potentiaal, de Gibbs-vrije energie en het chemisch evenwicht (hoofdstukken [-@sec-ch-spontaniteit] en [-@sec-ch-reagerend]) vormen ook hier de fundamentele bouwstenen. Het enige nieuwe element is dat naast chemische arbeid nu ook elektrische arbeid een rol speelt.
+
+In dit hoofdstuk onderzoeken we hoe chemische en elektrische energie met elkaar verbonden zijn. We zullen aantonen dat de spanning van een elektrochemische cel rechtstreeks wordt bepaald door de verandering in Gibbs-vrije energie van de onderliggende chemische reactie. Vanuit deze fundamentele relatie bouwen we stap voor stap de thermodynamica van galvanische cellen, elektrolyse, corrosie en Pourbaix-diagrammen op.
+
+### Chemische energie als bron van elektrische arbeid {#sec-chemische-elektrische-arbeid}
+
+Wanneer een chemische reactie spontaan verloopt, neemt de Gibbs-vrije energie van het systeem af. We tonen hieronder aan dat deze afname gelijk is aan de maximaal beschikbare *niet-expansiearbeid* die het systeem kan leveren --- dat wil zeggen, alle arbeid buiten de gewone volumearbeid $-p\,\dV$ om, zoals elektrische arbeid.
+
+#### Afleiding: waarom $\Delta G$ de maximale niet-expansiearbeid geeft {#sec-afleiding-wmax}
+
+Beschouw een gesloten systeem bij constante temperatuur en druk, dat naast volumearbeid ook een bijkomende arbeid $\dx{w}_{\text{extra}}$ met de omgeving kan uitwisselen (bijvoorbeeld elektrische arbeid, toegevoerd aan het systeem volgens de gebruikelijke tekenconventie). De eerste hoofdwet (hoofdstuk [-@sec-ch-energie]) geeft: $$\dU = \dQ - p\,\dV + \dx{w}_{\text{extra}}.$$ Uit de Clausius-ongelijkheid (hoofdstuk [-@sec-ch-spontaniteit], § [-@sec-waarschijnlijkheid-entropie]) geldt steeds $\dQ \leq T\,\dS$, met gelijkheid enkel voor een reversibel proces. Substitutie levert: $$\dU \leq T\,\dS - p\,\dV + \dx{w}_{\text{extra}} \quad\Longrightarrow\quad \dx{w}_{\text{extra}} \geq \dU - T\,\dS + p\,\dV.$$ Bij constante temperatuur en druk is de rechterkant exact het differentiaal van de Gibbs-vrije energie: $$\dx{(U - TS + pV)} = \dU - T\,\dS - S\,\dT + p\,\dV + V\,\dp = \dU - T\,\dS + p\,\dV \qquad (\dT=\dp=0),$$ zodat $$\dx{w}_{\text{extra}} \geq \dG.$$ De arbeid die *aan* het systeem moet worden toegevoerd is dus minstens $\dG$; omgekeerd is de arbeid die het systeem maximaal kan *leveren* aan de omgeving, $-\dx{w}_{\text{extra}}$, hoogstens $-\dG$. Deze grens wordt bereikt in de reversibele limiet ($\dQ=T\,\dS$ exact), waarin het gelijkteken geldt: $$\boxed{\;w_{\max} = -\Delta G.\;}$$ {#eq-wmax} Dit is een algemeen thermodynamisch resultaat, onafhankelijk van de aard van de \"extra\" arbeid. In een elektrochemische cel wordt deze maximale arbeid vrijwel volledig geleverd onder de vorm van elektrische arbeid. De chemische energie van de reactie wordt dus niet eerst omgezet in warmte of mechanische energie, maar rechtstreeks in elektrische energie.
+
+### Elektrische arbeid en ladingstransport
+
+Elektrische arbeid wordt geleverd wanneer een elektrische lading een potentiaalverschil overbrugt. Voor een lading $Q_e$ die een potentiaalverschil $E$ doorloopt, geldt: $$w_{\text{elek}} = Q_e \cdot E.$$ In een elektrochemische cel wordt de lading getransporteerd door elektronen. Voor $n$ mol elektronen bedraagt de totale lading: $$Q_e = n F,$$ waarin $F$ de constante van Faraday voorstelt, $F = N_A e = 96485\,\mathrm{C}\,\mathrm{mol}^{-1}$. De maximale elektrische arbeid die een elektrochemische cel kan leveren, is dus: $$w_{\text{elek,max}} = n F E.$$
+
+## De celpotentiaal als thermodynamische grootheid {#sec-celpotentiaal}
+
+Omdat de maximale niet-expansiearbeid gelijk is aan $-\Delta G$ (vergelijking ([-@eq-wmax])), en deze in een elektrochemische cel volledig als elektrische arbeid verschijnt, volgt de fundamentele relatie: $$\boxed{\;\Delta_r G = -n F E\;}$$ {#eq-drg-nfe} Hierin is $n$ het aantal uitgewisselde mol elektronen, $F$ de constante van Faraday en $E$ de celpotentiaal (in volt).
+
+Deze vergelijking vormt de brug tussen de chemische thermodynamica uit de vorige hoofdstukken en de elektrochemie. Zij leert dat de elektrische spanning van een elektrochemisch systeem niets anders is dan een uitdrukking van dezelfde thermodynamische drijvende kracht die reeds werd gebruikt om chemische evenwichten te beschrijven (hoofdstuk [-@sec-ch-reagerend]).
+
+-   $\Delta_r G < 0 \Leftrightarrow E > 0$: de reactie verloopt spontaan in de voorwaartse richting (galvanische cel).
+
+-   $\Delta_r G > 0 \Leftrightarrow E < 0$: de reactie verloopt niet spontaan; elektrolyse is nodig.
+
+-   $\Delta_r G = 0 \Leftrightarrow E = 0$: het systeem bevindt zich in evenwicht.
+
+::: {#fig-daniell-cel}
+::: {.callout-note appearance="minimal" icon="false"}
+🖼️ *Figuur in voorbereiding* (`daniell_cel_schema.png`)
+:::
+
+*Placeholder --- toe te voegen figuur.* Schema van de Daniell-cel: links een zinkelektrode ondergedompeld in een $\mathrm{ZnSO_4}$-oplossing (anode, oxidatie: $\mathrm{Zn\to Zn^{2+}+2e^-}$), rechts een koperelektrode in een $\mathrm{CuSO_4}$-oplossing (kathode, reductie: $\mathrm{Cu^{2+}+2e^-\to Cu}$), verbonden door een externe draad (elektronenstroom van Zn naar Cu, met een voltmeter/verbruiker) en een zoutbrug onderaan (ionenstroom, sluit de stroomkring). Markeer de gemeten celspanning $E^\circ=1.10\,\mathrm{V}$.
+:::
+
+::: {.callout-tip}
+## Voorbeeld: De Daniell-cel
+
+De Daniell-cel is een klassiek voorbeeld van een galvanische cel, opgebouwd uit een zinkelektrode in een $\mathrm{Zn^{2+}}$-oplossing en een koperelektrode in een $\mathrm{Cu^{2+}}$-oplossing, verbonden door een zoutbrug (figuur [-@fig-daniell-cel]). De totale reactie luidt: $$\mathrm{Zn(s) + Cu^{2+}(aq) \rightarrow Zn^{2+}(aq) + Cu(s)}.$$ Hierbij worden $n=2$ mol elektronen uitgewisseld. Bij standaardomstandigheden geldt $\Delta_r G^\circ = -212.3\,\mathrm{kJ}\,\mathrm{mol}^{-1}$. De standaardcelpotentiaal volgt uit: $$E^\circ = -\frac{\Delta_r G^\circ}{nF} = -\frac{-212300\,\mathrm{J}\,\mathrm{mol}^{-1}}{(2)(96485\,\mathrm{C}\,\mathrm{mol}^{-1})} = 1.10\,\mathrm{V}.$$ Een Daniell-cel levert dus een standaardspanning van $1.10\,\mathrm{V}$. We gebruiken deze waarde verderop opnieuw (§ [-@sec-temperatuur-e]) om, uitsluitend uit elektrochemische metingen, ook $\Delta_rS^\circ$ en $\Delta_rH^\circ$ van deze reactie te bepalen.
+:::
+
+### De standaardcelpotentiaal en standaardreductiepotentiaal {#sec-standaardreductiepotentiaal}
+
+Voor vergelijking tussen verschillende elektrochemische systemen worden alle elektrodepotentialen uitgedrukt ten opzichte van een gemeenschappelijke referentie: de *standaardwaterstofelektrode* (SHE). De SHE is gedefinieerd als een platina-elektrode in een oplossing met $a_{\mathrm{H^+}} = 1$ bij $p_{\mathrm{H_2}} = 1\,\mathrm{bar}$, en haar potentiaal wordt per definitie op nul gesteld bij alle temperaturen: $$\mathrm{2\,H^+(aq) + 2\,e^- \rightarrow H_2(g)}, \qquad E^\circ = 0\,\mathrm{V}.$$
+
+Alle andere halfreacties worden uitgedrukt als *reductiepotentiaal* ten opzichte van de SHE. De standaardcelpotentiaal van een willekeurige galvanische cel is dan het verschil tussen de standaardreductiepotentiaal van de kathode (reductie) en die van de anode (oxidatie): $$\boxed{\;E^\circ_{\text{cel}} = E^\circ_{\text{kathode}} - E^\circ_{\text{anode}}\;}$$ {#eq-ecel} Merk op dat dit exact overeenkomt met het Daniell-cel-voorbeeld hierboven: $E^\circ_{\text{cel}}=E^\circ(\mathrm{Cu^{2+}/Cu})-E^\circ(\mathrm{Zn^{2+}/Zn})=0{,}34-(-0{,}76)=1.10\,\mathrm{V}$, identiek aan de waarde die daar rechtstreeks uit $\Delta_rG^\circ$ werd berekend --- een mooie consistentiecontrole tussen beide rekenwijzen.
+
+Een selectie van standaardreductiepotentialen bij $298\,\mathrm{K}$:
+
+| Halfreactie                                          | $E^\circ$ (V) |
+|:-----------------------------------------------------|:-------------:|
+| $\mathrm{F_2 + 2\,e^- \rightarrow 2\,F^-}$           |   $+2{,}87$   |
+| $\mathrm{Au^+ + e^- \rightarrow Au}$                 |   $+1{,}69$   |
+| $\mathrm{Cl_2 + 2\,e^- \rightarrow 2\,Cl^-}$         |   $+1{,}36$   |
+| $\mathrm{O_2 + 4\,H^+ + 4\,e^- \rightarrow 2\,H_2O}$ |   $+1{,}23$   |
+| $\mathrm{Ag^+ + e^- \rightarrow Ag}$                 |   $+0{,}80$   |
+| $\mathrm{Fe^{3+} + e^- \rightarrow Fe^{2+}}$         |   $+0{,}77$   |
+| $\mathrm{Cu^{2+} + 2\,e^- \rightarrow Cu}$           |   $+0{,}34$   |
+| $\mathrm{2\,H^+ + 2\,e^- \rightarrow H_2}$ (SHE)     |   $0{,}00$    |
+| $\mathrm{Fe^{2+} + 2\,e^- \rightarrow Fe}$           |   $-0{,}44$   |
+| $\mathrm{Zn^{2+} + 2\,e^- \rightarrow Zn}$           |   $-0{,}76$   |
+| $\mathrm{Al^{3+} + 3\,e^- \rightarrow Al}$           |   $-1{,}66$   |
+| $\mathrm{Na^+ + e^- \rightarrow Na}$                 |   $-2{,}71$   |
+| $\mathrm{Li^+ + e^- \rightarrow Li}$                 |   $-3{,}04$   |
+
+: Standaardreductiepotentialen bij $298\,\mathrm{K}$.
+
+[]{#tbl-reductiepotentialen}
+
+Een meer positieve reductiepotentiaal wijst op een sterkere oxidator. Een meer negatieve reductiepotentiaal wijst op een sterkere reductor.
+
+::: {.callout-tip}
+## Voorbeeld: Thermodynamische voorspelling van een galvanische cel
+
+Beschouw een cel met een $\mathrm{Cu/Cu^{2+}}$-elektrode en een $\mathrm{Ag/Ag^+}$-elektrode. Uit tabel [↗](#tbl-reductiepotentialen): $E^\circ(\mathrm{Ag^+/Ag}) = 0.80\,\mathrm{V}$ en $E^\circ(\mathrm{Cu^{2+}/Cu}) = 0.34\,\mathrm{V}$. Zilver heeft de hogere reductiepotentiaal en is de kathode; koper is de anode. De standaardcelpotentiaal bedraagt: $$E^\circ_{\text{cel}} = 0.80\,\mathrm{V} - 0.34\,\mathrm{V} = 0.46\,\mathrm{V}.$$ De reactie $\mathrm{Cu + 2\,Ag^+ \rightarrow Cu^{2+} + 2\,Ag}$ is spontaan bij standaardomstandigheden. We gebruiken dit resultaat verderop opnieuw (§ [-@sec-evenwichtsconstante-elektrochemie]) om de evenwichtsconstante van deze reactie te berekenen.
+:::
+
+### De vergelijking van Nernst {#sec-nernst-elektrochemie}
+
+Buiten de standaardtoestand hangt de celpotentiaal af van de actuele samenstelling, via de activiteiten van de betrokken componenten (hoofdstuk [-@sec-ch-niet-reagerend], § [-@sec-activiteit-mengsel]). Uit $\Delta_r G = \Delta_r G^\circ + RT \ln Q$ (hoofdstuk [-@sec-ch-reagerend], § [-@sec-evenwichtsconstante-reagerend]) en $\Delta_r G = -nFE$ (vergelijking ([-@eq-drg-nfe])) volgt, na deling door $-nF$: $$\boxed{\;E = E^\circ - \frac{RT}{nF} \ln Q\;}$$ {#eq-nernst} Dit is de *vergelijking van Nernst*, waarin $Q=\prod_i a_i^{\nu_i}$ het reactiequotiënt van de celreactie is. Zij beschrijft hoe de celpotentiaal verandert met de activiteiten van de betrokken componenten. Bij $298\,\mathrm{K}$ en met $\ln$ omgezet naar $\log_{10}$: $$E = E^\circ - \frac{0{,}0592}{n} \log_{10} Q.$$ {#eq-nernst-log10} De factor $0.0592~\mathrm{V}$ (nauwkeuriger: $RT\ln10/F=0.05916\,\mathrm{V}$ bij $298.15\,\mathrm{K}$) zal in § [-@sec-pourbaix-waterlijnen] opnieuw verschijnen als de karakteristieke helling van de evenwichtslijnen in een Pourbaix-diagram.
+
+::: {.callout-tip}
+## Voorbeeld: Concentratiecel
+
+Een concentratiecel bestaat uit twee identieke elektroden in oplossingen met verschillende concentraties. Beschouw twee $\mathrm{Cu/Cu^{2+}}$-elektroden met $c_1 = 0.10\,\mathrm{mol}\,\mathrm{L}^{-1}$ en $c_2 = 1.0\,\mathrm{mol}\,\mathrm{L}^{-1}$. De standaardcelpotentiaal is nul, maar de Nernstvergelijking levert: $$E = 0 - \frac{0{,}0592}{2}\log_{10}\frac{0{,}10}{1{,}0} = -\frac{0{,}0592}{2}(-1) = 0.0296\,\mathrm{V}.$$ De cel levert een kleine spanning enkel dankzij het concentratieverschil. Dit principe wordt toegepast in concentratiecellen voor corrosie en in biologische membraanpotentialen.
+:::
+
+### De evenwichtsconstante uit de standaardcelpotentiaal {#sec-evenwichtsconstante-elektrochemie}
+
+In evenwicht geldt $E = 0$, zodat $Q = K$ (dezelfde evenwichtsconstante als in hoofdstuk [-@sec-ch-reagerend] ingevoerd) en: $$\boxed{\;E^\circ = \frac{RT}{nF} \ln K \;\;\Leftrightarrow\;\; \Delta_r G^\circ = -nFE^\circ = -RT \ln K\;}$$ {#eq-k-uit-e0} Hiermee kan de evenwichtsconstante van een redoxreactie rechtstreeks uit de standaardcelpotentiaal worden berekend --- een elektrochemische route naar dezelfde $K$ die in hoofdstuk [-@sec-ch-reagerend] (§ [-@sec-evenwichtsconstante-reagerend]) uit $\Delta_rG^\circ$-tabelwaarden werd berekend.
+
+::: {.callout-tip}
+## Voorbeeld: Evenwichtsconstante van een redoxreactie
+
+Voor $\mathrm{Cu + 2\,Ag^+ \rightleftharpoons Cu^{2+} + 2\,Ag}$ geldt $E^\circ = 0.46\,\mathrm{V}$ en $n = 2$ (§ [-@sec-standaardreductiepotentiaal]). De evenwichtsconstante bij $298\,\mathrm{K}$ volgt uit: $$\ln K = \frac{n F E^\circ}{RT} = \frac{(2)(96485\,\mathrm{C}\,\mathrm{mol}^{-1})(0.46\,\mathrm{V})}{(8.314\,\mathrm{J}\,\mathrm{mol}^{-1}\,\mathrm{K}^{-1})(298\,\mathrm{K})} = 35{,}8,$$ zodat $K \approx 3{,}6 \times 10^{15}$. De reactie verloopt vrijwel volledig naar rechts.
+:::
+
+#### Temperatuursafhankelijkheid van de celpotentiaal: $\Delta_rS^\circ$ en $\Delta_rH^\circ$ zonder calorimetrie {#sec-temperatuur-e}
+
+Vergelijking ([-@eq-drg-nfe]), $\Delta_rG^\circ=-nFE^\circ$, geldt bij elke temperatuur. Differentiëren naar $T$ bij constante druk, en gebruikmakend van $(\partial G/\partial T)_p=-S$ (hoofdstuk [-@sec-ch-spontaniteit], vergelijking voor de fundamentele differentiaalvergelijking) toegepast op de volledige reactie, levert: $$\left(\frac{\partial \Delta_rG^\circ}{\partial T}\right)_p = -\Delta_rS^\circ = -nF\left(\frac{\partial E^\circ}{\partial T}\right)_p,$$ zodat $$\boxed{\;\Delta_rS^\circ = nF\left(\frac{\partial E^\circ}{\partial T}\right)_p.\;}$$ {#eq-dsde} De temperatuurscoëfficiënt van de standaardcelpotentiaal is dus rechtstreeks een maat voor de reactie-entropie (hoofdstuk [-@sec-ch-spontaniteit], § (?)). Met $\Delta_rG^\circ=\Delta_rH^\circ-T\Delta_rS^\circ$ volgt onmiddellijk ook de reactie-enthalpie: $$\Delta_rH^\circ = \Delta_rG^\circ + T\Delta_rS^\circ = -nFE^\circ + nFT\left(\frac{\partial E^\circ}{\partial T}\right)_p.$$ {#eq-dh-uit-e} Dit is een opmerkelijk resultaat: door de celspanning bij verschillende temperaturen nauwkeurig te meten, kunnen zowel $\Delta_rS^\circ$ als $\Delta_rH^\circ$ van een reactie worden bepaald *zonder enige calorimetrische meting* --- een elektrochemische cel is in dit opzicht een uiterst precieze entropiemeter.
+
+::: {.callout-tip}
+## Voorbeeld: $\Delta_rS^\circ$ en $\Delta_rH^\circ$ van de Daniell-reactie uit een temperatuursmeting
+
+Voor de Daniell-cel (§ [-@sec-celpotentiaal]) is experimenteel een temperatuurscoëfficiënt gemeten van $(\partial E^\circ/\partial T)_p\approx-4.5\times10^{-4}\,\mathrm{V}\,\mathrm{K}^{-1}$. Met $n=2$ volgt uit vergelijking ([-@eq-dsde]): $$\Delta_rS^\circ = (2)(96485\,\mathrm{C}\,\mathrm{mol}^{-1})(-4.5\times10^{-4}\,\mathrm{V}\,\mathrm{K}^{-1}) \approx -86.8\,\mathrm{J}\,\mathrm{mol}^{-1}\,\mathrm{K}^{-1}.$$ De negatieve waarde is consistent met de reactie $\mathrm{Zn+Cu^{2+}\to Zn^{2+}+Cu}$: twee opgeloste ionen worden vervangen door twee andere opgeloste ionen, maar de sterk verschillende hydratatie rond $\mathrm{Zn^{2+}}$ ten opzichte van $\mathrm{Cu^{2+}}$ ordent de omringende watermoleculen sterker, wat de omgevingsentropie (en dus effectief de reactie-entropie in oplossing) verlaagt. Met $E^\circ=1.10\,\mathrm{V}$ (§ [-@sec-celpotentiaal]) volgt uit vergelijking ([-@eq-dh-uit-e]): $$\Delta_rH^\circ = -(2)(96485\,)(1.10\,\mathrm{V}) + (2)(96485\,)(298.15\,\mathrm{K})(-4.5\times10^{-4}\,\mathrm{V}\,\mathrm{K}^{-1}) \approx -238.3\,\mathrm{kJ}\,\mathrm{mol}^{-1}.$$ Deze methode --- $E^\circ$ en $\partial E^\circ/\partial T$ meten bij één enkele temperatuur --- levert dus in één keer alle drie de thermodynamische grootheden $\Delta_rG^\circ$, $\Delta_rS^\circ$ en $\Delta_rH^\circ$ op.
+:::
+
+## Elektrolyse en de thermodynamische minimumspanning
+
+Wanneer een reactie niet spontaan verloopt ($E < 0$, $\Delta_r G > 0$), kan zij worden afgedwongen door een uitwendige spanning aan te leggen. De *thermodynamische minimumspanning* voor elektrolyse is: $$E_{\text{min}} = -E = \frac{\Delta_r G}{nF}.$$ In de praktijk is de werkelijk benodigde spanning steeds hoger door overspanning (kinetische verliezen aan de elektroden), weerstand in de elektrolyt en membraanverliezen.
+
+::: {.callout-tip}
+## Voorbeeld: Elektrolyse van water
+
+Voor de ontleding van water: $$\mathrm{2\,H_2O(l) \rightarrow 2\,H_2(g) + O_2(g)}$$ geldt bij $298\,\mathrm{K}$ $\Delta_r G^\circ = +474.4\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ (voor 2 mol $\mathrm{H_2}$). Met $n = 4$: $$E^\circ_{\text{min}} = \frac{474400\,\mathrm{J}\,\mathrm{mol}^{-1}}{(4)(96485\,\mathrm{C}\,\mathrm{mol}^{-1})} = 1.23\,\mathrm{V}.$$ In de praktijk werken industriële elektrolysers bij $1.7\text{ tot }2.2\,\mathrm{V}$, hoofdzakelijk wegens overspanning aan de zuurstofelektrode. Het verschil tussen thermodynamische minimum en werkelijke celspanning bepaalt het energieverbruik en de efficiëntie van waterstofproductie.
+:::
+
+### De galvanische cel en de batterij
+
+Wanneer een spontane oxidatie- en reductiereactie ruimtelijk worden gescheiden in twee halfcellen, kan de vrijgekomen chemische energie worden omgezet in elektrische arbeid. De *anode* is de elektrode waar oxidatie plaatsvindt (elektronen vertrekken); de *kathode* is de elektrode waar reductie plaatsvindt (elektronen komen aan).
+
+Een *batterij* is een galvanische cel die ontworpen is om chemische energie op te slaan en op aanvraag als elektrische arbeid vrij te geven. Primaire batterijen (zoals de alkalische Zn--MnO$_2$-batterij) kunnen slechts eenmaal worden ontladen. Secundaire batterijen (zoals loodaccu's en lithium-ion-batterijen) zijn oplaadbaar: tijdens het laden wordt een uitwendige spanning aangelegd die de chemische reactie in omgekeerde richting afdwingt (elektrolyse).
+
+::: {.callout-tip}
+## Voorbeeld: De loodaccu
+
+De loodaccu, nog steeds de standaardbatterij in automobielen, is gebaseerd op: $$\mathrm{Pb(s) + PbO_2(s) + 2\,H_2SO_4(aq) \rightleftharpoons 2\,PbSO_4(s) + 2\,H_2O(l)}.$$ Bij de ontlading is $E^\circ = 2.04\,\mathrm{V}$; bij het laden wordt dezelfde spanning in omgekeerde richting aangelegd. Een typische autobatterij van zes cellen in serie levert $12\,\mathrm{V}$. Het grote voordeel van de loodaccu is dat de vaste reactieproducten ($\mathrm{PbSO_4}$) op de elektroden blijven zitten, zodat de cel kan worden herladen.
+:::
+
+### Brandstofcellen
+
+Een *brandstofcel* zet continu een externe brandstof (typisch waterstof) en een oxidator (typisch zuurstof) om in elektrische arbeid, zonder de brandstof eerst te moeten opslaan. De reactie in een PEM-brandstofcel (Proton Exchange Membrane) is: $$\mathrm{2\,H_2(g) + O_2(g) \rightarrow 2\,H_2O(l)},$$ met $\Delta_r G^\circ = -474.4\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ bij $298\,\mathrm{K}$ (voor 2 mol $\mathrm{H_2}$) --- exact de omgekeerde reactie van de elektrolyse van water hierboven --- zodat $E^\circ = 1.23\,\mathrm{V}$. In de praktijk wordt $0.6\text{ tot }0.8\,\mathrm{V}$ per cel gehaald wegens kinetische verliezen.
+
+## Corrosie en het Pourbaix-diagram
+
+### Corrosie als spontane galvanische cel {#sec-corrosie}
+
+Corrosie is de spontane aantasting van een metaal door zijn omgeving, in essentie een galvanische cel waarin het metaal als anode fungeert en wordt geoxideerd terwijl een oxidator (zuurstof, waterstofionen) wordt gereduceerd. Voor ijzer in een beluchte, neutrale omgeving zijn de betrokken halfreacties: $$\begin{aligned}
+\mathrm{Fe} &\rightarrow \mathrm{Fe^{2+}} + 2\,e^-, & E^\circ&=-0.44\,\mathrm{V}\ \text{(reductiepotentiaal, tabel~[↗](#tbl-reductiepotentialen))},\
+\mathrm{O_2 + 4\,H^+ + 4\,e^-} &\rightarrow \mathrm{2\,H_2O}, & E^\circ&=1.23\,\mathrm{V}.
+\end{aligned}$$ Omdat de standaardreductiepotentiaal van ijzer negatief is, is de oxidatie van ijzer in combinatie met de reductie van zuurstof thermodynamisch gunstig: ijzer corrodeert dus spontaan in vochtige, beluchte omgevingen.
+
+::: {.callout-tip}
+## Voorbeeld: De drijvende kracht achter roestvorming
+
+De volledige corrosiereactie is $\mathrm{2\,Fe + O_2 + 4\,H^+ \rightarrow 2\,Fe^{2+} + 2\,H_2O}$, met $n=4$. De standaardcelpotentiaal bedraagt $$E^\circ_{\text{cel}} = E^\circ_{\text{kathode}} - E^\circ_{\text{anode}} = 1.23\,\mathrm{V} - (-0.44\,\mathrm{V}) = 1.67\,\mathrm{V}.$$ We passen de Nernstvergelijking ([-@eq-nernst]) toe op typische omstandigheden: neutraal water (pH 7, dus $a_{\mathrm{H^+}}=10^{-7}$), lucht ($p_{\mathrm{O_2}}\approx0.21\,\mathrm{bar}$) en een spoor opgelost $\mathrm{Fe^{2+}}$ ($a_{\mathrm{Fe^{2+}}}\approx10^{-6}$): $$Q = \frac{a_{\mathrm{Fe^{2+}}}^2}{p_{\mathrm{O_2}}\cdot a_{\mathrm{H^+}}^4} = \frac{(10^{-6})^2}{(0{,}21)(10^{-7})^4} \approx 4{,}8\times10^{16}.$$ $$E = E^\circ_{\text{cel}} - \frac{RT}{nF}\ln Q = 1.67\,\mathrm{V} - \frac{(8.314\,)( 298\,)}{(4)(96485\,)}\ln(4{,}8\times10^{16}) \approx 1.42\,\mathrm{V}.$$ Zelfs na deze correctie voor realistische, verdunde omstandigheden blijft $E$ sterk positief ($\Delta_rG=-nFE\approx-549\,\mathrm{kJ}\,\mathrm{mol}^{-1}$): de corrosie van ijzer in beluchte neutrale omgevingen is dus, thermodynamisch gezien, sterk spontaan. Dit verklaart meteen waarom corrosiebescherming (verf, coatings, legeren, kathodische bescherming, § [-@sec-sturen-stabiliteit]) in de praktijk onmisbaar is: de thermodynamica biedt geen enkele natuurlijke rem.
+:::
+
+### Het Pourbaix-diagram {#sec-pourbaix}
+
+Het *Pourbaix-diagram* (potentiaal--pH-diagram) is een fasediagram voor elektrochemische systemen. Net zoals een klassiek fasediagram (hoofdstuk [-@sec-ch-niet-reagerend], § \"Het fasediagram van een zuivere stof\") de stabiele fase van een stof weergeeft als functie van temperatuur en druk, beschrijft een Pourbaix-diagram welke chemische vorm van een element stabiel is als functie van de elektrische potentiaal (verticale as) en de pH (horizontale as). Het vormt een krachtig hulpmiddel voor de selectie van constructiematerialen en het beheersen van corrosie.
+
+#### Waarom potentiaal en pH?
+
+In elektrochemische systemen wordt de spontane richting van een reactie bepaald door de reactie-Gibbsenergie, die kan worden uitgedrukt via de elektrische potentiaal (§ [-@sec-celpotentiaal]). Daarnaast bevatten vele elektrochemische reacties waterstofionen of hydroxide-ionen, waarvan de chemische potentiaal door de pH wordt weergegeven. De twee belangrijkste variabelen die de thermodynamische toestand van een elektrochemisch systeem bepalen, zijn dus de elektrische potentiaal en de pH.
+
+#### De drie gebieden van een Pourbaix-diagram
+
+-   **Immuniteit**: het zuivere metaal is thermodynamisch stabiel. Er bestaat geen drijvende kracht om het metaal te oxideren.
+
+-   **Corrosie**: opgeloste metaalionen zijn stabieler dan het zuivere metaal. Het metaal zal spontaan oplossen.
+
+-   **Passiviteit**: vaste oxiden of hydroxiden zijn stabiel en vormen een beschermende laag op het metaaloppervlak, die verdere aantasting belemmert.
+
+#### De betekenis van de evenwichtslijnen
+
+Op iedere grenslijn geldt dat beide betrokken chemische toestanden dezelfde Gibbs-vrije energie bezitten. De helling van de evenwichtslijn volgt uit de Nernstvergelijking:
+
+-   **Horizontale lijnen**: reacties zonder $\mathrm{H^+}$ of $\mathrm{OH^-}$ (enkel elektronenuitwisseling) --- $E$ is onafhankelijk van pH.
+
+-   **Verticale lijnen**: reacties zonder elektronenuitwisseling (enkel zuurgraad, bv. eenvoudige zuur-basedissociatie) --- de grens ligt bij een vaste pH, onafhankelijk van $E$.
+
+-   **Schuine lijnen**: reacties met zowel $\mathrm{H^+}$ als elektronen --- de helling volgt rechtstreeks uit de Nernstvergelijking, zoals we nu expliciet afleiden voor de belangrijkste twee lijnen van elk diagram.
+
+#### Het stabiliteitsgebied van water: afleiding van de grenslijnen {#sec-pourbaix-waterlijnen}
+
+Vrijwel alle Pourbaix-diagrammen bevatten twee schuine lijnen die het stabiliteitsgebied van water begrenzen. Buiten deze grenzen is vloeibaar water thermodynamisch niet stabiel. We leiden beide lijnen expliciet af met de vergelijking van Nernst (vergelijking ([-@eq-nernst])).
+
+**Bovengrens: oxidatie van water tot zuurstof.** Bij hoge potentiaal wordt water geoxideerd: $$\mathrm{2\,H_2O \rightleftharpoons O_2 + 4\,H^+ + 4\,e^-}, \qquad E^\circ=1.23\,\mathrm{V}\ (n=4).$$ Met $a_{\mathrm{H_2O}}\approx1$ en, als referentie, $p_{\mathrm{O_2}}=1\,\mathrm{bar}$, is het reactiequotiënt voor de *reductie*-vorm $Q=1/a_{\mathrm{H^+}}^4$. De Nernstvergelijking geeft: $$E = E^\circ - \frac{RT}{4F}\ln\frac{1}{a_{\mathrm{H^+}}^4} = E^\circ + \frac{RT}{F}\ln a_{\mathrm{H^+}}.$$ Met $\ln a_{\mathrm{H^+}} = -\ln(10)\cdot\mathrm{pH}$ en $RT\ln(10)/F=0.0592\,\mathrm{V}$ bij $298\,\mathrm{K}$ (§ [-@sec-nernst-elektrochemie]): $$\boxed{\;E_{\mathrm{O_2/H_2O}} = 1.23\,\mathrm{V} - 0.0592\cdot\mathrm{pH}.\;}$$ {#eq-lijn-boven}
+
+**Ondergrens: reductie van water tot waterstof.** Bij lage potentiaal wordt water (via $\mathrm{H^+}$) gereduceerd tot waterstofgas: $$\mathrm{2\,H^+ + 2\,e^- \rightleftharpoons H_2}, \qquad E^\circ=0\,\mathrm{V}\ (n=2).$$ Met $p_{\mathrm{H_2}}=1\,\mathrm{bar}$ als referentie is $Q=1/a_{\mathrm{H^+}}^2$, zodat op dezelfde manier: $$\boxed{\;E_{\mathrm{H^+/H_2}} = 0 - 0.0592\cdot\mathrm{pH}.\;}$$ {#eq-lijn-onder}
+
+::: {.callout-tip}
+## Voorbeeld: De stabiliteitslijnen van water bij pH 0, 7 en 14
+
+Met vergelijkingen ([-@eq-lijn-boven]) en ([-@eq-lijn-onder]):
+
+::: center
+| pH                          |    0     | 7 (neutraal) |    14     |
+|:----------------------------|:--------:|:------------:|:---------:|
+| $E_{\mathrm{O_2/H_2O}}$ (V) | $1{,}23$ |   $0{,}82$   | $0{,}40$  |
+| $E_{\mathrm{H^+/H_2}}$ (V)  | $0{,}00$ |  $-0{,}41$   | $-0{,}83$ |
+:::
+
+Beide lijnen dalen dus met exact dezelfde helling ($-0.0592\,\mathrm{V}$ per pH-eenheid) en blijven $1.23\,\mathrm{V}$ van elkaar verwijderd, ongeacht de pH --- dit is precies het verschil in standaardpotentiaal tussen beide halfreacties. Tussen beide lijnen is water thermodynamisch stabiel; erboven ontleedt het tot zuurstof, eronder tot waterstof. De meeste technische installaties (met inbegrip van corrosieprocessen, § [-@sec-corrosie]) functioneren binnen dit gebied, zodat het bruikbare deel van een Pourbaix-diagram in de praktijk door het oplosmiddel zelf wordt begrensd.
+:::
+
+::: {#fig-pourbaix-generiek}
+::: {.callout-note appearance="minimal" icon="false"}
+🖼️ *Figuur in voorbereiding* (`pourbaix_generiek_waterlijnen.png`)
+:::
+
+*Placeholder --- toe te voegen figuur.* Generiek Pourbaix-diagram (potentiaal $E$ verticaal, pH horizontaal) met de drie gebieden (immuniteit onderaan, corrosie bij lage pH/hoge $E$, passiviteit bij hoge $E$/gematigde pH) schematisch aangeduid rond een centraal metaal-oxide-systeem, samen met de twee parallelle, dalende stabiliteitslijnen van water uit vergelijkingen [\[eq:lijn-boven\]](#eq:lijn-boven){reference-type="eqref" reference="eq:lijn-boven"} en [\[eq:lijn-onder\]](#eq:lijn-onder){reference-type="eqref" reference="eq:lijn-onder"} (helling $-0.0592\,\mathrm{V}$/pH, onderling $1.23\,\mathrm{V}$ uit elkaar), met het tussenliggende stabiliteitsgebied van water gearceerd.
+:::
+
+### Het Pourbaix-diagram van ijzer {#sec-pourbaix-ijzer}
+
+IJzer behoort tot de meest gebruikte constructiematerialen in de chemische procesindustrie. Het Pourbaix-diagram van ijzer toont drie hoofdgebieden:
+
+-   Bij lage potentialen: immuniteit (metaal Fe stabiel).
+
+-   Bij midden-hoge potentialen en lage pH: corrosie (opgelost $\mathrm{Fe^{2+}}$ of $\mathrm{Fe^{3+}}$).
+
+-   Bij hoge potentialen en gemiddelde pH: passiviteit (vast $\mathrm{Fe_2O_3}$ of $\mathrm{FeOOH}$).
+
+::: {#fig-pourbaix-ijzer}
+::: {.callout-note appearance="minimal" icon="false"}
+🖼️ *Figuur in voorbereiding* (`pourbaix_ijzer.png`)
+:::
+
+*Placeholder --- toe te voegen figuur.* Het Pourbaix-diagram van ijzer: immuniteitsgebied (Fe) onderaan, geflankeerd door corrosiegebieden ($\mathrm{Fe^{2+}}$ bij lage pH, $\mathrm{Fe^{3+}}$ bij lage pH en hoge $E$) en een centraal passiviteitsgebied (vaste oxiden $\mathrm{Fe_2O_3}$/$\mathrm{FeOOH}$) bij gematigde tot hoge pH. Overlay de twee stabiliteitslijnen van water uit figuur [\[fig:pourbaix-generiek\]](#fig:pourbaix-generiek){reference-type="ref" reference="fig:pourbaix-generiek"} om te tonen dat het corrosiegebied van ijzer bij neutrale pH grotendeels binnen het stabiliteitsgebied van water valt --- consistent met het cijfervoorbeeld in § [\[sec:corrosie\]](#sec:corrosie){reference-type="ref" reference="sec:corrosie"}.
+:::
+
+IJzeroxiden zijn echter poreus en weinig hechtend, zodat de bescherming onvolledig is. Daarom wordt staal gecoat, geverfd of gelegeerd met chroom (roestvast staal), dat een veel compactere oxidefilm vormt.
+
+## Materiaalkeuze en corrosiebeheersing
+
+### Materiaalkeuze op basis van Pourbaix-diagrammen
+
+Een weloverwogen materiaalkeuze vereist steeds de combinatie van thermodynamische en kinetische inzichten. Het Pourbaix-diagram voorspelt welk gebied stabiel is, maar niet hoe snel de overgang verloopt.
+
+::: {.callout-tip}
+## Voorbeeld: Aluminium: thermodynamisch reactief, praktisch inert
+
+Aluminium bezit een sterk negatieve standaardpotentiaal ($E^\circ = -1.66\,\mathrm{V}$, tabel [↗](#tbl-reductiepotentialen)), wat erop wijst dat oxidatie thermodynamisch zeer gunstig is. Toch behoort aluminium tot de meest corrosiebestendige constructiematerialen. De verklaring ligt in de vorming van een uiterst dunne, compacte en sterk hechtende laag aluminiumoxide, die het onderliggende metaal afschermt van de omgeving. Binnen een groot gebied van het Pourbaix-diagram bevindt aluminium zich in passiviteit.
+:::
+
+::: {.callout-tip}
+## Voorbeeld: Roestvast staal
+
+Roestvast staal bevat minstens $12\%$ chroom. Chroom vormt een compacte oxidefilm ($\mathrm{Cr_2O_3}$) die het onderliggende staal afschermt. Volgens het Pourbaix-diagram bevindt chroom zich in een groot passiviteitsgebied, terwijl de kinetiek van de oxidevorming uiterst gunstig is. De combinatie van beide eigenschappen leidt tot de uitstekende corrosieweerstand die roestvast staal kenmerkt.
+:::
+
+### Het sturen van thermodynamische stabiliteit {#sec-sturen-stabiliteit}
+
+Door de procesomstandigheden te wijzigen kan de ingenieur het werkpunt in het Pourbaix-diagram doelgericht verschuiven.
+
+-   **pH-wijziging**: toevoegen van zuur of base verschuift het punt horizontaal. Voor vele metalen leidt een verhoging van de pH tot passiviteit.
+
+-   **Potentiaalwijziging**: een uitwendige spanning (kathodische bescherming) verschuift het punt verticaal naar het immuniteitsgebied.
+
+-   **Legeren**: toevoegen van chroom, nikkel of molybdeen verandert het Pourbaix-diagram zelf.
+
+-   **Inhibitors**: stoffen die de oxidefilm versterken of de corrosiekinetiek vertragen.
+
+::: {.callout-note}
+## Toepassing: Kathodische bescherming van ondergrondse leidingen
+
+Aardgasleidingen en opslagtanks worden vaak kathodisch beschermd door een kleine gelijkstroom aan te leggen tussen het te beschermen staal en een "opofferingsanode" (magnesium of zink). Hierdoor wordt het staal tot een potentiaal gedwongen waar het zich in het immuniteitsgebied van zijn Pourbaix-diagram bevindt. De anode corrodeert langzaam en moet periodiek worden vervangen, maar de dure leiding blijft gespaard.
+:::
+
+### Thermodynamica en kinetiek
+
+Een Pourbaix-diagram voorspelt uitsluitend welke toestand thermodynamisch stabiel is. Het geeft geen informatie over de snelheid waarmee een overgang tussen twee toestanden verloopt. Deze beperking is fundamenteel, en volledig analoog aan het onderscheid tussen thermodynamica en kinetiek dat reeds in hoofdstuk [-@sec-ch-spontaniteit] (bij de omzetting van diamant naar grafiet) en hoofdstuk [-@sec-ch-reagerend] (bij de ammoniaksynthese) werd benadrukt: thermodynamica bepaalt of een reactie mogelijk is; de kinetiek bepaalt hoe snel zij verloopt. Een metaal kan zich in het corrosiegebied bevinden zonder dat in de praktijk een merkbare aantasting optreedt (kinetisch vertraagd), of omgekeerd kan een metaal in het passiviteitsgebied toch corroderen wanneer de beschermende oxidefilm lokaal wordt beschadigd.
+
+## Elektrochemie in de energietransitie
+
+Deze hoofdstukken sluiten af met een actueel thema: de energietransitie. Batterijen, brandstofcellen en elektrolysers zijn geen afzonderlijke technologieën, maar verschillende verschijningsvormen van dezelfde elektrochemische thermodynamica. Of het nu gaat om het ontwerpen van een corrosiebestendige reactor, het selecteren van een constructiemateriaal, het ontwikkelen van een batterij of het produceren van groene waterstof via elektrolyse --- telkens vormen de Gibbs-vrije energie, het chemisch evenwicht en de celpotentiaal de fundamentele grootheden waarop het gedrag van het systeem berust.
+
+Juist dit vermogen om verschillende toepassingen vanuit één gemeenschappelijk thermodynamisch kader te begrijpen, vormt één van de belangrijkste inzichten voor de chemisch ingenieur.
+
+::: {.callout-important}
+## Besluit: Één samenhangende thermodynamica
+
+Corrosie, batterijen, brandstofcellen en elektrolyse lijken totaal verschillende toepassingen. Toch steunen zij allemaal op precies dezelfde thermodynamische principes die doorheen deze cursus zijn opgebouwd: de eerste hoofdwet en de enthalpie (hoofdstuk [-@sec-ch-energie]), de kwantummechanische oorsprong van chemische energie (hoofdstuk [-@sec-ch-kwantum]), de Gibbs-vrije energie en entropie als spontaniteitscriterium (hoofdstuk [-@sec-ch-spontaniteit]), en het chemisch evenwicht (hoofdstukken [-@sec-ch-niet-reagerend] en [-@sec-ch-reagerend]). Het uitgangspunt van dit hoofdstuk was de relatie $\Delta_r G = -nFE$, zelf een rechtstreeks gevolg van de Clausius-ongelijkheid (§ [-@sec-afleiding-wmax]). Deze eenvoudige vergelijking vormt de brug tussen de chemische thermodynamica en de elektrochemie. De standaardcelpotentiaal blijkt rechtstreeks verbonden met de evenwichtsconstante, haar temperatuursafhankelijkheid levert $\Delta_rS^\circ$ en $\Delta_rH^\circ$ zonder calorimetrie, de Nernstvergelijking beschrijft de invloed van de samenstelling, en het Pourbaix-diagram --- met evenwichtslijnen die rechtstreeks uit diezelfde Nernstvergelijking volgen --- vertaalt deze principes naar een praktisch instrument voor materiaalkeuze en corrosiecontrole. Daarmee vormt de elektrochemie geen afzonderlijke discipline, maar een directe toepassing van de thermodynamica die in de vorige hoofdstukken werd opgebouwd.
+:::
+
+
+---
+
+::: {.callout-note appearance="simple" icon="false"}
+## 💬 Vragen over dit hoofdstuk?
+Stel ze op het [discussieforum van dit hoofdstuk op Toledo](https://toledo.kuleuven.be). Medestudenten en de docent antwoorden daar.
+:::

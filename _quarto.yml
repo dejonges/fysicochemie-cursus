@@ -1,0 +1,42 @@
+project:
+  type: book
+  output-dir: _book
+
+lang: nl
+
+book:
+  title: "Fysicochemie"
+  subtitle: "Chemische thermodynamica voor industrieel ingenieurs"
+  author: "Stijn De Jonge"
+  date: "2026-2027"
+  search: true
+  page-navigation: true
+  chapters:
+    - index.qmd
+    - energie.qmd
+    - kwantum.qmd
+    - spontaniteit.qmd
+    - intermoleculair.qmd
+    - niet-reagerend-evenwicht.qmd
+    - reagerend-evenwicht.qmd
+    - elektrochemie.qmd
+    - kinetica.qmd
+    - oppervlaktechemie.qmd
+    - kristallografie.qmd
+  page-footer:
+    center: "Fysicochemie · KU Leuven · Faculteit Industriële Ingenieurswetenschappen"
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+    number-sections: true
+    number-depth: 3
+    toc: true
+    toc-depth: 3
+    toc-title: "Op deze pagina"
+    html-math-method: mathjax
+    include-before-body: _macros.html
+    fig-align: center
+    smooth-scroll: true

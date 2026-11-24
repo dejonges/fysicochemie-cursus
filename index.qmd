@@ -1,0 +1,30 @@
+# Welkom {.unnumbered}
+
+Dit is de online versie van de cursus **Fysicochemie** (fase 2, industrieel ingenieur, Groep T). Je leest ze in elke browser, op je laptop of je gsm, zonder iets te installeren. Aanpassingen van de docent verschijnen hier automatisch.
+
+## Hoe lees je deze cursus?
+
+::: {.callout-warning}
+## Definitie
+Een begrip dat je moet kunnen omschrijven.
+:::
+
+::: {.callout-tip}
+## Voorbeeld
+Een uitgewerkt rekenvoorbeeld. Probeer het eerst zelf voor je de uitwerking leest.
+:::
+
+::: {.callout-note}
+## Toepassing
+Waar je dit tegenkomt in de industrie of het dagelijks leven.
+:::
+
+::: {.callout-important}
+## Besluit
+De kern van een paragraaf, om mee te nemen naar het examen.
+:::
+
+- Gebruik het **zoekveld** linksboven om een begrip of formule terug te vinden.
+- Klik op een verwijzing naar een vergelijking, figuur of paragraaf om er meteen naartoe te springen.
+- Rechtsboven schakel je tussen een lichte en een donkere weergave.
+- Onderaan elk hoofdstuk vind je een link naar het **discussieforum op Toledo** voor je vragen.
