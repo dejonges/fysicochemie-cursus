@@ -583,6 +583,16 @@ Het is belangrijk te beseffen dat de temperatuur niet stijgt omdat het volume kl
 Daarom voelen compressoren tijdens bedrijf warm aan. In industriële installaties wordt het gas na de compressor vaak opnieuw gekoeld voordat het verder in het proces wordt gebruikt.
 :::
 
+::: {#fig-compressie}
+```{python}
+#| out-width: 75%
+#| renderings: [light, dark]
+fig.toon(fig.compressie_pv)
+```
+
+Compressie van 1 mol lucht van $1\,\mathrm{bar}$ naar $8\,\mathrm{bar}$, vertrekkend van $20{}^{\circ}\mathrm{C}$. Bij isotherme compressie wordt het gas perfect gekoeld; bij adiabatische compressie blijft alle arbeid als interne energie in het gas en stijgt de temperatuur tot ongeveer $258{}^{\circ}\mathrm{C}$. Het gekleurde vlak is de extra arbeid die daarvoor nodig is.
+:::
+
 ::: {.callout-tip}
 ## Voorbeeld: Arbeid bij isotherme compressie van een ideaal gas
 
@@ -801,6 +811,16 @@ Wanneer een stof van fase verandert - smelten, verdampen, sublimeren - wordt war
 Voor water bedraagt $\Delta H_{\text{fus}} \approx 6.0\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ bij $0{}^{\circ}\mathrm{C}$, en $\Delta H_{\text{vap}} \approx 40.7\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ bij $100{}^{\circ}\mathrm{C}$.
 
 Tijdens een faseovergang bij constante druk geldt dus $\Delta H_{\text{trans}} = Q_p$, terwijl $\Delta T = 0$. Deze overgangen worden in de volgende hoofdstukken uitgebreid gebruikt bij de berekening van fase-evenwichten.
+
+::: {#fig-opwarmcurve}
+```{python}
+#| out-width: 80%
+#| renderings: [light, dark]
+fig.toon(fig.opwarmcurve_water)
+```
+
+Temperatuur van $1\,\mathrm{kg}$ water bij gelijkmatige warmtetoevoer, van ijs bij $-20{}^{\circ}\mathrm{C}$ tot stoom bij $120{}^{\circ}\mathrm{C}$. Tijdens smelten en verdampen blijft de temperatuur constant; verdampen vraagt ruim vijf keer meer warmte dan het opwarmen van vloeibaar water van $0$ tot $100{}^{\circ}\mathrm{C}$.
+:::
 
 ::: {.callout-tip}
 ## Voorbeeld: Verdampen van water

@@ -46,24 +46,25 @@ def uv_catastrofe():
     lam = np.linspace(30, 3000, 800) * 1e-9
 
     def planck(T):
-        return 2 * h * c**2 / lam**5 / np.expm1(h * c / (lam * kB * T)) * 1e-12  # kW sr-1 m-2 nm-1
+        return 2 * h * c**2 / lam**5 / np.expm1(h * c / (lam * kB * T))
 
-    rj = 2 * c * kB * 5000 / lam**4 * 1e-12
-    _regenboog(ax, 380, 750, 0, 0.45, alfa=0.85)
-    label(ax, 565, 0.75, "zichtbaar", K.zacht, ha="center", fontsize=10)
+    norm = planck(5000).max()  # maximum bij 5000 K = 1
+    rj = 2 * c * kB * 5000 / lam**4 / norm
+    _regenboog(ax, 380, 750, 0, 0.035, alfa=0.85)
+    label(ax, 565, 0.055, "zichtbaar", K.zacht, ha="center", fontsize=10)
     for T, k in [(3000, K.rood), (4000, K.oker), (5000, K.blauw)]:
-        B = planck(T)
+        B = planck(T) / norm
         ax.plot(lam * 1e9, B, color=k)
         i = np.argmax(B)
-        label(ax, lam[i] * 1e9 + 60, B[i] + 0.3, f"{T} K", k, fontsize=11)
+        label(ax, lam[i] * 1e9 + 60, B[i] + 0.025, f"{T} K", k, fontsize=11)
     ax.plot(lam * 1e9, rj, color=K.tekst, lw=2.2)
-    label(ax, 1480, 12.6, "klassieke theorie\n(Rayleigh-Jeans, 5000 K)", K.tekst, fontsize=11)
-    label(ax, 2950, 9.2, "wet van Planck", K.blauw, ha="right", fontsize=11)
-    pijl(ax, (2280, 8.9), (900, 6.0), K.blauw, lw=1.2)
+    label(ax, 1480, 1.0, "klassieke theorie\n(Rayleigh-Jeans, 5000 K)", K.tekst, fontsize=11)
+    label(ax, 2950, 0.73, "wet van Planck", K.blauw, ha="right", fontsize=11)
+    pijl(ax, (2280, 0.705), (900, 0.476), K.blauw, lw=1.2)
     ax.set_xlim(0, 3000)
-    ax.set_ylim(0, 15)
+    ax.set_ylim(0, 1.2)
     ax.set_xlabel(r"golflengte $\lambda$ (nm)")
-    ax.set_ylabel("uitgestraalde intensiteit\n" + r"(kW sr$^{-1}$ m$^{-2}$ nm$^{-1}$)")
+    ax.set_ylabel("uitgestraalde intensiteit\n(relatief, maximum bij 5000 K = 1)")
     return kader(fig)
 
 
@@ -112,13 +113,14 @@ def bohr():
         ax.add_patch(Circle(p, 0.13, color=K.blauw, zorder=4))
     ax.add_patch(FancyArrowPatch(p3, p2, arrowstyle="-|>", mutation_scale=14, color=K.blauw, lw=1.8,
                                  shrinkA=6, shrinkB=6, connectionstyle="arc3,rad=0.25", zorder=5))
-    label(ax, 3.55, 2.45, "elektron valt\nnaar lager niveau", K.blauw, fontsize=10.5, ha="center")
+    label(ax, 2.72, 2.05, "elektron valt\nnaar lager niveau", K.blauw, fontsize=10.5, ha="left")
     # foton als golfje
     x = np.linspace(0, 1.8, 200)
     y = 0.16 * np.sin(2 * np.pi * x / 0.3)
     x0, y0 = 2.35, 0.55
     ax.plot(x0 + x, y0 + y, color=K.oker, lw=2)
     pijl(ax, (x0 + 1.75, y0), (x0 + 2.15, y0), K.oker, lw=2)
+    label(ax, x0 + 1.3, y0 + 0.3, "foton wordt\nuitgezonden", K.oker, ha="center", va="bottom", fontsize=10.5)
     label(ax, x0 + 1.1, y0 - 0.85, r"$\Delta E = h\nu$", K.oker, ha="center", fontsize=14)
     ax.set_xlim(-3.3, 4.7)
     ax.set_ylim(-3.3, 3.5)
@@ -210,7 +212,7 @@ def waterstof():
         if n <= 4:
             a2.text(-0.2, E(n), f"$n$ = {n}", ha="right", va="center", fontsize=10.5, color=K.tekst)
         if n <= 3:
-            a2.text(10.2, E(n), f"{E(n):.2f} eV".replace(".", ","), va="center", fontsize=10.5, color=K.zacht)
+            a2.text(10.2, E(n), f"{E(n):.2f} eV", va="center", fontsize=10.5, color=K.zacht)
     a2.plot([0, 10], [0, 0], color=K.as_, lw=1.4, ls=(0, (4, 3)))
     a2.text(-0.2, 0, r"$n = \infty$", ha="right", va="center", fontsize=10.5)
     a2.text(10.2, 0, "0 eV (geïoniseerd)", va="center", fontsize=10.5, color=K.zacht)
@@ -283,14 +285,14 @@ def ek_frequentie():
     ax.axvspan(4.0, 7.9, color=K.vlak_grijs, lw=0, zorder=0)
     _regenboog(ax, 4.0, 7.9, -0.25, -0.05)
     label(ax, 5.95, 4.55, "zichtbaar licht", K.zacht, ha="center", fontsize=10.5)
-    for naam, Phi, k in [("natrium", 2.28, K.accent), ("koper", 4.7, K.rood)]:
+    for naam, Phi, k in [("natrium", 2.30, K.accent), ("koper", 4.70, K.rood)]:
         nu0 = Phi / hE
         m = nu >= nu0
         ax.plot(nu[m], hE * nu[m] - Phi, color=k)
         ax.plot(nu[~m], 0 * nu[~m], color=k, lw=2.6, alpha=0.35)
         ax.plot(nu0, 0, "o", color=k, zorder=5)
-        label(ax, nu0, -0.55, rf"$\nu_0$ = {nu0:.1f}".replace(".", ","), k, ha="center", fontsize=10.5)
-        label(ax, 15.8, hE * 15.8 - Phi + 0.12, f"{naam}\n$\\Phi$ = {Phi} eV".replace(".", ","), k,
+        label(ax, nu0, -0.55, rf"$\nu_0$ = {nu0:.1f}", k, ha="center", fontsize=10.5)
+        label(ax, 15.8, hE * 15.8 - Phi + 0.12, f"{naam}\n$\\Phi$ = {Phi:.2f} eV", k,
               ha="right", va="bottom", fontsize=11)
     label(ax, 9.6, 1.2, r"helling = $h$" + "\n(voor elk metaal dezelfde)", K.tekst, fontsize=11)
     label(ax, 0.3, 3.3, "onder de drempel $\\nu_0$:\ngeen elektronen,\nhoe fel het licht ook is",
@@ -323,7 +325,7 @@ def spectrum_bindingen():
         label(ax, x, e * (1.08 if va == "bottom" else 0.92), t, K.accent, ha="center", va=va, fontsize=10.5)
     RT = 8.314e-3 * 298
     ax.axhline(RT, color=K.rood, lw=1.1, ls=(0, (4, 3)))
-    label(ax, 8e8, RT * 1.12, r"$RT$ bij 25 °C = 2,5", K.rood, ha="right", va="bottom", fontsize=10.5)
+    label(ax, 8e8, RT * 1.12, r"$RT$ bij 25 °C = 2.5", K.rood, ha="right", va="bottom", fontsize=10.5)
     ax.plot(1.22e8, h * c / 0.122 * NA / 1000, "o", color=K.oker, zorder=5)
     label(ax, 1.22e8, h * c / 0.122 * NA / 1000 * 2.2, "magnetron\n(12 cm)", K.oker, ha="center",
           va="bottom", fontsize=10)
@@ -335,7 +337,7 @@ def spectrum_bindingen():
     ax.set_ylim(1e-4, 30000)
     ax.set_xlabel(r"golflengte $\lambda$ (nm)")
     ax.set_ylabel("energie per mol fotonen (kJ mol$^{-1}$)")
-    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, p: f"{v:g}".replace(".", ",")))
+    ax.yaxis.set_major_formatter(plt.FuncFormatter(lambda v, p: f"{v:g}"))
     return kader(fig)
 
 

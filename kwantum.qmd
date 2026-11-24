@@ -84,6 +84,16 @@ E_{\text{X-ray}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{0.1\times10^{
 Tussen een radiogolf en een röntgenfoton zit dus een factor van ongeveer $10^{10}$ in energie, hoewel beide "gewoon" elektromagnetische straling zijn. Dit verklaart meteen waarom radiogolven volledig onschadelijk zijn voor chemische bindingen (energie per foton veel kleiner dan een bindingsenergie), terwijl röntgenstraling en ultraviolet licht chemische bindingen kunnen breken of elektronen kunnen losmaken: hun fotonenergie ligt in dezelfde grootteorde als de energieverschillen tussen elektronische toestanden in atomen en moleculen.
 :::
 
+::: {#fig-spectrum-bindingen}
+```{python}
+#| out-width: 85%
+#| renderings: [light, dark]
+fig.toon(fig.spectrum_bindingen)
+```
+
+Energie van één mol fotonen over het elektromagnetisch spectrum, vergeleken met enkele bindingsenergieën en met $RT$ bij kamertemperatuur. Ultraviolet licht heeft genoeg energie om C--C-bindingen te breken (zonnebrand, vergeelde kunststof); infrarood en microgolven doen moleculen enkel sneller trillen en draaien.
+:::
+
 ### Het foto-elektrisch effect
 
 Hoewel de hypothese van Planck het spectrum van een zwart lichaam perfect kon beschrijven, bleef onduidelijk of de energiekwanta werkelijk een fysische betekenis hadden. In 1905 gaf Albert Einstein aan Plancks idee een veel diepere betekenis. Hij stelde voor dat elektromagnetische straling niet alleen in discrete hoeveelheden wordt uitgezonden of geabsorbeerd, maar dat het zelf uit afzonderlijke energiepakketjes bestaat. Elk van deze pakketjes, later *fotonen* genoemd, bezit dezelfde gekwantiseerde energie als Planck postuleerde, $E=h\nu$.
@@ -114,6 +124,16 @@ $$\boxed{
 E_{\mathrm{kin,max}} = \frac{1}{2}m_ev^2  = h\nu-\Phi}$$
 
 De werkfunctie is een materiaaleigenschap. Typische waarden liggen tussen ongeveer $2\,\mathrm{eV}$ - $5\,\mathrm{eV}$, afhankelijk van het gebruikte metaal. Een elektronvolt is de hoeveelheid kinetische energie die 1 elektron krijgt als het een spanningsverschil van 1 volt doorloopt. Eén elektronvolt is gelijk aan ongeveer $1.602\times10^{-19}\,\mathrm{J}$.
+
+::: {#fig-ek-frequentie}
+```{python}
+#| out-width: 75%
+#| renderings: [light, dark]
+fig.toon(fig.ek_frequentie)
+```
+
+Maximale kinetische energie van de uitgestoten elektronen in functie van de frequentie van het invallende licht, voor natrium en koper. Onder de drempelfrequentie $\nu_0 = \Phi/h$ komen geen elektronen vrij; daarboven stijgt $E_{\mathrm{kin,max}}$ lineair met helling $h$, voor elk metaal dezelfde.
+:::
 
 ::: {.callout-tip}
 ## Voorbeeld: Foto-elektrisch effect
@@ -581,6 +601,16 @@ Wanneer tijdens een chemische reactie bestaande bindingen worden verbroken en ni
 Wanneer twee atomen te ver van elkaar verwijderd zijn, is hun golffunctie-overlap te klein om een binding te vormen. Wanneer zij te dicht bij elkaar worden, stijgt de energie door de afstoting tussen de kernen. Op een welbepaalde afstand is de totale energie minimaal: dit is de *evenwichtsafstand* of *bindingslengte*. De welbepaalde lengte van een chemische binding is dus een rechtstreeks gevolg van het evenwicht tussen aantrekkende en afstotende krachten op atomaire schaal.
 
 Deze evenwichtsafstand is niet zomaar een geometrisch detail: zij bepaalt, zoals we hierna zullen zien, rechtstreeks hoe snel of hoe traag een molecule kan roteren en vibreren.
+
+::: {#fig-morse-h2}
+```{python}
+#| out-width: 75%
+#| renderings: [light, dark]
+fig.toon(fig.morse_h2)
+```
+
+Potentiële energie van $\mathrm{H_2}$ in functie van de afstand tussen de kernen. Het minimum ligt bij de bindingslengte $r_e = 74\,\mathrm{pm}$. Door de trillingsenergie (horizontale niveaus) ligt de laagste toestand iets boven de bodem van de put, zodat de energie om de binding te breken ($D_0$) kleiner is dan de diepte van de put ($D_e$).
+:::
 
 ## Moleculaire beweging en moleculaire spectra {#sec-moleculaire-beweging}
 

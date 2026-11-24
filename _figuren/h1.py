@@ -56,12 +56,12 @@ def isothermen_co2():
 
     # kritische isotherm
     p = ts.pr_druk(V, Tc, gas) / 1e5
-    ax.plot(V * 1e3, p, color=K.paars, label=r"31,04 °C ($T_c$)")
+    ax.plot(V * 1e3, p, color=K.paars, label=r"31.04 °C ($T_c$)")
     Vc = 0.307 * ts.R * Tc / ts.GASSEN[gas][1]  # PR: Zc = 0.307
     pc = ts.pr_druk(np.array([Vc]), Tc, gas)[0] / 1e5
     ax.plot(Vc * 1e3, pc, "o", color=K.paars, ms=7, zorder=5)
-    label(ax, 0.118, 40, "kritisch punt", K.paars, fontsize=11)
-    pijl(ax, (0.125, 45), (Vc * 1e3 + 0.002, pc - 2.5), K.paars, lw=1.2)
+    label(ax, 0.105, 28, "kritisch punt", K.paars, fontsize=11)
+    pijl(ax, (0.115, 33), (Vc * 1e3 + 0.001, pc - 2.5), K.paars, lw=1.2)
 
     # isotherm onder Tc met horizontaal condensatiestuk
     T = 293.15
@@ -74,6 +74,9 @@ def isothermen_co2():
     ax.plot([vl * 1e3, vg * 1e3], [ps / 1e5] * 2, color=K.blauw)
     lus = (V > vl) & (V < vg)
     ax.plot(V[lus] * 1e3, p[lus], color=K.blauw, lw=1.1, ls=(0, (1.5, 2.5)), alpha=0.8)
+    # de lus is het berekende, instabiele deel van de isotherm; in werkelijkheid volgt het gas C -> E
+    label(ax, 0.215, 34, "instabiel deel van de\nberekende isotherm", K.blauw, fontsize=10, va="center")
+    pijl(ax, (0.222, 40), (0.172, 59.8), K.blauw, lw=1.0)
     ax.legend(loc="upper right", title="isotherm", title_fontsize=11)
 
     # punten A-F op de 20 °C-isotherm
@@ -106,7 +109,7 @@ def compressibiliteitskaart():
     for Tr, k in zip(Trs, kleuren):
         Z = [ts.lee_kesler_Z(Tr, p) for p in pr]
         ax.plot(pr, Z, color=k, lw=2.2, zorder=3)
-        tekst = f"$T_r$ = {Tr:.1f}".replace(".", ",")
+        tekst = f"$T_r$ = {Tr:.1f}"
         Z = np.array(Z)
         if Tr == 1.0:
             j = int(np.searchsorted(pr, 1.25))
@@ -158,7 +161,7 @@ def compressiefactor():
     for z, naam, k in eind:
         label(ax, 812, z, naam, k, va="center")
     ax.axhline(1, color=K.zacht, lw=1.3, ls=(0, (4, 3)))
-    label(ax, 30, 1.03, "ideaal gas", K.zacht, va="bottom", fontsize=11)
+    label(ax, 640, 0.96, "ideaal gas ($Z$ = 1)", K.zacht, va="top", fontsize=11)
     label(ax, 790, 1.88, "afstoting domineert ($Z > 1$)", K.rood, ha="right", fontsize=11)
     label(ax, 790, 0.1, "aantrekking domineert ($Z < 1$)", K.blauw, ha="right", fontsize=11)
     label(ax, 30, 1.88, "$T$ = 300 K", K.tekst, fontsize=11)
@@ -228,7 +231,7 @@ def compressie_pv():
     label(ax, V_ad[-1] + 0.25, 8.25, f"{T2 - 273.15:.0f} °C", K.rood, ha="center", fontsize=11)
     label(ax, 10.5, 4.6, "extra arbeid die als warmte\nin het gas terechtkomt", K.oker,
           fontsize=11, ha="left", va="center")
-    pijl(ax, (10.3, 4.6), (5.6, 4.0), K.oker, lw=1.3)
+    pijl(ax, (10.3, 4.45), (7.6, 3.5), K.oker, lw=1.3)
     ax.legend(loc="upper right")
     ax.set_xlim(0, V1 * 1.12)
     ax.set_ylim(0, 9.2)
