@@ -1,5 +1,13 @@
 # De moleculaire oorsprong van chemische energie {#sec-ch-kwantum}
 
+```{python}
+#| include: false
+# Figuren van dit hoofdstuk: zie _figuren/h2.py (stijl in _figuren/huisstijl.py)
+import sys
+sys.path.insert(0, "_figuren")
+import h2 as fig
+```
+
 ## Van de eerste hoofdwet naar de moleculaire schaal
 
 In het vorige hoofdstuk hebben we de eerste wet van de thermodynamica ontwikkeld als een krachtig hulpmiddel om de energieverandering in fysische en chemische processen te beschrijven. Daarbij hebben we energie behandeld als een macroscopische, continue grootheid: we telden warmte en arbeid op, definieerden de interne energie $U$ en de enthalpie $H$, en gebruikten warmtecapaciteiten $C_p$ en $C_V$ om de temperatuursafhankelijkheid van deze grootheden te beschrijven. Deze aanpak is buitengewoon krachtig, maar zij is ook volledig *fenomenologisch*: de thermodynamica vertelt ons *hoeveel* energie tijdens een proces vrijkomt of wordt opgenomen, maar zij verklaart niet *waarom* verschillende stoffen een verschillende energie bezitten, en evenmin waarom een warmtecapaciteit een bepaalde waarde heeft of met de temperatuur varieert.
@@ -40,7 +48,15 @@ Het aantal mogelijke trillingsmodi neemt echter zeer sterk toe naarmate de frequ
 
 Dit resultaat staat bekend als de *ultravioletcatastrofe*, ook wel de Rayleigh-Jeans-catastrofe. De voorspelling was duidelijk in tegenspraak met experimenten. In werkelijkheid neemt de intensiteit van de warmtestraling na een bepaalde frequentie juist sterk af, zodat slechts een beperkte hoeveelheid energie wordt uitgestraald (zie Figuur [-@fig-uvcatastrophe]).
 
-![De Ultravioletcatastrofe is de fout bij korte golflengten in de wet van Rayleigh-Jeans voor uitgestraalde energie door een ideaal zwart-lichaam. De fout, die veel meer uitgesproken is voor korte golflengten, is het verschil tussen de zwarte kromme (de verkeerde kromme die wordt voorspeld door de wet van Rayleigh-Jeans) en de blauwe kromme (de correcte kromme die wordt voorspeld door de wet van Planck).](afbeeldingen/Blackbody-lg.png){#fig-uvcatastrophe width="80%"}
+::: {#fig-uvcatastrophe}
+```{python}
+#| out-width: 80%
+#| renderings: [light, dark]
+fig.toon(fig.uv_catastrofe)
+```
+
+De Ultravioletcatastrofe is de fout bij korte golflengten in de wet van Rayleigh-Jeans voor uitgestraalde energie door een ideaal zwart-lichaam. De fout, die veel meer uitgesproken is voor korte golflengten, is het verschil tussen de zwarte kromme (de verkeerde kromme die wordt voorspeld door de wet van Rayleigh-Jeans) en de blauwe kromme (de correcte kromme die wordt voorspeld door de wet van Planck).
+:::
 
 De vraag was dus fundamenteel: *waarom straalt een warm voorwerp geen oneindige hoeveelheid hoogfrequente straling uit?* In 1900 stelde de Duitse natuurkundige Max Planck een gedurfde hypothese voor. Hij veronderstelde dat de atomen in een warm voorwerp niet willekeurig energie kunnen opnemen of afgeven. De uitwisseling van energie gebeurt uitsluitend in kleine, ondeelbare pakketjes, die later *kwanta* werden genoemd.
 
@@ -78,7 +94,15 @@ Deze hypothese bood een verklaring voor het foto-elektrisch effect. Wanneer elek
 2.  Zodra de frequentie boven deze drempel komt, worden de elektronen vrijwel onmiddellijk vrijgemaakt.
 3.  De maximale kinetische energie van de uitgestoten elektronen hangt uitsluitend af van de frequentie van het invallende licht en niet van de lichtintensiteit.
 
-![Een invallende elektromagnetische straling met energie $h \nu$ is in staat om een elektron uit het metaal te verwijderen. Hiervoor wordt de energie enerzijds gebruikt om te ontsnappen uit het metaal ($\Phi$) en anderzijds om het elektron te versnellen ($E_k$).](afbeeldingen/photoelectric.png){#fig-photoelectric width="50%"}
+::: {#fig-photoelectric}
+```{python}
+#| out-width: 70%
+#| renderings: [light, dark]
+fig.toon(fig.foto_elektrisch)
+```
+
+Een invallende elektromagnetische straling met energie $h \nu$ is in staat om een elektron uit het metaal te verwijderen. Hiervoor wordt de energie enerzijds gebruikt om te ontsnappen uit het metaal ($\Phi$) en anderzijds om het elektron te versnellen ($E_k$).
+:::
 
 Einstein verklaarde deze waarnemingen door aan te nemen dat één elektron telkens slechts één foton absorbeert. Een deel van de energie van dit foton is nodig om het elektron uit het metaal los te maken. Deze minimale energie wordt de *werkfunctie* genoemd en wordt aangeduid met $\Phi$. Wanneer de energie van het foton groter is dan de werkfunctie, blijft het overschot over als kinetische energie van het uitgestoten elektron. Dit leidt tot de vergelijking van Einstein (zie Figuur [-@fig-photoelectric]):
 
@@ -137,7 +161,15 @@ Reeds in de negentiende eeuw was experimenteel bekend dat verhit waterstofgas li
 
 Bohr vertrok van het klassieke beeld van een elektron dat in een cirkelvormige baan rond de kern beweegt, gehouden door de Coulombaantrekking, maar voegde daaraan een niet-klassiek postulaat toe: enkel die banen zijn toegelaten waarvoor het impulsmoment een geheel veelvoud is van $\hbar= \frac{h}{2 \pi}$, $$p r = m_ev r = n\hbar, \qquad n=1,2,3,\ldots$$ Door deze kwantisatievoorwaarde te combineren met de klassieke voorwaarde dat de Coulombkracht precies de centripetale kracht levert, $\dfrac{e^2}{4\pi\varepsilon_0r^2}=\dfrac{m_ev^2}{r}$, volgen zowel de toegelaten baanstralen als de bijbehorende energieën: $$r_n = n^2a_0, \qquad a_0=\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}\approx52.9\,\mathrm{pm} \quad\text{(de Bohr-straal)},$$ $$E_n = -\frac{m_ee^4}{8\varepsilon_0^2h^2}\frac{1}{n^2} = -\frac{13{,}6~\mathrm{eV}}{n^2}, \qquad n=1,2,3,\ldots$$ Deze laatste uitdrukking is exact dezelfde vergelijking die we verderop ([-@sec-waterstofatoom]) via de Schrödingervergelijking zullen terugvinden. Bohrs model gaf dus, ondanks zijn eenvoudige en deels ad-hoc karakter, reeds het volledig correcte energiespectrum van het waterstofatoom, en daarmee automatisch ook de correcte Rydberg-formule voor het waterstofspectrum ([-@sec-atomaire-spectra]).
 
-![Schematische voorstelling van het model van Bohr.](afbeeldingen/bohr.png){#fig-bohr-model width="55%"}
+::: {#fig-bohr-model}
+```{python}
+#| out-width: 60%
+#| renderings: [light, dark]
+fig.toon(fig.bohr)
+```
+
+Schematische voorstelling van het model van Bohr.
+:::
 
 Toch bleek het model van Bohr uiteindelijk ontoereikend, om drie fundamentele redenen:
 
@@ -305,7 +337,15 @@ Een *atomair orbitaal* is een toegelaten ruimtelijke golffunctie voor een elektr
 
 In de praktijk worden orbitalen vaak voorgesteld door een oppervlak dat een bepaald percentage, bijvoorbeeld $90\,\%$ of $95\,\%$, van de totale waarschijnlijkheid omsluit. De vorm van dit oppervlak hangt af van de vorm van de golffunctie. Op die manier ontstaan de karakteristieke vormen van $s$-, $p$- en andere orbitalen (zie Figuur [-@fig-orbitalen]).
 
-![Typische waarschijnlijkheidsverdelingen voor verschillende golffuncties.](afbeeldingen/orbitalen.png){#fig-orbitalen width="100%"}
+::: {#fig-orbitalen}
+```{python}
+#| out-width: 90%
+#| renderings: [light, dark]
+fig.toon(fig.orbitalen)
+```
+
+Typische waarschijnlijkheidsverdelingen voor verschillende golffuncties.
+:::
 
 ### De Schrödingervergelijking
 
@@ -362,7 +402,15 @@ Wanneer een waterstofatoom terugvalt van de eerste aangeslagen toestand ($n=2$) 
 
 Het voorbeeld hierboven illustreert een algemeen principe dat veel breder toepasbaar is dan het waterstofatoom alleen: telkens wanneer een elektron overgaat van een hoger naar een lager energieniveau, wordt het energieverschil uitgezonden als een foton met een welbepaalde frequentie. Omgekeerd kan een atoom een foton absorberen, op voorwaarde dat de fotonenergie exact overeenkomt met het verschil tussen twee toegelaten energieniveaus. Dit verklaart waarom atomen en moleculen niet om het even welke golflengte absorberen of uitzenden, maar uitsluitend welbepaalde, karakteristieke golflengten. Dit leidt uiteindelijk tot een specifiek *lijnenspectrum* van een element.
 
-![Specifiek lijnenspectrum voor waterstof (bovenaan). De individuele lijnen komen overeen met energieovergangen die een elektron in het waterstofatoom kan maken (onderaan). De energiesprongen naar de grondtoestand ($n=1$) worden Lyman lijnen genoemd; de transities naar $n=2$ zijn de Balmer lijnen en die naar $n = 3$ zijn de Pashen lijnen.](afbeeldingen/Hydrogen_spectrum.png){#fig-placeholder width="80%"}
+::: {#fig-placeholder}
+```{python}
+#| out-width: 80%
+#| renderings: [light, dark]
+fig.toon(fig.waterstof)
+```
+
+Specifiek lijnenspectrum voor waterstof (bovenaan). De individuele lijnen komen overeen met energieovergangen die een elektron in het waterstofatoom kan maken (onderaan). De energiesprongen naar de grondtoestand ($n=1$) worden Lyman lijnen genoemd; de transities naar $n=2$ zijn de Balmer lijnen en die naar $n = 3$ zijn de Pashen lijnen.
+:::
 
 Voor waterstof kunnen alle mogelijke overgangen tussen niveaus $n_i$ en $n_j$ (met $n_j>n_i$) samengevat worden in de *Rydberg-formule*: $$\boxed{
 \frac{1}{\lambda} = R_H\left(\frac{1}{n_i^2}-\frac{1}{n_j^2}\right)
@@ -504,7 +552,15 @@ Een enkelvoudige binding bestaat steeds uit ëën $\sigma$-binding; een dubbele 
 
 Het aantal elektronen in bindende versus antibindende orbitalen bepaalt of, en hoe sterk, een molecule bijeengehouden wordt. Dit wordt gekwantificeerd door de *bindingsorde*: $$\text{bindingsorde} = \frac{(\text{aantal bindende elektronen}) - (\text{aantal antibindende elektronen})}{2}$$ Een bindingsorde van nul betekent dat er, netto, geen enkele binding overblijft: een dergelijke molecule is niet stabiel.
 
-![(links) Molecuulorbitaaldiagram voor $\ce{H2}$: links en rechts de atomaire $1s$-orbitalen van elk waterstofatoom (op gelijke energie), in het midden de twee molecuulorbitalen die eruit ontstaan. het bindende $\sigma_{1s}$ (lager in energie dan de atomaire orbitalen) en het antibindende $\sigma_{1s}^*$ (hoger in energie). --- (rechts) Molecuulorbitaaldiagram voor $\ce{He}$](afbeeldingen/MO.png){#fig-mo-h2 width="46%"}
+::: {#fig-mo-h2}
+```{python}
+#| out-width: 85%
+#| renderings: [light, dark]
+fig.toon(fig.molecuulorbitalen)
+```
+
+(links) Molecuulorbitaaldiagram voor $\ce{H2}$: links en rechts de atomaire $1s$-orbitalen van elk waterstofatoom (op gelijke energie), in het midden de twee molecuulorbitalen die eruit ontstaan. het bindende $\sigma_{1s}$ (lager in energie dan de atomaire orbitalen) en het antibindende $\sigma_{1s}^*$ (hoger in energie). --- (rechts) Molecuulorbitaaldiagram voor $\ce{He}$
+:::
 
 ::: {.callout-tip}
 ## Voorbeeld: Waarom $\mathrm{H_2}$ bestaat en $\mathrm{He_2}$ niet

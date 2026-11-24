@@ -1,0 +1,49 @@
+# Figuurstijl cursus Fysicochemie
+# Kleuren en lettertype volgen de Quarto-site (stijl.scss, kleuren-licht.scss).
+# Lijnopbouw (dikke afgeronde lijnen, enkel linker- en onderas, gekleurde labels)
+# zoals in Scheidings- en Procestechnologie. huisstijl.py zet ook het donkere thema.
+
+# --- Lettertype (Source Sans 3, zoals de lopende tekst op de site) ---
+font.family:        Source Sans 3
+font.size:          12
+# Formules in Computer Modern, zoals MathJax ze op de site toont
+mathtext.fontset:   cm
+text.color:         1f1e1b
+
+# --- Achtergrond: warm crème van de site ---
+figure.facecolor:   faf9f5
+savefig.facecolor:  faf9f5
+axes.facecolor:     none
+savefig.dpi:        200
+figure.constrained_layout.use: True
+svg.fonttype:       path
+
+# --- Assen: enkel links en onder, donkergrijs ---
+axes.edgecolor:     3d3a35
+axes.labelcolor:    1f1e1b
+axes.linewidth:     1.0
+axes.spines.top:    False
+axes.spines.right:  False
+axes.labelsize:     12.5
+axes.titlesize:     13
+axes.titleweight:   semibold
+axes.titlecolor:    1f1e1b
+axes.grid:          False
+axes.prop_cycle:    cycler('color', ['1f5f6e', 'b4533a', 'a8780f', '1d4d86', '57407e', '2c6a37'])
+xtick.color:        3d3a35
+ytick.color:        3d3a35
+xtick.labelsize:    11
+ytick.labelsize:    11
+xtick.direction:    out
+ytick.direction:    out
+
+# --- Lijnen: dik en afgerond ---
+lines.linewidth:        2.6
+lines.solid_capstyle:   round
+lines.dash_capstyle:    round
+lines.markersize:       7
+
+# --- Legende zonder kader ---
+legend.frameon:     False
+legend.fontsize:    11
+legend.handlelength: 2.2

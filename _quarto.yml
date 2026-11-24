@@ -4,6 +4,11 @@ project:
 
 lang: nl
 
+# Figuren worden bij het bouwen getekend met Python (zie _figuren/)
+execute:
+  echo: false
+  warning: false
+
 book:
   title: "Fysicochemie"
   subtitle: "Chemische thermodynamica voor industrieel ingenieurs"
@@ -63,4 +68,6 @@ format:
     html-math-method: mathjax
     include-before-body: _macros.html
     fig-align: center
+    fig-format: png
+    fig-dpi: 200
     smooth-scroll: true

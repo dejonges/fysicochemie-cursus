@@ -1,0 +1,4 @@
+# Nodig om de figuren te tekenen bij het bouwen van de site
+jupyter
+matplotlib
+numpy
