@@ -75,9 +75,7 @@ Hoewel de hypothese van Planck het spectrum van een zwart lichaam perfect kon be
 Deze hypothese bood een verklaring voor het foto-elektrisch effect. Wanneer elektromagnetische straling op een metalen oppervlak valt, kunnen elektronen uit het metaal worden vrijgemaakt. Klassiek zou men verwachten dat een grotere lichtintensiteit de elektronen steeds meer energie geeft, ongeacht de golflengte (kleur) van het licht. Experimenten tonen echter een volledig ander gedrag.
 
 1.  Onder een bepaalde drempelfrequentie worden helemaal geen elektronen uitgestoten, zelfs niet wanneer de lichtintensiteit zeer groot is.
-
 2.  Zodra de frequentie boven deze drempel komt, worden de elektronen vrijwel onmiddellijk vrijgemaakt.
-
 3.  De maximale kinetische energie van de uitgestoten elektronen hangt uitsluitend af van de frequentie van het invallende licht en niet van de lichtintensiteit.
 
 ![Een invallende elektromagnetische straling met energie $h \nu$ is in staat om een elektron uit het metaal te verwijderen. Hiervoor wordt de energie enerzijds gebruikt om te ontsnappen uit het metaal ($\Phi$) en anderzijds om het elektron te versnellen ($E_k$).](afbeeldingen/photoelectric.png){#fig-photoelectric width="50%"}
@@ -144,9 +142,7 @@ Bohr vertrok van het klassieke beeld van een elektron dat in een cirkelvormige b
 Toch bleek het model van Bohr uiteindelijk ontoereikend, om drie fundamentele redenen:
 
 1.  Het werkt uitsluitend voor waterstofachtige systemen met precies ëën elektron ($\mathrm{H}$, $\mathrm{He^+}$, $\mathrm{Li^{2+}}$,...); voor elk atoom met meer dan ëën elektron levert het geen correcte voorspellingen, omdat het geen rekening houdt met de onderlinge afstoting tussen elektronen.
-
 2.  De kwantisatievoorwaarde $m_evr=n\hbar$ wordt zonder diepere rechtvaardiging *opgelegd*: het model verklaart niet *waarom* enkel deze banen zijn toegelaten, het stelt dit gewoon vast omdat het de juiste antwoorden oplevert.
-
 3.  Het model beschrijft het elektron nog steeds als een klassiek deeltje met een precieze positie en snelheid op een welbepaalde baan --- een beeld dat, zoals we in [-@sec-dubbelspleet] zullen zien, fundamenteel onverenigbaar is met het golfkarakter van materie.
 
 Deze tekortkomingen tonen aan dat een eenvoudige aanpassing van de klassieke mechanica niet volstaat. Er was een volledig nieuw theoretisch kader nodig, waarin kwantisatie niet langer als extra postulaat wordt toegevoegd, maar automatisch uit de fundamentele vergelijkingen zelf volgt. De eerste stap naar dat kader werd gezet door Louis de Broglie.
@@ -329,9 +325,7 @@ waarin $\hbar=h/(2\pi)$ de gereduceerde constante van Planck is, $m$ de massa va
 De Schrödingervergelijking is voor de kwantummechanica wat de bewegingswetten van Newton zijn voor de klassieke mechanica. De vergelijking levert echter niet rechtstreeks de baan of de exacte positie van een deeltje. Haar oplossingen zijn de golffuncties die voor het beschouwde systeem mogelijk zijn. Niet elke willekeurige golffunctie vormt een fysisch aanvaardbare oplossing. Drie voorwaarden moeten voldaan zijn:
 
 -   **Eindig**: $\psi$ mag nergens naar oneindig gaan, want $|\psi|^2$ zou dan een oneindige waarschijnlijkheidsdichtheid impliceren op die plaats hetgeen fysisch onmogelijk is.
-
 -   **Continu**: $\psi$ (en, voor een eindige potentiaal, ook haar eerste afgeleide) mag geen abrupte sprongen vertonen. De Schrödingervergelijking bevat immers een *tweede* afgeleide van $\psi$; die is enkel gedefinieerd wanneer $\psi$ zelf voldoende vloeiend verloopt.
-
 -   **Normaliseerbaar**: de totale waarschijnlijkheid om het deeltje ergens in de ruimte aan te treffen moet gelijk zijn aan 1 ([-@sec-golffunctie]), wat vereist dat $|\psi|^2$ over de volledige ruimte convergeert; voor een gebonden toestand moet $\psi$ dus naar nul gaan op grote afstand.
 
 Door deze voorwaarden zijn voor gebonden systemen vaak slechts bepaalde golffuncties en bepaalde energiewaarden toegestaan. De bijbehorende energieën zijn hierdoor gekwantiseerd.
@@ -395,11 +389,8 @@ De oplossingen van de Schrödingervergelijking worden gekarakteriseerd door hun 
 Wanneer meerdere oplossingen van de Schrödingervergelijking bestaan, moeten we deze op een ondubbelzinnige manier kunnen onderscheiden. Elke toegelaten golffunctie wordt volledig bepaald door vier *kwantumgetallen*:
 
 -   Het *hoofdkwantumgetal* $n$ bepaalt in de eerste plaats de energie van het elektron en geeft een indicatie van de gemiddelde afstand tot de atoomkern.
-
 -   Het *azimutaal kwantumgetal* $l$ bepaalt de vorm van het orbitaal. Hieruit volgen de gekende $s$-, $p$-, $d$- en $f$-orbitalen.
-
 -   Het *magnetisch kwantumgetal* $m_l$ beschrijft de ruimtelijke oriëntatie van een orbitaal.
-
 -   De *spin* $m_s$ kan slechts twee waarden aannemen, $+\tfrac{1}{2}$ en $-\tfrac{1}{2}$. Hoewel de naam doet vermoeden dat een elektron om zijn eigen as draait, is dit beeld slechts een analogie. Spin is een fundamentele kwantummechanische eigenschap zonder klassiek equivalent.
 
 Deze vier kwantumgetallen beschrijven de *elektronische* toestand van een atoom. Verderop in dit hoofdstuk zullen we ontdekken dat een molecule, in tegenstelling tot een geïsoleerd atoom, ook nog kan bewegen als geheel; het kan transleren, roteren en vibreren. En elk van deze drie bewegingsvormen geeft aanleiding tot een eigen, bijkomend kwantumgetal, volledig los van de vier kwantumgetallen die hierboven beschreven staan.
@@ -498,7 +489,6 @@ De hierboven beschreven constructieve en destructieve interferentie kan wiskundi
 #### Bindende en antibindende orbitalen
 
 -   De *bindende* combinatie ($\psi_A+\psi_B$) versterkt de golffunctie in de ruimte tussen beide kernen. De waarschijnlijkheidsdichtheid $|\psi_{\text{MO}}|^2$ is daar dus groter dan in de afzonderlijke atomen, zodat negatief geladen elektronendichtheid zich ophoopt tussen de twee positief geladen kernen. Dit trekt beide kernen naar elkaar toe: de energie van deze toestand ligt *lager* dan die van de gescheiden atomen.
-
 -   De *antibindende* combinatie ($\psi_A-\psi_B$) heft de golffunctie precies op halverwege tussen beide kernen, wat een *knoopvlak* met $\psi=0$ oplevert. Zonder elektronendichtheid tussen de kernen om de onderlinge kernafstoting tegen te werken, ligt de energie van deze toestand *hoger* dan die van de gescheiden atomen. Antibindende orbitalen worden aangeduid met een asterik, bijvoorbeeld $\sigma^*$.
 
 #### $\sigma$- en $\pi$-orbitalen
@@ -506,7 +496,6 @@ De hierboven beschreven constructieve en destructieve interferentie kan wiskundi
 Naargelang de geometrie van de overlap tussen de atomaire orbitalen onderscheidt men twee hoofdtypes van molecuulorbitalen:
 
 -   Een *$\sigma$-orbitaal* ontstaat uit een overlap 'kop-aan-kop' langs de bindingsas (bijvoorbeeld twee $1s$-orbitalen, of twee $p$-orbitalen die naar elkaar toe wijzen). $\sigma$-orbitalen zijn rotatiesymmetrisch rond de bindingsas.
-
 -   Een *$\pi$-orbitaal* ontstaat uit een zijdelingse overlap van twee $p$-orbitalen die loodrecht op de bindingsas staan. $\pi$-orbitalen bezitten een knoopvlak dat de bindingsas zelf bevat.
 
 Een enkelvoudige binding bestaat steeds uit ëën $\sigma$-binding; een dubbele binding uit ëën $\sigma$- en ëën $\pi$-binding; een drievoudige binding uit ëën $\sigma$- en twee $\pi$-bindingen.
@@ -649,9 +638,7 @@ In hoofdstuk [-@sec-ch-energie] werd de molaire warmtecapaciteit bij constant vo
 Volgens de *equipartitiestelling* uit de klassieke statistische mechanica draagt elke bewegingsvorm die *klassiek* (dat wil zeggen: quasi-continu, met $\Delta E \ll k_BT$) toegankelijk is, een energie van $\tfrac{1}{2}R$ per mol bij aan de molaire interne energie, voor elke onafhankelijke richting (*vrijheidsgraad*) waarin die beweging kan plaatsvinden.
 
 -   Een eenatomig gasdeeltje kan enkel translateren, in drie onafhankelijke richtingen ($x,y,z$). Aangezien we in [-@sec-translatie] aantoonden dat translationele energieniveaus voor alle praktische doeleinden continu zijn, draagt elke richting volledig bij: $C_{V,m}=3\times\tfrac{1}{2}R=\tfrac{3}{2}R$.
-
 -   Een lineair tweeatomig gasdeeltje (zoals CO of HCl) kan bovendien roteren rond twee onafhankelijke assen loodrecht op de bindingsas (rotatie rond de bindingsas zelf verandert de kernposities niet en telt niet mee). Omdat we in [-@sec-rotatie] aantoonden dat de rotationele niveaus bij kamertemperatuur reeds dicht genoeg liggen om quasi-klassiek bezet te zijn, draagt elke rotatierichting eveneens $\tfrac{1}{2}R$ bij: $C_{V,m}=\tfrac{3}{2}R \text{ (translatie)}+\tfrac{2}{2}R\text{ (rotatie)}=\tfrac{5}{2}R\approx20.79\,\mathrm{J/(mol}\,\mathrm{,K)}$.
-
 -   Vibratie draagt bij kamertemperatuur nagenoeg niet bij, precies omdat we in [-@sec-vibratie] aantoonden dat $\Delta E_{\mathrm{vib}}\gg k_BT$: vrijwel alle moleculen bevinden zich in $v=0$ en er is geen toegankelijke 'vibrationele vrijheidsgraad'. Pas bij voldoende hoge temperatuur, wanneer $k_BT$ vergelijkbaar wordt met $h\nu$, beginnen ook de vibratieniveaus bij te dragen (elk met een bijdrage van $R$, want vibratie bevat zowel kinetische als potentiële energie), en stijgt $C_{V,m}$ geleidelijk verder, tot uiteindelijk richting $\tfrac{7}{2}R$ voor een lineair tweeatomig gas.
 
 Dit verklaart meteen ook waarom de warmtecapaciteit $C_p$ in hoofdstuk [-@sec-ch-energie] empirisch met de temperatuur bleek te variëren, en vaak werd weergegeven als een polynoom in $T$: naarmate de temperatuur stijgt, worden stelselmatig meer vibrationele (en bij zeer hoge temperatuur zelfs elektronische) vrijheidsgraden thermisch toegankelijk, en neemt de energie die het systeem per graad temperatuurstijging kan opslaan geleidelijk toe. De temperatuursafhankelijkheid van $C_p$ is dus geen toevallige empirische curve-fit, maar een rechtstreeks gevolg van de gekwantiseerde energieniveaus die in dit hoofdstuk werden afgeleid.

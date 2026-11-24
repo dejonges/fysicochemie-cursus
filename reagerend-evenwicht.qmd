@@ -25,9 +25,7 @@ Beschouw opnieuw de vorming van ammoniak. Wanneer tijdens deze reactie één mol
 Bij constante temperatuur en druk geldt voor de Gibbs-vrije energie: $$\dG = \sum_i \mu_i \,\dx{n_i}.$$ Om de koppeling tussen de molhoeveelheden systematisch te beschrijven wordt de *reactie-uitbreiding* $\xi$ ingevoerd. Voor iedere component geldt: $$\dx{n_i} = \nu_i\,\dx{\xi},$$ waarin $\nu_i$ de stoichiometrische coëfficiënt van component $i$ voorstelt. Volgens de gebruikelijke conventie zijn de stoichiometrische coëfficiënten van reactanten negatief en deze van reactieproducten positief. Substitutie levert: $$\dG = \left(\sum_i \nu_i \mu_i\right)\dx{\xi}.$$ De uitdrukking tussen haakjes wordt de *reactie-Gibbsenergie* genoemd: $$\boxed{\;\Delta_r G = \sum_i \nu_i \mu_i\;}$$ {#eq-delta-r-g} De reactie-Gibbsenergie geeft aan hoe de Gibbs-vrije energie van het systeem verandert wanneer de reactie een oneindig kleine stap verder verloopt --- dit is dezelfde grootheid als reeds ingevoerd in hoofdstuk [-@sec-ch-spontaniteit].
 
 -   $\Delta_r G < 0$: de reactie verloopt spontaan in de voorwaartse richting.
-
 -   $\Delta_r G > 0$: de reactie verloopt spontaan in de omgekeerde richting.
-
 -   $\Delta_r G = 0$: het systeem bevindt zich in chemisch evenwicht.
 
 ### Standaardtoestanden per fase {#sec-standaardtoestanden-reagerend}
@@ -35,9 +33,7 @@ Bij constante temperatuur en druk geldt voor de Gibbs-vrije energie: $$\dG = \su
 Voor de berekening van de reactie-Gibbsenergie moet de chemische potentiaal van iedere component gekend zijn. De chemische potentiaal van component $i$ kan, zoals in hoofdstuk [-@sec-ch-spontaniteit] (§ [-@sec-activiteit]) en hoofdstuk [-@sec-ch-niet-reagerend] (§ [-@sec-activiteit-mengsel]) reeds werd afgeleid, worden geschreven als: $$\mu_i = \mu_i^\circ + RT \ln a_i,$$ waarin $\mu_i^\circ$ de chemische potentiaal in de standaardtoestand voorstelt en $a_i$ de activiteit van de component. De keuze van de standaardtoestand hangt af van de fase:
 
 -   **Gassen**: standaardtoestand is de zuivere component als ideaal gas bij $p^\circ = 1\,\mathrm{bar}$. De activiteit is $a_i = f_i/p^\circ \approx y_i P/p^\circ$ (voor ideale gasmengsels).
-
 -   **Zuivere vloeistoffen en vaste stoffen**: standaardtoestand is de zuivere stof bij $p^\circ = 1\,\mathrm{bar}$. De activiteit is $a_i \approx 1$ (de zuivere stof zelf).
-
 -   **Opgeloste stoffen**: standaardtoestand is een hypothetische oplossing met concentratie $c^\circ = 1\,\mathrm{mol}\,\mathrm{L}^{-1}$ die zich ideaal gedraagt (molaire schaal). De activiteit is $a_i = \gamma_i\,c_i/c^\circ$.
 
 Deze tweeërlei conventie --- molfractie/partieeldruk voor gassen en zuivere fasen, concentratie voor opgeloste stoffen --- is geen inconsistentie, maar weerspiegelt eenvoudigweg welke referentietoestand voor elke fase experimenteel het natuurlijkst is. Voor een zuivere stof of een gas ligt de molfractie $x_i=1$ (of $p_i=p^\circ$) voor de hand als referentie: dat is immers de stof zoals ze normaliter voorkomt. Voor een opgeloste stof is een oneindig verdunde oplossing, en dus een concentratie, de natuurlijke referentie --- exact de redenering achter de wet van Henry uit hoofdstuk [-@sec-ch-niet-reagerend] (§ [-@sec-henry]), die overeenkomt met de limiet $x_i\to0$ terwijl de wet van Raoult (§ [-@sec-raoult] aldaar) de limiet $x_i\to1$ beschrijft. Voor zuivere gecondenseerde fasen die in een reactie verschijnen geldt dus $a \approx 1$. Dit heeft belangrijke gevolgen voor heterogene evenwichten (§ [-@sec-heterogene-evenwichten]).
@@ -62,9 +58,7 @@ In hoofdstuk [-@sec-ch-spontaniteit] (§ [-@sec-drg-uit-tabellen]) werd voor $
 Voor gasreacties kan de evenwichtsconstante op verschillende manieren worden uitgedrukt, naargelang de concentratiemaat.
 
 -   **$K_p$**: gebaseerd op partiële drukken: $$K_p = \prod_i \left(\frac{p_i}{p^\circ}\right)^{\nu_i}.$$
-
 -   **$K_c$**: gebaseerd op molaire concentraties: $$K_c = \prod_i \left(\frac{c_i}{c^\circ}\right)^{\nu_i}.$$
-
 -   **$K_x$**: gebaseerd op molfracties: $$K_x = \prod_i x_i^{\nu_i}.$$
 
 Voor ideale gasmengsels geldt $p_i = y_i P = c_i RT$. Hieruit volgt: $$K_p = K_c \left(\frac{RT}{p^\circ}\right)^{\Delta \nu} = K_x \left(\frac{P}{p^\circ}\right)^{\Delta \nu},$$ {#eq-kp-kc-kx-relatie} waarin $\Delta \nu = \sum_i \nu_i$ de verandering van het aantal mol gas tijdens de reactie is. Merk op dat $K_p$ en $K_c$ enkel van de temperatuur afhangen, terwijl $K_x$ ook van de totale druk afhangt.
@@ -142,11 +136,8 @@ In de industriële praktijk worden inerte gassen in recyclestromen zorgvuldig op
 De invloed van temperatuur, druk en samenstelling kan kwalitatief worden samengevat met het principe van Le Châtelier (reeds ingevoerd in hoofdstuk [-@sec-ch-spontaniteit], § [-@sec-le-chatelier]): wanneer een systeem in evenwicht wordt verstoord, zal het zich zodanig aanpassen dat de verstoring gedeeltelijk wordt tegengewerkt.
 
 -   **Temperatuurverhoging** verschuift het evenwicht in de endotherme richting.
-
 -   **Drukverhoging** verschuift het evenwicht naar de zijde met minder gasmoleculen.
-
 -   **Verwijderen van een product** verschuift het evenwicht naar de producten.
-
 -   **Toevoegen van een reactant** verschuift het evenwicht naar de producten.
 
 Vanuit thermodynamisch standpunt is dit geen bijkomende natuurwet, maar een rechtstreeks gevolg van de tweede hoofdwet. Een verandering van de procesomstandigheden verandert de Gibbs-vrije energie van alle mogelijke toestanden, en daardoor verschuift de ligging van het minimum.
@@ -210,15 +201,10 @@ We brengen nu alle elementen van dit hoofdstuk samen, voortbouwend op de kwantit
 :::
 
 -   **Is de reactie spontaan?** Bij de start van het proces bevat het reactormengsel uitsluitend $\mathrm{N_2}$ en $\mathrm{H_2}$, zodat $Q$ zeer klein is en $\Delta_rG<0$: de reactie verloopt spontaan richting ammoniak, tot $Q=K$ (§ [-@sec-evenwichtsconstante-reagerend]).
-
 -   **Waarom niet bij kamertemperatuur?** Ondanks de zeer gunstige $K\approx6\times10^5$ bij $298\,\mathrm{K}$, verloopt de reactie daar te traag: de sterke $\mathrm{N \equiv N}$-drievoudige binding (hoofdstuk [-@sec-ch-kwantum]) geeft een hoge activeringsenergie. Een hogere temperatuur versnelt de reactie aanzienlijk, maar verlaagt tegelijk $K$ drastisch (§ [-@sec-vanthoff-reagerend]) --- de klassieke spanning tussen thermodynamica en kinetiek uit hoofdstuk [-@sec-ch-spontaniteit].
-
 -   **Waarom bij hoge druk?** Omdat $\Delta\nu=-2$, groeit $K_x$ sterk met de druk (§ [-@sec-kp-kc-kx]--[-@sec-ice-tabel]): van een verwaarloosbare opbrengst bij $1\,\mathrm{bar}$ tot $y_{\mathrm{NH_3}}\approx28.6\%$ bij $100\,\mathrm{bar}$ en verder oplopend bij de industrieel gebruikelijke $150\text{ tot }300\,\mathrm{bar}$.
-
 -   **Waarom wordt ammoniak voortdurend verwijderd?** Door de gevormde $\mathrm{NH_3}$ na afkoeling te condenseren, daalt $Q$ opnieuw onder $K$, zodat de voorwaartse reactie blijft verlopen zonder dat de ligging van het evenwicht zelf verandert (§ \"Verwijderen van reactieproducten\").
-
 -   **Waarom worden de reactanten gerecycleerd?** Bij slechts $44.5\%$ omzetting per doorgang (§ [-@sec-ice-tabel]) is recycle van de niet-omgezette $\mathrm{N_2}$/$\mathrm{H_2}$, met een purge voor inerte gassen (§ [-@sec-druk-inerte-gassen]), noodzakelijk om een hoge globale omzetting te bereiken (figuur [-@fig-haber-bosch-schema]).
-
 -   **Waarom is een katalysator noodzakelijk?** De ijzerkatalysator verlaagt de activeringsenergie en verhoogt zo de reactiesnelheid, zodat het (door de thermodynamica vastgelegde) evenwicht sneller wordt bereikt. De evenwichtsligging zelf --- $K$, en dus de uiteindelijke samenstelling --- blijft volledig onveranderd: de katalysator versnelt, maar bepaalt niet.
 
 ::: {.callout-important}

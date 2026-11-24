@@ -29,9 +29,7 @@ Omdat de maximale niet-expansiearbeid gelijk is aan $-\Delta G$ (vergelijking (
 Deze vergelijking vormt de brug tussen de chemische thermodynamica uit de vorige hoofdstukken en de elektrochemie. Zij leert dat de elektrische spanning van een elektrochemisch systeem niets anders is dan een uitdrukking van dezelfde thermodynamische drijvende kracht die reeds werd gebruikt om chemische evenwichten te beschrijven (hoofdstuk [-@sec-ch-reagerend]).
 
 -   $\Delta_r G < 0 \Leftrightarrow E > 0$: de reactie verloopt spontaan in de voorwaartse richting (galvanische cel).
-
 -   $\Delta_r G > 0 \Leftrightarrow E < 0$: de reactie verloopt niet spontaan; elektrolyse is nodig.
-
 -   $\Delta_r G = 0 \Leftrightarrow E = 0$: het systeem bevindt zich in evenwicht.
 
 ::: {#fig-daniell-cel}
@@ -166,9 +164,7 @@ In elektrochemische systemen wordt de spontane richting van een reactie bepaald 
 #### De drie gebieden van een Pourbaix-diagram
 
 -   **Immuniteit**: het zuivere metaal is thermodynamisch stabiel. Er bestaat geen drijvende kracht om het metaal te oxideren.
-
 -   **Corrosie**: opgeloste metaalionen zijn stabieler dan het zuivere metaal. Het metaal zal spontaan oplossen.
-
 -   **Passiviteit**: vaste oxiden of hydroxiden zijn stabiel en vormen een beschermende laag op het metaaloppervlak, die verdere aantasting belemmert.
 
 #### De betekenis van de evenwichtslijnen
@@ -176,9 +172,7 @@ In elektrochemische systemen wordt de spontane richting van een reactie bepaald 
 Op iedere grenslijn geldt dat beide betrokken chemische toestanden dezelfde Gibbs-vrije energie bezitten. De helling van de evenwichtslijn volgt uit de Nernstvergelijking:
 
 -   **Horizontale lijnen**: reacties zonder $\mathrm{H^+}$ of $\mathrm{OH^-}$ (enkel elektronenuitwisseling) --- $E$ is onafhankelijk van pH.
-
 -   **Verticale lijnen**: reacties zonder elektronenuitwisseling (enkel zuurgraad, bv. eenvoudige zuur-basedissociatie) --- de grens ligt bij een vaste pH, onafhankelijk van $E$.
-
 -   **Schuine lijnen**: reacties met zowel $\mathrm{H^+}$ als elektronen --- de helling volgt rechtstreeks uit de Nernstvergelijking, zoals we nu expliciet afleiden voor de belangrijkste twee lijnen van elk diagram.
 
 #### Het stabiliteitsgebied van water: afleiding van de grenslijnen {#sec-pourbaix-waterlijnen}
@@ -217,9 +211,7 @@ Beide lijnen dalen dus met exact dezelfde helling ($-0.0592\,\mathrm{V}$ per pH-
 IJzer behoort tot de meest gebruikte constructiematerialen in de chemische procesindustrie. Het Pourbaix-diagram van ijzer toont drie hoofdgebieden:
 
 -   Bij lage potentialen: immuniteit (metaal Fe stabiel).
-
 -   Bij midden-hoge potentialen en lage pH: corrosie (opgelost $\mathrm{Fe^{2+}}$ of $\mathrm{Fe^{3+}}$).
-
 -   Bij hoge potentialen en gemiddelde pH: passiviteit (vast $\mathrm{Fe_2O_3}$ of $\mathrm{FeOOH}$).
 
 ::: {#fig-pourbaix-ijzer}
@@ -255,11 +247,8 @@ Roestvast staal bevat minstens $12\%$ chroom. Chroom vormt een compacte oxidefil
 Door de procesomstandigheden te wijzigen kan de ingenieur het werkpunt in het Pourbaix-diagram doelgericht verschuiven.
 
 -   **pH-wijziging**: toevoegen van zuur of base verschuift het punt horizontaal. Voor vele metalen leidt een verhoging van de pH tot passiviteit.
-
 -   **Potentiaalwijziging**: een uitwendige spanning (kathodische bescherming) verschuift het punt verticaal naar het immuniteitsgebied.
-
 -   **Legeren**: toevoegen van chroom, nikkel of molybdeen verandert het Pourbaix-diagram zelf.
-
 -   **Inhibitors**: stoffen die de oxidefilm versterken of de corrosiekinetiek vertragen.
 
 ::: {.callout-note}

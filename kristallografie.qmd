@@ -17,17 +17,11 @@ De *elementaire cel* is de kleinste eenheid die, door herhaling in drie richting
 Er bestaan precies *14* onafhankelijke roostertypes, de *Bravais-roosters*, verdeeld over 7 kristalsystemen:
 
 -   **Kubisch**: primitief (P), ruimtelijk gecentreerd (I), vlakgecentreerd (F).
-
 -   **Tetragonaal**: primitief, ruimtelijk gecentreerd.
-
 -   **Orthorombisch**: primitief, ruimtelijk gecentreerd, vlakgecentreerd, basaal gecentreerd.
-
 -   **Hexagonaal**: primitief.
-
 -   **Trigonaal** (rhombohedrisch): primitief.
-
 -   **Monoclien**: primitief, basaal gecentreerd.
-
 -   **Triklien**: primitief.
 
 Tel je deze op (3+2+4+1+1+2+1), dan kom je inderdaad op precies 14 uit: geen enkel ander roostertype is met een periodieke driedimensionale rangschikking van punten verenigbaar.
@@ -37,9 +31,7 @@ Tel je deze op (3+2+4+1+1+2+1), dan kom je inderdaad op precies 14 uit: geen enk
 De eenvoudigste en belangrijkste roosters voor metallische en ionische vaste stoffen zijn de drie kubische types:
 
 -   **Primitief kubisch (P)**: atomen op de 8 hoeken van een kubus. Aantal atomen per cel: $8 \times \tfrac{1}{8} = 1$.
-
 -   **Ruimtelijk gecentreerd kubisch (BCC, I)**: bijkomend atoom in het centrum. Aantal atomen per cel: $1 + 1 = 2$.
-
 -   **Vlakgecentreerd kubisch (FCC, F)**: bijkomend atoom op elk van de 6 vlakken (gedeeld door 2 cellen). Aantal atomen per cel: $1 + 6 \times \tfrac{1}{2} = 4$.
 
 ::: {#fig-kubische-roosters}
@@ -61,13 +53,9 @@ In een FCC-rooster (bv. Cu, Al, $\gamma$-Fe) raken de atomen langs de diagonaal 
 Enkele veelvoorkomende structuurtypen:
 
 -   **NaCl-structuur**: FCC-rooster van $\mathrm{Cl^-}$ met $\mathrm{Na^+}$ in alle octaëdrische holtes. Coördinatiegetal 6:6.
-
 -   **CsCl-structuur**: primitief kubisch rooster van $\mathrm{Cl^-}$ met $\mathrm{Cs^+}$ in het lichaam-centrum. Coördinatiegetal 8:8.
-
 -   **Zinkblende (ZnS)**: FCC-rooster van $\mathrm{S^{2-}}$ met $\mathrm{Zn^{2+}}$ in de helft van de tetraëdrische holtes. Coördinatie 4:4. Belangrijk voor halfgeleiders (GaAs, CdTe).
-
 -   **Fluoriet ($\mathrm{CaF_2}$)**: FCC-rooster van $\mathrm{Ca^{2+}}$ met $\mathrm{F^-}$ in alle tetraëdrische holtes. Belangrijk voor $\mathrm{UO_2}$, $\mathrm{CeO_2}$, $\mathrm{ZrO_2}$.
-
 -   **Diamant**: FCC-rooster met twee interpenetrerende subroosters, elk atoom tetraëdrisch omringd. Dit is de structuur van Si, Ge, C (diamant).
 
 ## Röntgendiffractie en de wet van Bragg {#sec-xrd}
@@ -121,11 +109,8 @@ Een perfect kristal zonder defecten bestaat in de praktijk niet. Zelfs de zuiver
 ### Puntdefecten
 
 -   **Vacatures**: een ontbrekend atoom op een roosterplaats. Evenwichtsvacatures volgen $\exp(-E_v/k_BT)$, met $E_v \sim 1\,\mathrm{eV}$ in metalen. Bij $300\,\mathrm{K}$ is deze fractie volledig verwaarloosbaar ($\sim10^{-17}$): pas dicht bij het smeltpunt (bijvoorbeeld $1300\,\mathrm{K}$ voor koper, smeltpunt $1358\,\mathrm{K}$) wordt de vacaturefractie praktisch relevant, met een typische waarde van $\sim10^{-4}$ --- een gevolg van de sterke exponentiële temperatuursafhankelijkheid, geheel analoog aan de Arrhenius-gevoeligheid van reactiesnelheden (hoofdstuk [-@sec-ch-kinetiek]).
-
 -   **Interstitiëel**: een extra atoom op een niet-roosterplaats. Vaak in combinatie met vacatures (Frenkel-defect in ionische kristallen).
-
 -   **Onzuiverheden (doping)**: een vreemd atoom op een roosterplaats. Cruciaal voor halfgeleiders (hoofdstuk [-@sec-ch-kwantum]; zie ook § \"Doping van halfgeleiders\" verderop in dit hoofdstuk) en katalysatoren (hoofdstuk [-@sec-ch-kinetiek]).
-
 -   **Schottky-defect**: een koppel vacatures in ionische kristallen (een kation- en een anionvacature), zodat neutraliteit behouden blijft.
 
 ### Lijndefecten (dislocaties)
@@ -133,7 +118,6 @@ Een perfect kristal zonder defecten bestaat in de praktijk niet. Zelfs de zuiver
 *Dislocaties* zijn ééndimensionale defecten die plastische vervorming mogelijk maken. De twee belangrijkste types:
 
 -   **Randdislocatie (edge)**: een extra half-vlak ingevoerd in het kristal.
-
 -   **Schroefdislocatie (screw)**: het rooster is langs een as verschoven.
 
 Dislocaties bepalen de hardheid, rekeigenschappen en *kruip* van metalen. In katalysatoren zijn schroefdislocaties vaak actieve sites, omdat atomen aan het oppervlak daar zwakker gebonden zijn.
@@ -141,9 +125,7 @@ Dislocaties bepalen de hardheid, rekeigenschappen en *kruip* van metalen. In kat
 ### Vlakdefecten
 
 -   **Korrelgrenzen**: grenzen tussen kristallieten in polykristallijne materialen. Beïnvloeden diffusie, corrosie en elektrische geleiding.
-
 -   **Stacking faults**: fout in de stapelvolgorde van atoomvlakken.
-
 -   **Antifase-grenzen**: in geordende legeringen.
 
 ### Non-stoichiometrie
@@ -159,28 +141,21 @@ In hoofdstuk [-@sec-ch-kwantum] zagen we dat een geïsoleerd atoom discrete ene
 In een kristal worden twee banden onderscheiden:
 
 -   **Valentieband**: de hoogste geheel gevulde band.
-
 -   **Geleidingsband**: de eerstvolgende, lege of deels gevulde band.
 
 Tussen beide kan een *verboden zone* (band gap, $E_g$) liggen. De classificatie:
 
 -   **Geleider** (metaal): de valentieband is deels gevuld of overlapt met de geleidingsband. Elektronen kunnen vrij bewegen; $E_g = 0$.
-
 -   **Halfgeleider**: $E_g = 0.5\text{ tot }3\,\mathrm{eV}$. Bij lage temperatuur is de geleidingsband leeg (geen geleiding); bij hoge temperatuur kunnen elektronen thermisch worden geactiveerd.
-
 -   **Isolator**: $E_g > 4\,\mathrm{eV}$. De thermische activering is verwaarloosbaar bij kamertemperatuur.
 
 ::: {.callout-tip}
 ## Voorbeeld: Band gaps van enkele materialen
 
 -   Si: $E_g = 1.12\,\mathrm{eV}$ (halfgeleider).
-
 -   GaAs: $E_g = 1.42\,\mathrm{eV}$ (halfgeleider).
-
 -   Diamant: $E_g \approx 5.5\,\mathrm{eV}$ (isolator).
-
 -   $\mathrm{SiO_2}$: $E_g \approx 9\,\mathrm{eV}$ (isolator).
-
 -   Cu: $E_g = 0$ (geleider).
 
 Het verschil tussen Si en GaAs is klein maar cruciaal: GaAs laat hogere snelheden en zonnecellen met hogere efficiëntie toe, Si domineert de markt via lagere kostprijs.
@@ -191,7 +166,6 @@ Het verschil tussen Si en GaAs is klein maar cruciaal: GaAs laat hogere snelhede
 Door kleine hoeveelheden onzuiverheden toe te voegen (*doping*) kan de geleidingsband bevolkt worden:
 
 -   **n-type**: donoratomen (bv. P in Si, 5 valentie-elektronen) leveren een extra elektron. Donorniveau vlak onder de geleidingsband.
-
 -   **p-type**: acceptoratomen (bv. B in Si, 3 valentie-elektronen) creëren een gat. Acceptorniveau vlak boven de valentieband.
 
 De benodigde activeringsenergie om deze donor- of acceptorniveaus te ioniseren is nu veel kleiner dan $E_g$, zodat reeds bij kamertemperatuur voldoende ladingsdragers beschikbaar zijn. Doping is de basis van transistors, zonnecellen, LED's en batterijbesturing.
@@ -223,27 +197,18 @@ Voor Cu bij $298\,\mathrm{K}$ geldt $C_{p,m} \approx 24.4\,\mathrm{J}\,\mathrm{m
 De ingenieur kan materiaaleigenschappen sturen via *defect engineering*:
 
 -   **Legering**: door toevoeging van vreemde atomen worden dislocaties verankerd, het materiaal wordt harder (bv. staal = Fe + C + Cr + Mn).
-
 -   **Doping**: halfgeleiders worden geleidbaar gemaakt via gecontroleerde onzuiverheden (§ [-@sec-doping]).
-
 -   **Korrelgrootte**: volgens Hall--Petch neemt de hardheid toe met $\sim d^{-1/2}$ ($d$ korrelgrootte). Nanokristallijne materialen zijn aanzienlijk harder.
-
 -   **Warmtebehandeling**: temperatuurverloop regelt de verdeling van defecten en faseverdeling.
 
 ## Industriële toepassingen
 
 -   **Katalysatoren**: zeolieten (hoofdstuk [-@sec-ch-kinetiek]) zijn kristallijne aluminosilicaten met microscopische poriën; de kristallografische structuur bepaalt vormselectiviteit.
-
 -   **Halfgeleiders**: siliciumkristallen voor chips, zonnecellen; GaAs voor hoogfrequent elektronica.
-
 -   **Batterijen**: Li-ion-batterijen gebruiken gelaagde overgangsmetaaloxiden ($\mathrm{LiCoO_2}$, $\mathrm{LiFePO_4}$) waarin Li intercaleert --- een directe toepassing van non-stoichiometrie.
-
 -   **Constructiematerialen**: staal, beton, keramische materialen --- alle polykristallijn, met beheerste defecten voor sterkte.
-
 -   **Brandstofcellen**: $\mathrm{Pt/C}$-elektroden, $\mathrm{LaMnO_3}$-perovskieten voor SOFC (Solid Oxide Fuel Cell, hoofdstuk [-@sec-ch-elektrochemie]) --- kristallografie bepaalt katalytische activiteit.
-
 -   **Corrosiebescherming**: roestvast staal (hoofdstuk [-@sec-ch-elektrochemie]) is een Fe--Cr-legering met $\geq 12\%$ Cr; het Cr vormt een passieve $\mathrm{Cr_2O_3}$-film.
-
 -   **Glas en keramiek**: amorf of polykristallijn; glascoating, tegels, biokeramiek.
 
 ::: {.callout-important}

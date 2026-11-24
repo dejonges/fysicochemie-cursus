@@ -367,6 +367,18 @@ def fix_refs(md):
     md = re.sub(r'QREF(\d+)Q', lambda m: ref(m, False), md)
     return md
 
+# compacte opsommingen (geen witregel tussen items)
+MARK = re.compile(r'^\s*(?:[-*+]|\d+\.)\s+\S')
+def tighten_lists(md):
+    lines = md.split('\n'); out = []
+    for i, l in enumerate(lines):
+        if l.strip() == '' and out and i + 1 < len(lines):
+            prev, nxt = out[-1], lines[i + 1]
+            if MARK.match(nxt) and prev.strip() and (MARK.match(prev) or prev.startswith('    ')):
+                continue
+        out.append(l)
+    return '\n'.join(out)
+
 FORUM = '''
 
 ---
@@ -384,7 +396,7 @@ def main():
     for n, (tex, slug) in enumerate(CHAPTERS, 1):
         mds[slug] = convert_chapter(tex, slug, n)
     for slug, md in mds.items():
-        md = fix_refs(md)
+        md = tighten_lists(fix_refs(md))
         if slug == 'kinetica':
             md = md.replace('### Temperatuurverhoging bij ammoniaksynthese',
                             '{{< include _interactief/arrhenius.qmd >}}\n\n### Temperatuurverhoging bij ammoniaksynthese', 1)

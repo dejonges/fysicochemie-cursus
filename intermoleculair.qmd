@@ -38,13 +38,9 @@ Zelfs tussen twee niet-polaire molecules bestaat een aantrekkingskracht. Deze on
 De kookpunten van de edelgassen stijgen monotoon met het atoomnummer:
 
 -   He: $4.2\,\mathrm{K}$ (2 elektronen)
-
 -   Ne: $27.1\,\mathrm{K}$ (10)
-
 -   Ar: $87.3\,\mathrm{K}$ (18)
-
 -   Kr: $119.9\,\mathrm{K}$ (36)
-
 -   Xe: $165.0\,\mathrm{K}$ (54)
 
 Alle edelgassen zijn volledig niet-polair, zodat enkel London-dispersie werkt. De stijgende kookpunten weerspiegelen de toenemende polariseerbaarheid van de grotere elektronenwolken. Voor Xe, met $54$ elektronen per atoom, bedraagt de dispersie-energie reeds voldoende om de stof bij kamertemperatuur dicht bij de vloeibaarheid te houden.
@@ -60,13 +56,9 @@ Een bijzonder sterke dipool--dipoolinteractie ontstaat wanneer een waterstofatoo
 Water vormt tot vier waterstofbruggen per molecule, die een ruimtelijk netwerk vormen. Hierdoor vertoont water een reeks anomalieën:
 
 -   Hoog kookpunt ($100{}^{\circ}\mathrm{C}$) vergeleken met $\mathrm{H_2S}$ ($-60{}^{\circ}\mathrm{C}$), hoewel $\mathrm{H_2S}$ een zwaarder molecule is.
-
 -   Hoge verdampingsenthalpie: $40.7\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ (vergeleken met $8.2\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ voor methaan).
-
 -   Maximumdichtheid bij $4{}^{\circ}\mathrm{C}$ (ijs is minder dicht dan vloeibaar water).
-
 -   Hoge oppervlaktespanning: $72\,\mathrm{mN}\,\mathrm{m}^{-1}$ (zie hoofdstuk [-@sec-ch-oppervlakte]).
-
 -   Hoge viscositeit, hoge warmtecapaciteit.
 
 Alle anomalieën wijzen op hetzelfde: het waterstofbrugnetwerk. Zonder dit netwerk zou water bij kamertemperatuur een gas zijn, en zou leven zoals wij het kennen onmogelijk zijn.
@@ -82,9 +74,7 @@ De *polariseerbaarheid* $\alpha$ van een molecule is de mate waarin een uitwendi
 De halogenen $\mathrm{Cl_2}$, $\mathrm{Br_2}$, $\mathrm{I_2}$ hebben vergelijkbare bindingsenergieën maar stijgende kookpunten:
 
 -   $\mathrm{Cl_2}$: $-34{}^{\circ}\mathrm{C}$ (gas bij kamertemperatuur)
-
 -   $\mathrm{Br_2}$: $59{}^{\circ}\mathrm{C}$ (vloeistof)
-
 -   $\mathrm{I_2}$: $184{}^{\circ}\mathrm{C}$ (vast bij kamertemperatuur)
 
 Deze trend weerspiegelt direct de stijgende polariseerbaarheid van de grotere elektronenwolken. De covalente binding binnen de molecules is vergelijkbaar, maar de intermoleculaire (dispersie-)krachten nemen sterk toe, wat leidt tot hogere kookpunten en uiteindelijk tot een vaste stof bij kamertemperatuur voor $\mathrm{I_2}$.
@@ -95,7 +85,6 @@ Deze trend weerspiegelt direct de stijgende polariseerbaarheid van de grotere el
 De aantrekkende $1/r^6$-afhankelijkheid van de Van der Waalskrachten geldt slechts voor matig grote afstanden. Wanneer twee moleculen zeer dicht naderen, beginnen hun elektronenwolken te overlappen en treedt een sterke afstoting op (Pauli-uitsluitingsprincipe, zie hoofdstuk [-@sec-ch-kwantum]). De totale interactie-energie wordt dan beschreven door een *Lennard-Jones-potentiaal*: $$\boxed{\;V(r) = 4\varepsilon\left[\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6}\right]\;}$$ {#eq-lennardjones} waarin:
 
 -   $\varepsilon$ de diepte van de potentiaalkuil (maat voor de sterkte van de attractie),
-
 -   $\sigma$ de afstand waarop $V = 0$ (effectieve "harde" diameter).
 
 Het $1/r^{12}$-gedrag is een wiskundig handige benadering van de elektronenwolk-afstoting. Het minimum van de potentiaal ligt bij $r_{\text{eq}} = 2^{1/6}\sigma \approx 1{,}122\,\sigma$.
@@ -188,7 +177,6 @@ De mengenthalpie voor twee vloeistoffen met gelijke volumes wordt benaderd door:
 De Hildebrand-parameters bedragen:
 
 -   Water: $\delta = 47.9\,\mathrm{MPa}\,\mathrm{^{1/2}}$ (sterk waterstofbruggend)
-
 -   $n$-Hexaan: $\delta = 14.9\,\mathrm{MPa}\,\mathrm{^{1/2}}$ (niet-polair koolwaterstof)
 
 Het verschil is groot, waardoor $\Delta H_{\text{meng}}$ zeer positief is. De Gibbs-energie van mengen (hoofdstuk [-@sec-ch-niet-reagerend], § \"Thermodynamica van mengsels\") wordt dan positief, en de vloeistoffen mengen niet. Dit verklaart, kwantitatief, waarom olie en water zich splitsen --- exact de vraag die in § 4.1 werd gesteld.
@@ -205,11 +193,8 @@ De Hildebrand-theorie werkt goed voor niet-polaire of zwak polaire mengsels zond
 Een belangrijk onderscheid tussen de intermoleculaire krachten is hun *reikwijdte*:
 
 -   **Ion--ion**: $V \propto 1/r$ --- lange reikwijdte, orde van meerdere nanometer.
-
 -   **Ion--dipool**: $V \propto 1/r^4$ --- matige reikwijdte.
-
 -   **Van der Waals** (Keesom, Debye, London): $V \propto 1/r^6$ --- korte reikwijdte, enkel significant binnen $1\,\mathrm{nm}$.
-
 -   **Waterstofbrug**: sterk gericht, typisch $0.18\text{ tot }0.25\,\mathrm{nm}$.
 
 ::: {#fig-reikwijdte}
@@ -245,19 +230,12 @@ Een opvallende observatie: alle Van der Waalskrachten (Keesom, Debye, London) de
 De intermoleculaire krachten bepalen een breed gamma aan industriële processen en materiaaleigenschappen:
 
 -   **Destillatie**: kookpunten en verdampingsenthalpieën bepalen de energiekost en de haalbaarheid van scheiding (hoofdstuk [-@sec-ch-niet-reagerend]).
-
 -   **Extractie**: de keuze van oplosmiddel wordt bepaald door de Hildebrand-parameter en de polariteit.
-
 -   **Chromatografie**: de retentie van analyten op een stationaire fase wordt bepaald door intermoleculaire interacties.
-
 -   **Polymeren**: de glasovergangstemperatuur, de kristalliniteit en de mechanische eigenschappen worden bepaald door de intermoleculaire krachten tussen polymeerketens.
-
 -   **Materialen**: de compatibiliteit van polymeren met additieven, vulstoffen en coatings wordt voorspeld via $\delta$-parameters.
-
 -   **Farmaceutica**: de oplosbaarheid van actieve ingrediënten, de biologische beschikbaarheid en de formulering worden bepaald door intermoleculaire krachten.
-
 -   **Eiwitvouwing**: de tertiaire structuur van eiwitten wordt gestabiliseerd door een combinatie van waterstofbruggen, elektrostatische interacties en hydrofobe effecten.
-
 -   **Oppervlakken en colloïden**: de stabiliteit van suspensies en emulsies berust op de balans tussen Van der Waals-aantrekking en elektrostatische afstoting (hoofdstuk [-@sec-ch-oppervlakte]).
 
 ::: {.callout-important}

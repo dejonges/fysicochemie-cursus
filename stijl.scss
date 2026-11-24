@@ -1,0 +1,23 @@
+/*-- scss:defaults --*/
+// ===== Pas hier de huisstijl aan =====
+$primary:          #1d6fa5;   // kleur van links, knoppen en accenten
+$font-size-root:   17px;      // basisgrootte van de tekst
+$line-height-base: 1.6;       // regelafstand in lopende tekst
+
+/*-- scss:rules --*/
+// ----- Opsommingen -----
+$lijst-afstand: 0.25rem;      // ruimte tussen twee items in een opsomming
+main li { margin-bottom: $lijst-afstand; }
+main li > p { margin-bottom: 0; }
+main ul, main ol { margin-bottom: 1rem; }
+
+// ----- Tabellen -----
+main table {
+  width: auto;                 // tabel niet over de volle breedte uitrekken
+  margin-left: auto;           // tabel centreren
+  margin-right: auto;
+  font-size: 0.95em;
+}
+main table th { border-bottom: 2px solid currentColor; }
+main table td, main table th { padding: 0.35rem 0.8rem; }
+main table tbody tr:nth-child(odd) { background: rgba(127, 127, 127, 0.07); }  // zebrastrepen

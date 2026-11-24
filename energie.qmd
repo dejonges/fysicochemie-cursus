@@ -119,7 +119,6 @@ De ideale gaswet werd oorspronkelijk afgeleid onder twee aannames: (1) moleculen
 De eenvoudigste test van de ideale gaswet is de wet van Boyle: bij constante temperatuur moet $pV$ constant zijn (zie Figuur [-@fig-boyle]), onafhankelijk van de druk. Regnault (1845) en later Amagat (1870) voerden nauwkeurige metingen uit en vonden dat $pV$ voor reële gazen niet constant is, maar systematisch afwijkt naarmate de druk toeneemt.
 
 -   Voor stikstof bij $0{}^{\circ}\mathrm{C}$ en drukken tot $10\,\mathrm{bar}$ bedraagt de afwijking minder dan $0.5\%$: de ideale gaswet is een uitstekende benadering. Bij $100\,\mathrm{bar}$ bedraagt de afwijking reeds $5\%$; bij $500\,\mathrm{bar}$ meer dan $30\%$.
-
 -   Voor $\ce{CO2}$ bij $40{}^{\circ}\mathrm{C}$ en $100\,\mathrm{bar}$ bedraagt de afwijking meer dan $20\%$, en bij lagere temperaturen kan condensatie optreden, hetgeen de ideale gaswet volledig ongeldig maakt.
 
 ![Isothermen voor een ideaal gas waarbij $p \propto \frac{1}{V}$. Voor een ideaal gas blijft deze relatie geldig voor het volledige bereik.](afbeeldingen/Boyle.png){#fig-boyle width="50%"}
@@ -139,9 +138,7 @@ De meest in het oog springende afwijking is de condensatie zelf (zie Figuur [-@f
 Om de afwijking systematisch te kwantificeren, wordt de *compressibiliteitsfactor* $Z$ ingevoerd: $$\boxed{\;Z = \frac{V_{m,werk}}{V_{m,ideaal}}=\frac{pV_{m,werk}}{RT}\;}$$ Voor een ideaal gas geldt $Z = 1$. Afwijkingen van $Z = 1$ wijzen op niet-ideaal gedrag. De waarde van $Z$ en zijn afhankelijkheid van druk en temperatuur bevatten informatie over de aard van de intermoleculaire interacties:
 
 -   $Z < 1$: de werkelijke druk is lager dan door de ideale gaswet voorspeld, of equivalent het werkelijke molaire volume is kleiner dan verwacht. Dit wijst op *aantrekkende* intermoleculaire krachten die de moleculen dichter bij elkaar brengen. Typisch bij matige drukken en lage temperaturen.
-
 -   $Z > 1$: de werkelijke druk is hoger dan verwacht, of het werkelijke molaire volume is groter. Dit wijst op *afstotende* krachten; het eindige moleculaire volume wordt bepalend. Typisch bij zeer hoge drukken.
-
 -   $Z \to 1$ naarmate $p \to 0$ of $T \to \infty$: in de limiet van verdunde of zeer hete gassen verdwijnen alle intermoleculaire effecten. De ideale gaswet is in deze limiet gevallen steeds geldig.
 
 Tabel [↗](#tbl-z) geeft $Z$ voor koolstofdioxide bij verschillende condities. We merken dat bij lage druk $Z \approx 1$; bij matige druk domineren aantrekkingskrachten ($Z < 1$); bij zeer hoge druk domineert het eindige moleculaire volume ($Z > 1$).
@@ -164,7 +161,6 @@ Een opmerkelijke empirische observatie is dat, wanneer $Z$ wordt uitgezet tegen 
 Twee fundamentele effecten liggen aan de basis van alle geobserveerde afwijkingen:
 
 1.  **Eindig moleculair volume**: moleculen bezitten een eigen afmeting (typisch $0.3\,\mathrm{nm}$ diameter). Het volume dat beschikbaar is voor translatiebeweging is dus kleiner dan het geometrische volume van de recipiënt. Naarmate de druk stijgt, wordt dit effect relatief belangrijker.
-
 2.  **Intermoleculaire krachten**: op gemiddelde afstand oefenen moleculen zwakke aantrekkingskrachten op elkaar (Van der Waals; zie Hoofdstuk [-@sec-ch-intermoleculair]). Deze krachten persen de moleculen samen, zodat de werkelijke druk lager is dan door de ideale gaswet wordt voorspeld. Op zeer korte afstand, wanneer elektronenwolken overlappen, treedt sterke afstoting op.
 
 De balans tussen beide effecten verklaart de niet-monotone afhankelijkheid van $Z$ van de druk (zie Figuur [-@fig-z]): bij lage druk domineren de aantrekkingskrachten ($Z < 1$), bij hoge druk domineert het eindige volume ($Z > 1$). Tussen beide door is er een zogenaamde *Boyle-temperatuur* waarvoor $Z = 1$ over een breed drukbereik.
@@ -425,19 +421,14 @@ De afwijkingen tonen aan dat, hoewel Van der Waals qualitatief correct is, de qu
 De vergelijking van Van der Waals blijft een vereenvoudigd model. Enkele beperkingen:
 
 -   De parameter $a$ wordt verondersteld onafhankelijk van temperatuur, hetgeen fysisch niet correct is (intermoleculaire krachten nemen af met temperatuur door de hogere kinetische energie).
-
 -   De parameter $b$ veronderstelt harde, niet-comprimeerbare moleculen, hetgeen de werkelijkheid niet volgt.
-
 -   De voorspelde $Z_c = 0.375$ wijkt systematisch af van experimentele waarden (typisch 0.23--0.31).
-
 -   De vloeistofdichtheid wordt steevast onderschat.
 
 Gedurende de twintigste eeuw werden daarom verschillende verbeteringen voorgesteld:
 
 -   **Redlich--Kwong** (1949): introduceert temperatuursafhankelijkheid in de $a$-parameter via $a/\sqrt{T}$.
-
 -   **Soave--Redlich--Kwong** (1972): verbeterd met een algemene temperatuursafhankelijkheid, nauwkeuriger voor vooral dampdrukken van zuivere componenten.
-
 -   **Peng--Robinson** (1976): specifiek gericht op vloeistofdichtheden en VLE-berekeningen, algemeen gebruikt in processimulators.
 
 Al deze vergelijkingen behoren tot de *familie der kubische toestandsvergelijkingen*; zij behouden de fundamentele structuur van Van der Waals (correcties voor co-volume en intermoleculaire krachten) maar verfijnen de wiskundige vorm van de correctietermen. Voor onderwijsdoeleinden evenals voor fysisch inzicht volstaat de originele Van der Waals-vergelijking; voor industriel̈e berekeningen worden de geavanceerde varianten in proces simulators (Aspen, HYSYS) gebruikt.
@@ -497,13 +488,9 @@ Om de energietoestand van een systeem te beschrijven, wordt een nieuwe toestands
 De interne energie omvat alle microscopische energie die in het systeem is opgeslagen. Zij bestaat onder meer uit:
 
 -   de translatie-energie van de moleculen;
-
 -   de rotatie-energie;
-
 -   de trillingsenergie;
-
 -   de potentiële energie ten gevolge van intermoleculaire krachten;
-
 -   de energie opgeslagen in chemische bindingen.
 
 De interne energie omvat dus alle energie die aanwezig is *in* het systeem zelf. De macroscopische kinetische energie en potentiële energie van het volledige systeem worden hierbij niet beschouwd. Een belangrijk kenmerk van de interne energie is dat zij een *toestandsfunctie* is. Haar waarde wordt volledig bepaald door de actuele toestand van het systeem en is onafhankelijk van de weg waarlangs deze toestand werd bereikt. Warmte en arbeid daarentegen zijn zoals we reeds beschreven geen toestandsfuncties. Zij beschrijven uitsluitend hoe energie tijdens een proces wordt uitgewisseld tussen systeem en omgeving.
@@ -630,7 +617,6 @@ Voor een ideaal gas volgt uit $H = U + nRT$ dat $$C_p - C_V = R.$$ Dit is de *we
 Beschouw $1\,\mathrm{kg}$ water ($C_p \approx 4.18\,\mathrm{kJ}\,\mathrm{kg}^{-1}\,\mathrm{K}^{-1}$) en $1\,\mathrm{kg}$ lucht ($C_p \approx 1.00\,\mathrm{kJ}\,\mathrm{kg}^{-1}\,\mathrm{K}^{-1}$). Om beide op te warmen van $20{}^{\circ}\mathrm{C}$ naar $30{}^{\circ}\mathrm{C}$ is nodig:
 
 -   Water: $Q = C \cdot \dd T = (4.18)(10) = 41.8\,\mathrm{kJ}$.
-
 -   Lucht: $Q = C \cdot \dd T = (1.00)(10) = 10.0\,\mathrm{kJ}$.
 
 Voor dezelfde temperatuurstijging heeft water dus meer dan viermaal zoveel warmte nodig als lucht. Dit verklaart waarom water een efficiënte koelvloeistof is.
@@ -751,11 +737,8 @@ De *standaardvormingsenthalpie* $\Delta H_f^\circ$ van een stof is de enthalpiev
 Beschouw de verbranding van methaan: $$\mathrm{CH_4(g) + 2\,O_2(g) \rightarrow CO_2(g) + 2\,H_2O(l)}.$$ Uit thermodynamische tabellen:
 
 -   $\Delta H_f^\circ(\mathrm{CH_4,g}) = -74.8\,\mathrm{kJ}\,\mathrm{mol}^{-1}$
-
 -   $\Delta H_f^\circ(\mathrm{CO_2,g}) = -393.5\,\mathrm{kJ}\,\mathrm{mol}^{-1}$
-
 -   $\Delta H_f^\circ(\mathrm{H_2O,l}) = -285.8\,\mathrm{kJ}\,\mathrm{mol}^{-1}$
-
 -   $\Delta H_f^\circ(\mathrm{O_2,g}) = 0$ (element in standaardtoestand)
 
 De reactie-enthalpie volgt uit de wet van Hess: $$\Delta_r H^\circ = \sum \nu_i \Delta H_f^\circ(i) = (-393.5) + 2(-285.8) - (-74.8) - 2(0) = -890.3\,\mathrm{kJ}\,\mathrm{mol}^{-1}.$$ Bij de verbranding van één mol methaan komt dus $890.3\,\mathrm{kJ}$ warmte vrij. Deze waarde is de basis voor het ontwerp van een aardgasverbrandingsoven.
@@ -772,9 +755,7 @@ Standaardvormingsenthalpieën worden doorgaans in tabellen bijgehouden bij $298.
 Wanneer een stof van fase verandert - smelten, verdampen, sublimeren - wordt warmte uitgewisseld zonder dat de temperatuur verandert. De benodigde warmte per mol wordt de *overgangsenthalpie* genoemd. We kennen onder andere volgende overgangsenthalpieën:
 
 -   $\Delta H_{\text{fus}}$: smeltenthalpie (vast $\rightarrow$ vloeibaar)
-
 -   $\Delta H_{\text{vap}}$: verdampingsenthalpie (vloeibaar $\rightarrow$ gas)
-
 -   $\Delta H_{\text{sub}}$: sublimatie-enthalpie (vast $\rightarrow$ gas)
 
 Voor water bedraagt $\Delta H_{\text{fus}} \approx 6.0\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ bij $0{}^{\circ}\mathrm{C}$, en $\Delta H_{\text{vap}} \approx 40.7\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ bij $100{}^{\circ}\mathrm{C}$.
@@ -848,9 +829,7 @@ Zowel het afkoelen als het spontaan opwarmen van een kop koffie voldoen aan de e
 Een industriële compressor comprimeert $100\,\mathrm{mol}$ stikstof (ideaal gas) isotherm bij $300\,\mathrm{K}$ van $1\,\mathrm{bar}$ naar $50\,\mathrm{bar}$. Bereken
 
 1.  de benodigde reversibele arbeid,
-
 2.  de warmte die aan de omgeving moet worden afgevoerd,
-
 3.  het volume van het gas voor en na de compressie.
 :::
 
@@ -860,9 +839,7 @@ Een industriële compressor comprimeert $100\,\mathrm{mol}$ stikstof (ideaal gas
 Dezelfde compressor werkt nu adiabatisch ($Q = 0$) en reversibel. De begin temperatuur bedraagt $300\,\mathrm{K}$. Neem $C_{V,m} = \frac{5}{2}R$ voor $\mathrm{N_2}$ (tweatomig ideaal gas).
 
 1.  Bereken de eindtemperatuur bij een compressie van $1\,\mathrm{bar}$ naar $50\,\mathrm{bar}$.
-
 2.  Bereken de benodigde arbeid per mol.
-
 3.  Vergelijk met de isotherme arbeid uit Oefening 1. Verklaar waarom de adiabatische arbeid groter is.
 
 *Hint:* voor een reversibele adiabatische compressie van een ideaal geldt $T_2/T_1 = (p_2/p_1)^{R/C_{p,m}}$.
@@ -874,9 +851,7 @@ Dezelfde compressor werkt nu adiabatisch ($Q = 0$) en reversibel. De begin tempe
 Een processtroom van $2.0\,\mathrm{kg}\,\mathrm{s}^{-1}$ water wordt in een warmtewisselaar opgewarmd van $25{}^{\circ}\mathrm{C}$ naar $85{}^{\circ}\mathrm{C}$. De warmtecapaciteit van water bedraagt $C_p \approx 4.18\,\mathrm{kJ}\,\mathrm{kg}^{-1}\,\mathrm{K}^{-1}$ en mag constant worden verondersteld.
 
 1.  Bereken de benodigde warmtestroom (in $\mathrm{kW}$).
-
 2.  Bereken de verandering van de enthalpie van de waterstroom per seconde.
-
 3.  Waarom mag de enthalpieverandering hier gelijk worden gesteld aan de uitgewisseld warmte?
 :::
 
@@ -886,11 +861,8 @@ Een processtroom van $2.0\,\mathrm{kg}\,\mathrm{s}^{-1}$ water wordt in een warm
 Bereken de standaardreactie-enthalpie van de verbranding van vloeibaar ethanol: $$\mathrm{C_2H_5OH(l) + 3\,O_2(g) \rightarrow 2\,CO_2(g) + 3\,H_2O(l)}.$$ Gegeven zijn de standaardvormingsenthalpieën bij $298\,\mathrm{K}$:
 
 -   $\Delta H_f^\circ(\mathrm{C_2H_5OH,l}) = -277.7\,\mathrm{kJ}\,\mathrm{mol}^{-1}$
-
 -   $\Delta H_f^\circ(\mathrm{CO_2,g}) = -393.5\,\mathrm{kJ}\,\mathrm{mol}^{-1}$
-
 -   $\Delta H_f^\circ(\mathrm{H_2O,l}) = -285.8\,\mathrm{kJ}\,\mathrm{mol}^{-1}$
-
 -   $\Delta H_f^\circ(\mathrm{O_2,g}) = 0$
 
 Hoeveel warmte komt vrij bij de verbranding van $1\,\mathrm{kg}$ ethanol?
@@ -902,9 +874,7 @@ Hoeveel warmte komt vrij bij de verbranding van $1\,\mathrm{kg}$ ethanol?
 De standaardreactie-enthalpie van de ammoniaksynthese $$\mathrm{N_2(g) + 3\,H_2(g) \rightarrow 2\,NH_3(g)}$$ bedraagt $\Delta_r H^\circ(298\,\mathrm{K}) = -92.4\,\mathrm{kJ}\,\mathrm{mol}^{-1}$. De molair warmtecapaciteiten (constant verondersteld) zijn:
 
 -   $C_{p,m}(\mathrm{N_2}) = 29.1\,\mathrm{J}\,\mathrm{mol}^{-1}\,\mathrm{K}^{-1}$
-
 -   $C_{p,m}(\mathrm{H_2}) = 28.8\,\mathrm{J}\,\mathrm{mol}^{-1}\,\mathrm{K}^{-1}$
-
 -   $C_{p,m}(\mathrm{NH_3}) = 35.1\,\mathrm{J}\,\mathrm{mol}^{-1}\,\mathrm{K}^{-1}$
 
 Bereken de reactie-enthalpie bij $500{}^{\circ}\mathrm{C}$ ($773\,\mathrm{K}$). Verklaar waarom de reactie bij hoge temperatuur minder exotherm is dan bij kamertemperatuur.
@@ -916,13 +886,9 @@ Bereken de reactie-enthalpie bij $500{}^{\circ}\mathrm{C}$ ($773\,\mathrm{K}$). 
 Een stoomketel moet $10\,\mathrm{mol}$ water per minuut omzetten van vloeibaar water bij $25{}^{\circ}\mathrm{C}$ naar droge verzadigde stoom bij $100{}^{\circ}\mathrm{C}$ en $1\,\mathrm{bar}$. Gebruik de volgende gegevens:
 
 -   $C_{p,m}(\text{water, vloeibaar}) \approx 75.3\,\mathrm{J}\,\mathrm{mol}^{-1}\,\mathrm{K}^{-1}$
-
 -   $\Delta H_{\text{vap}} \approx 40.7\,\mathrm{kJ}\,\mathrm{mol}^{-1}$ bij $100{}^{\circ}\mathrm{C}$
-
 1.  Bereken de totale warmte die per minuut moet worden toegevoerd.
-
 2.  Splits deze op in de bijdrage van opwarmen en de bijdrage van verdampen.
-
 3.  Wat is de verhouding van beide bijdragen? Wat leert dit over het energieërverbruik van een reboiler versus een gewone vloeistofverwarmer?
 :::
 
@@ -932,9 +898,7 @@ Een stoomketel moet $10\,\mathrm{mol}$ water per minuut omzetten van vloeibaar w
 Koolstofdioxide bij hoge druk wijkt sterk af van ideaal gedrag. De Van der Waals-constanten voor $\mathrm{CO_2}$ zijn $a = 0.364\,\mathrm{Pa}\,\mathrm{m}^{6}\,\mathrm{mol}^{-2}$ en $b = 4.27\times10^{-5}\,\mathrm{m}^{3}\,\mathrm{mol}^{-1}$.
 
 1.  Bereken de druk die de vergelijking van Van der Waals voorspelt voor $1\,\mathrm{mol}$ $\mathrm{CO_2}$ bij $T = 300\,\mathrm{K}$ en $V_m = 0.5\,\mathrm{L}\,\mathrm{mol}^{-1}$.
-
 2.  Vergelijk met de druk die de ideale gaswet voorspelt onder dezelfde omstandigheden.
-
 3.  Bereken de compressibiliteitsfactor $Z$ in beide gevallen. Verklaar waarom $Z < 1$.
 :::
 

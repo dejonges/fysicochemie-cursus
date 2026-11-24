@@ -39,7 +39,6 @@ Wanneer een vloeistof in contact komt met een vaste wand, kan de vloeistof opsti
 De volledige thermodynamica en kinetiek van adsorptie --- het onderscheid tussen fysisorptie en chemisorptie, de afleiding van de Langmuir-isotherme uit het adsorptie/desorptie-evenwicht, en de BET-isotherme voor multilaagadsorptie --- werden reeds uitgebreid behandeld in hoofdstuk [-@sec-ch-kinetiek] (§ [-@sec-fysisorptie-chemisorptie] tot en met § [-@sec-bet]), in de context van heterogene katalyse (§ [-@sec-heterogene-katalyse] aldaar). We herhalen die afleidingen hier niet, maar vatten kort samen wat voor dit hoofdstuk relevant is:
 
 -   De bezettingsgraad $\theta$ van een oppervlak volgt de *Langmuir-isotherme* $\theta = Kp/(1+Kp)$, met $K$ de adsorptie-evenwichtsconstante --- lineair bij lage druk, verzadigend naar $\theta\to1$ bij hoge druk.
-
 -   Voor multilaag-fysisorptie (bijvoorbeeld $\mathrm{N_2}$ op een poreuze drager bij $77\,\mathrm{K}$) geldt in plaats daarvan de *BET-isotherme*, industrieel gebruikt om de specifieke oppervlakte ($\mathrm{m}^{2}\,\mathrm{g}^{-1}$) van poeders, katalysatoren en andere poreuze materialen te bepalen.
 
 Deze twee isothermen keren in dit hoofdstuk terug als het kwantitatieve gereedschap achter adsorptie aan alle types grensvlakken die hierna aan bod komen --- niet enkel het vast--gasgrensvlak van een katalysator, maar ook het vloeistof--luchtgrensvlak waaraan surfactanten adsorberen (§ [-@sec-surfactanten]) en het vaste--vloeistofgrensvlak van een colloïdaal deeltje (§ [-@sec-colloiden]).
@@ -71,7 +70,6 @@ Een *colloïde* is een dispersie van deeltjes met een grootte tussen $1\,\mathrm
 De stabiliteit van een colloïdale dispersie wordt bepaald door de balans tussen twee krachten:
 
 -   **Van der Waals-aantrekking** (hoofdstuk [-@sec-ch-intermoleculair]): brengt deeltjes samen en leidt tot coagulatie.
-
 -   **Elektrostatische afstoting**: ontstaat door geladen oppervlakken met een elektrische dubbellaag; werkt de aantrekking tegen.
 
 De som van beide krachten als functie van de afstand vormt de *potentiële energiecurve* van DLVO (Derjaguin--Landau--Verwey--Overbeek). Bij voldoende afstoting ontstaat een energiedrempel die coagulatie verhindert; de dispersie is dan kinetisch stabiel.
@@ -81,7 +79,6 @@ De som van beide krachten als functie van de afstand vormt de *potentiële energ
 In waterige oplossingen krijgen colloïdale deeltjes een oppervlaktelading door ionisatie van oppervlaktegroepen, adsorptie van ionen (§ [-@sec-adsorptie-grensvlakken]) of isomorfe substitutie. Deze lading wordt gecompenseerd door een tegenionenwolk: de *elektrische dubbellaag*. Het model van Gouy--Chapman--Stern beschrijft twee gebieden:
 
 1.  Een *Stern-laag*: stevig gebonden tegenionen dicht bij het oppervlak.
-
 2.  Een *diffuse laag*: een wolk van tegenionen met geleidelijk afnemende concentratie, die in de bulk overgaat.
 
 Het potentiaalverloop in de diffuse laag is exponentieel, met karakteristieke lengte $\kappa^{-1}$ (Debye-lengte).
@@ -101,7 +98,6 @@ In waterzuiveringsinstallaties worden colloïdale deeltjes (klei, organisch mate
 Wanneer een colloïde met geladen oppervlak zich in een elektrisch veld bevindt, kunnen twee verschijnselen optreden:
 
 -   **Elektroforese**: de deeltjes bewegen naar de tegengesteld geladen elektrode.
-
 -   **Elektro-osmose**: de vloeistof beweegt langs een geladen vaste wand wanneer een elektrisch veld wordt aangelegd.
 
 Beide verschijnselen worden beschreven door de vergelijking van Smoluchowski en worden toegepast in inktprinters, elektroforetische coatings, DNA-scheiding en microfluidica.
@@ -111,7 +107,6 @@ Beide verschijnselen worden beschreven door de vergelijking van Smoluchowski en 
 Een *emulsie* is een dispersie van een vloeistof in een andere onmengbare vloeistof. Twee types worden onderscheiden:
 
 -   **Olie-in-water (O/W)**: oliedruppels in waterige fase (melk, mayonaise, cosmeticum).
-
 -   **Water-in-olie (W/O)**: waterdruppels in oliefase (boter, margarine, sommige zalven).
 
 Emulsies zijn thermodynamisch onstabiel (de Gibbs-energie van de grensvlakken is positief), maar kunnen kinetisch stabiel worden gemaakt door *emulgatoren*: surfactanten of vaste deeltjes die zich aan het vloeistof--vloeistofgrensvlak hechten en een beschermende laag vormen.
@@ -121,7 +116,6 @@ Emulsies zijn thermodynamisch onstabiel (de Gibbs-energie van de grensvlakken is
 De keuze van de juiste surfactant voor een emulsie wordt geholpen door het *HLB-getal* (Hydrofiel--Lipofiel Balans):
 
 -   HLB 3--6: W/O-emulgator.
-
 -   HLB 8--18: O/W-emulgator.
 
 Voor mayonaise (O/W) gebruikt men bijvoorbeeld eiwit (HLB $\sim$ 13); voor margarine (W/O) gebruikt men mono- en diglyceriden (HLB $\sim$ 4).
@@ -137,19 +131,12 @@ Een *schuim* is een dispersie van gas in vloeistof. Schuimen zijn kinetisch stab
 De principes van oppervlakte- en colloïdchemie zijn alom aanwezig in de chemische industrie:
 
 -   **Katalysatoren**: hoge specifieke oppervlakte (BET), actieve sites (chemisorptie), gedragen katalysatoren ($\mathrm{Al_2O_3}$, zeolieten). Direct verbonden met hoofdstuk [-@sec-ch-kinetiek].
-
 -   **Wasmiddelen**: surfactanten verlagen de oppervlaktespanning, waardoor vetdeeltjes van textiel loskomen en in micellen worden opgenomen.
-
 -   **Waterzuivering**: coagulatie en flocculatie via zeta-potentiaalverlaging.
-
 -   **Farmaceutische formuleringen**: emulsies, suspensies, liposomen.
-
 -   **Voedingsindustrie**: emulsies (melk, mayonaise, chocolade), schuimen (slagroom, bier), gelen (yoghurt, kaas).
-
 -   **Mijnbouw**: flotatiescheiding van ertsen, waarbij hydrofoob gemaakte minerale deeltjes aan luchtbellen hechten en naar de oppervlakte stijgen.
-
 -   **Coatings en verf**: pigmentdispersies, stabiliteit, hechting aan substraat.
-
 -   **Papierindustrie**: retentie van vulstoffen, coating, hydrofobing.
 
 ::: {.callout-important}

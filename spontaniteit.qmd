@@ -363,9 +363,7 @@ Voor elke component $i$, in elke fase en bij elke samenstelling, geldt $$\boxed{
 De activiteit wordt gerelateerd aan een meetbare samenstellingsgrootheid (molfractie $x_i$, molaire concentratie $c_i$, of partiële druk $p_i$) via de *activiteitscoëfficiënt* $\gamma_i$, bijvoorbeeld voor een vloeistofmengsel: $$a_i = \gamma_i x_i.$$ De activiteitscoëfficiënt is dimensieloos en vormt een rechtstreekse maat voor de afwijking van ideaal gedrag:
 
 -   Voor een ideaal gas, een ideaal gasmengsel, of een ideale (zeer verdunde of chemisch zeer gelijkaardige) vloeistofoplossing geldt $\gamma_i\to 1$, zodat $a_i\to x_i$ (of $a_i\to p_i/p^\circ$ voor gassen) en vergelijking ([-@eq-mu-activiteit]) herleidt tot de eenvoudige uitdrukkingen uit de vorige paragrafen.
-
 -   $\gamma_i<1$ wijst op aantrekkende afwijkingen ten opzichte van ideaal gedrag (de component "verkiest" het mengsel), $\gamma_i>1$ op afstotende afwijkingen (de component "ontwijkt" het mengsel) -- geheel analoog aan de interpretatie van de compressibiliteitsfactor $Z$ voor reële gassen in hoofdstuk [-@sec-ch-energie] (§ 1.5.3).
-
 -   Voor een zuivere gecondenseerde fase (zuivere vloeistof of vaste stof) in haar standaardtoestand geldt per conventie $a_i=1$.
 
 ::: {.callout-note}
@@ -385,9 +383,7 @@ Voor een homogeen systeem bij constante temperatuur en druk kan de verandering v
 Tijdens een chemische reactie veranderen de hoeveelheden van de verschillende componenten niet onafhankelijk. Zij worden gekoppeld door de stoichiometrie van de reactie. Voor de algemene reactie $$aA + bB \rightleftharpoons cC + dD$$ wordt de verandering van de Gibbs-vrije energie tijdens een uiterst kleine omzetting gegeven door $$\dG = (c\mu_C + d\mu_D - a\mu_A - b\mu_B)\,\dx{\xi},$$ waarin $\dx{\xi}$ een uiterst kleine omzetting van de reactie voorstelt. De uitdrukking tussen haakjes wordt de *reactie-Gibbsenergie* genoemd: $$\Delta_r G = \sum_i \nu_i \mu_i,$$ waarbij $\nu_i$ de stoichiometrische coëfficiënten voorstellen, met de conventie dat reactieproducten een positieve en reagentia een negatieve coëfficiënt krijgen.
 
 -   Indien $\Delta_r G < 0$ verloopt de reactie spontaan in de richting van de reactieproducten.
-
 -   Indien $\Delta_r G > 0$ verloopt de reactie spontaan in de omgekeerde richting.
-
 -   Indien $\Delta_r G = 0$ bevindt het systeem zich in chemisch evenwicht.
 
 Merk op dat de reactie-Gibbsenergie geen constante grootheid is. Tijdens een chemische reactie verandert voortdurend de samenstelling van het reactiemengsel, en daardoor veranderen ook de chemische potentialen van alle aanwezige componenten.

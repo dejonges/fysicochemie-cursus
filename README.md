@@ -9,6 +9,12 @@ Bij elke wijziging op `main` bouwt GitHub de site opnieuw en publiceert ze op Gi
 - Wiskunde schrijf je zoals in LaTeX: `$...$` in de tekst, `$$...$$` apart. Een vergelijking krijgt een nummer met `$$ ... $$ {#eq-naam}` en je verwijst ernaar met `@eq-naam`.
 - Kaders: `::: {.callout-tip}` + `## Voorbeeld: titel` + tekst + `:::`.
 
+## Opmaak aanpassen
+
+- **`stijl.scss`**: kleuren, lettergrootte, regelafstand, ruimte tussen opsommingsitems en tabelstijl. Elke regel heeft uitleg in het Nederlands.
+- **Eén tabel anders**: zet achter het bijschrift van de tabel bijvoorbeeld `{tbl-colwidths="[20,80]"}` voor kolombreedtes, of `{.striped .hover}` voor een andere stijl.
+- **`_quarto.yml`**: titel, hoofdstukvolgorde, thema (`cosmo`/`darkly`, zie https://bootswatch.com voor alternatieven).
+
 ## Opnieuw omzetten vanuit LaTeX
 
 `tools/tex2qmd.py` zet de LaTeX-hoofdstukken om naar `.qmd`:

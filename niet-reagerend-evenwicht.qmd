@@ -61,7 +61,6 @@ Voor water bij $0{}^{\circ}\mathrm{C}$ geldt $\Delta H_{\text{fus}} = 6.0\,\math
 Voor het vloeistof-dampevenwicht kan de algemene vergelijking van Clapeyron sterk worden vereenvoudigd. Twee aannames worden gemaakt:
 
 1.  Het molaire volume van de damp is veel groter dan dat van de vloeistof: $\Delta V_{\text{vap}} \approx V_m^{(g)}$.
-
 2.  De damp gedraagt zich als een ideaal gas: $V_m^{(g)} = RT/p$.
 
 Substitutie levert: $$\frac{1}{p}\frac{\dp}{\dT} = \frac{\Delta H_{\text{vap}}}{RT^2},$$ of, equivalent: $$\frac{\dx{\ln p}}{\dT} = \frac{\Delta H_{\text{vap}}}{RT^2}.$$ Indien $\Delta H_{\text{vap}}$ constant wordt verondersteld, levert integratie: $$\boxed{\;\ln\frac{p_2}{p_1} = -\frac{\Delta H_{\text{vap}}}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right)\;}$$ {#eq-clausius-clapeyron-int} Deze vergelijking is bijzonder populair omdat zij toelaat de dampdruk bij verschillende temperaturen te schatten uit twee bekende punten.
@@ -163,9 +162,7 @@ Uit de wet van Raoult en de definitie $y_i = p_i/P$ volgt: $$y_i = \frac{x_i p_i
 De *relatieve vluchtigheid* $\alpha_{AB}$ kwantificeert hoe gemakkelijk twee componenten $A$ en $B$ door destillatie kunnen worden gescheiden: $$\boxed{\;\alpha_{AB} = \frac{y_A/x_A}{y_B/x_B} = \frac{p_A^*}{p_B^*}\;}$$ Voor ideale mengsels is $\alpha$ gelijk aan de verhouding van de verzadigingsdampdrukken. Hoe groter $\alpha$, hoe gemakkelijker de scheiding.
 
 -   $\alpha \approx 1$: scheiding door destillatie is vrijwel onmogelijk.
-
 -   $\alpha \approx 2$: scheiding is relatief eenvoudig met weinig traps.
-
 -   $\alpha \geq 5$: scheiding is zeer eenvoudig.
 
 ::: {.callout-tip}
@@ -181,7 +178,6 @@ Voor het mengsel uit het vorige voorbeeld geldt $\alpha_{AB} = p_A^*/p_B^* = 1.3
 De resultaten van de wet van Raoult worden grafisch voorgesteld in een *damp-vloeistofdiagram*. Voor een binaire mengsel bij constante temperatuur worden twee curven getekend:
 
 -   De *bubbelpuntcurve*: $P$ als functie van $x_A$, volgens $P = x_A p_A^* + x_B p_B^*$.
-
 -   De *dauwpuntcurve*: $P$ als functie van $y_A$, afgeleid uit de bubbelpuntcurve via $y_i = x_i p_i^*/P$.
 
 Samen begrenzen beide curven het gebied waarin vloeistof en damp gelijktijdig aanwezig zijn. Een punt binnen dit tweefasengebied representeert een mengsel dat gedeeltelijk vloeibaar en gedeeltelijk damp is.
@@ -213,7 +209,6 @@ Voor vele reële mengsels wijkt de totale dampdruk af van de wet van Raoult. Wan
 Wanneer de intermoleculaire interacties tussen ongelijke moleculen zwakker zijn dan tussen gelijke (hoofdstuk [-@sec-ch-intermoleculair]), is de dampdruk hoger dan door Raoult voorspeld. Boven een drempel ontstaat een *minimaal kokende azeotroop*: het mengsel kookt bij een lagere temperatuur dan beide zuivere componenten.
 
 -   **Ethanol--water** bij $x_{\text{eth}} = 0.894$ en $T = 78.2{}^{\circ}\mathrm{C}$ (lager dan zuiver ethanol: $78.4{}^{\circ}\mathrm{C}$). Dit is de verklaring voor de beperking van ethanoldestillatie tot $95.6\%$.
-
 -   **Aceton--koolstofdisulfide**: $T = 39.3{}^{\circ}\mathrm{C}$ (lager dan aceton $56{}^{\circ}\mathrm{C}$ en $\mathrm{CS_2}$ $46{}^{\circ}\mathrm{C}$).
 
 #### Maximaal kokende azeotroop (negatieve afwijking)
@@ -221,7 +216,6 @@ Wanneer de intermoleculaire interacties tussen ongelijke moleculen zwakker zijn 
 Wanneer de intermoleculaire interacties tussen ongelijke moleculen sterker zijn, is de dampdruk lager dan door Raoult voorspeld. Boven een drempel ontstaat een *maximaal kokende azeotroop*: het mengsel kookt bij een hogere temperatuur dan beide zuivere componenten.
 
 -   **Zoutzuur--water** ($\mathrm{HCl}$--$\mathrm{H_2O}$) bij $x_{\mathrm{HCl}} = 0.112$ en $T = 110{}^{\circ}\mathrm{C}$. Dit wordt commercieel gebruikt voor de productie van standaard zoutzuur met precies bekende samenstelling.
-
 -   **Aceton--chloroform** bij $T = 64.5{}^{\circ}\mathrm{C}$ (hoger dan aceton $56{}^{\circ}\mathrm{C}$ en chloroform $61{}^{\circ}\mathrm{C}$). De verklaring ligt in waterstofbruggen tussen aceton en chloroform (hoofdstuk [-@sec-ch-intermoleculair], § 4.2.6).
 
 ## Reële mengsels: activiteit en activiteitscoëfficiëntmodellen
@@ -233,9 +227,7 @@ Voor reële mengsels volstaat de wet van Raoult niet langer. De chemische potent
 #### Interpretatie van de activiteitscoëfficiënt
 
 -   $\gamma_i > 1$: component $i$ vertoont een *positieve afwijking* --- de intermoleculaire interacties tussen ongelijke moleculen zijn zwakker (hoofdstuk [-@sec-ch-intermoleculair]). De component verlaat de vloeistof gemakkelijker dan ideaal; dampdruk hoger dan Raoult.
-
 -   $\gamma_i < 1$: *negatieve afwijking* --- de intermoleculaire interacties tussen ongelijke moleculen zijn sterker. De component wordt beter in de vloeistof vastgehouden; dampdruk lager dan Raoult.
-
 -   $\gamma_i \to 1$ naarmate $x_i \to 1$: elke component gedraagt zich ideaal in de limiet van de zuivere stof.
 
 #### De wet van Henry {#sec-henry}
@@ -339,9 +331,7 @@ Voor mengsels met een andere samenstelling begint de stolling bij een hogere tem
 Typische voorbeelden:
 
 -   Lood--tin (Pb--Sn) met eutecticum bij $x_{\text{Sn}} = 0.61$ en $T = 183{}^{\circ}\mathrm{C}$ --- basis van soldeertin.
-
 -   Koper--zilver (Cu--Ag) met eutecticum bij $x_{\text{Ag}} = 0.71$ en $T = 779{}^{\circ}\mathrm{C}$.
-
 -   Natriumchloride--water ($\mathrm{NaCl}$--$\mathrm{H_2O}$) met eutecticum bij $-21{}^{\circ}\mathrm{C}$, gebruikt als koudemiddel.
 
 #### Vriespuntsverlaging {#sec-vriespuntsverlaging}
@@ -353,11 +343,8 @@ Voor een verdunde oplossing kan de verlaging van het vriespunt van het oplosmidd
 De aanwezigheid van een opgeloste component beïnvloedt het fase-evenwicht van het oplosmiddel op vier verwante manieren. Deze *colligatieve eigenschappen* zijn allen een gevolg van de daling van de chemische potentiaal van het oplosmiddel door menging (vergelijking ([-@eq-mu-mengsel-ideaal])): zij hangen daardoor enkel af van het *aantal* opgeloste deeltjes, niet van hun chemische aard.
 
 1.  **Dampdrukverlaging** (Raoult): $p = x_{\text{oplm}}\,p^*_{\text{oplm}}$.
-
 2.  **Kookpuntsverhoging**: $\Delta T_b = K_b \cdot m$ (voor water: $K_b = 0.512\,\mathrm{K}\,\mathrm{kg}\,\mathrm{mol}^{-1}$).
-
 3.  **Vriespuntsverlaging**: $\Delta T_f = -K_f \cdot m$ (§ [-@sec-vriespuntsverlaging]).
-
 4.  **Osmotische druk**: $\Pi = c R T$ (vergelijking van Van 't Hoff).
 
 ::: {.callout-tip}
@@ -371,15 +358,10 @@ Een fysiologische zoutoplossing bevat $9\,\mathrm{g}\,\mathrm{L}^{-1}$ NaCl. Met
 De voorbije secties hebben aangetoond dat damp-vloeistofevenwicht, vloeistof-vloeistofevenwicht en vast-vloeistofevenwicht allen voortvloeien uit dezelfde thermodynamische voorwaarde: de gelijkheid van chemische potentialen tussen fasen. Voor de ingenieur vormt dit de theoretische basis van vrijwel alle scheidingsprocessen --- en het sluit rechtstreeks aan bij de industriële toepassingen die reeds in hoofdstuk [-@sec-ch-intermoleculair] werden opgesomd.
 
 -   **Destillatie** berust op het verschil in samenstelling tussen vloeistof en damp bij VLE.
-
 -   **Vloeistof-vloeistofextractie** berust op de verdeling van een component tussen twee onmengbare vloeistoffasen (Nernst, § [-@sec-nernst]).
-
 -   **Kristallisatie** berust op SLE en het uitkristalliseren van een component bij afkoeling.
-
 -   **Absorptie** en **desorptie** berusten op de oplosbaarheid van gassen in vloeistoffen (Henry, § [-@sec-henry]).
-
 -   **Droging** berust op de evenwichtsdampdruk boven een vaste stof of vloeistof (Clausius--Clapeyron, Antoine).
-
 -   **Omgekeerde osmose** berust op het overwinnen van de osmotische druk door uitwendige arbeid.
 
 In alle gevallen geldt: de thermodynamica bepaalt de maximale haalbare scheiding. De procestechnologie bepaalt hoe dicht een werkelijk proces deze grens kan benaderen. Deze voorbeelden zullen in een vervolgcursus Scheidingstechnologie uitgebreid aan bod komen.
