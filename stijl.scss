@@ -1,50 +1,79 @@
 /*-- scss:defaults --*/
 // ===== Lettertypes en maten (voor licht én donker) =====
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400&display=swap');
 
-$font-family-sans-serif: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+$font-family-sans-serif: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;   // navigatie, bijschriften, kadertitels
+$font-family-serif:      "Source Serif 4", Georgia, serif;   // lopende tekst: boekletter
 $headings-font-family:   "Source Serif 4", Georgia, serif;   // titels: sobere, academische schreefletter
 $font-family-monospace:  "JetBrains Mono", ui-monospace, monospace;
-$font-size-root:   16px;      // basisgrootte van de tekst
+$font-size-root:   16.5px;    // basisgrootte van de tekst
+$font-family-base: $font-family-serif;
 $line-height-base: 1.6;      // regelafstand in lopende tekst
 $headings-font-weight: 600;
+$headings-color: inherit;
 
 /*-- scss:rules --*/
 // ----- Titels -----
+// Hoofdstukopening zoals in een boek: groot nummer, titel eronder, fijne lijn
 h1.title, .quarto-title h1 {
-  font-size: 2.4rem;
-  letter-spacing: -0.01em;
+  font-size: 2.3rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
   line-height: 1.15;
 }
-.quarto-title-block .quarto-title {
-  padding-bottom: 0.9rem;
-  margin-bottom: 1.5rem;
-  border-bottom: 3px solid var(--accent);
+h1.title .chapter-number, .quarto-title h1 .chapter-number {
+  display: block;
+  font-size: 4.2rem;
+  font-weight: 300;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
 }
-main h2 {
-  margin-top: 2.6rem;
-  padding-bottom: 0.35rem;
+.quarto-title-block .quarto-title {
+  padding-bottom: 1.1rem;
+  margin: 1.5rem 0 2.2rem;
   border-bottom: 1px solid var(--rand);
 }
-main h3 { margin-top: 1.8rem; }
-.header-section-number { color: var(--accent); font-weight: 700; margin-right: 0.15em; }
-.chapter-number { color: var(--accent); }
+main h2 { margin-top: 2.8rem; font-size: 1.55rem; }
+main h3 { margin-top: 2rem; font-size: 1.22rem; font-style: italic; font-weight: 600; }
+main h4 { font-size: 1.05rem; }
+.header-section-number { color: var(--accent); font-weight: 600; margin-right: 0.35em; font-style: normal; }
+
+// ----- Lopende tekst: uitgevuld met woordafbreking, zoals in een gedrukt boek -----
+main p, main li {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  font-variant-numeric: oldstyle-nums proportional-nums;
+}
+main { font-kerning: normal; text-rendering: optimizeLegibility; }
+// Navigatie, inhoudstafel en bijschriften in de schreefloze letter
+#quarto-sidebar, #TOC, nav, figcaption, .table-caption, caption, .page-navigation,
+div.callout .callout-title-container, .quarto-title-meta { font-family: $font-family-sans-serif; }
 
 // ----- Links -----
 main a { text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
 main a:hover { border-bottom-color: currentColor; }
 
 // ----- Kaders (definitie, voorbeeld, toepassing, besluit, oefening) -----
+// Rustige boekkaders: getint papier, fijne rand, gekleurde lijn links
 div.callout {
-  border-radius: 12px;
-  border: 1px solid var(--rand);
-  border-left-width: 5px;
+  border-radius: 4px;
+  border-top: 0; border-right: 0; border-bottom: 0;
+  border-left-width: 4px;
+  border-left-style: solid;   // de kleur komt van het type kader
   background: var(--kaart);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 4px 14px rgba(15, 23, 42, 0.04);
-  margin: 1.6rem 0;
+  box-shadow: none;
+  margin: 1.8rem 0;
 }
-div.callout .callout-header { border-radius: 0 10px 0 0; }
-div.callout .callout-title-container { font-family: $font-family-sans-serif; font-weight: 600; letter-spacing: 0.01em; }
+div.callout .callout-header { background: transparent !important; border: 0; padding-top: 0.6rem; }
+div.callout .callout-title-container {
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+div.callout .callout-body-container { padding-bottom: 0.3rem; }
 
 // ----- Opsommingen -----
 $lijst-afstand: 0.3rem;      // ruimte tussen twee items in een opsomming
@@ -60,19 +89,18 @@ main table {
   margin-left: auto;           // tabel centreren
   margin-right: auto;
   font-size: 0.93em;
-  border-collapse: separate;
-  border-spacing: 0;
-  border: 1px solid var(--rand);
-  border-radius: 10px;
-  overflow: hidden;
+  border-collapse: collapse;
+  border-top: 1.5px solid currentColor;      // boektabel: lijn boven en onder
+  border-bottom: 1.5px solid currentColor;
 }
 main table thead th {
-  background: var(--accent-zacht);
-  border-bottom: 2px solid var(--accent) !important;
+  background: transparent;
+  border-bottom: 1.5px solid currentColor !important;
+  font-family: $font-family-sans-serif;
   font-weight: 600;
 }
 main table td, main table th { padding: 0.45rem 0.9rem; border-top: 0; }
-main table tbody tr:nth-child(even) { background: var(--accent-zacht); background: color-mix(in srgb, var(--accent-zacht) 45%, transparent); }
+main table tbody tr:nth-child(even) { background: transparent; }   // geen zebrastrepen: klassieke boektabel
 main table caption, .table-caption, figcaption { color: var(--gedempt); font-size: 0.9em; }
 
 // ----- Formules -----

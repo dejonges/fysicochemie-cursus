@@ -1,17 +1,17 @@
 /*-- scss:defaults --*/
 // ===== Kleuren voor de LICHTE weergave =====
-$primary:      #0e7490;   // hoofdkleur: petrol (links, nummers, accenten)
+$primary:      #0b5f73;   // hoofdkleur: petrol (links, nummers, accenten)
 $secondary:    #64748b;
-$body-bg:      #fcfcfb;   // achtergrond van de pagina
-$body-color:   #1e293b;   // tekstkleur
+$body-bg:      #fbfaf6;   // achtergrond van de pagina: warm papierwit
+$body-color:   #22262b;   // tekstkleur
 $link-color:   $primary;
 
 /*-- scss:rules --*/
 :root {
-  --accent:        #0e7490;
-  --accent-zacht:  #e6f4f7;   // lichte tint van de hoofdkleur
+  --accent:        #0b5f73;
+  --accent-zacht:  #eaf2f2;   // lichte tint van de hoofdkleur
   --accent-2:      #e0763c;   // tweede accent: warm oranje
-  --rand:          #e2e8f0;   // lijnen en randen
-  --kaart:         #ffffff;   // achtergrond van kaders
+  --rand:          #dcd8cc;   // lijnen en randen
+  --kaart:         #f5f3ec;   // achtergrond van kaders: iets donkerder papier   // achtergrond van kaders
   --gedempt:       #64748b;   // grijze hulptekst
 }
