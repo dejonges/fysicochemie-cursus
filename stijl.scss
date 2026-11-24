@@ -1,144 +1,138 @@
 /*-- scss:defaults --*/
 // ===== Lettertypes en maten (voor licht én donker) =====
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400&display=swap');
 
-$font-family-sans-serif: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;   // navigatie, bijschriften, kadertitels
-$font-family-serif:      "Source Serif 4", Georgia, serif;   // lopende tekst: boekletter
-$headings-font-family:   "Source Serif 4", Georgia, serif;   // titels: sobere, academische schreefletter
+$font-family-sans-serif: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;   // lopende tekst en menu's
+$headings-font-family:   "Source Serif 4", Georgia, serif;   // titels: rustige schreefletter
 $font-family-monospace:  "JetBrains Mono", ui-monospace, monospace;
-$font-size-root:   16.5px;    // basisgrootte van de tekst
-$font-family-base: $font-family-serif;
-$line-height-base: 1.6;      // regelafstand in lopende tekst
-$headings-font-weight: 600;
+$font-size-root:   17px;      // basisgrootte van de tekst
+$line-height-base: 1.7;       // regelafstand in lopende tekst: ruim, zoals in een goed boek
+$headings-font-weight: 500;
 $headings-color: inherit;
 
 /*-- scss:rules --*/
-// ----- Titels -----
-// Hoofdstukopening zoals in een boek: groot nummer, titel eronder, fijne lijn
+body { -webkit-font-smoothing: antialiased; font-weight: 400; }
+
+// ----- Hoofdstuktitel: groot en licht, met "Hoofdstuk n" als klein opschrift -----
 h1.title, .quarto-title h1 {
-  display: flex;               // nummer boven de titel, zonder inspringing
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-size: 2.3rem;
-  font-weight: 600;
-  letter-spacing: -0.005em;
-  line-height: 1.15;
+  font-size: 2.7rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
 }
 h1.title .chapter-number, .quarto-title h1 .chapter-number {
-  display: block;
-  font-size: 4.2rem;
-  font-weight: 300;
-  line-height: 1;
-  color: var(--accent);
-  margin-bottom: 0.4rem;
-}
-.quarto-title-block .quarto-title {
-  padding-bottom: 1.1rem;
-  margin: 1.5rem 0 2.2rem;
-  border-bottom: 1px solid var(--rand);
-}
-main h2 { margin-top: 2.8rem; font-size: 1.55rem; }
-main h3 { margin-top: 2rem; font-size: 1.22rem; font-style: italic; font-weight: 600; }
-main h4 { font-size: 1.05rem; }
-.header-section-number { color: var(--accent); font-weight: 600; margin-right: 0.35em; font-style: normal; }
-
-// ----- Lopende tekst: uitgevuld met woordafbreking, zoals in een gedrukt boek -----
-main p, main li {
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-  font-variant-numeric: oldstyle-nums proportional-nums;
-}
-main { font-kerning: normal; text-rendering: optimizeLegibility; }
-// Navigatie, inhoudstafel en bijschriften in de schreefloze letter
-#quarto-sidebar, #TOC, nav, figcaption, .table-caption, caption, .page-navigation,
-div.callout .callout-title-container, .quarto-title-meta { font-family: $font-family-sans-serif; }
-
-// ----- Links -----
-main a { text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .15s; }
-main a:hover { border-bottom-color: currentColor; }
-
-// ----- Kaders (definitie, voorbeeld, toepassing, besluit, oefening) -----
-// Rustige boekkaders: getint papier, fijne rand, gekleurde lijn links
-div.callout {
-  border-radius: 4px;
-  border-top: 0; border-right: 0; border-bottom: 0;
-  border-left-width: 4px;
-  border-left-style: solid;   // de kleur komt van het type kader
-  background: var(--kaart);
-  box-shadow: none;
-  margin: 1.8rem 0;
-}
-div.callout .callout-header { background: transparent !important; border: 0; padding-top: 0.6rem; }
-div.callout .callout-title-container {
-  font-weight: 600;
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
+  font-family: $font-family-sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
+  color: var(--tekst-zacht);
+  margin-bottom: 0.6rem;
 }
-div.callout .callout-body-container { padding-bottom: 0.3rem; }
+h1.title .chapter-number::before, .quarto-title h1 .chapter-number::before { content: "Hoofdstuk "; }
+.quarto-title-block .quarto-title { margin: 1.2rem 0 2.4rem; padding: 0; border: 0; }
+
+// ----- Tussentitels -----
+main h2 { margin-top: 3rem; font-size: 1.7rem; font-weight: 500; border: 0; }
+main h3 { margin-top: 2.2rem; font-size: 1.3rem; font-weight: 500; }
+main h4 { font-size: 1.08rem; font-family: $font-family-sans-serif; font-weight: 600; }
+.header-section-number { color: var(--tekst-zacht); font-weight: 400; margin-right: 0.45em; }
+
+// ----- Lopende tekst -----
+main p, main li { text-align: left; hyphens: manual; }
+main a { color: var(--accent); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); }
+main a:hover { text-decoration-color: currentColor; }
+// verwijzingen naar vergelijkingen/figuren zonder onderlijning
+main a.quarto-xref { text-decoration: none; }
+
+// ----- Kaders: zacht gekleurd vlak, afgeronde hoeken, dunne rand in dezelfde tint -----
+div.callout {
+  border-radius: 14px;
+  border: 1px solid var(--k-rand) !important;
+  background: var(--k-bg) !important;
+  box-shadow: none;
+  margin: 2rem 0;
+  padding: 0.2rem 0.4rem;
+}
+div.callout .callout-header { background: transparent !important; border: 0 !important; }
+div.callout .callout-title-container {
+  font-family: $font-family-sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--k-tekst);
+  text-transform: none;
+  letter-spacing: 0;
+}
+div.callout .callout-icon::before, div.callout .callout-toggle::before { filter: none; }
+div.callout .callout-body-container { color: inherit; }
+div.callout-note      { --k-bg: var(--info-bg); --k-rand: var(--info-rand); --k-tekst: var(--info-tekst); }
+div.callout-tip       { --k-bg: var(--tip-bg);  --k-rand: var(--tip-rand);  --k-tekst: var(--tip-tekst); }
+div.callout-warning   { --k-bg: var(--let-bg);  --k-rand: var(--let-rand);  --k-tekst: var(--let-tekst); }
+div.callout-important { --k-bg: var(--bes-bg);  --k-rand: var(--bes-rand);  --k-tekst: var(--bes-tekst); }
+div.callout-caution   { --k-bg: var(--let-bg);  --k-rand: var(--let-rand);  --k-tekst: var(--let-tekst); }
 
 // ----- Opsommingen -----
 $lijst-afstand: 0.3rem;      // ruimte tussen twee items in een opsomming
 main li { margin-bottom: $lijst-afstand; }
 main li > p { margin-bottom: 0; }
-main ul, main ol { margin-bottom: 1rem; }
-main ul li::marker { color: var(--accent); }
-main ol li::marker { color: var(--accent); font-weight: 600; }
+main ul, main ol { margin-bottom: 1.1rem; }
 
 // ----- Tabellen -----
 main table {
-  width: auto;                 // tabel niet over de volle breedte uitrekken
-  margin-left: auto;           // tabel centreren
+  width: auto;
+  margin-left: auto;
   margin-right: auto;
-  font-size: 0.93em;
-  border-collapse: collapse;
-  border-top: 1.5px solid currentColor;      // boektabel: lijn boven en onder
-  border-bottom: 1.5px solid currentColor;
+  font-size: 0.94em;
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid var(--rand);
+  border-radius: 12px;
+  overflow: hidden;
 }
-main table thead th {
-  background: transparent;
-  border-bottom: 1.5px solid currentColor !important;
-  font-family: $font-family-sans-serif;
-  font-weight: 600;
+main table thead th { background: var(--vlak); font-weight: 600; border-bottom: 1px solid var(--rand) !important; }
+main table td, main table th { padding: 0.5rem 1rem; border-top: 0; }
+main table tbody tr + tr td { border-top: 1px solid var(--rand); }
+main table caption, .table-caption, figcaption { color: var(--tekst-zacht); font-size: 0.92em; }
+
+// ----- Formules en figuren -----
+mjx-container[display="true"] { padding: 0.4rem 0; overflow-x: auto; overflow-y: hidden; }
+main figure img, main .quarto-figure img { border-radius: 12px; }
+
+// ----- Menubalk bovenaan: tabbladen met onderstreping -----
+.navbar { border-bottom: 1px solid var(--rand); box-shadow: none; padding-top: 0.4rem; padding-bottom: 0; }
+.navbar .navbar-title { font-family: $headings-font-family; font-weight: 500; font-size: 1.45rem; letter-spacing: -0.01em; }
+.navbar .nav-link { padding: 0.9rem 0.85rem !important; border-bottom: 2px solid transparent; font-weight: 500; }
+.navbar .nav-link:hover { border-bottom-color: var(--rand); }
+.navbar .nav-link.active, .navbar .nav-link.show { border-bottom-color: currentColor; color: $body-color !important; }
+.navbar .dropdown-menu { border-radius: 12px; border-color: var(--rand); padding: 0.4rem; font-size: 0.96rem; box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.navbar .dropdown-item { border-radius: 8px; padding: 0.4rem 0.7rem; }
+// zoekveld: afgerond, met rand
+.aa-DetachedSearchButton, #quarto-search .aa-Autocomplete, .navbar #quarto-search {
+  border-radius: 10px;
 }
-main table td, main table th { padding: 0.45rem 0.9rem; border-top: 0; }
-main table tbody tr:nth-child(even) { background: transparent; }   // geen zebrastrepen: klassieke boektabel
-main table caption, .table-caption, figcaption { color: var(--gedempt); font-size: 0.9em; }
+.aa-DetachedSearchButton { border: 1px solid var(--rand) !important; background: var(--zoek) !important; }
 
-// ----- Formules -----
-// Brede formules scrollen horizontaal in plaats van de pagina te verbreden
-main span.math.display, main .quarto-figure .math.display { display: block; }
-mjx-container[display="true"] { padding: 0.35rem 0; overflow-x: auto; overflow-y: hidden; }
-
-// ----- Figuren -----
-main figure img, main .quarto-figure img { border-radius: 10px; }
-figcaption { margin-top: 0.5rem; }
-
-// ----- Navigatie links -----
+// ----- Navigatie links: actief item in een afgerond grijs vlak -----
+#quarto-sidebar { font-size: 0.98rem; }
+.sidebar-navigation .sidebar-link { padding: 0.35rem 0.75rem; border-radius: 10px; color: inherit; }
 .sidebar-navigation .sidebar-item a.active,
 .sidebar-navigation .sidebar-link.active {
-  background: var(--accent-zacht);
-  color: var(--accent) !important;
-  border-radius: 8px;
-  font-weight: 600;
+  background: var(--vlak);
+  color: $body-color !important;
+  font-weight: 500;
 }
-.sidebar-navigation .sidebar-link { padding: 0.25rem 0.55rem; border-radius: 8px; }
-.sidebar-title { font-family: $headings-font-family; font-size: 1.35rem; }
+.sidebar-navigation .sidebar-item-text .chapter-number { color: var(--tekst-zacht); }
 
-// ----- Inhoudstafel rechts -----
-#TOC .nav-link.active, #TOC a.active { color: var(--accent) !important; border-left-color: var(--accent) !important; }
+// ----- Inhoudstafel rechts ("Op deze pagina") -----
+#TOC { font-size: 0.95rem; }
+#TOC h2, #toc-title { font-family: $headings-font-family; font-size: 1.05rem; font-weight: 500; }
+#TOC .nav-link { color: var(--tekst-zacht) !important; border-left: 0 !important; padding-left: 0; }
+#TOC .nav-link.active { color: $body-color !important; font-weight: 600; }
+#TOC ul ul { padding-left: 1rem; }
 
 // ----- Vorige / volgende hoofdstuk -----
-.page-navigation .nav-page a {
-  border: 1px solid var(--rand);
-  border-radius: 10px;
-  padding: 0.6rem 1rem;
-}
-.page-navigation .nav-page a:hover { border-color: var(--accent); }
-
-// ----- Menubalk bovenaan -----
-.navbar { border-bottom: 1px solid var(--rand); font-family: $font-family-sans-serif; }
-.navbar .navbar-title { font-family: $headings-font-family; font-weight: 600; font-size: 1.25rem; }
-.navbar .nav-link:hover, .navbar .nav-link.active { color: var(--accent) !important; }
-.navbar .dropdown-menu { border-radius: 6px; border-color: var(--rand); font-size: 0.95rem; }
+.page-navigation .nav-page a { border: 1px solid var(--rand); border-radius: 12px; padding: 0.7rem 1.1rem; text-decoration: none; }
+.page-navigation .nav-page a:hover { background: var(--vlak); }

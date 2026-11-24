@@ -1,19 +1,22 @@
 /*-- scss:defaults --*/
 // ===== Kleuren voor de LICHTE weergave =====
-$primary:      #0b5f73;   // hoofdkleur: petrol (links, nummers, accenten)
-$secondary:    #64748b;
-$body-bg:      #fbfaf6;   // achtergrond van de pagina: warm papierwit
-$body-color:   #22262b;   // tekstkleur
+$primary:      #1f5f6e;   // hoofdkleur: diep petrol (links, sectienummers)
+$body-bg:      #faf9f5;   // achtergrond: warm crème
+$body-color:   #1f1e1b;   // tekstkleur: bijna zwart, warm
 $link-color:   $primary;
-$navbar-bg:    $body-bg;   // achtergrond van de menubalk bovenaan
-$navbar-fg:    $body-color;
+$navbar-bg:    $body-bg;  // achtergrond van de menubalk bovenaan
+$navbar-fg:    #3d3a35;
 
 /*-- scss:rules --*/
 :root {
-  --accent:        #0b5f73;
-  --accent-zacht:  #eaf2f2;   // lichte tint van de hoofdkleur
-  --accent-2:      #e0763c;   // tweede accent: warm oranje
-  --rand:          #dcd8cc;   // lijnen en randen
-  --kaart:         #f5f3ec;   // achtergrond van kaders: iets donkerder papier   // achtergrond van kaders
-  --gedempt:       #64748b;   // grijze hulptekst
+  --accent:        #1f5f6e;
+  --tekst-zacht:   #5e5a52;   // grijze hulptekst (inhoudstafel, bijschriften)
+  --rand:          #e6e2d8;   // fijne lijnen
+  --vlak:          #ecebe5;   // grijs vlak voor het actieve menu-item
+  --zoek:          #ffffff;
+  // Kaders: achtergrond / rand / tekst per type
+  --info-bg: #eef4fb;  --info-rand: #c9dcf2;  --info-tekst: #1d4d86;   // toepassing
+  --tip-bg:  #eef7ef;  --tip-rand:  #c8e3cc;  --tip-tekst:  #2c6a37;   // voorbeeld
+  --let-bg:  #fdf8e3;  --let-rand:  #f1e2a6;  --let-tekst:  #7a5a0c;   // definitie
+  --bes-bg:  #f4f0fa;  --bes-rand:  #ddd2ee;  --bes-tekst:  #57407e;   // besluit
 }
