@@ -103,6 +103,30 @@ main table caption, .table-caption, figcaption { color: var(--tekst-zacht); font
 mjx-container[display="true"] { padding: 0.4rem 0; overflow-x: auto; overflow-y: hidden; }
 main figure img, main .quarto-figure img { border-radius: 12px; }
 
+// ----- Breedte van de figuren (getekend met Python) -----
+// Standaard 70% van de tekstbreedte, gecentreerd; het bijschrift volgt dezelfde breedte.
+// Andere breedte per figuur met een klasse:  ::: {#fig-naam .klein}  (40%)  .smal (55%)  .breed (85%)  .vol (100%)
+main div.quarto-float:has(.cell) > figure { width: 70%; margin-inline: auto; }
+main div.quarto-float.klein:has(.cell) > figure { width: 40%; }
+main div.quarto-float.smal:has(.cell) > figure { width: 55%; }
+main div.quarto-float.breed:has(.cell) > figure { width: 85%; }
+main div.quarto-float.vol:has(.cell) > figure { width: 100%; }
+main div.quarto-float:has(.cell) figure img { width: 100%; }
+main div.quarto-float .light-content p, main div.quarto-float .dark-content p { margin: 0; }
+@media (max-width: 700px) { main div.quarto-float:has(.cell) > figure { width: 100% !important; } }
+
+// ----- Bijschriften: rustig, links uitgelijnd, label "Figuur n.m" in het vet -----
+main figcaption.quarto-float-caption {
+  text-align: left;
+  font-size: 0.9em;
+  line-height: 1.55;
+  margin-top: 0.7rem;
+  padding: 0 0.2rem;
+  color: var(--tekst-zacht);
+}
+main figcaption .bijschrift-label { font-weight: 600; color: $body-color; margin-right: 0.25em; }
+main div.quarto-float { margin: 2rem 0 2.2rem; }
+
 // ----- Menubalk bovenaan: tabbladen met onderstreping -----
 .navbar { border-bottom: 1px solid var(--rand); box-shadow: none; padding-top: 0.4rem; padding-bottom: 0; }
 .navbar .navbar-title { font-family: $headings-font-family; font-weight: 500; font-size: 1.45rem; letter-spacing: -0.01em; }
