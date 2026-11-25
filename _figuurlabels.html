@@ -1,6 +1,11 @@
 <script>
 // Zet het label "Figuur 1.1." van elk bijschrift in een aparte span (vet via stijl.scss).
 document.addEventListener("DOMContentLoaded", function () {
+  // Eigen breedte per figuur:  ::: {#fig-naam breedte="50%"}
+  document.querySelectorAll("div.quarto-float[data-breedte]").forEach(function (d) {
+    var f = d.querySelector(":scope > figure");
+    if (f) f.style.width = d.getAttribute("data-breedte");
+  });
   document.querySelectorAll("figcaption.quarto-float-caption").forEach(function (cap) {
     var n = cap.firstChild;
     while (n && n.nodeType === 3 && !n.textContent.trim()) n = n.nextSibling;

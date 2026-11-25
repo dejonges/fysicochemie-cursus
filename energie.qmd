@@ -129,9 +129,8 @@ De eenvoudigste test van de ideale gaswet is de wet van Boyle: bij constante tem
 -   Voor stikstof bij $0{}^{\circ}\mathrm{C}$ en drukken tot $10\,\mathrm{bar}$ bedraagt de afwijking minder dan $0.5\%$: de ideale gaswet is een uitstekende benadering. Bij $100\,\mathrm{bar}$ bedraagt de afwijking reeds $5\%$; bij $500\,\mathrm{bar}$ meer dan $30\%$.
 -   Voor $\ce{CO2}$ bij $40{}^{\circ}\mathrm{C}$ en $100\,\mathrm{bar}$ bedraagt de afwijking meer dan $20\%$, en bij lagere temperaturen kan condensatie optreden, hetgeen de ideale gaswet volledig ongeldig maakt.
 
-::: {#fig-boyle .klein}
+::: {#fig-boyle}
 ```{python}
-#| out-width: 50%
 #| renderings: [light, dark]
 fig.toon(fig.boyle)
 ```
@@ -179,7 +178,7 @@ Tabel [↗](#tbl-z) geeft $Z$ voor koolstofdioxide bij verschillende condities. 
 
 Een opmerkelijke empirische observatie is dat, wanneer $Z$ wordt uitgezet tegen de *gereduceerde druk* $p_r = p/p_c$ voor verschillende gassen bij dezelfde *gereduceerde temperatuur* $T_r = T/T_c$, alle gassen nagenoeg op dezelfde curve vallen (zie Figuur [-@fig-compchart]). Dit is de *wet van corresponderende toestanden*. De compressibiliteitsfactor blijkt dus in eerste benadering een universele functie te zijn van $T_r$ en $p_r$, onafhankelijk van de chemische identiteit van het gas. Deze wet vormt de basis van de zogenaamde algemene compressibiliteitskaarten die door ingenieurs worden gebruikt wanneer geen specifieke toestandsvergelijking beschikbaar is.
 
-::: {#fig-compchart .breed}
+::: {#fig-compchart}
 ```{python}
 #| renderings: [light, dark]
 fig.toon(fig.compressibiliteitskaart)
@@ -808,7 +807,7 @@ Voor water bedraagt $\Delta H_{\text{fus}} \approx 6.0\,\mathrm{kJ}\,\mathrm{mol
 
 Tijdens een faseovergang bij constante druk geldt dus $\Delta H_{\text{trans}} = Q_p$, terwijl $\Delta T = 0$. Deze overgangen worden in de volgende hoofdstukken uitgebreid gebruikt bij de berekening van fase-evenwichten.
 
-::: {#fig-opwarmcurve .breed}
+::: {#fig-opwarmcurve}
 ```{python}
 #| renderings: [light, dark]
 fig.toon(fig.opwarmcurve_water)
