@@ -131,6 +131,7 @@ De eenvoudigste test van de ideale gaswet is de wet van Boyle: bij constante tem
 
 ::: {#fig-boyle .klein}
 ```{python}
+#| out-width: 50%
 #| renderings: [light, dark]
 fig.toon(fig.boyle)
 ```
