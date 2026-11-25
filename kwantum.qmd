@@ -102,9 +102,8 @@ Deze hypothese bood een verklaring voor het foto-elektrisch effect. Wanneer elek
 2.  Zodra de frequentie boven deze drempel komt, worden de elektronen vrijwel onmiddellijk vrijgemaakt.
 3.  De maximale kinetische energie van de uitgestoten elektronen hangt uitsluitend af van de frequentie van het invallende licht en niet van de lichtintensiteit.
 
-::: {#fig-photoelectric}
+::: {#fig-photoelectric breedte="50%"}
 ```{python}
-#| out-width: 50%
 #| renderings: [light, dark]
 fig.toon(fig.foto_elektrisch)
 ```
@@ -122,9 +121,8 @@ $$E_{\mathrm{kin,max}} = \frac{1}{2}m_ev^2  = h\nu-\Phi$$
 
 De werkfunctie is een materiaaleigenschap. Typische waarden liggen tussen ongeveer $2\,\mathrm{eV}$ - $5\,\mathrm{eV}$, afhankelijk van het gebruikte metaal. Een elektronvolt is de hoeveelheid kinetische energie die 1 elektron krijgt als het een spanningsverschil van 1 volt doorloopt. Eén elektronvolt is gelijk aan ongeveer $1.602\times10^{-19}\,\mathrm{J}$.
 
-::: {#fig-ek-frequentie}
+::: {#fig-ek-frequentie breedte="55%"}
 ```{python}
-#| out-width: 55%
 #| renderings: [light, dark]
 fig.toon(fig.ek_frequentie)
 ```
