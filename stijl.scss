@@ -56,9 +56,11 @@ div.callout {
   border: 1px solid var(--k-rand) !important;
   background: var(--k-bg) !important;
   box-shadow: none;
-  margin: 2rem 0;
+  margin: 2rem auto;   // gecentreerd
+  width: 90%;          // iets smaller dan de tekst, zodat de kaders uitspringen
   padding: 0.2rem 0.4rem;
 }
+@media (max-width: 700px) { div.callout { width: 100%; } }
 div.callout .callout-header { background: transparent !important; border: 0 !important; }
 div.callout .callout-title-container {
   font-family: $font-family-sans-serif;
