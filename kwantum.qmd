@@ -106,7 +106,7 @@ Deze hypothese bood een verklaring voor het foto-elektrisch effect. Wanneer elek
 
 ::: {#fig-photoelectric}
 ```{python}
-#| out-width: 70%
+#| out-width: 50%
 #| renderings: [light, dark]
 fig.toon(fig.foto_elektrisch)
 ```
@@ -120,14 +120,13 @@ $$h\nu = \Phi + E_{\mathrm{kin,max}}$$
 
 of
 
-$$\boxed{
-E_{\mathrm{kin,max}} = \frac{1}{2}m_ev^2  = h\nu-\Phi}$$
+$$E_{\mathrm{kin,max}} = \frac{1}{2}m_ev^2  = h\nu-\Phi$$
 
 De werkfunctie is een materiaaleigenschap. Typische waarden liggen tussen ongeveer $2\,\mathrm{eV}$ - $5\,\mathrm{eV}$, afhankelijk van het gebruikte metaal. Een elektronvolt is de hoeveelheid kinetische energie die 1 elektron krijgt als het een spanningsverschil van 1 volt doorloopt. Eén elektronvolt is gelijk aan ongeveer $1.602\times10^{-19}\,\mathrm{J}$.
 
 ::: {#fig-ek-frequentie}
 ```{python}
-#| out-width: 75%
+#| out-width: 55%
 #| renderings: [light, dark]
 fig.toon(fig.ek_frequentie)
 ```
