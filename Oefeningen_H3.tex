@@ -1,0 +1,527 @@
+% Oefeningen bij dit hoofdstuk (ingevoegd achteraan het hoofdstuk met \input).
+% Een oefening:  \begin{oefening}[titel] ... \end{oefening}   (boek en website)
+% De oplossing:  \begin{oplossing} ... \end{oplossing}       (enkel website, dichtgeklapt)
+
+Neem $R = \SI{8.314}{\joule\per\mole\per\kelvin}$ en $p^\circ = \SI{1}{\bar}$.
+
+\begin{oefening}[Mengentropie van een driecomponent-mengsel]
+Een vat bevat aanvankelijk \(1\,\mathrm{mol}\) stikstof, \(1\,\mathrm{mol}\) zuurstof en \(1\,\mathrm{mol}\) argon, elk in afzonderlijke compartimenten bij gelijke temperatuur en druk. De compartimenten worden geopend en de gassen mengen spontaan.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de mengentropie per mol mengsel.
+\item[(b)]
+  Bereken de bijbehorende verandering van de Gibbs-vrije energie bij \(298\,\mathrm{K}\).
+\item[(c)]
+  Hoeveel minimale arbeid is nodig om het mengsel bij \(298\,\mathrm{K}\) terug te scheiden in de drie zuivere componenten?
+\end{enumerate}
+
+\emph{Hint:} \(\Delta S_{\text{meng}} = -R\sum_i x_i \ln x_i\); \(\Delta G_{\text{meng}} = -T \Delta S_{\text{meng}}\) voor ideale mengsels.
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta S_{\text{meng}}\) = \textbf{9.13 J/(mol\ensuremath{\cdot{}}K)} (27.4 J/K in totaal). (b) \(\Delta G_{\text{meng}}\) = \textbf{\ensuremath{-}2.72 kJ/mol} (\ensuremath{-}8.17 kJ). (c) \(W_{\min}\) = \textbf{8.17 kJ}.
+
+\textbf{(a)} Met \(x_i = 1/3\): \(\Delta S_{\text{meng}} = -R \cdot 3 \cdot \frac{1}{3}\ln\frac{1}{3} = R\ln 3 = 9.13\,\mathrm{J/(mol\cdot K)}\) per mol mengsel, of \(27.4\,\mathrm{J/K}\) voor de 3 mol samen.
+
+\textbf{(b)} \(\Delta G_{\text{meng}} = -T\Delta S_{\text{meng}} = -(298)(9.13) = -2.72\,\mathrm{kJ/mol}\) mengsel, of \(-8.17\,\mathrm{kJ}\) in totaal. Negatief: mengen verloopt spontaan.
+
+\textbf{(c)} Scheiden is het omgekeerde proces met \(\Delta G = +8.17\,\mathrm{kJ}\). De minimale (reversibele) arbeid bedraagt dus \(8.17\,\mathrm{kJ}\). Echte scheidingsprocessen (cryogene luchtscheiding, membranen) verbruiken daar een veelvoud van; deze ondergrens toont hoeveel ruimte er theoretisch is voor energiebesparing.
+\end{oplossing}
+
+\begin{oefening}[Entropie bij faseovergangen]
+Thallium smelt bij \(304\,^\circ\mathrm{C}\) met een smeltenthalpie van \(\Delta H_{\text{fus}} = 4.27\,\mathrm{kJ/mol}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de smeltentropie.
+\item[(b)]
+  Verklaar vanuit de orde-grootte waarom deze entropie kleiner is dan de verdampingsentropie van water (\(\Delta S_{\text{vap}} \approx 109\,\mathrm{J/(mol\cdot K)}\)).
+\item[(c)]
+  Bereken de verandering van de Gibbs-vrije energie bij het smelten precies op het smeltpunt.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta S_{\text{fus}}\) = \textbf{7.40 J/(mol\ensuremath{\cdot{}}K)}. (c) Op het smeltpunt is \(\Delta G_{\text{fus}}\) = \textbf{0}.
+
+\textbf{(a)} \(\Delta S_{\text{fus}} = \Delta H_{\text{fus}}/T_{\text{fus}} = 4270/577.15 = 7.40\,\mathrm{J/(mol\cdot K)}\).
+
+\textbf{(b)} Bij smelten blijven de atomen dicht opeengepakt: de vloeistof is slechts iets wanordelijker dan het kristal, zodat het aantal toegankelijke microtoestanden weinig toeneemt. Bij verdampen neemt het beschikbare volume per molecule met een factor duizend toe, en bij water wordt bovendien het geordende waterstofbrugnetwerk verbroken. Daarom is \(\Delta S_{\text{vap}}\) typisch een grootteorde groter dan \(\Delta S_{\text{fus}}\).
+
+\textbf{(c)} Op het smeltpunt zijn vaste stof en vloeistof in evenwicht: \(\Delta G_{\text{fus}} = \Delta H_{\text{fus}} - T_{\text{fus}}\Delta S_{\text{fus}} = 0\).
+\end{oplossing}
+
+\begin{oefening}[Spontaniteitscriterium: smelten van ijs bij verschillende temperaturen]
+Voor het smelten van ijs geldt \(\Delta H_{\text{fus}} = 6.0\,\mathrm{kJ/mol}\) en \(\Delta S_{\text{fus}} = 22.0\,\mathrm{J/(mol\cdot K)}\) (verondersteld constant).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(\Delta G\) bij \(-10\,^\circ\mathrm{C}\), \(0\,^\circ\mathrm{C}\) en \(+10\,^\circ\mathrm{C}\).
+\item[(b)]
+  Bepaal bij welke temperatuur ijs en vloeibaar water in evenwicht zijn.
+\item[(c)]
+  Verklaar vanuit het teken van \(\Delta G\) waarom ijs bij \(-10\,^\circ\mathrm{C}\) niet spontaan smelt.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta G\) = \textbf{+211}, \textbf{\ensuremath{\approx{}} 0} en \textbf{\ensuremath{-}229 J/mol} bij 263, 273 en 283 K. (b) \(T\) = \textbf{272.7 K} (\ensuremath{\approx{}} 0 °C). (c) Bij \ensuremath{-}10 °C is \textbf{bevriezen} spontaan.
+
+\textbf{(a)} Met \(\Delta G = \Delta H - T\Delta S\):
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\(T\) & \(\Delta G\) (J/mol) \\
+\midrule
+\(263.15\,\mathrm{K}\) & \(+211\) \\
+\(273.15\,\mathrm{K}\) & \(-9\) (\ensuremath{\approx{}} 0) \\
+\(283.15\,\mathrm{K}\) & \(-229\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(b)} \(\Delta G = 0\) bij \(T = \Delta H/\Delta S = 6000/22.0 = 272.7\,\mathrm{K}\), of \(-0.4\,^\circ\mathrm{C}\). Het kleine verschil met \(0\,^\circ\mathrm{C}\) komt door de afronding van de gegevens.
+
+\textbf{(c)} Bij \(-10\,^\circ\mathrm{C}\) is \(\Delta G > 0\): de enthalpiekost van het smelten weegt zwaarder dan de entropiewinst \(T\Delta S\). Het omgekeerde proces, bevriezen, is dan spontaan. Daarom strooit men zout op wegen: zout verlaagt de chemische potentiaal van het vloeibare water (hoofdstuk 5), waardoor het smeltpunt daalt.
+\end{oplossing}
+
+\begin{oefening}[Evenwichtsconstante en standaardreactie-Gibbsenergie]
+Voor de reactie
+
+\[
+\mathrm{N_2O_4(g) \rightleftharpoons 2\,NO_2(g)}
+\]
+
+bedraagt \(\Delta_r G^\circ = +4.8\,\mathrm{kJ/mol}\) bij \(298\,\mathrm{K}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de evenwichtsconstante \(K\) bij \(298\,\mathrm{K}\).
+\item[(b)]
+  Is de reactie bij standaardomstandigheden spontaan in de voorwaartse richting?
+\item[(c)]
+  Bij welke waarde van het reactiequotiënt \(Q\) zou de reactie precies in evenwicht zijn?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(K\) = \textbf{0.144}. (b) \textbf{Nee}, bij \(Q = 1\) verloopt de reactie naar links. (c) Evenwicht bij \(Q = K\) = \textbf{0.144}.
+
+\textbf{(a)} \(K = \exp(-\Delta_r G^\circ/RT) = \exp\!\left(-\dfrac{4800}{(8.314)(298)}\right) = 0.144\).
+
+\textbf{(b)} Nee. Bij standaardomstandigheden (beide gassen bij \(1\,\mathrm{bar}\), dus \(Q = 1\)) is \(\Delta_r G = \Delta_r G^\circ > 0\): de reactie verloopt spontaan in de \emph{omgekeerde} richting tot het evenwicht bereikt is. Dat betekent niet dat er geen \(\mathrm{NO_2}\) gevormd wordt: vertrekkend van zuiver \(\mathrm{N_2O_4}\) (\(Q = 0\)) dissocieert een deel wel degelijk.
+
+\textbf{(c)} Evenwicht wanneer \(\Delta_r G = \Delta_r G^\circ + RT\ln Q = 0\), dus \(Q = K = 0.144\).
+\end{oplossing}
+
+\begin{oefening}[Invloed van temperatuur: de vergelijking van Van 't Hoff]
+Voor de ammoniaksynthese \(\mathrm{N_2 + 3\,H_2 \rightleftharpoons 2\,NH_3}\) bedraagt \(\Delta_r H^\circ = -92.4\,\mathrm{kJ/mol}\) en \(\Delta_r G^\circ = -33.0\,\mathrm{kJ/mol}\) bij \(298\,\mathrm{K}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(K\) bij \(298\,\mathrm{K}\).
+\item[(b)]
+  Schat \(K\) bij \(700\,\mathrm{K}\) (veronderstel \(\Delta_r H^\circ\) constant). Gebruik de geïntegreerde vorm van Van 't Hoff.
+\item[(c)]
+  Verklaar vanuit het teken van \(\Delta_r H^\circ\) waarom de evenwichtsconstante daalt bij stijgende temperatuur.
+\item[(d)]
+  Combineer met Hoofdstuk 1: bereken ook \(\Delta_r S^\circ\) bij \(298\,\mathrm{K}\).
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(K_{298}\) = \textbf{6.1\ensuremath{\cdot{}}10\ensuremath{^{5}}}. (b) \(K_{700}\) = \textbf{3.0\ensuremath{\cdot{}}10\ensuremath{^{-4}}}. (c) Exotherm: \(K\) \textbf{daalt} met \(T\). (d) \(\Delta_r S^\circ\) = \textbf{\ensuremath{-}199 J/(mol\ensuremath{\cdot{}}K)}.
+
+\textbf{(a)} \(\ln K = 33\,000/(8.314 \times 298) = 13.32\), dus \(K = 6.1\times10^{5}\).
+
+\textbf{(b)}
+
+\[
+\ln\frac{K_2}{K_1} = -\frac{-92\,400}{8.314}\left(\frac{1}{700} - \frac{1}{298}\right) = -21.4
+\]
+
+zodat \(\ln K_2 = 13.32 - 21.4 = -8.1\) en \(K_2 = 3.0\times10^{-4}\).
+
+\textbf{(c)} Volgens \(\mathrm{d}\ln K/\mathrm{d}T = \Delta_r H^\circ/(RT^2)\) daalt \(\ln K\) met \(T\) wanneer \(\Delta_r H^\circ < 0\). Fysisch: bij een exotherme reactie ``werkt'' extra warmte de vorming van producten tegen (Le Chatelier).
+
+\textbf{(d)} \(\Delta_r S^\circ = (\Delta_r H^\circ - \Delta_r G^\circ)/T = (-92\,400 + 33\,000)/298 = -199\,\mathrm{J/(mol\cdot K)}\), in overeenstemming met de \(-198.1\,\mathrm{J/(mol\cdot K)}\) uit de theorie. Negatief, omdat 4 mol gas omgezet wordt in 2 mol gas.
+\end{oplossing}
+
+\begin{oefening}[Le Châtelier: invloed van druk op ammoniaksynthese]
+Beschouw opnieuw de ammoniaksynthese. Bij een bepaalde temperatuur bedraagt \(K = 1.0\times10^{-3}\).
+
+\begin{enumerate}
+\item[(a)]
+  Een reactiemengsel bevat aanvankelijk gelijke molfracties \(\mathrm{N_2}\), \(\mathrm{H_2}\) en \(\mathrm{NH_3}\) bij een totale druk van \(1\,\mathrm{bar}\). Bereken \(Q\) en bepaal de spontane richting.
+\item[(b)]
+  Hoe verandert \(Q\) wanneer de totale druk wordt verhoogd tot \(200\,\mathrm{bar}\)? Verklaar waarom een drukverhoging de vorming van ammoniak bevordert.
+\item[(c)]
+  Waarom verandert de evenwichtsconstante \(K\) zelf \emph{niet} met de druk?
+\end{enumerate}
+
+\emph{Hint:} bij een gasreactie met afname van aantal mol geldt \(Q \propto p^{\Delta \nu} = 1/p^{|\Delta \nu|}\).
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(Q\) = \textbf{9} \textgreater{} \(K\): ammoniak ontleedt. (b) \(Q\) = \textbf{2.25\ensuremath{\cdot{}}10\ensuremath{^{-4}}} \textless{} \(K\): ammoniak wordt gevormd. (c) \(K\) hangt enkel af van \(T\).
+
+\textbf{(a)} Met \(p_i = x_i p\) en \(p^\circ = 1\,\mathrm{bar}\):
+
+\[
+Q = \frac{(x_{\mathrm{NH_3}}p/p^\circ)^2}{(x_{\mathrm{N_2}}p/p^\circ)(x_{\mathrm{H_2}}p/p^\circ)^3} = \frac{x_{\mathrm{NH_3}}^2}{x_{\mathrm{N_2}}x_{\mathrm{H_2}}^3}\left(\frac{p}{p^\circ}\right)^{-2} = \frac{(1/3)^2}{(1/3)^4}(1)^{-2} = 9
+\]
+
+\(Q = 9 \gg K\): de reactie verloopt spontaan naar links, ammoniak ontleedt.
+
+\textbf{(b)} De samenstelling blijft dezelfde, maar de drukfactor wordt \((200)^{-2}\): \(Q = 9/40\,000 = 2.25\times10^{-4} < K\). Nu verloopt de reactie spontaan naar rechts. Omdat het aantal mol gas afneemt (\(\Delta\nu = 2 - 4 = -2\)), daalt \(Q\) met de druk als \(p^{\Delta\nu} = p^{-2}\); het evenwicht moet dan naar de kant van de producten schuiven om \(Q\) weer gelijk te maken aan \(K\).
+
+\textbf{(c)} \(K = \exp(-\Delta_r G^\circ/RT)\) is gedefinieerd met de standaardtoestand bij de vaste druk \(p^\circ = 1\,\mathrm{bar}\). Daardoor hangt \(K\) enkel af van de temperatuur. De druk verandert wel \(Q\), en dus de evenwichtssamenstelling.
+\end{oplossing}
+
+\begin{oefening}[Geïntegreerde case: Haber--Bosch bij twee temperaturen]
+Een ingenieur moet een ammoniakreactor ontwerpen en overweegt twee bedrijfstemperaturen: \(400\,^\circ\mathrm{C}\) en \(500\,^\circ\mathrm{C}\). Voor de synthese \(\mathrm{N_2 + 3\,H_2 \rightleftharpoons 2\,NH_3}\) geldt bij \(298\,\mathrm{K}\): \(\Delta_r H^\circ = -92.4\,\mathrm{kJ/mol}\), \(\Delta_r G^\circ = -33.0\,\mathrm{kJ/mol}\), en \(\Delta_r C_p^\circ \approx -5.2\,\mathrm{J/(mol\cdot K)}\) (constant verondersteld).
+
+\begin{enumerate}
+\item[(a)]
+  Gebruik de wet van Kirchhoff (Hoofdstuk 1) om \(\Delta_r H^\circ\) te berekenen bij beide temperaturen.
+\item[(b)]
+  Bereken \(\Delta_r S^\circ\) bij \(298\,\mathrm{K}\) en schat \(\Delta_r S^\circ\) bij \(500\,^\circ\mathrm{C}\) via \(\Delta_r S^\circ(T) = \Delta_r S^\circ(T_0) + \Delta_r C_p^\circ \ln(T/T_0)\).
+\item[(c)]
+  Bereken \(\Delta_r G^\circ\) bij beide temperaturen via \(G = H - TS\).
+\item[(d)]
+  Bereken \(K\) bij beide temperaturen.
+\item[(e)]
+  Concludeer: welke temperatuur levert thermodynamisch de hoogste opbrengst? Leg uit waarom de industrie toch bij \(400\)--\(500\,^\circ\mathrm{C}\) werkt.
+\end{enumerate}
+
+\emph{Hint:} deze oefening combineert alle hoofdstukken 1--3: Kirchhoff (H1), enthalpie/entropie/Gibbs (H3), en de brug met de evenwichtsconstante (H3).
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} Met \(\Delta_r C_p^\circ\) = \ensuremath{-}5.2 J/(mol\ensuremath{\cdot{}}K): \(K\)(673 K) = \textbf{4.9\ensuremath{\cdot{}}10\ensuremath{^{-4}}} en \(K\)(773 K) = \textbf{5.5\ensuremath{\cdot{}}10\ensuremath{^{-5}}}. Lagere \(T\) is thermodynamisch gunstiger; 400--500 °C is een \textbf{compromis met de snelheid}.
+
+Met de gegeven \(\Delta_r C_p^\circ = -5.2\,\mathrm{J/(mol\cdot K)}\):
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+ & \(673\,\mathrm{K}\) (\(400\,^\circ\mathrm{C}\)) & \(773\,\mathrm{K}\) (\(500\,^\circ\mathrm{C}\)) \\
+\midrule
+\textbf{(a)} \(\Delta_r H^\circ\) (kJ/mol) & \(-94.4\) & \(-94.9\) \\
+\textbf{(b)} \(\Delta_r S^\circ\) (J/(mol\ensuremath{\cdot{}}K)) & \(-203.6\) & \(-204.3\) \\
+\textbf{(c)} \(\Delta_r G^\circ\) (kJ/mol) & \(+42.7\) & \(+63.1\) \\
+\textbf{(d)} \(K\) & \(4.9\times10^{-4}\) & \(5.5\times10^{-5}\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(b)} \(\Delta_r S^\circ(298\,\mathrm{K}) = (-92\,400 + 33\,000)/298 = -199.3\,\mathrm{J/(mol\cdot K)}\), en bij 773 K: \(-199.3 + (-5.2)\ln(773/298) = -204.3\,\mathrm{J/(mol\cdot K)}\).
+
+\textbf{(c)} Bijvoorbeeld bij 773 K: \(\Delta_r G^\circ = -94\,870 - (773)(-204.3) = +63.1\,\mathrm{kJ/mol}\).
+
+\textbf{(e)} Bij \(400\,^\circ\mathrm{C}\) is \(K\) bijna tien keer groter: thermodynamisch is de lagere temperatuur dus gunstiger. Bij beide temperaturen is \(K\) klein, wat gecompenseerd wordt door een hoge druk (150--300 bar, zie Oefening 3.6) en door het ammoniak telkens uit de kringloop te condenseren. Men gaat niet lager dan ongeveer \(400\,^\circ\mathrm{C}\) omdat de reactie dan, zelfs met een ijzerkatalysator, te traag verloopt: de sterke \(\mathrm{N{\equiv}N}\) binding geeft een hoge activeringsenergie. Het compromis tussen evenwicht en snelheid ligt rond \(400\)--\(500\,^\circ\mathrm{C}\).
+
+\emph{Opmerking:} met de \(C_p\)-gegevens van Oefening 1.5 vindt men \(\Delta_r C_p^\circ = -45.3\,\mathrm{J/(mol\cdot K)}\) in plaats van \(-5.2\). Dan wordt \(K(673\,\mathrm{K}) = 1.4\times10^{-4}\) en \(K(773\,\mathrm{K}) = 1.1\times10^{-5}\); de conclusie blijft dezelfde.
+\end{oplossing}
+
+\begin{oefening}[Waarom koffie vanzelf afkoelt]
+Een kop met \(250\,\mathrm{g}\) koffie (behandel als water, \(C_p = 4.18\,\mathrm{J/(g\cdot K)}\)) koelt af van \(80\,^\circ\mathrm{C}\) tot de kamertemperatuur van \(20\,^\circ\mathrm{C}\). De kamer is zo groot dat haar temperatuur niet verandert.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de entropieverandering van de koffie.
+\item[(b)]
+  Bereken de entropieverandering van de kamer.
+\item[(c)]
+  Bereken de totale entropieverandering. Wat zegt de tweede hoofdwet over het omgekeerde proces?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta S_{\text{koffie}}\) = \textbf{\ensuremath{-}195 J/K}. (b) \(\Delta S_{\text{kamer}}\) = \textbf{+214 J/K}. (c) \(\Delta S_{\text{tot}}\) = \textbf{+19 J/K}: spontaan.
+
+\textbf{(a)} \(\Delta S_{\text{koffie}} = mC_p\ln(T_2/T_1) = (250)(4.18)\ln(293.15/353.15) = -195\,\mathrm{J/K}\). De entropie van de koffie \emph{daalt}.
+
+\textbf{(b)} De koffie geeft \(Q = mC_p\Delta T = (250)(4.18)(60) = 62.7\,\mathrm{kJ}\) af aan de kamer bij een constante temperatuur van \(293.15\,\mathrm{K}\): \(\Delta S_{\text{kamer}} = Q/T = 62\,700/293.15 = +214\,\mathrm{J/K}\).
+
+\textbf{(c)} \(\Delta S_{\text{tot}} = -195 + 214 = +19\,\mathrm{J/K} > 0\): het proces is spontaan. Het omgekeerde proces (koffie die vanzelf weer heet wordt door warmte uit de kamer op te nemen) zou \(\Delta S_{\text{tot}} = -19\,\mathrm{J/K}\) geven en is daarom onmogelijk, hoewel het perfect voldoet aan de eerste hoofdwet. Dit is precies de beperking van de eerste hoofdwet uit hoofdstuk 1.
+\end{oplossing}
+
+\begin{oefening}[Koelkast en warmtepomp: de minimale arbeid]
+Een koelkast onttrekt warmte \(Q_c\) aan de binnenruimte (temperatuur \(T_c\)) en geeft warmte \(Q_h = Q_c + W\) af aan de keuken (\(T_h\)). Hiervoor is elektrische arbeid \(W\) nodig.
+
+\begin{enumerate}
+\item[(a)]
+  Toon met de tweede hoofdwet (\(\Delta S_{\text{tot}} \geq 0\) over één cyclus) aan dat \(W \geq Q_c\left(\dfrac{T_h}{T_c} - 1\right)\).
+\item[(b)]
+  Bereken de minimale arbeid om \(1\,\mathrm{kJ}\) warmte te onttrekken aan een koelkast van \(4\,^\circ\mathrm{C}\) in een keuken van \(22\,^\circ\mathrm{C}\).
+\item[(c)]
+  Een warmtepomp werkt volgens hetzelfde principe en levert \(Q_h\) aan een huis. Bereken de maximale prestatiecoëfficiënt \(\mathrm{COP} = Q_h/W\) wanneer de buitenlucht \(0\,^\circ\mathrm{C}\) is en het water naar vloerverwarming (\(35\,^\circ\mathrm{C}\)) of naar klassieke radiatoren (\(70\,^\circ\mathrm{C}\)) gaat. Wat besluit je?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \(W_{\min}\) = \textbf{65 J}. (c) \(\mathrm{COP}_{\max}\) = \textbf{8.8} (vloerverwarming) tegenover \textbf{4.9} (radiatoren).
+
+\textbf{(a)} Het koelmiddel doorloopt een cyclus, dus zijn entropie verandert niet. De binnenruimte verliest \(Q_c/T_c\), de keuken wint \(Q_h/T_h\):
+
+\[
+\Delta S_{\text{tot}} = -\frac{Q_c}{T_c} + \frac{Q_c + W}{T_h} \geq 0 \quad\Rightarrow\quad W \geq Q_c\left(\frac{T_h}{T_c} - 1\right)
+\]
+
+Zonder arbeid (\(W = 0\)) zou \(\Delta S_{\text{tot}} < 0\): warmte stroomt nooit vanzelf van koud naar warm.
+
+\textbf{(b)} \(W_{\min} = 1000\left(\dfrac{295.15}{277.15} - 1\right) = 65\,\mathrm{J}\). Een echte koelkast heeft er ongeveer drie à vier keer meer nodig door irreversibiliteiten.
+
+\textbf{(c)} Uit dezelfde ongelijkheid volgt \(\mathrm{COP}_{\max} = Q_h/W = T_h/(T_h - T_c)\).
+
+\begin{itemize}
+\item
+  Vloerverwarming: \(308.15/35 = 8.8\).
+\item
+  Radiatoren: \(343.15/70 = 4.9\).
+\end{itemize}
+
+Hoe kleiner het temperatuurverschil, hoe minder arbeid de tweede hoofdwet vraagt. Daarom combineert men warmtepompen bij voorkeur met vloerverwarming en een goed geïsoleerd huis, en werkt een warmtepomp minder efficiënt op een koude winterdag.
+\end{oplossing}
+
+\begin{oefening}[Waarom ruimt je kamer zichzelf niet op?]
+Een doos is door een wand in twee gelijke helften verdeeld. Er bevinden zich \(N\) gasmoleculen in de doos, die vrij heen en weer kunnen bewegen.
+
+\begin{enumerate}
+\item[(a)]
+  Wat is de kans dat op een willekeurig ogenblik alle \(N\) moleculen zich in de linkerhelft bevinden? Bereken die kans voor \(N = 10\), \(N = 100\) en \(N = N_A\).
+\item[(b)]
+  Bereken met \(S = k_B\ln\Omega\) de entropieverandering wanneer \(1\,\mathrm{mol}\) gas zich spontaan in één helft zou samenballen.
+\item[(c)]
+  Leg met deze resultaten uit waarom de tweede hoofdwet een statistische wet is, en waarom ze toch nooit geschonden wordt in het dagelijks leven.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(P = (1/2)^N\): \textbf{10\ensuremath{^{-3}}}, \textbf{10\ensuremath{^{-30}}} en \(10^{-1.8\times10^{23}}\). (b) \(\Delta S\) = \textbf{\ensuremath{-}5.76 J/(mol\ensuremath{\cdot{}}K)}.
+
+\textbf{(a)} Elke molecule zit met kans \(1/2\) links, onafhankelijk van de andere: \(P = (1/2)^N\).
+
+\begin{itemize}
+\item
+  \(N = 10\): \(P = 1/1024 \approx 10^{-3}\).
+\item
+  \(N = 100\): \(P = 10^{-30}\).
+\item
+  \(N = 6.022\times10^{23}\): \(P = 10^{-1.8\times10^{23}}\).
+\end{itemize}
+
+\textbf{(b)} Het aantal posities per molecule halveert, dus \(\Omega_2/\Omega_1 = (1/2)^{N}\) en \(\Delta S = k_B\ln(1/2)^{N_A} = -R\ln 2 = -5.76\,\mathrm{J/(mol\cdot K)}\).
+
+\textbf{(c)} Niets in de bewegingswetten verbiedt dat alle moleculen in één helft terechtkomen; het is gewoon onvoorstelbaar onwaarschijnlijk. Voor 10 moleculen zie je het af en toe gebeuren, maar voor macroscopische hoeveelheden is de kans zo klein dat je er in de leeftijd van het heelal niet op hoeft te rekenen. Een geordende toestand (een opgeruimde kamer, een ongemengde inktdruppel) komt overeen met heel weinig microtoestanden, een wanordelijke toestand met ontzettend veel. Spontane processen evolueren naar de toestand met het meeste microtoestanden; orde scheppen vraagt arbeid.
+\end{oplossing}
+
+\begin{oefening}[Een koudekompres uit de EHBO-doos]
+Een instant-koudekompres bevat ammoniumnitraat en een zakje water. Wanneer je het zakje breekt, lost het zout op en wordt het kompres ijskoud:
+
+\[
+\mathrm{NH_4NO_3(s) \rightarrow NH_4^+(aq) + NO_3^-(aq)} \qquad \Delta_r H^\circ = +25.7\,\mathrm{kJ/mol}
+\]
+
+\begin{enumerate}
+\item[(a)]
+  Het oplossen is endotherm en verloopt toch spontaan. Wat besluit je over het teken van \(\Delta_r S^\circ\)?
+\item[(b)]
+  Bereken de minimale waarde van \(\Delta_r S^\circ\) opdat het oplossen bij \(25\,^\circ\mathrm{C}\) spontaan zou zijn.
+\item[(c)]
+  Het kompres bevat \(25\,\mathrm{g}\) \(\mathrm{NH_4NO_3}\) (\(M = 80.0\,\mathrm{g/mol}\)) en \(100\,\mathrm{g}\) water. Schat de temperatuurdaling. Neem voor de oplossing \(C_p \approx 4.18\,\mathrm{J/(g\cdot K)}\) en verwaarloos warmte-uitwisseling met de omgeving.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Gedreven door \textbf{entropie}. (b) \(\Delta_r S^\circ\) \textgreater{} \textbf{86 J/(mol\ensuremath{\cdot{}}K)}. (c) Afkoeling met ongeveer \textbf{15 K}.
+
+\textbf{(a)} Spontaan betekent \(\Delta_r G = \Delta_r H - T\Delta_r S < 0\). Met \(\Delta_r H > 0\) kan dat enkel als \(\Delta_r S > 0\) en \(T\Delta_r S > \Delta_r H\). Het proces wordt gedreven door entropie: de ionen verlaten het geordende kristalrooster en verspreiden zich door de oplossing.
+
+\textbf{(b)} \(\Delta_r S^\circ > \Delta_r H^\circ/T = 25\,700/298 = 86\,\mathrm{J/(mol\cdot K)}\). (De tabelwaarde is ongeveer \(+109\,\mathrm{J/(mol\cdot K)}\).)
+
+\textbf{(c)} \(n = 25/80.0 = 0.31\,\mathrm{mol}\), dus de opgenomen warmte is \((0.31)(25\,700) = 8.0\,\mathrm{kJ}\). Die warmte komt uit de oplossing zelf (\(125\,\mathrm{g}\)): \(\Delta T = 8000/(125 \times 4.18) = 15\,\mathrm{K}\). Het kompres koelt dus van kamertemperatuur af tot ongeveer \(5\,^\circ\mathrm{C}\).
+\end{oplossing}
+
+\begin{oefening}[Koken in de bergen]
+Het kookpunt van water is de temperatuur waarbij vloeibaar water en waterdamp bij de heersende druk \(p\) in evenwicht zijn. Gebruik \(\Delta H_{\text{vap}} = 40.7\,\mathrm{kJ/mol}\) en \(\Delta S^\circ_{\text{vap}} = 109\,\mathrm{J/(mol\cdot K)}\) (beide constant) en behandel de damp als ideaal gas.
+
+\begin{enumerate}
+\item[(a)]
+  Toon aan dat voor de verdamping \(\Delta G = \Delta H_{\text{vap}} - T\Delta S^\circ_{\text{vap}} + RT\ln(p/p^\circ)\), en leid daaruit een uitdrukking af voor het kookpunt \(T_b\) bij druk \(p\).
+\item[(b)]
+  Bereken het kookpunt in Leuven (\(1.0\,\mathrm{bar}\)), op de top van de Mont Blanc (\(0.55\,\mathrm{bar}\)) en op de Mount Everest (\(0.33\,\mathrm{bar}\)).
+\item[(c)]
+  Waarom duurt het langer om in de bergen een ei hard te koken? Hoe lost een snelkookpan dat op?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \(T_b\) = \textbf{100 °C} (Leuven), \textbf{84 °C} (Mont Blanc), \textbf{71 °C} (Everest).
+
+\textbf{(a)} De chemische potentiaal van de damp is \(\mu_g = \mu_g^\circ + RT\ln(p/p^\circ)\); die van de vloeistof hangt nauwelijks af van de druk. Dus \(\Delta G = \mu_g - \mu_l = \Delta G^\circ_{\text{vap}} + RT\ln(p/p^\circ)\), met \(\Delta G^\circ_{\text{vap}} = \Delta H_{\text{vap}} - T\Delta S^\circ_{\text{vap}}\). In evenwicht is \(\Delta G = 0\):
+
+\[
+T_b = \frac{\Delta H_{\text{vap}}}{\Delta S^\circ_{\text{vap}} - R\ln(p/p^\circ)}
+\]
+
+\textbf{(b)}
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Plaats & \(p\) (bar) & \(T_b\) \\
+\midrule
+Leuven & 1.0 & \(100\,^\circ\mathrm{C}\) \\
+Mont Blanc & 0.55 & \(84\,^\circ\mathrm{C}\) \\
+Mount Everest & 0.33 & \(71\,^\circ\mathrm{C}\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(c)} Bij lagere druk kookt water bij een lagere temperatuur. Eiwitten in het ei stollen trager bij \(84\,^\circ\mathrm{C}\) dan bij \(100\,^\circ\mathrm{C}\) (kinetiek, hoofdstuk 8). Een snelkookpan werkt bij ongeveer \(2\,\mathrm{bar}\); dan stijgt het kookpunt tot ongeveer \(120\,^\circ\mathrm{C}\) en garen de gerechten veel sneller. In hoofdstuk 5 wordt deze berekening veralgemeend tot de vergelijking van Clausius--Clapeyron.
+\end{oplossing}
+
+\begin{oefening}[Kalk branden: wanneer wordt een reactie spontaan?]
+Ongebluste kalk (CaO), grondstof voor cement en mortel, wordt gemaakt door kalksteen te verhitten:
+
+\[
+\mathrm{CaCO_3(s) \rightarrow CaO(s) + CO_2(g)}
+\]
+
+Gegeven bij \(298\,\mathrm{K}\):
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Stof & \(\Delta H_f^\circ\) (kJ/mol) & \(S^\circ\) (J/(mol\ensuremath{\cdot{}}K)) \\
+\midrule
+\(\mathrm{CaCO_3(s)}\) & \(-1206.9\) & \(92.9\) \\
+\(\mathrm{CaO(s)}\) & \(-635.1\) & \(39.8\) \\
+\(\mathrm{CO_2(g)}\) & \(-393.5\) & \(213.8\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(\Delta_r H^\circ\), \(\Delta_r S^\circ\) en \(\Delta_r G^\circ\) bij \(298\,\mathrm{K}\). Is de reactie spontaan bij kamertemperatuur?
+\item[(b)]
+  Boven welke temperatuur wordt \(\Delta_r G^\circ < 0\)? Veronderstel \(\Delta_r H^\circ\) en \(\Delta_r S^\circ\) constant.
+\item[(c)]
+  Verklaar het teken van \(\Delta_r S^\circ\). Waarom is deze reactie, naast de verbranding van brandstof voor de oven, een belangrijke bron van \(\mathrm{CO_2}\)-uitstoot in de cementindustrie?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta_r G^\circ\) = \textbf{+130.4 kJ/mol}: niet spontaan. (b) Spontaan boven \textbf{1110 K} (\ensuremath{\approx{}} 840 °C). (c) Entropiegedreven; \textbf{0.79 ton CO\ensuremath{_{2}}} per ton CaO.
+
+\textbf{(a)}
+
+\[
+\Delta_r H^\circ = -635.1 - 393.5 + 1206.9 = +178.3\,\mathrm{kJ/mol}
+\]
+
+\[
+\Delta_r S^\circ = 39.8 + 213.8 - 92.9 = +160.7\,\mathrm{J/(mol\cdot K)}
+\]
+
+\(\Delta_r G^\circ = 178.3 - (298)(0.1607) = +130.4\,\mathrm{kJ/mol}\): niet spontaan. Kalksteen is bij kamertemperatuur stabiel (gelukkig voor kathedralen).
+
+\textbf{(b)} \(T > \Delta_r H^\circ/\Delta_r S^\circ = 178\,300/160.7 = 1110\,\mathrm{K}\), of ongeveer \(840\,^\circ\mathrm{C}\). Kalkovens werken daarom rond \(900\,^\circ\mathrm{C}\).
+
+\textbf{(c)} Er ontstaat een gas uit een vaste stof: het aantal toegankelijke microtoestanden neemt sterk toe, dus \(\Delta_r S^\circ > 0\). De reactie is enthalpisch ongunstig en wordt bij hoge temperatuur door de entropieterm \(T\Delta_r S^\circ\) gedreven. Het vrijgekomen \(\mathrm{CO_2}\) is onvermijdelijk procesgebonden: per ton CaO ontstaat \(44/56 = 0.79\,\mathrm{ton}\) \(\mathrm{CO_2}\), los van de brandstof. Daarom is cement moeilijk te verduurzamen zonder koolstofafvang.
+\end{oplossing}
+
+\begin{oefening}[Waarom roest een brug niet in één nacht?]
+Voor de vorming van roest geldt:
+
+\[
+\mathrm{4\,Fe(s) + 3\,O_2(g) \rightarrow 2\,Fe_2O_3(s)} \qquad \Delta G_f^\circ(\mathrm{Fe_2O_3}) = -742.2\,\mathrm{kJ/mol}
+\]
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(\Delta_r G^\circ\) en \(K\) bij \(298\,\mathrm{K}\).
+\item[(b)]
+  Bij welke partiële zuurstofdruk zouden ijzer en roest in evenwicht zijn? Wat betekent dat praktisch?
+\item[(c)]
+  Als de reactie zo gunstig is, waarom bestaan er dan nog stalen bruggen?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(K\) \ensuremath{\approx{}} \textbf{10\ensuremath{^{260}}}. (b) \(p_{\mathrm{O_2}}\) \ensuremath{\approx{}} \textbf{10\ensuremath{^{-87}} bar}. (c) Thermodynamica zegt niets over de \textbf{snelheid}.
+
+\textbf{(a)} \(\Delta_r G^\circ = 2(-742.2) = -1484.4\,\mathrm{kJ/mol}\), zodat \(\ln K = 1\,484\,400/(8.314 \times 298) = 599\) en \(K \approx 10^{260}\).
+
+\textbf{(b)} Met vaste stoffen met activiteit 1 is \(K = (p_{\mathrm{O_2}}/p^\circ)^{-3}\), dus \(p_{\mathrm{O_2}} = K^{-1/3} = \exp(-599/3)\,\mathrm{bar} \approx 10^{-87}\,\mathrm{bar}\). Elk spoor zuurstof dat groter is dan deze belachelijk kleine druk volstaat om ijzer thermodynamisch te laten oxideren. IJzer is aan de lucht dus nooit stabiel.
+
+\textbf{(c)} Thermodynamica zegt enkel \emph{dat} een proces kan verlopen, niet \emph{hoe snel}. Roesten vereist water en elektrolyten en verloopt via een elektrochemisch mechanisme (hoofdstuk 7) dat beperkt wordt door transport en door de activeringsenergie. Door het ijzer af te schermen (verf, galvaniseren, kathodische bescherming) vertraagt men het proces tot tientallen jaren. Spontaniteit is niet snelheid.
+\end{oplossing}
+
+\begin{oefening}[Bij welke temperatuur wordt een ei gaar?]
+Bij het koken van een ei ontvouwen de eiwitmoleculen: ze denatureren. Behandel de ontvouwing als een evenwicht tussen een gevouwen toestand N en een ontvouwen toestand D, met \(\Delta H^\circ = +400\,\mathrm{kJ/mol}\) en \(\Delta S^\circ = +1.15\,\mathrm{kJ/(mol\cdot K)}\). Neem beide constant.
+
+\begin{enumerate}
+\item[(a)]
+  Waarom zijn zowel \(\Delta H^\circ\) als \(\Delta S^\circ\) positief?
+\item[(b)]
+  Boven welke temperatuur verloopt de denaturatie spontaan?
+\item[(c)]
+  Bereken de evenwichtsconstante \(K\) en het deel ontvouwen eiwit bij \(25\), \(60\), \(70\), \(80\) en \(90\,^\circ\mathrm{C}\).
+\item[(d)]
+  Waarom verloopt de overgang zo scherp, binnen ongeveer \(20\,\mathrm{K}\)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) Boven \textbf{348 K (75 °C)}. (c) Deel ontvouwen: \textbf{10\ensuremath{^{-10}}} (25 °C), \textbf{0.2 \%} (60 °C), \textbf{13 \%} (70 °C), \textbf{89 \%} (80 °C), \textbf{99.7 \%} (90 °C). (d) Doordat \(\Delta H^\circ\) en \(\Delta S^\circ\) allebei groot zijn.
+
+\textbf{(a)} Bij het ontvouwen breken veel waterstofbruggen en andere zwakke interacties, wat energie kost: \(\Delta H^\circ > 0\). De ontvouwen keten kan veel meer conformaties aannemen dan de compacte, geordende vouw: \(\Delta S^\circ > 0\).
+
+\textbf{(b)} Spontaan als \(\Delta G^\circ = \Delta H^\circ - T\Delta S^\circ < 0\), dus boven \(T = \Delta H^\circ/\Delta S^\circ = 400/1.15 = 348\,\mathrm{K} = 75\,^\circ\mathrm{C}\). Onder die temperatuur wint de enthalpie, erboven de entropie.
+
+\textbf{(c)} Met \(K = \exp(-\Delta G^\circ/RT)\) en een fractie ontvouwen \(K/(1+K)\):
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+\(T\) & \(\Delta G^\circ\) (kJ/mol) & \(K\) & ontvouwen \\
+\midrule
+25 °C & +57.1 & \(9.8\times10^{-11}\) & \(10^{-10}\) \\
+60 °C & +16.9 & \(2.3\times10^{-3}\) & 0.2 \% \\
+70 °C & +5.4 & 0.15 & 13 \% \\
+80 °C & \ensuremath{-}6.1 & 8.0 & 89 \% \\
+90 °C & \ensuremath{-}17.6 & 343 & 99.7 \% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(d)} \(\ln K = -\Delta H^\circ/RT + \Delta S^\circ/R\). Omdat \(\Delta H^\circ\) zo groot is, verandert \(\ln K\) heel sterk met de temperatuur (vergelijking van Van 't Hoff). Een ei bij kamertemperatuur blijft dus niet rauw omdat de reactie traag is, maar omdat het evenwicht ver aan de kant van het gevouwen eiwit ligt. In werkelijkheid klonteren de ontvouwen ketens daarna samen, waardoor een gekookt ei niet terug rauw wordt bij afkoelen. Dat deel is niet omkeerbaar en valt buiten dit eenvoudige model.
+\end{oplossing}
+
+\begin{oefening}[Waarom droogt de was buiten?]
+Natte was droogt aan de lijn, ook bij \(25\,^\circ\mathrm{C}\), ver onder het kookpunt van water. De relatieve luchtvochtigheid RH is de verhouding \(p_{\mathrm{H_2O}}/p^*\), met \(p^*\) de dampdruk van water (\(3.17\,\mathrm{kPa}\) bij \(25\,^\circ\mathrm{C}\)).
+
+\begin{enumerate}
+\item[(a)]
+  Toon aan dat voor het verdampen van vloeibaar water in lucht geldt: \(\Delta G_m = RT\ln(\text{RH})\). Vertrek van de chemische potentiaal van een ideaal gas.
+\item[(b)]
+  Bereken \(\Delta G_m\) bij RH = 60 \%, 95 \% en 100 \%. Wanneer droogt de was, en wanneer niet?
+\item[(c)]
+  Hoeveel energie is nodig om \(1.5\,\mathrm{kg}\) water uit de was te verdampen? Neem \(\Delta H_{\text{vap}} = 2.44\,\mathrm{MJ/kg}\) bij \(25\,^\circ\mathrm{C}\). Waar haalt de was aan de lijn die energie vandaan?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \(\Delta G_m\) = \textbf{\ensuremath{-}1.27 kJ/mol} (60 \%), \textbf{\ensuremath{-}0.13 kJ/mol} (95 \%) en \textbf{0} (100 \%): bij mist droogt de was niet. (c) \textbf{3.7 MJ, ongeveer 1 kWh}, aangevoerd als warmte uit de lucht en de zon.
+
+\textbf{(a)} De vloeistof is in evenwicht met haar damp bij de dampdruk: \(\mu(\mathrm{l}) = \mu(\mathrm{g}, p^*)\). Voor de damp in de lucht geldt \(\mu(\mathrm{g}, p) = \mu^\circ + RT\ln(p/p^\circ)\). Het verschil is
+
+\[
+\Delta G_m = \mu(\mathrm{g}, p) - \mu(\mathrm{l}) = RT\ln\frac{p}{p^*} = RT\ln(\text{RH})
+\]
+
+\textbf{(b)} \(RT = 2479\,\mathrm{J/mol}\):
+
+\begin{itemize}
+\item
+  RH = 60 \%: \(\Delta G_m = 2479\ln 0.60 = -1.27\,\mathrm{kJ/mol}\), dus verdampen is spontaan;
+\item
+  RH = 95 \%: \(-0.13\,\mathrm{kJ/mol}\), nog spontaan maar de drijvende kracht is tien keer kleiner, dus de was droogt traag;
+\item
+  RH = 100 \%: \(\Delta G_m = 0\), evenwicht, de was droogt niet.
+\end{itemize}
+
+Wind helpt omdat hij de vochtige lucht rond de was vervangt door drogere lucht, zodat RH lokaal laag blijft.
+
+\textbf{(c)} \(Q = 1.5 \times 2.44 = 3.7\,\mathrm{MJ} \approx 1.0\,\mathrm{kWh}\). Verdampen is endotherm. De natte was koelt af onder de luchttemperatuur, waardoor warmte uit de lucht naar de was stroomt, aangevuld met zonnestraling. Een droogkast moet die energie elektrisch leveren, en vaak nog meer door verliezen. Daarom is drogen aan de lijn zoveel goedkoper.
+\end{oplossing}
