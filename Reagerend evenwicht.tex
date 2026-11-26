@@ -396,6 +396,36 @@ K_2 = \frac{(p_{\mathrm{CO_2}}/p^\circ)(p_{\mathrm{H_2}}/p^\circ)}{(p_{\mathrm{C
 De ingenieur moet beide vergelijkingen simultaan oplossen, samen met de massabalansen en de totale druk --- een uitbreiding van de ICE-tabelmethode uit \S~\ref{sec:ice-tabel} naar twee gekoppelde reactie-uitbreidingen $\xi_1$ en $\xi_2$. In de praktijk gebeurt dit met behulp van processimulators.
 
 
+
+\subsection{Tweede case: waterstof uit aardgas}
+\label{sec:case-waterstof}
+
+De waterstof voor de ammoniaksynthese komt vandaag grotendeels uit aardgas, via twee gekoppelde evenwichten met een tegengesteld karakter.
+
+\paragraph{Stoomreforming: endotherm, dus heet.}
+\[
+\ce{CH4 + H2O <=> CO + 3 H2}, \qquad \Delta_r H^\circ = \SI{+206}{\kilo\joule\per\mole},\quad \Delta\nu = +2.
+\]
+De reactie is sterk endotherm en vormt meer mol gas. Volgens Van 't Hoff en Le Chatelier vraagt ze dus een hoge temperatuur en een lage druk. Industrieel werkt men bij \SIrange{800}{900}{\celsius} in buizen gevuld met nikkelkatalysator, die van buitenaf in een oven worden verwarmd. De druk is toch \SIrange{20}{30}{\bar}: de verdere installatie werkt onder druk en een compacte reactor is goedkoper, ook al kost dat wat omzetting.
+
+\paragraph{Water-gasshift: exotherm, dus in twee trappen.}
+\[
+\ce{CO + H2O <=> CO2 + H2}, \qquad \Delta_r H^\circ = \SI{-41.2}{\kilo\joule\per\mole},\quad \Delta_r S^\circ = \SI{-42.1}{\joule\per\mole\per\kelvin},\quad \Delta\nu = 0.
+\]
+Hier is de reactie exotherm: een lage temperatuur geeft meer omzetting, maar een tragere reactie. Omdat $\Delta\nu = 0$ speelt de druk geen rol in de ligging van het evenwicht.
+
+\begin{voorbeeld}{Water-gasshift bij 400 en \SI{200}{\celsius}}
+Voeding: 1 mol \ce{CO} en 2 mol \ce{H2O}. Met omzetting $X$ van CO bevat het evenwichtsmengsel $1-X$ mol CO, $2-X$ mol \ce{H2O}, $X$ mol \ce{CO2} en $X$ mol \ce{H2}. Omdat $\Delta\nu = 0$ vallen de totale druk en het totale aantal mol weg:
+\[
+K = \frac{X^2}{(1-X)(2-X)}.
+\]
+\textbf{Bij \SI{400}{\celsius}} (\SI{673}{\kelvin}): $\ln K = -\Delta_r H^\circ/RT + \Delta_r S^\circ/R = 7.36 - 5.06 = 2.30$, dus $K \approx 10$. Uitwerken geeft $9X^2 - 30X + 20 = 0$, met $X = 0.92$.
+
+\textbf{Bij \SI{200}{\celsius}} (\SI{473}{\kelvin}): $\ln K = 10.48 - 5.06 = 5.41$, dus $K \approx 220$, en $X = 0.995$.
+
+Bij \SI{400}{\celsius} blijft 8\,\% van de CO over, bij \SI{200}{\celsius} nog maar 0.5\,\%. Daarom werkt men met twee shiftreactoren na elkaar: een \emph{hogetemperatuurshift} (\SI{350}{} tot \SI{450}{\celsius}, ijzer-chroomkatalysator) die snel het grootste deel omzet, en na tussenkoeling een \emph{lagetemperatuurshift} (\SI{200}{} tot \SI{250}{\celsius}, koperkatalysator) die het evenwicht verder naar rechts duwt. Dezelfde logica als bij Haber--Bosch: de thermodynamica wil koud, de kinetiek wil warm, en de ingenieur splitst het probleem op.
+\end{voorbeeld}
+
 \section{Van thermodynamica naar procesontwerp}
 
 \subsection{Thermodynamische strategie\"en voor procesontwerp}
@@ -408,16 +438,38 @@ De thermodynamica bepaalt welke omzetting maximaal haalbaar is. De procestechnol
 De temperatuur bepaalt via de vergelijking van Van 't Hoff (\S~\ref{sec:vanthoff-reagerend}) de waarde van de evenwichtsconstante. Voor endotherme reacties leidt een temperatuurverhoging tot een grotere evenwichtsomzetting; voor exotherme reacties is een lagere temperatuur thermodynamisch gunstiger. Bij gasreacties kan ook de druk een rol spelen: wanneer het aantal mol gas afneemt, bevordert een drukverhoging de producten (\S~\ref{sec:ice-tabel}).
 
 \subsubsection{Verwijderen van reactieproducten}
+\label{sec:producten-verwijderen}
 
 Wanneer een reactieproduct continu wordt afgescheiden, neemt het reactiequoti\"ent af, waardoor $\Delta_r G$ opnieuw negatief wordt en de voorwaartse reactie spontaan verder verloopt. Bij de ammoniakproductie wordt het gevormde ammoniak na afkoeling gecondenseerd; bij esterificaties wordt vaak water verwijderd. Hoewel de ligging van het chemisch evenwicht niet verandert, kan de totale productie aanzienlijk toenemen.
 
 \subsubsection{Recycle van niet-omgezette reactanten}
+\label{sec:recycle}
 
 Bij vele industri\"ele reacties wordt per doorgang slechts een beperkte fractie van de reactanten omgezet --- zoals kwantitatief bleek uit het ICE-tabelvoorbeeld in \S~\ref{sec:ice-tabel} (\SI{44.5}{\percent} omzetting per doorgang bij \SI{100}{\bar}). Na scheiding van de reactieproducten worden de niet-omgezette componenten opnieuw naar de reactor teruggevoerd, samen met een purgestroom om de inerte gassen uit \S~\ref{sec:druk-inerte-gassen} af te voeren. Hierdoor kan dezelfde hoeveelheid grondstof meerdere malen aan het chemisch evenwicht worden blootgesteld. Recycle behoort tot de standaardopbouw van ammoniak-, methanol- en waterstofproductie.
 
 \subsubsection{Integratie van reactie en scheiding}
 
 Een bijzonder krachtige strategie is het combineren van de chemische reactie met een scheidingsproces. Voorbeelden zijn reactieve destillatie, membraanreactoren en adsorptiereactoren. Wanneer reactieproducten reeds tijdens de reactie worden verwijderd, blijft het reactiequoti\"ent voortdurend kleiner dan de evenwichtsconstante, waardoor de voorwaartse reactie spontaan blijft verlopen.
+
+\subsection{Evenwicht en warmte samen: de adiabatische reactor}
+\label{sec:adiabatische-evenwichtsreactor}
+
+In hoofdstuk~\ref{ch:energie} (\S~\ref{sec:warmte-effecten}) zagen we dat een exotherme reactie in een adiabatische reactor het mengsel opwarmt: $T = T_\mathrm{in} + \Delta T_\mathrm{ad}\,X$. Voor een evenwichtsreactie heeft dat een vervelend gevolg. Naarmate de omzetting stijgt, wordt het mengsel warmer, en daalt de evenwichtsomzetting. De reactie stopt waar de rechte van de energiebalans de evenwichtscurve snijdt.
+
+Figuur~\ref{fig:so2-bedden} toont dit voor de oxidatie van zwaveldioxide in een zwavelzuurfabriek,
+\[
+\ce{SO2 + 1/2 O2 <=> SO3}, \qquad \Delta_r H^\circ = \SI{-98.9}{\kilo\joule\per\mole},
+\]
+met een voeding van 10\,\% \ce{SO2}, 11\,\% \ce{O2} en 79\,\% \ce{N2}. De blauwe curve is de evenwichtsomzetting, berekend met Van 't Hoff. Met een gemiddelde $C_p$ van \SI{32}{\joule\per\mole\per\kelvin} voor het gasmengsel is $\Delta T_\mathrm{ad} = 0.10 \times 98\,900/32 \approx \SI{310}{\kelvin}$ bij volledige omzetting.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/so2_bedden}
+    \caption{Evenwichtsomzetting van \ce{SO2} naar \ce{SO3} (blauw) en drie adiabatische katalysatorbedden met tussenkoeling tot \SI{430}{\celsius} (rood). In elk bed stijgen omzetting en temperatuur samen langs een rechte, tot dicht bij het evenwicht. Berekend met $\Delta_r H^\circ$ en $\Delta_r S^\circ$ uit tabellen (NIST) en een gemiddelde $C_p$.}
+    \label{fig:so2-bedden}
+\end{figure}
+
+Het eerste bed start bij \SI{420}{\celsius} (lager werkt de vanadiumkatalysator niet) en loopt op tot ongeveer \SI{615}{\celsius} bij 63\,\% omzetting: verder laat het evenwicht niet toe. Na afkoeling tot \SI{430}{\celsius} brengt een tweede bed de omzetting naar 90\,\%, een derde naar 97\,\%. Moderne installaties absorberen na het derde bed het gevormde \ce{SO3} in zwavelzuur en sturen het restgas door een vierde bed (\emph{dubbele absorptie}): door het product te verwijderen daalt $Q$, en haalt men meer dan 99.7\,\%. De vrijgekomen warmte wordt in de tussenkoelers gebruikt om stoom te maken: een zwavelzuurfabriek levert netto energie.
 
 \subsection{Ge\"integreerde casestudy: de synthese van ammoniak}
 \label{sec:haber-bosch-integraal}
@@ -426,8 +478,8 @@ We brengen nu alle elementen van dit hoofdstuk samen, met de waarden die in dit 
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.85\linewidth]{Afbeeldingen/haber_bosch_processchema.png}
-    \caption{\emph{Placeholder --- toe te voegen figuur.} Vereenvoudigd processchema van de Haber--Boschlus: verse voeding $\mathrm{N_2}$+$\mathrm{H_2}$ wordt gemengd met de gerecycleerde, niet-omgezette reactanten (\S~"Recycle van niet-omgezette reactanten"); het mengsel doorloopt de reactor (ijzerkatalysator, \SIrange{400}{500}{\celsius}, \SIrange{150}{300}{\bar}); de reactoruitlaat wordt afgekoeld in een condensor/separator waar vloeibare $\mathrm{NH_3}$ wordt afgescheiden als product; de resterende, grotendeels niet-omgezette $\mathrm{N_2}$/$\mathrm{H_2}$-stroom wordt teruggevoerd naar de menger, met een kleine \emph{purge}-aftakking om inerte gassen (\S~\ref{sec:druk-inerte-gassen}) af te voeren en ophoping te voorkomen.}
+    \includegraphics[width=0.85\linewidth]{Figuren/haber_bosch_schema}
+    \caption{Vereenvoudigd blokschema van de Haber--Boschlus. Per doorgang wordt slechts een deel van \ce{N2} en \ce{H2} omgezet; na afkoeling condenseert \ce{NH3} en wordt het afgescheiden. De rest gaat terug naar de reactor (recycle), met een kleine purge om inerte gassen af te voeren.}
     \label{fig:haber-bosch-schema}
 \end{figure}
 
@@ -435,7 +487,7 @@ We brengen nu alle elementen van dit hoofdstuk samen, met de waarden die in dit 
 \item \textbf{Is de reactie spontaan?} Bij de start van het proces bevat het reactormengsel uitsluitend $\mathrm{N_2}$ en $\mathrm{H_2}$, zodat $Q$ zeer klein is en $\Delta_rG<0$: de reactie verloopt spontaan richting ammoniak, tot $Q=K$ (\S~\ref{sec:evenwichtsconstante-reagerend}).
 \item \textbf{Waarom niet bij kamertemperatuur?} Ondanks de zeer gunstige $K\approx6\times10^5$ bij \SI{298}{\kelvin}, verloopt de reactie daar te traag: de sterke $\mathrm{N \equiv N}$-drievoudige binding (hoofdstuk~\ref{ch:kwantum}) geeft een hoge activeringsenergie. Een hogere temperatuur versnelt de reactie aanzienlijk, maar verlaagt tegelijk $K$ drastisch (\S~\ref{sec:vanthoff-reagerend}) --- de klassieke spanning tussen thermodynamica en kinetiek uit hoofdstuk~\ref{ch:spontaniteit}.
 \item \textbf{Waarom bij hoge druk?} Omdat $\Delta\nu=-2$, groeit $K_x$ sterk met de druk (\S~\ref{sec:Kp-Kc-Kx}--\ref{sec:ice-tabel}): van een verwaarloosbare opbrengst bij \SI{1}{\bar} tot $y_{\mathrm{NH_3}}\approx\SI{28.6}{\percent}$ bij \SI{100}{\bar} en verder oplopend bij de industrieel gebruikelijke \SIrange{150}{300}{\bar}.
-\item \textbf{Waarom wordt ammoniak voortdurend verwijderd?} Door de gevormde $\mathrm{NH_3}$ na afkoeling te condenseren, daalt $Q$ opnieuw onder $K$, zodat de voorwaartse reactie blijft verlopen zonder dat de ligging van het evenwicht zelf verandert (\S~"Verwijderen van reactieproducten").
+\item \textbf{Waarom wordt ammoniak voortdurend verwijderd?} Door de gevormde $\mathrm{NH_3}$ na afkoeling te condenseren, daalt $Q$ opnieuw onder $K$, zodat de voorwaartse reactie blijft verlopen zonder dat de ligging van het evenwicht zelf verandert (\S~\ref{sec:producten-verwijderen}).
 \item \textbf{Waarom worden de reactanten gerecycleerd?} Bij slechts \SI{44.5}{\percent} omzetting per doorgang (\S~\ref{sec:ice-tabel}) is recycle van de niet-omgezette $\mathrm{N_2}$/$\mathrm{H_2}$, met een purge voor inerte gassen (\S~\ref{sec:druk-inerte-gassen}), noodzakelijk om een hoge globale omzetting te bereiken (figuur~\ref{fig:haber-bosch-schema}).
 \item \textbf{Waarom is een katalysator noodzakelijk?} De ijzerkatalysator verlaagt de activeringsenergie en verhoogt zo de reactiesnelheid, zodat het (door de thermodynamica vastgelegde) evenwicht sneller wordt bereikt. De evenwichtsligging zelf --- $K$, en dus de uiteindelijke samenstelling --- blijft volledig onveranderd: de katalysator versnelt, maar bepaalt niet.
 \end{itemize}
@@ -458,6 +510,7 @@ Het criterium van hoofdstuk~\ref{ch:spontaniteit}, een minimale Gibbs-vrije ener
 \item $K_p$ en $K_c$ hangen enkel van $T$ af; $K_x=K_p(P/p^\circ)^{-\Delta\nu}$ hangt ook van de druk af. Inerte gassen verlagen bij constante druk de opbrengst van reacties met $\Delta\nu<0$.
 \item De evenwichtssamenstelling volgt uit een reactietabel en \'e\'en vergelijking in $\xi$ (of meerdere, bij gekoppelde reacties).
 \item Zuivere vaste stoffen en vloeistoffen hebben activiteit 1 en verschijnen niet in $K$.
+\item In een adiabatische reactor stijgt de temperatuur met de omzetting (werklijn) tot ze de evenwichtscurve snijdt. Bij exotherme evenwichtsreacties (SO$_2$-oxidatie, watergasshift) werkt men daarom met meerdere bedden en tussenkoeling: eerst snelheid bij hoge $T$, dan opbrengst bij lage $T$.
 \item Ontwerpstrategie\"en: $T$ en $P$ kiezen, product verwijderen, recycleren met purge, reactie en scheiding integreren. Thermodynamica bepaalt de grens, kinetiek en economie het werkpunt.
 \end{itemize}
 \end{samenvatting}
@@ -468,6 +521,7 @@ Het criterium van hoofdstuk~\ref{ch:spontaniteit}, een minimale Gibbs-vrije ener
 \item Een katalysator verlaagt de activeringsenergie. Waarom verandert hij $K$ niet?
 \item Waarom heeft een drukverhoging geen invloed op $K_p$, maar wel op de opbrengst van ammoniak?
 \item Bij de ammoniaksynthese daalt $K$ met tien grootteordes tussen \SI{298}{\kelvin} en \SI{700}{\kelvin}. Waarom werkt men toch bij \SI{700}{\kelvin}?
+\item Waarom haalt een groter adiabatisch katalysatorbed niet altijd een hogere omzetting?
 \item Wat gebeurt er met de reactorcapaciteit als je de purge in de Haber--Boschlus dichtdraait?
 \item Een kalkoven werkt bij atmosferische druk. Waarom blaast men lucht of rookgas door de oven?
 \item Geef een voorbeeld van een proces waarin reactie en scheiding in \'e\'en toestel gebeuren, en leg uit waarom dat de omzetting verhoogt.
