@@ -11,6 +11,7 @@ Gebruik: python3 tex2qmd.py <map-met-main.tex> <quarto-map>
 - \\includegraphics{Afbeeldingen/x.png}: gewone afbeelding; bestaat ze niet, dan
   verschijnt "Figuur in voorbereiding" met het bijschrift.
 - \\interactief{naam}: voegt _interactief/naam.qmd in.
+- \\begin{oplossing}...\\end{oplossing}: enkel online, als dichtgeklapt kader.
 """
 import os, re, sys, subprocess, shutil, glob
 
@@ -43,6 +44,7 @@ CALLOUTS = {  # omgeving -> (Quarto-callout, titelprefix, extra attributen)
     "definitie":  ("callout-warning", "Definitie", ''),
     "besluit":    ("callout-important", "Besluit", ''),
     "oefening":   ("callout-note", "Oefening", ' icon="false"'),
+    "oplossing":  ("callout-tip", "Oplossing", ' collapse="true" icon="false"'),  # enkel online, dichtgeklapt
 }
 
 # ---------------------------------------------------------------- helpers
@@ -265,6 +267,8 @@ def convert_chapter(texname, slug, chapnum):
             if j < len(s) and s[j] == '[':
                 k = s.index(']', j); opt = s[j+1:k]; j = k + 1
             title = f'{chapnum}.{oef[0]}' + (f' ({opt})' if opt else '')
+        elif env == 'oplossing':
+            title = ''
         else:
             jj = skip_ws(s, j)
             if jj < len(s) and s[jj] == '{':
