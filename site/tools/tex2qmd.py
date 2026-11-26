@@ -321,6 +321,9 @@ def convert_chapter(texname, slug, chapnum):
         return f'::: {{.{kind}{extra}}}\n## {head}'
     md = re.sub(r'^[ \t]*QCO(\d+)Q[ \t]*$', callout_repl, md, flags=re.M)
     md = re.sub(r'^[ \t]*QCCQ[ \t]*$', ':::', md, flags=re.M)
+    rest = re.findall(r'QC[OC]\d*Q', md)
+    if rest:
+        sys.exit(f'[{texname}] kaders niet omgezet: {rest[:5]}')
 
     # figuren
     pyfigs = []
