@@ -75,7 +75,7 @@ Een PEM-brandstofcel zet waterstof om in vloeibaar water: \(\mathrm{H_2(g) + \tf
 \item[(b)]
   Een cel werkt bij \(0.70\,\mathrm{V}\). Bereken de geleverde elektrische arbeid per mol \(\mathrm{H_2}\), het rendement ten opzichte van \(\Delta_r G^\circ\) en ten opzichte van \(\Delta_r H^\circ\), en de warmte die per mol vrijkomt.
 \item[(c)]
-  Vergelijk met het Carnot-rendement van een warmtemotor die werkt tussen \(900\,\mathrm{K}\) en \(300\,\mathrm{K}\) (hoofdstuk 3). Waarom geldt de Carnot-grens niet voor een brandstofcel?
+  Vergelijk met het Carnot-rendement van een warmtemotor die werkt tussen \(900\,\mathrm{K}\) en \(300\,\mathrm{K}\) (hoofdstuk~\ref{ch:spontaniteit}). Waarom geldt de Carnot-grens niet voor een brandstofcel?
 \item[(d)]
   Hoeveel cellen in serie zijn nodig voor een stapel die \(280\,\mathrm{V}\) levert, zoals in een waterstofauto?
 \end{enumerate}
@@ -87,12 +87,12 @@ Een PEM-brandstofcel zet waterstof om in vloeibaar water: \(\mathrm{H_2(g) + \tf
 
 \textbf{(b)} \(w = nFE = (2)(96485)(0.70) = 135\,\mathrm{kJ/mol}\). Rendement: \(0.70/1.23 = 57\,\%\) ten opzichte van de maximale arbeid, of \(135/285.8 = 47\,\%\) ten opzichte van de verbrandingswarmte (de gebruikelijke definitie bij voertuigen). De energiebalans (eerste hoofdwet) geeft de warmte: \(285.8 - 135 = 151\,\mathrm{kJ/mol}\), die met koelwater afgevoerd wordt.
 
-\textbf{(c)} \(\eta_{\text{Carnot}} = 1 - 300/900 = 67\,\%\); echte automotoren halen \(25\)--\(35\,\%\). Een warmtemotor zet chemische energie eerst om in warmte bij hoge temperatuur en moet dan een deel daarvan afgeven aan de koude omgeving; daaruit volgt de Carnot-grens. Een brandstofcel zet de Gibbs-energie rechtstreeks om in elektrische arbeid, zonder tussenstap via warmte: de enige grens is \(-\Delta_r G\) (vergelijking 7.5). Het theoretisch maximum is \(237/286 = 83\,\%\), onafhankelijk van een temperatuurverschil.
+\textbf{(c)} \(\eta_{\text{Carnot}} = 1 - 300/900 = 67\,\%\); echte automotoren halen \(25\)--\(35\,\%\). Een warmtemotor zet chemische energie eerst om in warmte bij hoge temperatuur en moet dan een deel daarvan afgeven aan de koude omgeving; daaruit volgt de Carnot-grens. Een brandstofcel zet de Gibbs-energie rechtstreeks om in elektrische arbeid, zonder tussenstap via warmte: de enige grens is \(-\Delta_r G\) (vergelijking~\eqref{eq:wmax}). Het theoretisch maximum is \(237/286 = 83\,\%\), onafhankelijk van een temperatuurverschil.
 
 \textbf{(d)} \(280/0.70 = 400\) cellen in serie. De stroom (en dus het vermogen) bepaalt men met het celoppervlak.
 \end{oplossing}
 
-\begin{oefening}
+\begin{oefening}\label{oef:smartphonebatterij}
 Een smartphonebatterij heeft een capaciteit van \(4000\,\mathrm{mAh}\) bij een gemiddelde spanning van \(3.85\,\mathrm{V}\). Bij het ontladen verhuist lithium als \(\mathrm{Li^+}\) van de grafietelektrode (\(\mathrm{LiC_6}\)) naar de kathode, met één elektron per lithiumatoom.
 
 \begin{enumerate}
@@ -103,7 +103,7 @@ Een smartphonebatterij heeft een capaciteit van \(4000\,\mathrm{mAh}\) bij een g
 \item[(c)]
   Hoeveel gram lithium moet minstens verhuizen, en hoeveel gram grafiet is nodig om het op te slaan?
 \item[(d)]
-  Waarom gebruikt men lithium en geen natrium of zink in een batterij voor een smartphone? Gebruik tabel 7.1.
+  Waarom gebruikt men lithium en geen natrium of zink in een batterij voor een smartphone? Gebruik tabel~\ref{tab:reductiepotentialen}.
 \end{enumerate}
 \end{oefening}
 \begin{oplossing}
@@ -115,7 +115,7 @@ Een smartphonebatterij heeft een capaciteit van \(4000\,\mathrm{mAh}\) bij een g
 
 \textbf{(c)} Eén elektron per Li: \(0.149\,\mathrm{mol}\) Li \(= (0.149)(6.94) = 1.04\,\mathrm{g}\). In \(\mathrm{LiC_6}\) horen bij elk Li zes koolstofatomen: \((6)(0.149)(12.01) = 10.8\,\mathrm{g}\) grafiet. Een echte batterij weegt ongeveer \(60\,\mathrm{g}\): de kathode, de elektrolyt, de stroomcollectoren en de behuizing wegen veel meer.
 
-\textbf{(d)} Lithium heeft de meest negatieve standaardreductiepotentiaal (\(-3.04\,\mathrm{V}\), tabel 7.1): als anodemateriaal levert het de hoogste celspanning. Bovendien is het het lichtste metaal (\(6.94\,\mathrm{g/mol}\)), zodat het de meeste lading per gram levert. Natrium (\(-2.71\,\mathrm{V}\), \(23\,\mathrm{g/mol}\)) is goedkoper en wordt onderzocht voor stationaire opslag; zink (\(-0.76\,\mathrm{V}\)) geeft veel minder spanning.
+\textbf{(d)} Lithium heeft de meest negatieve standaardreductiepotentiaal (\(-3.04\,\mathrm{V}\), tabel~\ref{tab:reductiepotentialen}): als anodemateriaal levert het de hoogste celspanning. Bovendien is het het lichtste metaal (\(6.94\,\mathrm{g/mol}\)), zodat het de meeste lading per gram levert. Natrium (\(-2.71\,\mathrm{V}\), \(23\,\mathrm{g/mol}\)) is goedkoper en wordt onderzocht voor stationaire opslag; zink (\(-0.76\,\mathrm{V}\)) geeft veel minder spanning.
 \end{oplossing}
 
 \begin{oefening}
@@ -175,7 +175,7 @@ Er komen geen \(\mathrm{H^+}\)- of \(\mathrm{OH^-}\)-ionen in de halfreactie voo
 
 \textbf{(b)} Bij pH 7 ligt de waterstoflijn op \(E = -0.0592 \times 7 = -0.41\,\mathrm{V}\). Voor \(\mathrm{Fe + 2\,H^+ \rightarrow Fe^{2+} + H_2}\) is \(E_{\text{cel}} = -0.41 - (-0.62) = +0.20\,\mathrm{V} > 0\): ijzer kan zelfs zonder zuurstof thermodynamisch oxideren. In het Pourbaix-diagram ligt de ijzerlijn onder de waterlijn.
 
-\textbf{(c)} De ontwikkeling van waterstof op ijzer bij pH 7 is uiterst traag (hoge overspanning en zeer lage \(\mathrm{H^+}\)-concentratie), en het gevormde \(\mathrm{Fe(OH)_2}\) remt verdere aantasting. De drijvende kracht met zuurstof is veel groter (\(1.42\,\mathrm{V}\), voorbeeld in §7.4.1). Daarom roest een volledig ondergedompeld stuk staal in stilstaand, zuurstofarm water zoveel trager dan een stuk dat afwisselend nat en droog wordt.
+\textbf{(c)} De ontwikkeling van waterstof op ijzer bij pH 7 is uiterst traag (hoge overspanning en zeer lage \(\mathrm{H^+}\)-concentratie), en het gevormde \(\mathrm{Fe(OH)_2}\) remt verdere aantasting. De drijvende kracht met zuurstof is veel groter (\(1.42\,\mathrm{V}\), voorbeeld in \S~\ref{sec:corrosie-galvanisch}). Daarom roest een volledig ondergedompeld stuk staal in stilstaand, zuurstofarm water zoveel trager dan een stuk dat afwisselend nat en droog wordt.
 
 \textbf{(d)} Onder \(-0.62\,\mathrm{V}\) ligt het staal in het immuniteitsgebied. Wanneer je staal elektrisch verbindt met zink, vormt het zink de anode van een galvanische cel (\(E^\circ = -0.76\,\mathrm{V}\) is negatiever dan ijzer): het zink lost op en levert elektronen aan het staal, dat daardoor tot een lagere potentiaal gedwongen wordt.
 \end{oplossing}
@@ -229,7 +229,7 @@ In werkelijkheid vormt aluminium in de basische soda-oplossing aluminaat of hydr
 
 \textbf{(b)} \(E^\circ = -0.69 - (-1.66) = 0.97\,\mathrm{V}\) en \(\Delta_r G^\circ = -nFE^\circ = -(6)(96485)(0.97) = -562\,\mathrm{kJ}\). De reactie is sterk spontaan.
 
-\textbf{(c)} Aluminium is normaal gepassiveerd door een dunne, compacte oxidelaag (voorbeeld in §7.5.1): de thermodynamica zegt `ja', maar de oxidelaag blokkeert de reactie. Sodawater is basisch; in het Pourbaix-diagram van aluminium ligt bij hoge pH een corrosiegebied (aluminaat, \(\mathrm{Al(OH)_4^-}\)), zodat de oxidelaag oplost. De warmte versnelt alles (hoofdstuk~\ref{ch:kinetiek}), en het opgeloste zout zorgt voor ionengeleiding tussen zilver en folie.
+\textbf{(c)} Aluminium is normaal gepassiveerd door een dunne, compacte oxidelaag (voorbeeld in \S~\ref{sec:materiaalkeuze}): de thermodynamica zegt `ja', maar de oxidelaag blokkeert de reactie. Sodawater is basisch; in het Pourbaix-diagram van aluminium ligt bij hoge pH een corrosiegebied (aluminaat, \(\mathrm{Al(OH)_4^-}\)), zodat de oxidelaag oplost. De warmte versnelt alles (hoofdstuk~\ref{ch:kinetiek}), en het opgeloste zout zorgt voor ionengeleiding tussen zilver en folie.
 
 \textbf{(d)} Een schuurmiddel verwijdert het \(\mathrm{Ag_2S}\) mechanisch, en daarmee ook het zilver dat erin gebonden zit. Bij de elektrochemische methode wordt het zilver teruggevormd tot metaal op het voorwerp, zodat er geen zilver verloren gaat.
 \end{oplossing}
@@ -255,7 +255,7 @@ Een autobatterij van \(12\,\mathrm{V}\) heeft een capaciteit van \(60\,\mathrm{A
 
 \textbf{(a)} \(Q = (60\,\mathrm{A})(3600\,\mathrm{s}) = 2.16\times10^{5}\,\mathrm{C}\), dus \(Q/F = 2.24\,\mathrm{mol}\) elektronen. De zes cellen staan in serie, zodat dezelfde lading door elke cel gaat. Per 2 mol elektronen reageert 1 mol Pb, 1 mol \(\mathrm{PbO_2}\) en 2 mol \(\mathrm{H_2SO_4}\): per cel \(1.12\,\mathrm{mol}\) Pb (\(232\,\mathrm{g}\)), \(1.12\,\mathrm{mol}\) \(\mathrm{PbO_2}\) (\(268\,\mathrm{g}\)) en \(2.24\,\mathrm{mol}\) \(\mathrm{H_2SO_4}\) (\(220\,\mathrm{g}\)), samen \(0.72\,\mathrm{kg}\).
 
-\textbf{(b)} \(W = (12\,\mathrm{V})(60\,\mathrm{Ah}) = 720\,\mathrm{Wh}\), of \(720/15 = 48\,\mathrm{Wh/kg}\). Per cel: \((2.04\,\mathrm{V})(60\,\mathrm{Ah}) = 122\,\mathrm{Wh}\) uit \(0.72\,\mathrm{kg}\) reactanten, dus theoretisch \(170\,\mathrm{Wh/kg}\). Water, rooster, behuizing en een overmaat aan actieve massa (die nooit volledig benut wordt) drijven het gewicht op. Li-ion haalt vijf keer meer per kilogram, dankzij de lage molaire massa en hoge spanning van lithium (Oefening 7.4). Voor een startbatterij telt vooral dat lood goedkoop, robuust en bijna volledig recycleerbaar is.
+\textbf{(b)} \(W = (12\,\mathrm{V})(60\,\mathrm{Ah}) = 720\,\mathrm{Wh}\), of \(720/15 = 48\,\mathrm{Wh/kg}\). Per cel: \((2.04\,\mathrm{V})(60\,\mathrm{Ah}) = 122\,\mathrm{Wh}\) uit \(0.72\,\mathrm{kg}\) reactanten, dus theoretisch \(170\,\mathrm{Wh/kg}\). Water, rooster, behuizing en een overmaat aan actieve massa (die nooit volledig benut wordt) drijven het gewicht op. Li-ion haalt vijf keer meer per kilogram, dankzij de lage molaire massa en hoge spanning van lithium (Oefening~\ref{oef:smartphonebatterij}). Voor een startbatterij telt vooral dat lood goedkoop, robuust en bijna volledig recycleerbaar is.
 
 \textbf{(c)} Tijdens het ontladen verdwijnt zwavelzuur uit de elektrolyt en ontstaat water: de dichtheid zakt van ongeveer \(1.28\,\mathrm{g/cm^3}\) (geladen) naar ongeveer \(1.10\,\mathrm{g/cm^3}\) (leeg). In de Nernstvergelijking staat \(Q = a_{\mathrm{H_2O}}^2/a_{\mathrm{H_2SO_4}}^2\), dus de spanning daalt licht. De dichtheid is daarom een directe maat voor de hoeveelheid zuur die nog kan reageren.
 \end{oplossing}
@@ -292,7 +292,7 @@ Dit is exact de ondergrens van het stabiliteitsgebied van water in het Pourbaix-
 \textbf{(d)} Een glaselektrode heeft een eigen nulpunt (asymmetriepotentiaal) dat langzaam verschuift, en een helling die iets kan afwijken van de theoretische waarde. Met twee buffers bepaal je beide. De helling \(RT\ln10/F\) is evenredig met de absolute temperatuur: \(59.2\,\mathrm{mV}\) bij \(25\,^\circ\mathrm{C}\), maar \(61.5\,\mathrm{mV}\) bij \(37\,^\circ\mathrm{C}\). Daarom hebben pH-meters een temperatuursensor.
 \end{oplossing}
 
-\begin{oefening}
+\begin{oefening}\label{oef:h7-11}
 Voor \(\mathrm{H_2(g) + \tfrac{1}{2}\,O_2(g) \rightarrow H_2O(l)}\) geldt \(E^\circ = 1.229\,\mathrm{V}\) bij \(298\,\mathrm{K}\). De standaardentropieën zijn \(S^\circ(\mathrm{H_2O,l}) = 70.0\), \(S^\circ(\mathrm{H_2,g}) = 130.7\) en \(S^\circ(\mathrm{O_2,g}) = 205.2\,\mathrm{J/(mol\cdot K)}\).
 
 \begin{enumerate}
@@ -345,7 +345,7 @@ Een elektrolyser van \(10\,\mathrm{MW}\) in de Antwerpse haven verbruikt \(52.5\
 
 \textbf{(c)} Per dag: \((10\,\mathrm{MW})(24\,\mathrm{h}) = 240\,\mathrm{MWh}\), dus \(240\,000/52.5 = 4570\,\mathrm{kg} \approx 4.6\,\mathrm{ton}\) \(\mathrm{H_2}\). Per kg \(\mathrm{H_2}\) is \(18.015/2.016 = 8.9\,\mathrm{kg}\) water nodig, samen ongeveer \(41\,\mathrm{ton}\) zuiver water per dag (in de praktijk meer, door de waterzuivering).
 
-\textbf{(d)} \((52.5)(0.10) = 5.25\,\text{€/kg}\), enkel aan elektriciteit; waterstof uit aardgas kost typisch \(1\)--\(2\,\text{€/kg}\) (zonder \(\mathrm{CO_2}\)-prijs). De ingenieur kan (1) de overspanning verlagen met betere elektrodekatalysatoren en dunnere membranen, en zo dichter bij \(1.23\)--\(1.48\,\mathrm{V}\) komen, en (2) bij hogere temperatuur werken, waarbij \(E^\circ\) daalt en goedkope restwarmte een deel van de energie levert (Oefening 7.11). Daarnaast kan men de installatie laten draaien wanneer de elektriciteit goedkoop is (veel zon en wind).
+\textbf{(d)} \((52.5)(0.10) = 5.25\,\text{€/kg}\), enkel aan elektriciteit; waterstof uit aardgas kost typisch \(1\)--\(2\,\text{€/kg}\) (zonder \(\mathrm{CO_2}\)-prijs). De ingenieur kan (1) de overspanning verlagen met betere elektrodekatalysatoren en dunnere membranen, en zo dichter bij \(1.23\)--\(1.48\,\mathrm{V}\) komen, en (2) bij hogere temperatuur werken, waarbij \(E^\circ\) daalt en goedkope restwarmte een deel van de energie levert (Oefening~\ref{oef:h7-11}). Daarnaast kan men de installatie laten draaien wanneer de elektriciteit goedkoop is (veel zon en wind).
 \end{oplossing}
 
 \begin{oefening}

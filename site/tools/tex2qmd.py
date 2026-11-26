@@ -278,6 +278,9 @@ def convert_chapter(texname, slug, chapnum):
             if j < len(s) and s[j] == '[':
                 k = s.index(']', j); opt = s[j+1:k]; j = k + 1
             title = f'{chapnum}.{oef[0]}' + (f' ({opt})' if opt else '')
+            ml = re.match(r'\s*\\label\{([^}]*)\}', s[j:])
+            if ml:
+                oef_labels[ml.group(1)] = (f'{chapnum}.{oef[0]}', slug)
         elif env == 'oplossing':
             title = ''
         else:
@@ -405,12 +408,16 @@ def convert_chapter(texname, slug, chapnum):
         md = re.sub(r'^(# .*\n)', lambda m: m.group(1) + '\n' + kop, md, count=1, flags=re.M)
     return md
 
+oef_labels = {}  # label van een oefening -> (nummer, slug)
 label_alias = {'ch:eerstehoofdwet': 'ch:energie', 'ch:kristallografie': 'ch:vastestof'}
 
 def fix_refs(md):
     def ref(m, eq):
         lab = labels[int(m.group(1))]
         lab = label_alias.get(lab, lab)
+        if lab in oef_labels:
+            num, sl = oef_labels[lab]
+            return f'[{num}]({sl}.qmd#{qid(lab)})'
         k = label_kind.get(lab)
         if k in ('heading', 'eq', 'fig', 'tbl'):
             r = f'[-@{qid(lab)}]'

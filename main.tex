@@ -70,7 +70,7 @@
 % definitie van de omgeving
 \newenvironment{oefening}[1][]{%
   \par\vspace{0.8em} % witruimte vóór oefening
-  \noindent\stepcounter{oefeningcounter}%
+  \noindent\refstepcounter{oefeningcounter}%
   \textbf{Oefening \theoefeningcounter%
   \ifx\relax#1\relax\else\ (#1)\fi}\par\vspace{0.4em}
 }{%
@@ -149,7 +149,5 @@ Faculteit Industriële Ingenieurswetenschappen\\
 \include{Elektrochemie}
 \include{Grensvlakken}
 \include{Kinetica}
-%\include{Transportverschijnselen}
-%\include{Oefeningen}
 
 \end{document}
