@@ -1,0 +1,367 @@
+%==============================================================================
+% BELANGRIJK - Kruisverwijzingen (relatief via \ref, geen harde nummers):
+% Dit hoofdstuk verwijst naar labels in andere hoofdstukken. Zorg dat deze
+% aanwezig zijn (voeg toe indien nog niet aanwezig):
+%   - Hoofdstuk 3 gebruikt reeds \label{ch:spontaniteit}, en o.a.
+%     \label{sec:evenwichtsconstante}, \label{sec:vanthoff},
+%     \label{eq:gibbs-helmholtz}, \label{eq:vanthoff-diff}, \label{eq:vanthoff-int},
+%     \label{sec:le-chatelier}, \label{sec:haber-bosch}, \label{sec:drG-uit-tabellen},
+%     \label{sec:derde-hoofdwet}.
+%   - Hoofdstuk 5 gebruikt reeds \label{ch:niet-reagerend}, en o.a.
+%     \label{sec:activiteit-mengsel}, \label{sec:henry}, \label{sec:raoult}.
+%   - Hoofdstuk 7, na \chapter{...} (elektrochemische
+%     thermodynamica):                                       \label{ch:elektrochemie}
+%
+% Dit hoofdstuk zelf draagt reeds het label \label{ch:reagerend}, waarnaar
+% hoofdstuk 3 en hoofdstuk 5 al verwijzen.
+%
+% LET OP - dit hoofdstuk herhaalde in de vorige versie de volledige
+% Haber-Boschcasestudy en de Van 't Hoff-afleiding uit hoofdstuk 3, met
+% licht afwijkende getallen (Delta_rG° = -33.0 kJ/mol i.p.v. -32.9 kJ/mol;
+% K = 1.5e-4 i.p.v. 3e-4 bij 700K). Dit is hieronder consistent gemaakt met
+% de reeds in hoofdstuk 3 berekende waarden, en de casestudy is herstructureerd
+% naar samenvatten + doorverwijzen in plaats van herhalen, met de ruimte die
+% dit vrijmaakt gebruikt voor de nieuwe kwantitatieve Kx-P-relatie.
+%==============================================================================
+\chapter{Thermodynamisch evenwicht van reagerende systemen}
+\label{ch:reagerend}
+%==============================================================================
+
+\section{Van fasen naar chemische reacties}
+
+In hoofdstuk~\ref{ch:niet-reagerend} bleven de chemische componenten steeds behouden. Water bleef water, ethanol bleef ethanol en koolstofdioxide bleef koolstofdioxide. De enige veranderingen die optraden waren faseovergangen en mengprocessen. Bij een chemische reactie verandert deze situatie fundamenteel. Reactanten verdwijnen en nieuwe producten ontstaan. Niet alleen de verdeling van de moleculen verandert, maar ook hun chemische identiteit.
+
+Toch blijft de fundamentele thermodynamische vraag dezelfde: naar welke toestand zal een reagerend systeem spontaan evolueren? Zoals bij fase-evenwichten en mengsels (hoofdstuk~\ref{ch:niet-reagerend}) geldt dat ook chemische reacties spontaan verlopen in de richting waarin de Gibbs-vrije energie van het systeem afneemt --- het criterium zelf, uit hoofdstuk~\ref{ch:spontaniteit}, verandert niet; enkel de aard van de "toestanden" waartussen het systeem kiest, verandert. De uiteindelijke samenstelling van het systeem wordt bereikt wanneer een verdere omzetting de Gibbs-vrije energie niet langer kan verlagen. Het systeem bevindt zich dan in chemisch evenwicht.
+
+\subsection{Een industri\"ele uitdaging: de synthese van ammoniak}
+
+Ammoniak behoort tot de belangrijkste chemische producten ter wereld. Jaarlijks worden honderden miljoenen ton geproduceerd, voornamelijk als grondstof voor kunstmeststoffen. De beschikbaarheid van ammoniak heeft daardoor een rechtstreekse invloed op de wereldwijde voedselproductie.
+
+De industri\"ele productie gebeurt volgens het Haber--Boschproces:
+\begin{equation}
+\mathrm{N_2(g) + 3\,H_2(g) \rightleftharpoons 2\,NH_3(g)}.
+\end{equation}
+Op het eerste gezicht lijkt deze reactie eenvoudig. Een opmerkelijke observatie leert echter dat de reactie nooit volledig verloopt. Zelfs wanneer voldoende tijd beschikbaar is, blijven in de reactor steeds stikstof, waterstof \emph{\'en} ammoniak gelijktijdig aanwezig. De reactie stopt dus terwijl nog reactanten aanwezig zijn.
+
+Deze vaststelling roept onmiddellijk een fundamentele vraag op. Waarom stopt een chemische reactie terwijl nog reactanten beschikbaar zijn? De thermodynamica vertrekt vanuit een andere vraag: welke samenstelling bezit de laagste Gibbs-vrije energie? Dit hoofdstuk bouwt rechtstreeks voort op de kwantitatieve analyse van precies deze reactie die reeds in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:haber-bosch}) werd opgebouwd, en breidt ze uit met het gereedschap om de volledige evenwichtssamenstelling te berekenen.
+
+\section{De thermodynamica van reagerende systemen: Gibbs-energie en de evenwichtsconstante}
+
+\subsection{De Gibbs-vrije energie van een reagerend systeem}
+\label{sec:reactie-gibbsenergie}
+
+In hoofdstuk~\ref{ch:niet-reagerend} werd de Gibbs-vrije energie gebruikt om fase-evenwichten en mengsels te beschrijven. Daarbij werd aangenomen dat de hoeveelheid van iedere component onafhankelijk kon veranderen. Bij een chemische reactie is dit niet langer het geval.
+
+Beschouw opnieuw de vorming van ammoniak. Wanneer tijdens deze reactie \'e\'en mol stikstof verdwijnt, verdwijnen gelijktijdig drie mol waterstof en ontstaan twee mol ammoniak. De veranderingen van de verschillende molhoeveelheden zijn dus niet onafhankelijk, maar worden volledig bepaald door de stoichiometrie van de reactie.
+
+Bij constante temperatuur en druk geldt voor de Gibbs-vrije energie:
+\begin{equation}
+\dG = \sum_i \mu_i \,\dx{n_i}.
+\end{equation}
+Om de koppeling tussen de molhoeveelheden systematisch te beschrijven wordt de \emph{reactie-uitbreiding} $\xi$ ingevoerd. Voor iedere component geldt:
+\begin{equation}
+\dx{n_i} = \nu_i\,\dx{\xi},
+\end{equation}
+waarin $\nu_i$ de stoichiometrische co\"effici\"ent van component $i$ voorstelt. Volgens de gebruikelijke conventie zijn de stoichiometrische co\"effici\"enten van reactanten negatief en deze van reactieproducten positief. Substitutie levert:
+\begin{equation}
+\dG = \left(\sum_i \nu_i \mu_i\right)\dx{\xi}.
+\end{equation}
+De uitdrukking tussen haakjes wordt de \emph{reactie-Gibbsenergie} genoemd:
+\begin{equation}
+\boxed{\;\Delta_r G = \sum_i \nu_i \mu_i\;}
+\label{eq:delta-r-G}
+\end{equation}
+De reactie-Gibbsenergie geeft aan hoe de Gibbs-vrije energie van het systeem verandert wanneer de reactie een oneindig kleine stap verder verloopt --- dit is dezelfde grootheid als reeds ingevoerd in hoofdstuk~\ref{ch:spontaniteit}.
+
+\begin{itemize}
+\item $\Delta_r G < 0$: de reactie verloopt spontaan in de voorwaartse richting.
+\item $\Delta_r G > 0$: de reactie verloopt spontaan in de omgekeerde richting.
+\item $\Delta_r G = 0$: het systeem bevindt zich in chemisch evenwicht.
+\end{itemize}
+
+\subsection{Standaardtoestanden per fase}
+\label{sec:standaardtoestanden-reagerend}
+
+Voor de berekening van de reactie-Gibbsenergie moet de chemische potentiaal van iedere component gekend zijn. De chemische potentiaal van component $i$ kan, zoals in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:activiteit}) en hoofdstuk~\ref{ch:niet-reagerend} (\S~\ref{sec:activiteit-mengsel}) reeds werd afgeleid, worden geschreven als:
+\begin{equation}
+\mu_i = \mu_i^\circ + RT \ln a_i,
+\end{equation}
+waarin $\mu_i^\circ$ de chemische potentiaal in de standaardtoestand voorstelt en $a_i$ de activiteit van de component. De keuze van de standaardtoestand hangt af van de fase:
+
+\begin{itemize}
+\item \textbf{Gassen}: standaardtoestand is de zuivere component als ideaal gas bij $p^\circ = \SI{1}{\bar}$. De activiteit is $a_i = f_i/p^\circ \approx y_i P/p^\circ$ (voor ideale gasmengsels).
+\item \textbf{Zuivere vloeistoffen en vaste stoffen}: standaardtoestand is de zuivere stof bij $p^\circ = \SI{1}{\bar}$. De activiteit is $a_i \approx 1$ (de zuivere stof zelf).
+\item \textbf{Opgeloste stoffen}: standaardtoestand is een hypothetische oplossing met concentratie $c^\circ = \SI{1}{\mole\per\litre}$ die zich ideaal gedraagt (molaire schaal). De activiteit is $a_i = \gamma_i\,c_i/c^\circ$.
+\end{itemize}
+
+Deze twee\"erlei conventie --- molfractie/partieeldruk voor gassen en zuivere fasen, concentratie voor opgeloste stoffen --- is geen inconsistentie, maar weerspiegelt eenvoudigweg welke referentietoestand voor elke fase experimenteel het natuurlijkst is. Voor een zuivere stof of een gas ligt de molfractie $x_i=1$ (of $p_i=p^\circ$) voor de hand als referentie: dat is immers de stof zoals ze normaliter voorkomt. Voor een opgeloste stof is een oneindig verdunde oplossing, en dus een concentratie, de natuurlijke referentie --- exact de redenering achter de wet van Henry uit hoofdstuk~\ref{ch:niet-reagerend} (\S~\ref{sec:henry}), die overeenkomt met de limiet $x_i\to0$ terwijl de wet van Raoult (\S~\ref{sec:raoult} aldaar) de limiet $x_i\to1$ beschrijft. Voor zuivere gecondenseerde fasen die in een reactie verschijnen geldt dus $a \approx 1$. Dit heeft belangrijke gevolgen voor heterogene evenwichten (\S~\ref{sec:heterogene-evenwichten}).
+
+\subsection{Het reactiequoti\"ent en de evenwichtsconstante}
+\label{sec:evenwichtsconstante-reagerend}
+
+Substitutie van $\mu_i = \mu_i^\circ + RT \ln a_i$ in de uitdrukking voor de reactie-Gibbsenergie levert --- op dezelfde manier als reeds afgeleid in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:evenwichtsconstante}) ---
+\begin{equation}
+\Delta_r G = \Delta_r G^\circ + RT \ln Q,
+\end{equation}
+waarin:
+\begin{align}
+\Delta_r G^\circ &= \sum_i \nu_i \mu_i^\circ \quad \text{(standaardreactie-Gibbsenergie)}, \\
+Q &= \prod_i a_i^{\nu_i} \quad \text{(reactiequoti\"ent)}.
+\end{align}
+De standaardreactie-Gibbsenergie is uitsluitend afhankelijk van de gekozen standaardtoestand en de temperatuur; voor een gegeven temperatuur is deze grootheid dus constant. Het reactiequoti\"ent daarentegen evolueert voortdurend tijdens de reactie.
+
+In chemisch evenwicht geldt $\Delta_r G = 0$, zodat $Q = K$:
+\begin{equation}
+\boxed{\;\Delta_r G^\circ = -RT \ln K\;}
+\label{eq:K-uit-drG}
+\end{equation}
+De evenwichtsconstante $K$ is dus rechtstreeks verbonden met de standaardreactie-Gibbsenergie. Een grote waarde van $K$ betekent dat het evenwicht voornamelijk uit reactieproducten bestaat; een kleine waarde wijst erop dat de reactanten thermodynamisch gunstiger zijn.
+
+\begin{voorbeeld}{Evenwichtsconstante van de ammoniaksynthese}
+In hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:drG-uit-tabellen}) werd voor $\mathrm{N_2 + 3\,H_2 \rightleftharpoons 2\,NH_3}$ bij \SI{298.15}{\kelvin} reeds $\Delta_r G^\circ\approx\SI{-32.9}{\kilo\joule\per\mole}$ berekend, langs drie onafhankelijke, onderling consistente routes. Hieruit volgt de evenwichtsconstante:
+\[
+K = \exp\left(-\frac{\Delta_r G^\circ}{RT}\right) = \exp\left(\frac{\SI{32900}{\joule\per\mole}}{(\SI{8.314}{\joule\per\mole\per\kelvin})(\SI{298.15}{\kelvin})}\right) = \exp(13{,}3) \approx 6\times10^5.
+\]
+Bij kamertemperatuur ligt het evenwicht dus sterk aan de zijde van ammoniak. Dit is echter misleidend: bij industri\"ele temperaturen daalt $K$ sterk, zoals reeds via de vergelijking van Van 't Hoff werd berekend in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:vanthoff}): $K\approx3\times10^{-4}$ bij \SI{700}{\kelvin}. We gebruiken exact deze waarde verderop in dit hoofdstuk (\S~\ref{sec:ice-tabel}) om de volledige evenwichtssamenstelling te berekenen.
+\end{voorbeeld}
+
+\subsection{Verband tussen $K_p$, $K_c$ en $K_x$}
+\label{sec:Kp-Kc-Kx}
+
+Voor gasreacties kan de evenwichtsconstante op verschillende manieren worden uitgedrukt, naargelang de concentratiemaat.
+
+\begin{itemize}
+\item \textbf{$K_p$}: gebaseerd op parti\"ele drukken:
+\[
+K_p = \prod_i \left(\frac{p_i}{p^\circ}\right)^{\nu_i}.
+\]
+\item \textbf{$K_c$}: gebaseerd op molaire concentraties:
+\[
+K_c = \prod_i \left(\frac{c_i}{c^\circ}\right)^{\nu_i}.
+\]
+\item \textbf{$K_x$}: gebaseerd op molfracties:
+\[
+K_x = \prod_i x_i^{\nu_i}.
+\]
+\end{itemize}
+
+Voor ideale gasmengsels geldt $p_i = y_i P = c_i RT$. Hieruit volgt:
+\begin{equation}
+K_p = K_c \left(\frac{RT}{p^\circ}\right)^{\Delta \nu} = K_x \left(\frac{P}{p^\circ}\right)^{\Delta \nu},
+\label{eq:Kp-Kc-Kx-relatie}
+\end{equation}
+waarin $\Delta \nu = \sum_i \nu_i$ de verandering van het aantal mol gas tijdens de reactie is. Merk op dat $K_p$ en $K_c$ enkel van de temperatuur afhangen, terwijl $K_x$ ook van de totale druk afhangt.
+
+\begin{voorbeeld}{$K_p$ versus $K_x$ voor ammoniaksynthese}
+Voor $\mathrm{N_2 + 3\,H_2 \rightleftharpoons 2\,NH_3}$ geldt $\Delta \nu = 2 - 4 = -2$. Zodat:
+\[
+K_x = K_p \left(\frac{p^\circ}{P}\right)^{-2} = K_p \left(\frac{P}{p^\circ}\right)^{2}.
+\]
+Bij een hogere totale druk $P$ wordt $K_x$ groter, wat betekent dat de molfractie ammoniak in evenwicht toeneemt. Dit verklaart waarom het Haber--Boschproces bij hoge druk werkt: de druk be\"invloedt niet $K_p$ (een functie van temperatuur alleen), maar wel de molfracties in evenwicht.
+\end{voorbeeld}
+
+\section{Het chemisch evenwicht kwantitatief berekenen}
+
+\subsection{Numerieke evenwichtsberekening met reactietabel (ICE-table)}
+\label{sec:ice-tabel}
+
+Een centraal werkingsinstrument voor ingenieurs is de \emph{reactietabel}, vaak aangeduid met het acroniem \emph{ICE} (Initial, Change, Equilibrium). Beschouw de synthese van ammoniak:
+\[
+\mathrm{N_2 + 3\,H_2 \rightleftharpoons 2\,NH_3}.
+\]
+Veronderstel dat we beginnen met $n_{\mathrm{N_2}}^0 = 1$, $n_{\mathrm{H_2}}^0 = 3$, $n_{\mathrm{NH_3}}^0 = 0$ mol. Laat $\xi$ de reactie-uitbreiding zijn.
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+ & $\mathrm{N_2}$ & $\mathrm{H_2}$ & $\mathrm{NH_3}$ \\
+\midrule
+Initieel (mol) & 1 & 3 & 0 \\
+Verandering (mol) & $-\xi$ & $-3\xi$ & $+2\xi$ \\
+Evenwicht (mol) & $1-\xi$ & $3-3\xi$ & $2\xi$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Bij evenwicht geldt $Q = K$, waarbij de activiteiten (als parti\"ele drukken, gedeeld door $p^\circ$) worden ingevuld:
+\[
+K_p = \frac{(p_{\mathrm{NH_3}}/p^\circ)^2}{(p_{\mathrm{N_2}}/p^\circ)(p_{\mathrm{H_2}}/p^\circ)^3}.
+\]
+Met $p_i = y_i P$ en de molfracties berekend uit de evenwichtsmolhoeveelheden ($n_{\text{tot}}=4-2\xi$), ontstaat een vergelijking in $\xi$ die numeriek wordt opgelost.
+
+\begin{voorbeeld}{Berekening van evenwichtssamenstelling}
+Beschouw $\mathrm{N_2 + 3\,H_2 \rightleftharpoons 2\,NH_3}$ bij $T = \SI{700}{\kelvin}$ en $P = \SI{100}{\bar}$, met $K_p \approx 3\times10^{-4}$ (\S~\ref{sec:evenwichtsconstante-reagerend}, uit Van 't Hoff, hoofdstuk~\ref{ch:spontaniteit}). Met de reactietabel hierboven wordt $K_p$ herschreven als functie van \'e\'en onbekende, $\xi$:
+\[
+K_p(\xi) = \frac{\left(\dfrac{2\xi}{4-2\xi}\,P\right)^2}{\left(\dfrac{1-\xi}{4-2\xi}\,P\right)\left(\dfrac{3-3\xi}{4-2\xi}\,P\right)^3}.
+\]
+Numeriek oplossen van $K_p(\xi)=3\times10^{-4}$ levert $\xi\approx0{,}445$, zodat de evenwichtssamenstelling bedraagt:
+\[
+n_{\mathrm{N_2}} = 0{,}555,\quad n_{\mathrm{H_2}} = 1{,}664,\quad n_{\mathrm{NH_3}} = 0{,}891, \quad n_{\text{tot}} = 3{,}109.
+\]
+De molfracties in evenwicht zijn $y_{\mathrm{N_2}} = 0{,}178$, $y_{\mathrm{H_2}} = 0{,}535$, $y_{\mathrm{NH_3}} = 0{,}286$. Omdat $n_{\mathrm{N_2}}^0=1$, is de omzetting van stikstof eenvoudig gelijk aan $\xi$: ongeveer \SI{44.5}{\percent} van de aanvangshoeveelheid stikstof wordt omgezet.
+\end{voorbeeld}
+
+\begin{voorbeeld}{Waarom hoge druk: de evenwichtsmolfractie NH$_3$ als functie van $P$}
+Met dezelfde $K_p\approx3\times10^{-4}$ bij \SI{700}{\kelvin} kan de berekening uit het vorige voorbeeld herhaald worden voor verschillende totale drukken $P$:
+\begin{center}
+\begin{tabular}{lcccccc}
+\toprule
+$P$ (\si{\bar}) & 1 & 10 & 50 & 100 & 200 & 300 \\
+\midrule
+$y_{\mathrm{NH_3}}$ (\%) & 0{,}6 & 5{,}1 & 18{,}6 & 28{,}6 & 40{,}2 & 47{,}1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Dit is de kwantitatieve bevestiging van het kwalitatieve resultaat uit \S~\ref{sec:Kp-Kc-Kx}: de evenwichtsmolfractie ammoniak stijgt sterk en monotoon met de druk, precies omdat $K_x=K_p(P/p^\circ)^2$ met de druk toeneemt terwijl $K_p$ onveranderd blijft. Bij \SI{1}{\bar} is de opbrengst verwaarloosbaar (\SI{0.6}{\percent}); pas bij de industrieel gebruikelijke \SIrange{150}{300}{\bar} (\S~\ref{sec:haber-bosch-integraal}) wordt een economisch aantrekkelijke opbrengst per doorgang bereikt.
+\end{voorbeeld}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Afbeeldingen/NH3_opbrengst_vs_druk.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} De evenwichtsmolfractie $y_{\mathrm{NH_3}}$ bij \SI{700}{\kelvin} in functie van de totale druk $P$, op basis van de tabel hierboven: een curve die snel stijgt bij lage druk en geleidelijk afvlakt (verzadigt) bij hoge druk, met de zes berekende punten (1, 10, 50, 100, 200, 300~bar) als datapunten gemarkeerd. Duid het industrieel gebruikte drukbereik (\SIrange{150}{300}{\bar}) aan als een gearceerde band op de $P$-as.}
+    \label{fig:nh3-vs-druk}
+\end{figure}
+
+\subsection{Invloed van temperatuur: de vergelijking van Van 't Hoff}
+\label{sec:vanthoff-reagerend}
+
+De temperatuursafhankelijkheid van de evenwichtsconstante werd reeds volledig afgeleid in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:vanthoff}), vertrekkend van de vergelijking van Gibbs--Helmholtz (vergelijking~\eqref{eq:gibbs-helmholtz}). We herhalen hier enkel het resultaat, de \emph{vergelijking van Van 't Hoff}:
+\begin{equation}
+\frac{\dx{\ln K}}{\dT} = \frac{\Delta_r H^\circ}{RT^2},
+\end{equation}
+en, bij benadering constante $\Delta_r H^\circ$, de ge\"integreerde vorm:
+\begin{equation}
+\ln\frac{K_2}{K_1} = -\frac{\Delta_r H^\circ}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right).
+\end{equation}
+Voor endotherme reacties ($\Delta_r H^\circ > 0$) leidt een temperatuurverhoging tot een grotere evenwichtsomzetting. Voor exotherme reacties ($\Delta_r H^\circ < 0$, zoals de ammoniaksynthese) leidt een temperatuurverhoging tot een kleinere evenwichtsomzetting --- exact de reden waarom in \S~\ref{sec:evenwichtsconstante-reagerend} de waarde van $K$ zo sterk daalt tussen \SI{298}{\kelvin} en \SI{700}{\kelvin}.
+
+\section{Factoren die het evenwicht be\"invloeden}
+
+\subsection{Invloed van druk en inerte gassen}
+\label{sec:druk-inerte-gassen}
+
+\subsubsection{Invloed van de druk}
+
+De evenwichtsconstante $K_p$ is enkel een functie van de temperatuur. De evenwichtssamenstelling echter, uitgedrukt in molfracties ($K_x$), hangt wel degelijk van de druk af. Voor een reactie waarbij $\Delta \nu \neq 0$ geldt:
+\[
+K_x = K_p \left(\frac{p^\circ}{P}\right)^{\Delta \nu}.
+\]
+Wanneer $\Delta \nu < 0$ (zoals ammoniaksynthese, \S~\ref{sec:Kp-Kc-Kx} en \S~\ref{sec:ice-tabel}), leidt een drukverhoging tot een grotere $K_x$ en dus een gunstiger evenwicht. Wanneer $\Delta \nu > 0$, leidt een drukverhoging tot een ongunstiger evenwicht.
+
+\subsubsection{Invloed van inerte gassen}
+
+Inerte gassen (zoals argon in de ammoniakreactor) veranderen noch $K_p$, noch de activiteiten (die op parti\"ele drukken gebaseerd zijn). Bij \emph{constante totale druk} verlagen inerte gassen echter de parti\"ele drukken van alle reactanten en producten, waardoor $Q$ verandert en de evenwichtssamenstelling verschuift. Bij \emph{constant volume} hebben inerte gassen geen invloed op de parti\"ele drukken en dus ook niet op het evenwicht.
+
+In de industri\"ele praktijk worden inerte gassen in recyclestromen zorgvuldig opgebouwd en afgevoerd (zogenaamde \emph{purge}), omdat zij anders de reactorcapaciteit reduceren en het energieverbruik verhogen. We komen hierop terug in \S~\ref{sec:haber-bosch-integraal}.
+
+\subsection{Het principe van Le Ch\^atelier}
+\label{sec:le-chatelier-reagerend}
+
+De invloed van temperatuur, druk en samenstelling kan kwalitatief worden samengevat met het principe van Le Ch\^atelier (reeds ingevoerd in hoofdstuk~\ref{ch:spontaniteit}, \S~\ref{sec:le-chatelier}): wanneer een systeem in evenwicht wordt verstoord, zal het zich zodanig aanpassen dat de verstoring gedeeltelijk wordt tegengewerkt.
+
+\begin{itemize}
+\item \textbf{Temperatuurverhoging} verschuift het evenwicht in de endotherme richting.
+\item \textbf{Drukverhoging} verschuift het evenwicht naar de zijde met minder gasmoleculen.
+\item \textbf{Verwijderen van een product} verschuift het evenwicht naar de producten.
+\item \textbf{Toevoegen van een reactant} verschuift het evenwicht naar de producten.
+\end{itemize}
+
+Vanuit thermodynamisch standpunt is dit geen bijkomende natuurwet, maar een rechtstreeks gevolg van de tweede hoofdwet. Een verandering van de procesomstandigheden verandert de Gibbs-vrije energie van alle mogelijke toestanden, en daardoor verschuift de ligging van het minimum.
+
+\subsection{Heterogene evenwichten}
+\label{sec:heterogene-evenwichten}
+
+Wanneer een reactie componenten in verschillende fasen betrekt, spreekt men van een \emph{heterogeen evenwicht}. Omdat de activiteit van zuivere gecondenseerde fasen (vaste stoffen, zuivere vloeistoffen) bij benadering gelijk is aan \'e\'en (\S~\ref{sec:standaardtoestanden-reagerend}), verschijnen deze componenten niet in de evenwichtsconstante.
+
+\begin{voorbeeld}{Ontleding van kalksteen}
+De ontleding van calciumcarbonaat:
+\[
+\mathrm{CaCO_3(s) \rightleftharpoons CaO(s) + CO_2(g)}
+\]
+heeft als evenwichtsvoorwaarde:
+\[
+K = \frac{a_{\mathrm{CaO}} \cdot a_{\mathrm{CO_2}}}{a_{\mathrm{CaCO_3}}} = \frac{1 \cdot (p_{\mathrm{CO_2}}/p^\circ)}{1} = \frac{p_{\mathrm{CO_2}}}{p^\circ}.
+\]
+De evenwichtsconstante reduceert dus tot de parti\"ele druk van $\mathrm{CO_2}$ gedeeld door $p^\circ$. Bij een gegeven temperatuur is de evenwichtsdruk van $\mathrm{CO_2}$ een constante, onafhankelijk van de hoeveelheden $\mathrm{CaCO_3}$ en $\mathrm{CaO}$. Bij \SI{800}{\celsius} bedraagt $p_{\mathrm{CO_2}} \approx \SI{0.22}{\bar}$. Om kalksteen te ontleden moet de omgevingsdruk van $\mathrm{CO_2}$ lager zijn dan deze evenwichtsdruk.
+\end{voorbeeld}
+
+\begin{voorbeeld}{Oplosbaarheidsproduct $K_{ps}$}
+Voor het oplossen van zilverchloride:
+\[
+\mathrm{AgCl(s) \rightleftharpoons Ag^+(aq) + Cl^-(aq)}
+\]
+geldt:
+\[
+K_{ps} = a_{\mathrm{Ag^+}} \cdot a_{\mathrm{Cl^-}} \approx c_{\mathrm{Ag^+}} \cdot c_{\mathrm{Cl^-}}.
+\]
+Voor AgCl bij \SI{25}{\celsius} bedraagt $K_{ps} = 1{,}8 \times 10^{-10}$. De oplosbaarheid $s$ volgt uit $s^2 = K_{ps}$, zodat $s = \sqrt{K_{ps}} = 1{,}34 \times 10^{-5}~\si{\mole\per\litre}$. Dit verklaart waarom AgCl als ``onoplosbaar'' wordt beschouwd, en waarom het wordt gebruikt in gravimetrische bepalingen van chloride.
+\end{voorbeeld}
+
+\subsection{Gekoppelde reacties en simultane evenwichten}
+\label{sec:gekoppelde-reacties}
+
+In de procespraktijk treden vaak meerdere reacties tegelijk op. Een typisch voorbeeld is de productie van synthesegas (syngas) via stoomreforming van methaan:
+\begin{align}
+\mathrm{CH_4 + H_2O} &\rightleftharpoons \mathrm{CO + 3\,H_2} \quad \text{(stoomreforming)}, \\
+\mathrm{CO + H_2O} &\rightleftharpoons \mathrm{CO_2 + H_2} \quad \text{(water-gas shift)}.
+\end{align}
+Beide reacties delen gemeenschappelijke componenten ($\mathrm{CO}$, $\mathrm{H_2O}$, $\mathrm{H_2}$). Het totale evenwicht moet tegelijk aan beide evenwichtsvoorwaarden voldoen:
+\[
+K_1 = \frac{(p_{\mathrm{CO}}/p^\circ)(p_{\mathrm{H_2}}/p^\circ)^3}{(p_{\mathrm{CH_4}}/p^\circ)(p_{\mathrm{H_2O}}/p^\circ)}, \qquad
+K_2 = \frac{(p_{\mathrm{CO_2}}/p^\circ)(p_{\mathrm{H_2}}/p^\circ)}{(p_{\mathrm{CO}}/p^\circ)(p_{\mathrm{H_2O}}/p^\circ)}.
+\]
+De ingenieur moet beide vergelijkingen simultaan oplossen, samen met de massabalansen en de totale druk --- een uitbreiding van de ICE-tabelmethode uit \S~\ref{sec:ice-tabel} naar twee gekoppelde reactie-uitbreidingen $\xi_1$ en $\xi_2$. In de praktijk gebeurt dit met behulp van processimulators.
+
+\section{Van thermodynamica naar procesontwerp}
+
+\subsection{Thermodynamische strategie\"en voor procesontwerp}
+\label{sec:procesontwerp-strategieen}
+
+De thermodynamica bepaalt welke omzetting maximaal haalbaar is. De procestechnologie bepaalt hoe dicht een werkelijk proces deze theoretische grens kan benaderen. Enkele fundamentele ontwerpstrategie\"en volgen rechtstreeks uit de behandelde thermodynamische principes.
+
+\subsubsection{Kiezen van procesomstandigheden}
+
+De temperatuur bepaalt via de vergelijking van Van 't Hoff (\S~\ref{sec:vanthoff-reagerend}) de waarde van de evenwichtsconstante. Voor endotherme reacties leidt een temperatuurverhoging tot een grotere evenwichtsomzetting; voor exotherme reacties is een lagere temperatuur thermodynamisch gunstiger. Bij gasreacties kan ook de druk een rol spelen: wanneer het aantal mol gas afneemt, bevordert een drukverhoging de producten (\S~\ref{sec:ice-tabel}).
+
+\subsubsection{Verwijderen van reactieproducten}
+
+Wanneer een reactieproduct continu wordt afgescheiden, neemt het reactiequoti\"ent af, waardoor $\Delta_r G$ opnieuw negatief wordt en de voorwaartse reactie spontaan verder verloopt. Bij de ammoniakproductie wordt het gevormde ammoniak na afkoeling gecondenseerd; bij esterificaties wordt vaak water verwijderd. Hoewel de ligging van het chemisch evenwicht niet verandert, kan de totale productie aanzienlijk toenemen.
+
+\subsubsection{Recycle van niet-omgezette reactanten}
+
+Bij vele industri\"ele reacties wordt per doorgang slechts een beperkte fractie van de reactanten omgezet --- zoals kwantitatief bleek uit het ICE-tabelvoorbeeld in \S~\ref{sec:ice-tabel} (\SI{44.5}{\percent} omzetting per doorgang bij \SI{100}{\bar}). Na scheiding van de reactieproducten worden de niet-omgezette componenten opnieuw naar de reactor teruggevoerd, samen met een purgestroom om de inerte gassen uit \S~\ref{sec:druk-inerte-gassen} af te voeren. Hierdoor kan dezelfde hoeveelheid grondstof meerdere malen aan het chemisch evenwicht worden blootgesteld. Recycle behoort tot de standaardopbouw van ammoniak-, methanol- en waterstofproductie.
+
+\subsubsection{Integratie van reactie en scheiding}
+
+Een bijzonder krachtige strategie is het combineren van de chemische reactie met een scheidingsproces. Voorbeelden zijn reactieve destillatie, membraanreactoren en adsorptiereactoren. Wanneer reactieproducten reeds tijdens de reactie worden verwijderd, blijft het reactiequoti\"ent voortdurend kleiner dan de evenwichtsconstante, waardoor de voorwaartse reactie spontaan blijft verlopen.
+
+\subsection{Ge\"integreerde casestudy: de synthese van ammoniak}
+\label{sec:haber-bosch-integraal}
+
+We brengen nu alle elementen van dit hoofdstuk samen, voortbouwend op de kwantitatieve basis die reeds in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:haber-bosch}) werd gelegd: $\Delta_rH^\circ\approx\SI{-92}{\kilo\joule\per\mole}$, $\Delta_rS^\circ\approx\SI{-198.1}{\joule\per\mole\per\kelvin}$, $\Delta_rG^\circ\approx\SI{-32.9}{\kilo\joule\per\mole}$ bij \SI{298}{\kelvin}, en $K\approx6\times10^5$ bij \SI{298}{\kelvin} dalend tot $K\approx3\times10^{-4}$ bij \SI{700}{\kelvin}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Afbeeldingen/haber_bosch_processchema.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} Vereenvoudigd processchema van de Haber--Boschlus: verse voeding $\mathrm{N_2}$+$\mathrm{H_2}$ wordt gemengd met de gerecycleerde, niet-omgezette reactanten (\S~"Recycle van niet-omgezette reactanten"); het mengsel doorloopt de reactor (ijzerkatalysator, \SIrange{400}{500}{\celsius}, \SIrange{150}{300}{\bar}); de reactoruitlaat wordt afgekoeld in een condensor/separator waar vloeibare $\mathrm{NH_3}$ wordt afgescheiden als product; de resterende, grotendeels niet-omgezette $\mathrm{N_2}$/$\mathrm{H_2}$-stroom wordt teruggevoerd naar de menger, met een kleine \emph{purge}-aftakking om inerte gassen (\S~\ref{sec:druk-inerte-gassen}) af te voeren en ophoping te voorkomen.}
+    \label{fig:haber-bosch-schema}
+\end{figure}
+
+\begin{itemize}
+\item \textbf{Is de reactie spontaan?} Bij de start van het proces bevat het reactormengsel uitsluitend $\mathrm{N_2}$ en $\mathrm{H_2}$, zodat $Q$ zeer klein is en $\Delta_rG<0$: de reactie verloopt spontaan richting ammoniak, tot $Q=K$ (\S~\ref{sec:evenwichtsconstante-reagerend}).
+\item \textbf{Waarom niet bij kamertemperatuur?} Ondanks de zeer gunstige $K\approx6\times10^5$ bij \SI{298}{\kelvin}, verloopt de reactie daar te traag: de sterke $\mathrm{N \equiv N}$-drievoudige binding (hoofdstuk~\ref{ch:kwantum}) geeft een hoge activeringsenergie. Een hogere temperatuur versnelt de reactie aanzienlijk, maar verlaagt tegelijk $K$ drastisch (\S~\ref{sec:vanthoff-reagerend}) --- de klassieke spanning tussen thermodynamica en kinetiek uit hoofdstuk~\ref{ch:spontaniteit}.
+\item \textbf{Waarom bij hoge druk?} Omdat $\Delta\nu=-2$, groeit $K_x$ sterk met de druk (\S~\ref{sec:Kp-Kc-Kx}--\ref{sec:ice-tabel}): van een verwaarloosbare opbrengst bij \SI{1}{\bar} tot $y_{\mathrm{NH_3}}\approx\SI{28.6}{\percent}$ bij \SI{100}{\bar} en verder oplopend bij de industrieel gebruikelijke \SIrange{150}{300}{\bar}.
+\item \textbf{Waarom wordt ammoniak voortdurend verwijderd?} Door de gevormde $\mathrm{NH_3}$ na afkoeling te condenseren, daalt $Q$ opnieuw onder $K$, zodat de voorwaartse reactie blijft verlopen zonder dat de ligging van het evenwicht zelf verandert (\S~"Verwijderen van reactieproducten").
+\item \textbf{Waarom worden de reactanten gerecycleerd?} Bij slechts \SI{44.5}{\percent} omzetting per doorgang (\S~\ref{sec:ice-tabel}) is recycle van de niet-omgezette $\mathrm{N_2}$/$\mathrm{H_2}$, met een purge voor inerte gassen (\S~\ref{sec:druk-inerte-gassen}), noodzakelijk om een hoge globale omzetting te bereiken (figuur~\ref{fig:haber-bosch-schema}).
+\item \textbf{Waarom is een katalysator noodzakelijk?} De ijzerkatalysator verlaagt de activeringsenergie en verhoogt zo de reactiesnelheid, zodat het (door de thermodynamica vastgelegde) evenwicht sneller wordt bereikt. De evenwichtsligging zelf --- $K$, en dus de uiteindelijke samenstelling --- blijft volledig onveranderd: de katalysator versnelt, maar bepaalt niet.
+\end{itemize}
+
+\begin{besluit}{Thermodynamica bepaalt, kinetiek levert}
+De Haber--Boschsynthese toont hoe thermodynamica, kinetiek en procestechnologie samen het ontwerp van een industrieel proces bepalen. Niet de maximaal mogelijke opbrengst, maar het optimale compromis tussen evenwicht, reactiesnelheid, energieverbruik, investeringskosten en veiligheid bepaalt uiteindelijk de bedrijfsomstandigheden van een chemische installatie. De thermodynamica bepaalt de grens; de ingenieur zoekt het optimum binnen die grens.
+\end{besluit}
+
+\section{Vooruitblik}
+
+Met dit hoofdstuk is het beeld dat in hoofdstuk~\ref{ch:eerstehoofdwet} begon, afgerond tot een samenhangend geheel. Hoofdstuk~\ref{ch:eerstehoofdwet} gaf de macroscopische energieboekhouding (eerste hoofdwet, enthalpie); hoofdstuk~\ref{ch:kwantum} verklaarde de moleculaire oorsprong van die energie; hoofdstuk~\ref{ch:spontaniteit} voegde met entropie en de Gibbs-vrije energie het \emph{richtingscriterium} toe; hoofdstuk~\ref{ch:intermoleculair} leverde de microscopische oorsprong van de krachten tussen moleculen; hoofdstuk~\ref{ch:niet-reagerend} paste dit alles toe op fase-evenwichten en mengsels; en in dit hoofdstuk hebben we ten slotte gezien hoe diezelfde chemische potentiaal ook chemische reacties beheerst --- van de eenvoudige evenwichtsconstante tot de volledige, kwantitatieve berekening van een industri\"ele reactorsamenstelling. Alle behandelde principes --- fase-evenwicht, menging, chemisch evenwicht --- berusten op dezelfde fundamentele begrippen: Gibbs-vrije energie, chemische potentiaal en activiteit.
+
+In hoofdstuk~\ref{ch:elektrochemie} breiden we de thermodynamische beschrijving uit naar elektrochemische systemen, waarin naast de chemische potentiaal ook de elektrische potentiaal een fundamentele rol speelt. Batterijen, brandstofcellen, elektrolysers en corrosieprocessen blijken geen afzonderlijke toepassingen, maar verschillende verschijningsvormen van dezelfde thermodynamische principes.

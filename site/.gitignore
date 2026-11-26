@@ -1,0 +1,14 @@
+_book/
+.quarto/
+/.luarc.json
+
+/.quarto/
+
+**/*.quarto_ipynb
+__pycache__/
+
+# Worden automatisch gemaakt uit de LaTeX (tools/tex2qmd.py); niet bewaren
+/*.qmd
+!/index.qmd
+/afbeeldingen/
+/_bronnen.html

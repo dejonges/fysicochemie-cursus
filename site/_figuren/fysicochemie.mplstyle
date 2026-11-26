@@ -47,3 +47,6 @@ lines.markersize:       7
 legend.frameon:     False
 legend.fontsize:    11
 legend.handlelength: 2.2
+
+# --- PDF voor het boek: lettertype ingebed als TrueType ---
+pdf.fonttype:       42

@@ -1,0 +1,804 @@
+%==============================================================================
+% BELANGRIJK - Kruisverwijzingen (relatief via \ref, geen harde nummers):
+% Dit hoofdstuk verwijst naar labels in andere hoofdstukken. Zorg dat deze
+% aanwezig zijn (voeg toe indien nog niet aanwezig):
+%   - Hoofdstuk 1, na \chapter{...}:                        \label{ch:eerstehoofdwet}
+%   - Hoofdstuk 1, sectie "Temperatuurafhankelijkheid
+%     van de enthalpie" (Cp(T), \S 1.10):                   \label{sec:cp-temperatuur}
+%   - Hoofdstuk 1, sectie "Standaardtoestanden en
+%     thermodynamische tabellen" (\S 1.11):                 \label{sec:standaardtoestanden}
+%   - Hoofdstuk 2, na \chapter{...}:                        \label{ch:kwantum}
+%   (Hoofdstuk 2 bevat reeds \label{sec:waterstofatoom},
+%    \label{sec:atomaire-spectra} en \label{sec:moleculaire-beweging}.)
+%   - Hoofdstuk 5 gebruikt reeds \label{ch:niet-reagerend} (bevestigd).
+%   - Hoofdstuk 6, na \chapter{...} (reagerende evenwichten,
+%     Kp/Kc/Kx, ICE-tabellen):                                \label{ch:reagerend}
+%     (hoofdstuk 5 verwijst er zelf al naar via \ref{ch:reagerend})
+% Dit bestand gebruikt verder de omgeving \begin{toepassing}{titel}...\end{toepassing},
+% naar analogie met \begin{voorbeeld}, \begin{definitie} en \begin{besluit} die reeds
+% in hoofdstuk 1 worden gebruikt (bv. "Toepassing: Compressor"). Pas de naam van deze
+% omgeving aan indien in het hoofdbestand een andere naam wordt gebruikt.
+%==============================================================================
+\chapter{Spontaniteit van processen}
+\label{ch:spontaniteit}
+%==============================================================================
+
+\section{Spontaniteit en de statistische oorsprong van entropie}
+\label{sec:energie-en-richting}
+
+In het eerste hoofdstuk werd de eerste hoofdwet van de thermodynamica ingevoerd als een uitdrukking van de wet van behoud van energie. Energie kan tijdens een proces worden overgedragen onder de vorm van warmte of arbeid, maar de totale hoeveelheid energie blijft behouden. In het vorige hoofdstuk zagen we bovendien dat deze energie uiteindelijk haar oorsprong vindt in de kwantummechanische structuur van elektronen en chemische bindingen.
+
+Daarmee begrijpen we waar de energie van een chemisch systeem vandaan komt. Toch blijkt deze kennis onvoldoende om het gedrag van een proces volledig te verklaren.
+
+Beschouw opnieuw een warme kop koffie die op tafel wordt geplaatst. Vrijwel onmiddellijk begint de koffie af te koelen totdat thermisch evenwicht met de omgeving is bereikt. Het omgekeerde verschijnsel wordt daarentegen nooit waargenomen. Niemand heeft ooit gezien hoe een kop lauwe koffie spontaan warmte uit de omgeving opneemt en daardoor opnieuw heet wordt. Wanneer een fles parfum wordt geopend, verspreiden de geurstoffen zich spontaan door de volledige ruimte. Een druppel melk die aan een kop koffie wordt toegevoegd, mengt zich zonder enige externe tussenkomst met de koffie.
+
+Deze processen lijken op het eerste gezicht weinig met elkaar gemeen te hebben. Het afkoelen van koffie, het mengen van vloeistoffen en de expansie van een gas worden door verschillende fysische mechanismen beschreven. Toch vertonen zij \'e\'en opmerkelijke overeenkomst: zij verlopen allemaal spontaan slechts in \'e\'en richting.
+
+De eerste hoofdwet kan dit verschijnsel niet verklaren. Zowel het afkoelen als het spontaan opwarmen van een kop koffie voldoen immers aan de energiebalans. De wet van behoud van energie maakt geen onderscheid tussen beide mogelijkheden. Blijkbaar is nog een bijkomend natuurkundig principe nodig.
+
+\subsection{Spontane processen in de natuur}
+
+Dat spontane processen steeds een welbepaalde richting bezitten, blijkt uit talloze dagelijkse waarnemingen. Een ijsblokje smelt spontaan in een warm drankje, maar een glas water vormt nooit vanzelf een perfect ijsblokje op kamertemperatuur. Twee verschillende gassen die met elkaar in contact worden gebracht, mengen zich spontaan totdat overal dezelfde samenstelling wordt bereikt. Het omgekeerde, waarbij een homogeen mengsel zichzelf spontaan opnieuw in twee zuivere componenten opsplitst, wordt nooit waargenomen.
+
+Opvallend is dat deze processen plaatsvinden in zeer uiteenlopende systemen. Sommige worden gedreven door warmteoverdracht, andere door diffusie, faseovergangen of chemische reacties. Toch bezitten zij allemaal eenzelfde fundamentele eigenschap: zij evolueren spontaan naar een toestand die in de natuur veel \textit{waarschijnlijker} blijkt te zijn dan de begintoestand.
+
+Dit inzicht vormt de sleutel tot het begrijpen van spontaniteit. Om te voorspellen in welke richting een proces zal verlopen, volstaat het niet langer de energie van het systeem te kennen. We moeten ook begrijpen hoeveel verschillende microscopische mogelijkheden overeenkomen met een bepaalde macroscopische toestand. Hiermee verlaten we geleidelijk de klassieke thermodynamica en betreden we het domein van de \emph{statistische thermodynamica}.
+
+\subsection{Waarschijnlijkheid als drijvende kracht}
+
+Wanneer we een gas beschrijven, vermelden we doorgaans slechts enkele grootheden, zoals de druk, het volume en de temperatuur. Deze grootheden karakteriseren het systeem als geheel en worden \emph{macroscopische toestanden} genoemd. Zij geven echter geen informatie over de positie of de snelheid van de afzonderlijke moleculen.
+
+Op moleculaire schaal is de situatie fundamenteel anders. Elk individueel molecuul bezit op elk ogenblik een bepaalde positie en een bepaalde snelheid. Elk van deze posities en snelheden noemt men een \emph{microtoestand}. Voor een hoeveelheid gas die slechts enkele grammen bedraagt, is het aantal mogelijke microtoestanden onvoorstelbaar groot. Zelfs wanneer druk, volume en temperatuur constant blijven, kunnen de moleculen zich op ontelbaar veel verschillende manieren over het beschikbare volume verdelen.
+
+Een macroscopische toestand komt dus overeen met een zeer groot aantal verschillende microtoestanden. Vanuit macroscopisch standpunt lijken al deze microtoestanden volledig identiek. Juist dit onderscheid vormt de sleutel tot het begrijpen van spontane processen.
+
+\subsection{Van waarschijnlijkheid naar entropie}
+\label{sec:waarschijnlijkheid-entropie}
+
+Beschouw een afgesloten vat dat door een tussenschot in twee gelijke compartimenten is verdeeld. Aanvankelijk bevinden alle gasmoleculen zich uitsluitend in het linker compartiment, terwijl het rechter compartiment volledig leeg is. Wanneer het tussenschot wordt verwijderd, verspreiden de moleculen zich spontaan over het volledige beschikbare volume. Men zou zich kunnen afvragen waarom alle moleculen zich niet toevallig opnieuw in het linker compartiment verzamelen. De natuurwetten verbieden dit immers niet. Toch wordt een dergelijk verschijnsel nooit waargenomen. De verklaring ligt niet in een nieuwe kracht die de moleculen naar rechts duwt, maar in de enorme verschillen in waarschijnlijkheid tussen beide situaties. Slechts een uiterst klein aantal microtoestanden komt overeen met de situatie waarin alle moleculen zich opnieuw links bevinden. Daarentegen bestaat er een astronomisch groot aantal microtoestanden waarin de moleculen gelijkmatig over beide compartimenten verdeeld zijn. De spontane expansie van een gas is daarom geen gevolg van een mysterieuze drijvende kracht. Het systeem evolueert eenvoudigweg naar de toestand die op microscopisch niveau door veruit het grootste aantal mogelijke configuraties wordt gerealiseerd.
+
+De eenvoudige waarneming dat spontane processen steeds evolueren naar de meest waarschijnlijke toestand kan worden geformaliseerd. De centrale grootheid die de waarschijnlijkheid van een macroscopische toestand beschrijft, is de \emph{entropie} $S$.
+
+Ludwig Boltzmann ontdekte dat de entropie rechtstreeks verband houdt met het aantal microtoestanden $\Omega$ dat overeenkomt met een gegeven macroscopische toestand:
+\begin{equation}
+\boxed{
+S = k_B \ln \Omega
+}
+\end{equation}
+waarin $k_B$ de constante van Boltzmann is, $k_B = \SI{1.381e-23}{\joule \per \kelvin}$.
+
+Deze uitdrukking roept meteen een vraag op: waarom precies een \emph{logaritme} van $\Omega$, en bijvoorbeeld niet gewoon $S\propto\Omega$ zelf? Het antwoord heeft niets te maken met wiskundig toeval, maar volgt rechtstreeks uit een eigenschap die we van entropie \emph{verwachten}: entropie moet, net als het volume $V$ of de hoeveelheid stof $n$, een \emph{extensieve} grootheid zijn. Concreet betekent dit: wanneer we twee identieke, onafhankelijke systemen samenvoegen tot één groter systeem, moet de totale entropie gelijk zijn aan de som van de afzonderlijke entropie\"en, $S_{\text{tot}}=S_A+S_B$. Dat is precies wat we intu\"itief verwachten; de entropie van twee gelijke hoeveelheden gas samen is dubbel zo groot als die van elke hoeveelheid apart, niet iets ingewikkelders.
+
+Het aantal microtoestanden gedraagt zich echter helemaal niet op die manier. Voor elk van de $\Omega_A$ mogelijke microtoestanden van systeem $A$ kan systeem $B$ zich onafhankelijk in elk van zijn $\Omega_B$ microtoestanden bevinden. Het totale aantal combinaties is dus niet de \emph{som}, maar het \emph{product}:
+\begin{equation}
+\Omega_{\text{tot}} = \Omega_A \cdot \Omega_B.
+\end{equation}
+Dit is dezelfde combinatorische logica als bij het werpen van twee dobbelstenen: de ene heeft 6 mogelijke uitkomsten, de andere ook 6, maar samen zijn er niet $6+6=12$, maar $6\times6=36$ mogelijke combinaties. Zouden we de entropie rechtstreeks evenredig met $\Omega$ definiëren, dan zou het samenvoegen van twee identieke systemen de entropie niet verdubbelen, maar \emph{kwadrateren}. Dit is in flagrante tegenspraak met wat we van een extensieve toestandsfunctie verwachten. We hebben dus een functie nodig die een product omzet in een som: een functie $f$ waarvoor geldt dat $f(\Omega_A\cdot\Omega_B)=f(\Omega_A)+f(\Omega_B)$. Net deze eigenschap is de fundamentele identiteit van de logaritme, $\ln(ab)=\ln a+\ln b$, en het is de \emph{enige} functie die eraan voldoet. 
+
+Een klein rekenvoorbeeld maakt dit concreet: stel dat een systeem $A$ over $\Omega_A=10^{3}$ microtoestanden beschikt, en een identiek, onafhankelijk systeem $B$ eveneens over $\Omega_B=10^{3}$. Samen is dan $\Omega_{\text{tot}}=10^{6}$, dus niet het dubbele maar het \emph{duizendvoud} van $\Omega_A$. Nemen we echter de logaritme, dan geldt $\ln(10^{6})=6\ln 10=2\times(3\ln 10)=2\ln(10^{3})$: de logaritme van $\Omega_{\text{tot}}$ is wél precies het dubbele van die van elk deelsysteem. Zo herstelt de logaritme de extensiviteit die entropie fysisch moet bezitten, terwijl ze bovendien een monotoon stijgende functie van $\Omega$ blijft: een toestand met meer microtoestanden krijgt nog steeds een hogere entropie toegekend, enkel niet meer op een manier die bij samenvoegen tot onrealistische, exponentieel opblazende waarden leidt. De constante $k_B$ tenslotte is uitsluitend een schaalfactor, gekozen zodat de statistische definitie van $S$ numeriek aansluit bij de klassieke, experimenteel gedefinieerde entropie in $\si{\joule\per\kelvin}$.
+
+De entropie van een systeem is dus een maat voor het aantal microscopische manieren waarop de waargenomen macroscopische toestand kan worden gerealiseerd. Een toestand met een grotere entropie komt overeen met meer microtoestanden en is daardoor waarschijnlijker.
+
+De spontane menging van gassen, de overgang van warmte van warm naar koud, en de expansie van een gas in een vacu\"um schijnen op het eerste gezicht verschillende verschijnselen te zijn. In alle drie de gevallen evolueert het systeem echter naar een toestand die door meer microtoestanden kan worden gerealiseerd. De entropie vormt hiermee de gemeenschappelijke noemer achter alle spontane processen. In de volgende twee paragrafen wordt deze microscopische definitie omgezet in concrete, meetbare uitdrukkingen voor twee klassieke situaties: de isotherme expansie van een gas, en het mengen van twee stoffen.
+
+\subsubsection{Entropieverandering bij isotherme expansie}
+
+Het gedachte-experiment kan met de formule van Boltzmann worden omgezet in een concrete, meetbare uitdrukking. Beschouw $N$ onderling niet-onderscheidbare gasmoleculen die vrij kunnen bewegen binnen een volume $V$. Verdelen we dit volume, louter als rekenhulpmiddel, in een groot aantal even grote cellen met elementair volume $v_0$, dan heeft elk molecuul ongeveer $V/v_0$ cellen ter beschikking om zich in te bevinden. Omdat de moleculen onderling onafhankelijk over deze cellen verdeeld kunnen worden, is het totale aantal microtoestanden bij benadering
+\begin{equation}
+\Omega \propto \left(\frac{V}{v_0}\right)^{N}.
+\end{equation}
+
+Voor een isotherme expansie van een volume $V_1$ naar een volume $V_2$ (bijvoorbeeld door het tussenschot uit het gedachte-experiment te verwijderen) geldt dan
+\begin{equation}
+\frac{\Omega_2}{\Omega_1} = \left(\frac{V_2}{V_1}\right)^{N}.
+\end{equation}
+Met de formule van Boltzmann volgt de entropieverandering:
+\begin{equation}
+\Delta S = S_2 - S_1 = k_B \ln\frac{\Omega_2}{\Omega_1} = k_B N \ln\frac{V_2}{V_1}.
+\end{equation}
+Voor $n$ mol gas geldt $N = nN_A$, en met $k_B N_A = R$ volgt de bekende macroscopische uitdrukking:
+\begin{equation}
+\boxed{
+\Delta S = nR\ln\frac{V_2}{V_1} \qquad \text{(isotherme expansie van een ideaal gas)}
+}
+\label{eq:dS-expansie}
+\end{equation}
+Merk op dat $\Delta S>0$ zodra $V_2>V_1$: een groter volume betekent meer beschikbare cellen per molecuul en dus, via de macht $N$, een exponentiële toename van $\Omega$.
+
+Deze uitdrukking, die in de klassieke thermodynamica doorgaans rechtstreeks uit de Clausius-definitie (\ref{sec:tweedehoofdwet}) wordt afgeleid, volgt hier dus \emph{rechtstreeks uit een combinatorisch argument}, zonder enige verwijzing naar warmte of arbeid. Dit illustreert treffend dat de statistische en de klassieke definitie van entropie, hoewel ze conceptueel sterk verschillen, tot exact dezelfde fysische voorspelling leiden.
+
+\begin{voorbeeld}{Entropie van een isotherme gasexpansie}
+Beschouw \SI{1}{\mole} ideaal gas dat bij constante temperatuur reversibel expandeert van $V_1=\SI{10}{\liter}$ naar $V_2=\SI{20}{\liter}$ (het volume verdubbelt). Met vergelijking~\eqref{eq:dS-expansie}:
+\[
+\Delta S = nR\ln\frac{V_2}{V_1} = (1)(\SI{8.314}{\joule\per\mole\per\kelvin})\ln(2) = \SI{5.76}{\joule\per\mole\per\kelvin}.
+\]
+\end{voorbeeld}
+
+\subsubsection{Entropieverandering bij mengen}
+
+Dezelfde combinatorische redenering verklaart de mengentropieformule die in het onderstaande voorbeeld wordt gebruikt. Beschouw $N_A$ moleculen van stof $A$ en $N_B$ moleculen van stof $B$, samen $N=N_A+N_B$ moleculen, die willekeurig over $N$ roosterplaatsen in het mengsel worden verdeeld. Het aantal manieren waarop dit kan gebeuren, is een combinatorisch probleem:
+\begin{equation}
+\Omega_{\text{meng}} = \frac{N!}{N_A!\,N_B!}.
+\end{equation}
+Met behulp van de Stirling-benadering ($\ln x! \approx x\ln x - x$ voor grote $x$) volgt
+\begin{align}
+\ln\Omega_{\text{meng}} &\approx N\ln N - N_A\ln N_A - N_B\ln N_B \notag\\
+&= N_A\ln\frac{N}{N_A} + N_B\ln\frac{N}{N_B} = -N_A\ln x_A - N_B\ln x_B,
+\end{align}
+waarin $x_A=N_A/N$ en $x_B=N_B/N$ de molfracties zijn. Vóór het mengen bevond elke component zich reeds in een eigen, volledig gedefinieerd compartiment ($\Omega=1$), zodat de volledige toename in het aantal microtoestanden aan het mengen zelf wordt toegeschreven. Met $S=k_B\ln\Omega$ en gedeeld door het totale aantal mol ($k_BN_A^{\text{Avogadro}}=R$) volgt de molaire mengentropie:
+\begin{equation}
+\boxed{
+\Delta S_{\text{meng}} = -R\bigl(x_A\ln x_A + x_B\ln x_B\bigr).
+}
+\end{equation}
+Omdat $0<x_A,x_B<1$, zijn beide logaritmen negatief, zodat $\Delta S_{\text{meng}}$ altijd positief is: mengen verhoogt onvermijdelijk het aantal toegankelijke microtoestanden, ongeacht de precieze samenstelling van het mengsel. Deze uitdrukking is exact degene die in het voorbeeld hieronder wordt toegepast op een mengsel van stikstof en zuurstof.
+
+\begin{voorbeeld}{Mengentropie van een ideaal binaire mengsel}
+Beschouw een mengsel van \SI{1}{\mole} stikstof en \SI{1}{\mole} zuurstof bij constante temperatuur en druk. De molfracties zijn $x_{N_2} = x_{O_2} = 0.5$. De mengentropie per mol mengsel volgt uit
+\[
+\Delta S_{\text{meng}} = -R\bigl(x_{N_2}\ln x_{N_2} + x_{O_2}\ln x_{O_2}\bigr).
+\]
+Invullen:
+\begin{align*}
+    \Delta S_{\text{meng}} &= -(\SI{8.314}{\joule\per\mole\per\kelvin})(0.5\ln 0.5 + 0.5\ln 0.5) \\
+    &= (\SI{8.314}{\joule\per\mole\per\kelvin})(\ln 2) \approx \SI{5.76}{\joule\per\mole\per\kelvin}.
+\end{align*}
+
+Deze positieve entropieverandering verklaart waarom lucht zich spontaan mengt en waarom omgekeerd de scheiding van lucht in zuivere componenten arbeid vereist.
+
+Merk op dat dit exact dezelfde numerieke waarde is als de isotherme expansie uit het vorige voorbeeld. Dit is geen toeval: in beide gevallen verdubbelt het aantal toegankelijke microtoestanden voor de beschouwde moleculen, en levert de logaritme in de formule van Boltzmann dezelfde bijdrage $R\ln 2$ op.
+\end{voorbeeld}
+
+\section{De tweede hoofdwet en de klassieke formulering van entropie}
+\label{sec:tweedehoofdwet}
+\subsection{De tweede hoofdwet van de thermodynamica}
+
+De statistische interpretatie van de entropie leidt tot \'e\'en van de meest fundamentele natuurwetten.
+
+\begin{definitie}{Tweede hoofdwet van de thermodynamica}
+De totale entropie van een ge\"isoleerd systeem neemt tijdens ieder spontaan proces toe:
+\begin{equation}
+\Delta S_{\text{universum}} \geq 0.
+\end{equation}
+Voor een reversibel proces geldt $\Delta S_{\text{universum}} = 0$. Voor een spontaan, irreversibel proces geldt $\Delta S_{\text{universum}} > 0$. Een afname van de totale entropie is volgens de tweede hoofdwet onmogelijk.
+\end{definitie}
+
+De tweede hoofdwet levert hiermee een antwoord op de fundamentele vraag die door de eerste hoofdwet onbeantwoord bleef. De eerste hoofdwet beschrijft de \emph{hoeveelheid} energie. De tweede hoofdwet beschrijft de \emph{richting} waarin deze energie zich spontaan ontwikkelt.
+
+Een bijzondere formulering van de tweede hoofdwet werd door Clausius gegeven: warmte kan niet spontaan van een lichaam met lagere temperatuur naar een lichaam met hogere temperatuur stromen. Deze uitspraak beschrijft niet hoeveel energie wordt uitgewisseld, maar wel de richting waarin warmte zich spontaan kan verplaatsen.
+
+\subsection{De Clausius-definitie en de Clausius-ongelijkheid}
+
+Naast de statistische definitie van Boltzmann bestaat een klassieke, door Clausius ge\"introduceerde formulering van de entropie. Voor een reversibele warmte-uitwisseling geldt:
+\begin{equation}
+\dd S = \frac{\dd Q_{\text{rev}}}{T}.
+\end{equation}
+De temperatuur verschijnt in de noemer omdat eenzelfde hoeveelheid warmte een verschillend effect heeft afhankelijk van de temperatuur waarbij zij wordt uitgewisseld.
+
+Omdat entropie een toestandsfunctie is, mag voor de berekening steeds een denkbeeldig reversibel pad worden gekozen tussen dezelfde begin- en eindtoestand, ook als het werkelijke proces irreversibel verliep. Voor een algemeen, mogelijk irreversibel proces geldt de \emph{Clausius-ongelijkheid}:
+\begin{equation}
+\dd S \geq \frac{\dd Q}{T}.
+\end{equation}
+De gelijkheid geldt enkel voor reversibele processen; voor ieder irreversibel proces is de ongelijkheid van toepassing. Dit maakt van de Clausius-ongelijkheid een directe kwantitatieve uitdrukking van de tweede hoofdwet.
+
+\subsubsection{Entropie bij faseovergangen}
+\label{sec:entropie-faseovergangen}
+
+Voor een reversibele faseovergang bij constante druk verloopt het proces bij constante temperatuur $T_{\text{trans}}$. Uit de Clausius-definitie volgt direct:
+\begin{equation}
+\Delta S_{\text{trans}} = \frac{\Delta H_{\text{trans}}}{T_{\text{trans}}}
+\label{eq:entropie_fase}
+\end{equation}
+Deze relatie zal in het volgende hoofdstuk de basis vormen voor de afleiding van de vergelijking van Clapeyron. Voor water bij \SI{100}{\celsius} bijvoorbeeld:
+\[
+\Delta S_{\text{vap}} = \frac{\SI{40.7}{\kilo\joule\per\mole}}{\SI{373.15}{\kelvin}} \approx \SI{109}{\joule\per\mole\per\kelvin}.
+\]
+De positieve entropieverandering weerspiegelt de sterk toegenomen bewegingsvrijheid van watermoleculen in de gasfase.
+
+\subsubsection{Entropieverandering bij opwarming}
+\label{sec:entropie-opwarming}
+
+De formule van Clausius laat niet enkel toe de entropieverandering bij een faseovergang te berekenen, maar ook de entropieverandering wanneer een stof, zonder van fase te veranderen, in temperatuur stijgt of daalt. 
+
+Voor een reversibel proces bij constante druk geldt $\dd Q_{\text{rev},p} = C_p\,\dd T$, zodat uit de Clausius-definitie volgt:
+\begin{equation}
+\dd S = \frac{\dd Q_{\text{rev}}}{T} = \frac{C_p\,\dd T}{T}.
+\end{equation}
+Wanneer $C_p$ over het beschouwde temperatuursinterval bij benadering constant mag worden verondersteld, kan deze uitdrukking rechtstreeks worden geïntegreerd:
+\begin{equation}
+\boxed{
+\Delta S = \int_{T_1}^{T_2}\frac{n C_p\,\dT}{T} = nC_p\ln\frac{T_2}{T_1}.
+}
+\label{eq:dS-opwarming}
+\end{equation}
+Voor een proces bij constant volume geldt uiteraard de analoge uitdrukking met $C_V$ in plaats van $C_p$. Merk op dat, in tegenstelling tot de enthalpieverandering $\Delta H = nC_p\Delta T$, de entropieverandering \emph{logaritmisch} en niet lineair verandert met de temperatuur.
+
+Wanneer een stof over een temperatuurstraject wordt opgewarmd waarbij ook een of meerdere faseovergangen optreden, wordt de totale entropieverandering eenvoudig bekomen door de bijdragen van elk deeltraject afzonderlijk op te tellen: elke opwarmfase levert een bijdrage volgens vergelijking~\eqref{eq:dS-opwarming}, en elke faseovergang levert een bijdrage volgens vergelijking \eqref{eq:entropie_fase}. Omdat entropie een toestandsfunctie is, is het resultaat onafhankelijk van hoe het traject in deeltrajecten wordt opgesplitst.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Afbeeldingen/entropie_opwarming_water.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} Verloop van de molaire entropie van water in functie van de temperatuur, van vaste stof bij \SI{-10}{\celsius} tot damp bij \SI{120}{\celsius} bij \SI{1}{\bar}. De curve toont drie continue, logaritmisch gekromde segmenten (opwarming van ijs, water en stoom, telkens volgens vergelijking~\eqref{eq:dS-opwarming}) onderbroken door twee verticale sprongen bij $T=\SI{273.15}{\kelvin}$ (smelten) en $T=\SI{373.15}{\kelvin}$ (verdampen), overeenkomstig \S~\ref{sec:entropie-faseovergangen}. De sprong bij verdamping moet duidelijk groter zijn dan die bij smelten.}
+    \label{fig:entropie-opwarming}
+\end{figure}
+
+\begin{voorbeeld}{Totale entropieverandering: van ijs bij $-10\,^\circ$C tot stoom bij $120\,^\circ$C}
+We berekenen de molaire entropieverandering wanneer \SI{1}{\mole} water bij \SI{1}{\bar} opgewarmd wordt van vaste toestand bij $T=\SI{-10}{\celsius}$ ($\SI{263.15}{\kelvin}$) tot damp bij $T=\SI{120}{\celsius}$ ($\SI{393.15}{\kelvin}$). We gebruiken $C_{p,\text{ijs}}=\SI{38.0}{\joule\per\mole\per\kelvin}$, $C_{p,\text{water}}=\SI{75.3}{\joule\per\mole\per\kelvin}$, $C_{p,\text{stoom}}=\SI{33.6}{\joule\per\mole\per\kelvin}$, $\Delta H_{\text{fus}}=\SI{6.01}{\kilo\joule\per\mole}$ bij \SI{273.15}{\kelvin} en $\Delta H_{\text{vap}}=\SI{40.7}{\kilo\joule\per\mole}$ bij \SI{373.15}{\kelvin}. Het traject bestaat uit vijf opeenvolgende stappen.
+\\
+
+\textbf{1. Opwarming van ijs, \SI{263.15}{K}~$\to$~\SI{273.15}{K}:}
+\[
+\Delta S_1 = C_{p,\text{ijs}}\ln\frac{273.15}{263.15} = (38.0)(0.0373) = \SI{1.42}{\joule\per\mole\per\kelvin}.
+\]
+
+\textbf{2. Smelten bij \SI{273.15}{K}:}
+\begin{equation*}
+\Delta S_2 = \frac{\Delta H_{\text{fus}}}{T_{\text{fus}}} = \frac{6010}{273.15} = \SI{22.00}{\joule\per\mole\per\kelvin} 
+\end{equation*}
+
+\textbf{3. Opwarming van vloeibaar water, \SI{273.15}{K}~$\to$~\SI{373.15}{K}:}
+\[
+\Delta S_3 = C_{p,\text{water}}\ln\frac{373.15}{273.15} = (75.3)(0.3122) = \SI{23.51}{\joule\per\mole\per\kelvin}
+\]
+
+\textbf{4. Verdampen bij \SI{373.15}{K}:}
+\[
+\Delta S_4 = \frac{\Delta H_{\text{vap}}}{T_{\text{vap}}} = \frac{40700}{373.15} = \SI{109.07}{\joule\per\mole\per\kelvin}
+\]
+
+\textbf{5. Opwarming van stoom, \SI{373.15}{K}~$\to$~\SI{393.15}{K}:}
+\[
+\Delta S_5 = C_{p,\text{stoom}}\ln\frac{393.15}{373.15} = (33.6)(0.0522) = \SI{1.75}{\joule\per\mole\per\kelvin}
+\]
+
+\textbf{Totaal:}
+\[
+\Delta S_{\text{totaal}} = \Delta S_1+\Delta S_2+\Delta S_3+\Delta S_4+\Delta S_5 \approx \SI{157.7}{\joule\per\mole\per\kelvin}.
+\]
+
+Merk op dat de faseovergangen, en in het bijzonder de verdamping, veruit de grootste bijdragen leveren: dit weerspiegelt de veel grotere toename in bewegingsvrijheid (en dus in het aantal toegankelijke microtoestanden) bij een faseovergang dan bij een eenvoudige temperatuurstijging binnen dezelfde fase.
+\end{voorbeeld}
+
+
+\subsection{Lokale entropieafname}
+
+De tweede hoofdwet stelt dat de totale entropie van het universum moet toenemen. Dit betekent niet dat de entropie van een afzonderlijk systeem niet kan afnemen. Wanneer een systeem warmte afstaat, daalt zijn entropie. De omgeving neemt die warmte op, waardoor haar entropie stijgt. Zolang de entropietoenname van de omgeving groter is dan de entropieafname van het systeem, is het totale resultaat positief en verloopt het proces spontaan.
+
+Dit verklaart bijvoorbeeld hoe een koelkast werkt: warmte wordt uit de koude binnenruimte naar de warme keuken gepompt, zodat de entropie van de binnenruimte afneemt. Dit is enkel mogelijk omdat de koelkast arbeid verbruikt, en omdat de entropieproductie in de omgeving ruimschoots voldoende is om de totale entropie toename toe te laten nemen.
+
+\begin{voorbeeld}{Vorming van water}
+Beschouw de reactie
+\[
+2\,\mathrm{H_2(g)} + \mathrm{O_2(g)} \longrightarrow 2\,\mathrm{H_2O(l)} \qquad (T=\SI{298}{\kelvin}, \; p^\circ=\SI{1}{\bar}).
+\]
+Met de standaard molaire entropie\"en $S^\circ_m(\mathrm{H_2,g})=\SI{130.7}{\joule\per\mole\per\kelvin}$, $S^\circ_m(\mathrm{O_2,g})=\SI{205.2}{\joule\per\mole\per\kelvin}$ en $S^\circ_m(\mathrm{H_2O,l})=\SI{70.0}{\joule\per\mole\per\kelvin}$ volgt de entropieverandering van het \emph{systeem} (de reactie zelf):
+\begin{align*}
+    \Delta_r S^\circ &= 2\,S^\circ_m(\mathrm{H_2O,l}) - \bigl[2\,S^\circ_m(\mathrm{H_2,g}) + S^\circ_m(\mathrm{O_2,g})\bigr] \\
+    &= 2(70.0) - \bigl[2(130.7)+205.2\bigr]  \\
+    &= \SI{-326.6}{\joule\per\mole\per\kelvin}
+\end{align*}
+
+Dit resultaat is sterk negatief, en op het eerste gezicht dus problematisch: drie mol gas (met veel translationele, rotationele en vibrationele vrijheidsgraden, en dus een hoge entropie) worden omgezet in twee mol vloeistof (met sterk beperkte moleculaire beweging en een veel lagere entropie). Enkel op basis van $\Delta_r S^\circ$ zou je verwachten dat deze reactie \emph{niet} spontaan kan verlopen. Dit is in strijd met wat we weten: de verbranding van waterstof is één van de meest spontane, energetisch gunstige reacties die er bestaan.
+
+De oplossing ligt, zoals hierboven besproken, in de warmte die de reactie aan de omgeving afstaat. De reactie is sterk exotherm, met $\Delta_r H^\circ = 2\,\Delta_fH^\circ(\mathrm{H_2O,l}) = 2(\SI{-285.8}{\kilo\joule\per\mole}) = \SI{-571.6}{\kilo\joule\per\mole}$. Bij constante druk komt deze warmte vrij aan de omgeving, die zich bij benadering als een warmtereservoir op constante temperatuur $T=\SI{298}{\kelvin}$ gedraagt. De entropietoename van de omgeving die hiermee gepaard gaat, volgt uit de redenering van warmteoverdracht, toegepast op de omgeving die warmte \emph{ontvangt}:
+\[
+\Delta S_{\text{omgeving}} = -\frac{\Delta_r H^\circ}{T} = -\frac{\SI{-571600}{\joule\per\mole}}{\SI{298}{\kelvin}} = \SI{+1917}{\joule\per\mole\per\kelvin}
+\]
+Deze bijdrage is bijna zes keer groter (in absolute waarde) dan de negatieve entropieverandering van het systeem. De totale entropieverandering van het universum bedraagt dan
+\begin{align*}
+\Delta S_{\text{univ}} &= \Delta_r S^\circ + \Delta S_{\text{omgeving}} \\
+&= \SI{-326.6}{\joule\per\mole\per\kelvin} + \SI{1917}{\joule\per\mole\per\kelvin} \\
+&= \SI{+1590}{\joule\per\mole\per\kelvin}
+\end{align*}
+
+Omdat $\Delta S_{\text{univ}}>0$, is de reactie wel degelijk spontaan, precies zoals experimenteel wordt waargenomen. De 'ordening' die in het systeem ontstaat (gas naar vloeistof) wordt ruimschoots gecompenseerd door de 'wanorde' die de vrijgekomen warmte in de omgeving veroorzaakt.
+\end{voorbeeld}
+
+\section{De derde hoofdwet van de thermodynamica}
+
+In hoofdstuk~\ref{ch:energie} werd de enthalpie steeds uitgedrukt ten opzichte van een gekozen referentietoestand: enkel enthalpie\emph{verschillen} zijn fysisch betekenisvol, en de vormingsenthalpie van een zuiver element in zijn standaardtoestand wordt per conventie op nul gesteld. Voor entropie blijkt een fundamenteel andere situatie te gelden.
+
+\begin{definitie}{Derde hoofdwet van de thermodynamica}
+De entropie van een perfect gekristalliseerde zuivere stof nadert naar nul wanneer de absolute temperatuur naar het absolute nulpunt nadert:
+\begin{equation}
+\lim_{T\to 0} S = 0.
+\end{equation}
+\end{definitie}
+
+Deze wet volgt rechtstreeks uit de statistische interpretatie van Boltzmann uit~\ref{sec:waarschijnlijkheid-entropie}. Een perfect kristal bij $T=\SI{0}{\kelvin}$ bevindt zich, bij afwezigheid van thermische excitatie, in exact \'e\'en enkele, volledig geordende microtoestand: $\Omega=1$. Hieruit volgt onmiddellijk $S=k_B\ln 1 = 0$.
+
+In tegenstelling tot de enthalpie kunnen we voor entropie dus wel degelijk een \emph{absolute} schaal defini\"eren, zonder arbitraire referentietoestand. Door een stof reversibel op te warmen van $T=\SI{0}{\kelvin}$ tot een temperatuur $T$, kan de \emph{absolute molaire entropie} $S_m(T)$ van die stof in principe volledig worden berekend. De experimenteel of theoretisch bepaalde waarde bij de standaardtoestand ($T=\SI{298.15}{\kelvin}$, $p^\circ=\SI{1}{\bar}$) wordt de \emph{standaardmolaire entropie} $S_m^\circ$ genoemd en is, net als de standaardvormingsenthalpie $\Delta_fH^\circ$ uit hoofdstuk~\ref{ch:energie}, getabelleerd voor een groot aantal stoffen (zie tabel~\ref{tab:standaardentropie}).
+
+\begin{table}[htb]
+\centering
+\caption{Standaardmolaire entropie $S_m^\circ$ (bij \SI{298.15}{\kelvin}, \SI{1}{\bar}) voor enkele stoffen relevant voor de ammoniaksynthese.}
+\label{tab:standaardentropie}
+\begin{tabular}{lc}
+\toprule
+Stof & $S_m^\circ$ (\si{\joule\per\mole\per\kelvin}) \\
+\midrule
+$\mathrm{N_2(g)}$ & 191.6 \\
+$\mathrm{H_2(g)}$ & 130.7 \\
+$\mathrm{NH_3(g)}$ & 192.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Belangrijk verschil met vormingsenthalpie: zelfs voor een zuiver element in zijn standaardtoestand geldt \emph{niet} $S_m^\circ=0$ (in tegenstelling tot $\Delta_fH^\circ=0$). De derde hoofdwet stelt enkel dat de entropie naar nul nadert bij $T\to\SI{0}{\kelvin}$; bij kamertemperatuur bezit elke stof, ook een zuiver element, een positieve absolute entropie ten gevolge van haar translationele, rotationele en vibrationele vrijheidsgraden (zie hoofdstuk~\ref{ch:kwantum}, \S~\ref{sec:moleculaire-beweging}).
+
+Omdat entropie een toestandsfunctie is, kan de reactie-entropie van een chemische reactie op exact dezelfde manier worden berekend als de reactie-enthalpie in hoofdstuk~\ref{ch:energie}:
+\begin{equation}
+\boxed{
+\Delta_r S^\circ = \sum_i \nu_i\,S_{m,i}^\circ,
+}
+\label{eq:reactie-entropie}
+\end{equation}
+met de volgende tekenconventie voor de stoichiometrische co\"effici\"enten $\nu_i$ : positief voor reactieproducten, negatief voor reagentia.
+
+\begin{voorbeeld}{Reactie-entropie van de ammoniaksynthese}
+Voor de reactie $\mathrm{N_2(g) + 3\,H_2(g) \rightleftharpoons 2\,NH_3(g)}$ geeft tabel~\ref{tab:standaardentropie}, samen met vergelijking~\eqref{eq:reactie-entropie}:
+\[
+\Delta_r S^\circ = 2\,S_m^\circ(\mathrm{NH_3}) - \bigl[S_m^\circ(\mathrm{N_2}) + 3\,S_m^\circ(\mathrm{H_2})\bigr]
+\]
+\[
+= 2(192.8) - \bigl[191.6 + 3(130.7)\bigr] = 385.6 - 583.7 = \SI{-198.1}{\joule\per\mole\per\kelvin}.
+\]
+Deze sterk negatieve waarde bevestigt kwantitatief wat in \ref{sec:haber-bosch} kwalitatief werd beargumenteerd: vier mol gasvormig reagens worden omgezet in twee mol gasvormig product, met een overeenkomstig sterk verlies aan translationele en rotationele bewegingsvrijheid (zie hoofdstuk~\ref{ch:kwantum}).
+\end{voorbeeld}
+
+\section{De Gibbs-vrije energie en het thermodynamisch evenwicht}
+
+\subsection{De ingenieursvisie: het systeem en zijn omgeving}
+
+Bij de afleiding van de tweede hoofdwet werd steeds de totale entropieverandering beschouwd. De natuur ziet immers geen onderscheid tussen een systeem en zijn omgeving. Vanuit fundamenteel oogpunt vormt het volledige universum \'e\'en groot ge\"isoleerd systeem.
+
+In de praktijk is deze benadering echter weinig bruikbaar. Een chemisch ingenieur bestudeert nooit het volledige universum, maar slechts een klein gedeelte ervan: een reactor, een destillatiekolom, een warmtewisselaar. De toestand van het systeem kan doorgaans vrij nauwkeurig worden bepaald. Voor de omgeving is dit veel moeilijker.
+
+Hier ontstaat een fundamenteel praktisch probleem. De natuur bepaalt de richting van een proces aan de hand van een grootheid die betrekking heeft op het volledige universum, terwijl de ingenieur slechts toegang heeft tot de eigenschappen van een klein deel ervan.
+
+De vraag dringt zich op of het mogelijk is een nieuwe thermodynamische grootheid te defini\"eren die uitsluitend uit de eigenschappen van het systeem kan worden berekend, maar toch dezelfde informatie bevat over de spontane richting van een proces.
+
+\subsection{De Gibbs-vrije energie}
+
+Het antwoord op deze vraag werd gegeven door Josiah Willard Gibbs. Hij toonde aan dat voor processen bij constante temperatuur en constante druk de spontaniteit volledig kan worden beschreven met behulp van \'e\'en enkele toestandsfunctie: de \emph{Gibbs-vrije energie}.
+
+\begin{definitie}{Gibbs-vrije energie}
+\begin{equation}
+G = H - TS.
+\end{equation}
+\end{definitie}
+
+De Gibbs-vrije energie is geen nieuwe vorm van energie. Zij is een zorgvuldig gekozen combinatie van bestaande thermodynamische grootheden die toelaat de invloed van de omgeving impliciet in rekening te brengen. Voor processen bij constante temperatuur en constante druk geldt het spontaniteitscriterium:
+\begin{equation}
+\Delta G < 0 \quad \text{(spontaan)},
+\end{equation}
+\begin{equation}
+\Delta G = 0 \quad \text{(evenwicht)},
+\end{equation}
+\begin{equation}
+\Delta G > 0 \quad \text{(niet-spontaan)}.
+\end{equation}
+
+\subsubsection{Afleiding uit de tweede hoofdwet}
+
+De Tweede Hoofdwet stelt dat voor een spontaan proces de totale entropieverandering van het universum positief moet zijn:
+\begin{equation}
+\dd S_{\text{univ}} = \dd S_{\text{syst}} + \dd S_{\text{omg}} \geq 0.
+\end{equation}
+Voor processen bij constante druk vormt de uitgewisselde warmte met de omgeving de enthalpieverandering van het systeem: $\dd Q_p = \dd H$. Bij een omgeving met constante temperatuur geldt:
+\begin{equation}
+\dd S_{\text{omg}} = -\frac{\dd Q_p}{T} = -\frac{\dd H}{T}.
+\end{equation}
+Invullen in de tweede hoofdwet levert:
+\begin{equation}
+\dd S_{\text{syst}} - \frac{\dd H}{T} \geq 0.
+\end{equation}
+Vermenigvuldigd met $T$ en herschikt:
+\begin{equation}
+\dd H - T\,\dd S \leq 0.
+\end{equation}
+Bij constante temperatuur is dit precies $\dG \leq 0$. De Gibbs-vrije energie is dus geen onafhankelijke natuurwet, maar een rechtstreekse herformulering van de tweede hoofdwet voor processen bij constante temperatuur en constante druk.
+
+\subsubsection{De fundamentele differentiaalvergelijking}
+\label{sec:fundamentele-vgl}
+
+Om de differentiaalvorm van de Gibbs-vrije energie af te leiden, vertrekken we van de combinatie van de eerste en de tweede hoofdwet voor een gesloten systeem dat enkel volumearbeid uitwisselt. Voor een reversibel proces geldt volgens de eerste hoofdwet
+\begin{equation}
+\dd U = \dd Q_{\text{rev}} + \dd W_{\text{rev}} = \dd Q_{\text{rev}} - p\,\dd V,
+\end{equation}
+waarin $\dd W_{\text{rev}}=-p\,\dd V$ de reversibele volumearbeid voorstelt. Met de Clausius-definitie $\dd Q_{\text{rev}}=T\,\dd S$ (\S~\ref{sec:waarschijnlijkheid-entropie}) volgt onmiddellijk de \emph{fundamentele vergelijking van de interne energie}:
+\begin{equation}
+\boxed{
+\dd U = T\,\dd S - p\,\dd V.
+}
+\label{eq:fundU}
+\end{equation}
+Hoewel deze vergelijking werd afgeleid voor een reversibel proces, is zij, net als de eerste hoofdwet zelf, algemeen geldig: $U$ is een toestandsfunctie, zodat $\dU$ enkel van de begin- en eindtoestand afhangt en niet van het gevolgde pad.
+
+Met de definitie van de enthalpie, $H=U+pV$, volgt via de productregel:
+\begin{equation}
+\dd H = \dd U + p\,\dd V + V\,\dd p.
+\end{equation}
+Substitutie van vergelijking~\eqref{eq:fundU} levert
+\begin{equation}
+\dd H = (T\,\dd S - p\,\dd V) + p\,\dd V + V\,\dd p = T\,\dd S + V\,\dd p,
+\end{equation}
+zodat we de tweede fundamentele vergelijking bekomen:
+\begin{equation}
+\dd H = T\,\dd S + V\,\dd p.
+\label{eq:fundH}
+\end{equation}
+Ten slotte passen we dezelfde procedure toe op $G=H-TS$:
+\begin{equation}
+\dd G = \dd H - T\,\dd S - S\,\dd T.
+\end{equation}
+Substitutie van vergelijking~\eqref{eq:fundH} levert
+\begin{equation}
+\dd G = (T\,\dd S + V\,\dd p) - T\,\dd S - S\,\dd T,
+\end{equation}
+zodat, na vereenvoudiging, de \emph{fundamentele differentiaalvergelijking} voor de Gibbs-vrije energie wordt bekomen:
+\begin{equation}\label{eq:fundG}
+\boxed{
+\dd G = V\,\dd p - S\,\dd T.
+}
+\end{equation}
+Deze vergelijking is van fundamenteel belang. Zij toont aan dat de Gibbs-vrije energie uitsluitend verandert wanneer de druk of de temperatuur verandert. Voor processen bij constante druk en temperatuur volgt onmiddellijk $\dG = 0$, hetgeen de basis vormt voor alle evenwichtsberekeningen in de volgende hoofdstukken. Vergelijking~\eqref{eq:fundG} zal herhaaldelijk worden gebruikt bij de afleiding van de chemische potentiaal als functie van druk en samenstelling (\S~\ref{sec:activiteit}) en bij de afleiding van de vergelijking van Gibbs--Helmholtz (\S~\ref{sec:vanthoff}).
+
+\subsection{De competitie tussen enthalpie en entropie}
+
+De vergelijking $G = H - TS$ laat zien dat twee verschillende effecten de spontane richting van een proces bepalen.
+
+Enerzijds probeert een systeem zijn enthalpie te verlagen. Sterke chemische bindingen, stabiele kristalstructuren en gunstige intermoleculaire interacties leiden doorgaans tot een lagere enthalpie en bevorderen daardoor de spontaniteit.
+
+Anderzijds probeert een systeem een toestand te bereiken die door een groter aantal microtoestanden kan worden gerealiseerd. Deze statistische tendens wordt beschreven door de entropieterm.
+
+\begin{voorbeeld}{Het smelten van ijs}
+Bij het smelten van ijs moeten waterstofbruggen gedeeltelijk worden verbroken, wat energie vereist: de enthalpie stijgt. Tegelijkertijd verkrijgen de watermoleculen in de vloeibare fase een veel grotere bewegingsvrijheid, zodat de entropie aanzienlijk stijgt. Bij lage temperaturen is deze entropietoename onvoldoende om de benodigde smeltwarmte te compenseren en blijft ijs stabiel. Bij hogere temperaturen wordt de entropiebijdrage steeds belangrijker, zodat vloeibaar water uiteindelijk de meest stabiele fase wordt.
+\end{voorbeeld}
+
+\begin{voorbeeld}{Verbranding van methaan}
+Tijdens de verbranding van methaan worden relatief zwakke bindingen vervangen door veel sterkere bindingen in koolstofdioxide en water. De enthalpie daalt sterk en warmte komt vrij. De entropieverandering is veel minder uitgesproken en kan zelfs negatief zijn. Toch verloopt de reactie spontaan, omdat de sterke daling van de enthalpie de totale Gibbs-vrije energie voldoende verlaagt.
+\end{voorbeeld}
+
+\subsection{Temperatuur bepaalt welke bijdrage overheerst}
+
+De entropie verschijnt steeds vermenigvuldigd met de absolute temperatuur. Bij lage temperaturen is de term $TS$ relatief klein en wordt de spontane richting voornamelijk bepaald door de enthalpie. Naarmate de temperatuur stijgt, wordt de bijdrage van de entropie steeds belangrijker.
+
+De temperatuur bepaalt dus niet alleen hoe snel moleculen bewegen. Zij bepaalt eveneens hoeveel gewicht de natuur toekent aan de statistische bijdrage van de entropie ten opzichte van de energetische bijdrage van de enthalpie. Dit verklaart waarom vele faseovergangen en chemische reacties sterk temperatuurgevoelig zijn: bij de ene temperatuur overheerst de enthalpie, bij de andere de entropie.
+
+\begin{voorbeeld}{De smelttemperatuur van water}
+Voor het smelten van ijs geldt $\Delta H_{\text{fus}} \approx \SI{6.0}{\kilo\joule\per\mole}$ en $\Delta S_{\text{fus}} \approx \SI{22.0}{\joule\per\mole\per\kelvin}$. Bij evenwicht (smeltpunt) geldt $\Delta G = 0$, zodat
+\[
+T_{\text{fus}} = \frac{\Delta H_{\text{fus}}}{\Delta S_{\text{fus}}} = \frac{\SI{6000}{\joule\per\mole}}{\SI{22.0}{\joule\per\mole\per\kelvin}} \approx \SI{273}{\kelvin} = \SI{0}{\celsius}.
+\]
+Dit illustreert hoe de smelttemperatuur voortvloeit uit de balans tussen enthalpie en entropie.
+\end{voorbeeld}
+
+\subsection{Spontaniteit is niet snelheid}
+
+Een fundamenteel onderscheid moet hier worden benadrukt. Spontaniteit beschrijft de \emph{richting} van een proces, niet zijn \emph{snelheid}.
+
+\begin{voorbeeld}{Thermodynamica en kinetiek zijn verschillende begrippen}
+De omzetting van diamant naar grafiet verloopt onder normale omstandigheden spontaan: de standaardreactie-Gibbsenergie is negatief en de evenwichtsconstante is zeer groot. Thermodynamisch is grafiet de meest stabiele vorm van koolstof. Toch worden diamanten niet spontaan omgezet in grafiet. De reactie verloopt bij kamertemperatuur zo traag dat gedurende een mensenleven geen merkbare omzetting optreedt. Een grote negatieve Gibbs-vrije energie garandeert dus geen snelle reactie.
+\end{voorbeeld}
+
+De thermodynamica bepaalt welke toestand uiteindelijk wordt bereikt. De snelheid waarmee deze toestand wordt bereikt is een volledig afzonderlijke vraag en behoort tot de chemische kinetiek.
+
+\subsection{Het thermodynamisch evenwicht}
+
+Een spontaan proces verloopt zolang de Gibbs-vrije energie van het systeem kan afnemen. Wanneer een minimum van de Gibbs-vrije energie is bereikt, bevindt het systeem zich in thermodynamisch evenwicht. Er bestaat dan geen drijvende kracht meer voor verdere spontane verandering.
+
+De Gibbs-vrije energie kan worden vergeleken met het hoogteverschil in een berglandschap. Een bal boven op een helling zal spontaan naar een lager gelegen punt rollen totdat hij de vallei bereikt. Op analoge wijze evolueren thermodynamische systemen spontaan naar de toestand met de laagste Gibbs-vrije energie.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Afbeeldingen/G_reactiecoordinaat.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} Verloop van de Gibbs-vrije energie $G$ van een reactiemengsel in functie van de reactiecoördinaat $\xi$ (van zuivere reagentia, $\xi=0$, tot zuivere reactieproducten, $\xi=\xi_{\max}$). De curve toont een duidelijk minimum bij een tussenliggende waarde $\xi_{\text{eq}}$, met een raaklijn die daar horizontaal is ($\partial G/\partial\xi=0=\Delta_rG$). Pijlen aan weerszijden van het minimum kunnen de spontane richting van de reactie aangeven ($\Delta_rG<0$ links van het minimum, $\Delta_rG>0$ rechts ervan).}
+    \label{fig:G-reactiecoordinaat}
+\end{figure}
+
+\section{De chemische potentiaal en activiteit}
+
+\subsection{De chemische potentiaal}
+
+Tot nu toe hebben we de Gibbs-vrije energie beschouwd als een eigenschap van het volledige systeem. Voor een chemisch ingenieur is dit niet voldoende. Industri\"ele processen bestaan immers zelden uit \'e\'en homogene stof. Reactoren bevatten meerdere reagentia en reactieproducten, destillatiekolommen scheiden mengsels van componenten, en absorbers brengen verschillende fasen met elkaar in contact. In al deze processen verandert niet alleen de totale Gibbs-vrije energie, maar ook de hoeveelheid van iedere afzonderlijke component.
+
+\subsubsection{Een algemene drijvende kracht}
+
+In de natuurkunde worden spontane processen vrijwel steeds veroorzaakt door een verschil in een bepaalde potentiaal. Water stroomt spontaan van een hoger naar een lager gelegen punt omdat een hoogteverschil aanwezig is. Elektrische stroom ontstaat wanneer een spanningsverschil bestaat. Warmte stroomt spontaan van een hogere naar een lagere temperatuur. Op analoge wijze zal ook materie slechts spontaan bewegen wanneer een verschil in \emph{chemische potentiaal} bestaat.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{ll}
+\toprule
+Proces & Drijvende kracht \\
+\midrule
+Waterstroming & Hoogteverschil \\
+Elektrische stroom & Spanningsverschil \\
+Warmteoverdracht & Temperatuurverschil \\
+Flu\"idumstroming & Drukverschil \\
+Massatransport en reacties & Chemisch potentiaalverschil \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Definitie van de chemische potentiaal}
+
+De chemische potentiaal van component $i$ wordt gedefinieerd als de verandering van de Gibbs-vrije energie wanneer een uiterst kleine hoeveelheid van deze component wordt toegevoegd aan het systeem, terwijl temperatuur, druk en de hoeveelheden van alle andere componenten constant worden gehouden:
+\begin{equation}
+\mu_i = \left(\frac{\partial G}{\partial n_i}\right)_{T,p,n_{j\neq i}}.
+\end{equation}
+
+De chemische potentiaal is dus een parti\"ele molaire grootheid. Zij geeft aan hoeveel de Gibbs-vrije energie verandert per toegevoegde mol van component $i$. Een component zal zich spontaan verplaatsen van een plaats waar zijn chemische potentiaal hoog is naar een plaats waar zij lager is. Wanneer overal dezelfde chemische potentiaal heerst, bestaat geen drijvende kracht meer voor transport of reactie. Voor een zuivere stof valt de chemische potentiaal samen met de molaire Gibbs-vrije energie, $\mu = G_m$.
+
+\subsubsection{Het criterium voor evenwicht}
+
+De betekenis van de chemische potentiaal wordt onmiddellijk duidelijk wanneer een systeem uit meerdere fasen wordt beschouwd. Neem als voorbeeld een afgesloten vat waarin vloeibaar water en waterdamp met elkaar in evenwicht zijn. Het thermodynamisch evenwicht wordt bereikt wanneer de chemische potentiaal van water in beide fasen identiek is:
+\begin{equation}
+\mu^{\text{vloeistof}} = \mu^{\text{damp}}.
+\end{equation}
+Precies hetzelfde principe geldt voor alle andere evenwichtstoestanden: een component verdeelt zich over twee fasen totdat beide chemische potentialen gelijk zijn; een opgeloste component diffundeert totdat overal dezelfde chemische potentiaal is bereikt; een chemische reactie evolueert zolang de chemische potentialen van reagentia en reactieproducten nog niet voldoen aan de evenwichtsvoorwaarde.
+
+\subsection{Van chemische potentiaal naar activiteit}
+\label{sec:activiteit}
+
+De uitdrukkingen uit de vorige sectie beschrijven \emph{hoe} evenwicht wordt gekenmerkt, maar nog niet \emph{hoe} de chemische potentiaal zelf afhangt van de samenstelling en de druk van het systeem. Om de evenwichtsconstante (\S~\ref{sec:evenwichtsconstante}) te kunnen gebruiken, is precies deze afhankelijkheid noodzakelijk.
+
+\subsubsection{De chemische potentiaal van een zuiver ideaal gas}
+
+We vertrekken van de fundamentele vergelijking~\eqref{eq:fundG}, $\dG=V\,\dp-S\,\dT$, toegepast op \'e\'en mol zuiver ideaal gas bij constante temperatuur ($\dT=0$):
+\begin{equation}
+\dG_m = V_m\,\dp = \frac{RT}{p}\,\dp,
+\end{equation}
+waarbij we de ideale gaswet $V_m=RT/p$ hebben gebruikt (hoofdstuk~\ref{ch:eerstehoofdwet}, \S~1.5.1). Integratie van een gekozen standaarddruk $p^\circ=\SI{1}{\bar}$ tot een willekeurige druk $p$ levert
+\begin{equation}
+\int_{\mu^\circ}^{\mu} \dG_m = RT\int_{p^\circ}^{p}\frac{\dp}{p} \quad\Longrightarrow\quad \mu(p) = \mu^\circ + RT\ln\frac{p}{p^\circ}.
+\label{eq:mu-ideaalgas}
+\end{equation}
+Deze uitdrukking toont expliciet waar de vorm $\mu=\mu^\circ+RT\ln(\cdot)$, die in \S~\ref{sec:evenwichtsconstante} zonder afleiding werd gebruikt, vandaan komt: zij is het rechtstreekse gevolg van de $1/p$-afhankelijkheid van het molair volume van een ideaal gas.
+
+\subsubsection{Van zuivere stof naar mengsel: partiële druk en molfractie}
+
+In een mengsel van ideale gassen gedraagt elke component zich, wat haar bijdrage tot de druk betreft, onafhankelijk van de andere componenten (wet van Dalton). De chemische potentiaal van component $i$ in het mengsel wordt daarom bekomen door in vergelijking~\eqref{eq:mu-ideaalgas} de totale druk $p$ te vervangen door de partiële druk $p_i=x_ip$ van component $i$:
+\begin{equation}
+\mu_i = \mu_i^\circ + RT\ln\frac{p_i}{p^\circ} = \mu_i^\circ + RT\ln\frac{x_i p}{p^\circ}.
+\end{equation}
+
+\subsubsection{Reële systemen: activiteit en activiteitscoëfficiënt}
+
+Vergelijking~\eqref{eq:mu-ideaalgas} is exact geldig voor een zuiver ideaal gas, en bij benadering geldig voor sterk verdunde reële gassen en ideale mengsels. Voor reële gassen, vloeistoffen en vaste stoffen -- waar intermoleculaire krachten (hoofdstuk~4) en niet-ideaal mengsedrag een rol spelen -- blijkt de logaritmische vorm van de vergelijking experimenteel behouden te blijven, maar niet langer met de werkelijke druk, partiële druk of molfractie. In plaats daarvan wordt een \emph{effectieve}, dimensieloze grootheid ingevoerd: de \emph{activiteit} $a_i$.
+
+\begin{definitie}{Chemische potentiaal via de activiteit}
+Voor elke component $i$, in elke fase en bij elke samenstelling, geldt
+\begin{equation}
+\boxed{
+\mu_i = \mu_i^\circ + RT\ln a_i,
+}
+\label{eq:mu-activiteit}
+\end{equation}
+waarin $\mu_i^\circ$ de chemische potentiaal in de gekozen standaardtoestand voorstelt, en $a_i$ de \emph{activiteit} van component $i$: een dimensieloze grootheid die de ``effectieve'' concentratie of druk van de component in het systeem weergeeft, precies zodanig gedefinieerd dat vergelijking~\eqref{eq:mu-activiteit} exact geldig blijft.
+\end{definitie}
+
+De activiteit wordt gerelateerd aan een meetbare samenstellingsgrootheid (molfractie $x_i$, molaire concentratie $c_i$, of partiële druk $p_i$) via de \emph{activiteitscoëfficiënt} $\gamma_i$, bijvoorbeeld voor een vloeistofmengsel:
+\begin{equation}
+a_i = \gamma_i x_i.
+\end{equation}
+De activiteitscoëfficiënt is dimensieloos en vormt een rechtstreekse maat voor de afwijking van ideaal gedrag:
+\begin{itemize}
+\item Voor een ideaal gas, een ideaal gasmengsel, of een ideale (zeer verdunde of chemisch zeer gelijkaardige) vloeistofoplossing geldt $\gamma_i\to 1$, zodat $a_i\to x_i$ (of $a_i\to p_i/p^\circ$ voor gassen) en vergelijking~\eqref{eq:mu-activiteit} herleidt tot de eenvoudige uitdrukkingen uit de vorige paragrafen.
+\item $\gamma_i<1$ wijst op aantrekkende afwijkingen ten opzichte van ideaal gedrag (de component ``verkiest'' het mengsel), $\gamma_i>1$ op afstotende afwijkingen (de component ``ontwijkt'' het mengsel) -- geheel analoog aan de interpretatie van de compressibiliteitsfactor $Z$ voor reële gassen in hoofdstuk~\ref{ch:eerstehoofdwet} (\S~1.5.3).
+\item Voor een zuivere gecondenseerde fase (zuivere vloeistof of vaste stof) in haar standaardtoestand geldt per conventie $a_i=1$.
+\end{itemize}
+
+\begin{toepassing}{Waarom een procesingenieur zelden met molfracties mag rekenen}
+Bij het ontwerp van een destillatiekolom voor een mengsel van ethanol en water kan de molfractie in de vloeistoffase niet zomaar worden ingevuld in vergelijking~\eqref{eq:mu-activiteit}: ethanol-watermengsels vertonen sterke afwijkingen van ideaal gedrag (onder andere door waterstofbruggen) en bezitten zelfs een azeotroop punt, een samenstelling waarbij damp en vloeistof exact dezelfde samenstelling hebben. Een ontwerp dat $\gamma_i=1$ veronderstelt, zou de benodigde schotelverdeling en energiebehoefte van de kolom volledig verkeerd inschatten. Pas de introductie van de activiteitscoëfficiënt laat toe dit reële gedrag correct te kwantificeren.
+\end{toepassing}
+
+De volledige uitwerking van de fugaciteit (voor gassen onder hoge druk) en van concrete modellen om $\gamma_i$ te berekenen (onder andere Margules, Van Laar, Wilson en NRTL) komt uitgebreid aan bod in hoofdstuk~\ref{ch:niet-reagerend}. Voor de rest van dit hoofdstuk volstaat het te weten dat vergelijking~\eqref{eq:mu-activiteit} algemeen geldig is, en dat de activiteit voor de eenvoudige gevallen die we hier bespreken (verdunde ideale gasmengsels, zuivere gecondenseerde fasen) direct kan worden benaderd met respectievelijk $a_i\approx p_i/p^\circ$ en $a_i\approx 1$.
+
+\section{Chemisch evenwicht en de evenwichtsconstante}
+
+\subsection{De Gibbs-vrije energie tijdens een chemische reactie}
+
+Voor een homogeen systeem bij constante temperatuur en druk kan de verandering van de Gibbs-vrije energie worden geschreven als:
+\begin{equation}
+\dG = \sum_i \mu_i\,\dx{n_i}.
+\end{equation}
+
+Tijdens een chemische reactie veranderen de hoeveelheden van de verschillende componenten niet onafhankelijk. Zij worden gekoppeld door de stoichiometrie van de reactie. Voor de algemene reactie
+\begin{equation}
+aA + bB \rightleftharpoons cC + dD
+\end{equation}
+wordt de verandering van de Gibbs-vrije energie tijdens een uiterst kleine omzetting gegeven door
+\begin{equation}
+\dG = (c\mu_C + d\mu_D - a\mu_A - b\mu_B)\,\dx{\xi},
+\end{equation}
+waarin $\dx{\xi}$ een uiterst kleine omzetting van de reactie voorstelt. De uitdrukking tussen haakjes wordt de \emph{reactie-Gibbsenergie} genoemd:
+\begin{equation}
+\Delta_r G = \sum_i \nu_i \mu_i,
+\end{equation}
+waarbij $\nu_i$ de stoichiometrische co\"effici\"enten voorstellen, met de conventie dat reactieproducten een positieve en reagentia een negatieve co\"effici\"ent krijgen.
+
+\begin{itemize}
+\item Indien $\Delta_r G < 0$ verloopt de reactie spontaan in de richting van de reactieproducten.
+\item Indien $\Delta_r G > 0$ verloopt de reactie spontaan in de omgekeerde richting.
+\item Indien $\Delta_r G = 0$ bevindt het systeem zich in chemisch evenwicht.
+\end{itemize}
+
+Merk op dat de reactie-Gibbsenergie geen constante grootheid is. Tijdens een chemische reactie verandert voortdurend de samenstelling van het reactiemengsel, en daardoor veranderen ook de chemische potentialen van alle aanwezige componenten.
+
+\subsection{Het chemisch evenwicht}
+
+Aan het begin van een reactie is de thermodynamische drijvende kracht vaak groot. Naarmate meer reactieproducten worden gevormd, wordt deze drijvende kracht kleiner. Uiteindelijk bereikt zij de waarde nul. Op dat ogenblik is het chemisch evenwicht bereikt.
+
+\begin{besluit}{Het reactie-evenwicht}
+Het chemisch evenwicht is geen toevallige toestand, maar het natuurlijke gevolg van het feit dat de Gibbs-vrije energie een minimum bereikt. Een chemische reactie verloopt slechts zolang hierdoor de Gibbs-vrije energie verder kan afnemen. Zodra het minimum is bereikt, verdwijnt de thermodynamische drijvende kracht volledig. Het uiteindelijke evenwicht wordt niet bepaald door een maximale omzetting van reagentia naar producten, maar door een minimale Gibbs-vrije energie van het volledige reactiemengsel.
+\end{besluit}
+
+Wanneer de reactie-Gibbsenergie nul wordt, heerst er een dynamisch evenwicht: de heen- en terugreactie verlopen even snel, zodat de macroscopische concentraties niet langer veranderen.
+
+\subsection{De evenwichtsconstante}
+\label{sec:evenwichtsconstante}
+
+De chemische potentiaal van component $i$ kan, zoals afgeleid in \S~\ref{sec:activiteit}, worden geschreven als
+\begin{equation}
+\mu_i = \mu_i^\circ + RT \ln a_i,
+\end{equation}
+waarin $\mu_i^\circ$ de chemische potentiaal in de standaardtoestand voorstelt en $a_i$ de activiteit van de component. Substitutie in de uitdrukking voor de reactie-Gibbsenergie levert:
+\begin{equation}
+\Delta_r G = \Delta_r G^\circ + RT \ln Q,
+\end{equation}
+waarin $\Delta_r G^\circ = \sum_i \nu_i \mu_i^\circ$ de standaardreactie-Gibbsenergie is en $Q = \prod_i a_i^{\nu_i}$ het reactiequoti\"ent. In chemisch evenwicht geldt $\Delta_r G = 0$, zodat $Q = K$ en
+\begin{equation}
+\Delta_r G^\circ = -RT \ln K.
+\end{equation}
+Deze vergelijking vormt de directe brug tussen de thermodynamische tabellen ($\Delta_r G^\circ$) en de evenwichtssamenstelling ($K$).
+
+\begin{voorbeeld}{Reactierichting bepalen via $Q$ versus $K$}
+Voor de ammoniaksynthese bedraagt de evenwichtsconstante bij \SI{298}{\kelvin}, zoals in \S~\ref{sec:drG-uit-tabellen} zal blijken, $K\approx6\times10^5$. Stel dat een reactiemengsel op een bepaald ogenblik een reactiequoti\"ent $Q\approx1\times10^{3}$ bezit (met andere woorden: er is nog relatief weinig ammoniak gevormd). Omdat $Q<K$, geldt volgens $\Delta_rG=RT\ln(Q/K)$ dat $\Delta_rG<0$: de reactie verloopt op dit ogenblik nog spontaan in de richting van meer ammoniakvorming, exact zoals verwacht zolang het evenwicht nog niet is bereikt. Zodra $Q$ door verdere reactie de waarde $K$ benadert, nadert $\Delta_rG$ naar nul en vertraagt de netto reactiesnelheid tot het evenwicht is bereikt.
+\end{voorbeeld}
+
+\subsection{Berekening van $\Delta_rG^\circ$ en $K$ uit tabelwaarden}
+\label{sec:drG-uit-tabellen}
+
+De relatie $\Delta_rG^\circ=-RT\ln K$ is enkel bruikbaar wanneer $\Delta_rG^\circ$ gekend is. Net zoals voor de reactie-enthalpie (hoofdstuk~\ref{ch:eerstehoofdwet}) en de reactie-entropie (\S~\ref{sec:derde-hoofdwet}), bestaan er twee equivalente routes om de standaardreactie-Gibbsenergie te berekenen.
+
+\textbf{Route 1: via standaardvormings-Gibbsenergie\"en.} Analoog aan de vormingsenthalpie $\Delta_fH^\circ$ wordt de \emph{standaardvormings-Gibbsenergie} $\Delta_fG^\circ$ gedefinieerd als de verandering van de Gibbs-vrije energie bij de vorming van \'e\'en mol van een stof uit haar elementen in hun standaardtoestand (met per conventie $\Delta_fG^\circ=0$ voor een element in zijn standaardtoestand). Hiermee geldt, analoog aan de reactie-enthalpie:
+\begin{equation}
+\Delta_r G^\circ = \sum_i \nu_i\,\Delta_fG_i^\circ.
+\end{equation}
+
+\textbf{Route 2: via reactie-enthalpie en reactie-entropie.} Uit de definitie $G=H-TS$ volgt onmiddellijk, toegepast op de volledige reactie bij constante temperatuur:
+\begin{equation}
+\Delta_rG^\circ = \Delta_rH^\circ - T\,\Delta_rS^\circ.
+\end{equation}
+
+\begin{voorbeeld}{$\Delta_rG^\circ$ en $K$ voor de ammoniaksynthese: drie onafhankelijke routes}
+Voor $\mathrm{N_2(g)+3\,H_2(g)\rightleftharpoons2\,NH_3(g)}$ bij \SI{298.15}{\kelvin} vergelijken we de drie besproken routes.
+
+\emph{Route 1 (vormings-Gibbsenergie\"en):} met $\Delta_fG^\circ(\mathrm{NH_3,g})=\SI{-16.4}{\kilo\joule\per\mole}$ en $\Delta_fG^\circ=0$ voor de elementen $\mathrm{N_2}$ en $\mathrm{H_2}$:
+\[
+\Delta_rG^\circ = 2(-16.4) - 0 = \SI{-32.8}{\kilo\joule\per\mole}.
+\]
+
+\emph{Route 2 ($\Delta_rH^\circ-T\Delta_rS^\circ$):} met $\Delta_rH^\circ\approx\SI{-92}{\kilo\joule\per\mole}$ (\S~\ref{sec:haber-bosch}) en $\Delta_rS^\circ=\SI{-198.1}{\joule\per\mole\per\kelvin}$ (\S~\ref{sec:derde-hoofdwet}):
+\[
+\Delta_rG^\circ = (-92000) - (298.15)(-198.1) = -92000+59080 \approx \SI{-32.9}{\kilo\joule\per\mole}.
+\]
+
+Beide routes leveren, op de afrondingen van de tabelwaarden na, dezelfde waarde: $\Delta_rG^\circ\approx\SI{-32.8}{\kilo\joule\per\mole}$ (route 1) tegenover $\SI{-32.9}{\kilo\joule\per\mole}$ (route 2). Dit is een krachtige consistentiecontrole en illustreert dat enthalpie, entropie en Gibbs-vrije energie geen drie onafhankelijke grootheden zijn, maar via $G=H-TS$ onlosmakelijk met elkaar verbonden blijven.
+
+Hiermee volgt de evenwichtsconstante bij \SI{298.15}{\kelvin}:
+\[
+\ln K = -\frac{\Delta_rG^\circ}{RT} = -\frac{-32900}{(8.314)(298.15)} \approx 13.3 \quad\Longrightarrow\quad K \approx 6\times10^{5}.
+\]
+Deze zeer grote waarde van $K$ bevestigt dat de ammoniaksynthese bij kamertemperatuur thermodynamisch bijzonder gunstig is -- de eerste stap in het begrijpen van de schijnbare paradox uit \S~\ref{sec:haber-bosch}: waarom wordt een thermodynamisch zo gunstige reactie dan toch industrieel bij hoge temperatuur uitgevoerd? Het antwoord volgt in \S~\ref{sec:vanthoff}.
+\end{voorbeeld}
+
+\section{Temperatuur, druk en de Haber--Boschcasestudy}
+
+\subsection{De invloed van temperatuur en druk}
+
+De ligging van het chemisch evenwicht is geen vaste eigenschap van een reactie, maar hangt af van de procesomstandigheden.
+
+\subsubsection{Invloed van de temperatuur: de vergelijking van Van 't Hoff}
+\label{sec:vanthoff}
+
+Om te begrijpen hoe de evenwichtsconstante met de temperatuur verandert, hebben we een uitdrukking nodig voor de temperatuursafhankelijkheid van $\Delta_rG^\circ/T$. Deze wordt geleverd door de \emph{vergelijking van Gibbs--Helmholtz}, die we eerst afleiden.
+
+\textbf{Afleiding van de Gibbs--Helmholtzvergelijking.} Vertrek van $G=H-TS$, zodat $S=(H-G)/T$. Beschouw de afgeleide van $G/T$ naar $T$ bij constante druk, met behulp van de quotiëntregel:
+\begin{equation}
+\left(\frac{\partial (G/T)}{\partial T}\right)_p = \frac{1}{T}\left(\frac{\partial G}{\partial T}\right)_p - \frac{G}{T^2}.
+\end{equation}
+Uit de fundamentele vergelijking~\eqref{eq:fundG} volgt $(\partial G/\partial T)_p=-S$. Invullen levert
+\begin{equation}
+\left(\frac{\partial (G/T)}{\partial T}\right)_p = -\frac{S}{T} - \frac{G}{T^2} = -\frac{TS+G}{T^2}.
+\end{equation}
+Met $S=(H-G)/T$, dus $TS=H-G$, wordt de teller $TS+G=(H-G)+G=H$, zodat
+\begin{equation}
+\boxed{
+\left(\frac{\partial (G/T)}{\partial T}\right)_p = -\frac{H}{T^2}.
+}
+\label{eq:gibbs-helmholtz}
+\end{equation}
+Dit is de vergelijking van Gibbs--Helmholtz. Toegepast op een volledige reactie in standaardtoestand ($\Delta_rG^\circ$, $\Delta_rH^\circ$) en gecombineerd met $\Delta_rG^\circ=-RT\ln K$ (dus $\Delta_rG^\circ/T=-R\ln K$) volgt de \emph{differentiële vergelijking van Van 't Hoff}:
+\begin{equation}
+\frac{\dd{\ln K}}{\dd T} = \frac{\Delta_r H^\circ}{RT^2}.
+\label{eq:vanthoff-diff}
+\end{equation}
+Voor endotherme reacties ($\Delta_r H^\circ > 0$) leidt een temperatuurverhoging tot een grotere evenwichtsomzetting. Voor exotherme reacties ($\Delta_r H^\circ < 0$) leidt een temperatuurverhoging tot een kleinere evenwichtsomzetting.
+
+\textbf{Geïntegreerde vorm.} Wanneer $\Delta_rH^\circ$ bij benadering constant wordt verondersteld over het beschouwde temperatuursinterval (een aanname die redelijk is zolang $\Delta C_p$ van de reactie klein blijft), kan vergelijking~\eqref{eq:vanthoff-diff} rechtstreeks worden geïntegreerd tussen twee temperaturen $T_1$ en $T_2$:
+\begin{equation}
+\boxed{
+\ln\frac{K_2}{K_1} = -\frac{\Delta_rH^\circ}{R}\left(\frac{1}{T_2}-\frac{1}{T_1}\right).
+}
+\label{eq:vanthoff-int}
+\end{equation}
+Deze vorm is bijzonder nuttig: kennis van \'e\'en enkele evenwichtsconstante, samen met de reactie-enthalpie, volstaat om de evenwichtsconstante bij elke andere temperatuur te schatten.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Afbeeldingen/vantHoff_plot.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} Van 't Hoff-diagram: $\ln K$ uitgezet in functie van $1/T$ voor de ammoniaksynthese, met de datapunten uit het voorbeeld hieronder ($T=\SI{298}{\kelvin}$, $\ln K\approx13.3$ en $T=\SI{700}{\kelvin}$, $\ln K\approx-8.1$). De grafiek toont een rechte lijn met negatieve helling (want $\Delta_rH^\circ<0$), waarbij de helling gelijk is aan $\Delta_rH^\circ/R$ volgens vergelijking~\eqref{eq:vanthoff-diff}.}
+    \label{fig:vanthoff}
+\end{figure}
+
+\begin{voorbeeld}{De evenwichtsconstante van de ammoniaksynthese bij \SI{700}{\kelvin}}
+In \S~\ref{sec:drG-uit-tabellen} werd $K_1\approx6\times10^5$ bij $T_1=\SI{298.15}{\kelvin}$ berekend. We schatten $K_2$ bij de industrieel relevante temperatuur $T_2=\SI{700}{\kelvin}$, met $\Delta_rH^\circ\approx\SI{-92}{\kilo\joule\per\mole}$ bij benadering constant verondersteld over dit traject:
+\[
+\ln\frac{K_2}{K_1} = -\frac{-92000}{8.314}\left(\frac{1}{700}-\frac{1}{298.15}\right) = (11066.6)(-0.001927) \approx -21.3.
+\]
+Zodat
+\[
+K_2 = K_1\cdot e^{-21.3} \approx (6\times10^5)(5.5\times10^{-10}) \approx 3\times10^{-4}.
+\]
+De evenwichtsconstante daalt dus met bijna tien grootteordes tussen kamertemperatuur en \SI{700}{\kelvin}! Dit bevestigt kwantitatief de bewering uit \S~\ref{sec:haber-bosch}: hoewel de ammoniaksynthese bij kamertemperatuur thermodynamisch bijzonder gunstig is, wordt zij bij hoge temperatuur thermodynamisch \emph{ongunstig}. Dat de Haber--Boschreactor toch bij \SIrange{400}{500}{\celsius} wordt bedreven, is uitsluitend te verantwoorden door de reactiekinetiek (de veel snellere omzetting bij hoge temperatuur) in combinatie met een sterk verhoogde druk, die het evenwicht via het principe van Le Ch\^atelier terug in de richting van ammoniak duwt (\S~\ref{sec:le-chatelier}). Een volledige kwantitatieve behandeling van deze druk- en temperatuursoptimalisatie volgt in hoofdstuk~\ref{ch:reagerend}.
+\end{voorbeeld}
+
+\subsubsection{Invloed van de druk}
+
+Bij reacties in de gasfase kan de druk een belangrijke rol spelen. Wanneer het aantal mol gas tijdens de reactie afneemt, zal een drukverhoging de vorming van reactieproducten bevorderen. Indien het totaal aantal mol gas onveranderd blijft, heeft een drukverandering nauwelijks invloed op het chemisch evenwicht.
+
+\subsubsection{Het principe van Le Ch\^atelier}
+\label{sec:le-chatelier}
+
+De invloed van temperatuur en druk kan kwalitatief worden samengevat met het principe van Le Ch\^atelier: wanneer een systeem in evenwicht wordt verstoord, zal het zich zodanig aanpassen dat de verstoring wordt gedeeltelijk tegengewerkt. Vanuit thermodynamisch standpunt is dit geen bijkomende natuurwet, maar een rechtstreeks gevolg van de tweede hoofdwet: een verandering van de procesomstandigheden verandert de Gibbs-vrije energie van alle mogelijke toestanden, en daardoor verschuift de ligging van het minimum.
+
+\subsection{Case study: de synthese van ammoniak volgens Haber--Bosch}
+\label{sec:haber-bosch}
+
+De industri\"ele productie van ammoniak behoort tot de belangrijkste chemische processen ter wereld. Jaarlijks wordt meer dan 180 miljoen ton ammoniak geproduceerd, hoofdzakelijk als grondstof voor kunstmest. Zonder dit proces zou de huidige wereldvoedselproductie onmogelijk zijn.
+
+De globale reactie luidt:
+\begin{equation}
+\mathrm{N_2(g) + 3\,H_2(g) \rightleftharpoons 2\,NH_3(g)}.
+\end{equation}
+
+De reactie is sterk exotherm, $\Delta_r H^\circ \approx \SI{-92}{\kilo\joule\per\mole}$, en gaat bovendien gepaard met een afname van het aantal gasmoleculen: vier mol gas worden omgezet in twee mol gas, zodat ook de reactie-entropie negatief is ($\Delta_rS^\circ\approx\SI{-198.1}{\joule\per\mole\per\kelvin}$, zoals kwantitatief berekend in \S~\ref{sec:derde-hoofdwet}).
+
+Bij lage temperatuur is de bijdrage van de entropieterm relatief klein. De negatieve reactie-enthalpie overheerst en de standaardreactie-Gibbsenergie is sterk negatief ($\Delta_rG^\circ\approx\SI{-32.9}{\kilo\joule\per\mole}$ bij \SI{298}{\kelvin}, \S~\ref{sec:drG-uit-tabellen}). Thermodynamisch is de vorming van ammoniak dus bijzonder gunstig. Wanneer de temperatuur stijgt, wordt de bijdrage van de term $T\Delta_r S^\circ$ steeds groter. Omdat de reactie-entropie negatief is, wordt deze bijdrage positief en neemt de standaardreactie-Gibbsenergie toe. De vorming van ammoniak wordt daardoor thermodynamisch minder gunstig en de evenwichtsconstante daalt, zoals expliciet berekend in het voorbeeld bij vergelijking~\eqref{eq:vanthoff-int}: van $K\approx6\times10^5$ bij \SI{298}{\kelvin} tot slechts $K\approx3\times10^{-4}$ bij \SI{700}{\kelvin}.
+
+Op basis van deze thermodynamische analyse zou men besluiten dat de synthese van ammoniak het best bij zo laag mogelijke temperatuur wordt uitgevoerd. In de praktijk gebeurt precies het tegenovergestelde: moderne Haber--Boschinstallaties werken typisch bij temperaturen tussen \SI{400}{\celsius} en \SI{500}{\celsius}.
+
+Deze schijnbare tegenstelling vormt \'e\'en van de mooiste voorbeelden van de wisselwerking tussen thermodynamica en kinetiek. Hoewel lage temperaturen thermodynamisch gunstig zijn, verloopt de reactie dan uiterst traag. De zeer sterke drievoudige binding in stikstof maakt de activeringsenergie bijzonder hoog. Een hogere temperatuur verlaagt de thermodynamische opbrengst, maar verhoogt tegelijkertijd de reactiesnelheid aanzienlijk.
+
+Ook de invloed van de druk kan rechtstreeks uit de thermodynamica worden begrepen. Tijdens de reactie neemt het totale aantal mol gas af. Volgens het principe van Le Ch\^atelier verschuift een drukverhoging het evenwicht in de richting van de ammoniakvorming. In de praktijk worden drukken tussen ongeveer \SI{150}{\bar} en \SI{300}{\bar} toegepast.
+
+Ten slotte speelt ook de katalysator een cruciale rol. Een ijzergebaseerde katalysator verlaagt de activeringsenergie van zowel de voorwaartse als de teruggaande reactie. Hierdoor wordt het chemisch evenwicht sneller bereikt. De katalysator verandert echter niets aan de ligging van het evenwicht: de waarden van de standaardreactie-Gibbsenergie, de evenwichtsconstante en de evenwichtssamenstelling blijven volledig onveranderd.
+
+\begin{besluit}{Thermodynamica bepaalt, kinetiek levert}
+De Haber--Boschsynthese toont hoe thermodynamica, kinetiek en procestechnologie samen het ontwerp van een industrieel proces bepalen. Niet de maximaal mogelijke opbrengst, maar het optimale compromis tussen evenwicht, reactiesnelheid, energieverbruik, investeringskosten en veiligheid bepaalt uiteindelijk de bedrijfsomstandigheden van een chemische installatie.
+\end{besluit}
+
+\section{Terugblik: \'e\'en samenhangend verhaal}
+
+In de eerste drie hoofdstukken hebben we de fundamentele begrippen van de chemische thermodynamica stap voor stap opgebouwd.
+
+Het eerste hoofdstuk introduceerde de eerste hoofdwet, de interne energie en de enthalpie. We zagen dat de enthalpie geen wiskundige truc is, maar een rechtstreeks gevolg van de manier waarop massa door een procesinstallatie stroomt. De eerste hoofdwet beschrijft hoeveel energie wordt uitgewisseld, maar laat onbeantwoord \emph{waarom} een proces in een bepaalde richting verloopt.
+
+Het tweede hoofdstuk daalde af naar de moleculaire oorsprong van chemische energie. We zagen dat de stabiliteit van atomen, het bestaan van discrete energieniveaus en de vorm van chemische bindingen allemaal voortvloeien uit het golfkarakter van elektronen en de Schr\"odingervergelijking. De enthalpie van een systeem weerspiegelt uiteindelijk de energie die besloten ligt in de kwantummechanische energietoestanden van de elektronen.
+
+Dit hoofdstuk bracht beide beschrijvingen samen. De spontane richting van een proces wordt bepaald door de Gibbs-vrije energie, die een evenwicht vormt tussen energetische gunst (enthalpie) en statistische waarschijnlijkheid (entropie). Dankzij de derde hoofdwet (\S~\ref{sec:derde-hoofdwet}) kunnen we, net als voor de enthalpie in hoofdstuk~\ref{ch:eerstehoofdwet}, reactie-entropie\"en en reactie-Gibbsenergie\"en rechtstreeks uit tabelwaarden berekenen. De chemische potentiaal bleek de fundamentele drijvende kracht te zijn achter faseovergangen, mengprocessen en chemische reacties, en de activiteit (\S~\ref{sec:activiteit}) liet toe deze drijvende kracht correct te kwantificeren, ook voor reële, niet-ideale systemen.
+
+Met deze drie hoofdstukken beschikt de lezer over alle fundamentele bouwstenen om de thermodynamica van fase-evenwichten, mengsels, chemische reacties en elektrochemische systemen te begrijpen. In de volgende hoofdstukken worden deze begrippen toegepast op concrete technische problemen: het fase-evenwicht van zuivere stoffen en mengsels (hoofdstuk~\ref{ch:niet-reagerend}, met onder andere fugaciteit en modellen voor de activiteitscoëfficiënt), het chemisch evenwicht van reagerende systemen (hoofdstuk~\ref{ch:reagerend}), en de elektrochemische thermodynamica van batterijen, brandstofcellen en corrosieprocessen.

@@ -71,6 +71,9 @@ THEMAS = {
     ),
 }
 
+# Boek (PDF): zoals licht, maar op wit papier en zonder afgerond kader.
+THEMAS["boek"] = dict(THEMAS["licht"], achtergrond="#ffffff")
+
 K = SimpleNamespace()  # actieve kleuren; altijd K.naam gebruiken
 
 
@@ -100,12 +103,74 @@ def toon(functie, *args, **kw):
     """Teken een figuur eerst in het lichte en dan in het donkere thema.
 
     Quarto toont met `renderings: [light, dark]` automatisch de juiste versie.
+    Een animatie (zie @animatie) wordt als speler in beide thema's getoond.
     """
+    if getattr(functie, "animatie", None):
+        return _toon_animatie(functie)
     for thema in ("licht", "donker"):
         gebruik(thema)
         f = functie(*args, **kw)
         plt.show()
         plt.close(f)
+    gebruik("licht")
+
+
+# ---------------------------------------------------------------- animaties
+def animatie(beelden=48, interval=60, stilstaand=-1):
+    """Maak van een figuurfunctie een animatie (enkel online; het boek krijgt één beeld).
+
+    De functie geeft (fig, stap) terug, met stap(i) die beeld i tekent:
+
+        @animatie(beelden=60, stilstaand=30)
+        def golf():
+            fig, ax = figuur()
+            lijn, = ax.plot(x, np.sin(x))
+            def stap(i):
+                lijn.set_ydata(np.sin(x - i / 10))
+            return kader(fig), stap
+
+    `stilstaand` is het beeld dat in het boek komt (standaard het laatste).
+    """
+    def zet(functie):
+        functie.animatie = dict(beelden=beelden, interval=interval, stilstaand=stilstaand)
+        return functie
+    return zet
+
+
+def _toon_animatie(functie):
+    from IPython.display import HTML, display
+    from matplotlib.animation import FuncAnimation
+
+    a = functie.animatie
+    delen = []
+    for thema in ("licht", "donker"):
+        gebruik(thema)
+        f, stap = functie()
+        f.set_dpi(100)
+        anim = FuncAnimation(f, stap, frames=a["beelden"], interval=a["interval"])
+        try:  # compacte video (ffmpeg), anders een speler met losse beelden
+            html = anim.to_html5_video().replace("<video ", "<video loop muted playsinline ")
+        except Exception:
+            html = anim.to_jshtml(default_mode="loop")
+        delen.append(f'<div class="animatie-{thema}">{html}</div>')
+        plt.close(f)
+    gebruik("licht")
+    display(HTML("".join(delen)))
+
+
+def bewaar_boek(functie, pad):
+    """Bewaar een figuur als PDF voor het boek (wit papier, vectorbeeld)."""
+    gebruik("boek")
+    a = getattr(functie, "animatie", None)
+    if a:
+        f, stap = functie()
+        stap(range(a["beelden"])[a["stilstaand"]])
+        f.text(0.985, 0.02, "animatie: zie online", ha="right", va="bottom",
+               fontsize=9, color=K.zacht)
+    else:
+        f = functie()
+    f.savefig(pad, metadata={"CreationDate": None, "ModDate": None, "Producer": None})
+    plt.close(f)
     gebruik("licht")
 
 
@@ -117,7 +182,9 @@ def figuur(breedte=7.0, hoogte=4.6, **kw):
 
 
 def kader(fig):
-    """Zacht afgerond kader rond de figuur (zoals de kaders op de site)."""
+    """Zacht afgerond kader rond de figuur (zoals de kaders op de site; niet in het boek)."""
+    if K.thema == "boek":
+        return fig
     w, h = fig.get_size_inches()
     r = 0.12  # inch
     fig.patches.append(

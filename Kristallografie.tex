@@ -1,0 +1,289 @@
+%==============================================================================
+% BELANGRIJK - Kruisverwijzingen (relatief via \ref, geen harde nummers):
+% Dit hoofdstuk verwijst naar labels in andere hoofdstukken. Zorg dat deze
+% aanwezig zijn (voeg toe indien nog niet aanwezig):
+%   - Hoofdstuk 2 gebruikt reeds \label{ch:kwantum}.
+%   - Hoofdstuk 3 gebruikt reeds \label{ch:spontaniteit}.
+%   - Hoofdstuk 5 gebruikt reeds \label{ch:niet-reagerend}.
+%   - Hoofdstuk 7 gebruikt reeds \label{ch:elektrochemie}.
+%   - Hoofdstuk 8 gebruikt reeds \label{ch:kinetiek}.
+%   - Hoofdstuk 9 gebruikt reeds \label{ch:oppervlakte}.
+%
+% LET OP - correcties t.o.v. de vorige versie:
+%  (1) STELSELMATIG foutieve hoofdstukverwijzingen: elke verwijzing naar een
+%      ander hoofdstuk in de vorige versie was fout (bv. "elektrochemie
+%      Hoofdstuk 6" i.p.v. 7, "Clapeyron uit Hoofdstuk 4" i.p.v. 5,
+%      "kinetiek Hoofdstuk 7" i.p.v. 8, "oppervlaktechemie Hoofdstuk 8"
+%      i.p.v. 9, "roestvast staal Hoofdstuk 6" i.p.v. 7). Overal gecorrigeerd
+%      naar relatieve \ref's op basis van de reeds bevestigde labels.
+%  (2) Het Bragg-cijfervoorbeeld bevatte een re kenfout EN een conceptuele
+%      fout: de opgegeven hoek (43,1°) is de door XRD-toestellen
+%      gerapporteerde hoek 2*theta, niet theta zelf; rechtstreeks invullen
+%      als theta gaf bovendien intern inconsistente tussenstappen. Hieronder
+%      gecorrigeerd, met de 2*theta-versus-theta-valkuil expliciet toegelicht
+%      (analoog aan de Antoine-eenhedenvalkuil in hoofdstuk 5).
+%  (3) De vacaturefractie-getallen (~10^-6 bij 300K, ~10^-3 bij 1000K, voor
+%      Ev~1eV) waren fysisch onjuist met vele grootteordes; herrekend en
+%      gecorrigeerd naar realistische temperaturen/waarden.
+%  (4) 5 instanties van \begin{voorbeeld{...}/\begin{besluit{...} (ontbrekende
+%      sluitaccolade), 3 instanties van \} i.p.v. \], 3 ontbrekende sluitende
+%      $. Typefouten gecorrigeerd: "reduseerde"->"gereduceerde",
+%      "cristallografische"->"kristallografische",
+%      "vormselekiviteit"->"vormselectiviteit", "frecventies"->"frequenties".
+%  (5) Nieuw toegevoegd (op vraag): een sectie over Millerindices en de
+%      algemene d_hkl-formule voor kubische roosters, vóór de wet van Bragg,
+%      en drie figuurplaceholders.
+%==============================================================================
+\chapter{Vaste-stofchemie en kristallografie}
+\label{ch:vastestof}
+%==============================================================================
+
+\section{Van moleculen naar materialen}
+
+In de vorige hoofdstukken stonden vloeistoffen en gassen centraal. Vaste stoffen verschenen slechts als ``zuivere fase'' in fasediagrammen (hoofdstuk~\ref{ch:niet-reagerend}), als constructiemateriaal in elektrochemie (hoofdstuk~\ref{ch:elektrochemie}), of als katalysatordrager (hoofdstukken~\ref{ch:kinetiek} en~\ref{ch:oppervlakte}). Voor de chemisch ingenieur is de vaste stof echter veel meer dan een passieve drager: de kristalstructuur bepaalt de katalytische activiteit, de halfgeleidende elektronenstructuur ligt aan de basis van zonnecellen en LED's, en de defecten in een kristal bepalen de mechanische en chemische eigenschappen van constructiematerialen.
+
+Dit hoofdstuk onderzoekt de vaste stof vanuit fysisch-chemisch oogpunt. We beginnen met de kristalstructuur als geordende rangschikking van atomen, behandelen r\"ontgendiffractie als experimentele methode, onderzoeken defecten en non-stoichiometrie, en eindigen met elektronenstructuur en halfgeleiders. Telkens staat de industri\"ele relevantie centraal: katalysatoren, batterijmaterialen, halfgeleiders en constructiematerialen.
+
+\section{Kristalstructuren: de Bravais-roosters}
+\label{sec:bravais}
+
+Een \emph{kristal} is een vaste stof waarin de atomen in een regelmatige, driedimensionale rangschikking zijn geordend. Deze rangschikking wordt beschreven door een \emph{kristalrooster}: een oneindige herhaling van een elementaire cel langs drie onafhankelijke richtingen.
+
+\subsection{De elementaire cel}
+
+De \emph{elementaire cel} is de kleinste eenheid die, door herhaling in drie richtingen, het volledige kristal opbouwt. Zij wordt gekenmerkt door drie roosterconstanten $a$, $b$, $c$ (lengtes) en drie hoeken $\alpha$, $\beta$, $\gamma$ (tussen de assen).
+
+Er bestaan precies \emph{14} onafhankelijke roostertypes, de \emph{Bravais-roosters}, verdeeld over 7 kristalsystemen:
+\begin{itemize}
+\item \textbf{Kubisch}: primitief (P), ruimtelijk gecentreerd (I), vlakgecentreerd (F).
+\item \textbf{Tetragonaal}: primitief, ruimtelijk gecentreerd.
+\item \textbf{Orthorombisch}: primitief, ruimtelijk gecentreerd, vlakgecentreerd, basaal gecentreerd.
+\item \textbf{Hexagonaal}: primitief.
+\item \textbf{Trigonaal} (rhombohedrisch): primitief.
+\item \textbf{Monoclien}: primitief, basaal gecentreerd.
+\item \textbf{Triklien}: primitief.
+\end{itemize}
+Tel je deze op (3+2+4+1+1+2+1), dan kom je inderdaad op precies 14 uit: geen enkel ander roostertype is met een periodieke driedimensionale rangschikking van punten verenigbaar.
+
+\subsection{De drie kubische roosters}
+
+De eenvoudigste en belangrijkste roosters voor metallische en ionische vaste stoffen zijn de drie kubische types:
+
+\begin{itemize}
+\item \textbf{Primitief kubisch (P)}: atomen op de 8 hoeken van een kubus. Aantal atomen per cel: $8 \times \tfrac{1}{8} = 1$.
+\item \textbf{Ruimtelijk gecentreerd kubisch (BCC, I)}: bijkomend atoom in het centrum. Aantal atomen per cel: $1 + 1 = 2$.
+\item \textbf{Vlakgecentreerd kubisch (FCC, F)}: bijkomend atoom op elk van de 6 vlakken (gedeeld door 2 cellen). Aantal atomen per cel: $1 + 6 \times \tfrac{1}{2} = 4$.
+\end{itemize}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Afbeeldingen/kubische_roosters.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} De drie kubische Bravais-roosters naast elkaar: primitief kubisch (enkel hoekatomen), ruimtelijk gecentreerd (BCC, hoekatomen plus één centraal atoom) en vlakgecentreerd (FCC, hoekatomen plus één atoom op elk van de zes vlakken). Gebruik voor elk rooster dezelfde kubus-omtrek, met de atomen als bollen op schaal, zodat het verschil in pakking visueel duidelijk wordt.}
+    \label{fig:kubische-roosters}
+\end{figure}
+
+\begin{voorbeeld}{Pakking en atoomradius in FCC}
+In een FCC-rooster (bv. Cu, Al, $\gamma$-Fe) raken de atomen langs de diagonaal van een vlak. Met roosterconstante $a$ geldt $4r = a\sqrt{2}$, zodat $r = a\sqrt{2}/4$. Voor koper met $a = \SI{0.361}{\nano\metre}$:
+\[
+r = \frac{\SI{0.361}{\nano\metre}\,\sqrt{2}}{4} = \SI{0.128}{\nano\metre}.
+\]
+De pakking (fractie van het volume ingenomen door atomen) bedraagt $\pi/(3\sqrt{2}) \approx 0{,}74$ --- de dichtst mogelijke bolpakking.
+\end{voorbeeld}
+
+\subsection{Structuren van ionische en covalente vaste stoffen}
+
+Enkele veelvoorkomende structuurtypen:
+
+\begin{itemize}
+\item \textbf{NaCl-structuur}: FCC-rooster van $\mathrm{Cl^-}$ met $\mathrm{Na^+}$ in alle octa\"edrische holtes. Co\"ordinatiegetal 6:6.
+\item \textbf{CsCl-structuur}: primitief kubisch rooster van $\mathrm{Cl^-}$ met $\mathrm{Cs^+}$ in het lichaam-centrum. Co\"ordinatiegetal 8:8.
+\item \textbf{Zinkblende (ZnS)}: FCC-rooster van $\mathrm{S^{2-}}$ met $\mathrm{Zn^{2+}}$ in de helft van de tetra\"edrische holtes. Co\"ordinatie 4:4. Belangrijk voor halfgeleiders (GaAs, CdTe).
+\item \textbf{Fluoriet ($\mathrm{CaF_2}$)}: FCC-rooster van $\mathrm{Ca^{2+}}$ met $\mathrm{F^-}$ in alle tetra\"edrische holtes. Belangrijk voor $\mathrm{UO_2}$, $\mathrm{CeO_2}$, $\mathrm{ZrO_2}$.
+\item \textbf{Diamant}: FCC-rooster met twee interpenetrerende subroosters, elk atoom tetra\"edrisch omringd. Dit is de structuur van Si, Ge, C (diamant).
+\end{itemize}
+
+\section{R\"ontgendiffractie en de wet van Bragg}
+\label{sec:xrd}
+
+De experimentele methode bij uitstek voor de bepaling van kristalstructuren is \emph{r\"ontgendiffractie} (XRD). De golflengte van r\"ontgenstraling (\SIrange{0.1}{1}{\angstrom}) is van dezelfde orde als interatomaire afstanden, zodat diffractie optreedt aan de roostervlakken.
+
+\subsection{Millerindices: het aanduiden van roostervlakken}
+\label{sec:miller}
+
+Om een specifieke set evenwijdige roostervlakken ondubbelzinnig aan te duiden, gebruikt men \emph{Millerindices} $(hkl)$: drie gehele getallen, bepaald door de omgekeerde waarden van de snijpunten van het vlak met de drie kristalassen (uitgedrukt in eenheden van de roosterconstanten $a$, $b$, $c$) te nemen en tot de kleinste gehele verhouding te herleiden. Een vlak dat de $x$-, $y$- en $z$-as elk op afstand $a$ snijdt, heeft dus Millerindices $(111)$; een vlak evenwijdig met de $y$- en $z$-as (het snijdt enkel de $x$-as) heeft indices $(100)$.
+
+Voor een \emph{kubisch} rooster met roosterconstante $a$ is de afstand tussen opeenvolgende $(hkl)$-vlakken:
+\begin{equation}
+\boxed{\;d_{hkl} = \frac{a}{\sqrt{h^2+k^2+l^2}}.\;}
+\label{eq:dhkl}
+\end{equation}
+Voor de $(111)$-vlakken geeft dit bijvoorbeeld $d_{111}=a/\sqrt{1^2+1^2+1^2}=a/\sqrt3$ --- de relatie die we hieronder gebruiken om, via de wet van Bragg, de roosterconstante van koper te bepalen. Deze combinatie --- Millerindices om een vlak te identificeren, vergelijking~\eqref{eq:dhkl} om de bijhorende vlakafstand te berekenen, en de wet van Bragg (hieronder) om die vlakafstand experimenteel te meten --- vormt samen het volledige gereedschap om een onbekende kubische kristalstructuur te karakteriseren.
+
+\subsection{De wet van Bragg}
+\label{sec:bragg}
+
+Wanneer een r\"ontgenbundel invalt op een kristal onder hoek $\theta$ ten opzichte van een set roostervlakken met intervlakafstand $d$, treden versterkende interferenties op wanneer:
+\begin{equation}
+\boxed{\;n\lambda = 2\,d\,\sin\theta\;}
+\label{eq:bragg}
+\end{equation}
+waarin $\lambda$ de golflengte en $n$ een geheel getal is (de ``orde''). Uit de gemeten hoeken $\theta$ kan $d$ worden berekend via vergelijking~\eqref{eq:dhkl}, en uit het volledige diffractiepatroon de kristalstructuur worden gereconstrueerd.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Afbeeldingen/bragg_geometrie.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} Geometrie van Braggdiffractie: twee evenwijdige roostervlakken op afstand $d$, met een invallende en een gereflecteerde r\"ontgenbundel die elk een hoek $\theta$ met de vlakken maken. Markeer het extra weglengteverschil $2d\sin\theta$ dat de tweede (dieper liggende) bundel aflegt ten opzichte van de eerste, en het feit dat constructieve interferentie enkel optreedt wanneer dit weglengteverschil een geheel veelvoud $n$ van $\lambda$ is (vergelijking~\eqref{eq:bragg}).}
+    \label{fig:bragg-geometrie}
+\end{figure}
+
+\begin{voorbeeld}{Bepaling van de roosterconstante van koper --- let op $2\theta$ versus $\theta$}
+Een veelvoorkomende valkuil bij het praktisch gebruik van de wet van Bragg is de volgende: XRD-toestellen rapporteren doorgaans de hoek $2\theta$ tussen de invallende en de gediffracteerde bundel (de hoek waarover de detector effectief draait), \emph{niet} de hoek $\theta$ uit vergelijking~\eqref{eq:bragg} zelf, die ten opzichte van het roostervlak wordt gemeten. Het rechtstreeks invullen van een gerapporteerde $2\theta$-waarde als $\theta$ levert een systematisch verkeerd resultaat op.
+
+Een poederdiffractiepatroon van koper ($\lambda = \SI{0.154}{\nano\metre}$, Cu K$\alpha$) toont een eerste piek bij $2\theta = 43{,}1^\circ$, dus $\theta = 21{,}55^\circ$. Voor de $(111)$-vlakken geeft de wet van Bragg ($n=1$):
+\[
+d_{111} = \frac{\lambda}{2\sin\theta} = \frac{\SI{0.154}{\nano\metre}}{2\sin(21{,}55^\circ)} = \frac{\SI{0.154}{\nano\metre}}{0{,}7337} \approx \SI{0.210}{\nano\metre}.
+\]
+Met vergelijking~\eqref{eq:dhkl}, $d_{111} = a/\sqrt{3}$ voor een kubisch rooster:
+\[
+a = d_{111}\sqrt{3} \approx (\SI{0.210}{\nano\metre})(1{,}732) \approx \SI{0.363}{\nano\metre},
+\]
+in uitstekende overeenstemming met de bekende roosterconstante van Cu ($a=\SI{0.3615}{\nano\metre}$, reeds gebruikt in \S~\ref{sec:bravais}). Zou men $43{,}1^\circ$ ten onrechte rechtstreeks als $\theta$ hebben ingevuld, dan volgt $d_{111}\approx\SI{0.113}{\nano\metre}$ en $a\approx\SI{0.195}{\nano\metre}$ --- bijna een factor twee te klein, en duidelijk onverenigbaar met de bekende dichtheid en atoomstraal van koper. Controleer daarom bij elke XRD-analyse expliciet of de gerapporteerde hoek $\theta$ dan wel $2\theta$ voorstelt, vooraleer de wet van Bragg toe te passen.
+\end{voorbeeld}
+
+\subsection{Het poederdiffractiepatroon}
+
+In plaats van een enkelkristal wordt in de praktijk vaak een poeder gebruikt, zodat alle mogelijke vlakori\"entaties simultaan aanwezig zijn. Het resulterende \emph{poederdiffractiepatroon} (XRD-patroon) is een reeks pieken bij verschillende $2\theta$. De positie van de pieken geeft de roosterconstanten; de intensiteit geeft de atoomposities binnen de cel; de breedte geeft informatie over korrelgrootte en defecten.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Afbeeldingen/xrd_poederpatroon.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} Schematisch poederdiffractogram: intensiteit op de verticale as, $2\theta$ op de horizontale as, met een reeks scherpe pieken van verschillende hoogte op karakteristieke posities (bijvoorbeeld de $(111)$-, $(200)$- en $(220)$-pieken van een FCC-metaal zoals koper). Duid bij één piek expliciet aan hoe de positie via de wet van Bragg en vergelijking~\eqref{eq:dhkl} naar de roosterconstante $a$ terugvoert, en hoe de piekbreedte kwalitatief samenhangt met de korrelgrootte.}
+    \label{fig:xrd-poederpatroon}
+\end{figure}
+
+Vergelijking met databanken (JCPDS, ICDD) laat toe een onbekende stof in seconden te identificeren. Dit is standaard in katalysatorkarakterisatie, kwaliteitscontrole, forensische chemie en farmaceutische analyse (polymorfie).
+
+\section{Defecten in kristallen}
+\label{sec:defecten}
+
+Een perfect kristal zonder defecten bestaat in de praktijk niet. Zelfs de zuiverste materialen bevatten defecten, en deze defecten bepalen vaak de macroscopische eigenschappen: elektrische geleiding, mechanische sterkte, kleur, katalytische activiteit. Defecten worden ingedeeld naar dimensie.
+
+\subsection{Puntdefecten}
+
+\begin{itemize}
+\item \textbf{Vacatures}: een ontbrekend atoom op een roosterplaats. Evenwichtsvacatures volgen $\exp(-E_v/k_BT)$, met $E_v \sim \SI{1}{\electronvolt}$ in metalen. Bij \SI{300}{\kelvin} is deze fractie volledig verwaarloosbaar ($\sim10^{-17}$): pas dicht bij het smeltpunt (bijvoorbeeld \SI{1300}{\kelvin} voor koper, smeltpunt \SI{1358}{\kelvin}) wordt de vacaturefractie praktisch relevant, met een typische waarde van $\sim10^{-4}$ --- een gevolg van de sterke exponenti\"ele temperatuursafhankelijkheid, geheel analoog aan de Arrhenius-gevoeligheid van reactiesnelheden (hoofdstuk~\ref{ch:kinetiek}).
+\item \textbf{Interstiti\"eel}: een extra atoom op een niet-roosterplaats. Vaak in combinatie met vacatures (Frenkel-defect in ionische kristallen).
+\item \textbf{Onzuiverheden (doping)}: een vreemd atoom op een roosterplaats. Cruciaal voor halfgeleiders (hoofdstuk~\ref{ch:kwantum}; zie ook \S~"Doping van halfgeleiders" verderop in dit hoofdstuk) en katalysatoren (hoofdstuk~\ref{ch:kinetiek}).
+\item \textbf{Schottky-defect}: een koppel vacatures in ionische kristallen (een kation- en een anionvacature), zodat neutraliteit behouden blijft.
+\end{itemize}
+
+\subsection{Lijndefecten (dislocaties)}
+
+\emph{Dislocaties} zijn \'e\'endimensionale defecten die plastische vervorming mogelijk maken. De twee belangrijkste types:
+\begin{itemize}
+\item \textbf{Randdislocatie (edge)}: een extra half-vlak ingevoerd in het kristal.
+\item \textbf{Schroefdislocatie (screw)}: het rooster is langs een as verschoven.
+\end{itemize}
+Dislocaties bepalen de hardheid, rekeigenschappen en \emph{kruip} van metalen. In katalysatoren zijn schroefdislocaties vaak actieve sites, omdat atomen aan het oppervlak daar zwakker gebonden zijn.
+
+\subsection{Vlakdefecten}
+
+\begin{itemize}
+\item \textbf{Korrelgrenzen}: grenzen tussen kristallieten in polykristallijne materialen. Be\"invloeden diffusie, corrosie en elektrische geleiding.
+\item \textbf{Stacking faults}: fout in de stapelvolgorde van atoomvlakken.
+\item \textbf{Antifase-grenzen}: in geordende legeringen.
+\end{itemize}
+
+\subsection{Non-stoichiometrie}
+
+Vele vaste stoffen wijken af van de ideale stoichiometrie. \emph{Non-stoichiometrische verbindingen} hebben een variabele samenstelling, zoals $\mathrm{Fe_{1-x}O}$ (wustiet, $x \sim 0{,}05$), $\mathrm{TiO_{2-x}}$, $\mathrm{UO_{2+x}}$. De oorzaak is een combinatie van vacatures en geoxideerde/gereduceerde ionen. Non-stoichiometrie is cruciaal voor katalysatoren (bv. $\mathrm{V_2O_{5-x}}$ in het contactproces, hoofdstuk~\ref{ch:kinetiek}) en voor batterijmaterialen (Li-ion-intercalatie).
+
+\section{Elektronenstructuur: van ge\"isoleerd atoom tot vaste stof}
+
+In hoofdstuk~\ref{ch:kwantum} zagen we dat een ge\"isoleerd atoom discrete energieniveaus heeft. Wanneer $N$ atomen samengebracht worden in een kristal, overlappen hun golffuncties. Volgens het uitsluitingsprincipe van Pauli (hoofdstuk~\ref{ch:kwantum}) mogen geen twee elektronen dezelfde toestand bezetten. Hierdoor splitst elk niveau van het ge\"isoleerde atoom in $N$ niveaus, dicht opeen. Voor macroscopisch $N$ ($\sim10^{23}$) vormen deze niveaus een continu\"um: een \emph{energieband}.
+
+\subsection{Geleiders, halfgeleiders en isolatoren}
+
+In een kristal worden twee banden onderscheiden:
+\begin{itemize}
+\item \textbf{Valentieband}: de hoogste geheel gevulde band.
+\item \textbf{Geleidingsband}: de eerstvolgende, lege of deels gevulde band.
+\end{itemize}
+Tussen beide kan een \emph{verboden zone} (band gap, $E_g$) liggen. De classificatie:
+\begin{itemize}
+\item \textbf{Geleider} (metaal): de valentieband is deels gevuld of overlapt met de geleidingsband. Elektronen kunnen vrij bewegen; $E_g = 0$.
+\item \textbf{Halfgeleider}: $E_g = \SIrange{0.5}{3}{\electronvolt}$. Bij lage temperatuur is de geleidingsband leeg (geen geleiding); bij hoge temperatuur kunnen elektronen thermisch worden geactiveerd.
+\item \textbf{Isolator}: $E_g > \SI{4}{\electronvolt}$. De thermische activering is verwaarloosbaar bij kamertemperatuur.
+\end{itemize}
+
+\begin{voorbeeld}{Band gaps van enkele materialen}
+\begin{itemize}
+\item Si: $E_g = \SI{1.12}{\electronvolt}$ (halfgeleider).
+\item GaAs: $E_g = \SI{1.42}{\electronvolt}$ (halfgeleider).
+\item Diamant: $E_g \approx \SI{5.5}{\electronvolt}$ (isolator).
+\item $\mathrm{SiO_2}$: $E_g \approx \SI{9}{\electronvolt}$ (isolator).
+\item Cu: $E_g = 0$ (geleider).
+\end{itemize}
+Het verschil tussen Si en GaAs is klein maar cruciaal: GaAs laat hogere snelheden en zonnecellen met hogere effici\"entie toe, Si domineert de markt via lagere kostprijs.
+\end{voorbeeld}
+
+\subsection{Doping van halfgeleiders}
+\label{sec:doping}
+
+Door kleine hoeveelheden onzuiverheden toe te voegen (\emph{doping}) kan de geleidingsband bevolkt worden:
+\begin{itemize}
+\item \textbf{n-type}: donoratomen (bv. P in Si, 5 valentie-elektronen) leveren een extra elektron. Donorniveau vlak onder de geleidingsband.
+\item \textbf{p-type}: acceptoratomen (bv. B in Si, 3 valentie-elektronen) cre\"eren een gat. Acceptorniveau vlak boven de valentieband.
+\end{itemize}
+De benodigde activeringsenergie om deze donor- of acceptorniveaus te ioniseren is nu veel kleiner dan $E_g$, zodat reeds bij kamertemperatuur voldoende ladingsdragers beschikbaar zijn. Doping is de basis van transistors, zonnecellen, LED's en batterijbesturing.
+
+\section{Thermodynamica van vaste stoffen}
+
+De thermodynamica uit hoofdstuk~\ref{ch:spontaniteit} is volledig van toepassing op vaste stoffen. Enkele bijzondere aspecten:
+
+\subsection{Faseovergangen in de vaste stof}
+
+Naast smelten en verdampen kent de vaste stof ook \emph{vast-vast faseovergangen}. IJzer transformeert bij \SI{912}{\celsius} van BCC ($\alpha$-Fe) naar FCC ($\gamma$-Fe), en bij \SI{1394}{\celsius} terug naar BCC ($\delta$-Fe). Koolstof kent grafiet (stabiel bij 1 bar) en diamant (stabiel bij hoge druk). De Clapeyron-vergelijking uit hoofdstuk~\ref{ch:niet-reagerend} is van toepassing, maar de volumeveranderingen in de vaste fase zijn klein.
+
+\subsection{Smeltentropie en -enthalpie}
+
+Smeltenthalpie\"en van metalen volgen de regel van Richards: $\Delta S_{\text{fus}} \approx \SI{8.4}{\joule\per\mole\per\kelvin}$ voor vele metalen. Dit is een empirische schatting die de uniformiteit van smeltprocessen benadrukt.
+
+\subsection{Warmtecapaciteit van vaste stoffen}
+
+Bij lage temperatuur volgt $C_V$ de wet van Debye ($T^3$-afhankelijkheid). Bij hoge temperatuur nadert $C_V$ de klassieke limiet van Dulong--Petit:
+\begin{equation}
+C_{V,m} \approx 3R = \SI{24.9}{\joule\per\mole\per\kelvin}.
+\end{equation}
+Deze wet is een directe toepassing van het equipartitiebeginsel: elk atoom heeft 6 vrijheidsgraden (3 kinetisch + 3 potentieel), met $\tfrac{1}{2}k_BT$ per vrijheidsgraad.
+
+\begin{voorbeeld}{Warmtecapaciteit van koper en diamant}
+Voor Cu bij \SI{298}{\kelvin} geldt $C_{p,m} \approx \SI{24.4}{\joule\per\mole\per\kelvin}$, vrijwel gelijk aan $3R = \SI{24.9}{\joule\per\mole\per\kelvin}$. De overeenkomst met de wet van Dulong--Petit bevestigt dat alle atomaire vrijheidsgraden thermisch actief zijn. Voor diamant bij \SI{298}{\kelvin} geldt $C_{p,m} \approx \SI{6.1}{\joule\per\mole\per\kelvin}$, veel lager dan $3R$, wegens de hoge frequenties van de C--C-bindingen (kwantummechanische bevriezing bij kamertemperatuur, hoofdstuk~\ref{ch:kwantum}, \S~"Moleculaire beweging").
+\end{voorbeeld}
+
+\section{Materiaaleigenschappen en defect engineering}
+
+De ingenieur kan materiaaleigenschappen sturen via \emph{defect engineering}:
+
+\begin{itemize}
+\item \textbf{Legering}: door toevoeging van vreemde atomen worden dislocaties verankerd, het materiaal wordt harder (bv. staal = Fe + C + Cr + Mn).
+\item \textbf{Doping}: halfgeleiders worden geleidbaar gemaakt via gecontroleerde onzuiverheden (\S~\ref{sec:doping}).
+\item \textbf{Korrelgrootte}: volgens Hall--Petch neemt de hardheid toe met $\sim d^{-1/2}$ ($d$ korrelgrootte). Nanokristallijne materialen zijn aanzienlijk harder.
+\item \textbf{Warmtebehandeling}: temperatuurverloop regelt de verdeling van defecten en faseverdeling.
+\end{itemize}
+
+\section{Industri\"ele toepassingen}
+
+\begin{itemize}
+\item \textbf{Katalysatoren}: zeolieten (hoofdstuk~\ref{ch:kinetiek}) zijn kristallijne aluminosilicaten met microscopische pori\"en; de kristallografische structuur bepaalt vormselectiviteit.
+\item \textbf{Halfgeleiders}: siliciumkristallen voor chips, zonnecellen; GaAs voor hoogfrequent elektronica.
+\item \textbf{Batterijen}: Li-ion-batterijen gebruiken gelaagde overgangsmetaaloxiden ($\mathrm{LiCoO_2}$, $\mathrm{LiFePO_4}$) waarin Li intercaleert --- een directe toepassing van non-stoichiometrie.
+\item \textbf{Constructiematerialen}: staal, beton, keramische materialen --- alle polykristallijn, met beheerste defecten voor sterkte.
+\item \textbf{Brandstofcellen}: $\mathrm{Pt/C}$-elektroden, $\mathrm{LaMnO_3}$-perovskieten voor SOFC (Solid Oxide Fuel Cell, hoofdstuk~\ref{ch:elektrochemie}) --- kristallografie bepaalt katalytische activiteit.
+\item \textbf{Corrosiebescherming}: roestvast staal (hoofdstuk~\ref{ch:elektrochemie}) is een Fe--Cr-legering met $\geq \SI{12}{\percent}$ Cr; het Cr vormt een passieve $\mathrm{Cr_2O_3}$-film.
+\item \textbf{Glas en keramiek}: amorf of polykristallijn; glascoating, tegels, biokeramiek.
+\end{itemize}
+
+\begin{besluit}{Vaste stof: de brug tussen kwantummechanica en materiaaleigenschappen}
+Vaste-stofchemie en kristallografie vormen een natuurlijk hoogtepunt waar kwantummechanica (hoofdstuk~\ref{ch:kwantum}), thermodynamica (hoofdstuk~\ref{ch:spontaniteit}), kinetiek (hoofdstuk~\ref{ch:kinetiek}) en elektrochemie (hoofdstuk~\ref{ch:elektrochemie}) samenkomen. De kristalstructuur bepaalt de elektronische bandenstructuur (hoofdstuk~\ref{ch:kwantum}), defecten bepalen katalytische (hoofdstuk~\ref{ch:kinetiek}) en elektrische (hoofdstuk~\ref{ch:elektrochemie}) eigenschappen, en XRD --- via Millerindices, de $d_{hkl}$-formule en de wet van Bragg --- is de experimentele brug tussen theorie en werkelijkheid. Voor de chemisch ingenieur is dit hoofdstuk onmisbaar: vrijwel elk modern materiaal --- van katalysatoren over batterijen tot halfgeleiders --- is een kristallografisch geordend systeem.
+\end{besluit}

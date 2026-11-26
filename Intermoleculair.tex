@@ -1,0 +1,344 @@
+%==============================================================================
+% BELANGRIJK - Kruisverwijzingen (relatief via \ref, geen harde nummers):
+% Dit hoofdstuk verwijst naar labels in andere hoofdstukken. Zorg dat deze
+% aanwezig zijn (voeg toe indien nog niet aanwezig):
+%   - Hoofdstuk 1, na \chapter{...}:                        \label{ch:eerstehoofdwet}
+%   - Hoofdstuk 2, na \chapter{...}:                        \label{ch:kwantum}
+%     (Hoofdstuk 2 bevat reeds \label{sec:waterstofatoom},
+%      \label{sec:atomaire-spectra} en \label{sec:moleculaire-beweging}.)
+%   - Hoofdstuk 3 gebruikt reeds \label{ch:spontaniteit}.
+%   - Hoofdstuk 5 gebruikt reeds \label{ch:niet-reagerend} (bevestigd).
+%   - Hoofdstuk 9, na \chapter{...} (oppervlakte- en
+%     colloïdchemie, DLVO):                                 \label{ch:oppervlakte}
+%   - Hoofdstuk 11, na \chapter{...} (vaste-stofchemie en
+%     kristallografie, ionische kristallen \S 11.2.3):       \label{ch:kristallografie}
+%   LET OP: het voorheen aangenomen apart hoofdstuk "transportverschijnselen"
+%   (\ref{ch:transport}) is niet weerhouden; diffusie is inmiddels
+%   geïntegreerd in hoofdstuk 8 (\ref{ch:kinetiek}, \S~"Diffusielimitatie").
+%   De verwijzing hieronder naar viscositeit/diffusie is dienovereenkomstig
+%   aangepast.
+% LET OP: eerdere versie van dit hoofdstuk verwees naar "Hoofdstuk 10" voor
+% ionische kristallen; dat is volgens de globale inhoudsopgave hoofdstuk 11
+% (Vaste-stofchemie en kristallografie). Hieronder gecorrigeerd.
+% Dit bestand gebruikt de omgevingen \begin{voorbeeld}{titel}, \begin{definitie}{titel}
+% en \begin{besluit}{titel} (zoals in hoofdstuk 1 en 3); enkele van deze omgevingen
+% waren in de vorige versie foutief geopend als \begin{voorbeeld{titel} (ontbrekende
+% sluitaccolade na de omgevingsnaam) — dit is hieronder overal gecorrigeerd.
+%==============================================================================
+\chapter{Intermoleculaire krachten en de vloeistoffase}
+\label{ch:intermoleculair}
+%==============================================================================
+
+\section{Voorbij de covalente binding}
+
+In hoofdstuk~\ref{ch:kwantum} zagen we hoe de kwantummechanica de oorsprong vormt van chemische bindingen en van de energie die vrijkomt of wordt opgenomen tijdens een chemische reactie. We beperkten ons daarbij tot de sterke intramoleculaire bindingen --- covalente, ionogene en metallische bindingen --- die atomen samenhouden binnen een molecule of een kristalrooster. In hoofdstuk~\ref{ch:spontaniteit} leerden we vervolgens hoe de Gibbs-vrije energie $\Delta G=\Delta H-T\Delta S$ bepaalt of een proces --- ook een fysisch proces zoals smelten, verdampen of mengen --- spontaan verloopt.
+
+Wat in beide hoofdstukken nog ontbreekt, is een verklaring voor de \emph{enthalpie} van dergelijke fysische processen. Waarom is water bij kamertemperatuur een vloeistof terwijl methaan een gas is, hoewel beide molecules een vergelijkbare massa hebben? Waarom mengen water en ethanol wel, maar water en olie niet? Waarom bedraagt de verdampingsenthalpie van water \SI{40.7}{\kilo\joule\per\mole} terwijl die van methaan slechts \SI{8.2}{\kilo\joule\per\mole} bedraagt? Waarom kan een vloeistof worden opgewarmd boven haar kookpunt zonder te verdampen, en waarom be\"\i nvloedt een klein beetje zout het kookpunt aanzienlijk?
+
+De verklaring ligt in de \emph{intermoleculaire krachten}: de aantrekkings- en afstotingskrachten tussen molecules, die zwakker zijn dan covalente bindingen, maar bepalend voor de fysische eigenschappen van vloeistoffen en vaste stoffen. In dit hoofdstuk ontwikkelen we een systematisch overzicht van deze krachten, kwantificeren we hun reikwijdte en sterkte, en leggen we de brug naar de thermodynamica van vloeistoffen en mengsels die in de volgende hoofdstukken wordt ontwikkeld. Waar hoofdstuk~\ref{ch:kwantum} de \emph{sterke} bindingen \emph{binnen} een molecule verklaarde, en hoofdstuk~\ref{ch:spontaniteit} het \emph{criterium} voor spontaniteit gaf, levert dit hoofdstuk de microscopische oorsprong van de energie\"en (en, via de mengentropie, gedeeltelijk ook de entropie) die in dat criterium worden ingevuld.
+
+\section{Een classificatie van intermoleculaire krachten}
+
+Intermoleculaire krachten worden ingedeeld naar hun fysische oorsprong. Vijf types worden onderscheiden, gerangschikt van sterk naar zwak.
+
+\subsection{Ion--ion-interactie (Coulomb)}
+
+Tussen twee ionen met ladingen $q_1$ en $q_2$ op afstand $r$ werkt de Coulombkracht:
+\begin{equation}
+V(r) = \frac{q_1 q_2}{4\pi\varepsilon_0 r}.
+\end{equation}
+Deze kracht is verreweg de sterkste intermoleculaire interactie en neemt slechts af als $1/r$, zodat haar reikwijdte zeer groot is. In ionische kristallen (hoofdstuk~\ref{ch:kristallografie}) is dit de dominante binding. Typische energie: \SIrange{200}{800}{\kilo\joule\per\mole}.
+
+\subsection{Ion--dipool-interactie}
+\label{sec:ion-dipool}
+
+Wanneer een ion in de buurt komt van een polair molecule (met permanent dipoolmoment $\mu$), ontstaat een gerichte interactie. Net zoals bij de dipool--dipoolinteractie (\S~\ref{sec:keesom} hieronder) is de dipool niet star georiënteerd: thermische beweging laat hem voortdurend heroriënteren, met een voorkeur voor de aantrekkende oriëntatie. Na thermische middeling over alle oriënteringen (Boltzmann-gewogen) levert dit:
+\begin{equation}
+\boxed{\;V(r) = -\frac{q^2 \mu^2}{6(4\pi\varepsilon_0)^2 k_BT\, r^4}.\;}
+\end{equation}
+Merk op dat, net als bij de Keesom-interactie, een factor $1/T$ optreedt: bij hogere temperatuur verstoort de thermische beweging de gunstige oriëntatie sterker, zodat de netto aantrekking afneemt. (In de limiet waarin de dipool volledig vast staat ten opzichte van het ion --- bijvoorbeeld omdat het ion het dipoolmoment volledig domineert --- geldt in plaats daarvan de eenvoudigere, temperatuuronafhankelijke uitdrukking $V(r)=-q\mu/(4\pi\varepsilon_0 r^2)$; in de meeste vloeistoffen bij eindige temperatuur is de thermisch gemiddelde vorm hierboven de relevante.) Deze interactie is verantwoordelijk voor de oplosbaarheid van zouten in polaire oplosmiddelen (bv. $\mathrm{NaCl}$ in water). Typische energie: \SIrange{40}{600}{\kilo\joule\per\mole}.
+
+\subsection{Dipool--dipool-interactie (Keesom)}
+\label{sec:keesom}
+
+Twee permanente dipolen die op een afstand $r$ van elkaar staan, ori\"enteren zich zodanig dat de aantrekkende configuratie wordt bevoordeeld. De gemiddelde interactie-energie over alle orientaties (rekening houdend met thermische beweging) is:
+\begin{equation}
+\boxed{\;V_{\text{Keesom}}(r) = -\frac{2\mu_1^2 \mu_2^2}{3(4\pi\varepsilon_0)^2 k_B T\, r^6}\;}
+\end{equation}
+Het $1/r^6$-gedrag is karakteristiek voor alle Van der Waalskrachten. De afhankelijkheid van $1/T$ verklaart waarom de intermoleculaire orientatie belangrijker wordt bij lage temperatuur. Typische energie: \SIrange{5}{25}{\kilo\joule\per\mole}.
+
+\subsection{Dipool--ge\"induceerde dipool (Debye)}
+
+Een permanent dipool kan een niet-polair molecule polariseren. De wisselwerkingsenergie bedraagt:
+\begin{equation}
+\boxed{\;V_{\text{Debye}}(r) = -\frac{\mu_1^2 \alpha_2}{(4\pi\varepsilon_0)^2 r^6}\;}
+\end{equation}
+waarin $\alpha_2$ de polariseerbaarheid van het niet-polaire molecule voorstelt. Deze term is onafhankelijk van temperatuur: de geïnduceerde dipool volgt de oriëntatie van de permanente dipool ogenblikkelijk en wordt niet door thermische beweging verstoord. Typische energie: \SIrange{2}{10}{\kilo\joule\per\mole}.
+
+\subsection{London-dispersie}
+\label{sec:london}
+
+Zelfs tussen twee niet-polaire molecules bestaat een aantrekkingskracht. Deze ontstaat doordat de elektronenwolk voortdurend fluctueert, zodat op ieder ogenblik een kortstondige dipool ontstaat, die op zijn beurt een dipool in het buurmolecule induceert. De wisselwerkingsenergie bedraagt:
+\begin{equation}
+\boxed{\;V_{\text{London}}(r) = -\frac{3}{4}\,\frac{I_1 I_2}{I_1 + I_2}\,\frac{\alpha_1 \alpha_2}{(4\pi\varepsilon_0)^2 r^6}\;}
+\end{equation}
+waarin $I_1$ en $I_2$ de ionisatie-energie\"en van de beide moleculen zijn. London-dispersie is de enige aantrekkende kracht tussen niet-polaire moleculen zoals $\mathrm{N_2}$, $\mathrm{CH_4}$, edelgassen. Ze neemt toe met de polariseerbaarheid (en dus met het aantal elektronen). Typische energie: \SIrange{0.5}{5}{\kilo\joule\per\mole}, maar voor grote moleculen aanzienlijk hoger.
+
+\begin{voorbeeld}{Kookpunten van edelgassen}
+De kookpunten van de edelgassen stijgen monotoon met het atoomnummer:
+\begin{itemize}
+\item He: \SI{4.2}{\kelvin} (2 elektronen)
+\item Ne: \SI{27.1}{\kelvin} (10)
+\item Ar: \SI{87.3}{\kelvin} (18)
+\item Kr: \SI{119.9}{\kelvin} (36)
+\item Xe: \SI{165.0}{\kelvin} (54)
+\end{itemize}
+Alle edelgassen zijn volledig niet-polair, zodat enkel London-dispersie werkt. De stijgende kookpunten weerspiegelen de toenemende polariseerbaarheid van de grotere elektronenwolken. Voor Xe, met \num{54} elektronen per atoom, bedraagt de dispersie-energie reeds voldoende om de stof bij kamertemperatuur dicht bij de vloeibaarheid te houden.
+\end{voorbeeld}
+
+\subsection{Waterstofbruggen}
+
+Een bijzonder sterke dipool--dipoolinteractie ontstaat wanneer een waterstofatoom, covalent gebonden aan een sterk elektronegatief atoom (N, O, F), in de buurt komt van een ander elektronegatief atoom met een eenzaam elektronenpaar. De \emph{waterstofbrug} is sterk gericht en kan energie\"en tot \SI{40}{\kilo\joule\per\mole} bereiken (typisch \SIrange{10}{40}{\kilo\joule\per\mole}).
+
+\begin{voorbeeld}{Anomalie\"en van water}
+Water vormt tot vier waterstofbruggen per molecule, die een ruimtelijk netwerk vormen. Hierdoor vertoont water een reeks anomalie\"en:
+\begin{itemize}
+\item Hoog kookpunt (\SI{100}{\celsius}) vergeleken met $\mathrm{H_2S}$ (\SI{-60}{\celsius}), hoewel $\mathrm{H_2S}$ een zwaarder molecule is.
+\item Hoge verdampingsenthalpie: \SI{40.7}{\kilo\joule\per\mole} (vergeleken met \SI{8.2}{\kilo\joule\per\mole} voor methaan).
+\item Maximumdichtheid bij \SI{4}{\celsius} (ijs is minder dicht dan vloeibaar water).
+\item Hoge oppervlaktespanning: \SI{72}{\milli\newton\per\metre} (zie hoofdstuk~\ref{ch:oppervlakte}).
+\item Hoge viscositeit, hoge warmtecapaciteit.
+\end{itemize}
+Alle anomalie\"en wijzen op hetzelfde: het waterstofbrugnetwerk. Zonder dit netwerk zou water bij kamertemperatuur een gas zijn, en zou leven zoals wij het kennen onmogelijk zijn.
+\end{voorbeeld}
+
+\section{Polariseerbaarheid}
+
+De \emph{polariseerbaarheid} $\alpha$ van een molecule is de mate waarin een uitwendig elektrisch veld een dipoolmoment induceert. Een molecule in een elektrisch veld $E$ ontwikkelt een ge\"induceerd dipoolmoment:
+\begin{equation}
+\mu_{\text{ind}} = \alpha\,E.
+\end{equation}
+De polariseerbaarheid hangt af van de grootte en mobiliteit van de elektronenwolk. Grote molecules met veel elektronen, of moleculen met gedelocaliseerde $\pi$-elektronen (bv. benzeen), hebben een hoge polariseerbaarheid. De polariseerbaarheid is een kwantitatieve schakel tussen de elektronenstructuur uit hoofdstuk~\ref{ch:kwantum} en de intermoleculaire krachten.
+
+\begin{voorbeeld}{Polariseerbaarheid en kookpunt van halogenen}
+De halogenen $\mathrm{Cl_2}$, $\mathrm{Br_2}$, $\mathrm{I_2}$ hebben vergelijkbare bindingsenergie\"en maar stijgende kookpunten:
+\begin{itemize}
+\item $\mathrm{Cl_2}$: \SI{-34}{\celsius} (gas bij kamertemperatuur)
+\item $\mathrm{Br_2}$: \SI{59}{\celsius} (vloeistof)
+\item $\mathrm{I_2}$: \SI{184}{\celsius} (vast bij kamertemperatuur)
+\end{itemize}
+Deze trend weerspiegelt direct de stijgende polariseerbaarheid van de grotere elektronenwolken. De covalente binding binnen de molecules is vergelijkbaar, maar de intermoleculaire (dispersie-)krachten nemen sterk toe, wat leidt tot hogere kookpunten en uiteindelijk tot een vaste stof bij kamertemperatuur voor $\mathrm{I_2}$.
+\end{voorbeeld}
+
+\section{De Lennard-Jones-potentiaal}
+\label{sec:lennard-jones}
+
+De aantrekkende $1/r^6$-afhankelijkheid van de Van der Waalskrachten geldt slechts voor matig grote afstanden. Wanneer twee moleculen zeer dicht naderen, beginnen hun elektronenwolken te overlappen en treedt een sterke afstoting op (Pauli-uitsluitingsprincipe, zie hoofdstuk~\ref{ch:kwantum}). De totale interactie-energie wordt dan beschreven door een \emph{Lennard-Jones-potentiaal}:
+\begin{equation}
+\boxed{\;V(r) = 4\varepsilon\left[\left(\frac{\sigma}{r}\right)^{12} - \left(\frac{\sigma}{r}\right)^{6}\right]\;}
+\label{eq:lennardjones}
+\end{equation}
+waarin:
+\begin{itemize}
+\item $\varepsilon$ de diepte van de potentiaalkuil (maat voor de sterkte van de attractie),
+\item $\sigma$ de afstand waarop $V = 0$ (effectieve ``harde'' diameter).
+\end{itemize}
+Het $1/r^{12}$-gedrag is een wiskundig handige benadering van de elektronenwolk-afstoting. Het minimum van de potentiaal ligt bij $r_{\text{eq}} = 2^{1/6}\sigma \approx 1{,}122\,\sigma$.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Afbeeldingen/lennard_jones_potentiaal.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} De Lennard-Jonespotentiaal $V(r)$ (vergelijking~\eqref{eq:lennardjones}) in functie van de intermoleculaire afstand $r$, in eenheden van $\sigma$ en $\varepsilon$. De curve toont duidelijk: een sterk repulsieve, steil stijgende tak voor $r<\sigma$ (elektronenwolk-overlap); het snijpunt $V=0$ bij $r=\sigma$; het minimum $V=-\varepsilon$ bij $r_{\text{eq}}=2^{1/6}\sigma\approx1{,}122\,\sigma$; en de langzaam naar nul stijgende aantrekkende $-1/r^6$-staart voor $r>r_{\text{eq}}$. Markeer $\sigma$, $r_{\text{eq}}$ en $-\varepsilon$ expliciet op de assen.}
+    \label{fig:lennard-jones}
+\end{figure}
+
+\begin{voorbeeld}{Lennard-Jones-parameters voor argon}
+\label{ex:argon-lj}
+Voor argon geldt $\sigma = \SI{0.340}{\nano\metre}$ en $\varepsilon/k_B = \SI{120}{\kelvin}$ ($\varepsilon = \SI{1.65e-21}{\joule}$). De evenwichtsafstand bedraagt:
+\[
+r_{\text{eq}} = 2^{1/6} \cdot \SI{0.340}{\nano\metre} = \SI{0.382}{\nano\metre}.
+\]
+De bindingsenergie per mol bedraagt $N_A \varepsilon = \SI{994}{\joule\per\mole} \approx \SI{1.0}{\kilo\joule\per\mole}$. Dit is klein vergeleken met een covalente binding (\SI{400}{\kilo\joule\per\mole}), maar voldoende om argon bij \SI{87}{\kelvin} vloeibaar te maken. Het kookpunt blijkt inderdaad $\sim \varepsilon/k_B$, wat de fysische betekenis van de potentiaalkuil-diepte bevestigt. We gebruiken deze $\sigma$ en $\varepsilon$ verderop opnieuw (\S~\ref{sec:vdw-brug}) om de Van der Waals-parameter $a$ van argon te schatten.
+\end{voorbeeld}
+
+\section{De brug naar de vergelijking van Van der Waals}
+\label{sec:vdw-brug}
+
+In hoofdstuk~\ref{ch:eerstehoofdwet} introduceerden we de vergelijking van Van der Waals:
+\begin{equation}
+\left(p + \frac{a n^2}{V^2}\right)(V - nb) = nRT.
+\end{equation}
+De parameter $a$ corrigeert voor de intermoleculaire aantrekkingskrachten. Met behulp van de Lennard-Jones-potentiaal kan deze parameter fysisch worden ge\"interpreteerd en, in tegenstelling tot een louter evenredigheidsargument, ook effectief worden berekend.
+
+Beschouw \'e\'en molecule, omringd door een gemiddelde, uniforme dichtheid van andere moleculen. Het aantal buurmoleculen in een dunne bolschil met straal $r$ en dikte $\dx{r}$ bedraagt $4\pi r^2\,\dx{r}$ maal de getalsdichtheid. De gemiddelde aantrekkingsenergie van \'e\'en molecule met al zijn buren wordt dan bekomen door de attractieve term van de Lennard-Jonespotentiaal, $V_{\text{attr}}(r) = -4\varepsilon(\sigma/r)^6$, te integreren over alle afstanden vanaf het punt waar de moleculen elkaar raken ($r=\sigma$) tot oneindig ver:
+\begin{equation}
+\overline{V}_{\text{attr}} = \int_{\sigma}^{\infty} 4\pi r^2\,V_{\text{attr}}(r)\,\dx{r} = -16\pi\varepsilon\sigma^6\int_{\sigma}^{\infty}\frac{\dx{r}}{r^4} = -16\pi\varepsilon\sigma^6\left[-\frac{1}{3r^3}\right]_{\sigma}^{\infty} = -\frac{16\pi}{3}\varepsilon\sigma^3.
+\end{equation}
+Omdat elk paar moleculen bij deze telling tweemaal wordt meegerekend (net zoals bij de afleiding van het co-volume $b$ in hoofdstuk~\ref{ch:eerstehoofdwet}, \S~1.5.4), bedraagt de effectieve aantrekkingsenergie per mol de helft hiervan, vermenigvuldigd met het aantal Avogadro-paren:
+\begin{equation}
+\boxed{
+a = -\frac{N_A^2}{2}\,\overline{V}_{\text{attr}} = \frac{8\pi}{3}N_A^2\,\varepsilon\sigma^3.
+}
+\label{eq:a-vdw-lj}
+\end{equation}
+De parameter $a$ is dus evenredig met het volume van de molecule ($\sigma^3$) en de diepte van de interactiekuil ($\varepsilon$), en vergelijking~\eqref{eq:a-vdw-lj} geeft bovendien de exacte evenredigheidsconstante binnen dit vereenvoudigde model. Hiermee krijgt de $a$-parameter uit hoofdstuk~\ref{ch:eerstehoofdwet} een microscopische fundering.
+
+\begin{voorbeeld}{De Van der Waals-parameter $a$ van argon, geschat uit de Lennard-Jonespotentiaal}
+Met de waarden $\sigma=\SI{0.340}{\nano\metre}$ en $\varepsilon=\SI{1.65e-21}{\joule}$ voor argon (voorbeeld~\ref{ex:argon-lj}) levert vergelijking~\eqref{eq:a-vdw-lj}:
+\[
+a = \frac{8\pi}{3}(6.022\times10^{23})^2(1.65\times10^{-21}\,\mathrm{J})(0.340\times10^{-9}\,\mathrm{m})^3 \approx \SI{0.197}{\pascal\,\metre^6\per\mole\squared}.
+\]
+De experimentele Van der Waals-parameter van argon bedraagt $a_{\text{Ar}}\approx\SI{0.1355}{\pascal\,\metre^6\per\mole\squared}$ (hoofdstuk~\ref{ch:eerstehoofdwet}, tabel met stofconstanten). Onze eenvoudige schatting zit dus binnen een factor anderhalf van de experimentele waarde --- een opmerkelijk goede overeenstemming voor een model dat de moleculaire dichtheid rond een molecule als uniform veronderstelt (dat wil zeggen: het verwaarloost dat buurmoleculen elkaar afschermen, wat in werkelijkheid door de paarcorrelatiefunctie $g(r)$ wordt beschreven). Dit bevestigt dat de Lennard-Jonesparameters $\varepsilon$ en $\sigma$, oorspronkelijk ingevoerd om spectroscopische en botsingsdata te beschrijven, en de macroscopische Van der Waals-parameter $a$, oorspronkelijk ingevoerd om afwijkingen van de ideale gaswet te beschrijven, twee kwantitatief consistente beschrijvingen zijn van dezelfde onderliggende intermoleculaire aantrekking.
+\end{voorbeeld}
+
+\section{Verdampingsenthalpie als maat voor cohesie}
+\label{sec:verdampingsenthalpie}
+
+De verdampingsenthalpie $\Delta H_{\text{vap}}$ van een zuivere vloeistof is de energie die nodig is om een molecule uit de vloeistoffase naar de gasfase te brengen, en dus om alle intermoleculaire interacties met zijn buren te verbreken. $\Delta H_{\text{vap}}$ is daarmee een directe experimentele maat voor de totale sterkte van de intermoleculaire krachten.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lccc}
+\toprule
+Stof & $\Delta H_{\text{vap}}$ (\si{\kilo\joule\per\mole}) & $T_b$ & Dominante kracht \\
+\midrule
+He & 0{,}08 & \SI{4.2}{\kelvin} & Dispersie (zwak) \\
+$\mathrm{N_2}$ & 5{,}6 & \SI{77.4}{\kelvin} & Dispersie \\
+$\mathrm{CH_4}$ & 8{,}2 & \SI{111.7}{\kelvin} & Dispersie \\
+$\mathrm{CHCl_3}$ & 29{,}4 & \SI{334.3}{\kelvin} & Dipool--dipool + dispersie \\
+$\mathrm{NH_3}$ & 23{,}4 & \SI{239.8}{\kelvin} & Waterstofbrug (zwakker dan water) \\
+$\mathrm{H_2O}$ & 40{,}7 & \SI{373.15}{\kelvin} & Waterstofbrug \\
+Ethanol & 38{,}6 & \SI{351.55}{\kelvin} & Waterstofbrug \\
+$\mathrm{NaCl}$ (sublimatie) & 211 & sublimeert & Ion--ion \\
+\bottomrule
+\end{tabular}
+\caption{Verdampingsenthalpie\"en en normale kookpunten $T_b$ (bij \SI{1}{\bar}).}
+\label{tab:verdampingsenthalpie}
+\end{table}
+
+De tabel toont duidelijk de hi\"erarchie: dispersie $<$ dipool--dipool $<$ waterstofbrug $<$ ion--ion. Zij beantwoordt bovendien meteen \'e\'en van de openingsvragen van dit hoofdstuk (\S~4.1): methaan en stikstof, met een vergelijkbare molaire massa als water, bezitten enkel zwakke dispersiekrachten en koken daardoor al ver onder kamertemperatuur, terwijl water dankzij zijn waterstofbrugnetwerk pas bij \SI{373.15}{\kelvin} kookt. Voor de ingenieur is $\Delta H_{\text{vap}}$ een directe indicator voor het energieverbruik van een destillatieproces --- water en ethanol vereisen aanzienlijk meer energie dan koolwaterstoffen.
+
+\subsection{De regel van Trouton}
+\label{sec:trouton}
+
+Tabel~\ref{tab:verdampingsenthalpie} bevat zowel $\Delta H_{\text{vap}}$ als het normale kookpunt $T_b$: de temperatuur waarbij, per definitie, de vloeistof- en dampfase bij \SI{1}{\bar} in evenwicht zijn. Uit hoofdstuk~\ref{ch:spontaniteit} (\S~"Entropie bij faseovergangen") weten we dat voor elke reversibele faseovergang bij constante druk geldt $\Delta S_{\text{trans}}=\Delta H_{\text{trans}}/T_{\text{trans}}$. Toegepast op verdamping:
+\begin{equation}
+\Delta S_{\text{vap}} = \frac{\Delta H_{\text{vap}}}{T_b}.
+\end{equation}
+De empirische \emph{regel van Trouton} stelt dat deze verdampingsentropie voor de meeste ``normale'' vloeistoffen --- dat wil zeggen vloeistoffen zonder sterke, gerichte intermoleculaire interacties zoals waterstofbruggen --- ongeveer dezelfde waarde aanneemt, typisch $\Delta S_{\text{vap}}\approx\SIrange{85}{88}{\joule\per\mole\per\kelvin}$. De fysische reden is intuïtief: bij het koken wint elke vloeistof, ongeacht haar chemische aard, ongeveer dezelfde \emph{relatieve} toename in bewegingsvrijheid (van een gecondenseerde naar een verdunde gasfase), zodat de toename in het aantal toegankelijke microtoestanden (\S~"Van waarschijnlijkheid naar entropie" in hoofdstuk~\ref{ch:spontaniteit}) voor de meeste vloeistoffen vergelijkbaar is.
+
+\begin{voorbeeld}{Trouton's regel getoetst aan tabel~\ref{tab:verdampingsenthalpie}}
+We berekenen $\Delta S_{\text{vap}}=\Delta H_{\text{vap}}/T_b$ voor elke stof uit tabel~\ref{tab:verdampingsenthalpie}:
+\begin{center}
+\begin{tabular}{lc}
+\toprule
+Stof & $\Delta S_{\text{vap}}$ (\si{\joule\per\mole\per\kelvin}) \\
+\midrule
+$\mathrm{N_2}$ (dispersie) & $5600/77.4 = 72.4$ \\
+$\mathrm{CH_4}$ (dispersie) & $8200/111.7 = 73.4$ \\
+$\mathrm{CHCl_3}$ (dipool--dipool) & $29400/334.3 = 87.9$ \\
+$\mathrm{NH_3}$ (zwakke waterstofbrug) & $23400/239.8 = 97.6$ \\
+$\mathrm{H_2O}$ (waterstofbrug) & $40700/373.15 = 109.1$ \\
+Ethanol (waterstofbrug) & $38600/351.55 = 109.8$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Het patroon is opmerkelijk consistent: chloroform, dat enkel dipool--dipool- en dispersiekrachten bezit, voldoet vrijwel exact aan de regel van Trouton ($\approx\SI{88}{\joule\per\mole\per\kelvin}$). Stikstof en methaan liggen er iets onder (een bekende afwijking voor kleine, quasi-boldeeltjes met weinig interne vrijheidsgraden, zie hoofdstuk~\ref{ch:kwantum}, \S~"Moleculaire beweging"). Ammoniak, water en ethanol wijken daarentegen sterk en systematisch \emph{naar boven} af: hun waterstofbrugnetwerk (\S~4.2.6) moet bij het verdampen worden opgebroken, wat een extra, geordend-naar-ongeordend effect toevoegt bovenop de gewone toename in bewegingsvrijheid. Merk op dat de waarde voor water, $\SI{109.1}{\joule\per\mole\per\kelvin}$, overeenkomt met de waarde $\Delta S_{\text{vap}}\approx\SI{109}{\joule\per\mole\per\kelvin}$ die reeds in hoofdstuk~\ref{ch:spontaniteit} werd berekend. Trouton's regel levert een ingenieur zo een snelle, eerste-orde consistentiecontrole: een sterke afwijking van $\approx\SI{85}{\joule\per\mole\per\kelvin}$ is een directe indicatie van gerichte intermoleculaire interacties (waterstofbruggen) die in een proces- of destillatieontwerp niet over het hoofd mogen worden gezien.
+\end{voorbeeld}
+
+\section{Mengsels: regelmatige oplossingen en de Hildebrand-parameter}
+
+Wanneer twee vloeistoffen mengen, worden intermoleculaire interacties verbroken en nieuwe gevormd. De mengenthalpie is de nettobalans hiervan. Voor \emph{regelmatige oplossingen} (geen waterstofbruggen, geen sterke dipoolinteracties) ontwikkelde Hildebrand een kwantitatieve theorie.
+
+\subsection{De Hildebrand-oplosbaarheidsparameter}
+
+De \emph{Hildebrand-parameter} $\delta$ is gedefinieerd als:
+\begin{equation}
+\boxed{\;\delta = \sqrt{\frac{\Delta E_{\text{vap}}}{V_m}}\;}
+\end{equation}
+waarin $\Delta E_{\text{vap}} = \Delta H_{\text{vap}} - RT$ de molaire verdampingsenergie (energie, niet enthalpie) en $V_m$ het molaire volume zijn. De eenheid is \si{\joule\per\centi\metre\cubed} of equivalent \si{\mega\pascal^{1/2}}.
+
+De mengenthalpie voor twee vloeistoffen met gelijke volumes wordt benaderd door:
+\begin{equation}
+\Delta H_{\text{meng}} \approx V\,(\delta_1 - \delta_2)^2\,\phi_1\,\phi_2,
+\end{equation}
+waarin $\phi_i$ de volumefracties zijn. \emph{Gelijksoortige $\delta$-waarden leiden tot mengbaarheid}; sterk verschillende waarden leiden tot demixing --- via het spontaniteitscriterium $\Delta G_{\text{meng}}=\Delta H_{\text{meng}}-T\Delta S_{\text{meng}}$ uit hoofdstuk~\ref{ch:spontaniteit}: wanneer $\Delta H_{\text{meng}}$ voldoende groot en positief is, kan het de (steeds positieve, maar begrensde) mengentropiebijdrage $-T\Delta S_{\text{meng}}$ overtreffen, zodat $\Delta G_{\text{meng}}>0$ en de vloeistoffen zich spontaan ontmengen.
+
+\begin{voorbeeld}{Water en hexaan}
+De Hildebrand-parameters bedragen:
+\begin{itemize}
+\item Water: $\delta = \SI{47.9}{\mega\pascal^{1/2}}$ (sterk waterstofbruggend)
+\item $n$-Hexaan: $\delta = \SI{14.9}{\mega\pascal^{1/2}}$ (niet-polair koolwaterstof)
+\end{itemize}
+Het verschil is groot, waardoor $\Delta H_{\text{meng}}$ zeer positief is. De Gibbs-energie van mengen (hoofdstuk~\ref{ch:niet-reagerend}, \S~"Thermodynamica van mengsels") wordt dan positief, en de vloeistoffen mengen niet. Dit verklaart, kwantitatief, waarom olie en water zich splitsen --- exact de vraag die in \S~4.1 werd gesteld.
+
+Voor twee koolwaterstoffen, bv. hexaan ($\delta = \SI{14.9}{\mega\pascal^{1/2}}$) en heptaan ($\delta = \SI{15.2}{\mega\pascal^{1/2}}$), is het verschil klein en mengen de vloeistoffen volledig. In de chromatografie en de verfindustrie wordt de Hildebrand-parameter gebruikt om compatibele oplosmiddelen te selecteren.
+\end{voorbeeld}
+
+\subsection{Beperkingen}
+
+De Hildebrand-theorie werkt goed voor niet-polaire of zwak polaire mengsels zonder specifieke interacties. Voor systemen met waterstofbruggen (water, alcoholen) of sterke dipoolinteracties bestaat geen enkelvoudige theorie die zonder meer bruikbaar is; de Hansen-parameters, die $\delta$ opsplitsen in dispersie-, dipool- en waterstofbrug-bijdragen, bieden een verbetering.
+
+\section{Sterkte en reikwijdte}
+\label{sec:sterkte-reikwijdte}
+
+Een belangrijk onderscheid tussen de intermoleculaire krachten is hun \emph{reikwijdte}:
+
+\begin{itemize}
+\item \textbf{Ion--ion}: $V \propto 1/r$ --- lange reikwijdte, orde van meerdere nanometer.
+\item \textbf{Ion--dipool}: $V \propto 1/r^4$ --- matige reikwijdte.
+\item \textbf{Van der Waals} (Keesom, Debye, London): $V \propto 1/r^6$ --- korte reikwijdte, enkel significant binnen \SI{1}{\nano\metre}.
+\item \textbf{Waterstofbrug}: sterk gericht, typisch \SIrange{0.18}{0.25}{\nano\metre}.
+\end{itemize}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Afbeeldingen/reikwijdte_vergelijking.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} $|V(r)|$ in functie van $r$ op een log-log-schaal voor de vier reikwijdte-categorie\"en hierboven, elk als rechte lijn met een verschillende helling ($-1$, $-4$, $-6$) plus een sterk gepiekte, kort-dracht curve voor de gerichte waterstofbrug. Dit visualiseert in \'e\'en oogopslag waarom ion--ion-interacties op lange afstand domineren, terwijl Van der Waalskrachten enkel op zeer korte afstand relevant worden.}
+    \label{fig:reikwijdte}
+\end{figure}
+
+Dit onderscheid is belangrijk voor de collo\"idchemie (hoofdstuk~\ref{ch:oppervlakte}): bij de DLVO-theorie worden lange-reikwijdte elektrostatische afstoting (van geladen oppervlakken) vergeleken met korte-reikwijdte Van der Waals-aantrekking.
+
+\section{Kwantitatieve vergelijking van de krachten}
+
+De volgende tabel geeft een orde-grootte-overzicht van alle behandelde interacties:
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Type & Energie (\si{\kilo\joule\per\mole}) & Afhankelijkheid \\
+\midrule
+Covalente binding & 200--800 & Complex \\
+Ion--ion & 200--800 & $1/r$ \\
+Ion--dipool & 40--600 & $1/r^4$, $1/T$ \\
+Waterstofbrug & 10--40 & Gericht, \SI{0.2}{\nano\metre} \\
+Dipool--dipool (Keesom) & 5--25 & $1/r^6$, $1/T$ \\
+Dipool--ge\"ind. (Debye) & 2--10 & $1/r^6$ \\
+Dispersie (London) & 0{,}5--10 & $1/r^6$ \\
+\bottomrule
+\end{tabular}
+\caption{Ordes van grootte van intermoleculaire krachten.}
+\end{table}
+
+Een opvallende observatie: alle Van der Waalskrachten (Keesom, Debye, London) delen dezelfde $1/r^6$-afhankelijkheid. Dit is geen toeval: alle drie zijn ze zwakke storingen van de elektronenstructuur, en dezelfde wiskundige structuur geldt. Merk verder op dat de energiebereiken van de covalente binding en de ion--ioninteractie elkaar volledig overlappen: het onderscheid tussen ``intramoleculair'' en ``intermoleculair'' is dus niet in de eerste plaats een kwestie van energieschaal, maar van de aard van de interactie (gedeelde elektronenparen versus elektrostatische aantrekking tussen afgeronde ladingen, hoofdstuk~\ref{ch:kwantum}).
+
+\section{Industri\"ele relevantie}
+
+De intermoleculaire krachten bepalen een breed gamma aan industri\"ele processen en materiaaleigenschappen:
+
+\begin{itemize}
+\item \textbf{Destillatie}: kookpunten en verdampingsenthalpie\"en bepalen de energiekost en de haalbaarheid van scheiding (hoofdstuk~\ref{ch:niet-reagerend}).
+\item \textbf{Extractie}: de keuze van oplosmiddel wordt bepaald door de Hildebrand-parameter en de polariteit.
+\item \textbf{Chromatografie}: de retentie van analyten op een stationaire fase wordt bepaald door intermoleculaire interacties.
+\item \textbf{Polymeren}: de glasovergangstemperatuur, de kristalliniteit en de mechanische eigenschappen worden bepaald door de intermoleculaire krachten tussen polymeerketens.
+\item \textbf{Materialen}: de compatibiliteit van polymeren met additieven, vulstoffen en coatings wordt voorspeld via $\delta$-parameters.
+\item \textbf{Farmaceutica}: de oplosbaarheid van actieve ingredi\"enten, de biologische beschikbaarheid en de formulering worden bepaald door intermoleculaire krachten.
+\item \textbf{Eiwitvouwing}: de tertiaire structuur van eiwitten wordt gestabiliseerd door een combinatie van waterstofbruggen, elektrostatische interacties en hydrofobe effecten.
+\item \textbf{Oppervlakken en collo\"iden}: de stabiliteit van suspensies en emulsies berust op de balans tussen Van der Waals-aantrekking en elektrostatische afstoting (hoofdstuk~\ref{ch:oppervlakte}).
+\end{itemize}
+
+\begin{besluit}{Intermoleculaire krachten: de schakel tussen micro en macro}
+Intermoleculaire krachten vormen de schakel tussen de kwantummechanische elektronenstructuur van moleculen (hoofdstuk~\ref{ch:kwantum}) en de macroscopische eigenschappen van vloeistoffen en mengsels waarvan de spontaniteit door hoofdstuk~\ref{ch:spontaniteit} wordt beoordeeld. Hun sterkte bepaalt kookpunten, verdampingsenthalpie\"en, viscositeit, oppervlaktespanning en mengbaarheid; via de regel van Trouton (\S~\ref{sec:trouton}) en de Hildebrand-parameter (\S~4.7) konden we deze microscopische krachten bovendien rechtstreeks aan de entropie- en Gibbs-energiebegrippen uit hoofdstuk~\ref{ch:spontaniteit} koppelen. In de volgende hoofdstukken zullen we deze krachten impliciet blijven gebruiken: bij de afwijkingen van de wet van Raoult en de activiteitscoëfficiënt (hoofdstuk~\ref{ch:niet-reagerend}), bij de DLVO-theorie van collo\"idale stabiliteit (hoofdstuk~\ref{ch:oppervlakte}), en bij diffusie in vloeistoffen (hoofdstuk~\ref{ch:kinetiek}, \S~"Diffusielimitatie"). Met dit hoofdstuk beschikt de lezer over de fysische basis om deze latere toepassingen te begrijpen.
+\end{besluit}

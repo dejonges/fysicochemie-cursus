@@ -1,8 +1,10 @@
-_book/
-.quarto/
-/.luarc.json
-
-/.quarto/
-
-**/*.quarto_ipynb
+# LaTeX-hulpbestanden (Overleaf bewaart ze niet in GitHub)
+*.aux
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+/main.pdf
 __pycache__/

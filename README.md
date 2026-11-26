@@ -1,50 +1,46 @@
-# Fysicochemie – online cursus
+# Fysicochemie – cursus
 
-Online versie van de cursus Fysicochemie (KU Leuven, Groep T), gebouwd met [Quarto](https://quarto.org).
-Bij elke wijziging op `main` bouwt GitHub de site opnieuw en publiceert ze op GitHub Pages (map `.github/workflows`).
+Cursus Fysicochemie (KU Leuven, Groep T). **De LaTeX in deze map is de enige bron**, voor het boek (PDF) én voor de website <https://dejonges.github.io/fysicochemie-cursus/>.
 
-## Een pagina aanpassen
+## Werken in Overleaf
 
-- Rechtstreeks op GitHub: open een `.qmd`-bestand, klik op het potlood, pas aan en kies **Commit changes**. Na 1 à 2 minuten staat de wijziging online.
-- Wiskunde schrijf je zoals in LaTeX: `$...$` in de tekst, `$$...$$` apart. Een vergelijking krijgt een nummer met `$$ ... $$ {#eq-naam}` en je verwijst ernaar met `@eq-naam`.
-- Kaders: `::: {.callout-tip}` + `## Voorbeeld: titel` + tekst + `:::`.
-
-## Opmaak aanpassen
-
-- **`kleuren-licht.scss`** en **`kleuren-donker.scss`**: de kleuren van de lichte en donkere weergave.
-- **`stijl.scss`**: lettertypes, lettergrootte, regelafstand, ruimte tussen opsommingsitems en tabelstijl. Elke regel heeft uitleg in het Nederlands.
-- **Eén tabel anders**: zet achter het bijschrift van de tabel bijvoorbeeld `{tbl-colwidths="[20,80]"}` voor kolombreedtes, of `{.striped .hover}` voor een andere stijl.
-- **`_quarto.yml`**: titel, hoofdstukvolgorde, thema (`cosmo`/`darkly`, zie https://bootswatch.com voor alternatieven).
+- Je schrijft in Overleaf, zoals altijd (`main.tex` + één `.tex` per hoofdstuk).
+- **Menu → GitHub → Push to GitHub**: je wijzigingen gaan naar de website. Na een paar minuten staan ze online, ook als PDF (knop "PDF" op de site).
+- **Menu → GitHub → Pull from GitHub**: haalt wat Claude heeft bijgewerkt (tekst of figuren) binnen in Overleaf.
+- De mappen `site/` en `.github/` heb je in Overleaf niet nodig; laat ze gewoon staan.
 
 ## Figuren
 
-Figuren worden bij het bouwen getekend met Python (matplotlib), zodat ze dezelfde stijl hebben als de tekst en meeschakelen met het lichte en donkere thema.
+- **Figuren uit Python** staan in `Figuren/` en worden automatisch gemaakt. Niet zelf aanpassen; vraag een wijziging aan Claude.
 
-- **`_figuren/huisstijl.py`** en **`_figuren/fysicochemie.mplstyle`**: kleuren, lettertype en lijnen. Kleuren altijd via `K` (bv. `K.accent`, `K.blauw`).
-- **`_figuren/h1.py`**, **`h2.py`**, ...: één functie per figuur. Gegevens van echte gassen komen uit `_figuren/toestand.py`.
-- In een hoofdstuk staat een figuur zo (het bijschrift onderaan, verwijzen met `@fig-boyle`):
+  ```latex
+  \begin{figure}[htb]
+      \centering
+      \includegraphics[width=0.7\linewidth]{Figuren/boyle}
+      \caption{...}
+      \label{fig:Boyle}
+  \end{figure}
+  ```
 
-````markdown
-::: {#fig-boyle}
-```{python}
-#| renderings: [light, dark]
-fig.toon(fig.boyle)
-```
+  Op de website schakelt zo'n figuur mee met het lichte en donkere thema; in het boek staat ze op wit.
+- **Een nieuwe figuur vragen**: verwijs naar een naam die nog niet bestaat (bv. `Figuren/fasediagram_water`) en beschrijf in het bijschrift wat je wil zien. In de PDF en op de site verschijnt een kader "Figuur in voorbereiding" tot de figuur er is.
+- **Gewone afbeeldingen** (foto's, scans) blijven in `Afbeeldingen/`.
+- **Geanimeerde figuren** bewegen enkel op de website. In het boek komt automatisch één stilstaand beeld met de vermelding "animatie: zie online".
+- **Breedte**: `width=0.7\linewidth` is de standaard. Een andere breedte geldt zowel in het boek als op de site.
 
-Isothermen voor een ideaal gas.
-:::
-````
+## Interactieve onderdelen
 
-- **Breedte**: standaard 70% van de tekstbreedte, gecentreerd, en het bijschrift volgt dezelfde breedte. Een andere breedte geef je met een klasse achter het label: `::: {#fig-boyle .klein}` (40%), `.smal` (55%), `.breed` (85%) of `.vol` (100%). Een eigen percentage kan ook: `::: {#fig-boyle breedte="50%"}`. Let op: `#| out-width` in het codeblok werkt niet samen met de lichte en donkere versie. De percentages zelf staan in `stijl.scss` onder "Breedte van de figuren". Op een gsm is elke figuur volle breedte.
-- Lokaal bouwen vraagt Python met de pakketten uit `requirements.txt` (`pip install -r requirements.txt`).
-- Een figuur los bekijken: `cd _figuren && python3 -c "import h1; h1.boyle().savefig('test.png')"`.
+`\interactief{arrhenius}` voegt op die plaats op de website de interactieve figuur uit `site/_interactief/arrhenius.qmd` in. In het boek staat er een kort kader met een verwijzing naar de site.
 
-## Opnieuw omzetten vanuit LaTeX
+## Hoe het werkt (voor wie verder bouwt)
 
-`tools/tex2qmd.py` zet de LaTeX-hoofdstukken om naar `.qmd`:
+Bij elke wijziging op `main` doet GitHub (`.github/workflows/publiceer.yml`):
 
-```bash
-python3 tools/tex2qmd.py <map-met-tex-bestanden> .
-```
+1. `site/_figuren/maak_pdf.py`: alle Python-figuren als PDF in `Figuren/` (en terug in de repo, zodat Overleaf ze krijgt);
+2. het boek compileren met LaTeX (`main.pdf`, als download op de site);
+3. `site/tools/tex2qmd.py . site`: de hoofdstukken uit `main.tex` omzetten naar Quarto-pagina's;
+4. `quarto render` in `site/` en publiceren op GitHub Pages.
 
-Interactieve onderdelen staan in `_interactief/` en worden met `{{< include ... >}}` ingevoegd, zodat ze een nieuwe omzetting overleven.
+De `.qmd`-hoofdstukken worden niet bewaard: wie iets aan de site wil veranderen, past de LaTeX aan (inhoud) of `site/` (opmaak: `stijl.scss`, `kleuren-*.scss`, `_quarto.yml`).
+
+Figuurcode: één functie per figuur in `site/_figuren/h1.py`, `h2.py`, ... De functienaam is de naam in `Figuren/<naam>`. Kleuren altijd via `K` (zie `site/_figuren/huisstijl.py`). Een animatie krijgt `@animatie(...)` en geeft `(fig, stap)` terug (uitleg in `huisstijl.py`).

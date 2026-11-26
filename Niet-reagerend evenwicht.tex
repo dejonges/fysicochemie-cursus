@@ -1,0 +1,622 @@
+%==============================================================================
+% BELANGRIJK - Kruisverwijzingen (relatief via \ref, geen harde nummers):
+% Dit hoofdstuk verwijst naar labels in andere hoofdstukken. Zorg dat deze
+% aanwezig zijn (voeg toe indien nog niet aanwezig):
+%   - Hoofdstuk 1, na \chapter{...}:                        \label{ch:eerstehoofdwet}
+%   - Hoofdstuk 2, na \chapter{...}:                        \label{ch:kwantum}
+%   - Hoofdstuk 3 gebruikt reeds \label{ch:spontaniteit}, en o.a.
+%     \label{eq:fundG}, \label{sec:activiteit}, \label{eq:mu-ideaalgas},
+%     \label{eq:mu-activiteit}, \label{sec:waarschijnlijkheid-entropie}.
+%   - Hoofdstuk 4 gebruikt reeds \label{ch:intermoleculair}, en o.a.
+%     \label{sec:verdampingsenthalpie}, \label{sec:trouton}.
+%   - Hoofdstuk 6, na \chapter{...} (reagerende evenwichten):  \label{ch:reagerend}
+%     (dit hoofdstuk verwijst er zelf al naar via \ref{ch:reagerend})
+%
+% LET OP - dit hoofdstuk zelf draagt het label \label{ch:niet-reagerend}
+% (zie hieronder). In hoofdstuk 3 en hoofdstuk 4, zoals eerder afgeleverd,
+% werd naar dit hoofdstuk nog verwezen met het (foutieve, aangenomen) label
+% \ref{ch:evenwicht-nietreagerend}, en naar hoofdstuk 6 met
+% \ref{ch:evenwicht-reagerend}. Dat is inmiddels rechtgezet in de bijgewerkte
+% versies van die bestanden (\ref{ch:niet-reagerend} / \ref{ch:reagerend}) —
+% gebruik die bijgewerkte versies, anders lossen die verwijzingen niet op.
+%==============================================================================
+\chapter{Thermodynamisch evenwicht van niet-reagerende systemen}
+\label{ch:niet-reagerend}
+%==============================================================================
+
+\section{Van zuivere stoffen naar mengsels}
+
+In hoofdstuk~\ref{ch:spontaniteit} hebben we de Gibbs-vrije energie en de chemische potentiaal leren kennen als de fundamentele drijvende kracht achter spontane processen. We zagen dat een component zich spontaan verplaatst van een plaats met hoge chemische potentiaal naar een plaats met lagere, en dat evenwicht bereikt is wanneer alle chemische potentialen gelijk zijn. In hoofdstuk~\ref{ch:intermoleculair} vulden we dit aan met de microscopische oorsprong van de energie\"en die hierin een rol spelen: de intermoleculaire krachten die bepalen hoe sterk moleculen elkaar aantrekken, en dus of een fase stabiel is en of twee stoffen al dan niet mengen.
+
+In dit hoofdstuk brengen we beide lijnen samen en passen we ze toe op fase-evenwichten: de co\"existentie van verschillende aggregatietoestanden. We beginnen bij de zuivere stof, voeren de fugaciteit in als veralgemening van de druk, en bouwen zo verder naar mengsels, damp-vloeistofevenwicht en de basisprincipes van scheidingsprocessen. De behandeling blijft beperkt tot systemen waarin geen chemische reacties optreden; reagerende systemen vormen het onderwerp van hoofdstuk~\ref{ch:reagerend}.
+
+\subsection{Fasen en fase-evenwicht}
+\label{sec:fasen-evenwicht}
+
+In het dagelijkse leven komen stoffen voor als vaste stof, vloeistof of gas. Water kan voorkomen als ijs, vloeibaar water of waterdamp. Koolstof kan aanwezig zijn als diamant of grafiet en koolstofdioxide kan, afhankelijk van de druk en temperatuur, voorkomen als gas, vloeistof of superkritisch flu\"idum. Deze verschillende aggregatietoestanden worden \emph{fasen} genoemd.
+
+De aggregatietoestand van een stof wordt bepaald door het evenwicht tussen twee tegengestelde effecten. Enerzijds proberen de intermoleculaire aantrekkingskrachten (hoofdstuk~\ref{ch:intermoleculair}) de moleculen dicht bij elkaar te houden. Anderzijds zorgt de thermische beweging ervoor dat de moleculen zich voortdurend van elkaar verwijderen. Bij lage temperatuur overheersen de aantrekkingskrachten en is een gecondenseerde fase thermodynamisch stabiel. Naarmate de temperatuur stijgt, neemt de thermische bewegingsenergie toe. Op een bepaald ogenblik wordt een nieuwe fase thermodynamisch gunstiger en vindt een faseovergang plaats.
+
+De temperatuur waarbij dit gebeurt is geen toevallige materiaaleigenschap. Zij volgt rechtstreeks uit de voorwaarde dat beide fasen dezelfde chemische potentiaal bezitten. De smelttemperatuur is de temperatuur waarbij de chemische potentialen van de vaste stof en de vloeistof gelijk zijn. Op analoge wijze wordt het kookpunt bepaald door de gelijkheid van de chemische potentialen van de vloeistof en de damp.
+
+\subsection{De chemische potentiaal als functie van druk en temperatuur}
+\label{sec:mu-p-T}
+
+De chemische potentiaal van een zuivere stof is de molaire Gibbs-vrije energie: $\mu = G_m$. Voor een zuiver systeem met $n$ mol geldt $G=n\mu$, $V=nV_m$ en $S=nS_m$. Substitutie in de fundamentele differentiaalvergelijking van hoofdstuk~\ref{ch:spontaniteit}, $\dG=V\,\dp-S\,\dT$ (vergelijking~\eqref{eq:fundG}), levert bij constante $n$:
+\begin{equation}
+n\,\d\mu = nV_m\,\dp - nS_m\,\dT,
+\end{equation}
+en na deling door $n$:
+\begin{equation}
+\boxed{\;\d\mu = V_m\,\dp - S_m\,\dT.\;}
+\label{eq:dmu-fundamenteel}
+\end{equation}
+Deze vergelijking, die rechtstreeks voortvloeit uit vergelijking~\eqref{eq:fundG} uit hoofdstuk~\ref{ch:spontaniteit}, is het vertrekpunt voor vrijwel alle berekeningen van fase-evenwichten in dit hoofdstuk.
+
+\subsubsection{Invloed van de druk}
+
+Bij constante temperatuur reduceert deze vergelijking tot
+\begin{equation}
+\d\mu = V_m\,\dp.
+\end{equation}
+De chemische potentiaal stijgt dus met de druk. Voor vloeistoffen en vaste stoffen, die een klein molair volume hebben, is deze afhankelijkheid beperkt. Voor gassen, die een groot molair volume hebben, is zij aanzienlijk.
+
+\subsubsection{Ideale gassen}
+
+Voor een ideaal gas geldt $V_m = RT/p$. Invullen en integreren tussen een referentiedruk $p^\circ$ en de actuele druk $p$ levert:
+\begin{equation}
+\mu(T,p) = \mu^\circ(T) + RT \ln\frac{p}{p^\circ}.
+\label{eq:mu-p-ideaalgas-h5}
+\end{equation}
+Hierin is $\mu^\circ(T)$ de chemische potentiaal in de standaardtoestand ($p = p^\circ = \SI{1}{\bar}$). Dit is exact dezelfde uitdrukking als reeds afgeleid in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:activiteit}, vergelijking~\eqref{eq:mu-ideaalgas}) --- daar volgde zij uit dezelfde redenering, toegepast op \'e\'en mol zuiver ideaal gas. De chemische potentiaal van een ideaal gas hangt dus logaritmisch af van de druk.
+
+\subsection{Fugaciteit: een veralgemening van de druk}
+\label{sec:fugaciteit}
+
+De ideale-gasvergelijking werkt uitstekend voor verdunde gassen, maar in industri\"ele toepassingen wordt vaak gewerkt bij drukken van tientallen of honderden bar. Onder dergelijke omstandigheden voldoet de ideale gaswet niet langer, en beschrijft de druk de chemische potentiaal van een re\"eel gas niet meer volledig.
+
+Om dezelfde vorm van de thermodynamische vergelijkingen te kunnen behouden, wordt een nieuwe grootheid ingevoerd: de \emph{fugaciteit} $f$. Dit is voor gassen precies wat de \emph{activiteit} in het algemeen is (hoofdstuk~\ref{ch:spontaniteit}, \S~\ref{sec:activiteit}): een effectieve grootheid die de eenvoudige logaritmische vorm van $\mu$ behoudt, ook wanneer het systeem niet langer ideaal is. De chemische potentiaal van een re\"eel gas wordt geschreven als
+\begin{equation}
+\mu(T,p) = \mu^\circ(T) + RT \ln\frac{f}{f^\circ},
+\end{equation}
+waarin $f^\circ$ de fugaciteit in de gekozen referentietoestand voorstelt. Voor een ideaal gas vallen druk en fugaciteit samen: $f = p$.
+
+\subsubsection{De fugaciteitsco\"effici\"ent}
+\label{sec:fugaciteitscoefficient}
+
+In de praktijk is het nuttiger de afwijking ten opzichte van ideaal gedrag te beschrijven. Daartoe wordt de \emph{fugaciteitsco\"effici\"ent} ingevoerd:
+\begin{equation}
+\phi = \frac{f}{p}, \qquad\text{zodat}\qquad f = \phi p.
+\end{equation}
+De fugaciteitsco\"effici\"ent is dimensieloos en vormt een directe maat voor de afwijking van ideaal gedrag. Voor een ideaal gas geldt $\phi = 1$. Substitutie levert:
+\begin{equation}
+\mu = \mu^\circ + RT \ln\frac{p}{p^\circ} + RT \ln \phi.
+\end{equation}
+De derde term vormt de correctie voor niet-ideaal gedrag. In de praktijk wordt $\phi$ berekend met behulp van een vergelijking van toestand (Soave--Redlich--Kwong, Peng--Robinson).
+
+\subsection{Fase-evenwicht tussen twee fasen}
+\label{sec:fase-evenwicht-voorwaarde}
+
+De fundamentele voorwaarde voor fase-evenwicht werd reeds in hoofdstuk~\ref{ch:spontaniteit} ingevoerd. Voor iedere component moet de chemische potentiaal in beide fasen identiek zijn:
+\begin{equation}
+\mu^{(\alpha)} = \mu^{(\beta)}.
+\end{equation}
+Deze vergelijking geldt voor het evenwicht tussen vaste stof en vloeistof, tussen vloeistof en damp, tussen twee vloeistoffasen en zelfs tussen verschillende kristalstructuren. Vrijwel alle fase-evenwichten die in de chemische technologie worden bestudeerd, kunnen uiteindelijk tot deze eenvoudige voorwaarde worden herleid.
+
+\section{Fase-evenwicht van zuivere stoffen: Clapeyron, Antoine en het fasediagram}
+
+\subsection{De vergelijking van Clapeyron}
+\label{sec:clapeyron}
+
+De vergelijking van Clapeyron beschrijft hoe de druk van een fase-evenwicht verandert wanneer de temperatuur wordt gewijzigd. De afleiding vertrekt van de voorwaarde dat beide fasen langs de evenwichtslijn in evenwicht blijven, zodat $d\mu^{(\alpha)} = d\mu^{(\beta)}$.
+
+Met $\d\mu = V_m\,\dp - S_m\,\dT$ (vergelijking~\eqref{eq:dmu-fundamenteel}) voor iedere fase volgt:
+\[
+V_m^{(\beta)}\,\dp - S_m^{(\beta)}\,\dT = V_m^{(\alpha)}\,\dp - S_m^{(\alpha)}\,\dT.
+\]
+Het verschil tussen beide molaire volumes is $\Delta V_m = V_m^{(\beta)} - V_m^{(\alpha)}$ en het verschil tussen beide molaire entropie\"en is $\Delta S_m = S_m^{(\beta)} - S_m^{(\alpha)}$. Herschikken levert:
+\begin{equation}
+\frac{\dp}{\dT} = \frac{\Delta S_m}{\Delta V_m}.
+\end{equation}
+Met $\Delta S_{\text{trans}} = \Delta H_{\text{trans}}/T_{\text{trans}}$ (hoofdstuk~\ref{ch:spontaniteit}) ontstaat de \emph{algemene vergelijking van Clapeyron}:
+\begin{equation}
+\boxed{\;\frac{\dp}{\dT} = \frac{\Delta H_{\text{trans}}}{T\,\Delta V_m}\;}
+\label{eq:clapeyron}
+\end{equation}
+Deze vergelijking is algemeen geldig voor iedere eerste-orde faseovergang.
+
+\begin{voorbeeld}{De smeltlijn van water}
+Water vormt een bekende uitzondering. Omdat ijs een lagere dichtheid bezit dan vloeibaar water, neemt het volume af tijdens het smelten: $\Delta V_m < 0$. Aangezien $\Delta H_{\text{fus}} > 0$, is de helling $\dp/\dT$ negatief. Een drukverhoging verlaagt de smelttemperatuur van ijs. Dit verklaart waarom schaatsen mogelijk is: de druk onder de schaats smelt het ijs lokaal, hetgeen een dunne vloeistoflaag vormt die als smeermiddel werkt.
+
+Voor water bij \SI{0}{\celsius} geldt $\Delta H_{\text{fus}} = \SI{6.0}{\kilo\joule\per\mole}$ en $\Delta V_m \approx \SI{-1.6e-6}{\metre\cubed\per\mole}$. De helling bedraagt dus:
+\[
+\frac{\dp}{\dT} = \frac{\SI{6000}{\joule\per\mole}}{(\SI{273.15}{\kelvin})(\SI{-1.6e-6}{\metre\cubed\per\mole})} \approx \SI{-1.4e7}{\pascal\per\kelvin} = \SI{-140}{\bar\per\kelvin}.
+\]
+Een drukverhoging van \SI{140}{\bar} is dus nodig om het smeltpunt van ijs met \SI{1}{\kelvin} te verlagen.
+\end{voorbeeld}
+
+\subsection{De vergelijking van Clausius--Clapeyron}
+\label{sec:clausius-clapeyron}
+
+Voor het vloeistof-dampevenwicht kan de algemene vergelijking van Clapeyron sterk worden vereenvoudigd. Twee aannames worden gemaakt:
+\begin{enumerate}
+\item Het molaire volume van de damp is veel groter dan dat van de vloeistof: $\Delta V_{\text{vap}} \approx V_m^{(g)}$.
+\item De damp gedraagt zich als een ideaal gas: $V_m^{(g)} = RT/p$.
+\end{enumerate}
+Substitutie levert:
+\begin{equation}
+\frac{1}{p}\frac{\dp}{\dT} = \frac{\Delta H_{\text{vap}}}{RT^2},
+\end{equation}
+of, equivalent:
+\begin{equation}
+\frac{\dx{\ln p}}{\dT} = \frac{\Delta H_{\text{vap}}}{RT^2}.
+\end{equation}
+Indien $\Delta H_{\text{vap}}$ constant wordt verondersteld, levert integratie:
+\begin{equation}
+\boxed{\;\ln\frac{p_2}{p_1} = -\frac{\Delta H_{\text{vap}}}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right)\;}
+\label{eq:clausius-clapeyron-int}
+\end{equation}
+Deze vergelijking is bijzonder populair omdat zij toelaat de dampdruk bij verschillende temperaturen te schatten uit twee bekende punten.
+
+\begin{voorbeeld}{Dampdruk van water bij \SI{50}{\celsius}}
+Gegeven: water kookt bij \SI{100}{\celsius} (\SI{373.15}{\kelvin}) met $\Delta H_{\text{vap}} = \SI{40.7}{\kilo\joule\per\mole}$, zodat $p_1 = \SI{1.013}{\bar}$ bij $T_1 = \SI{373.15}{\kelvin}$. De dampdruk bij $T_2 = \SI{323.15}{\kelvin}$ (\SI{50}{\celsius}) volgt uit:
+\[
+\ln\frac{p_2}{\SI{1.013}{\bar}} = -\frac{\SI{40700}{\joule\per\mole}}{\SI{8.314}{\joule\per\mole\per\kelvin}}\left(\frac{1}{323.15} - \frac{1}{373.15}\right) = -3.42.
+\]
+Zodat $p_2 = \SI{1.013}{\bar} \cdot e^{-3.42} \approx \SI{0.036}{\bar} = \SI{36}{\milli\bar}$. Dit is in goede overeenstemming met de experimentele waarde van \SI{35.6}{\milli\bar} bij \SI{50}{\celsius}.
+\end{voorbeeld}
+
+\subsection{De Antoine-vergelijking}
+\label{sec:antoine}
+
+In de ingenieurspraktijk wordt de vergelijking van Clausius--Clapeyron zelden rechtstreeks gebruikt. De verdampingsenthalpie is immers temperatuursafhankelijk, en voor nauwkeurige berekeningen is een empirische correlatie superieur. De meest gebruikte is de \emph{Antoine-vergelijking}:
+\begin{equation}
+\boxed{\;\log_{10} p = A - \frac{B}{T + C}\;}
+\label{eq:antoine}
+\end{equation}
+waarin $p$ de dampdruk is en $T$ de temperatuur, en $A$, $B$, $C$ stofconstantes zijn die empirisch worden bepaald. De Antoine-vergelijking is opgenomen in vrijwel alle thermodynamische databanken (NIST Webbook, Aspen Plus, ChemCAD) en vormt de standaardtool voor dampdrukberekeningen in de procesindustrie.
+
+\begin{voorbeeld}{Dampdruk van ethanol via Antoine --- let op de eenheden en de temperatuurschaal}
+De Antoine-constanten voor ethanol, geldig tussen ongeveer \SI{270}{\kelvin} en \SI{352}{\kelvin} (NIST Webbook), zijn $A = 5.24677$, $B = 1598.673$, $C = -46.424$, met \emph{$p$ in bar en $T$ in kelvin} --- een veelvoorkomende bron van fouten is dat men vergeet te controleren of een gegeven Antoine-parameterset $T$ in kelvin dan wel in \si{\celsius} verwacht, en of $p$ in bar, mbar of mmHg wordt uitgedrukt: het rechtstreeks invullen van een temperatuur in \si{\celsius} in een parameterset die kelvin verwacht (of omgekeerd) levert vrijwel altijd een fysisch onzinnig resultaat op, zoals een negatieve of complexe dampdruk.
+
+Voor de dampdruk bij \SI{20}{\celsius} ($T = \SI{293.15}{\kelvin}$) geldt:
+\[
+\log_{10}p = 5.24677 - \frac{1598.673}{293.15 - 46.424} = 5.24677 - \frac{1598.673}{246.726} = 5.24677 - 6.4796 = -1.2328.
+\]
+Zodat
+\[
+p = 10^{-1.2328}\,\mathrm{bar} \approx \SI{0.0585}{\bar} = \SI{58.5}{\milli\bar},
+\]
+in goede overeenstemming met de experimentele waarde van ongeveer \SI{59.5}{\milli\bar} bij \SI{20}{\celsius}. Als controle: bij $p=\SI{1.013}{\bar}$ voorspelt dezelfde parameterset een kookpunt van $T\approx\SI{351.4}{\kelvin}=\SI{78.3}{\celsius}$, in uitstekende overeenstemming met het bekende kookpunt van ethanol (\SI{78.4}{\celsius}, reeds gebruikt in hoofdstuk~\ref{ch:intermoleculair}).
+
+\textbf{Vuistregel:} vul steeds eerst \'e\'en bekend punt in (bv.\ het normale kookpunt bij \SI{1.013}{\bar}) om te verifi\"eren dat de gebruikte eenheden en temperatuurschaal overeenkomen met die van de gebruikte parameterset, v\'o\'or de vergelijking te gebruiken voor een onbekende toestand.
+\end{voorbeeld}
+
+\subsection{Het fasediagram van een zuivere stof}
+\label{sec:fasediagram}
+
+De vergelijkingen van Clapeyron beschrijven de helling van de evenwichtslijnen in een fasediagram. Samen vormen deze lijnen het \emph{fasediagram} van een zuivere stof, waarin voor elke combinatie van druk en temperatuur de stabiele fase is aangegeven.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Afbeeldingen/fasediagram_zuivere_stof.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} Schematisch $p$--$T$-fasediagram van een zuivere stof (bv.\ water), met drie evenwichtslijnen die elkaar ontmoeten in het tripelpunt: de sublimatielijn (vast--damp), de smeltlijn (vast--vloeistof, met voor water een lichte \emph{negatieve} helling zoals berekend in het voorbeeld bij vergelijking~\eqref{eq:clapeyron}) en de dampdruklijn (vloeistof--damp, volgens Clausius--Clapeyron, eindigend in het kritische punt). Markeer het tripelpunt en het kritische punt expliciet, en duid de gebieden vaste stof, vloeistof, gas en superkritisch flu\"idum aan.}
+    \label{fig:fasediagram}
+\end{figure}
+
+\subsubsection{Het tripelpunt}
+\label{sec:tripelpunt}
+
+Het \emph{tripelpunt} is de unieke combinatie van druk en temperatuur waarbij drie fasen gelijktijdig in evenwicht co\"existeren. Voor water bevindt het tripelpunt zich bij $T = \SI{0.01}{\celsius}$ en $p = \SI{611}{\pascal}$ (\SI{4.58}{\milli\bar}).
+
+\subsubsection{Het kritische punt}
+\label{sec:kritisch-punt}
+
+Bij voldoende hoge temperatuur en druk verdwijnt het onderscheid tussen vloeistof en damp. Het \emph{kritische punt} markeert het einde van de evenwichtslijn tussen vloeistof en damp. Boven de kritische temperatuur kan een gas niet meer door drukverhoging worden vloeibaar gemaakt. Voor water bedragen de kritische parameters $T_c = \SI{374}{\celsius}$, $p_c = \SI{221}{\bar}$.
+
+\subsubsection{Superkritische flu\"ida}
+\label{sec:superkritisch}
+
+Boven het kritische punt bestaat geen onderscheid meer tussen vloeistof en gas. De stof gedraagt zich als een \emph{superkritisch flu\"idum}: zij bezit een dichtheid vergelijkbaar met die van een vloeistof, maar vult het volledige beschikbare volume zoals een gas. Superkritisch $\mathrm{CO_2}$ ($T_c = \SI{31}{\celsius}$, $p_c = \SI{74}{\bar}$) wordt op grote schaal gebruikt voor extractieprocessen, bijvoorbeeld decaffe\"inering van koffie, extractie van hopextracten en droging van farmaceutische producten.
+
+\section{Thermodynamica van mengsels en de wet van Raoult}
+
+\subsection{Thermodynamica van mengsels}
+\label{sec:thermodynamica-mengsels}
+
+In de praktijk werken ingenieurs vrijwel steeds met mengsels, niet met zuivere stoffen. Een destillatiekolom scheidt mengsels, een reactor bevat een reactiemengsel, een absorber brengt verschillende componenten in contact. De chemische potentiaal van een component in een mengsel is niet alleen afhankelijk van temperatuur en druk, maar eveneens van de samenstelling.
+
+\subsubsection{Spontane menging}
+
+Beschouw twee ideale gassen in afzonderlijke compartimenten bij gelijke temperatuur en druk. Na het verwijderen van de scheidingswand mengen beide componenten spontaan. Deze spontane menging wordt aangedreven door de entropie: het aantal mogelijke microtoestanden neemt sterk toe (hoofdstuk~\ref{ch:spontaniteit}, \S~\ref{sec:waarschijnlijkheid-entropie}).
+
+\subsubsection{De entropie van mengen}
+
+Voor een ideaal mengsel, waarin de intermoleculaire interacties tussen ongelijke moleculen gelijk zijn aan die tussen gelijke moleculen, bedraagt de mengentropie:
+\begin{equation}
+\Delta S_{\text{meng}} = -R \sum_i n_i \ln x_i,
+\end{equation}
+waarin $x_i = n_i / \sum_j n_j$ de molfractie is. Omdat $x_i < 1$ voor alle componenten, is $\ln x_i < 0$ en dus $\Delta S_{\text{meng}} > 0$. Deze formule werd combinatorisch afgeleid in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:waarschijnlijkheid-entropie}, via de formule $\Omega_{\text{meng}}=N!/(N_A!N_B!)$ en de Stirling-benadering).
+
+\subsubsection{De Gibbs-vrije energie van mengen}
+
+Voor een ideaal mengsel is $\Delta H_{\text{meng}} = 0$, zodat
+\begin{equation}
+\Delta G_{\text{meng}} = -T\,\Delta S_{\text{meng}} = RT \sum_i n_i \ln x_i.
+\end{equation}
+Aangezien $\ln x_i < 0$ is $\Delta G_{\text{meng}} < 0$: de Gibbs-vrije energie neemt af, en de menging verloopt spontaan.
+
+\begin{voorbeeld}{Scheidingsarbeid voor lucht}
+De atmosfeer is een mengsel van \SI{79}{\percent} $\mathrm{N_2}$ en \SI{21}{\percent} $\mathrm{O_2}$ (molfracties $x_{N_2} = 0.79$, $x_{O_2} = 0.21$). De mengentropie per mol lucht bedraagt:
+\[
+\Delta S_{\text{meng}} = -R(0.79\ln 0.79 + 0.21\ln 0.21) = (\SI{8.314}{\joule\per\mole\per\kelvin})(0.473) = \SI{3.93}{\joule\per\mole\per\kelvin}.
+\]
+Bij \SI{298}{\kelvin} correspondeert dit met een meng-Gibbsenergie van $\Delta G_{\text{meng}} = -T\Delta S = -\SI{1171}{\joule\per\mole}$. Om \SI{1}{\mole} lucht terug in zuivere componenten te scheiden, moet minstens \SI{1171}{\joule} arbeid worden geleverd. Voor \SI{1000}{\mole\per\hour} (typisch small-scale luchtscheiding) vereist dit \SI{1.17}{\mega\joule\per\hour} of \SI{0.33}{\kilo\watt}. In werkelijkheid is de thermodynamische effici\"entie van cryogene luchtscheiding \SI{15}{\percent} tot \SI{25}{\percent}, zodat werkelijk \SI{1.3}{\kilo\watt} aanzienlijk meer vermogen nodig is.
+\end{voorbeeld}
+
+\subsubsection{Niet-ideale mengsels}
+\label{sec:niet-ideale-mengsels}
+
+Een positieve mengentropie alleen is niet voldoende om spontane menging te garanderen. Wanneer de intermoleculaire interacties tussen ongelijke moleculen aanzienlijk minder gunstig zijn dan tussen gelijke, wordt energie opgenomen tijdens het mengen: $\Delta H_{\text{meng}} > 0$. De meng-Gibbsenergie
+\begin{equation}
+\Delta G_{\text{meng}} = \Delta H_{\text{meng}} - T\,\Delta S_{\text{meng}}
+\end{equation}
+kan dan positief worden, en het systeem splitst spontaan in twee fasen. Water en olie, polymeermengsels en talrijke metallische legeringen vertonen dit gedrag. Dit is precies het gedrag dat in hoofdstuk~\ref{ch:intermoleculair} (\S~"Mengsels: regelmatige oplossingen en de Hildebrand-parameter") kwantitatief werd voorspeld via de Hildebrand-parameter $\delta$ en $\Delta H_{\text{meng}}\approx V(\delta_1-\delta_2)^2\phi_1\phi_2$: het voorbeeld van water en hexaan daar is een concrete illustratie van precies dit mechanisme, en leidt verderop in dit hoofdstuk (\S~\ref{sec:lle}) tot een vloeistof-vloeistofevenwicht.
+
+\subsection{De chemische potentiaal in een mengsel}
+\label{sec:mu-mengsel}
+
+Voor een ideaal mengsel kan de Gibbs-vrije energie worden geschreven als:
+\begin{equation}
+G = \sum_i n_i \mu_i^* + RT \sum_i n_i \ln x_i,
+\end{equation}
+waarin $\mu_i^*$ de chemische potentiaal van de zuivere component $i$ bij dezelfde temperatuur en druk voorstelt. Parti\"ele afleiding naar $n_i$ levert de chemische potentiaal van component $i$ in een ideaal mengsel:
+\begin{equation}
+\boxed{\;\mu_i = \mu_i^* + RT \ln x_i\;}
+\label{eq:mu-mengsel-ideaal}
+\end{equation}
+Voor een zuivere stof ($x_i = 1$) reduceert dit tot $\mu_i = \mu_i^*$. Voor een verdunde component ($x_i < 1$) geldt $\mu_i < \mu_i^*$: de aanwezigheid van andere componenten verlaagt de chemische potentiaal.
+
+\subsection{De wet van Raoult}
+\label{sec:raoult}
+
+Voor een vloeistofmengsel in evenwicht met zijn damp kan de fase-evenwichtsvoorwaarde $\mu_i^{(l)} = \mu_i^{(g)}$ worden uitgewerkt. Voor een ideaal mengsel en een ideaal gas levert dit de \emph{wet van Raoult}:
+\begin{equation}
+\boxed{\;p_i = x_i\,p_i^*\;}
+\label{eq:raoult}
+\end{equation}
+waarin $p_i$ de parti\"ele dampdruk van component $i$ boven het mengsel, $x_i$ de molfractie in de vloeistof, en $p_i^*$ de verzadigingsdampdruk van de zuivere component $i$ bij dezelfde temperatuur (bijvoorbeeld via de Antoine-vergelijking, \S~\ref{sec:antoine}). De parti\"ele dampdruk van ieder component is dus recht evenredig met zijn molfractie in de vloeistof.
+
+De totale druk boven een binair ideaal mengsel is, volgens de wet van Dalton:
+\begin{equation}
+P = x_A p_A^* + x_B p_B^*.
+\end{equation}
+Dit is de \emph{bubbelpuntvergelijking}: zij geeft de druk waarbij een vloeistof met samenstelling $(x_A, x_B)$ begint te koken.
+
+\begin{voorbeeld}{Bubbelpunt van een binair ideaal mengsel}
+Beschouw een vloeistofmengsel van benzeen (A) en tolueen (B) met $x_A = 0.40$ bij \SI{90}{\celsius}. De verzadigingsdampdrukken bedragen $p_A^* = \SI{1.35}{\bar}$ en $p_B^* = \SI{0.54}{\bar}$. De bubbelpuntdruk is
+\[
+P = (0.40)(\SI{1.35}{\bar}) + (0.60)(\SI{0.54}{\bar}) = \SI{0.864}{\bar}.
+\]
+De dampsamenstelling volgt uit $y_i = x_i p_i^*/P$:
+\[
+y_A = \frac{(0.40)(\SI{1.35}{\bar})}{\SI{0.864}{\bar}} = 0.625, \qquad y_B = 1 - y_A = 0.375.
+\]
+De damp is dus rijker aan benzeen (de meest vluchtige component), wat de basis vormt van destillatie.
+\end{voorbeeld}
+
+\subsubsection{De dampsamenstelling}
+
+Uit de wet van Raoult en de definitie $y_i = p_i/P$ volgt:
+\begin{equation}
+y_i = \frac{x_i p_i^*}{P}.
+\end{equation}
+De component met de hoogste verzadigingsdampdruk zal sterker vertegenwoordigd zijn in de dampfase dan in de vloeistoffase. Dit verschil in samenstelling tussen vloeistof en damp vormt de volledige basis van destillatie.
+
+\subsection{Relatieve vluchtigheid}
+\label{sec:relatieve-vluchtigheid}
+
+De \emph{relatieve vluchtigheid} $\alpha_{AB}$ kwantificeert hoe gemakkelijk twee componenten $A$ en $B$ door destillatie kunnen worden gescheiden:
+\begin{equation}
+\boxed{\;\alpha_{AB} = \frac{y_A/x_A}{y_B/x_B} = \frac{p_A^*}{p_B^*}\;}
+\end{equation}
+Voor ideale mengsels is $\alpha$ gelijk aan de verhouding van de verzadigingsdampdrukken. Hoe groter $\alpha$, hoe gemakkelijker de scheiding.
+
+\begin{itemize}
+\item $\alpha \approx 1$: scheiding door destillatie is vrijwel onmogelijk.
+\item $\alpha \approx 2$: scheiding is relatief eenvoudig met weinig traps.
+\item $\alpha \geq 5$: scheiding is zeer eenvoudig.
+\end{itemize}
+
+\begin{voorbeeld}{Relatieve vluchtigheid van benzeen--tolueen}
+Voor het mengsel uit het vorige voorbeeld geldt $\alpha_{AB} = p_A^*/p_B^* = \SI{1.35}{\bar}/\SI{0.54}{\bar} = 2.5$. Benzeen en tolueen zijn dus goed door destillatie te scheiden, wat verklaart waarom dit mengsel in veel handboeken als voorbeeld dient.
+\end{voorbeeld}
+
+\section{Het damp-vloeistofdiagram: hefboomwet en azeotropen}
+
+\subsection{Het damp-vloeistofdiagram}
+\label{sec:vle-diagram}
+
+De resultaten van de wet van Raoult worden grafisch voorgesteld in een \emph{damp-vloeistofdiagram}. Voor een binaire mengsel bij constante temperatuur worden twee curven getekend:
+\begin{itemize}
+\item De \emph{bubbelpuntcurve}: $P$ als functie van $x_A$, volgens $P = x_A p_A^* + x_B p_B^*$.
+\item De \emph{dauwpuntcurve}: $P$ als functie van $y_A$, afgeleid uit de bubbelpuntcurve via $y_i = x_i p_i^*/P$.
+\end{itemize}
+Samen begrenzen beide curven het gebied waarin vloeistof en damp gelijktijdig aanwezig zijn. Een punt binnen dit tweefasengebied representeert een mengsel dat gedeeltelijk vloeibaar en gedeeltelijk damp is.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Afbeeldingen/vle_diagram_hefboomwet.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} $P$--$x$--$y$-diagram voor het benzeen--tolueenmengsel bij \SI{90}{\celsius} uit de voorbeelden hierboven: een rechte bubbelpuntcurve (lineair in $x_A$) en een gekromde dauwpuntcurve, beide lopend tussen $p_B^*=\SI{0.54}{\bar}$ (bij $x_A=0$) en $p_A^*=\SI{1.35}{\bar}$ (bij $x_A=1$). Markeer het globale punt $z_A=0.50$ uit het hefboomwet-voorbeeld (\S~\ref{sec:hefboomwet}) op de horizontale lijn $P=\SI{0.864}{\bar}$, met de bijhorende $x_A=0.40$ en $y_A=0.625$ als de twee uiteinden van het ``hefboom''-lijnstuk --- dit visualiseert in \'e\'en oogopslag zowel de wet van Raoult als de hefboomwet.}
+    \label{fig:vle-diagram}
+\end{figure}
+
+\subsection{De hefboomwet (lever rule)}
+\label{sec:hefboomwet}
+
+Wanneer een mengsel zich in het tweefasengebied bevindt, geldt een massabalans die de verhouding van vloeistof en damp vastlegt. Beschouw een totaal aantal mol $n_{\text{tot}}$ met globale molfractie $z_A$, dat splitst in een vloeistoffase ($n_L$, molfractie $x_A$) en een dampfase ($n_V$, molfractie $y_A$). De massabalans voor component $A$ luidt:
+\[
+n_{\text{tot}} z_A = n_L x_A + n_V y_A.
+\]
+Met $n_{\text{tot}} = n_L + n_V$ volgt na herschikking de \emph{hefboomwet}:
+\begin{equation}
+\boxed{\;\frac{n_L}{n_V} = \frac{y_A - z_A}{z_A - x_A}\;}
+\label{eq:hefboomwet}
+\end{equation}
+De verhouding van vloeistof- en damphasen wordt dus bepaald door de afstand van het globale punt tot de bubbelpunt- en dauwpuntcurve, analoog aan een hefboom rond een steunpunt.
+
+\begin{voorbeeld}{Toepassing van de hefboomwet}
+Voor het benzeen--tolueenmengsel bij \SI{90}{\celsius} en $P = \SI{0.864}{\bar}$ geldt $x_A = 0.40$ en $y_A = 0.625$ (uit het eerdere voorbeeld). Een globale samenstelling $z_A = 0.50$ geeft:
+\[
+\frac{n_L}{n_V} = \frac{0.625 - 0.50}{0.50 - 0.40} = \frac{0.125}{0.10} = 1.25.
+\]
+Van elke mol mengsel bevindt zich dus $n_L = 0.56$ mol in de vloeistoffase en $n_V = 0.44$ mol in de dampfase. Deze eenvoudige berekening vormt het vertrekpunt van het ontwerp van een destillatiekolom.
+\end{voorbeeld}
+
+\subsection{Azeotropen}
+\label{sec:azeotropen}
+
+Voor vele re\"ele mengsels wijkt de totale dampdruk af van de wet van Raoult. Wanneer de afwijking voldoende groot is, kan een toestand ontstaan waarin de vloeistof- en dampsamenstelling identiek zijn: een \emph{azeotroop}. Aan een azeotroop kan destillatie geen verdere scheiding meer bereiken.
+
+\subsubsection{Minimaal kokende azeotroop (positieve afwijking)}
+
+Wanneer de intermoleculaire interacties tussen ongelijke moleculen zwakker zijn dan tussen gelijke (hoofdstuk~\ref{ch:intermoleculair}), is de dampdruk hoger dan door Raoult voorspeld. Boven een drempel ontstaat een \emph{minimaal kokende azeotroop}: het mengsel kookt bij een lagere temperatuur dan beide zuivere componenten.
+
+\begin{itemize}
+\item \textbf{Ethanol--water} bij $x_{\text{eth}} = 0.894$ en $T = \SI{78.2}{\celsius}$ (lager dan zuiver ethanol: \SI{78.4}{\celsius}). Dit is de verklaring voor de beperking van ethanoldestillatie tot \SI{95.6}{\percent}.
+\item \textbf{Aceton--koolstofdisulfide}: $T = \SI{39.3}{\celsius}$ (lager dan aceton \SI{56}{\celsius} en $\mathrm{CS_2}$ \SI{46}{\celsius}).
+\end{itemize}
+
+\subsubsection{Maximaal kokende azeotroop (negatieve afwijking)}
+
+Wanneer de intermoleculaire interacties tussen ongelijke moleculen sterker zijn, is de dampdruk lager dan door Raoult voorspeld. Boven een drempel ontstaat een \emph{maximaal kokende azeotroop}: het mengsel kookt bij een hogere temperatuur dan beide zuivere componenten.
+
+\begin{itemize}
+\item \textbf{Zoutzuur--water} ($\mathrm{HCl}$--$\mathrm{H_2O}$) bij $x_{\mathrm{HCl}} = 0.112$ en $T = \SI{110}{\celsius}$. Dit wordt commercieel gebruikt voor de productie van standaard zoutzuur met precies bekende samenstelling.
+\item \textbf{Aceton--chloroform} bij $T = \SI{64.5}{\celsius}$ (hoger dan aceton \SI{56}{\celsius} en chloroform \SI{61}{\celsius}). De verklaring ligt in waterstofbruggen tussen aceton en chloroform (hoofdstuk~\ref{ch:intermoleculair}, \S~4.2.6).
+\end{itemize}
+
+\section{Re\"ele mengsels: activiteit en activiteitsco\"effici\"entmodellen}
+
+\subsection{Re\"ele mengsels en activiteit}
+\label{sec:activiteit-mengsel}
+
+Voor re\"ele mengsels volstaat de wet van Raoult niet langer. De chemische potentiaal van component $i$ in een re\"eel mengsel wordt beschreven met de \emph{activiteit} $a_i$ --- hetzelfde begrip dat reeds werd ingevoerd in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:activiteit}, vergelijking~\eqref{eq:mu-activiteit}); we werken het hier concreet uit voor vloeistofmengsels:
+\begin{equation}
+\mu_i = \mu_i^* + RT \ln a_i.
+\end{equation}
+De activiteit is een dimensieloze grootheid die de ``effectieve molfractie'' voorstelt. Zij hangt samen met de molfractie via de \emph{activiteitsco\"effici\"ent} $\gamma_i$:
+\begin{equation}
+\boxed{\;a_i = \gamma_i\,x_i\;}
+\label{eq:activiteit-mengsel}
+\end{equation}
+Voor een ideaal mengsel geldt $\gamma_i = 1$ en $a_i = x_i$, en reduceert dit tot vergelijking~\eqref{eq:mu-mengsel-ideaal}. Voor re\"ele mengsels wijkt $\gamma_i$ af van \'e\'en.
+
+\subsubsection{Interpretatie van de activiteitsco\"effici\"ent}
+
+\begin{itemize}
+\item $\gamma_i > 1$: component $i$ vertoont een \emph{positieve afwijking} --- de intermoleculaire interacties tussen ongelijke moleculen zijn zwakker (hoofdstuk~\ref{ch:intermoleculair}). De component verlaat de vloeistof gemakkelijker dan ideaal; dampdruk hoger dan Raoult.
+\item $\gamma_i < 1$: \emph{negatieve afwijking} --- de intermoleculaire interacties tussen ongelijke moleculen zijn sterker. De component wordt beter in de vloeistof vastgehouden; dampdruk lager dan Raoult.
+\item $\gamma_i \to 1$ naarmate $x_i \to 1$: elke component gedraagt zich ideaal in de limiet van de zuivere stof.
+\end{itemize}
+
+\subsubsection{De wet van Henry}
+\label{sec:henry}
+
+Voor een \emph{sterk verdunde} component ($x_i \to 0$) geldt een andere referentietoestand. De activiteitsco\"effici\"ent nadert een constante waarde $\gamma_i^\infty$, en de evenwichtsvoorwaarde wordt de \emph{wet van Henry}:
+\begin{equation}
+\boxed{\;p_i = x_i\,H_i\;}
+\label{eq:henry}
+\end{equation}
+waarin $H_i$ de Henry-constante is (dimensie van druk, op molfractieschaal). De wet van Henry is de verdunde limiet van de wet van Raoult, maar met $p_i^*$ vervangen door $H_i$. Zij wordt onder andere gebruikt voor oplosbaarheid van gassen in vloeistoffen ($\mathrm{O_2}$, $\mathrm{CO_2}$, $\mathrm{N_2}$ in water).
+
+\begin{voorbeeld}{Oplosbaarheid van $\mathrm{CO_2}$ in water}
+De Henry-constante voor $\mathrm{CO_2}$ in water bij \SI{25}{\celsius} bedraagt, op molfractieschaal, $H\approx\SI{1640}{\bar}$. Voor een drank onder een $\mathrm{CO_2}$-partieeldruk van \SI{3}{\bar} geldt bij evenwicht:
+\[
+x_{\mathrm{CO_2}} = \frac{p_{\mathrm{CO_2}}}{H} = \frac{\SI{3}{\bar}}{\SI{1640}{\bar}} \approx 1.8\times10^{-3}.
+\]
+Wanneer de fles wordt geopend, daalt de partieeldruk van $\mathrm{CO_2}$ tot de atmosferische waarde, $p_{\mathrm{CO_2}}\approx\SI{4e-4}{\bar}$, zodat de nieuwe evenwichtsmolfractie
+\[
+x_{\mathrm{CO_2}} = \frac{\SI{4e-4}{\bar}}{\SI{1640}{\bar}} \approx 2.4\times10^{-7}
+\]
+bedraagt: een daling met een factor \num{7500}. Het sterk oververzadigde $\mathrm{CO_2}$ kan niet ogenblikkelijk ontsnappen en komt vrij als bellen --- het ``bruisen''.
+\end{voorbeeld}
+
+\subsection{Modellen voor activiteitsco\"effici\"enten}
+\label{sec:activiteitsmodellen}
+
+De activiteitsco\"effici\"ent hangt af van de samenstelling en de aard van de intermoleculaire interacties (hoofdstuk~\ref{ch:intermoleculair}). Verschillende modellen zijn ontwikkeld om $\gamma_i$ te beschrijven.
+
+\subsubsection{Margules (\'e\'enparameter)}
+
+Het eenvoudigste model, \emph{Margules \'e\'enparameter}, geeft voor een binair mengsel:
+\begin{equation}
+\ln \gamma_A = A x_B^2, \qquad \ln \gamma_B = A x_A^2,
+\end{equation}
+waarin $A$ een empirische parameter is. Voor $A > 0$ vertoont het mengsel een positieve afwijking; voor $A < 0$ een negatieve. Het model is symmetrisch: beide componenten worden op dezelfde manier behandeld.
+
+\begin{voorbeeld}{Margules voor aceton--chloroform}
+Voor aceton (A) en chloroform (B) geldt bij \SI{35}{\celsius} $A = -0.84$ (negatieve afwijking door waterstofbruggen, hoofdstuk~\ref{ch:intermoleculair}). Bij $x_A = 0.5$ geldt:
+\[
+\ln \gamma_A = -0.84 \cdot (0.5)^2 = -0.21, \quad \gamma_A = 0.81.
+\]
+De activiteitsco\"effici\"ent is kleiner dan \'e\'en: de component wordt beter vastgehouden in de vloeistof. Hierdoor ontstaat de maximaal kokende azeotroop van \S~\ref{sec:azeotropen}.
+\end{voorbeeld}
+
+\subsubsection{Margules tweeparameter}
+
+Een uitbreiding met twee parameters $A_{12}$ en $A_{21}$ laat toe asymmetrische mengsels te beschrijven:
+\begin{equation}
+\ln \gamma_1 = x_2^2 \bigl[A_{12} + 2(A_{21} - A_{12})x_1\bigr].
+\end{equation}
+Voor de meeste mengsels volstaat dit model kwalitatief, maar nauwkeuriger modellen worden in de procesindustrie gebruikt.
+
+\subsubsection{Van Laar}
+
+Het \emph{Van Laar}-model met parameters $A_{12}$ en $A_{21}$:
+\begin{equation}
+\ln \gamma_1 = \frac{A_{12}}{\left(1 + \frac{A_{12} x_1}{A_{21} x_2}\right)^2}, \qquad \ln \gamma_2 = \frac{A_{21}}{\left(1 + \frac{A_{21} x_2}{A_{12} x_1}\right)^2}.
+\end{equation}
+Van Laar is populair voor eenvoudige niet-ideale mengsels, met name voor systemen met beperkte mengbaarheid.
+
+\subsubsection{Wilson}
+
+Het \emph{Wilson}-model introduceert een \emph{lokale compositie}-concept: de samenstelling rond een molecule wijkt af van de globale gemiddelde samenstelling door intermoleculaire interacties (hoofdstuk~\ref{ch:intermoleculair}). Voor een binair mengsel geldt met twee parameters $\Lambda_{12}$ en $\Lambda_{21}$:
+\begin{align}
+\ln \gamma_1 &= -\ln(x_1 + \Lambda_{12} x_2) + x_2\left[\frac{\Lambda_{12}}{x_1 + \Lambda_{12} x_2} - \frac{\Lambda_{21}}{\Lambda_{21} x_1 + x_2}\right], \\
+\ln \gamma_2 &= -\ln(x_2 + \Lambda_{21} x_1) - x_1\left[\frac{\Lambda_{12}}{x_1 + \Lambda_{12} x_2} - \frac{\Lambda_{21}}{\Lambda_{21} x_1 + x_2}\right].
+\end{align}
+De Wilson-vergelijking is gebaseerd op het concept van lokale compositie, waarbij een molecule een andere ``lokale'' omgeving heeft dan de globale samenstelling. Het model is bijzonder succesvol voor volledig mengbare mengsels en wordt veel gebruikt in processimulators. Een belangrijk nadeel: Wilson kan geen vloeistof-vloeistof-splitsing (LLE, \S~\ref{sec:lle}) voorspellen.
+
+\subsubsection{NRTL (Non-Random Two-Liquid)}
+
+Het \emph{NRTL}-model is een uitbreiding van het Wilson-concept die ook parti\"ele mengbaarheid kan beschrijven. Voor een binair mengsel met drie parameters $\tau_{12}$, $\tau_{21}$ en $\alpha$ (de non-randomness parameter, typisch 0.2 tot 0.47):
+\begin{align}
+\ln \gamma_1 &= x_2^2 \left[\tau_{21}\left(\frac{G_{21}}{x_1 + x_2 G_{21}}\right)^2 + \frac{\tau_{12} G_{12}}{(x_2 + x_1 G_{12})^2}\right], \\
+\ln \gamma_2 &= x_1^2 \left[\tau_{12}\left(\frac{G_{12}}{x_2 + x_1 G_{12}}\right)^2 + \frac{\tau_{21} G_{21}}{(x_1 + x_2 G_{21})^2}\right],
+\end{align}
+met $G_{ij} = \exp(-\alpha \tau_{ij})$. NRTL is het meest algemene en veelzijdige model van de vier hierboven; het wordt in vrijwel alle commerci\"ele processimulators (Aspen Plus, ChemCAD, Pro/II) aangetroffen.
+
+\subsubsection{Overzicht en keuze}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+Model & Parameters (binair) & Geschikt voor \\
+\midrule
+Margules (1) & 1 & Snelle schatting, symmetrische mengsels \\
+Margules (2) & 2 & Asymmetrische mengsels, VLE \\
+Van Laar & 2 & Eenvoudige mengsels, beperkt mengbaar \\
+Wilson & 2 & Volledig mengbare mengsels, VLE (geen LLE) \\
+NRTL & 3 & Algemeen; VLE + LLE \\
+\bottomrule
+\end{tabular}
+\caption{Activiteitsco\"effici\"entmodellen voor vloeistofmengsels, in dit hoofdstuk behandeld.}
+\end{table}
+
+In de procesindustrie worden vrijwel steeds Wilson of NRTL gebruikt, al naargelang het systeem (en, wanneer ook vaste stoffen of polymeren betrokken zijn, vaak het verwante UNIQUAC-model, dat net als NRTL zowel VLE als LLE kan beschrijven maar bovendien rekening houdt met de grootte en vorm van de moleculen; de afleiding ervan valt buiten het bestek van deze cursus). Margules en Van Laar dienen vooral als pedagogisch instrument of snelle schatting.
+
+\section{Vloeistof-vloeistof- en vast-vloeistofevenwicht}
+
+\subsection{Vloeistof-vloeistofevenwicht (LLE)}
+\label{sec:lle}
+
+Wanneer $\Delta H_{\text{meng}}$ groot en positief is --- zoals kwantitatief voorspeld door de Hildebrand-parameter voor mengsels met sterk verschillende $\delta$ (hoofdstuk~\ref{ch:intermoleculair}, bv.\ het voorbeeld van water en hexaan) --- kan de meng-Gibbsenergie positief worden voor bepaalde samenstellingen. Het systeem splitst zich dan spontaan in twee vloeistoffasen: een \emph{vloeistof-vloeistofevenwicht} (LLE).
+
+De voorwaarde voor stabiliteit van een homogeen mengsel is dat de Gibbsenergie een convexe functie is van de samenstelling. Wanneer $\partial^2 G/\partial x^2 < 0$ in een bepaald gebied, is het homogene mengsel daar onstabiel en splitst het systeem in twee fasen met verschillende samenstellingen $x_A^{(\alpha)}$ en $x_A^{(\beta)}$, verbonden door een \emph{binodaal}. Binnen de binodaal ligt het gebied van metastabiele splitsing, begrensd door de \emph{spinodaal} waar $\partial^2 G/\partial x^2 = 0$.
+
+Typische voorbeelden van LLE zijn water--olie, water--fenol en polymeer--oplosmiddel systemen. Vloeistof-vloeistofextractie (LLE) wordt op grote schaal gebruikt voor de scheiding van componenten die door destillatie moeilijk te scheiden zijn.
+
+\subsubsection{De Nernst-verdelingswet}
+\label{sec:nernst}
+
+Voor een component die tussen twee onmengbare vloeistoffasen verdeelt, geldt bij evenwicht dat de chemische potentiaal in beide fasen gelijk is. Voor verdunde oplossingen volgt hieruit de \emph{verdelingswet van Nernst}:
+\begin{equation}
+\boxed{\;K_D = \frac{c_i^{(\alpha)}}{c_i^{(\beta)}}\;}
+\label{eq:nernst}
+\end{equation}
+waarin $K_D$ de verdelings- of distributieco\"effici\"ent is, die afhangt van de aard van de component en beide oplosmiddelen, maar niet van de concentratie (in de verdunde limiet).
+
+\begin{voorbeeld}{Extractie van jodium}
+Jodium verdeelt zich tussen water en tetrachloorkoolstof met $K_D \approx 86$ (ten gunste van de organische fase). Wanneer \SI{1}{\litre} waterige jodiumoplossing met een beginconcentratie van \SI{0.1}{\mole\per\litre} wordt ge\"extraheerd met \SI{0.5}{\litre} $\mathrm{CCl_4}$, geldt bij evenwicht:
+\[
+c_{\text{water}} = \SI{0.1}{\mole\per\litre} \cdot \frac{V_w}{V_w + K_D V_o} = \SI{0.1}{\mole\per\litre} \cdot \frac{1}{1 + 86 \cdot 0.5} = \SI{0.0023}{\mole\per\litre}.
+\]
+Ongeveer \SI{97.7}{\percent} van het jodium wordt in een enkele extractiestap verwijderd.
+\end{voorbeeld}
+
+\subsection{Vast-vloeistofevenwicht (SLE)}
+\label{sec:sle}
+
+Het evenwicht tussen een vaste stof en een vloeistof speelt een centrale rol bij kristallisatie, legeringen en zuiveringsprocessen. Net als bij VLE wordt het SLE bepaald door de gelijkheid van de chemische potentialen, maar de rol van beide fasen is gewijzigd.
+
+\subsubsection{Eutectische diagrammen}
+\label{sec:eutecticum}
+
+Voor een binair systeem $A$--$B$ met beperkte vaste-mengbaarheid vertoont het fasediagram een \emph{eutecticum}. Het \emph{eutectisch punt} is de combinatie van samenstelling en temperatuur waarbij vloeistof, vaste stof $A$ en vaste stof $B$ (of twee vaste oplossingen) gelijktijdig co\"existeren. Bij afkoelen van een vloeistof met eutectische samenstelling stollen beide componenten simultaan bij een vaste temperatuur, analoog aan een zuivere stof.
+
+Voor mengsels met een andere samenstelling begint de stolling bij een hogere temperatuur, waarbij eerst de ene component als vaste fase uitkristalliseert. De resterende vloeistof verandert in samenstelling langs de \emph{liquidus}-curve naarmate de temperatuur daalt, tot het eutectisch punt wordt bereikt.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Afbeeldingen/eutectisch_diagram.png}
+    \caption{\emph{Placeholder --- toe te voegen figuur.} Eutectisch fasediagram (temperatuur $T$ versus samenstelling $x_B$) voor een binair systeem $A$--$B$ zonder vaste-mengbaarheid, met twee liquiduscurven die vanuit de smeltpunten van zuiver $A$ en zuiver $B$ dalen en elkaar snijden in het eutectisch punt (het laagste punt van de liquidus). Markeer het eutectisch punt met de bijhorende samenstelling en temperatuur (bijvoorbeeld het Pb--Sn-voorbeeld: $x_{\text{Sn}}=0.61$, $T=\SI{183}{\celsius}$), en duid de gebieden vloeistof, vloeistof+vaste $A$, vloeistof+vaste $B$, en volledig vast (onder de horizontale eutectische lijn) aan.}
+    \label{fig:eutecticum}
+\end{figure}
+
+Typische voorbeelden:
+\begin{itemize}
+\item Lood--tin (Pb--Sn) met eutecticum bij $x_{\text{Sn}} = 0.61$ en $T = \SI{183}{\celsius}$ --- basis van soldeertin.
+\item Koper--zilver (Cu--Ag) met eutecticum bij $x_{\text{Ag}} = 0.71$ en $T = \SI{779}{\celsius}$.
+\item Natriumchloride--water ($\mathrm{NaCl}$--$\mathrm{H_2O}$) met eutecticum bij \SI{-21}{\celsius}, gebruikt als koudemiddel.
+\end{itemize}
+
+\subsubsection{Vriespuntsverlaging}
+\label{sec:vriespuntsverlaging}
+
+Voor een verdunde oplossing kan de verlaging van het vriespunt van het oplosmiddel direct uit de chemische potentiaal worden afgeleid. Voor een ideale verdunde oplossing geldt:
+\begin{equation}
+\Delta T_f = K_f \cdot m,
+\end{equation}
+waarin $K_f$ de cryoscopische constante (voor water $K_f = \SI{1.86}{\kelvin\kilogram\per\mole}$) en $m$ de molaliteit van de opgeloste stof is. Deze colligatieve eigenschap behoort, samen met dampdrukverlaging, kookpuntsverhoging en osmotische druk, tot de vier eigenschappen die hierna worden samengevat.
+
+\subsection{Colligatieve eigenschappen}
+\label{sec:colligatief}
+
+De aanwezigheid van een opgeloste component be\"invloedt het fase-evenwicht van het oplosmiddel op vier verwante manieren. Deze \emph{colligatieve eigenschappen} zijn allen een gevolg van de daling van de chemische potentiaal van het oplosmiddel door menging (vergelijking~\eqref{eq:mu-mengsel-ideaal}): zij hangen daardoor enkel af van het \emph{aantal} opgeloste deeltjes, niet van hun chemische aard.
+
+\begin{enumerate}
+\item \textbf{Dampdrukverlaging} (Raoult): $p = x_{\text{oplm}}\,p^*_{\text{oplm}}$.
+\item \textbf{Kookpuntsverhoging}: $\Delta T_b = K_b \cdot m$ (voor water: $K_b = \SI{0.512}{\kelvin\kilogram\per\mole}$).
+\item \textbf{Vriespuntsverlaging}: $\Delta T_f = -K_f \cdot m$ (\S~\ref{sec:vriespuntsverlaging}).
+\item \textbf{Osmotische druk}: $\Pi = c R T$ (vergelijking van Van 't Hoff).
+\end{enumerate}
+
+\begin{voorbeeld}{Osmotische druk van een fysiologische zoutoplossing}
+Een fysiologische zoutoplossing bevat \SI{9}{\gram\per\litre} NaCl. Met $M_{\mathrm{NaCl}} = \SI{58.4}{\gram\per\mole}$ volgt $c \approx 2 \cdot \SI{0.154}{\mole\per\litre} = \SI{0.308}{\mole\per\litre}$ (factor 2 wegens dissociatie in $\mathrm{Na^+}$ en $\mathrm{Cl^-}$). Bij \SI{310}{\kelvin} (lichaamstemperatuur) bedraagt de osmotische druk:
+\[
+\Pi = (\SI{308}{\mole\per\metre\cubed})(\SI{8.314}{\joule\per\mole\per\kelvin})(\SI{310}{\kelvin}) \approx \SI{7.9e5}{\pascal} = \SI{7.9}{\bar}.
+\]
+Vandaar dat bloedcellen in zuiver water zwellen en barsten (hemolyse).
+\end{voorbeeld}
+
+\section{Scheidingsprocessen: een thermodynamisch perspectief}
+\label{sec:scheidingsprocessen}
+
+De voorbije secties hebben aangetoond dat damp-vloeistofevenwicht, vloeistof-vloeistofevenwicht en vast-vloeistofevenwicht allen voortvloeien uit dezelfde thermodynamische voorwaarde: de gelijkheid van chemische potentialen tussen fasen. Voor de ingenieur vormt dit de theoretische basis van vrijwel alle scheidingsprocessen --- en het sluit rechtstreeks aan bij de industri\"ele toepassingen die reeds in hoofdstuk~\ref{ch:intermoleculair} werden opgesomd.
+
+\begin{itemize}
+\item \textbf{Destillatie} berust op het verschil in samenstelling tussen vloeistof en damp bij VLE.
+\item \textbf{Vloeistof-vloeistofextractie} berust op de verdeling van een component tussen twee onmengbare vloeistoffasen (Nernst, \S~\ref{sec:nernst}).
+\item \textbf{Kristallisatie} berust op SLE en het uitkristalliseren van een component bij afkoeling.
+\item \textbf{Absorptie} en \textbf{desorptie} berusten op de oplosbaarheid van gassen in vloeistoffen (Henry, \S~\ref{sec:henry}).
+\item \textbf{Droging} berust op de evenwichtsdampdruk boven een vaste stof of vloeistof (Clausius--Clapeyron, Antoine).
+\item \textbf{Omgekeerde osmose} berust op het overwinnen van de osmotische druk door uitwendige arbeid.
+\end{itemize}
+
+In alle gevallen geldt: de thermodynamica bepaalt de maximale haalbare scheiding. De procestechnologie bepaalt hoe dicht een werkelijk proces deze grens kan benaderen. Deze voorbeelden zullen in een vervolgcursus Scheidingstechnologie uitgebreid aan bod komen.
+
+\begin{besluit}{Samenvatting: van chemische potentiaal tot procesontwerp}
+In dit hoofdstuk hebben we de thermodynamica van fase-evenwichten van niet-reagerende systemen ontwikkeld, en daarmee de vier voorgaande hoofdstukken tot een werkbaar geheel samengebracht. Hoofdstuk~\ref{ch:eerstehoofdwet} gaf ons de macroscopische energieboekhouding; hoofdstuk~\ref{ch:kwantum} verklaarde waar chemische energie vandaan komt; hoofdstuk~\ref{ch:spontaniteit} gaf ons met de Gibbs-vrije energie en de chemische potentiaal het criterium voor spontaniteit; hoofdstuk~\ref{ch:intermoleculair} leverde de microscopische oorsprong van de intermoleculaire krachten die kookpunten, mengbaarheid en niet-ideaal gedrag bepalen. In dit hoofdstuk bleek de chemische potentiaal de universele sleutel: fase-evenwicht, menging, destillatie, extractie en kristallisatie berusten allen op de gelijkheid van chemische potentialen tussen fasen. De wet van Raoult beschrijft ideale mengsels; voor re\"ele mengsels worden activiteitsco\"effici\"enten en modellen zoals Margules, Van Laar, Wilson en NRTL gebruikt, gevoed door precies de intermoleculaire krachten uit hoofdstuk~\ref{ch:intermoleculair}. De hefboomwet verbindt een globale samenstelling met de fasenfracties in een tweefasensysteem en vormt het vertrekpunt van destillatieontwerp. In hoofdstuk~\ref{ch:reagerend} generaliseren we deze principes naar reagerende systemen, waarbij ook de chemische identiteit van de componenten verandert.
+\end{besluit}
