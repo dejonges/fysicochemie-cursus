@@ -1,0 +1,346 @@
+% Oefeningen bij hoofdstuk 1 (wordt ingevoegd achteraan Energie.tex).
+% Een oefening:  \begin{oefening}[titel] ... \end{oefening}   (boek en website)
+% De oplossing:  \begin{oplossing} ... \end{oplossing}       (enkel website, dichtgeklapt)
+
+Neem $R = \SI{8.314}{\joule\per\mole\per\kelvin}$ tenzij anders vermeld.
+
+\begin{oefening}
+Een industri\"ele compressor comprimeert \SI{100}{\mole} stikstof (ideaal gas) isotherm bij \SI{300}{\kelvin} van \SI{1}{\bar} naar \SI{50}{\bar}. Bereken
+\begin{enumerate}
+\item[(a)] de benodigde reversibele arbeid,
+\item[(b)] de warmte die aan de omgeving moet worden afgevoerd,
+\item[(c)] het volume van het gas voor en na de compressie.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $W = \SI{976}{\kilo\joule}$. (b) $Q = \SI{-976}{\kilo\joule}$. (c) $V_1 = \SI{2.49}{\metre\cubed}$, $V_2 = \SI{0.050}{\metre\cubed}$.
+
+\textbf{(a)} Voor een reversibele isotherme compressie van een ideaal gas geldt $W = nRT\ln(p_2/p_1)$:
+\[
+W = (100)(8.314)(300)\ln 50 = 9.76\times 10^{5}\,\mathrm{J} \approx 976\,\mathrm{kJ}
+\]
+
+\textbf{(b)} Isotherm en ideaal gas: $\Delta U = 0$, dus $Q = -W = -976\,\mathrm{kJ}$. Alle toegevoerde arbeid moet als warmte worden afgevoerd (in de praktijk via tussenkoelers).
+
+\textbf{(c)} $V_1 = nRT/p_1 = (100)(8.314)(300)/(1\times10^5) = 2.49\,\mathrm{m^3}$ en $V_2 = V_1/50 = 0.0499\,\mathrm{m^3} \approx 50\,\mathrm{L}$.
+\end{oplossing}
+
+\begin{oefening}
+Dezelfde compressor werkt nu adiabatisch ($Q = 0$) en reversibel. De begin temperatuur bedraagt \SI{300}{\kelvin}. Neem $C_{V,m} = \frac{5}{2}R$ voor $\mathrm{N_2}$ (tweatomig ideaal gas).
+\begin{enumerate}
+\item[(a)] Bereken de eindtemperatuur bij een compressie van \SI{1}{\bar} naar \SI{50}{\bar}.
+\item[(b)] Bereken de benodigde arbeid per mol.
+\item[(c)] Vergelijk met de isotherme arbeid uit Oefening 1. Verklaar waarom de adiabatische arbeid groter is.
+\end{enumerate}
+\emph{Hint:} voor een reversibele adiabatische compressie van een ideaal geldt $T_2/T_1 = (p_2/p_1)^{R/C_{p,m}}$.    
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $T_2 = \SI{917}{\kelvin}$ (\SI{644}{\celsius}). (b) $W = \SI{12.8}{\kilo\joule\per\mole}$. (c) Isotherm slechts \SI{9.76}{\kilo\joule\per\mole}: de adiabatische compressie vraagt ongeveer 30\,\% meer arbeid.
+
+\textbf{(a)} Met de wet van Mayer is $C_{p,m} = C_{V,m} + R = \frac{7}{2}R$, zodat $R/C_{p,m} = 2/7$:
+\[
+T_2 = 300 \cdot 50^{2/7} = 300 \cdot 3.06 = 917\,\mathrm{K}
+\]
+
+\textbf{(b)} Met $Q = 0$ volgt uit de eerste hoofdwet $W = \Delta U = C_{V,m}(T_2 - T_1)$:
+\[
+W = \tfrac{5}{2}(8.314)(917-300) = 1.28\times10^{4}\,\mathrm{J/mol} = 12.8\,\mathrm{kJ/mol}
+\]
+
+\textbf{(c)} Isotherm: $W/n = RT\ln 50 = 9.76\,\mathrm{kJ/mol}$. Omdat het gas tijdens de adiabatische compressie opwarmt, ligt de druk bij elk volume hoger dan bij de isotherme compressie; de adiabaat ligt in het $p$-$V$-diagram boven de isotherm, en de oppervlakte eronder (de arbeid) is dus groter. Daarom gebruikt men in de industrie meertrapscompressie met tussenkoeling: zo benadert men de goedkopere isotherme compressie, en vermijdt men bovendien eindtemperaturen van meer dan \SI{600}{\celsius} die smering en materialen zouden beschadigen.
+\end{oplossing}
+
+\begin{oefening}
+Een processtroom van \SI{2.0}{\kilogram\per\second} water wordt in een warmtewisselaar opgewarmd van \SI{25}{\celsius} naar \SI{85}{\celsius}. De warmtecapaciteit van water bedraagt $C_p \approx \SI{4.18}{\kilo\joule\per\kilogram\per\kelvin}$ en mag constant worden verondersteld.
+\begin{enumerate}
+\item[(a)] Bereken de benodigde warmtestroom (in \si{\kilo\watt}).
+\item[(b)] Bereken de verandering van de enthalpie van de waterstroom per seconde.
+\item[(c)] Waarom mag de enthalpieverandering hier gelijk worden gesteld aan de uitgewisseld warmte?
+\end{enumerate}    
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $\dot Q = \SI{502}{\kilo\watt}$. (b) $\Delta\dot H = \SI{502}{\kilo\joule\per\second}$. (c) Constante druk en geen asarbeid, dus $\Delta H = Q_p$.
+
+\textbf{(a)} $\dot Q = \dot m\, C_p\, \Delta T = (2.0)(4.18)(60) = 502\,\mathrm{kW}$.
+
+\textbf{(b)} $\Delta \dot H = \dot Q = 502\,\mathrm{kJ/s}$.
+
+\textbf{(c)} De warmtewisselaar werkt bij (nagenoeg) constante druk, er wordt geen asarbeid verricht en veranderingen in kinetische en potenti\"ele energie zijn verwaarloosbaar. Uit $\mathrm{d}H = \delta Q + V\,\mathrm{d}p$ met $\mathrm{d}p = 0$ volgt dan $\Delta H = Q_p$.
+\end{oplossing}
+
+\begin{oefening}
+Bereken de standaardreactie-enthalpie van de verbranding van vloeibaar ethanol:
+\[
+\mathrm{C_2H_5OH(l) + 3\,O_2(g) \rightarrow 2\,CO_2(g) + 3\,H_2O(l)}.
+\]
+Gegeven zijn de standaardvormingsenthalpie\"en bij \SI{298}{\kelvin}:
+\begin{itemize}
+\item $\Delta H_f^\circ(\mathrm{C_2H_5OH,l}) = \SI{-277.7}{\kilo\joule\per\mole}$
+\item $\Delta H_f^\circ(\mathrm{CO_2,g}) = \SI{-393.5}{\kilo\joule\per\mole}$
+\item $\Delta H_f^\circ(\mathrm{H_2O,l}) = \SI{-285.8}{\kilo\joule\per\mole}$
+\item $\Delta H_f^\circ(\mathrm{O_2,g}) = 0$
+\end{itemize}
+Hoeveel warmte komt vrij bij de verbranding van \SI{1}{\kilogram} ethanol?    
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} $\Delta_r H^\circ = \SI{-1366.7}{\kilo\joule\per\mole}$; per kg ethanol komt \SI{29.7}{\mega\joule} vrij.
+
+Met de wet van Hess:
+\[
+\Delta_r H^\circ = 2(-393.5) + 3(-285.8) - (-277.7) - 3(0) = -1366.7\,\mathrm{kJ/mol}
+\]
+Met $M(\mathrm{C_2H_5OH}) = 46.07\,\mathrm{g/mol}$ bevat \SI{1}{\kilogram} ethanol \SI{21.7}{\mole}, zodat er $21.7 \times 1366.7 \approx 2.97\times10^{4}\,\mathrm{kJ} = 29.7\,\mathrm{MJ}$ warmte vrijkomt. Ter vergelijking: benzine levert ongeveer \SI{45}{\mega\joule\per\kilogram}. Een auto op bio-ethanol (E85) verbruikt daarom merkbaar meer liter per 100~km.
+\end{oplossing}
+
+\begin{oefening}
+De standaardreactie-enthalpie van de ammoniaksynthese
+\[
+\mathrm{N_2(g) + 3\,H_2(g) \rightarrow 2\,NH_3(g)}
+\]
+bedraagt $\Delta_r H^\circ(\SI{298}{\kelvin}) = \SI{-92.4}{\kilo\joule\per\mole}$. De molair warmtecapaciteiten (constant verondersteld) zijn:
+\begin{itemize}
+\item $C_{p,m}(\mathrm{N_2}) = \SI{29.1}{\joule\per\mole\per\kelvin}$
+\item $C_{p,m}(\mathrm{H_2}) = \SI{28.8}{\joule\per\mole\per\kelvin}$
+\item $C_{p,m}(\mathrm{NH_3}) = \SI{35.1}{\joule\per\mole\per\kelvin}$
+\end{itemize}
+Bereken de reactie-enthalpie bij \SI{500}{\celsius} (\SI{773}{\kelvin}). Verklaar waarom de reactie bij hoge temperatuur minder exotherm is dan bij kamertemperatuur.    
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} $\Delta_r C_p^\circ = \SI{-45.3}{\joule\per\mole\per\kelvin}$ en $\Delta_r H^\circ(\SI{773}{\kelvin}) = \SI{-113.9}{\kilo\joule\per\mole}$: met deze gegevens wordt de reactie bij hoge temperatuur \emph{meer} exotherm.
+
+\textbf{Opmerking bij de opgave:} de vraag veronderstelt dat de reactie bij hoge temperatuur minder exotherm wordt. Met de gegeven $C_p$-waarden (en ook met nauwkeurige tabelwaarden) is het omgekeerde waar.
+\[
+\Delta_r C_p^\circ = 2(35.1) - 29.1 - 3(28.8) = -45.3\,\mathrm{J/(mol\cdot K)}
+\]
+Met de wet van Kirchhoff:
+\[
+\Delta_r H^\circ(773\,\mathrm{K}) = -92.4 + (-45.3\times10^{-3})(773-298) = -92.4 - 21.5 = -113.9\,\mathrm{kJ/mol}
+\]
+De reden is dat $\Delta_r C_p^\circ < 0$: de producten (2~mol $\mathrm{NH_3}$) hebben samen een kleinere warmtecapaciteit dan de reagentia (4~mol gas). Bij opwarmen van 298~K naar 773~K neemt de enthalpie van de reagentia dus sterker toe dan die van de producten, waardoor het enthalpieverschil groter wordt. Nauwkeurige tabelwaarden (met temperatuurafhankelijke $C_p$) geven ongeveer $-105$ \`a $-110\,\mathrm{kJ/mol}$: ook daar wordt de reactie meer exotherm. Wat wel waar is: de evenwichtsligging wordt bij hoge temperatuur ongunstiger (hoofdstuk~3), maar dat heeft te maken met $\Delta_r G^\circ$, niet met een kleinere reactiewarmte.
+\end{oplossing}
+
+\begin{oefening}
+Een stoomketel moet \SI{10}{\mole} water per minuut omzetten van vloeibaar water bij \SI{25}{\celsius} naar droge verzadigde stoom bij \SI{100}{\celsius} en \SI{1}{\bar}. Gebruik de volgende gegevens:
+\begin{itemize}
+\item $C_{p,m}(\text{water, vloeibaar}) \approx \SI{75.3}{\joule\per\mole\per\kelvin}$
+\item $\Delta H_{\text{vap}} \approx \SI{40.7}{\kilo\joule\per\mole}$ bij \SI{100}{\celsius}
+\end{itemize}
+\begin{enumerate}
+\item[(a)] Bereken de totale warmte die per minuut moet worden toegevoerd.
+\item[(b)] Splits deze op in de bijdrage van opwarmen en de bijdrage van verdampen.
+\item[(c)] Wat is de verhouding van beide bijdragen? Wat leert dit over het energie\"erverbruik van een reboiler versus een gewone vloeistofverwarmer?
+\end{enumerate}    
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \SI{463}{\kilo\joule} per minuut (\SI{7.7}{\kilo\watt}). (b) Opwarmen \SI{56.5}{\kilo\joule}, verdampen \SI{407}{\kilo\joule}. (c) Verhouding 7.2: 88\,\% van de energie gaat naar de faseovergang.
+
+\textbf{(b)} Opwarmen: $Q_1 = n\,C_{p,m}\,\Delta T = (10)(75.3)(75) = 56.5\,\mathrm{kJ}$. Verdampen: $Q_2 = n\,\Delta H_{\text{vap}} = (10)(40.7) = 407\,\mathrm{kJ}$.
+
+\textbf{(a)} $Q = Q_1 + Q_2 = 463\,\mathrm{kJ}$ per minuut, of een vermogen van $463/60 = 7.7\,\mathrm{kW}$.
+
+\textbf{(c)} $Q_2/Q_1 = 7.2$. Een reboiler, die vloeistof verdampt, verbruikt daardoor veel meer energie dan een verwarmer die dezelfde stroom enkel opwarmt. Dat is ook waarom destillatie een van de meest energie-intensieve operaties in de chemische industrie is, en waarom je thuis veel minder energie verbruikt om water tot het kookpunt te brengen dan om het weg te koken.
+\end{oplossing}
+
+\begin{oefening}
+Koolstofdioxide bij hoge druk wijkt sterk af van ideaal gedrag. De Van der Waals-constanten voor $\mathrm{CO_2}$ zijn $a = \SI{0.364}{\pascal\metre\tothe{6}\per\mole\tothe{2}}$ en $b = \SI{4.27e-5}{\metre\cubed\per\mole}$.
+\begin{enumerate}
+\item[(a)] Bereken de druk die de vergelijking van Van der Waals voorspelt voor \SI{1}{\mole} $\mathrm{CO_2}$ bij $T = \SI{300}{\kelvin}$ en $V_m = \SI{0.5}{\litre\per\mole}$.
+\item[(b)] Vergelijk met de druk die de ideale gaswet voorspelt onder dezelfde omstandigheden.
+\item[(c)] Bereken de compressibiliteitsfactor $Z$ in beide gevallen. Verklaar waarom $Z < 1$.
+\end{enumerate}    
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $p_{\text{vdW}} = \SI{40.0}{\bar}$. (b) $p_{\text{ideaal}} = \SI{49.9}{\bar}$. (c) $Z_{\text{vdW}} = 0.80$, $Z_{\text{ideaal}} = 1$; de aantrekkingskrachten domineren.
+
+\textbf{(a)} Met $V_m = 5.0\times10^{-4}\,\mathrm{m^3/mol}$:
+\[
+p = \frac{RT}{V_m - b} - \frac{a}{V_m^2} = \frac{(8.314)(300)}{4.573\times10^{-4}} - \frac{0.364}{2.5\times10^{-7}} = 5.45\times10^{6} - 1.46\times10^{6} = 4.00\times10^{6}\,\mathrm{Pa}
+\]
+
+\textbf{(b)} $p_{\text{ideaal}} = RT/V_m = 4.99\times10^{6}\,\mathrm{Pa} \approx 50\,\mathrm{bar}$. De ideale gaswet overschat de druk met ongeveer 25\,\%.
+
+\textbf{(c)} $Z_{\text{vdW}} = pV_m/(RT) = 0.80$. Bij deze matige dichtheid domineert de aantrekkingsterm $a/V_m^2$ de volumecorrectie $b$: de intermoleculaire aantrekking verlaagt de druk op de wand, zodat $Z < 1$.
+\end{oplossing}
+
+\begin{oefening}[Een waterkoker]
+Je zet een waterkoker van \SI{2200}{\watt} aan met \SI{1.5}{\litre} kraantjeswater van \SI{15}{\celsius}. Neem aan dat 90\,\% van het elektrisch vermogen in het water terechtkomt en dat $C_p = \SI{4.18}{\kilo\joule\per\kilogram\per\kelvin}$.
+\begin{enumerate}
+\item[(a)] Hoeveel warmte is nodig om het water tot \SI{100}{\celsius} te brengen?
+\item[(b)] Hoe lang duurt dat?
+\item[(c)] Wat kost het, bij een elektriciteitsprijs van 0.30~euro/kWh?
+\item[(d)] Je vergeet de waterkoker en hij schakelt niet af. Hoeveel extra tijd is nodig om de helft van het water weg te koken? Gebruik $\Delta H_{\text{vap}} = \SI{2257}{\kilo\joule\per\kilogram}$.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \SI{533}{\kilo\joule}. (b) Ongeveer 4.5~min. (c) \SI{0.164}{\kilo\watt\hour}, ongeveer 5~eurocent. (d) Nog ongeveer 14~min extra.
+
+\textbf{(a)} $Q = m\,C_p\,\Delta T = (1.5)(4.18)(85) = 533\,\mathrm{kJ}$.
+
+\textbf{(b)} Het nuttig vermogen is $0.9 \times 2200 = 1980\,\mathrm{W}$, dus $t = 533\,000/1980 = 269\,\mathrm{s} \approx 4.5\,\mathrm{min}$.
+
+\textbf{(c)} Elektrische energie $= 533/0.9 = 592\,\mathrm{kJ} = 0.164\,\mathrm{kWh}$, of ongeveer 5~eurocent.
+
+\textbf{(d)} $Q = (0.75)(2257) = 1693\,\mathrm{kJ}$, dus $t = 1\,693\,000/1980 = 855\,\mathrm{s} \approx 14\,\mathrm{min}$. Het verdampen van slechts de helft van het water vraagt ruim drie keer zoveel energie als het volledig opwarmen tot het kookpunt (zie ook Oefening~1.6). Daarom loont het om enkel de hoeveelheid water te koken die je nodig hebt, en om een deksel op de kookpot te leggen.
+\end{oplossing}
+
+\begin{oefening}[Waarom een fietspomp warm wordt]
+Met een fietspomp comprimeer je lucht van \SI{1}{\bar} en \SI{20}{\celsius} naar \SI{4}{\bar}. Een pompslag gaat zo snel dat de compressie als adiabatisch en reversibel mag worden beschouwd. Behandel lucht als een tweeatomig ideaal gas ($C_{p,m} = \frac{7}{2}R$).
+\begin{enumerate}
+\item[(a)] Bereken de temperatuur van de lucht aan het einde van de pompslag.
+\item[(b)] Bereken de arbeid per mol lucht.
+\item[(c)] In werkelijkheid wordt de pomp onderaan hooguit handwarm. Geef twee redenen waarom de berekende temperatuur een overschatting is.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $T_2 = \SI{435}{\kelvin}$ (\SI{162}{\celsius}). (b) $W = \SI{2.96}{\kilo\joule\per\mole}$. (c) Warmteopname door de metalen cilinder en menging met koudere lucht in de band.
+
+\textbf{(a)} $T_2 = T_1 (p_2/p_1)^{R/C_{p,m}} = 293 \cdot 4^{2/7} = 293 \cdot 1.486 = 435\,\mathrm{K} \approx 162\,^\circ\mathrm{C}$.
+
+\textbf{(b)} $W = \Delta U = C_{V,m}\Delta T = \tfrac{5}{2}(8.314)(435-293) = 2.96\,\mathrm{kJ/mol}$.
+
+\textbf{(c)} (1) De metalen cilinder heeft een veel grotere warmtecapaciteit dan de kleine hoeveelheid lucht en neemt de warmte op; elke slag warmt de pomp maar een klein beetje op. (2) De gecomprimeerde lucht stroomt meteen de band in, waar ze mengt met koudere lucht en warmte afgeeft. De compressie is dus niet volledig adiabatisch. Hetzelfde effect zie je bij een dieselmotor, waar de hoge compressietemperatuur juist gebruikt wordt om de brandstof zonder bougie te ontsteken.
+\end{oplossing}
+
+\begin{oefening}[Temperatuurafhankelijke warmtecapaciteit: rookgassen]
+In een warmterecuperatiesysteem wordt $\mathrm{CO_2}$ uit rookgassen afgekoeld van \SI{800}{\kelvin} naar \SI{300}{\kelvin}. Gebruik de correlatie $C_p = a + bT + cT^2$ met de co\"effici\"enten uit de tabel in hoofdstuk~1: $a = 22.3$, $b = 5.98\times10^{-2}$, $c = -3.50\times10^{-5}$ (SI-eenheden).
+\begin{enumerate}
+\item[(a)] Bereken hoeveel warmte per mol $\mathrm{CO_2}$ gerecupereerd kan worden.
+\item[(b)] Herhaal de berekening met een constante $C_p$, gelijk aan de waarde bij \SI{300}{\kelvin}.
+\item[(c)] Hoe groot is de fout? Wanneer mag je $C_p$ constant veronderstellen?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \SI{21.9}{\kilo\joule\per\mole}. (b) \SI{18.5}{\kilo\joule\per\mole} met $C_p(\SI{300}{\kelvin}) = \SI{37.1}{\joule\per\mole\per\kelvin}$. (c) Een onderschatting van ongeveer 15\,\%.
+
+\textbf{(a)}
+\[
+\Delta H = a(T_2-T_1) + \frac{b}{2}(T_2^2-T_1^2) + \frac{c}{3}(T_2^3-T_1^3)
+\]
+Van 300~K naar 800~K: $11\,150 + 16\,445 - 5\,658 = 21\,937\,\mathrm{J/mol}$. Bij afkoeling kan dus $21.9\,\mathrm{kJ/mol}$ gerecupereerd worden.
+
+\textbf{(b)} $C_p(300\,\mathrm{K}) = 22.3 + 17.94 - 3.15 = 37.1\,\mathrm{J/(mol\cdot K)}$, zodat $\Delta H \approx (37.1)(500) = 18.5\,\mathrm{kJ/mol}$.
+
+\textbf{(c)} $\mathrm{CO_2}$ is een lineair drieatomig molecule met buigvibraties die bij hogere temperatuur geactiveerd worden (hoofdstuk~2), waardoor $C_p$ sterk stijgt. Een constante $C_p$ is enkel aanvaardbaar voor kleine temperatuurverschillen, of voor eenvoudige gassen zoals $\mathrm{N_2}$ en edelgassen. Voor het ontwerp van een warmtewisselaar zou deze fout leiden tot een onderdimensionering.
+\end{oplossing}
+
+\begin{oefening}[$\Delta U$ of $\Delta H$? De bomcalorimeter]
+De verbrandingswarmte van een brandstof wordt gemeten in een bomcalorimeter: een gesloten stalen vat met constant volume. Voor methaan,
+\[
+\mathrm{CH_4(g) + 2\,O_2(g) \rightarrow CO_2(g) + 2\,H_2O(l)},
+\]
+geldt $\Delta_r H^\circ = \SI{-890.3}{\kilo\joule\per\mole}$ bij \SI{298}{\kelvin}.
+\begin{enumerate}
+\item[(a)] Meet de bomcalorimeter $\Delta U$ of $\Delta H$? Verklaar.
+\item[(b)] Bereken $\Delta_r U^\circ$. Behandel de gassen als ideaal en verwaarloos het volume van vloeibaar water.
+\item[(c)] Is het verschil belangrijk voor de dimensionering van een cv-ketel?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $\Delta U$ (constant volume). (b) $\Delta_r U^\circ = \SI{-885.3}{\kilo\joule\per\mole}$. (c) Verschil van slechts 0.6\,\%: verwaarloosbaar voor een cv-ketel.
+
+\textbf{(a)} Bij constant volume wordt geen volumearbeid verricht ($\delta W = -p\,\mathrm{d}V = 0$), zodat $\Delta U = Q_V$.
+
+\textbf{(b)} Uit $H = U + pV$ volgt voor een gasreactie $\Delta_r H = \Delta_r U + \Delta n_{\text{gas}} RT$. Hier is $\Delta n_{\text{gas}} = 1 - 3 = -2$:
+\[
+\Delta_r U^\circ = \Delta_r H^\circ - \Delta n_{\text{gas}}RT = -890.3 + 2(8.314\times10^{-3})(298) = -885.3\,\mathrm{kJ/mol}
+\]
+
+\textbf{(c)} Een cv-ketel werkt bij constante druk, dus de juiste grootheid is $\Delta H$, maar voor het ontwerp is het verschil verwaarloosbaar. Het principe is wel belangrijk: bij reacties met een grote verandering van het aantal mol gas, of bij hoge temperatuur, wordt het verschil groter.
+\end{oplossing}
+
+\begin{oefening}[Arbeid is een padfunctie: een duikfles leeglaten]
+\SI{1}{\mole} lucht (ideaal gas) expandeert isotherm bij \SI{300}{\kelvin} van \SI{10}{\bar} naar \SI{1}{\bar}.
+\begin{enumerate}
+\item[(a)] Bereken de arbeid voor een reversibele expansie.
+\item[(b)] Bereken de arbeid wanneer het gas in \'e\'en keer expandeert tegen een constante uitwendige druk van \SI{1}{\bar}, bijvoorbeeld wanneer je het ventiel van een fles opendraait.
+\item[(c)] Bereken in beide gevallen $\Delta U$ en $Q$. Welke grootheden hangen af van de weg, welke niet?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $W_{\text{rev}} = \SI{-5.74}{\kilo\joule}$. (b) $W_{\text{irr}} = \SI{-2.24}{\kilo\joule}$. (c) $\Delta U = 0$ in beide gevallen; $Q_{\text{rev}} = \SI{+5.74}{\kilo\joule}$ en $Q_{\text{irr}} = \SI{+2.24}{\kilo\joule}$. $W$ en $Q$ hangen af van de weg, $\Delta U$ niet.
+
+\textbf{(a)} $W_{\text{rev}} = -nRT\ln(p_1/p_2) = -(8.314)(300)\ln 10 = -5.74\,\mathrm{kJ}$.
+
+\textbf{(b)} $W_{\text{irr}} = -p_{\text{ext}}(V_2 - V_1) = -p_{\text{ext}}\left(\frac{RT}{p_2} - \frac{RT}{p_1}\right) = -RT(1 - 0.1) = -2.24\,\mathrm{kJ}$.
+
+\textbf{(c)} In beide gevallen is $\Delta U = 0$ (isotherm, ideaal gas), dus $Q = -W$. $\Delta U$ is een toestandsfunctie en hangt enkel af van begin- en eindtoestand; $W$ en $Q$ zijn padfuncties. De reversibele weg levert de maximale arbeid. Bij een ventiel dat je gewoon opendraait gaat het grootste deel van die arbeidscapaciteit verloren; een turbine of expander kan een deel ervan w\'el benutten, wat in de industrie toegepast wordt bij het ontspannen van aardgas onder hoge druk.
+\end{oplossing}
+
+\begin{oefening}[Een frisdrank koelen met ijsblokjes]
+Je wilt een blikje frisdrank van \SI{330}{\milli\litre} (behandel als water) afkoelen van \SI{25}{\celsius} naar \SI{5}{\celsius} door er ijsblokjes van \SI{0}{\celsius} in te doen. Gebruik $\Delta H_{\text{fus}} = \SI{6.0}{\kilo\joule\per\mole}$ en $C_p = \SI{4.18}{\joule\per\gram\per\kelvin}$. Verwaarloos warmte-uitwisseling met de omgeving.
+\begin{enumerate}
+\item[(a)] Hoeveel ijs is nodig?
+\item[(b)] Hoeveel ijs zou nodig zijn als je in plaats van ijs koud water van \SI{0}{\celsius} gebruikt? Wat besluit je?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \SI{78}{\gram} ijs. (b) \SI{1.3}{\kilogram} koud water: ijs is dankzij de smeltwarmte ongeveer zeventien keer effectiever.
+
+\textbf{(a)} De drank moet $Q = (330)(4.18)(20) = 27.6\,\mathrm{kJ}$ afgeven. De smeltenthalpie per gram bedraagt $6000/18.02 = 333\,\mathrm{J/g}$. Elke gram ijs smelt en het smeltwater warmt nog op van 0 naar \SI{5}{\celsius}, dus neemt $333 + (4.18)(5) = 354\,\mathrm{J/g}$ op. De benodigde massa is $27\,600/354 = 78\,\mathrm{g}$ ijs, ongeveer drie \`a vier ijsblokjes.
+
+\textbf{(b)} Water van \SI{0}{\celsius} dat opwarmt tot \SI{5}{\celsius} neemt slechts $(4.18)(5) = 21\,\mathrm{J/g}$ op: je zou $27\,600/21 = 1.3\,\mathrm{kg}$ nodig hebben, en het blikje loopt over. Dat is hetzelfde principe als bij koelelementen in een koelbox en bij latente-warmteopslag (\emph{phase change materials}) in gebouwen.
+\end{oplossing}
+
+\begin{oefening}[Hoeveel aardgas past er in een CNG-tank?]
+Een CNG-wagen heeft een tank van \SI{50}{\litre} waarin \SI{8.0}{\kilogram} methaan zit bij \SI{25}{\celsius}. Voor methaan geldt $T_c = \SI{190.6}{\kelvin}$ en $p_c = \SI{46.0}{\bar}$.
+\begin{enumerate}
+\item[(a)] Bereken de Van der Waals-parameters $a$ en $b$ van methaan.
+\item[(b)] Bereken de druk in de tank met de ideale gaswet en met de vergelijking van Van der Waals.
+\item[(c)] Bereken $Z$. Is het voor de tankontwerper gunstig of ongunstig dat methaan niet ideaal is?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $a = 0.230\,\mathrm{Pa\,m^6/mol^2}$, $b = 4.31\times10^{-5}\,\mathrm{m^3/mol}$. (b) Ideaal \SI{247}{\bar}, Van der Waals \SI{204}{\bar}. (c) $Z = 0.83$: gunstig, er past ongeveer 20\,\% meer gas in de tank.
+
+\textbf{(a)}
+\[
+a = \frac{27R^2T_c^2}{64p_c} = 0.230\,\mathrm{Pa\,m^6/mol^2}, \qquad b = \frac{RT_c}{8p_c} = 4.31\times10^{-5}\,\mathrm{m^3/mol}
+\]
+
+\textbf{(b)} $n = 8000/16.04 = 499\,\mathrm{mol}$, dus $V_m = 0.050/499 = 1.00\times10^{-4}\,\mathrm{m^3/mol}$. Ideaal: $p = RT/V_m = 247\,\mathrm{bar}$. Van der Waals: $p = \dfrac{RT}{V_m-b} - \dfrac{a}{V_m^2} = 433.5 - 229.2 = 204\,\mathrm{bar}$.
+
+\textbf{(c)} $Z = pV_m/(RT) = 0.83$. De aantrekking tussen de methaanmoleculen verlaagt de druk: bij een gegeven maximale werkdruk (typisch 200~bar) past er dus ongeveer 20\,\% meer gas in de tank dan de ideale gaswet voorspelt. Een ontwerper die met de ideale gaswet rekent, zou de actieradius van de wagen onderschatten.
+\end{oplossing}
+
+\begin{oefening}[Waarom verbrandt stoom erger dan kokend water?]
+Wie een hand boven een kokende waterkoker houdt, verbrandt zich sneller dan wie een paar druppels kokend water op de hand krijgt. Vergelijk \SI{10}{\gram} stoom van \SI{100}{\celsius} met \SI{10}{\gram} vloeibaar water van \SI{100}{\celsius}. Beide komen op de huid terecht en koelen af tot lichaamstemperatuur (\SI{37}{\celsius}). Gebruik $\Delta H_{\text{vap}} = \SI{2257}{\kilo\joule\per\kilogram}$ bij \SI{100}{\celsius} en $C_p = \SI{4.18}{\joule\per\gram\per\kelvin}$ voor vloeibaar water.
+\begin{enumerate}
+\item[(a)] Hoeveel warmte geeft de stoom af aan de huid? En het kokende water?
+\item[(b)] Stel dat die warmte volledig terechtkomt in \SI{50}{\gram} huidweefsel met $C_p \approx \SI{3.5}{\joule\per\gram\per\kelvin}$. Hoeveel zou de temperatuur van dat weefsel stijgen in beide gevallen? Wat besluit je?
+\item[(c)] Een stoomoven gaart groenten sneller dan een heteluchtoven op dezelfde temperatuur. Verklaar met hetzelfde principe.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Stoom \SI{25.2}{\kilo\joule}, kokend water \SI{2.6}{\kilo\joule}: stoom levert bijna tien keer meer warmte. (b) Theoretisch \SI{+144}{\kelvin} tegenover \SI{+15}{\kelvin}. (c) De condensatiewarmte komt vrij precies op het oppervlak van het voedsel.
+
+\textbf{(a)} De stoom condenseert eerst bij \SI{100}{\celsius} en daarna koelt het condensaat af tot \SI{37}{\celsius}:
+\[
+Q_{\text{stoom}} = m\,\Delta H_{\text{vap}} + m\,C_p\,\Delta T = (0.010)(2257) + (10)(4.18)(63)\times10^{-3} = 22.6 + 2.6 = 25.2\,\mathrm{kJ}
+\]
+Het kokende water levert enkel het tweede deel: $Q_{\text{water}} = 2.6\,\mathrm{kJ}$. De verhouding is ongeveer 9.6.
+
+\textbf{(b)} $\Delta T = Q/(m\,C_p)$: voor stoom $25\,200/(50 \times 3.5) = 144\,\mathrm{K}$, voor water $2630/(50\times3.5) = 15\,\mathrm{K}$. In werkelijkheid voert het bloed een deel van de warmte af, maar de conclusie blijft: bijna 90\,\% van de schade door stoom komt van de condensatie-enthalpie, niet van de temperatuur van \SI{100}{\celsius} zelf. Condensatie is exotherm: wat bij verdampen aan energie werd opgenomen, komt bij condenseren weer vrij.
+
+\textbf{(c)} In een stoomoven condenseert de stoom op het koudere voedsel en geeft daar per kilogram \SI{2257}{\kilo\joule} af. Hete droge lucht kan per kilogram en per kelvin maar ongeveer \SI{1}{\kilo\joule} afgeven en moet dus veel meer warmte via geleiding aanvoeren. Hetzelfde principe gebruikt de industrie in stoomverwarmde warmtewisselaars: verzadigde stoom levert veel warmte bij een constante, goed regelbare temperatuur.
+\end{oplossing}
+
+\begin{oefening}[Hoeveel trappen loop je op een druivensuikertablet?]
+Een druivensuikertablet bevat \SI{3.0}{\gram} glucose ($M = \SI{180.16}{\gram\per\mole}$). De standaardverbrandingsenthalpie van glucose bedraagt $\Delta_c H^\circ = \SI{-2808}{\kilo\joule\per\mole}$. Een persoon van \SI{70}{\kilogram} loopt de trap op; een verdieping is \SI{3.0}{\metre} hoog.
+\begin{enumerate}
+\item[(a)] Hoeveel warmte zou vrijkomen bij de volledige verbranding van het tablet?
+\item[(b)] Hoeveel arbeid kost het om \'e\'en verdieping te stijgen?
+\item[(c)] De spieren zetten ongeveer 25\,\% van de chemische energie om in mechanische arbeid. Hoeveel verdiepingen kan de persoon met \'e\'en tablet stijgen?
+\item[(d)] De overige energie komt vrij als warmte. Hoeveel zweet moet verdampen om die warmte af te voeren? Neem $\Delta H_{\text{vap}} \approx \SI{2.43}{\kilo\joule\per\gram}$ bij huidtemperatuur.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \SI{46.8}{\kilo\joule}. (b) \SI{2.06}{\kilo\joule} per verdieping. (c) \SI{11.7}{\kilo\joule} arbeid, goed voor \SI{17}{\metre}, of ongeveer vijf \`a zes verdiepingen. (d) Ongeveer \SI{14}{\gram} zweet.
+
+\textbf{(a)} $n = 3.0/180.16 = 0.0167\,\mathrm{mol}$, zodat $|Q| = (0.0167)(2808) = 46.8\,\mathrm{kJ}$.
+
+\textbf{(b)} De arbeid tegen de zwaartekracht is $W = mgh = (70)(9.81)(3.0) = 2.06\,\mathrm{kJ}$.
+
+\textbf{(c)} Nuttige arbeid: $0.25 \times 46.8 = 11.7\,\mathrm{kJ}$. De hoogte is $h = 11\,700/(70 \times 9.81) = 17\,\mathrm{m}$, ongeveer vijf \`a zes verdiepingen.
+
+\textbf{(d)} De overige $0.75 \times 46.8 = 35.1\,\mathrm{kJ}$ is warmte. Om die af te voeren via verdamping is $35.1/2.43 = 14\,\mathrm{g}$ water nodig. De eerste hoofdwet geldt dus ook voor het lichaam: de energie uit voeding verdwijnt niet, maar gaat voor het grootste deel als warmte naar de omgeving. Daarom krijg je het warm bij inspanning, en daarom zweet je.
+\end{oplossing}

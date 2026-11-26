@@ -234,8 +234,17 @@ def tok_label(lbl):
 def convert_chapter(texname, slug, chapnum):
     s = open(os.path.join(SRC, texname + '.tex'), encoding='utf-8').read()
     s = strip_comments(s)
+    # oefenbestanden: \input{...} invoegen
+    s = re.sub(r'\\input\{([^}]*)\}', lambda m: strip_comments(open(os.path.join(SRC, m.group(1) if m.group(1).endswith('.tex') else m.group(1) + '.tex'), encoding='utf-8').read()), s)
     s = convert_si_ce(s)
     s = re.sub(r'\\interactief\{([^}]*)\}', r'\n\nQINT\1QINT\n\n', s)
+    # opsommingen met \item[(a)], \item[(b)], ...: als (a), (b) tonen (pandoc kent [(a)])
+    def abc(m):
+        body = m.group(2)
+        if not re.match(r'\s*\\item\[\(a\)\]', body):
+            return m.group(0)
+        return m.group(1) + '[(a)]' + re.sub(r'\\item\[\([a-z]\)\]', r'\\item', body)
+    s = re.sub(r'(\\begin\{enumerate\})((?:(?!\\begin\{enumerate\}).)*?\\end\{enumerate\})', abc, s, flags=re.S)
     s = re.sub(r'(\\begin\{(?:equation|align|gather|multline)\*?\})(\s*)\[', r'\1\2{}[', s)
     s = re.sub(r'(\\\\)(\s*)\[', r'\1{}\2[', s)
 
@@ -405,7 +414,7 @@ def fix_refs(md):
     return md
 
 # compacte opsommingen (geen witregel tussen items)
-MARK = re.compile(r'^\s*(?:[-*+]|\d+\.)\s+\S')
+MARK = re.compile(r'^\s*(?:[-*+]|\d+\.|\([a-z]\))\s+\S')
 def tighten_lists(md):
     lines = md.split('\n'); out = []
     for i, l in enumerate(lines):
