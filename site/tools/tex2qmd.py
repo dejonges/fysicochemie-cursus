@@ -43,6 +43,8 @@ CALLOUTS = {  # omgeving -> (Quarto-callout, titelprefix, extra attributen)
     "toepassing": ("callout-note", "Toepassing", ''),
     "definitie":  ("callout-warning", "Definitie", ''),
     "besluit":    ("callout-important", "Besluit", ''),
+    "samenvatting": ("callout-important", "Samenvatting", ''),
+    "reflectie":  ("callout-caution", "Reflectievragen", ' icon="false"'),
     "oefening":   ("callout-note", "Oefening", ' icon="false"'),
     "oplossing":  ("callout-tip", "Oplossing", ' collapse="true" icon="false"'),  # enkel online, dichtgeklapt
 }
