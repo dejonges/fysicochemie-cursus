@@ -5,125 +5,79 @@
 
 \section{Waarom thermodynamica?}
 
-Een procesingenieur krijgt de opdracht een nieuwe gascompressor te dimensioneren voor een chemische installatie. Het gas moet worden samengeperst alvorens het naar een reactor wordt gestuurd. Al tijdens de eerste simulaties blijkt dat de temperatuur van het gas aanzienlijk stijgt tijdens de compressie. Deze temperatuurstijging heeft belangrijke gevolgen. Hogere temperaturen kunnen de levensduur van de compressor verkorten, stellen hogere eisen aan de gebruikte materialen en verhogen het energieverbruik van de volledige installatie. Om deze redenen worden industri\"ele compressoren vaak opgebouwd uit meerdere compressietrappen die onderling worden gekoeld.
+Een procesingenieur moet een gascompressor dimensioneren. Al bij de eerste simulaties blijkt dat het gas tijdens de compressie sterk opwarmt. Dat verkort de levensduur van de machine, stelt hogere eisen aan de materialen en kost extra energie. Daarom bouwt men industri\"ele compressoren op uit meerdere trappen met tussenkoeling. Waarom warmt een gas op bij compressie? Hoeveel arbeid kost het? Waarom bespaart tussenkoeling vermogen? En wanneer mag je het gas nog als ideaal beschouwen?
 
-Voor een beginnende ingenieur roept dit onmiddellijk een aantal fundamentele vragen op. Waarom stijgt de temperatuur wanneer een gas wordt samengeperst? Waar komt de hiervoor benodigde energie vandaan? Hoeveel arbeid is nodig om een gas tot een bepaalde druk te comprimeren? Waarom verlaagt tussentijdse koeling het benodigde compressorvermogen? Wanneer kan een gas nog als ideaal worden beschouwd en wanneer zijn uitgebreidere toestandsvergelijkingen noodzakelijk?
-
-Hoewel deze vragen op het eerste gezicht zeer uiteenlopend lijken, kunnen zij allemaal worden beantwoord met dezelfde fysische principes. Deze principes vormen het studiegebied van de thermodynamica.
-
-De thermodynamica beschrijft hoe energie wordt opgeslagen, uitgewisseld en omgezet tijdens fysische en chemische processen. Zij vormt daardoor \'e\'en van de fundamentele pijlers van de chemische technologie. Zonder thermodynamica is het onmogelijk om warmtewisselaars, destillatiekolommen, reactoren, compressoren, turbines of koelinstallaties op een rationele manier te ontwerpen.
-
-Het bijzondere aan de thermodynamica is dat zij geen kennis vereist van de beweging van individuele moleculen. Een industrieel proces bevat doorgaans een onvoorstelbaar groot aantal moleculen, waardoor een volledige beschrijving van elke afzonderlijke botsing onmogelijk is. De thermodynamica kiest daarom voor een andere benadering: in plaats van het gedrag van individuele moleculen te bestuderen, beschrijft zij het systeem aan de hand van een beperkt aantal macroscopische grootheden, zoals de temperatuur, de druk en het volume. Ondanks deze sterke vereenvoudiging laat de thermodynamica toe het gedrag van zeer complexe processen met een opmerkelijk hoge nauwkeurigheid te voorspellen.
-
-In dit hoofdstuk worden de fundamentele concepten van de klassieke thermodynamica stap voor stap opgebouwd. Daarbij vertrekken we steeds vanuit een fysisch of industrieel probleem, waarna de noodzakelijke theorie wordt ontwikkeld. De nadruk ligt niet uitsluitend op het afleiden van vergelijkingen, maar vooral op het begrijpen van hun fysische betekenis en hun toepassing binnen de chemische en biochemische procestechnologie.
+Al deze vragen worden beantwoord door de \emph{thermodynamica}: de leer van hoe energie wordt opgeslagen, uitgewisseld en omgezet. Zonder thermodynamica kan je geen warmtewisselaar, destillatiekolom, reactor of koelinstallatie rationeel ontwerpen. Het bijzondere is dat ze geen kennis van individuele moleculen vereist: een handvol macroscopische grootheden (temperatuur, druk, volume, samenstelling) volstaat om zeer complexe processen nauwkeurig te voorspellen.
 
 \section{Het thermodynamisch systeem}
 
-Elke thermodynamische analyse begint met het afbakenen van het deel dat zal worden bestudeerd. Dit deel wordt het \emph{thermodynamisch systeem} genoemd. Alles buiten het systeem behoort tot de \emph{omgeving}. De grens die beide van elkaar scheidt wordt de \emph{systeemgrens} genoemd.
+Elke analyse begint met het afbakenen van het \emph{systeem}. Alles daarbuiten is de \emph{omgeving}; de scheiding is de \emph{systeemgrens}. Die keuze lijkt triviaal, maar alle massa- en energiebalansen hangen ervan af. Figuur~\ref{fig:systemen} toont de drie types, ingedeeld volgens wat de grens mag oversteken.
 
-Deze afbakening lijkt op het eerste gezicht een eenvoudige stap, maar is in werkelijkheid \'e\'en van de belangrijkste keuzes die een ingenieur maakt. De energiebalansen, massabalansen en uiteindelijk ook de ontwerpvergelijkingen zijn immers volledig afhankelijk van de gekozen systeemgrens.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figuren/systemen}
+    \caption{Open, gesloten en ge\"isoleerd systeem. Een open systeem wisselt massa en energie uit, een gesloten systeem enkel energie (warmte $Q$ en arbeid $W$), een ge\"isoleerd systeem niets.}
+    \label{fig:systemen}
+\end{figure}
+
+\begin{itemize}
+\item Een \emph{gesloten systeem}, zoals gas in een zuiger-cilinder, wisselt geen massa uit, wel warmte en arbeid. De basiswetten leiden we eerst af voor gesloten systemen.
+\item Een \emph{open systeem} laat ook massa door. Bijna elk industrieel toestel is open: pompen, compressoren, warmtewisselaars, kolommen, reactoren. De stromen voeren energie mee, en daarvoor zullen we de \emph{enthalpie} nodig hebben (\S~\ref{sec:enthalpie}).
+\end{itemize}
 
 \begin{toepassing}{Compressor}
-Beschouw de compressor uit de inleiding. Twee ingenieurs kunnen hetzelfde fysische proces analyseren, maar toch verschillende energiebalansen opstellen omdat zij een andere systeemgrens kiezen. Wanneer uitsluitend de compressor wordt beschouwd, treden verschillende energiestromen over de systeemgrens: het gas stroomt binnen en verlaat de compressor opnieuw onder een hogere druk, terwijl mechanische arbeid wordt geleverd via een aandrijfas en warmte kan worden afgegeven. Wordt daarentegen de elektromotor samen met de compressor als \'e\'en systeem beschouwd, dan verdwijnt de mechanische arbeid uit de energiebalans en wordt deze vervangen door een elektrische vermogensstroom. Beide beschrijvingen zijn correct, mits de systeemgrens consequent wordt toegepast.
-\end{toepassing}
-
-Afhankelijk van de interactie tussen het systeem en de omgeving onderscheidt men twee fundamentele types thermodynamische systemen.
-
-\subsection{Gesloten systemen}
-
-Een \emph{gesloten systeem} laat geen massa door de systeemgrens, maar energie kan de systeemgrens wel overschrijden onder de vorm van warmte of arbeid. Een klassieke zuiger-cilinder-opstelling vormt hiervan het bekendste voorbeeld. De hoeveelheid gas in de cilinder blijft constant, terwijl warmte aan het systeem kan worden toegevoerd en de zuiger arbeid kan verrichten op de omgeving.
-
-Vrijwel alle fundamentele afleidingen in de klassieke thermodynamica worden eerst uitgevoerd voor gesloten systemen. Hierdoor kunnen de basiswetten worden ontwikkeld zonder dat massatransport in rekening moet worden gebracht.
-
-\subsection{Open systemen}
-
-In de meeste industri\"ele installaties stroomt materie voortdurend het systeem binnen en opnieuw naar buiten. Dergelijke systemen worden \emph{open systemen} genoemd. Compressoren, pompen, turbines, warmtewisselaars, destillatiekolommen, reactoren en fermentoren behoren vrijwel zonder uitzondering tot deze categorie.
-
-Bij open systemen wordt naast de energiebalans ook een massabalans opgesteld. Omdat de aangevoerde en afgevoerde stromen eveneens energie transporteren, zal in latere paragrafen blijken dat hiervoor een nieuwe energiegrootheid noodzakelijk is: de enthalpie.
-
-\begin{toepassing}{Destillatiekolom}
-Een destillatiekolom is een typisch voorbeeld van een open systeem. Het voedingsmengsel stroomt de kolom binnen, terwijl bovenaan een destillaatstroom en onderaan een bodemproduct worden afgevoerd. Daarnaast wordt warmte toegevoerd in de reboiler en onttrokken in de condensor. Het opstellen van de massa- en energiebalansen voor dergelijke installaties vormt de basis van het ontwerp van scheidingsprocessen.
+Twee ingenieurs analyseren dezelfde compressor. De ene kiest enkel de compressor als systeem: gas stroomt in en uit, mechanische arbeid komt binnen via de as, er gaat wat warmte verloren. De andere neemt ook de elektromotor mee: de asarbeid verdwijnt uit de balans en wordt vervangen door elektrisch vermogen. Beide balansen zijn correct, zolang de gekozen grens consequent wordt gebruikt.
 \end{toepassing}
 
 \section{Thermodynamisch evenwicht}
 
-Een systeem kan slechts eenduidig worden beschreven wanneer het zich in een toestand van thermodynamisch evenwicht bevindt. Beschouw een afgesloten recipi\"ent waarin zich een gas bevindt. Indien het gas pas werd samengeperst, zal de druk in verschillende delen van het vat aanvankelijk niet volledig uniform zijn. Na verloop van tijd verdwijnen deze lokale verschillen spontaan. Uiteindelijk wordt overal in het vat dezelfde druk en dezelfde temperatuur gemeten.
-
-Een systeem bevindt zich slechts in volledig thermodynamisch evenwicht wanneer gelijktijdig aan drie voorwaarden wordt voldaan.
-
-\subsection{Thermisch evenwicht}
-
-Wanneer twee systemen met een verschillende temperatuur met elkaar in contact worden gebracht, zal warmte spontaan van het warmste naar het koudste systeem stromen. Pas wanneer geen netto warmtestroom meer optreedt, spreekt men van thermisch evenwicht.
+Een systeem laat zich pas eenduidig beschrijven als het in \emph{thermodynamisch evenwicht} is: na verloop van tijd zijn alle lokale verschillen in druk, temperatuur en samenstelling verdwenen. Daarvoor zijn drie voorwaarden nodig.
+\begin{itemize}
+\item \textbf{Thermisch evenwicht}: geen netto warmtestroom meer, dus overal dezelfde temperatuur.
+\item \textbf{Mechanisch evenwicht}: geen netto kracht, bv.\ een zuiger staat stil als $p = p_\text{ext}$.
+\item \textbf{Chemisch evenwicht}: de samenstelling verandert niet meer. Bij \ce{N2 + 3H2 <=> 2NH3} lopen heen- en terugreactie even snel; op moleculaire schaal gaat de reactie door, macroscopisch staat alles stil (\emph{dynamisch evenwicht}).
+\end{itemize}
 
 \begin{definitie}{Nulde hoofdwet van de thermodynamica}
-Indien systeem $A$ in thermisch evenwicht is met systeem $C$ en systeem $B$ eveneens in thermisch evenwicht is met systeem $C$, dan bevinden ook systeem $A$ en systeem $B$ zich onderling in thermisch evenwicht.
+Als systeem $A$ in thermisch evenwicht is met $C$, en $B$ ook met $C$, dan zijn $A$ en $B$ onderling in thermisch evenwicht.
 \end{definitie}
 
-Hoewel deze uitspraak vanzelfsprekend lijkt, vormt zij de fundamentele basis voor de definitie van temperatuur. Het is namelijk mogelijk door deze definitie om de temperatuur van een object te bepalen door dit te vergelijken met een ander object.
-
-\subsection{Mechanisch evenwicht}
-
-Beschouw een cilinder met een beweegbare zuiger. Wanneer de gasdruk groter is dan de uitwendige druk, zal de zuiger spontaan naar buiten bewegen. De beweging stopt pas wanneer beide drukken identiek zijn:
-\begin{equation*}
-p = p_{\text{ext}}
-\end{equation*}
-Op dat ogenblik is de resulterende kracht op de zuiger nul ($\Delta p=0$) en bevindt het systeem zich in mechanisch evenwicht.
-
-\subsection{Chemisch evenwicht}
-
-Beschouw de synthese van ammoniak uit stikstof en waterstof:
-\begin{equation*}
-\ce{N2 + 3 H2 <=> 2NH3}.
-\end{equation*}
-Wanneer de reactie wordt gestart met uitsluitend stikstof en waterstof, zal de vorming van ammoniak spontaan verlopen. Naarmate de concentratie ammoniak stijgt, wordt ook de omgekeerde reactie belangrijker. Uiteindelijk wordt een toestand bereikt waarbij beide reacties even snel verlopen. Hoewel de reactie op moleculaire schaal blijft plaatsvinden, veranderen de macroscopische concentraties niet langer. Men spreekt dan van een \emph{dynamisch chemisch evenwicht}.
-
-%\begin{besluit}{Thermodynamisch evenwicht}
-%De klassieke thermodynamica beschrijft systemen die zich in een toestand van thermodynamisch evenwicht bevinden of evolueren tussen opeenvolgende evenwichtstoestanden. Thermodynamisch evenwicht vereist gelijktijdig thermisch, mechanisch en chemisch evenwicht. Pas onder deze voorwaarden kunnen toestandsvariabelen zoals druk, temperatuur en samenstelling eenduidig worden gedefinieerd.
-%\end{besluit}
+Deze vanzelfsprekende uitspraak is de basis van elke temperatuurmeting: de thermometer speelt de rol van $C$.
 
 \section{Toestandsvariabelen}
 
-De toestand van een systeem wordt beschreven aan de hand van een beperkt aantal meetbare grootheden, de \emph{toestandsvariabelen}: druk, temperatuur, volume en chemische samenstelling. Het gebruik van toestandsvariabelen vormt \'e\'en van de grootste sterktes van de thermodynamica. Een industri\"ele reactor van $100~\mathrm{m^3}$ bevat gemakkelijk meer dan $10^{30}$ moleculen. Toch kan de toestand van deze reactor vaak volledig worden beschreven met slechts enkele macroscopische grootheden.
+Een industri\"ele reactor van $100~\mathrm{m^3}$ bevat meer dan $10^{30}$ moleculen, maar zijn toestand ligt vast door enkele \emph{toestandsvariabelen}: druk, temperatuur, volume en samenstelling.
 
 \subsection{Intensieve en extensieve grootheden}
 
-Een \emph{extensieve grootheid} is evenredig met de hoeveelheid materie in het systeem. Wanneer twee identieke systemen worden samengevoegd, verdubbelt de waarde van een extensieve grootheid. Voorbeelden: de massa $m$, het volume $V$, het aantal mol $n$, de interne energie $U$, de enthalpie $H$, de entropie $S$.
-
-Een \emph{intensieve grootheid} is onafhankelijk van de grootte van het systeem. Voorbeelden: de temperatuur $T$, de druk $p$, de dichtheid $\rho$, de concentratie.
-
-\begin{toepassing}{Warmtewisselaar}
-In een warmtewisselaar wordt warmte overgedragen van een warme naar een koude processtroom. De warmtestroom wordt gedreven door een temperatuurverschil, een intensieve grootheid. De hoeveelheid overgedragen warmte is daarentegen een extensieve grootheid en is afhankelijk van het massadebiet van beide stromen.
-\end{toepassing}
+Een \emph{extensieve grootheid} verdubbelt als je twee identieke systemen samenvoegt: massa $m$, volume $V$, hoeveelheid stof $n$, interne energie $U$, enthalpie $H$, entropie $S$. Een \emph{intensieve grootheid} hangt niet af van de grootte: temperatuur $T$, druk $p$, dichtheid $\rho$, concentratie, en elke molaire grootheid zoals $V_\mathrm{m} = V/n$. In een warmtewisselaar is het temperatuurverschil (intensief) de drijvende kracht, terwijl de overgedragen warmte (extensief) schaalt met het debiet.
 
 \subsection{Toestandsfuncties en padfuncties}
 
-De interne energie blijkt uit experimenten uitsluitend af te hangen van de begin- en eindtoestand van het systeem:
-\begin{equation*}
-\Delta U = U_2 - U_1
-\end{equation*}
-De interne energie is dus een \emph{toestandsfunctie}. Hetzelfde geldt voor de enthalpie, de entropie en de Gibbs-vrije energie.
+Een \emph{toestandsfunctie} hangt enkel af van de toestand van het systeem, niet van de weg waarlangs die bereikt werd. De interne energie is er een: $\Delta U = U_2 - U_1$, welke weg je ook volgt. Hetzelfde geldt voor $H$, $S$ en $G$. Warmte en arbeid zijn daarentegen \emph{padfuncties}: hun waarde hangt af van het proces (figuur~\ref{fig:padfunctie}). Daarom schrijven we $\dd U$ (exacte differentiaal) maar $\delta Q$ en $\delta W$.
 
-Warmte en arbeid gedragen zich echter fundamenteel anders. Hun waarde hangt af van het gevolgde proces en niet uitsluitend van de begin- en eindtoestand. Warmte en arbeid zijn daarom \emph{padfuncties}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/padfunctie}
+    \caption{Twee wegen van toestand 1 naar toestand 2. De arbeid die het gas levert, is de oppervlakte onder de curve en is langs weg A veel groter. Omdat $\Delta U$ voor beide wegen gelijk is, moet ook de uitgewisselde warmte verschillen.}
+    \label{fig:padfunctie}
+\end{figure}
 
-Om dit onderscheid ook mathematisch duidelijk te maken, wordt voor toestandsfuncties een exact differentiaal gebruikt, $\dd U$, terwijl voor warmte en arbeid een inexact differentiaal wordt geschreven, $\delta Q$ en $\delta W$.
+Een vergelijking uit het dagelijks leven: rij met de auto van een bergtop A naar het dal B en terug. De barometer toont in A voor en na de rit dezelfde druk: de luchtdruk is een toestandsfunctie. De brandstofmeter niet: hoeveel benzine je verbruikt hebt, hangt af van de gekozen route.
 
-Het onderscheid tussen deze twee begrippen kan eenvoudig voorgesteld worden door dit voorbeeld. Stel men maakt een rondrit door de bergen van een punt A op de berg naar punt B in het dal en vervolgens weer terug naar A. Daarbij kijken we naar twee meters in de auto: een luchtdrukmeter en de benzinemeter. Voor de luchtdrukmeter maakt het niet uit welke weg er gekozen wordt: bij het meten van de luchtdruk P in A voor en na het traject wordt dezelfde waarde gevonden, en in B een andere, hogere waarde (weersveranderingen daargelaten). Voor de benzinemeter van de auto is dat echter een ander verhaal: die zal voor de rit in A een andere waarde aangeven dan na de rit in A. De luchtdruk is dus een toestandsfunctie, en de brandstofstand niet. De luchtdruk is alleen een functie van de toestand, maar de brandstofstand is daarnaast ook een functie van de afgelegde weg.
-
-\subsection{Temperatuur en druk}
-
-Temperatuur en druk zijn de twee belangrijkste intensieve toestandsvariabelen. De temperatuur wordt gedefinieerd via de nulde hoofdwet en gemeten met een thermometer. De druk wordt gedefinieerd als kracht per oppervlakte-eenheid en gemeten met een manometer. Beide grootheden zijn intensief: zij beschrijven de lokale toestand van het systeem en veranderen niet wanneer de systeemgrootte wordt verdubbeld.
 
 \section{Toestandsvergelijkingen}
 
-De verschillende toestandsvariabelen zijn niet onafhankelijk van elkaar. Zij worden onderling verbonden door fysische relaties die \emph{toestandsvergelijkingen} worden genoemd. De eenvoudigste en bekendste hiervan is de ideale gaswet.
+Toestandsvariabelen zijn niet onafhankelijk: een \emph{toestandsvergelijking} verbindt ze. De eenvoudigste is de ideale gaswet.
 
 \subsection{De ideale gaswet}
 
-Voor een verdund gas blijkt de relatie tussen druk, volume, temperatuur en hoeveelheid stof bijzonder eenvoudig:
+Voor een verdund gas geldt
 \begin{equation}
 pV = nRT,
 \end{equation}
-waarin $R$ de universele gasconstante is, $R = \SI{8.314}{\joule\per\mole\per\kelvin}$. De waarde van de gasconstante kan veranderen als er andere eenheden dan de SI-eenheden gebruikt worden in de ideale gaswet. Het is belangrijk om dit steeds te verifiëren. De ideale gaswet is geen afzonderlijk model naast de re\"ele gasmodellen, maar vormt de limiet waartoe alle toestandsvergelijkingen moeten convergeren. Met andere woorden, de ideale gaswet is \emph{een limiet-wet}. Alle gassen waarbij $p \rightarrow 0$ voldoen aan de ideale gaswet. 
+met $R = \SI{8.314}{\joule\per\mole\per\kelvin}$ (in SI-eenheden; met bar en liter wordt dat \SI{0.08314}{\litre\bar\per\mole\per\kelvin}). De ideale gaswet is een \emph{limietwet}: elk gas volgt ze in de limiet $p \to 0$, en elke betere toestandsvergelijking moet in die limiet tot $pV = nRT$ herleiden.
+
 
 \subsection{De ideale gaswet vanuit de moleculen: kinetische gastheorie}
 \label{sec:kinetische-gastheorie}
@@ -174,897 +128,326 @@ Wanneer een gas door een zeer klein gaatje ontsnapt (\emph{effusie}), is de snel
 \end{itemize}
 \end{toepassing}
 
-Het model van de kinetische gastheorie verklaart ook waarom re\"ele gassen afwijken van de ideale gaswet. Aanname (2) en (3) zijn immers niet exact: moleculen hebben wel een eigen volume en trekken elkaar wel aan. Die twee correcties vormen precies de basis van de vergelijking van Van der Waals verderop.
+Aannames (2) en (3) zijn niet exact: moleculen hebben een eigen volume en trekken elkaar aan. Die twee correcties vormen de basis van de vergelijking van Van der Waals (\S~\ref{sec:vdw-afleiding}).
 
-\subsection{Afwijkingen van ideaal gedrag: experimentele observaties}
+\subsection{Afwijkingen van ideaal gedrag}
 
-De ideale gaswet werd oorspronkelijk afgeleid onder twee aannames: (1) moleculen bezitten geen eigen volume, en (2) er bestaan geen intermoleculaire krachten tussen de gasmoleculen onderling. Voor verdunde gassen bij matige druk werken deze aannames uitstekend. Reeds in de negentiende eeuw evenwel stelden fysische chemici vast dat systematische afwijkingen optreden naarmate de omstandigheden extremer worden: hogere druk en lagere temperatuur.
-
-\subsubsection{Boyle-afwijkingen}
-
-De eenvoudigste test van de ideale gaswet is de wet van Boyle: bij constante temperatuur moet $pV$ constant zijn (zie Figuur \ref{fig:Boyle}), onafhankelijk van de druk. Regnault (1845) en later Amagat (1870) voerden nauwkeurige metingen uit en vonden dat $pV$ voor re\"ele gazen niet constant is, maar systematisch afwijkt naarmate de druk toeneemt.
-
+Bij hoge druk en lage temperatuur gaan aannames (2) en (3) niet meer op. Dat zie je op drie manieren.
 \begin{itemize}
-\item Voor stikstof bij \SI{0}{\celsius} en drukken tot \SI{10}{\bar} bedraagt de afwijking minder dan \SI{0.5}{\percent}: de ideale gaswet is een uitstekende benadering. Bij \SI{100}{\bar} bedraagt de afwijking reeds \SI{5}{\percent}; bij \SI{500}{\bar} meer dan \SI{30}{\percent}.
-\item Voor \ce{CO2} bij \SI{40}{\celsius} en \SI{100}{\bar} bedraagt de afwijking meer dan \SI{20}{\percent}, en bij lagere temperaturen kan condensatie optreden, hetgeen de ideale gaswet volledig ongeldig maakt.
+\item \textbf{$pV$ is niet constant.} Volgens Boyle is $pV$ bij constante $T$ onafhankelijk van de druk (figuur~\ref{fig:Boyle}). Voor stikstof bij \SI{0}{\celsius} klopt dat tot op \SI{0.5}{\percent} tot \SI{10}{\bar}, maar bij \SI{100}{\bar} wijkt $pV$ al \SI{5}{\percent} af en bij \SI{500}{\bar} meer dan \SI{30}{\percent}.
+\item \textbf{Joule--Thomson-effect.} Een gas dat zonder warmte-uitwisseling door een ventiel expandeert, koelt bij kamertemperatuur meestal af. Bij een ideaal gas zou $T$ constant blijven. De interne energie van een re\"eel gas hangt dus af van het volume: de moleculen trekken elkaar aan.
+\item \textbf{Condensatie.} Volgens de ideale gaswet kan je een gas tot een willekeurig klein volume samenpersen. In werkelijkheid condenseert elk gas onder zijn \emph{kritische temperatuur} $T_c$ tot een vloeistof met een nagenoeg vast volume (figuur~\ref{fig:afwijkingBoyle}). Boven $T_c$ (voor \ce{CO2} \SI{31.0}{\celsius}) condenseert het nooit, hoe hoog de druk ook wordt.
 \end{itemize}
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\linewidth]{Figuren/boyle}
-    \caption{Isothermen voor een ideaal gas waarbij $p \propto \frac{1}{V}$. Voor een ideaal gas blijft deze relatie geldig voor het volledige bereik.}
+    \caption{Isothermen van een ideaal gas: $p \propto 1/V$ over het volledige bereik.}
     \label{fig:Boyle}
 \end{figure}
-
-\subsubsection{Joule--Thomson-effect}
-
-Een tweede experimentele observatie is het Joule--Thomson-effect: wanneer een gas door een poruese wand expandeert van hoge naar lage druk zonder warmte-uitwisseling, verandert de temperatuur. Voor een ideaal gas ($\partial U/\partial V|_T = 0$) zou de temperatuur constant blijven. Experimenteel evenwel koelen de meeste gassen af bij expansie bij kamertemperatuur (positieve Joule--Thomson-co\"effici\"ent), hetgeen aantoont dat de interne energie van een re\"eel gas afhangt van het volume --- een direct gevolg van intermoleculaire krachten.
-
-\subsubsection{Condensatie}
-
-De meest in het oog springende afwijking is de condensatie zelf (zie Figuur \ref{fig:afwijkingBoyle}). De ideale gaswet voorspelt dat een gas bij willekeurig hoge druk een arbitrair klein volume kan bereiken. In werkelijkheid evenwel condenseert elk gas bij voldoende hoge druk en voldoende lage temperatuur tot een vloeistof met een eindig, nagenoeg constant volume. De ideale gaswet heeft geen verklaring voor het bestaan van een vloeistoffase, laat staan voor de kritische temperatuur boven dewelke vloeibaarheid onmogelijk is. Een gas boven de kritische temperatuur ($T_c$) zal bij compressie nooit condenseren. Voor \ce{CO2} bedraagt de kritische temperatuur \SI{31.04}{\celsius}.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\linewidth]{Figuren/isothermen_co2}
-    \caption{Het gedrag van reële gassen (\ce{CO2}) onder veranderende druk en temperatuur. De curves tonen duidelijke afwijkingen van het ideaal gedrag onder specifieke omstandigheden. De horizontale lijnen tonen de condenstatiezone (C $\to$ E).}
+    \caption{Isothermen van \ce{CO2}. Onder de kritische temperatuur verschijnt een horizontaal stuk (C $\to$ E): daar condenseert het gas bij constante druk.}
     \label{fig:afwijkingBoyle}
 \end{figure}
 
-\subsection{De compressibiliteitsfactor als kwantitatieve maat}
+\subsection{De compressibiliteitsfactor}
 
-Om de afwijking systematisch te kwantificeren, wordt de \emph{compressibiliteitsfactor} $Z$ ingevoerd:
+De afwijking wordt gemeten met de \emph{compressibiliteitsfactor}
 \begin{equation}
-\boxed{\;Z = \frac{V_{m,werk}}{V_{m,ideaal}}=\frac{pV_{m,werk}}{RT}\;}
+\boxed{\;Z = \frac{V_\mathrm{m}}{V_\mathrm{m}^\text{ideaal}} = \frac{pV_\mathrm{m}}{RT}\;}
 \end{equation}
-Voor een ideaal gas geldt $Z = 1$. Afwijkingen van $Z = 1$ wijzen op niet-ideaal gedrag. De waarde van $Z$ en zijn afhankelijkheid van druk en temperatuur bevatten informatie over de aard van de intermoleculaire interacties:
-
-\begin{itemize}
-\item $Z < 1$: de werkelijke druk is lager dan door de ideale gaswet voorspeld, of equivalent het werkelijke molaire volume is kleiner dan verwacht. Dit wijst op \emph{aantrekkende} intermoleculaire krachten die de moleculen dichter bij elkaar brengen. Typisch bij matige drukken en lage temperaturen.
-\item $Z > 1$: de werkelijke druk is hoger dan verwacht, of het werkelijke molaire volume is groter. Dit wijst op \emph{afstotende} krachten; het eindige moleculaire volume wordt bepalend. Typisch bij zeer hoge drukken.
-\item $Z \to 1$ naarmate $p \to 0$ of $T \to \infty$: in de limiet van verdunde of zeer hete gassen verdwijnen alle intermoleculaire effecten. De ideale gaswet is in deze limiet gevallen steeds geldig.
-\end{itemize}
-
-Tabel \ref{table:Z} geeft $Z$ voor koolstofdioxide bij verschillende condities. We merken dat bij lage druk $Z \approx 1$; bij matige druk domineren aantrekkingskrachten ($Z < 1$); bij zeer hoge druk domineert het eindige moleculaire volume ($Z > 1$).
+Voor een ideaal gas is $Z = 1$. Bij $Z < 1$ is het gas compacter dan ideaal: de \emph{aantrekking} tussen de moleculen domineert (matige druk, lage $T$). Bij $Z > 1$ is het gas minder samendrukbaar: het \emph{eigen volume} van de moleculen domineert (zeer hoge druk). Voor $p \to 0$ of $T \to \infty$ gaat $Z \to 1$. Tabel~\ref{table:Z} en figuur~\ref{fig:Z} tonen dat verloop.
 
 \begin{table}[htb]
 \centering
-\caption{Compressibiliteitsfactor $Z$ voor \ce{CO_2} bij verschillende condities.}
+\caption{Compressibiliteitsfactor $Z$ voor \ce{CO2} bij \SI{350}{\kelvin}.}
 \label{table:Z}
-
-\begin{tabular}{cccc}
+\begin{tabular}{ccc}
 \toprule
-$T$ (\si{\kelvin}) & $p$ (\si{\bar}) & $V_m$ (\si{\litre\per\mole}) & $Z$ \\
+$p$ (\si{\bar}) & $V_\mathrm{m}$ (\si{\litre\per\mole}) & $Z$ \\
 \midrule
-350 & 1 & 24.5 & 1.00 \\
-350 & 50 & 0.41 & 0.70 \\
-350 & 200 & 0.15 & 1.03 \\
-350 & 1000 & 0.045 & 2.16 \\
+1 & 24.5 & 1.00 \\
+50 & 0.41 & 0.70 \\
+200 & 0.15 & 1.03 \\
+1000 & 0.045 & 2.16 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Een opmerkelijke empirische observatie is dat, wanneer $Z$ wordt uitgezet tegen de \emph{gereduceerde druk} $p_r = p/p_c$ voor verschillende gassen bij dezelfde \emph{gereduceerde temperatuur} $T_r = T/T_c$, alle gassen nagenoeg op dezelfde curve vallen (zie Figuur \ref{fig:compchart}). Dit is de \emph{wet van corresponderende toestanden}. De compressibiliteitsfactor blijkt dus in eerste benadering een universele functie te zijn van $T_r$ en $p_r$, onafhankelijk van de chemische identiteit van het gas. Deze wet vormt de basis van de zogenaamde algemene compressibiliteitskaarten die door ingenieurs worden gebruikt wanneer geen specifieke toestandsvergelijking beschikbaar is.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/compressiefactor}
+    \caption{Compressibiliteitsfactor in functie van de druk. Bij lage druk domineert de aantrekking ($Z<1$), bij hoge druk het eigen volume ($Z>1$).}
+    \label{fig:Z}
+\end{figure}
+
+Zet je $Z$ uit tegen de \emph{gereduceerde druk} $p_r = p/p_c$ bij een vaste \emph{gereduceerde temperatuur} $T_r = T/T_c$, dan vallen de curves van heel verschillende gassen nagenoeg samen (figuur~\ref{fig:compchart}). Dit is de \emph{wet van de corresponderende toestanden}. Ingenieurs gebruiken zulke algemene compressibiliteitskaarten wanneer geen specifieke toestandsvergelijking beschikbaar is.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\linewidth]{Figuren/compressibiliteitskaart}
-    \caption{Algemene compressibiliteitscurve van specifieke gassen waarbij Z uitgedrukt wordt ten opzichte van $p_r$.}
+    \caption{Algemene compressibiliteitskaart: $Z$ tegen $p_r$ voor verschillende gassen bij dezelfde $T_r$.}
     \label{fig:compchart}
 \end{figure}
 
-Twee fundamentele effecten liggen aan de basis van alle geobserveerde afwijkingen:
-
-\begin{enumerate}
-\item \textbf{Eindig moleculair volume}: moleculen bezitten een eigen afmeting (typisch \SI{0.3}{\nano\metre} diameter). Het volume dat beschikbaar is voor translatiebeweging is dus kleiner dan het geometrische volume van de recipi\"ent. Naarmate de druk stijgt, wordt dit effect relatief belangrijker.
-
-\item \textbf{Intermoleculaire krachten}: op gemiddelde afstand oefenen moleculen zwakke aantrekkingskrachten op elkaar (Van der Waals; zie Hoofdstuk \ref{ch:intermoleculair}). Deze krachten persen de moleculen samen, zodat de werkelijke druk lager is dan door de ideale gaswet wordt voorspeld. Op zeer korte afstand, wanneer elektronenwolken overlappen, treedt sterke afstoting op.
-\end{enumerate}
-
-De balans tussen beide effecten verklaart de niet-monotone afhankelijkheid van $Z$ van de druk (zie Figuur \ref{fig:Z}): bij lage druk domineren de aantrekkingskrachten ($Z < 1$), bij hoge druk domineert het eindige volume ($Z > 1$). Tussen beide door is er een zogenaamde \emph{Boyle-temperatuur} waarvoor $Z = 1$ over een breed drukbereik.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/compressiefactor}
-    \caption{Compressiefactor in functie van $p$ voor specifieke gassen}
-    \label{fig:Z}
-\end{figure}
-
-\subsection{De vergelijking van Van der Waals: een fysische afleiding}
+\subsection{De vergelijking van Van der Waals}
 \label{sec:vdw-afleiding}
 
-De eerste succesvolle poging om de ideale gaswet te corrigeren voor beide effecten werd in 1873 voorgesteld door Johannes Diderik van der Waals. Zijn vergelijking markeert het begin van de moderne thermodynamica van re\"ele flu\"ida, en leverde hem in 1910 de Nobelprijs voor fysica op. In plaats van een empirische correlatie te zoeken, vertrok Van der Waals van de fysische oorsprong van de afwijkingen en leidde hij daaruit analytisch een gecorrigeerde toestandsvergelijking af. We bouwen deze afleiding hier stapsgewijs op, telkens vertrekkend van een fysisch idee.
+In 1873 corrigeerde Johannes Diderik van der Waals de ideale gaswet voor beide effecten, niet met een empirische fit maar vanuit hun fysische oorsprong (Nobelprijs 1910). We volgen zijn redenering in drie stappen.
 
-\subsubsection{Stap 1: de volumecorrectie - het uitgesloten volume}
+\subsubsection{Stap 1: het uitgesloten volume}
 
-Beschouw $n$ mol gas in een recipi\"ent met volume $V$. In de ideale gaswet wordt aangenomen dat het volledige volume beschikbaar is voor de beweging van de moleculen. Voor re\"ele moleculen is dit niet correct: een molecule bezit een eigen afmeting, en de zwaartepunten van twee moleculen kunnen niet willekeurig dicht naderen. Beschouw twee harde bollen met straal $r$. Hun zwaartepunten kunnen niet dichter naderen dan $2r$, zodat rond ieder molecule een \emph{uitgesloten bol} met straal $2r$ (en volume $\tfrac{4}{3}\pi(2r)^3 = 8 \cdot \tfrac{4}{3}\pi r^3$) ontstaat die niet door het zwaartepunt van een andere molecule kan worden bezet. Omdat het uitgesloten volume voor een koppel moleculen echter gedeeld is door beide, bedraagt de effectief uitgesloten volume per molecule $\tfrac{1}{2} \cdot 8 \cdot \tfrac{4}{3}\pi r^3 = 4 \cdot \tfrac{4}{3}\pi r^3$.
-
-Voor $N_A$ moleculen per mol bedraagt het totaal uitgesloten volume per mol:
+Moleculen zijn geen punten. Twee harde bollen met straal $r$ kunnen elkaars middelpunt niet dichter naderen dan $2r$. Rond elke molecule ligt dus een uitgesloten bol met volume $\tfrac{4}{3}\pi(2r)^3 = 8\cdot\tfrac{4}{3}\pi r^3$. Die bol wordt gedeeld door een paar moleculen, zodat per molecule $4\cdot\tfrac{4}{3}\pi r^3$ is uitgesloten. Per mol is dat het \emph{co-volume}
 \begin{equation*}
-b = 4 N_A \cdot \tfrac{4}{3}\pi r^3
+b = 4 N_\mathrm{A} \cdot \tfrac{4}{3}\pi r^3 ,
 \end{equation*}
-Dit is het \emph{co-volume} $b$. Belangrijke observatie: $b$ is \emph{viermaal} het eigenlijke moleculaire volume. Het vrij beschikbare volume voor translatiebeweging van de gasmoleculen is:
-\begin{equation*}
-V_{\text{vrij}} = V - nb.
-\end{equation*}
-De gecorrigeerde gaswet, alleen met de volumecorrectie, wordt hierdoor:
+viermaal het eigenlijke volume van de moleculen. Het vrije volume is $V - nb$, en dus
 \begin{equation}
 p(V - nb) = nRT.
 \end{equation}
 
+
 \subsubsection{Stap 2: de drukcorrectie - intermoleculaire aantrekkingskrachten}
 
-De volumecorrectie alleen volstaat niet. Een tweede fundamenteel verschil met het ideale gasmodel is dat re\"ele moleculen aantrekkingskrachten op elkaar uitoefenen.
-
-Om het effect hiervan te begrijpen, bekijken we een molecule die zich vlak voor de wand van een recipiënt bevindt. Volgens de kinetische gastheorie ontstaat de gasdruk doordat moleculen tegen de wand botsen en daarbij impuls overdragen. Bij een ideaal gas wordt aangenomen dat de molecule zich tussen twee botsingen volledig vrij beweegt. De snelheid waarmee zij de wand bereikt, wordt uitsluitend bepaald door haar kinetische energie. Bij een reëel gas is dit niet langer het geval. De molecule wordt, terwijl zij naar de wand beweegt, aangetrokken door de omliggende moleculen die zich in het binnenste van het vat bevinden. Deze aantrekkingskracht werkt tegengesteld aan haar bewegingsrichting, waardoor de molecule de wand met een iets kleinere snelheid bereikt dan in het ideale geval. Ook onmiddellijk na de botsing blijft deze aantrekkingskracht werkzaam en wordt de molecule opnieuw naar het binnenste van het vat getrokken. Hierdoor is de impulsverandering tijdens de botsing kleiner dan voor een ideaal gas. Omdat de gasdruk rechtstreeks voortkomt uit de totale impulsoverdracht aan de wand, oefent een reëel gas bij dezelfde temperatuur en hetzelfde volume een lagere druk uit dan een ideaal gas.
-
-Van der Waals stelde daarom voor om niet de werkelijk gemeten druk te gebruiken, maar de druk die het gas zou uitoefenen indien de intermoleculaire aantrekkingskrachten afwezig waren. Deze fictieve ideale druk kan worden geschreven als
-
+Reële moleculen trekken elkaar bovendien aan. Een molecule die naar de wand beweegt, wordt door de moleculen achter haar teruggetrokken. Ze botst daardoor met een kleinere impuls tegen de wand, en de gemeten druk is lager dan bij een ideaal gas. Van der Waals schreef daarom
 \begin{equation*}
-p_{\mathrm{ideaal}}
-=
-p_{\mathrm{werkelijk}}
-+
-p_{\mathrm{correctie}}.
+p_{\mathrm{ideaal}} = p + p_{\mathrm{correctie}}.
 \end{equation*}
-
-De drukcorrectie stelt dus precies het drukverlies voor dat veroorzaakt wordt door de aantrekkingskrachten tussen de moleculen. Hoe sterker de aantrekkingskrachten tussen de moleculen en hoe meer moleculen zich dicht bij elkaar bevinden, hoe groter de drukverlaging zal zijn. De sterkte van het effect hangt dus af van het aantal moleculaire interacties in het gas. Het aantal moleculen per volume-eenheid is evenredig met $\dfrac{n}{V}$. De kans dat een willekeurige molecule zich in de nabijheid van een tweede molecule bevindt, is eveneens evenredig met deze dichtheid. Het totale aantal onderlinge interacties is daarom evenredig met het product van beide kansen en dus met
-
-\[
-\left(\frac{n}{V}\right)^2
-\]
-
-Met andere woorden: wanneer de dichtheid van het gas verdubbelt, verdubbelt niet alleen het aantal moleculen, maar neemt ook het aantal mogelijke onderlinge interacties ongeveer viermaal toe. Daarom groeit het effect van de aantrekkingskrachten met het kwadraat van de molaire dichtheid.
-
-Van der Waals stelde daarom de drukcorrectie voor als
-
-\begin{equation*}
-p_{\mathrm{correctie}}
-=
-a\left(\frac{n}{V}\right)^2,
-\end{equation*}
-
-of
-
+Die correctie hangt af van het aantal paren moleculen dat elkaar aantrekt. Zowel het aantal moleculen nabij de wand als het aantal buren dat aan elk ervan trekt, is evenredig met de dichtheid $n/V$. De correctie is dus evenredig met het kwadraat: verdubbel je de dichtheid, dan wordt het effect vier keer groter.
 \begin{equation}
-p_{\mathrm{correctie}}
-=
-a\frac{n^2}{V^2}
+p_{\mathrm{correctie}} = a\frac{n^2}{V^2}
 \end{equation}
-
-waarin de stofconstante $a$ een maat is voor de sterkte van de intermoleculaire aantrekkingskrachten. Gassen waarvan de moleculen elkaar sterk aantrekken, zoals \ce{CO2} of \ce{NH3}, bezitten een grote waarde van $a$, terwijl zwak interagerende gassen zoals helium of waterstof een veel kleinere waarde hebben.
+De stofconstante $a$ meet de sterkte van de aantrekking: groot voor \ce{CO2} en \ce{NH3}, klein voor He en \ce{H2}.
 
 \subsubsection{Stap 3: combinatie van beide correcties}
 
-Door beide correcties gelijktijdig toe te passen, vervangen we in de ideale gaswet $p \to p + a n^2/V^2$ en $V \to V - nb$. Dit levert:
+Vervang in de ideale gaswet $p \to p + a n^2/V^2$ en $V \to V - nb$:
 \begin{equation}
 \boxed{\;\left(p + \frac{a n^2}{V^2}\right)(V - nb) = nRT\;}
-\end{equation}
-of, uitgedrukt per mol ($V_m = V/n$):
-\begin{equation}
+\qquad\text{of per mol}\qquad
 \boxed{\;\left(p + \frac{a}{V_m^2}\right)(V_m - b) = RT\;}
 \end{equation}
 
 \begin{voorbeeld}{Vergelijking van het gedrag van \ce{CO2} en He}
+We vergelijken beide gassen bij $T=\SI{300}{\kelvin}$ en $V_m=\SI{1.00e-3}{\metre\cubed\per\mole}$, met $p = RT/(V_m-b) - a/V_m^2$ en $Z = pV_m/RT$. Een ideaal gas geeft $p = RT/V_m = \SI{2.49}{\mega\pascal}$.
 
-Voor \ce{CO2} gelden de Van der Waalsparameters
+\textbf{\ce{CO2}} ($a = \SI{0.364}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{4.27e-5}{\metre\cubed\per\mole}$):
 \[
-a_{\ce{CO2}} = \SI{0.364}{\pascal\metre\tothe{6}\per\mole\squared}
+p = \frac{(8.314)(300)}{1.00\times10^{-3} - 4.27\times10^{-5}} - \frac{0.364}{(1.00\times10^{-3})^2} = 2.61 - 0.364 = \SI{2.24}{\mega\pascal}, \qquad Z = 0.899.
 \]
-en
+\textbf{He} ($a = \SI{0.0035}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{2.38e-5}{\metre\cubed\per\mole}$):
 \[
-b_{\ce{CO2}} = \SI{4.27e-5}{\metre\cubed\per\mole}.
+p = 2.56 - 0.0035 = \SI{2.55}{\mega\pascal}, \qquad Z = 1.023.
 \]
-
-Voor helium gelden
-\[
-a_{\ce{He}} = \SI{0.0035}{\pascal\metre\tothe{6}\per\mole\squared}
-\]
-en
-\[
-b_{\ce{He}} = \SI{2.38e-5}{\metre\cubed\per\mole}.
-\]
-
-We vergelijken beide gassen bij dezelfde temperatuur en hetzelfde molaire volume: 
-\[
-T=\SI{300}{\kelvin} \qquad\text{en}\qquad V_m=\SI{1.00e-3}{\metre\cubed\per\mole}.
-\]
-
-De molaire vorm van de Van der Waalsvergelijking kan omgevormd worden naar de druk
-
-\begin{equation*}
-p = \frac{RT}{V_m-b} - \frac{a}{V_m^2}
-\label{eq:vdw_numeriek_co2_he}
-\end{equation*}
-
-De compressibiliteitsfactor wordt berekend uit
-
-\begin{equation*}
-Z = \frac{pV_m}{RT}
-\end{equation*}
-
-Voor een ideaal gas bij dezelfde temperatuur en hetzelfde molaire volume geldt
-
-\begin{align*}
-p_{\mathrm{ideaal}}
-&= \frac{RT}{V_m} \\
-&= \frac{\SI{8.314}{\joule\per\mole\per\kelvin} \cdot \SI{300}{\kelvin}}{\SI{1.00e-3}{\metre\cubed\per\mole}} \\
-&= \SI{2.49e6}{\pascal} = \SI{2.49}{\mega\pascal}
-\end{align*}
-
-Voor het ideale gas is per definitie
-$$
-Z_{\mathrm{ideaal}}=1
-$$
-
-\paragraph{Koolstofdioxide}
-
-Voor \ce{CO2} bedraagt de drukterm waarin het eigen volume van de moleculen
-wordt gecorrigeerd
-
-\begin{align*}
-\frac{RT}{V_m-b}
-&= \frac{\SI{8.314}{\joule\per\mole\per\kelvin} \cdot \SI{300}{\kelvin} }{ \left(\SI{1.00e-3}{\metre\cubed\per\mole} - \SI{4.27e-5}{\metre\cubed\per\mole} \right) } \\
-&= \SI{2.61}{\mega\pascal}.
-\end{align*}
-
-Doordat het beschikbare volume kleiner is dan het totale molaire volume, verhoogt deze correctie de berekende druk ten opzichte van het ideale gas.
-
-De aantrekkingscorrectie bedraagt
-
-\begin{align*}
-\frac{a}{V_m^2}
-&= \frac{\SI{0.364}{\pascal\metre\tothe{6}\per\mole\squared} }{ \left( \SI{1.00e-3}{\metre\cubed\per\mole} \right)^2 } \\
-&= \SI{3.64e5}{\pascal} = \SI{0.364}{\mega\pascal}.
-\end{align*}
-
-De door de Van der Waalsvergelijking voorspelde druk is bijgevolg
-
-\begin{align*}
-p_{\ce{CO2}}
-&= \SI{2.61}{\mega\pascal} - \SI{0.364}{\mega\pascal} \\
-&= \boxed{\SI{2.24}{\mega\pascal}}
-\end{align*}
-
-De compressibiliteitsfactor is
-
-\begin{align*}
-Z_{\ce{CO2}}
-&= \frac{ \left(\SI{2.24e6}{\pascal}\right) \left(\SI{1.00e-3}{\metre\cubed\per\mole}\right) }{ \left(\SI{8.314}{\joule\per\mole\per\kelvin}\right) \left(\SI{300}{\kelvin}\right) } \\
-&= \boxed{0.899}
-\end{align*}
-
-Omdat \(Z<1\), overheerst bij deze toestand het effect van de
-intermoleculaire aantrekkingskrachten. \ce{CO2} oefent daardoor een lagere
-druk uit dan een ideaal gas bij dezelfde temperatuur en hetzelfde molaire
-volume.
-
-\paragraph{Helium}
-
-Voor helium bedraagt de volumecorrectieterm
-
-\begin{align*}
-\frac{RT}{V_m-b}
-&=
-\frac{
-\SI{8.314}{\joule\per\mole\per\kelvin}
-\cdot
-\SI{300}{\kelvin}
-}{
-\left(
-\SI{1.00e-3}{\metre\cubed\per\mole}
--
-\SI{2.38e-5}{\metre\cubed\per\mole}
-\right)
-}
-\\
-&=
-\SI{2.56}{\mega\pascal}.
-\end{align*}
-
-De aantrekkingscorrectie is veel kleiner dan voor \ce{CO2}:
-
-\begin{align*}
-\frac{a}{V_m^2}
-&=
-\frac{
-\SI{0.0035}{\pascal\metre\tothe{6}\per\mole\squared}
-}{
-\left(
-\SI{1.00e-3}{\metre\cubed\per\mole}
-\right)^2
-}
-\\
-&=
-\SI{3.50e3}{\pascal}
-=
-\SI{0.00350}{\mega\pascal}.
-\end{align*}
-
-De door de Van der Waalsvergelijking voorspelde druk wordt dan
-
-\begin{align*}
-p_{\ce{He}}
-&=
-\SI{2.56}{\mega\pascal}
--
-\SI{0.00350}{\mega\pascal}
-\\
-&=
-\boxed{\SI{2.55}{\mega\pascal}}.
-\end{align*}
-
-De compressibiliteitsfactor bedraagt
-
-\begin{align*}
-Z_{\ce{He}}
-&=
-\frac{
-\left(\SI{2.55e6}{\pascal}\right)
-\left(\SI{1.00e-3}{\metre\cubed\per\mole}\right)
-}{
-\left(\SI{8.314}{\joule\per\mole\per\kelvin}\right)
-\left(\SI{300}{\kelvin}\right)
-}
-\\
-&=
-\boxed{1.023}.
-\end{align*}
-
-Voor helium is \(Z>1\). De intermoleculaire aantrekkingskrachten zijn zo
-zwak dat de volumecorrectie overheerst. Het gas oefent daardoor een iets
-hogere druk uit dan een ideaal gas bij dezelfde temperatuur en hetzelfde
-molaire volume.
-
-\paragraph{Vergelijking}
-
-De resultaten kunnen worden samengevat als
-
-\begin{center}
-\begin{tabular}{lccl}
-\toprule
-Gas
-&
-$p$ (\si{\mega\pascal})
-&
-$Z$
-&
-Overheersend effect
-\\
-\midrule
-Ideaal gas & 2.49 & 1.000 & geen correcties \\
-\ce{CO2}   & 2.24 & 0.899 & aantrekkingskrachten \\
-He         & 2.55 & 1.023 & uitgesloten volume \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-Hoewel beide gassen zich bij dezelfde temperatuur en hetzelfde molaire
-volume bevinden, wijken zij in tegengestelde richting af van het ideale
-gasgedrag. Voor \ce{CO2} veroorzaakt de grote waarde van \(a\) een duidelijke
-drukverlaging. Voor helium is de aantrekkingscorrectie vrijwel
-verwaarloosbaar en overheerst de correctie voor het eindige moleculaire
-volume.
+Beide gassen wijken in tegengestelde richting af. Bij \ce{CO2} wint de aantrekking ($Z<1$), bij helium het eigen volume van de moleculen ($Z>1$).
 \end{voorbeeld}
 
-Een van de grootste successen van de vergelijking van Van der Waals is dat zij kwalitatief het bestaan van een \emph{kritiek punt} voorspelt. Op het kritieke punt is er geen onderscheid meer tussen vloeistof en gas; in het $p$-$V$-diagram is de kritieke isotherm het scheidpunt tussen isothermen met een lokaal minimum en maximum (waar condensatie optreedt) en monotone isothermen.
-
-Wiskundig correspondt het kritieke punt met een \emph{buigpunt} van de kritieke isotherm: $\partial p/\partial V|_{T_c} = 0$ en $\partial^2 p/\partial V^2|_{T_c} = 0$. Uit de Van der Waals-vergelijking per mol, herschreven als $p = RT/(V_m - b) - a/V_m^2$, volgt:\\
-
-Eerste afgelede gelijk aan nul:
+Een groot succes van de vergelijking is dat ze het \emph{kritiek punt} voorspelt. Daar verdwijnt het onderscheid tussen vloeistof en gas; in het $p$-$V$-diagram scheidt de kritieke isotherm de isothermen met een lus (condensatie) van de monotone. Wiskundig is het kritiek punt een buigpunt van die isotherm:
 \begin{equation*}
-\left.\frac{\partial p}{\partial V_m}\right|_{T_c} = -\frac{RT_c}{(V_{m,c} - b)^2} + \frac{2a}{V_{m,c}^3} = 0.
-\end{equation*}
-
-Tweede afgelede gelijk aan nul:
-\begin{equation*}
+\left.\frac{\partial p}{\partial V_m}\right|_{T_c} = -\frac{RT_c}{(V_{m,c} - b)^2} + \frac{2a}{V_{m,c}^3} = 0,
+\qquad
 \left.\frac{\partial^2 p}{\partial V_m^2}\right|_{T_c} = \frac{2RT_c}{(V_{m,c} - b)^3} - \frac{6a}{V_{m,c}^4} = 0.
 \end{equation*}
-Uit deze beide vergelijkingen, samen met de oorspronkelijke Van der Waals-vergelijking bij het kritieke punt, volgen drie relaties tussen $a$, $b$ en de kritieke parameters $T_c$, $p_c$, $V_{m,c}$. Na herschikking:
-\begin{align}
-V_{m,c} &= 3b, \\
-T_c &= \frac{8a}{27Rb}, \\
-p_c &= \frac{a}{27b^2}.
-\end{align}
-Omgekeerd, wanneer $T_c$ en $p_c$ experimenteel bekend zijn, kunnen $a$ en $b$ worden berekend:
-\begin{align}
-a &= \frac{27 R^2 T_c^2}{64 p_c}, \\
-b &= \frac{R T_c}{8 p_c}.
-\end{align}
+Samen met de vergelijking zelf levert dit
+\begin{equation}
+V_{m,c} = 3b, \qquad T_c = \frac{8a}{27Rb}, \qquad p_c = \frac{a}{27b^2}
+\qquad\Longleftrightarrow\qquad
+a = \frac{27 R^2 T_c^2}{64 p_c}, \qquad b = \frac{R T_c}{8 p_c}.
+\end{equation}
 
-\begin{voorbeeld}{Afleiding van $a$ en $b$ voor $\mathrm{CO_2}$ uit kritieke parameters}
-Voor \ce{CO2} gelden experimenteel $T_c = \SI{304.1}{\kelvin}$ en $p_c = \SI{73.8}{\bar}$. 
-
-Met $R = \SI{8.314}{\joule\per\mole\per\kelvin}$
-\begin{align*}
-a &= \frac{27(\SI{8.314}{\joule\per\mole\per\kelvin})^2(\SI{304.1}{\kelvin})^2}{64(\SI{7.38e6}{\pascal})} \\
-  &= \frac{27 \cdot 69.07 \cdot 92472}{64 \cdot 7.38 \cdot 10^6}\;\si{\pascal\metre\tothe{6}\per\mole\squared} \\
-  &\approx \SI{0.365}{\pascal\metre\tothe{6}\per\mole\squared}
-\end{align*}
-Dit is in uitstekende overeenstemming met de experimenteel bepaalde waarde $a = \SI{0.364}{\pascal\metre\tothe{6}\per\mole\squared}$. 
-
-De parameter $b$ volgt uit:
-\begin{align*}
-b &= \frac{(\SI{8.314}{\joule\per\mole\per\kelvin})(\SI{304.1}{\kelvin})}{8(\SI{7.38e6}{\pascal})} \\
-&\approx \SI{4.28e-5}{\metre\cubed\per\mole}
-\end{align*}
-Dit is opnieuw in goede overeenstemming met de experimentele waarde. 
-
-De Van der Waals-vergelijking is dus geen empirische aanpassing, maar een fysisch afleidbare vergelijking waarvan de parameters meetbaar zijn uit het kritieke gedrag.
+\begin{voorbeeld}{$a$ en $b$ voor $\mathrm{CO_2}$ uit het kritiek punt}
+Met $T_c = \SI{304.1}{\kelvin}$ en $p_c = \SI{73.8}{\bar}$:
+\[
+a = \frac{27(8.314)^2(304.1)^2}{64(7.38\times10^{6})} = \SI{0.365}{\pascal\metre\tothe{6}\per\mole\squared}, \qquad
+b = \frac{(8.314)(304.1)}{8(7.38\times10^{6})} = \SI{4.28e-5}{\metre\cubed\per\mole},
+\]
+in uitstekende overeenstemming met de tabelwaarden. De parameters zijn dus meetbaar uit het kritieke gedrag.
 \end{voorbeeld}
 
-De kritieke compressibiliteitsfactor is een directe voorspelling van de Van der Waals-theorie en volgt uit combinatie van $V_{m,c} = 3b$, $T_c = 8a/(27Rb)$ en $p_c = a/(27b^2)$:
-\begin{equation}
-Z_c = \frac{p_c V_{m,c}}{R T_c} = \frac{(a/27b^2)(3b)}{R \cdot 8a/(27Rb)} = \frac{3}{8} = 0.375.
-\end{equation}
-Volgens de Van der Waals-vergelijking is $Z_c$ dus een \emph{universele constante}, onafhankelijk van de stof. Experimenteel evenwel bedragen $Z_c$-waarden:
-
-\begin{center}
-\begin{tabular}{c c}
-\toprule
-     Molecule & $Z_c$ \\
-    \midrule
-    He &0.305 \\
- \ce{H2} & 0.306 \\
- \ce{N2} & 0.287 \\
- \ce{CO2} & 0.275 \\
- \ce{H2O} & 0.229 \\
- \ce{NH3} & 0.242 \\
-     \bottomrule
-\end{tabular}
-    
-\end{center}
-
-De afwijkingen tonen aan dat, hoewel Van der Waals qualitatief correct is, de quantitatieve nauwkeurigheid beperkt is, vooral voor sterk polaire stoffen. Meer geavanceerde vergelijkingen (Peng--Robinson, Soave--Redlich--Kwong) leveren betere kwantitatieve voorspellingen, maar behouden dezelfde fundamentele fysische structuur.
-
-De vergelijking van Van der Waals blijft een vereenvoudigd model. Enkele beperkingen:
-\begin{itemize}
-\item De parameter $a$ wordt verondersteld onafhankelijk van temperatuur, hetgeen fysisch niet correct is (intermoleculaire krachten nemen af met temperatuur door de hogere kinetische energie).
-\item De parameter $b$ veronderstelt harde, niet-comprimeerbare moleculen, hetgeen de werkelijkheid niet volgt.
-\item De voorspelde $Z_c = 0.375$ wijkt systematisch af van experimentele waarden (typisch 0.23--0.31).
-\item De vloeistofdichtheid wordt steevast onderschat.
-\end{itemize}
-Gedurende de twintigste eeuw werden daarom verschillende verbeteringen voorgesteld:
-\begin{itemize}
-\item \textbf{Redlich--Kwong} (1949): introduceert temperatuursafhankelijkheid in de $a$-parameter via $a/\sqrt{T}$.
-\item \textbf{Soave--Redlich--Kwong} (1972): verbeterd met een algemene temperatuursafhankelijkheid, nauwkeuriger voor vooral dampdrukken van zuivere componenten.
-\item \textbf{Peng--Robinson} (1976): specifiek gericht op vloeistofdichtheden en VLE-berekeningen, algemeen gebruikt in processimulators.
-\end{itemize}
-Al deze vergelijkingen behoren tot de \emph{familie der kubische toestandsvergelijkingen}; zij behouden de fundamentele structuur van Van der Waals (correcties voor co-volume en intermoleculaire krachten) maar verfijnen de wiskundige vorm van de correctietermen. Voor onderwijsdoeleinden evenals voor fysisch inzicht volstaat de originele Van der Waals-vergelijking; voor industrie\"le berekeningen worden de geavanceerde varianten in proces simulators (Aspen, HYSYS) gebruikt.
-
+De theorie voorspelt ook een universele kritieke compressibiliteitsfactor $Z_c = p_c V_{m,c}/RT_c = 3/8 = 0.375$. Gemeten waarden liggen lager: 0.305 (He), 0.287 (\ce{N2}), 0.275 (\ce{CO2}), 0.242 (\ce{NH3}) en 0.229 (\ce{H2O}). Van der Waals is dus kwalitatief juist maar kwantitatief beperkt, vooral voor polaire stoffen: $a$ hangt in werkelijkheid af van $T$, moleculen zijn geen harde bollen, en vloeistofdichtheden worden onderschat. Verbeterde \emph{kubische toestandsvergelijkingen} behouden dezelfde structuur maar verfijnen de correctietermen: Redlich--Kwong (1949), Soave--Redlich--Kwong (1972) en Peng--Robinson (1976). Die laatste twee zitten in procesimulatoren zoals Aspen en HYSYS.
 
 \section{Warmte en arbeid}
 
-In industri\"ele processen is men vooral ge\"interesteerd in veranderingen van toestand. Tijdens compressie, expansie, opwarming of afkoeling wordt voortdurend energie uitgewisseld met de omgeving. Twee fundamentele mechanismen van energieoverdracht worden onderscheiden: \emph{arbeid} en \emph{warmte}.
+Tijdens compressie, expansie, opwarming of afkoeling wisselt een systeem energie uit met zijn omgeving. Dat kan op twee manieren: als \emph{arbeid} of als \emph{warmte}. Beide zijn padfuncties, maar ze verschillen fundamenteel van aard (figuur~\ref{fig:arbeid-warmte}).
 
-\begin{toepassing}{De compressor als voorbeeld}
-Een compressor comprimeert een gas van een lage naar een hoge druk. Tijdens dit proces wordt mechanische arbeid op het gas uitgeoefend. Daarnaast zal het gas warmte kunnen uitwisselen met de omgeving. Zowel de toegevoerde arbeid als de uitgewisselde warmte zijn padfuncties: hun waarde hangt af van de wijze waarop de compressie verloopt.
-\end{toepassing}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/arbeid_warmte}
+    \caption{Arbeid is geordende energieoverdracht: de zuiger geeft alle moleculen die hij raakt een duw in dezelfde richting. Warmte is ongeordend: een warme wand geeft moleculen een extra snelheid in willekeurige richtingen.}
+    \label{fig:arbeid-warmte}
+\end{figure}
 
-\subsection{Het fundamentele onderscheid}
+\emph{Arbeid} is energieoverdracht door een macroscopische, gerichte kracht: een zuiger die een gas samendrukt, een gewicht dat wordt opgetild, elektronen die samen door een draad bewegen. Arbeid kan in principe volledig worden omgezet in een andere vorm van geordende energie. \emph{Warmte} is energieoverdracht die enkel door een temperatuurverschil wordt gedreven. De snelle moleculen van een warme wand stoten tegen de tragere gasmoleculen, die daarna in willekeurige richtingen sneller bewegen. Die wanorde maakt dat warmte niet volledig in arbeid kan worden omgezet; dat is het onderwerp van hoofdstuk~\ref{ch:spontaniteit}.
 
-Hoewel arbeid en warmte beide vormen van energieoverdracht zijn, verschillen zij fundamenteel in hun fysische aard. Dit onderscheid is niet alleen van theoretisch belang; het verklaart waarom warme energie niet volledig in arbeid kan worden omgezet, en waarom de tweede hoofdwet (zie Hoofdstuk \ref{ch:spontaniteit}) noodzakelijk is.
-
-\subsubsection{Arbeid als geordende energieoverdracht}
-
-Arbeid is energieoverdracht waarbij een \emph{macroscopische, ge\"ordende} kracht een verplaatsing veroorzaakt. Bij het comprimeren van een gas beweegt de zuiger in een welbepaalde richting; alle moleculen die de zuiger raken, krijgen een impuls in dezelfde richting. Bij het opheffen van een gewicht beweegt het gewicht in een welbepaalde richting; de zwaartekracht doet een ge\"ordende kracht werken. Bij het doorstromen van een elektrische stroom door een draad bewegen alle elektronen in dezelfde richting.
-
-In elk van deze gevallen is er sprake van een \emph{coherente, gerichte} beweging. De energie wordt overgedragen in een enkele, welbepaalde richting, en de grootheid die deze overdracht kwantificeert (kracht maal verplaatsing, of spanning maal lading) is een vectoriële of makroskopische grootheid. Arbeid kan in principe volledig worden omgezet in een andere vorm van ge\"ordende energie: mechanische arbeid kan een gewicht optillen, elektrische arbeid kan een motor aandrijven.
-
-Voor de thermodynamica is de belangrijkste vorm van arbeid de \emph{volumearbeid}: arbeid die wordt verricht wanneer het volume van een systeem verandert tegen een uitwendige druk. Voor een reversibel proces geldt:
+In de chemie is de belangrijkste vorm van arbeid de \emph{volumearbeid}, verricht wanneer het volume verandert tegen een uitwendige druk:
 \begin{equation}
 \boxed{\;\delta W = -p_{\text{ext}}\,\dd V\;}
 \end{equation}
-Het minteken geeft aan dat arbeid die het systeem \emph{verricht} op de omgeving (expansie, $\dd V > 0$) negatief is volgens de conventie dat arbeid op het systeem positief wordt geteld.
-
+We tellen energie die het systeem \emph{ontvangt} als positief. Bij expansie ($\dd V > 0$) levert het gas arbeid aan de omgeving, dus $W < 0$. In een $pV$-diagram is $|W|$ de oppervlakte onder de curve (figuur~\ref{fig:padfunctie}).
 
 \begin{voorbeeld}{Arbeid bij isotherme expansie van een ideaal gas}
-Beschouw \SI{1}{\mole} ideaal gas dat reversibel en isotherm bij $T = \SI{300}{\kelvin}$ expandeert van \SI{1}{\litre} naar \SI{10}{\litre}. Voor een reversibel proces is $p = nRT/V$, zodat:
+\SI{1}{\mole} ideaal gas expandeert reversibel en isotherm bij \SI{300}{\kelvin} van \SI{1}{\litre} naar \SI{10}{\litre}. Reversibel betekent $p_\text{ext} = p = nRT/V$, zodat
 \[
-W = -\int_{V_1}^{V_2} \frac{nRT}{V}\,\dd V = -nRT \ln\frac{V_2}{V_1}.
+W = -\int_{V_1}^{V_2} \frac{nRT}{V}\,\dd V = -nRT \ln\frac{V_2}{V_1} = -(1)(8.314)(300)\ln 10 = -\SI{5.74}{\kilo\joule}.
 \]
-Invullen:
-\[
-W = -(1)(\SI{8.314}{\joule\per\mole\per\kelvin})(\SI{300}{\kelvin})\ln\frac{10}{1} = -\SI{5740}{\joule}.
-\]
-Het minteken geeft aan dat het gas \SI{5.74}{\kilo\joule} aan arbeid op de omgeving verricht. Bij een irreversibele expansie tegen een constante uitwendige druk zou de berekende arbeid kleiner zijn, wat het padafhankelijk karakter van arbeid illustreert.
+Het gas levert \SI{5.74}{\kilo\joule} arbeid. Laat je het gas in \'e\'en ruk expanderen tegen de constante einddruk $p_\text{ext} = nRT/V_2 = \SI{2.49}{\bar}$, dan is $W = -p_\text{ext}\Delta V = -(2.49\times10^{5})(0.009) = -\SI{2.24}{\kilo\joule}$. Zelfde begin- en eindtoestand, minder dan de helft van de arbeid: arbeid hangt af van de weg.
 \end{voorbeeld}
-
-\subsubsection{Warmte als ongeordende energieoverdracht}
-
-Warmte daarentegen is energieoverdracht die \emph{uitsluitend} plaatsvindt dankzij een temperatuurverschil, en die zich manifesteert als een verandering in de \emph{willekeurige, ongeordende} beweging van moleculen. Wanneer een warme wand in contact komt met een koud gas, botsen de wandmoleculen met de gasmoleculen, waarbij de warmere wand meer kinetische energie overdraagt dan de koudere gasmolecule teruggeeft. De netto energiestroom gaat van warm naar koud, maar de energie wordt verdeeld over alle mogelijke bewegingsrichtingen van de gasmoleculen.
-
-In tegenstelling tot arbeid is deze energiestroom \emph{niet gericht}. De moleculen bewegen na de botsing in willekeurige richtingen; de overgedragen energie verhoogt de statistische variatie van moleculaire snelheden, niet hun gemiddelde richting. Deze ongeordende aard verklaart waarom warmte niet volledig in arbeid kan worden omgezet: de wanorde die door warmte wordt ge\"introduceerd kan niet zonder bijkomende kosten worden omgekeerd (zie Hoofdstuk \ref{ch:spontaniteit}).
-
 
 \section{De eerste hoofdwet van de thermodynamica}
 
-In vorige paragraaf werd duidelijk dat warmte en arbeid twee fundamentele manieren zijn waarop een systeem energie kan uitwisselen met zijn omgeving. Wanneer een gas wordt verwarmd, neemt het energie op. Wanneer een gas uitzet, verricht het arbeid op de omgeving en verliest het energie. Hoewel warmte en arbeid heel verschillend lijken, vertegenwoordigen beide een vorm van energieoverdracht.
-
-Dit roept een fundamentele vraag op: \emph{hoe kunnen we de energietoestand van een systeem beschrijven, onafhankelijk van de manier waarop deze energie werd toegevoerd of afgevoerd?} De eerste hoofdwet van de thermodynamica geeft hierop een antwoord. Zij vormt de thermodynamische formulering van één van de meest fundamentele natuurwetten: de wet van behoud van energie.
-
-\subsection{Behoud van energie}
-
-Uit talloze experimenten blijkt dat energie nooit spontaan ontstaat of verdwijnt. Energie kan uitsluitend van vorm veranderen of worden uitgewisseld tussen een systeem en zijn omgeving.
-
-Wanneer een gas wordt verwarmd, wordt warmte aan het systeem toegevoerd. Wanneer een gas wordt gecomprimeerd, wordt mechanische arbeid op het systeem verricht. Beide processen verhogen de hoeveelheid energie die in het systeem is opgeslagen. Omgekeerd zal een systeem energie verliezen wanneer het warmte afgeeft of zelf arbeid verricht op de omgeving.
-
-De totale hoeveelheid energie blijft daarbij steeds behouden. De eerste hoofdwet beschrijft hoe deze energiebalans voor een thermodynamisch systeem kan worden opgesteld.
-
-\subsection{Interne energie}
-
-Om de energietoestand van een systeem te beschrijven, wordt een nieuwe toestandsfunctie ingevoerd: de \emph{interne energie} $U$.
-
-De interne energie omvat alle microscopische energie die in het systeem is opgeslagen. Zij bestaat onder meer uit:
-
-\begin{itemize}
-    \item de translatie-energie van de moleculen;
-    \item de rotatie-energie;
-    \item de trillingsenergie;
-    \item de potentiële energie ten gevolge van intermoleculaire krachten;
-    \item de energie opgeslagen in chemische bindingen.
-\end{itemize}
-
-De interne energie omvat dus alle energie die aanwezig is \emph{in} het systeem zelf. De macroscopische kinetische energie en potentiële energie van het volledige systeem worden hierbij niet beschouwd. Een belangrijk kenmerk van de interne energie is dat zij een \emph{toestandsfunctie} is. Haar waarde wordt volledig bepaald door de actuele toestand van het systeem en is onafhankelijk van de weg waarlangs deze toestand werd bereikt. Warmte en arbeid daarentegen zijn zoals we reeds beschreven geen toestandsfuncties. Zij beschrijven uitsluitend hoe energie tijdens een proces wordt uitgewisseld tussen systeem en omgeving.
-
-\subsection{De eerste hoofdwet}
-
-Wanneer een systeem warmte ontvangt of wanneer arbeid op het systeem wordt verricht, verandert de hoeveelheid interne energie. De eerste hoofdwet beschrijft precies deze energiebalans.
+Energie ontstaat niet en verdwijnt niet; ze verandert enkel van vorm of wordt uitgewisseld. Om de energie \emph{in} een systeem te beschrijven, voeren we de \emph{interne energie} $U$ in. Ze omvat de translatie-, rotatie- en vibratie-energie van de moleculen, de potenti\"ele energie van de intermoleculaire krachten en de energie in chemische bindingen. De kinetische en potenti\"ele energie van het systeem als geheel tellen niet mee. $U$ is een toestandsfunctie.
 
 \begin{definitie}{Eerste hoofdwet van de thermodynamica}
-De verandering van de interne energie van een gesloten systeem is gelijk aan de som van de toegevoerde warmte en de op het systeem verrichte arbeid:
-
+De verandering van de interne energie van een gesloten systeem is de som van de ontvangen warmte en de op het systeem verrichte arbeid:
 \begin{equation}
-\boxed{
-\dd U = \delta Q + \delta W
-}
+\boxed{\dd U = \delta Q + \delta W}
 \end{equation}
-
-Hierbij is $\delta Q$ de warmte die aan het systeem wordt toegevoerd en $\delta W$ de arbeid die op het systeem wordt verricht.
+Met enkel reversibele volumearbeid wordt dit $\dd U = \delta Q - p\,\dd V$.
 \end{definitie}
 
-Voor een reversibel proces waarbij uitsluitend volumearbeid wordt verricht, geldt
-\[
-\delta W=-p\,\dd V,
-\]
-zodat de eerste hoofdwet wordt
-\begin{equation}
-\boxed{
-\dd U
-=
-\delta Q
--
-p\,\dd V.
-}
-\end{equation}
-
-Deze vergelijking vormt de basis van vrijwel alle energiebalansen in de thermodynamica.
-
-De temperatuur is een maat voor de gemiddelde kinetische energie van de moleculen. Wanneer de interne energie van een systeem toeneemt, zal een belangrijk deel van deze extra energie worden opgeslagen in de willekeurige beweging van de moleculen. De moleculen bewegen gemiddeld sneller en de temperatuur stijgt. Voor een ideaal gas zijn er geen intermoleculaire aantrekkings- of afstotingskrachten aanwezig. De volledige interne energie bestaat daarom uitsluitend uit de kinetische energie van de moleculaire beweging. De interne energie van een ideaal gas is bijgevolg uitsluitend een functie van de temperatuur:
-
-\begin{equation*}
-U=U(T).
-\end{equation*}
-
-Voor een ideaal gas betekent een toename van de interne energie dus noodzakelijk een stijging van de temperatuur. Voor reële gassen is de situatie subtieler. Daar dragen ook de intermoleculaire aantrekkings- en afstotingskrachten bij aan de interne energie. Hierdoor hangt de interne energie in het algemeen niet alleen af van de temperatuur, maar ook van de afstand tussen de moleculen, en dus van het volume of de druk. Deze effecten zijn mee opgenomen in de toestandsfunctie van reële gassen zoals eerder gezien.
+Bij een ideaal gas zijn er geen intermoleculaire krachten. Zijn interne energie is dus enkel kinetische energie van de moleculen, en hangt enkel af van de temperatuur: $U = U(T)$ (\S~\ref{sec:kinetische-gastheorie}). Bij een re\"eel gas hangt $U$ ook af van de afstand tussen de moleculen, dus van het volume; dat is precies wat het Joule--Thomson-effect toont.
 
 \begin{toepassing}{Waarom wordt een compressor warm?}
-
-Een compressor is een mooi voorbeeld van de eerste hoofdwet.
-
-Tijdens de compressie wordt mechanische arbeid op het gas verricht. Volgens de eerste hoofdwet wordt hierdoor energie aan het systeem toegevoegd. Wanneer de compressie voldoende snel verloopt zodat slechts weinig warmte aan de omgeving wordt afgegeven, wordt vrijwel alle toegevoerde arbeid opgeslagen als interne energie:
-
-\[
-\Delta U>0
-\]
-
-Voor een ideaal gas hangt de interne energie uitsluitend af van de temperatuur. De toename van de interne energie leidt daarom rechtstreeks tot een hogere temperatuur.
-
-Het is belangrijk te beseffen dat de temperatuur niet stijgt omdat het volume kleiner wordt, maar omdat tijdens de compressie mechanische arbeid wordt omgezet in interne energie.
-
-Daarom voelen compressoren tijdens bedrijf warm aan. In industriële installaties wordt het gas na de compressor vaak opnieuw gekoeld voordat het verder in het proces wordt gebruikt.
-
+Tijdens een snelle compressie wordt arbeid op het gas verricht ($W > 0$) en gaat er nauwelijks warmte weg ($Q \approx 0$). Dus $\Delta U = W > 0$, en omdat $U$ van een (bijna) ideaal gas enkel van $T$ afhangt, stijgt de temperatuur. Het gas warmt niet op omdat het volume kleiner wordt, maar omdat arbeid wordt omgezet in interne energie. Figuur~\ref{fig:compressie} toont het verschil met een perfect gekoelde (isotherme) compressie: zonder koeling loopt lucht die van 1 naar \SI{8}{\bar} wordt gecomprimeerd op tot ongeveer \SI{258}{\celsius}, en kost de compressie meer arbeid. Daarom koelt men tussen de compressietrappen.
 \end{toepassing}
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\linewidth]{Figuren/compressie_pv}
-    \caption{Compressie van 1 mol lucht van $1\,\mathrm{bar}$ naar $8\,\mathrm{bar}$, vertrekkend van $20{}^{\circ}\mathrm{C}$. Bij isotherme compressie wordt het gas perfect gekoeld; bij adiabatische compressie blijft alle arbeid als interne energie in het gas en stijgt de temperatuur tot ongeveer $258{}^{\circ}\mathrm{C}$. Het gekleurde vlak is de extra arbeid die daarvoor nodig is.}
+    \caption{Compressie van 1 mol lucht van \SI{1}{\bar} naar \SI{8}{\bar}, vertrekkend van \SI{20}{\celsius}. Isotherm: het gas wordt perfect gekoeld. Adiabatisch: alle arbeid blijft als interne energie in het gas. Het gekleurde vlak is de extra arbeid.}
     \label{fig:compressie}
 \end{figure}
 
 \begin{voorbeeld}{Arbeid bij isotherme compressie van een ideaal gas}
-
-Beschouw \SI{1}{\mole} ideaal gas dat reversibel en isotherm wordt gecomprimeerd bij
-$T=\SI{300}{\kelvin}$ van \SI{1}{\bar} naar \SI{10}{\bar}.
-
-Omdat de temperatuur constant blijft, verandert ook de interne energie niet:
-
+\SI{1}{\mole} ideaal gas wordt reversibel en isotherm gecomprimeerd bij \SI{300}{\kelvin} van \SI{1}{\bar} naar \SI{10}{\bar}. Omdat $T$ constant is, is $\Delta U = 0$: alle arbeid moet als warmte naar de omgeving. Met $V_2/V_1 = p_1/p_2$:
 \[
-\Delta U=0
+W = -RT\ln\frac{V_2}{V_1} = RT\ln\frac{p_2}{p_1} = (8.314)(300)\ln 10 = \SI{5.74}{\kilo\joule\per\mole}, \qquad Q = -W.
 \]
-
-Volgens de eerste hoofdwet moet de arbeid die op het systeem wordt verricht dus volledig als warmte aan de omgeving worden afgegeven.
-
-De benodigde arbeid bedraagt
-
-\begin{align*}
-W
-&= -\int_{V_1}^{V_2}p\,\dd V \\
-&= -RT\ln\left(\frac{V_2}{V_1}\right) \\
-&= RT\ln\left(\frac{p_2}{p_1}\right)
-\end{align*}
-
-Invullen geeft
-
-\begin{align*}
-W
-&= (\SI{8.314}{\joule\per\mole\per\kelvin}) (\SI{300}{\kelvin}) \ln 10 \\
-&= \SI{5.74}{\kilo\joule\per\mole}
-\end{align*}
-
-De ingenieur moet dus \SI{5.74}{\kilo\joule\per\mole} aan mechanische arbeid leveren om het gas te comprimeren. Omdat de temperatuur tijdens het volledige proces constant blijft, wordt deze energie onmiddellijk als warmte aan de omgeving afgevoerd.
-
 \end{voorbeeld}
+
 \section{Enthalpie}
+\label{sec:enthalpie}
 
-In de meeste industri\"ele installaties stroomt materie voortdurend het systeem binnen en opnieuw naar buiten. Voor open systemen moet, naast de interne energie, ook rekening worden gehouden met de arbeid die nodig is om het flu\"idum het controlevolume binnen en buiten te duwen. Deze \emph{stromingsarbeid} is onvermijdelijk verbonden met iedere stromende processtroom.
-
-\subsection{Stromingsarbeid}
-
-Beschouw een flu\"idum met druk $p$ dat via een leiding met doorsnede $A$ een controlevolume binnenstroomt. Tijdens een klein tijdsinterval beweegt de vloeistof over een afstand $\dd {x}$. De kracht die nodig is om deze vloeistof vooruit te duwen bedraagt $F = pA$. De elementaire arbeid is $\delta W = F\,\dd{x} = pA\,\dd{x}$. Omdat $A\,\dd{x} = \dd V$ het volume voorstelt dat het controlevolume binnenstroomt, volgt:
-\begin{equation*}
-\delta W = p\,\dd V
-\end{equation*}
-Voor \'e\'en mol flu\"idum wordt de benodigde stromingsarbeid $w_{\text{flow}} = pV_m$.
-
-\subsection{De introductie van de enthalpie}
-
-De totale energie die met een stromende processtroom wordt meegevoerd bedraagt dus meer dan enkel de interne energie. Voor de procesingenieur is het praktisch om beide energiebijdragen samen te nemen in \'e\'en nieuwe toestandsfunctie: de \emph{enthalpie}.
+In een open systeem stroomt materie in en uit. Om een pakketje flu\"idum (druk $p$, volume $V$) in een toestel te duwen, moet de stroming erachter arbeid leveren: kracht $pA$ maal verplaatsing $\dd x$, dus $p\,A\,\dd x = p\,\dd V$, of in totaal $pV$. Elke stroom draagt dus naast zijn interne energie ook deze \emph{stromingsarbeid} mee. Het is handig beide samen te nemen.
 
 \begin{definitie}{Enthalpie}
-De enthalpie is geen volledig nieuwe energievorm. Zij is de som van de interne energie en de stromingsarbeid. 
 \begin{equation}
 H = U + pV
 \end{equation}
 \end{definitie}
 
-Voor open systemen verschijnt in energiebalansen vrijwel steeds de enthalpie, en slechts zelden de interne energie afzonderlijk. Voor gesloten systemen is er geen stromingsarbeid en dus is de enthalpie gelijk aan de interne energie.
-
-De enthalpie kan worden ge\"interpreteerd als de totale energie die door een stromende processtroom wordt getransporteerd, voor zover veranderingen in kinetische en potenti\"ele energie kunnen worden verwaarloosd. Warmtewisselaars worden ontworpen op basis van enthalpieverschillen, destillatiekolommen worden gedimensioneerd met behulp van enthalpiebalansen, en reactoren worden geanalyseerd aan de hand van reactie-enthalpie\"en.
-
-\subsection{Differenti\"ele vorm}
-
-Differenti\"eren van $H = U + pV$ geeft, met toepassing van de productregel en de eerste hoofdwet:
+Differenti\"eren en de eerste hoofdwet invullen geeft $\dd H = \delta Q + V\,\dd p$. Bij \emph{constante druk} valt de laatste term weg:
 \begin{equation}
-\dd H = \delta Q + V\,\dd p
+\dd H = \delta Q_p .
 \end{equation}
-Voor een proces dat verloopt onder \emph{constante druk} verdwijnt de laatste term, zodat:
-\begin{equation}
-\dd H = \dd Q_p
-\end{equation}
-De verandering van de enthalpie is dus gelijk aan de warmte-uitwisseling bij constante druk. Vrijwel alle industri\"ele processen verlopen onder nagenoeg constante druk, waardoor de uitgewisselde warmte rechtstreeks kan worden berekend uit de verandering van de enthalpie.
+De enthalpieverandering is dus de warmte bij constante druk. Omdat de meeste processen bij (nagenoeg) constante druk lopen, rekenen ingenieurs bijna altijd met $H$: warmtewisselaars, kolommen en reactoren worden ontworpen met enthalpiebalansen. Voor vaste stoffen en vloeistoffen is $pV$ klein, zodat $\Delta H \approx \Delta U$; voor gassen is het verschil $\Delta(pV) = \Delta n_\text{gas}RT$.
 
 \section{Warmtecapaciteiten}
 \label{sec:warmtecapaciteiten}
 
-Om een stof op te warmen is warmte nodig. De \emph{warmtecapaciteit} geeft aan hoeveel energie moet worden toegevoerd om de temperatuur van een systeem met \'e\'en kelvin te verhogen:
-\begin{equation}
-C = \frac{\dd Q}{\dd T}
-\end{equation}
-Omdat warmte een padfunctie is, hangt de benodigde warmte af van de procesomstandigheden. Twee warmtecapaciteiten worden onderscheiden.\\
-
-Bij constant volume:
+De \emph{warmtecapaciteit} is de warmte die nodig is om de temperatuur met \'e\'en kelvin te verhogen. Omdat warmte een padfunctie is, zijn er twee versies:
 \begin{equation}
 C_V = \left(\frac{\partial U}{\partial T}\right)_V
-\end{equation}
-
-Bij constante druk:
-\begin{equation}
+\qquad\qquad
 C_p = \left(\frac{\partial H}{\partial T}\right)_p
 \end{equation}
-
-Voor vrijwel alle stoffen geldt $C_p > C_V$, omdat bij constante druk bijkomende warmte moet worden toegevoerd om expansiearbeid te leveren.
-
-Voor een ideaal gas volgt uit $H = U + nRT$ dat
+Bij constante druk zet het systeem bij opwarming uit en levert het arbeid, dus is meer warmte nodig: $C_p > C_V$. Voor een ideaal gas volgt uit $H = U + nRT$ de \emph{wet van Mayer}:
 \begin{equation}
-C_p - C_V = R.
+C_{p,\mathrm{m}} - C_{V,\mathrm{m}} = R.
 \end{equation}
-Dit is de \emph{wet van Mayer}. Het verschil tussen beide warmtecapaciteiten vertegenwoordigt precies de bijkomende energie die nodig is om de expansie bij constante druk mogelijk te maken.
+Een \'e\'enatomig gas heeft $C_{V,\mathrm{m}} = \tfrac{3}{2}R$ (enkel translatie); twee- en meeratomige gassen hebben meer, omdat ook rotatie en vibratie energie opnemen (\S~\ref{sec:moleculaire-beweging}).
 
 \begin{voorbeeld}{Opwarmen van water versus lucht}
-Beschouw \SI{1}{\kilogram} water ($C_p \approx \SI{4.18}{\kilo\joule\per\kilogram\per\kelvin}$) en \SI{1}{\kilogram} lucht ($C_p \approx \SI{1.00}{\kilo\joule\per\kilogram\per\kelvin}$). Om beide op te warmen van \SI{20}{\celsius} naar \SI{30}{\celsius} is nodig:
-\begin{itemize}
-\item Water: $Q = C \cdot \dd T = (4.18)(10) = \SI{41.8}{\kilo\joule}$.
-\item Lucht: $Q = C \cdot \dd T = (1.00)(10) = \SI{10.0}{\kilo\joule}$.
-\end{itemize}
-Voor dezelfde temperatuurstijging heeft water dus meer dan viermaal zoveel warmte nodig als lucht. Dit verklaart waarom water een effici\"ente koelvloeistof is.
+Om \SI{1}{\kilogram} op te warmen van \SI{20}{\celsius} naar \SI{30}{\celsius} heeft water ($c_p = \SI{4.18}{\kilo\joule\per\kilogram\per\kelvin}$) \SI{41.8}{\kilo\joule} nodig, lucht ($c_p = \SI{1.00}{\kilo\joule\per\kilogram\per\kelvin}$) slechts \SI{10.0}{\kilo\joule}. Per kilogram neemt water dus vier keer meer warmte op: daarom is het zo'n goede koelvloeistof.
 \end{voorbeeld}
+
 
 \section{Temperatuurafhankelijkheid van de enthalpie}
 
-Zoals besproken is de enthalpie een toestandsfunctie. De waarde van de enthalpie van een stof verandert wanneer de temperatuur verandert, omdat de gemiddelde kinetische energie van de moleculen toeneemt. Bij een hogere temperatuur bewegen de moleculen sneller en wordt meer energie opgeslagen in hun translatie-, rotatie- en trillingsbewegingen. Hierdoor neemt ook de enthalpie toe.
-
-De snelheid waarmee de enthalpie verandert met de temperatuur wordt beschreven door de warmtecapaciteit bij constante druk:
-
+Bij opwarmen bij constante druk neemt de enthalpie toe volgens
 \begin{equation}
-C_p=\left(\frac{\partial H}{\partial T}\right)_p
+\Delta H = \int_{T_1}^{T_2} C_p(T)\,\dd T \;\approx\; C_p\,(T_2-T_1) \quad\text{(als $C_p$ ongeveer constant is).}
 \end{equation}
-
-De warmtecapaciteit geeft dus aan hoeveel warmte moet worden toegevoerd om de temperatuur van één mol stof met één kelvin te verhogen bij constante druk.
-
-Wanneer een stof wordt verwarmd van een temperatuur $T_1$ naar $T_2$, volgt de enthalpieverandering uit
-
+Over een groot temperatuurbereik is $C_p$ niet constant: hoe warmer, hoe meer vibraties worden aangeslagen, zodat $C_p$ stijgt (figuur~\ref{fig:cp-temperatuur}). Eenatomige gassen zoals helium hebben geen vibraties en dus een constante $C_p = \tfrac{5}{2}R$. Voor nauwkeurige berekeningen gebruikt men een empirische veelterm,
 \begin{equation}
-\Delta H = \int_{T_1}^{T_2} C_p(T)\,\dd T
+C_{p,\mathrm{m}} = a+bT+cT^2 ,
 \end{equation}
+met co\"effici\"enten zoals in tabel~\ref{tab:cp_coeff}. Processimulatoren (Aspen Plus, CHEMCAD) bevatten uitgebreide databanken van zulke correlaties.
 
-Deze vergelijking is volledig algemeen en geldt ongeacht de vorm van de warmtecapaciteit. In een beperkt temperatuursgebied verandert de warmtecapaciteit vaak slechts weinig. In dat geval mag zij als constant worden beschouwd en vereenvoudigt de integraal tot
-
-\begin{equation}
-\Delta H
-\approx
-C_p\left(T_2-T_1\right)
-\end{equation}
-Deze benadering wordt veel gebruikt voor eenvoudige energiebalansen en levert voor kleine temperatuurverschillen meestal een uitstekende benadering. Bij grotere temperatuurverschillen blijkt de warmtecapaciteit echter niet constant te zijn. Naarmate de temperatuur stijgt, worden steeds meer moleculaire bewegingsvormen geactiveerd, vooral trillingsbewegingen. Daardoor neemt de warmtecapaciteit voor de meeste stoffen geleidelijk toe. Voor nauwkeurige berekeningen wordt de temperatuurafhankelijkheid van de warmtecapaciteit daarom beschreven met een empirische functie. In de chemische procestechnologie wordt vaak gebruikgemaakt van een tweede- of derdegraads veelterm. Een veelgebruikte vorm is
-\begin{equation}
-C_p = a+bT+cT^2
-\end{equation}
-waarin de coëfficiënten $a$, $b$ en $c$ experimenteel voor iedere stof worden bepaald. Tabel \ref{tab:cp_coeff} geeft enkele benaderende coëfficienten voor de temperatuursafhankelijk van enkele courante gassen.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/cp_temperatuur}
+    \caption{Molaire warmtecapaciteit van enkele gassen tussen \SI{300}{\kelvin} en \SI{1000}{\kelvin} (correlaties uit tabel~\ref{tab:cp_coeff}, bron NIST). Hoe meer atomen, hoe meer vibraties en hoe sterker $C_p$ stijgt; helium blijft vlak op $\tfrac{5}{2}R$.}
+    \label{fig:cp-temperatuur}
+\end{figure}
 
 \begin{table}[htb]
 \centering
-\caption{Benaderende coëfficiënten voor de molaire warmtecapaciteit van enkele courante gassen. De correlaties zijn geldig bij benadering tussen \SI{300}{K} en \SI{1000}{K}.}
+\caption{Benaderende co\"effici\"enten voor $C_{p,\mathrm{m}} = a + bT + cT^2$ (in \si{\joule\per\mole\per\kelvin}, $T$ in \si{\kelvin}), geldig tussen \SI{300}{\kelvin} en \SI{1000}{\kelvin} (afwijking kleiner dan \SI{1}{\joule\per\mole\per\kelvin}). Bron: gefit op de Shomate-vergelijkingen van het NIST Chemistry WebBook.}
 \label{tab:cp_coeff}
 \begin{tabular}{lccc}
 \toprule
 Component & $a$ & $b$ & $c$ \\
-& (\si{\joule\per\mole\per\kelvin})
-& (\si{\joule\per\mole\per\kelvin\squared})
-& (\si{\joule\per\mole\per\kelvin\cubed})\\
 \midrule
-\ce{N2}     & 27.4 & $4.2\times10^{-3}$  & $-1.0\times10^{-6}$ \\
-\ce{O2}     & 25.5 & $1.52\times10^{-2}$ & $-7.2\times10^{-6}$ \\
-Lucht       & 28.1 & $1.97\times10^{-3}$ & $4.80\times10^{-6}$ \\
-\ce{H2}     & 28.8 & $-0.16\times10^{-2}$& $3.3\times10^{-6}$ \\
-\ce{CO}     & 28.2 & $4.2\times10^{-3}$  & $-1.3\times10^{-6}$ \\
-\ce{CO2}    & 22.3 & $5.98\times10^{-2}$ & $-3.50\times10^{-5}$ \\
-\ce{CH4}    & 19.9 & $5.21\times10^{-2}$ & $1.20\times10^{-5}$ \\
-\ce{H2O(g)} & 30.1 & $1.08\times10^{-2}$ & $1.30\times10^{-6}$ \\
-\ce{NH3}    & 29.7 & $2.52\times10^{-2}$ & $8.5\times10^{-6}$ \\
+\ce{N2}     & 28.5 & $3.6\times10^{-4}$  & $4.00\times10^{-6}$ \\
+\ce{O2}     & 25.4 & $1.35\times10^{-2}$ & $-3.95\times10^{-6}$ \\
+Lucht       & 27.8 & $3.12\times10^{-3}$ & $2.33\times10^{-6}$ \\
+\ce{H2}     & 29.1 & $-6.1\times10^{-4}$ & $1.65\times10^{-6}$ \\
+\ce{CO}     & 27.7 & $3.12\times10^{-3}$ & $2.47\times10^{-6}$ \\
+\ce{CO2}    & 23.9 & $5.21\times10^{-2}$ & $-2.20\times10^{-5}$ \\
+\ce{CH4}    & 14.9 & $6.96\times10^{-2}$ & $-1.23\times10^{-5}$ \\
+\ce{H2O(g)} & 31.3 & $5.99\times10^{-3}$ & $4.12\times10^{-6}$ \\
+\ce{NH3}    & 24.4 & $3.86\times10^{-2}$ & $-6.40\times10^{-6}$ \\
 He          & 20.8 & 0                   & 0 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{voorbeeld}{Enthalpieverandering van lucht}
-
-Bereken de molaire enthalpieverandering van lucht wanneer deze bij constante druk wordt verwarmd van \SI{300}{\kelvin} naar \SI{600}{\kelvin}.
-
-De warmtecapaciteit wordt beschreven door
-\[
-C_p = 28.1 + 1.97\times10^{-3}T + 4.80\times10^{-6}T^2
-\]
-met $C_p$ uitgedrukt in
-\si{\joule\per\mole\per\kelvin}.
-\\
-
-\bigskip
-
-\textbf{Stap 1. Algemene vergelijking}
-
-De enthalpieverandering wordt berekend door de warmtecapaciteit over het beschouwde temperatuursinterval te integreren:
-
-\begin{equation*}
-\Delta H = \int_{T_1}^{T_2} C_p(T)\,\dd T.
-\end{equation*}
-
-Invullen van de gegeven correlatie levert
-
-\begin{equation*}
-\Delta H = \int_{300}^{600} \left(28.11 + 1.97\times10^{-3}T + 4.80\times10^{-6}T^2 \right)\dd T
-\end{equation*}
-
-\bigskip
-
-\textbf{Stap 2. Integreren}
-
-Integratie van de drie termen afzonderlijk geeft
-
+Lucht wordt bij constante druk opgewarmd van \SI{300}{\kelvin} naar \SI{600}{\kelvin}. Term per term integreren:
 \begin{align*}
-\Delta H
-&=
-28.11(T_2-T_1)
-+
-\frac{1.97\times10^{-3}}{2}
-\left(T_2^2-T_1^2\right)
-+
-\frac{4.80\times10^{-6}}{3}
-\left(T_2^3-T_1^3\right).
+\Delta H_\mathrm{m} &= a(T_2-T_1) + \frac{b}{2}(T_2^2-T_1^2) + \frac{c}{3}(T_2^3-T_1^3)\\
+&= 27.8(300) + \frac{3.12\times10^{-3}}{2}(600^2-300^2) + \frac{2.33\times10^{-6}}{3}(600^3-300^3)\\
+&= 8350 + 421 + 147 = \SI{8.92}{\kilo\joule\per\mole}.
 \end{align*}
-
-De verschillende bijdragen bedragen
-
-\begin{align*}
-28.11(T_2-T_1) &= 28.11(600-300) = \SI{8433}{\joule\per\mole} \\
-\frac{1.97\times10^{-3}}{2} (T_2^2-T_1^2) &= 9.85\times10^{-4} (600^2-300^2) \\
-&=\SI{266}{\joule\per\mole}
-\\
-\frac{4.80\times10^{-6}}{3} (T_2^3-T_1^3) &= 1.60\times10^{-6} (600^3-300^3) \\
-&= \SI{302}{\joule\per\mole}
-\end{align*}
-
-De totale enthalpieverandering wordt bijgevolg
-
-\begin{align*}
-\Delta H
-&= 8433 + 266 + 302
-\\
-&= \SI{9001}{\joule\per\mole}
-\\
-&\approx \SI{9.00}{\kilo\joule\per\mole}
-\end{align*}
-
-\bigskip
-
-\textbf{Stap 3. Vergelijking met een constante warmtecapaciteit}
-
-Indien de warmtecapaciteit als constant wordt beschouwd, bijvoorbeeld
-
-\[
-C_p=\SI{30}{\joule\per\mole\per\kelvin}
-\]
-dan volgt
-\[
-\Delta H = C_p\Delta T = 30\times300 = \SI{9000}{\joule\per\mole} = \SI{9.00}{\kilo\joule\per\mole}.
-\]
-In dit geval is het verschil tussen beide berekeningen verwaarloosbaar.
+Met een constante $C_{p,\mathrm{m}} = \SI{29.7}{\joule\per\mole\per\kelvin}$ (de waarde bij \SI{450}{\kelvin}, halfweg) vind je \SI{8.90}{\kilo\joule\per\mole}; met de waarde bij \SI{300}{\kelvin} (\SI{29.0}{\joule\per\mole\per\kelvin}) \SI{8.70}{\kilo\joule\per\mole}, nog geen \SI{3}{\percent} te weinig. Een gemiddelde $C_p$ volstaat dus vaak; de veelterm wordt belangrijk bij grote temperatuursprongen, zoals in een vlam (\S~\ref{sec:warmte-effecten}).
 \end{voorbeeld}
 
-Bij eenvoudige energiebalansen wordt de warmtecapaciteit vaak als constant beschouwd. Voor grote temperatuurverschillen, hoge temperaturen of nauwkeurige procesberekeningen moet echter steeds rekening worden gehouden met de temperatuurafhankelijkheid van $C_p$. Processimulatieprogramma's, zoals Aspen Plus en CHEMCAD, maken hiervoor gebruik van uitgebreide databanken met warmtecapaciteitscorrelaties.
+\section{Standaardtoestanden en de wet van Hess}
 
-\section{Standaardtoestanden en thermodynamische tabellen}
+Enthalpie\"en worden altijd opgegeven ten opzichte van een \emph{standaardtoestand}: zuivere stof bij \SI{1}{\bar}, meestal getabelleerd bij \SI{298.15}{\kelvin}. De \emph{standaardvormingsenthalpie} $\Delta H_f^\circ$ is de enthalpieverandering wanneer \'e\'en mol van een stof gevormd wordt uit de elementen in hun standaardtoestand. Voor die elementen zelf is $\Delta H_f^\circ = 0$. Omdat $H$ een toestandsfunctie is, mag je elke reactie opsplitsen in ``ontbinden tot elementen'' en ``opbouwen tot producten'' (figuur~\ref{fig:hess}). Dat is de \emph{wet van Hess}:
+\begin{equation}
+\Delta_r H^\circ = \sum_i \nu_i\, \Delta H_{f,i}^\circ ,
+\end{equation}
+met $\nu_i$ positief voor producten en negatief voor reagentia. Op dezelfde manier worden standaardentropie\"en $S^\circ$ en vormings-Gibbsenergie\"en $\Delta G_f^\circ$ getabelleerd (hoofdstuk~\ref{ch:spontaniteit}).
 
-In de thermodynamica worden enthalpie\"en, entropie\"en en Gibbs-vrije energie\"en steeds uitgedrukt ten opzichte van een welbepaalde referentietoestand: de \emph{standaardtoestand}. Deze wordt gedefinieerd bij een druk van \SI{1}{\bar} (of \SI{1}{atm} in oudere tabellen) en een temperatuur die doorgaans op \SI{298.15}{\kelvin} wordt gekozen.
-
-De \emph{standaardvormingsenthalpie} $\Delta H_f^\circ$ van een stof is de enthalpieverandering wanneer \'e\'en mol van die stof wordt gevormd uit de zuivere elementen in hun standaardtoestand. Voor elementen in hun standaardtoestand geldt per definitie $\Delta H_f^\circ = 0$.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/hess}
+    \caption{Enthalpiediagram voor de verbranding van methaan. De elementen liggen per definitie op nul. De reactie-enthalpie is het verschil tussen het niveau van de producten en dat van de reagentia, welke weg je ook volgt.}
+    \label{fig:hess}
+\end{figure}
 
 \begin{voorbeeld}{Reactie-enthalpie via de wet van Hess}
-Beschouw de verbranding van methaan:
+Voor \ce{CH4(g) + 2 O2(g) -> CO2(g) + 2 H2O(l)} met $\Delta H_f^\circ$ = $-74.8$ (\ce{CH4}), $-393.5$ (\ce{CO2}) en $-285.8$ (\ce{H2O(l)}) \si{\kilo\joule\per\mole}:
 \[
-\mathrm{CH_4(g) + 2\,O_2(g) \rightarrow CO_2(g) + 2\,H_2O(l)}.
+\Delta_r H^\circ = (-393.5) + 2(-285.8) - (-74.8) = \SI{-890.3}{\kilo\joule\per\mole}.
 \]
-Uit thermodynamische tabellen:
-\begin{itemize}
-\item $\Delta H_f^\circ(\mathrm{CH_4,g}) = \SI{-74.8}{\kilo\joule\per\mole}$
-\item $\Delta H_f^\circ(\mathrm{CO_2,g}) = \SI{-393.5}{\kilo\joule\per\mole}$
-\item $\Delta H_f^\circ(\mathrm{H_2O,l}) = \SI{-285.8}{\kilo\joule\per\mole}$
-\item $\Delta H_f^\circ(\mathrm{O_2,g}) = 0$ (element in standaardtoestand)
-\end{itemize}
-De reactie-enthalpie volgt uit de wet van Hess:
-\[
-\Delta_r H^\circ = \sum \nu_i \Delta H_f^\circ(i) = (-393.5) + 2(-285.8) - (-74.8) - 2(0) = \SI{-890.3}{\kilo\joule\per\mole}.
-\]
-Bij de verbranding van \'e\'en mol methaan komt dus \SI{890.3}{\kilo\joule} warmte vrij. Deze waarde is de basis voor het ontwerp van een aardgasverbrandingsoven.
+Per mol methaan komt \SI{890.3}{\kilo\joule} vrij: de basis voor het ontwerp van elke aardgasbrander.
 \end{voorbeeld}
-
-Analoog worden \emph{standaardvormingsentropie\"en} $S^\circ$ en \emph{standaardvormings-Gibbsenergie\"en} $\Delta G_f^\circ$ in tabellen bijgehouden. Hiermee kan voor iedere reactie bij standaardomstandigheden niet enkel de reactie-enthalpie, maar ook de standaardreactie-entropie en de standaardreactie-Gibbsenergie worden berekend:
-\begin{equation}
-\Delta_r S^\circ = \sum_i \nu_i S_i^\circ, \qquad \Delta_r G^\circ = \sum_i \nu_i \Delta G_{f,i}^\circ.
-\end{equation}
-Deze grootheden vormen het vertrekpunt voor vrijwel alle thermodynamische berekeningen in de chemische procestechnologie.
 
 \section{Temperatuurafhankelijkheid van reactie-enthalpie\"en: de wet van Kirchhoff}
 
-Standaardvormingsenthalpie\"en worden doorgaans in tabellen bijgehouden bij \SI{298.15}{\kelvin}. In de praktijk verlopen industri\"ele reacties echter bij sterk afwijkende temperaturen. De reactie-enthalpie bij een willekeurige temperatuur volgt uit de \emph{wet van Kirchhoff}:
+Reacties lopen zelden bij \SI{298}{\kelvin}. Omdat reagentia en producten een andere warmtecapaciteit hebben, verschuift $\Delta_r H$ met de temperatuur volgens de \emph{wet van Kirchhoff}:
 \begin{equation}
-\Delta_r H^\circ(T) = \Delta_r H^\circ(T_0) + \int_{T_0}^{T} \Delta_r C_p^\circ(T')\,\mathrm{d}T',
+\Delta_r H^\circ(T) = \Delta_r H^\circ(T_0) + \int_{T_0}^{T} \Delta_r C_p^\circ\,\dd T
+\;\approx\; \Delta_r H^\circ(T_0) + \Delta_r C_p^\circ\,(T - T_0),
 \end{equation}
-waarin $\Delta_r C_p^\circ = \sum_i \nu_i C_{p,i}^\circ$ het verschil is tussen de warmtecapaciteiten van reactieproducten en reagentia. Wanneer $\Delta_r C_p^\circ$ in eerste benadering constant is, vereenvoudigt dit tot:
-\begin{equation}
-\boxed{\Delta_r H^\circ(T) \approx \Delta_r H^\circ(T_0) + \Delta_r C_p^\circ\,(T - T_0)}
-\end{equation}
-Voor ingenieurs is dit een belangrijk werkingsinstrument: wanneer $C_p$-waarden voldoende nauwkeurig zijn gekend, kan de reactie-enthalpie bij de procestemperatuur rechtstreeks uit standaardtabellen worden afgeleid.
+met $\Delta_r C_p^\circ = \sum_i \nu_i C_{p,i}^\circ$. Je volgt eigenlijk dezelfde kringloop als in figuur~\ref{fig:hess}: reagentia afkoelen naar \SI{298}{\kelvin}, laten reageren, producten opwarmen.
+
 
 \section{Warmte-effecten van reacties: de adiabatische temperatuur}
 \label{sec:warmte-effecten}
@@ -1141,108 +524,29 @@ Bij de compressor zagen we dat tussenkoeling de eindtemperatuur beperkt. Exother
 
 \section{Faseovergangen en overgangsenthalpie\"en}
 
-Wanneer een stof van fase verandert - smelten, verdampen, sublimeren - wordt warmte uitgewisseld zonder dat de temperatuur verandert. De benodigde warmte per mol wordt de \emph{overgangsenthalpie} genoemd. We kennen onder andere volgende overgangsenthalpieën:
-\begin{itemize}
-\item $\Delta H_{\text{fus}}$: smeltenthalpie (vast $\rightarrow$ vloeibaar)
-\item $\Delta H_{\text{vap}}$: verdampingsenthalpie (vloeibaar $\rightarrow$ gas)
-\item $\Delta H_{\text{sub}}$: sublimatie-enthalpie (vast $\rightarrow$ gas)
-\end{itemize}
-Voor water bedraagt $\Delta H_{\text{fus}} \approx \SI{6.0}{\kilo\joule\per\mole}$ bij \SI{0}{\celsius}, en $\Delta H_{\text{vap}} \approx \SI{40.7}{\kilo\joule\per\mole}$ bij \SI{100}{\celsius}.
-
-Tijdens een faseovergang bij constante druk geldt dus $\Delta H_{\text{trans}} = Q_p$, terwijl $\Delta T = 0$. Deze overgangen worden in de volgende hoofdstukken uitgebreid gebruikt bij de berekening van fase-evenwichten.
+Bij smelten, verdampen of sublimeren wordt warmte opgenomen zonder dat de temperatuur verandert (figuur~\ref{fig:opwarmcurve}). De warmte per mol bij constante druk is de \emph{overgangsenthalpie}: $\Delta H_\text{fus}$ (smelten), $\Delta H_\text{vap}$ (verdampen) en $\Delta H_\text{sub} = \Delta H_\text{fus} + \Delta H_\text{vap}$ (sublimeren). Voor water is $\Delta H_\text{fus} = \SI{6.0}{\kilo\joule\per\mole}$ bij \SI{0}{\celsius} en $\Delta H_\text{vap} = \SI{40.7}{\kilo\joule\per\mole}$ bij \SI{100}{\celsius}. De energie gaat naar het verbreken van intermoleculaire bindingen (hoofdstuk~\ref{ch:intermoleculair}).
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\linewidth]{Figuren/opwarmcurve_water}
-    \caption{Temperatuur van $1\,\mathrm{kg}$ water bij gelijkmatige warmtetoevoer, van ijs bij $-20{}^{\circ}\mathrm{C}$ tot stoom bij $120{}^{\circ}\mathrm{C}$. Tijdens smelten en verdampen blijft de temperatuur constant; verdampen vraagt ruim vijf keer meer warmte dan het opwarmen van vloeibaar water van $0$ tot $100{}^{\circ}\mathrm{C}$.}
+    \caption{Temperatuur van \SI{1}{\kilogram} water bij gelijkmatige warmtetoevoer, van ijs bij \SI{-20}{\celsius} tot stoom bij \SI{120}{\celsius}. Tijdens smelten en verdampen blijft de temperatuur constant.}
     \label{fig:opwarmcurve}
 \end{figure}
 
 \begin{voorbeeld}{Verdampen van water}
-
-Beschouw \SI{1}{\mole} vloeibaar water bij \SI{0}{\celsius} en \SI{1}{\bar}. We vergelijken de energie die nodig is om het water op te warmen tot het kookpunt met de energie die nodig is om het vervolgens volledig te verdampen.
-
-\bigskip
-
-\textbf{Stap 1. Opwarming van \SI{0}{\celsius} naar \SI{100}{\celsius}}
-
-De molaire warmtecapaciteit van vloeibaar water bedraagt ongeveer
-
-\[
-C_p=\SI{75.3}{\joule\per\mole\per\kelvin}.
-\]
-
-De enthalpieverandering volgt uit
-
-\[
-\Delta H=C_p\Delta T.
-\]
-
-Invullen geeft
-
-\begin{align*}
-\Delta H_{\mathrm{opwarming}}
-&=
-(\SI{75.3}{\joule\per\mole\per\kelvin})
-(\SI{100}{\kelvin}) \\
-&=
-\SI{7.53}{\kilo\joule\per\mole}
-\end{align*}
-
-Deze energie wordt volledig gebruikt om de temperatuur van het water met
-\SI{100}{\kelvin} te verhogen.
-
-\bigskip
-
-\textbf{Stap 2. Verdampen bij \SI{100}{\celsius}}
-
-Bij het kookpunt verandert de temperatuur niet langer. De toegevoerde warmte wordt volledig gebruikt om de intermoleculaire waterstofbruggen te verbreken en de vloeistof om te zetten in waterdamp.
-
-De molaire verdampingsenthalpie bedraagt
-
-\[
-\Delta H_{\mathrm{vap}}
-=
-\SI{40.7}{\kilo\joule\per\mole}
-\]
-
-\bigskip
-
-\textbf{Stap 3. Vergelijking}
-
-De energie die nodig is voor de faseovergang is
-\[
-\frac{40.7}{7.53}
-=
-5.4
-\]
-maal groter dan de energie die nodig is om hetzelfde water van \SI{0}{\celsius} naar het kookpunt op te warmen. Met andere woorden: meer dan 80\,\% van de totale energie is nodig voor de faseovergang zelf en niet voor de temperatuurstijging.
-
-\bigskip
-
-De totale energie om \SI{1}{\mole} water van \SI{0}{\celsius} om te zetten in verzadigde waterdamp bij \SI{100}{\celsius} bedraagt bijgevolg
-
-\[
-\Delta H_{\mathrm{totaal}} = 7.53+40.7 = \SI{48.2}{\kilo\joule\per\mole}
-\]
-
-Dit verklaart waarom een reboiler in een destillatiekolom veel meer energie verbruikt dan een gewone vloeistofverwarmer. Het grootste deel van de toegevoerde warmte wordt niet gebruikt om de temperatuur te verhogen, maar om de vloeistof om te zetten in damp.
-
+Om \SI{1}{\mole} water op te warmen van \SI{0}{\celsius} tot \SI{100}{\celsius} is $C_p\Delta T = (75.3)(100) = \SI{7.53}{\kilo\joule}$ nodig. Om het daarna te verdampen: \SI{40.7}{\kilo\joule}, 5.4 keer meer. Van de totale \SI{48.2}{\kilo\joule} gaat dus meer dan \SI{80}{\percent} naar de faseovergang. Daarom verbruikt de reboiler van een destillatiekolom zoveel meer energie dan een gewone vloeistofverwarmer.
 \end{voorbeeld}
 
 \section{De beperkingen van de eerste hoofdwet}
 
-De eerste hoofdwet beschrijft het behoud van energie tijdens een proces. Zij zegt echter niets over de \emph{richting} waarin een proces spontaan zal verlopen.
+Een hete kop koffie koelt af tot kamertemperatuur; nooit warmt lauwe koffie spontaan op door warmte uit de kamer te halen. Beide processen respecteren de eerste hoofdwet: energie blijft behouden. De eerste hoofdwet zegt dus niets over de \emph{richting} van een proces. Daarvoor is een tweede grootheid nodig, de entropie. Haar moleculaire oorsprong (hoofdstuk~\ref{ch:kwantum}) en haar gevolgen (hoofdstuk~\ref{ch:spontaniteit}) zijn het onderwerp van de volgende twee hoofdstukken.
 
-Beschouw een warme kop koffie die op tafel wordt geplaatst. Vrijwel onmiddellijk begint de koffie af te koelen totdat thermisch evenwicht met de omgeving is bereikt. Het omgekeerde verschijnsel wordt daarentegen nooit waargenomen. Niemand heeft ooit gezien hoe een kop lauwe koffie spontaan warmte uit de omgeving opneemt en daardoor opnieuw heet wordt.
-
-Zowel het afkoelen als het spontaan opwarmen van een kop koffie voldoen aan de energiebalans van de eerste hoofdwet. De wet van behoud van energie maakt geen onderscheid tussen beide mogelijkheden. Blijkbaar is nog een bijkomend natuurkundig principe nodig. Naast de hoeveelheid energie moet er een tweede grootheid bestaan die bepaalt in welke richting een proces zich spontaan kan ontwikkelen. Het zoeken naar deze tweede grootheid, en naar de moleculaire oorsprong ervan, vormt het onderwerp van de volgende twee hoofdstukken.
 
 \section{Samenvatting en reflectie}
 
 \begin{samenvatting}{Energie en de eerste hoofdwet}
 \begin{itemize}
-\item Een \emph{systeem} is open (massa- en energie-uitwisseling) of gesloten (enkel energie). Toestandsfuncties ($U$, $H$, $p$, $T$, \ldots) hangen enkel af van de toestand; warmte en arbeid hangen af van de weg.
+\item Een \emph{systeem} is open (massa en energie), gesloten (enkel energie) of ge\"isoleerd (niets). Toestandsfuncties ($U$, $H$, $p$, $T$, \ldots) hangen enkel af van de toestand; warmte en arbeid hangen af van de weg.
 \item De ideale gaswet $pV = nRT$ is een limietwet voor $p \to 0$. De kinetische gastheorie verklaart ze: druk ontstaat door botsingen tegen de wand, en $\tfrac{1}{2}M\langle v^2\rangle = \tfrac{3}{2}RT$. Re\"ele gassen beschrijf je met de compressibiliteitsfactor $Z$ of de vergelijking van Van der Waals.
 \item Eerste hoofdwet: $\Delta U = Q + W$. Energie gaat nooit verloren, ze verandert enkel van vorm.
 \item Enthalpie $H = U + pV$ is de natuurlijke grootheid voor processen bij constante druk en voor stromende systemen: $\Delta H = Q_p$.

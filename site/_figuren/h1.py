@@ -8,6 +8,158 @@ import toestand as ts
 R = ts.R
 
 
+# --------------------------------------------------------- soorten systemen
+def systemen():
+    """Open, gesloten en geïsoleerd systeem: wat steekt de systeemgrens over?"""
+    from matplotlib.patches import FancyBboxPatch
+    fig, ax = figuur(7.6, 3.2)
+    ax.set_axis_off()
+    ax.set_xlim(0, 15)
+    ax.set_ylim(0, 6)
+    titels = ["open", "gesloten", "geïsoleerd"]
+    for i, t in enumerate(titels):
+        x0 = 0.9 + 5 * i
+        ax.add_patch(FancyBboxPatch((x0, 1.4), 3.2, 2.9, boxstyle="round,pad=0.02,rounding_size=0.3",
+                                    facecolor=K.vlak_accent, edgecolor=K.accent,
+                                    lw=2.4 if i == 2 else 1.6, ls="-" if i < 2 else "-"))
+        label(ax, x0 + 1.6, 4.75, t, K.accent, ha="center", fontsize=13, fontweight="bold")
+        label(ax, x0 + 1.6, 2.85, "systeem", K.zacht, ha="center", va="center", fontsize=11)
+        if i == 0:  # massa in en uit
+            pijl(ax, (x0 - 0.8, 3.6), (x0 + 0.6, 3.6), K.blauw, lw=2)
+            pijl(ax, (x0 + 2.6, 3.6), (x0 + 4.0, 3.6), K.blauw, lw=2)
+            label(ax, x0 + 1.6, 3.6, "massa", K.blauw, ha="center", va="center", fontsize=11)
+        if i < 2:  # warmte en arbeid
+            pijl(ax, (x0 + 0.9, 0.2), (x0 + 0.9, 1.9), K.rood, lw=2)
+            label(ax, x0 + 0.75, 0.55, "$Q$", K.rood, ha="right", fontsize=13)
+            pijl(ax, (x0 + 2.3, 1.9), (x0 + 2.3, 0.2), K.oker, lw=2)
+            label(ax, x0 + 2.45, 0.55, "$W$", K.oker, ha="left", fontsize=13)
+        else:
+            label(ax, x0 + 1.6, 0.7, "geen massa, geen $Q$, geen $W$", K.zacht,
+                  ha="center", fontsize=10.5)
+    label(ax, 3.4 - 0.9, 5.45, "bv. reactor, kolom, compressor", K.zacht, ha="center", fontsize=10)
+    label(ax, 8.4 - 0.9, 5.45, "bv. zuiger-cilinder", K.zacht, ha="center", fontsize=10)
+    label(ax, 13.4 - 0.9, 5.45, "bv. ideale thermosfles", K.zacht, ha="center", fontsize=10)
+    return kader(fig)
+
+
+# ------------------------------------------- toestandsfunctie vs. padfunctie
+def padfunctie():
+    """Twee wegen tussen dezelfde toestanden: zelfde ΔU, andere arbeid."""
+    fig, ax = figuur(6.4, 4.4)
+    V1, V2, p1, p2 = 1.0, 4.0, 4.0, 1.0
+    # weg A: eerst expansie bij p1, dan afkoelen bij V2; weg B: eerst afkoelen bij V1, dan expansie bij p2
+    ax.fill_between([V1, V2], 0, p1, color=K.vlak_rood, lw=0, zorder=0)
+    ax.fill_between([V1, V2], 0, p2, color=K.vlak_blauw, lw=0, zorder=0)
+    ax.plot([V1, V2, V2], [p1, p1, p2], color=K.rood, lw=2.4)
+    ax.plot([V1, V1, V2], [p1, p2, p2], color=K.blauw, lw=2.4)
+    pijl(ax, (2.3, p1), (2.6, p1), K.rood, lw=2)
+    pijl(ax, (V2, 2.7), (V2, 2.3), K.rood, lw=2)
+    pijl(ax, (V1, 2.7), (V1, 2.3), K.blauw, lw=2)
+    pijl(ax, (2.3, p2), (2.6, p2), K.blauw, lw=2)
+    for (x, y, t) in [(V1, p1, "1"), (V2, p2, "2")]:
+        ax.plot(x, y, "o", color=K.tekst, ms=8, zorder=5)
+        label(ax, x - 0.12, y + 0.15, t, K.tekst, ha="right", fontsize=14, fontweight="bold")
+    label(ax, 2.5, p1 + 0.2, "weg A", K.rood, ha="center", fontsize=12)
+    label(ax, 2.5, p2 + 0.2, "weg B", K.blauw, ha="center", fontsize=12)
+    label(ax, 2.5, 2.4, "extra arbeid\nlangs weg A", K.rood, ha="center", va="center", fontsize=11)
+    label(ax, 2.5, 0.5, "arbeid langs weg B", K.blauw, ha="center", va="center", fontsize=11)
+    label(ax, 4.25, 3.3, "$\\Delta U$ is voor beide\nwegen gelijk;\n$W$ en $Q$ niet",
+          K.tekst, ha="left", va="center", fontsize=11.5)
+    ax.set_xlim(0, 6.2)
+    ax.set_ylim(0, 5)
+    ax.set_xlabel("volume $V$")
+    ax.set_ylabel("druk $p$")
+    ax.set_xticks([])
+    ax.set_yticks([])
+    return kader(fig)
+
+
+# ------------------------------------------------ arbeid vs. warmte (moleculair)
+def arbeid_warmte():
+    """Arbeid = geordende duw (zuiger), warmte = ongeordende botsingen (warme wand)."""
+    from matplotlib.patches import Rectangle
+    rng = np.random.default_rng(4)
+    fig, ax = figuur(7.6, 3.4)
+    ax.set_axis_off()
+    ax.set_xlim(0, 16)
+    ax.set_ylim(0, 6.6)
+    ax.set_aspect("equal")
+    # links: zuiger
+    ax.add_patch(Rectangle((0.6, 0.6), 6.4, 4.6, facecolor="none", edgecolor=K.as_, lw=1.6))
+    ax.add_patch(Rectangle((0.6, 0.6), 1.0, 4.6, facecolor=K.vlak_oker, edgecolor=K.oker, lw=1.6))
+    pijl(ax, (-0.4, 2.9), (0.55, 2.9), K.oker, lw=2.4)
+    gx, gy = np.meshgrid(np.linspace(2.3, 5.6, 4), np.linspace(1.2, 4.6, 4))
+    xs = gx.ravel() + rng.uniform(-0.25, 0.25, 16); ys = gy.ravel() + rng.uniform(-0.2, 0.2, 16)
+    for x, y in zip(xs, ys):
+        ax.plot(x, y, "o", color=K.accent, ms=6)
+        pijl(ax, (x, y), (x + 0.75, y), K.oker, lw=1.3)
+    label(ax, 3.8, 5.6, "arbeid: geordend", K.oker, ha="center", fontsize=13, fontweight="bold")
+    # rechts: warme wand
+    ax.add_patch(Rectangle((8.8, 0.6), 6.4, 4.6, facecolor="none", edgecolor=K.as_, lw=1.6))
+    ax.add_patch(Rectangle((8.8, 0.6), 0.5, 4.6, facecolor=K.vlak_rood, edgecolor=K.rood, lw=1.6))
+    gx, gy = np.meshgrid(np.linspace(10.3, 14.3, 4), np.linspace(1.4, 4.4, 4))
+    xs = gx.ravel() + rng.uniform(-0.25, 0.25, 16); ys = gy.ravel() + rng.uniform(-0.2, 0.2, 16)
+    for x, y in zip(xs, ys):
+        a = rng.uniform(0, 2 * np.pi); r = rng.uniform(0.45, 0.8)
+        ax.plot(x, y, "o", color=K.accent, ms=6)
+        pijl(ax, (x, y), (x + r * np.cos(a), y + r * np.sin(a)), K.rood, lw=1.3)
+    label(ax, 9.05, 0.15, "warm", K.rood, ha="center", fontsize=10.5)
+    label(ax, 12.0, 5.6, "warmte: ongeordend", K.rood, ha="center", fontsize=13, fontweight="bold")
+    return kader(fig)
+
+
+# ---------------------------------------------------------- Cp(T) van gassen
+def cp_temperatuur():
+    """Cp,m(T) = a + bT + cT^2 voor enkele gassen (tabel cp_coeff)."""
+    fig, ax = figuur(6.4, 4.5)
+    T = np.linspace(300, 1000, 200)
+    data = [("CH$_4$", 14.9, 6.96e-2, -1.23e-5, K.oker),
+            ("CO$_2$", 23.9, 5.21e-2, -2.20e-5, K.rood),
+            ("H$_2$O(g)", 31.3, 5.99e-3, 4.12e-6, K.blauw),
+            ("O$_2$", 25.4, 1.35e-2, -3.95e-6, K.groen),
+            ("N$_2$", 28.5, 3.6e-4, 4.00e-6, K.accent),
+            ("He", 20.8, 0, 0, K.zacht)]
+    for naam, a, b, c, k in data:
+        cp = a + b * T + c * T**2
+        ax.plot(T, cp, color=k)
+        label(ax, 1012, cp[-1], naam, k, va="center", fontsize=11.5)
+    ax.axhline(2.5 * R, color=K.zacht, lw=0.8, ls=":")
+    label(ax, 310, 2.5 * R + 0.6, r"$\frac{5}{2}R$", K.zacht, fontsize=11)
+    ax.set_xlim(300, 1100)
+    ax.set_ylim(15, 80)
+    ax.set_xlabel("temperatuur $T$ (K)")
+    ax.set_ylabel(r"$C_{p,\mathrm{m}}$ (J mol$^{-1}$ K$^{-1}$)")
+    return kader(fig)
+
+
+# ---------------------------------------------- enthalpiediagram (Hess)
+def hess():
+    """Enthalpieniveaus voor CH4 + 2 O2 -> CO2 + 2 H2O(l)."""
+    fig, ax = figuur(6.4, 4.8)
+    ax.set_xlim(0, 10)
+    ax.set_ylim(-1050, 120)
+    niveaus = [(0.6, 3.4, 0, "C(s) + 2 H$_2$(g) + 2 O$_2$(g)\nelementen", K.zacht),
+               (0.6, 3.4, -74.8, "CH$_4$(g) + 2 O$_2$(g)", K.blauw),
+               (6.0, 9.4, -965.1, "CO$_2$(g) + 2 H$_2$O(l)", K.rood)]
+    for x0, x1, h, t, k in niveaus:
+        ax.plot([x0, x1], [h, h], color=k, lw=3)
+    label(ax, 2.0, 15, "elementen", K.zacht, ha="center", va="bottom", fontsize=11)
+    label(ax, 2.0, -95, "CH$_4$ + 2 O$_2$", K.blauw, ha="center", va="top", fontsize=12)
+    label(ax, 7.7, -985, "CO$_2$ + 2 H$_2$O(l)", K.rood, ha="center", va="top", fontsize=12)
+    ax.plot([3.4, 6.0], [0, 0], color=K.zacht, lw=1, ls=":")
+    pijl(ax, (1.2, 0), (1.2, -74.8), K.blauw, lw=1.6)
+    label(ax, 1.0, -40, r"$-74.8$", K.blauw, ha="right", va="center", fontsize=11)
+    pijl(ax, (7.0, 0), (7.0, -965.1), K.oker, lw=1.6)
+    label(ax, 7.2, -480, "$-393.5 + 2(-285.8)$\n$= -965.1$", K.oker, ha="left", va="center", fontsize=11)
+    pijl(ax, (3.0, -74.8), (6.3, -965.1), K.accent, lw=2.2)
+    label(ax, 4.55, -520, r"$\Delta_r H^\circ$" + "\n" + r"$= -890.3$ kJ/mol", K.accent, ha="right",
+          va="center", fontsize=12.5, bbox=achter())
+    ax.set_xticks([])
+    ax.set_ylabel(r"$H$ t.o.v. de elementen (kJ/mol)")
+    ax.spines["bottom"].set_visible(False)
+    return kader(fig)
+
+
 # ------------------------------------------------------------------ Boyle
 def boyle():
     """Isothermen van een ideaal gas (1 mol)."""

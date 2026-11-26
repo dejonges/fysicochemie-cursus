@@ -201,7 +201,7 @@ Met een fietspomp comprimeer je lucht van \SI{1}{\bar} en \SI{20}{\celsius} naar
 \end{oplossing}
 
 \begin{oefening}
-In een warmterecuperatiesysteem wordt $\mathrm{CO_2}$ uit rookgassen afgekoeld van \SI{800}{\kelvin} naar \SI{300}{\kelvin}. Gebruik de correlatie $C_p = a + bT + cT^2$ met de co\"effici\"enten uit de tabel in hoofdstuk~1: $a = 22.3$, $b = 5.98\times10^{-2}$, $c = -3.50\times10^{-5}$ (SI-eenheden).
+In een warmterecuperatiesysteem wordt $\mathrm{CO_2}$ uit rookgassen afgekoeld van \SI{800}{\kelvin} naar \SI{300}{\kelvin}. Gebruik de correlatie $C_p = a + bT + cT^2$ met de co\"effici\"enten uit tabel~\ref{tab:cp_coeff}: $a = 23.9$, $b = 5.21\times10^{-2}$, $c = -2.20\times10^{-5}$ (SI-eenheden).
 \begin{enumerate}
 \item[(a)] Bereken hoeveel warmte per mol $\mathrm{CO_2}$ gerecupereerd kan worden.
 \item[(b)] Herhaal de berekening met een constante $C_p$, gelijk aan de waarde bij \SI{300}{\kelvin}.
@@ -209,17 +209,17 @@ In een warmterecuperatiesysteem wordt $\mathrm{CO_2}$ uit rookgassen afgekoeld v
 \end{enumerate}
 \end{oefening}
 \begin{oplossing}
-\textbf{Resultaat:} (a) \SI{21.9}{\kilo\joule\per\mole}. (b) \SI{18.5}{\kilo\joule\per\mole} met $C_p(\SI{300}{\kelvin}) = \SI{37.1}{\joule\per\mole\per\kelvin}$. (c) Een onderschatting van ongeveer 15\,\%.
+\textbf{Resultaat:} (a) \SI{22.7}{\kilo\joule\per\mole}. (b) \SI{18.8}{\kilo\joule\per\mole} met $C_p(\SI{300}{\kelvin}) = \SI{37.6}{\joule\per\mole\per\kelvin}$. (c) Een onderschatting van ongeveer 17\,\%.
 
 \textbf{(a)}
 \[
 \Delta H = a(T_2-T_1) + \frac{b}{2}(T_2^2-T_1^2) + \frac{c}{3}(T_2^3-T_1^3)
 \]
-Van 300~K naar 800~K: $11\,150 + 16\,445 - 5\,658 = 21\,937\,\mathrm{J/mol}$. Bij afkoeling kan dus $21.9\,\mathrm{kJ/mol}$ gerecupereerd worden.
+Van 300~K naar 800~K: $11\,950 + 14\,340 - 3\,557 = 22\,733\,\mathrm{J/mol}$. Bij afkoeling kan dus $22.7\,\mathrm{kJ/mol}$ gerecupereerd worden.
 
-\textbf{(b)} $C_p(300\,\mathrm{K}) = 22.3 + 17.94 - 3.15 = 37.1\,\mathrm{J/(mol\cdot K)}$, zodat $\Delta H \approx (37.1)(500) = 18.5\,\mathrm{kJ/mol}$.
+\textbf{(b)} $C_p(300\,\mathrm{K}) = 23.9 + 15.64 - 1.98 = 37.6\,\mathrm{J/(mol\cdot K)}$, zodat $\Delta H \approx (37.6)(500) = 18.8\,\mathrm{kJ/mol}$.
 
-\textbf{(c)} $\mathrm{CO_2}$ is een lineair drieatomig molecule met buigvibraties die bij hogere temperatuur geactiveerd worden (hoofdstuk~2), waardoor $C_p$ sterk stijgt. Een constante $C_p$ is enkel aanvaardbaar voor kleine temperatuurverschillen, of voor eenvoudige gassen zoals $\mathrm{N_2}$ en edelgassen. Voor het ontwerp van een warmtewisselaar zou deze fout leiden tot een onderdimensionering.
+\textbf{(c)} $\mathrm{CO_2}$ is een lineair drieatomig molecule met buigvibraties die bij hogere temperatuur geactiveerd worden (hoofdstuk~\ref{ch:kwantum}), waardoor $C_p$ sterk stijgt. Een constante $C_p$ is enkel aanvaardbaar voor kleine temperatuurverschillen, of voor eenvoudige gassen zoals $\mathrm{N_2}$ en edelgassen. Voor het ontwerp van een warmtewisselaar zou deze fout leiden tot een onderdimensionering.
 \end{oplossing}
 
 \begin{oefening}
