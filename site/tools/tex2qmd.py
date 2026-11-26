@@ -283,7 +283,7 @@ def convert_chapter(texname, slug, chapnum):
             if jj < len(s) and s[jj] == '{':
                 title, j = read_group(s, jj)
         titles.append((env, title))
-        return j, f'\\begin{{{env}}}\n\nQCT{len(titles)-1}Q\n\n'
+        return j, f'\n\nQCO{len(titles)-1}Q\n\n'
     out, i = [], 0
     pat = re.compile(r'\\begin\{(' + '|'.join(CALLOUTS) + r')\}')
     while True:
@@ -293,6 +293,9 @@ def convert_chapter(texname, slug, chapnum):
         j, rep = env_open(m)
         out.append(rep); i = j
     s = ''.join(out)
+    # sluiten als losse markeringsalinea: hangt niet af van hoe pandoc
+    # onbekende omgevingen behandelt (verschilt tussen pandoc-versies)
+    s = re.sub(r'\\end\{(?:' + '|'.join(CALLOUTS) + r')\}', '\n\nQCCQ\n\n', s)
 
     # labels en verwijzingen als tokens
     s = re.sub(r'\\label\{([^}]*)\}', lambda m: tok_label(m.group(1)), s)
@@ -310,13 +313,14 @@ def convert_chapter(texname, slug, chapnum):
 
     # callouts
     def callout_repl(m):
-        env, idx = m.group(1), int(m.group(2))
+        idx = int(m.group(1)); env = titles[idx][0]
         kind, prefix, extra = CALLOUTS[env]
         t = titles[idx][1]
         t_md = pandoc_inline(t) if t else ''
         head = f'{prefix} {t_md}' if env == 'oefening' else (f'{prefix}: {t_md}' if t_md else prefix)
-        return f'::: {{.{kind}{extra}}}\n## {head}\n'
-    md = re.sub(r'^::: (' + '|'.join(CALLOUTS) + r')\s*\nQCT(\d+)Q\n', callout_repl, md, flags=re.M)
+        return f'::: {{.{kind}{extra}}}\n## {head}'
+    md = re.sub(r'^[ \t]*QCO(\d+)Q[ \t]*$', callout_repl, md, flags=re.M)
+    md = re.sub(r'^[ \t]*QCCQ[ \t]*$', ':::', md, flags=re.M)
 
     # figuren
     pyfigs = []
