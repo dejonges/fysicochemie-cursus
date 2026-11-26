@@ -226,3 +226,30 @@ def pourbaix_al_cu():
               pijlen={2: ((11.2, -0.55), (9.5, 0.0))})
     a2.set_ylabel("")
     return kader(fig)
+
+
+def waterstof_spanning():
+    """Elektriciteitsverbruik per kg H2 in functie van de celspanning (Faraday), met kenmerkende spanningen."""
+    fig, ax = figuur(6.6, 4.2)
+    F, M = 96485.0, 2.016e-3
+    U = np.linspace(1.0, 2.3, 100)
+    kwh = 2 * F * U / M / 3.6e6
+    ax.axvspan(1.0, 1.48, color=K.vlak_blauw, lw=0)
+    ax.axvspan(1.48, 2.3, color=K.vlak_accent, lw=0)
+    label(ax, 1.05, 58, "elektrolyser\nkoelt af", K.blauw, fontsize=10, va="top")
+    label(ax, 2.25, 25, "elektrolyser warmt op:\nkoeling nodig", K.accent, fontsize=10, ha="right")
+    ax.plot(U, kwh, color=K.tekst, lw=2.2)
+    for u, nm, k in [(1.23, "omkeerbaar\n$\\Delta_rG^\\circ/nF$", K.groen), (1.48, "thermoneutraal\n$\\Delta_rH^\\circ/nF$", K.oker),
+                     (1.9, "PEM bij\n2 A/cm²", K.rood)]:
+        e = 2 * F * u / M / 3.6e6
+        ax.plot(u, e, "o", color=k, ms=7, zorder=5)
+        ax.plot([u, u], [20, e], color=k, lw=1, ls=":")
+        if u < 1.3:
+            label(ax, u + 0.03, e - 1.5, f"{nm}\n{u:.2f} V → {e:.1f} kWh/kg", k, fontsize=9.5, va="top")
+        else:
+            label(ax, u - 0.02, e + 1.2, f"{nm}\n{u:.2f} V → {e:.1f} kWh/kg", k, fontsize=9.5, ha="right", va="bottom")
+    ax.set_xlim(1.0, 2.3)
+    ax.set_ylim(20, 62)
+    ax.set_xlabel("celspanning $U$ (V)")
+    ax.set_ylabel("elektriciteit per kg H$_2$ (kWh/kg)")
+    return kader(fig)

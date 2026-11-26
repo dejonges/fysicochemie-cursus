@@ -1,6 +1,6 @@
 """Figuren hoofdstuk 8 – Grensvlakken en materialen."""
 import numpy as np
-from matplotlib.patches import Arc, Circle, Polygon
+from matplotlib.patches import Arc, Circle, Polygon, Rectangle
 
 from huisstijl import K, figuur, kader, label, pijl  # noqa: F401
 
@@ -197,4 +197,54 @@ def xrd_poederpatroon():
     ax.set_xlabel("$2\\theta$ (°)")
     ax.set_ylabel("relatieve intensiteit")
     label(ax, 52, 80, "Cu, FCC\n$a$ = 0.3615 nm\n$\\lambda$ = 0.154 nm", K.zacht, fontsize=10)
+    return kader(fig)
+
+
+def cmc_sds():
+    """Oppervlaktespanning van SDS-oplossingen tegen log c (schematisch, CMC = 8.2 mM)."""
+    fig, ax = figuur(6.4, 4.2)
+    cmc, g0, gc = 8.2e-3, 72.0, 36.0
+    c = np.logspace(-5, -1, 300)
+    # Szyszkowski-vorm onder de CMC, constant erboven
+    B, a = 9.5, 2.0e-4
+    g = g0 - B * np.log(1 + c / a)
+    gcmc = g0 - B * np.log(1 + cmc / a)
+    g = np.where(c < cmc, g, gcmc)
+    ax.axvspan(cmc, 1e-1, color=K.vlak_accent, lw=0)
+    ax.plot(c, g, color=K.blauw, lw=2.4)
+    ax.axvline(cmc, color=K.accent, lw=1.2, ls="--")
+    label(ax, cmc * 1.15, 66, "CMC\n8.2 mmol/L", K.accent, fontsize=10.5, va="top")
+    label(ax, 1.3e-5, 69, "vrije moleculen\nadsorberen aan het\noppervlak", K.tekst, fontsize=10, va="top")
+    label(ax, 1.3e-2, 45, "extra SDS vormt\nmicellen;\n$\\gamma$ blijft constant", K.tekst, fontsize=10, va="bottom")
+    ax.set_xscale("log")
+    ax.set_xlim(1e-5, 1e-1)
+    ax.set_ylim(30, 75)
+    ax.set_xlabel("concentratie SDS (mol/L)")
+    ax.set_ylabel("oppervlaktespanning $\\gamma$ (mN/m)")
+    return kader(fig)
+
+
+def banden():
+    """Bandenschema van geleider, halfgeleider en isolator met band gaps (Kittel)."""
+    fig, ax = figuur(6.8, 4.2)
+    stoffen = [("koper\n(geleider)", 0.0, K.oker), ("silicium\n(halfgeleider)", 1.12, K.blauw),
+               ("diamant\n(isolator)", 5.5, K.paars)]
+    for i, (nm, Eg, k) in enumerate(stoffen):
+        x0 = i * 1.6
+        if Eg == 0:
+            ax.add_patch(Rectangle((x0, -3), 1, 3, color=k, alpha=0.85, lw=0))
+            ax.add_patch(Rectangle((x0, 0), 1, 2.5, color=k, alpha=0.25, lw=0))
+            label(ax, x0 + 0.5, 0.3, "gedeeltelijk\ngevuld", k, ha="center", va="bottom", fontsize=9.5)
+        else:
+            ax.add_patch(Rectangle((x0, -3), 1, 3, color=k, alpha=0.85, lw=0))
+            ax.add_patch(Rectangle((x0, Eg), 1, 2.5, color=k, alpha=0.25, lw=0))
+            ax.annotate("", xy=(x0 + 0.5, Eg), xytext=(x0 + 0.5, 0),
+                        arrowprops=dict(arrowstyle="<->", color=K.tekst, lw=1.2))
+            label(ax, x0 + 0.58, Eg / 2, f"$E_g$ = {Eg} eV", K.tekst, fontsize=10, va="center")
+        label(ax, x0 + 0.5, -3.3, nm, k, ha="center", va="top", fontsize=10.5)
+    label(ax, -0.1, -1.5, "valentieband\n(gevuld)", K.zacht, ha="right", va="center", fontsize=9.5)
+    label(ax, -0.1, 6.5, "geleidingsband\n(leeg)", K.zacht, ha="right", va="center", fontsize=9.5)
+    ax.set_xlim(-1.3, 4.3)
+    ax.set_ylim(-4.6, 8.3)
+    ax.axis("off")
     return kader(fig)

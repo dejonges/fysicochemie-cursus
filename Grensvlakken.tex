@@ -77,7 +77,7 @@ Leg een druppel op een vaste stof en hij spreidt uit of blijft als een bolletje 
 \boxed{\;\sigma_{sg} = \sigma_{sl} + \sigma_{lg}\cos\theta\;}
 \label{eq:young}
 \end{equation}
-met $\theta$ de \emph{contacthoek}, gemeten door de vloeistof (figuur~\ref{fig:contacthoek}). Een hoge oppervlakte-energie van de vaste stof (glas, metaal, gereinigd met een coronabehandeling) geeft een kleine contacthoek: de vloeistof bevochtigt. Een lage oppervlakte-energie (PTFE, paraffine, siliconen) geeft $\theta > 90^\circ$. Dezelfde intermoleculaire krachten die in hoofdstuk~\ref{ch:intermoleculair} (\S~\ref{sec:im-toepassingen}) bepaalden of een lijm hecht, bepalen hier of verf, inkt of een coating zich mooi spreidt.
+met $\theta$ de \emph{contacthoek}, gemeten door de vloeistof (figuur~\ref{fig:contacthoek}). Een hoge oppervlakte-energie van de vaste stof (glas, metaal, gereinigd met een coronabehandeling) geeft een kleine contacthoek: de vloeistof bevochtigt. Een lage oppervlakte-energie (PTFE, paraffine, siliconen) geeft $\theta > 90^\circ$. Dezelfde intermoleculaire krachten die in hoofdstuk~\ref{ch:intermoleculair} (\S~\ref{sec:im-toepassingen}) bepaalden of een lijm hecht, bepalen hier of verf, inkt of een coating zich mooi spreidt. In de mijnbouw maakt men ertsdeeltjes met een surfactant bewust hydrofoob: bij \emph{flotatie} hechten ze dan aan opstijgende luchtbellen en drijven ze op, terwijl het hydrofiele gesteente zinkt.
 
 \begin{figure}[htb]
     \centering
@@ -214,15 +214,20 @@ met $q$ de geadsorbeerde hoeveelheid per kg adsorbens, $c$ de concentratie in op
 \section{Surfactanten en micelvorming}
 \label{sec:surfactanten}
 
-\emph{Surfactanten} (oppervlakte-actieve stoffen) zijn moleculen met een dualistische structuur: een hydrofiele kop en een hydrofobe staart. In water accumuleren zij aan het vloeistof--luchtgrensvlak, met de hydrofobe staart naar de lucht gericht. Hierdoor wordt de oppervlaktespanning sterk verlaagd.
+\emph{Surfactanten} hebben een hydrofiele kop en een hydrofobe staart. In water gaan ze aan het oppervlak zitten, met de staart naar de lucht, en verlagen zo de oppervlaktespanning sterk.
 
 \subsection{De kritische micelconcentratie (CMC)}
 
-Boven een bepaalde concentratie, de \emph{kritische micelconcentratie} (CMC), organiseren surfactanten zich spontaan in aggregaten: \emph{micellen}. In een micel zijn de hydrofobe staarten naar binnen gericht en de hydrofiele koppen naar buiten, zodat het micel als geheel wateroplosbaar is. Onder de CMC gedragen surfactanten zich als gewone opgeloste stoffen; boven de CMC blijft de concentratie vrije surfactant constant en worden bijkomende moleculen in micellen opgenomen.
+Is het oppervlak vol, dan klonteren de surfactanten boven de \emph{kritische micelconcentratie} (CMC) samen tot \emph{micellen}: bolletjes met de staarten binnenin en de koppen naar het water. De concentratie vrije surfactant blijft dan constant.
 
-\begin{voorbeeld}{CMC van natriumdodecylsulfaat}
-Natriumdodecylsulfaat (SDS, $\mathrm{CH_3(CH_2)_{11}OSO_3Na}$) heeft een CMC van \SI{8.2e-3}{\mole\per\litre} bij \SI{25}{\celsius}. Onder deze concentratie daalt de oppervlaktespanning geleidelijk met de SDS-concentratie; boven de CMC blijft de oppervlaktespanning constant op ongeveer \SI{35}{\milli\newton\per\metre}. Dit is een direct gevolg van de micelvorming: bijkomende SDS verhoogt enkel het aantal micellen, niet de concentratie vrije surfactant.
-\end{voorbeeld}
+Figuur~\ref{fig:cmc} toont dat voor natriumdodecylsulfaat (SDS, het surfactant in veel shampoos). Onder de CMC daalt de oppervlaktespanning met de concentratie, omdat steeds meer moleculen aan het oppervlak adsorberen. Boven de CMC verandert ze niet meer: extra SDS verhoogt enkel het aantal micellen. Een wasmiddel doseer je dus net boven de CMC; meer helpt niet.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/cmc_sds}
+    \caption{Oppervlaktespanning van waterige SDS-oplossingen bij \SI{25}{\celsius} (schematisch, met de gemeten CMC van \SI{8.2}{\milli\mole\per\litre} en $\gamma \approx \SI{36}{\milli\newton\per\metre}$ erboven; bron: Mukerjee en Mysels, NSRDS-NBS 36). De knik in de curve is de gebruikelijke manier om de CMC te meten.}
+    \label{fig:cmc}
+\end{figure}
 
 \subsection{Thermodynamica van micelvorming}
 \label{sec:micelvorming}
@@ -233,7 +238,7 @@ Micelvorming is een spontaan proces met een negatieve Gibbs-energie. De drijvend
 Een vetvlek op katoen is hydrofoob en bevochtigt het water slecht. Surfactanten in het wasmiddel adsorberen met hun staart aan het vet en met hun kop naar het water: de grensvlakspanning vet--water daalt van ongeveer \SI{50}{\milli\newton\per\metre} tot enkele \si{\milli\newton\per\metre}. Daardoor verandert de contacthoek (vergelijking~\eqref{eq:young}) en rolt het vet op tot druppeltjes die loskomen van de vezel. Boven de CMC worden die druppeltjes in micellen opgenomen; de geladen koppen houden ze uit elkaar (\S~\ref{sec:colloiden}). Warmer water helpt, omdat vet vloeibaarder wordt en de oppervlaktespanning daalt, maar moderne enzymen en surfactanten werken al bij \SI{30}{\celsius}, wat veel energie bespaart.
 \end{toepassing}
 
-\section{Collo\"idale dispersies en stabiliteit}
+\section{Collo\"idale dispersies: stabiliteit, emulsies en schuimen}
 \label{sec:colloiden}
 
 Een \emph{collo\"ide} is een dispersie van deeltjes met een grootte tussen \SI{1}{\nano\metre} en \SI{1}{\micro\metre} in een continue fase. Voorbeelden: emulsies (melk, mayonaise), suspensies (verf), schuimen (bier), aerosolen (mist). Collo\"idale deeltjes zijn groot genoeg om Brownse beweging te vertonen, maar klein genoeg om niet snel te sedimenteren.
@@ -282,7 +287,7 @@ Wanneer een collo\"ide met geladen oppervlak zich in een elektrisch veld bevindt
 \end{itemize}
 Beide verschijnselen worden beschreven door de vergelijking van Smoluchowski en worden toegepast in inktprinters, elektroforetische coatings, DNA-scheiding en microfluidica.
 
-\section{Emulsies en stabilisatoren}
+\subsection{Emulsies en het HLB-getal}
 \label{sec:emulsies}
 
 Een \emph{emulsie} is een dispersie van een vloeistof in een andere onmengbare vloeistof. Twee types worden onderscheiden:
@@ -292,16 +297,14 @@ Een \emph{emulsie} is een dispersie van een vloeistof in een andere onmengbare v
 \end{itemize}
 Emulsies zijn thermodynamisch onstabiel (de Gibbs-energie van de grensvlakken is positief), maar kunnen kinetisch stabiel worden gemaakt door \emph{emulgatoren}: surfactanten of vaste deeltjes die zich aan het vloeistof--vloeistofgrensvlak hechten en een beschermende laag vormen.
 
-\subsection{Het HLB-getal}
-
-De keuze van de juiste surfactant voor een emulsie wordt geholpen door het \emph{HLB-getal} (Hydrofiel--Lipofiel Balans):
+Welke emulgator je kiest, hangt af van zijn \emph{HLB-getal} (Hydrofiel--Lipofiel Balans):
 \begin{itemize}
 \item HLB 3--6: W/O-emulgator.
 \item HLB 8--18: O/W-emulgator.
 \end{itemize}
 Voor mayonaise (O/W) gebruikt men bijvoorbeeld eiwit (HLB $\sim$ 13); voor margarine (W/O) gebruikt men mono- en diglyceriden (HLB $\sim$ 4).
 
-\section{Schuimen en antischuimmiddelen}
+\subsection{Schuimen en antischuimmiddelen}
 
 Een \emph{schuim} is een dispersie van gas in vloeistof. Schuimen zijn kinetisch stabiel door surfactanten die de gasbel-wanden versterken (Marangoni-effect: herstel van lokale oppervlaktespanningsgradi\"enten). Schuimen zijn gewenst in bier, scheerschuim en brandblusschuim, maar ongewenst in fermentoren, destillatiekolommen en waswater.
 
@@ -494,23 +497,21 @@ In een kristal worden twee banden onderscheiden:
 \item \textbf{Valentieband}: de hoogste geheel gevulde band.
 \item \textbf{Geleidingsband}: de eerstvolgende, lege of deels gevulde band.
 \end{itemize}
-Tussen beide kan een \emph{verboden zone} (band gap, $E_g$) liggen. De classificatie:
+Tussen beide kan een \emph{verboden zone} (band gap, $E_g$) liggen (figuur~\ref{fig:banden}):
 \begin{itemize}
 \item \textbf{Geleider} (metaal): de valentieband is deels gevuld of overlapt met de geleidingsband. Elektronen kunnen vrij bewegen; $E_g = 0$.
 \item \textbf{Halfgeleider}: $E_g = \SIrange{0.5}{3}{\electronvolt}$. Bij lage temperatuur is de geleidingsband leeg (geen geleiding); bij hoge temperatuur kunnen elektronen thermisch worden geactiveerd.
 \item \textbf{Isolator}: $E_g > \SI{4}{\electronvolt}$. De thermische activering is verwaarloosbaar bij kamertemperatuur.
 \end{itemize}
 
-\begin{voorbeeld}{Band gaps van enkele materialen}
-\begin{itemize}
-\item Si: $E_g = \SI{1.12}{\electronvolt}$ (halfgeleider).
-\item GaAs: $E_g = \SI{1.42}{\electronvolt}$ (halfgeleider).
-\item Diamant: $E_g \approx \SI{5.5}{\electronvolt}$ (isolator).
-\item $\mathrm{SiO_2}$: $E_g \approx \SI{9}{\electronvolt}$ (isolator).
-\item Cu: $E_g = 0$ (geleider).
-\end{itemize}
-Het verschil tussen Si en GaAs is klein maar cruciaal: GaAs laat hogere snelheden en zonnecellen met hogere effici\"entie toe, Si domineert de markt via lagere kostprijs.
-\end{voorbeeld}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.72\linewidth]{Figuren/banden}
+    \caption{Bandenschema van een geleider, een halfgeleider en een isolator (bron band gaps: Kittel, \emph{Introduction to Solid State Physics}). In koper is de band maar half gevuld, zodat elektronen vrij kunnen bewegen. In silicium kan een klein deel van de elektronen thermisch over de kloof springen; in diamant niet.}
+    \label{fig:banden}
+\end{figure}
+
+Andere voorbeelden: GaAs (\SI{1.42}{\electronvolt}) laat zonnecellen met een hoger rendement toe dan silicium, maar silicium is veel goedkoper; \ce{SiO2} ($\approx\SI{9}{\electronvolt}$) is een uitstekende isolator.
 
 \subsubsection{Doping van halfgeleiders}
 \label{sec:doping}
@@ -524,18 +525,10 @@ De benodigde activeringsenergie om deze donor- of acceptorniveaus te ioniseren i
 
 \subsection{Thermodynamica van vaste stoffen}
 
-De thermodynamica uit hoofdstuk~\ref{ch:spontaniteit} is volledig van toepassing op vaste stoffen. Enkele bijzondere aspecten:
-
-\subsubsection{Faseovergangen in de vaste stof}
 \label{sec:faseovergang-vast}
-
 Naast smelten en verdampen kent de vaste stof ook \emph{vast-vast faseovergangen}. IJzer transformeert bij \SI{912}{\celsius} van BCC ($\alpha$-Fe) naar FCC ($\gamma$-Fe), en bij \SI{1394}{\celsius} terug naar BCC ($\delta$-Fe). Koolstof kent grafiet (stabiel bij 1 bar) en diamant (stabiel bij hoge druk). De Clapeyron-vergelijking uit hoofdstuk~\ref{ch:niet-reagerend} is van toepassing, maar de volumeveranderingen in de vaste fase zijn klein.
 
-\subsubsection{Smeltentropie en -enthalpie}
-
-Smeltenthalpie\"en van metalen volgen de regel van Richards: $\Delta S_{\text{fus}} \approx \SI{8.4}{\joule\per\mole\per\kelvin}$ voor vele metalen. Dit is een empirische schatting die de uniformiteit van smeltprocessen benadrukt.
-
-\subsubsection{Warmtecapaciteit van vaste stoffen}
+Bij het smelten van metalen is $\Delta S_{\text{fus}} \approx \SI{8.4}{\joule\per\mole\per\kelvin}$ (regel van Richards), het analogon van Trouton voor verdampen.
 
 Bij lage temperatuur volgt $C_V$ de wet van Debye ($T^3$-afhankelijkheid). Bij hoge temperatuur nadert $C_V$ de klassieke limiet van Dulong--Petit:
 \begin{equation}
@@ -559,20 +552,6 @@ De ingenieur kan materiaaleigenschappen sturen via \emph{defect engineering}:
 \item \textbf{Warmtebehandeling}: temperatuurverloop regelt de verdeling van defecten en faseverdeling.
 \end{itemize}
 
-
-\section{Toepassingen in de procesindustrie}
-
-\begin{itemize}
-\item \textbf{Katalysatoren}: een poreuze drager met groot BET-oppervlak, actieve metaaldeeltjes van enkele nanometer, en een kristalstructuur die de selectiviteit bepaalt (zeolieten). De kinetiek van oppervlaktereacties volgt in hoofdstuk~\ref{ch:kinetiek}.
-\item \textbf{Scheiding door adsorptie}: gasdroging met silicagel en zeolieten, PSA voor waterstof, stikstof en zuurstof, actieve kool voor drinkwater en afgassen.
-\item \textbf{Wasmiddelen en cosmetica}: surfactanten, micellen, emulsies.
-\item \textbf{Waterzuivering}: coagulatie en flocculatie via de zeta-potentiaal, adsorptie op actieve kool.
-\item \textbf{Voeding en farmacie}: emulsies (melk, mayonaise, crèmes), schuimen, suspensies, liposomen; polymorfie van geneesmiddelen, gecontroleerd met XRD.
-\item \textbf{Mijnbouw}: flotatie, waarbij hydrofoob gemaakte ertsdeeltjes aan luchtbellen hechten.
-\item \textbf{Coatings en verf}: bevochtiging, pigmentdispersies, hechting.
-\item \textbf{Energie}: halfgeleiders voor zonnecellen en led's, intercalatiematerialen ($\mathrm{LiCoO_2}$, $\mathrm{LiFePO_4}$) voor batterijen, perovskieten voor brandstofcellen (hoofdstuk~\ref{ch:elektrochemie}).
-\item \textbf{Constructiematerialen}: staal, roestvast staal, keramiek, beton: polykristallijn, met bewust gestuurde defecten.
-\end{itemize}
 
 \section{Samenvatting en reflectie}
 

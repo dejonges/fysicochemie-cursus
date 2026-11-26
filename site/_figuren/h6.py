@@ -160,3 +160,30 @@ def nh3_druk():
     ax.set_xlabel("totale druk $P$ (bar)")
     ax.set_ylabel("$y_\\mathrm{NH_3}$ bij evenwicht (%)")
     return kader(fig)
+
+
+def K_temperatuur():
+    """log10 K tegen T voor vijf industriële reacties (ΔH° en ΔS° bij 298 K constant verondersteld)."""
+    fig, ax = figuur(6.6, 4.4)
+    reacties = [  # naam, ΔH (kJ/mol), ΔS (J/mol K), kleur, exo/endo
+        ("N$_2$ + 3 H$_2$ → 2 NH$_3$", -92.2, -198.7, K.blauw),
+        ("2 SO$_2$ + O$_2$ → 2 SO$_3$", -197.8, -188.0, K.paars),
+        ("CO + H$_2$O → CO$_2$ + H$_2$", -41.2, -42.1, K.groen),
+        ("CH$_4$ + H$_2$O → CO + 3 H$_2$", 206.1, 214.6, K.rood),
+        ("CaCO$_3$ → CaO + CO$_2$", 178.3, 160.6, K.oker),
+    ]
+    T = np.linspace(298, 1300, 300)
+    for nm, dH, dS, k in reacties:
+        logK = (-(dH * 1e3) / (R * T) + dS / R) / np.log(10)
+        ax.plot(T - 273.15, logK, color=k, lw=2.3, label=nm, ls="-" if dH < 0 else "--")
+        Tx = dH * 1e3 / dS
+        if 298 < Tx < 1300:
+            ax.plot(Tx - 273.15, 0, "o", color=k, ms=6, zorder=5)
+    ax.axhline(0, color=K.as_, lw=1)
+    label(ax, 420, -12, "volle lijn: exotherm, $K$ daalt\nstreepjes: endotherm, $K$ stijgt", K.zacht, fontsize=10)
+    ax.legend(loc="upper right", fontsize=9.5)
+    ax.set_xlim(25, 1030)
+    ax.set_ylim(-15, 25)
+    ax.set_xlabel("temperatuur (°C)")
+    ax.set_ylabel("$\\log_{10} K$")
+    return kader(fig)
