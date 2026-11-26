@@ -30,6 +30,7 @@
 %==============================================================================
 
 \section{Voorbij de covalente binding}
+\label{sec:voorbij-covalent}
 
 In hoofdstuk~\ref{ch:kwantum} zagen we hoe de kwantummechanica de oorsprong vormt van chemische bindingen en van de energie die vrijkomt of wordt opgenomen tijdens een chemische reactie. We beperkten ons daarbij tot de sterke intramoleculaire bindingen --- covalente, ionogene en metallische bindingen --- die atomen samenhouden binnen een molecule of een kristalrooster. In hoofdstuk~\ref{ch:spontaniteit} leerden we vervolgens hoe de Gibbs-vrije energie $\Delta G=\Delta H-T\Delta S$ bepaalt of een proces --- ook een fysisch proces zoals smelten, verdampen of mengen --- spontaan verloopt.
 
@@ -97,6 +98,7 @@ Alle edelgassen zijn volledig niet-polair, zodat enkel London-dispersie werkt. D
 \end{voorbeeld}
 
 \subsection{Waterstofbruggen}
+\label{sec:waterstofbruggen}
 
 Een bijzonder sterke dipool--dipoolinteractie ontstaat wanneer een waterstofatoom, covalent gebonden aan een sterk elektronegatief atoom (N, O, F), in de buurt komt van een ander elektronegatief atoom met een eenzaam elektronenpaar. De \emph{waterstofbrug} is sterk gericht en kan energie\"en tot \SI{40}{\kilo\joule\per\mole} bereiken (typisch \SIrange{10}{40}{\kilo\joule\per\mole}).
 
@@ -148,7 +150,7 @@ Het $1/r^{12}$-gedrag is een wiskundig handige benadering van de elektronenwolk-
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.7\linewidth]{Afbeeldingen/lennard_jones_potentiaal.png}
-    \caption{\emph{Placeholder --- toe te voegen figuur.} De Lennard-Jonespotentiaal $V(r)$ (vergelijking~\eqref{eq:lennardjones}) in functie van de intermoleculaire afstand $r$, in eenheden van $\sigma$ en $\varepsilon$. De curve toont duidelijk: een sterk repulsieve, steil stijgende tak voor $r<\sigma$ (elektronenwolk-overlap); het snijpunt $V=0$ bij $r=\sigma$; het minimum $V=-\varepsilon$ bij $r_{\text{eq}}=2^{1/6}\sigma\approx1{,}122\,\sigma$; en de langzaam naar nul stijgende aantrekkende $-1/r^6$-staart voor $r>r_{\text{eq}}$. Markeer $\sigma$, $r_{\text{eq}}$ en $-\varepsilon$ expliciet op de assen.}
+    \caption{Relatieve sterkte van de interactie-energie $|V(r)|$ als functie van de afstand, op een logaritmische schaal en genormaliseerd op $r = \SI{0.3}{\nano\metre}$. De Coulombinteractie tussen ionen ($1/r$) reikt veel verder dan de ion--dipoolinteractie ($1/r^4$) en de Van der Waalskrachten ($1/r^6$). Bij een verdubbeling van de afstand daalt een Van der Waalsinteractie met een factor 64.}
     \label{fig:lennard-jones}
 \end{figure}
 
@@ -174,7 +176,7 @@ Beschouw \'e\'en molecule, omringd door een gemiddelde, uniforme dichtheid van a
 \begin{equation}
 \overline{V}_{\text{attr}} = \int_{\sigma}^{\infty} 4\pi r^2\,V_{\text{attr}}(r)\,\dd{r} = -16\pi\varepsilon\sigma^6\int_{\sigma}^{\infty}\frac{\dd{r}}{r^4} = -16\pi\varepsilon\sigma^6\left[-\frac{1}{3r^3}\right]_{\sigma}^{\infty} = -\frac{16\pi}{3}\varepsilon\sigma^3.
 \end{equation}
-Omdat elk paar moleculen bij deze telling tweemaal wordt meegerekend (net zoals bij de afleiding van het co-volume $b$ in hoofdstuk~\ref{ch:eerstehoofdwet}, \S~1.5.4), bedraagt de effectieve aantrekkingsenergie per mol de helft hiervan, vermenigvuldigd met het aantal Avogadro-paren:
+Omdat elk paar moleculen bij deze telling tweemaal wordt meegerekend (net zoals bij de afleiding van het co-volume $b$ in hoofdstuk~\ref{ch:eerstehoofdwet}, \S~\ref{sec:vdw-afleiding}), bedraagt de effectieve aantrekkingsenergie per mol de helft hiervan, vermenigvuldigd met het aantal Avogadro-paren:
 \begin{equation}
 \boxed{
 a = -\frac{N_A^2}{2}\,\overline{V}_{\text{attr}} = \frac{8\pi}{3}N_A^2\,\varepsilon\sigma^3.
@@ -216,16 +218,16 @@ $\mathrm{NaCl}$ (sublimatie) & 211 & sublimeert & Ion--ion \\
 \label{tab:verdampingsenthalpie}
 \end{table}
 
-De tabel toont duidelijk de hi\"erarchie: dispersie $<$ dipool--dipool $<$ waterstofbrug $<$ ion--ion. Zij beantwoordt bovendien meteen \'e\'en van de openingsvragen van dit hoofdstuk (\S~4.1): methaan en stikstof, met een vergelijkbare molaire massa als water, bezitten enkel zwakke dispersiekrachten en koken daardoor al ver onder kamertemperatuur, terwijl water dankzij zijn waterstofbrugnetwerk pas bij \SI{373.15}{\kelvin} kookt. Voor de ingenieur is $\Delta H_{\text{vap}}$ een directe indicator voor het energieverbruik van een destillatieproces --- water en ethanol vereisen aanzienlijk meer energie dan koolwaterstoffen.
+De tabel toont duidelijk de hi\"erarchie: dispersie $<$ dipool--dipool $<$ waterstofbrug $<$ ion--ion. Zij beantwoordt bovendien meteen \'e\'en van de openingsvragen van dit hoofdstuk (\S~\ref{sec:voorbij-covalent}): methaan en stikstof, met een vergelijkbare molaire massa als water, bezitten enkel zwakke dispersiekrachten en koken daardoor al ver onder kamertemperatuur, terwijl water dankzij zijn waterstofbrugnetwerk pas bij \SI{373.15}{\kelvin} kookt. Voor de ingenieur is $\Delta H_{\text{vap}}$ een directe indicator voor het energieverbruik van een destillatieproces --- water en ethanol vereisen aanzienlijk meer energie dan koolwaterstoffen.
 
 \subsection{De regel van Trouton}
 \label{sec:trouton}
 
-Tabel~\ref{tab:verdampingsenthalpie} bevat zowel $\Delta H_{\text{vap}}$ als het normale kookpunt $T_b$: de temperatuur waarbij, per definitie, de vloeistof- en dampfase bij \SI{1}{\bar} in evenwicht zijn. Uit hoofdstuk~\ref{ch:spontaniteit} (\S~"Entropie bij faseovergangen") weten we dat voor elke reversibele faseovergang bij constante druk geldt $\Delta S_{\text{trans}}=\Delta H_{\text{trans}}/T_{\text{trans}}$. Toegepast op verdamping:
+Tabel~\ref{tab:verdampingsenthalpie} bevat zowel $\Delta H_{\text{vap}}$ als het normale kookpunt $T_b$: de temperatuur waarbij, per definitie, de vloeistof- en dampfase bij \SI{1}{\bar} in evenwicht zijn. Uit hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:entropie-faseovergangen}) weten we dat voor elke reversibele faseovergang bij constante druk geldt $\Delta S_{\text{trans}}=\Delta H_{\text{trans}}/T_{\text{trans}}$. Toegepast op verdamping:
 \begin{equation}
 \Delta S_{\text{vap}} = \frac{\Delta H_{\text{vap}}}{T_b}.
 \end{equation}
-De empirische \emph{regel van Trouton} stelt dat deze verdampingsentropie voor de meeste ``normale'' vloeistoffen --- dat wil zeggen vloeistoffen zonder sterke, gerichte intermoleculaire interacties zoals waterstofbruggen --- ongeveer dezelfde waarde aanneemt, typisch $\Delta S_{\text{vap}}\approx\SIrange{85}{88}{\joule\per\mole\per\kelvin}$. De fysische reden is intuïtief: bij het koken wint elke vloeistof, ongeacht haar chemische aard, ongeveer dezelfde \emph{relatieve} toename in bewegingsvrijheid (van een gecondenseerde naar een verdunde gasfase), zodat de toename in het aantal toegankelijke microtoestanden (\S~"Van waarschijnlijkheid naar entropie" in hoofdstuk~\ref{ch:spontaniteit}) voor de meeste vloeistoffen vergelijkbaar is.
+De empirische \emph{regel van Trouton} stelt dat deze verdampingsentropie voor de meeste ``normale'' vloeistoffen --- dat wil zeggen vloeistoffen zonder sterke, gerichte intermoleculaire interacties zoals waterstofbruggen --- ongeveer dezelfde waarde aanneemt, typisch $\Delta S_{\text{vap}}\approx\SIrange{85}{88}{\joule\per\mole\per\kelvin}$. De fysische reden is intuïtief: bij het koken wint elke vloeistof, ongeacht haar chemische aard, ongeveer dezelfde \emph{relatieve} toename in bewegingsvrijheid (van een gecondenseerde naar een verdunde gasfase), zodat de toename in het aantal toegankelijke microtoestanden (\S~\ref{sec:waarschijnlijkheid-entropie} in hoofdstuk~\ref{ch:spontaniteit}) voor de meeste vloeistoffen vergelijkbaar is.
 
 \begin{voorbeeld}{Trouton's regel getoetst aan tabel~\ref{tab:verdampingsenthalpie}}
 We berekenen $\Delta S_{\text{vap}}=\Delta H_{\text{vap}}/T_b$ voor elke stof uit tabel~\ref{tab:verdampingsenthalpie}:
@@ -243,7 +245,7 @@ Ethanol (waterstofbrug) & $38600/351.55 = 109.8$ \\
 \bottomrule
 \end{tabular}
 \end{center}
-Het patroon is opmerkelijk consistent: chloroform, dat enkel dipool--dipool- en dispersiekrachten bezit, voldoet vrijwel exact aan de regel van Trouton ($\approx\SI{88}{\joule\per\mole\per\kelvin}$). Stikstof en methaan liggen er iets onder (een bekende afwijking voor kleine, quasi-boldeeltjes met weinig interne vrijheidsgraden, zie hoofdstuk~\ref{ch:kwantum}, \S~"Moleculaire beweging"). Ammoniak, water en ethanol wijken daarentegen sterk en systematisch \emph{naar boven} af: hun waterstofbrugnetwerk (\S~4.2.6) moet bij het verdampen worden opgebroken, wat een extra, geordend-naar-ongeordend effect toevoegt bovenop de gewone toename in bewegingsvrijheid. Merk op dat de waarde voor water, $\SI{109.1}{\joule\per\mole\per\kelvin}$, overeenkomt met de waarde $\Delta S_{\text{vap}}\approx\SI{109}{\joule\per\mole\per\kelvin}$ die reeds in hoofdstuk~\ref{ch:spontaniteit} werd berekend. Trouton's regel levert een ingenieur zo een snelle, eerste-orde consistentiecontrole: een sterke afwijking van $\approx\SI{85}{\joule\per\mole\per\kelvin}$ is een directe indicatie van gerichte intermoleculaire interacties (waterstofbruggen) die in een proces- of destillatieontwerp niet over het hoofd mogen worden gezien.
+Het patroon is opmerkelijk consistent: chloroform, dat enkel dipool--dipool- en dispersiekrachten bezit, voldoet vrijwel exact aan de regel van Trouton ($\approx\SI{88}{\joule\per\mole\per\kelvin}$). Stikstof en methaan liggen er iets onder (een bekende afwijking voor kleine, quasi-boldeeltjes met weinig interne vrijheidsgraden, zie hoofdstuk~\ref{ch:kwantum}, \S~\ref{sec:moleculaire-beweging}). Ammoniak, water en ethanol wijken daarentegen sterk en systematisch \emph{naar boven} af: hun waterstofbrugnetwerk (\S~\ref{sec:waterstofbruggen}) moet bij het verdampen worden opgebroken, wat een extra, geordend-naar-ongeordend effect toevoegt bovenop de gewone toename in bewegingsvrijheid. Merk op dat de waarde voor water, $\SI{109.1}{\joule\per\mole\per\kelvin}$, overeenkomt met de waarde $\Delta S_{\text{vap}}\approx\SI{109}{\joule\per\mole\per\kelvin}$ die reeds in hoofdstuk~\ref{ch:spontaniteit} werd berekend. Trouton's regel levert een ingenieur zo een snelle, eerste-orde consistentiecontrole: een sterke afwijking van $\approx\SI{85}{\joule\per\mole\per\kelvin}$ is een directe indicatie van gerichte intermoleculaire interacties (waterstofbruggen) die in een proces- of destillatieontwerp niet over het hoofd mogen worden gezien.
 \end{voorbeeld}
 
 \section{Mengsels: regelmatige oplossingen en de Hildebrand-parameter}
@@ -251,6 +253,7 @@ Het patroon is opmerkelijk consistent: chloroform, dat enkel dipool--dipool- en 
 Wanneer twee vloeistoffen mengen, worden intermoleculaire interacties verbroken en nieuwe gevormd. De mengenthalpie is de nettobalans hiervan. Voor \emph{regelmatige oplossingen} (geen waterstofbruggen, geen sterke dipoolinteracties) ontwikkelde Hildebrand een kwantitatieve theorie.
 
 \subsection{De Hildebrand-oplosbaarheidsparameter}
+\label{sec:hildebrand}
 
 De \emph{Hildebrand-parameter} $\delta$ is gedefinieerd als:
 \begin{equation}
@@ -270,7 +273,7 @@ De Hildebrand-parameters bedragen:
 \item Water: $\delta = \SI{47.9}{\mega\pascal^{1/2}}$ (sterk waterstofbruggend)
 \item $n$-Hexaan: $\delta = \SI{14.9}{\mega\pascal^{1/2}}$ (niet-polair koolwaterstof)
 \end{itemize}
-Het verschil is groot, waardoor $\Delta H_{\text{meng}}$ zeer positief is. De Gibbs-energie van mengen (hoofdstuk~\ref{ch:niet-reagerend}, \S~"Thermodynamica van mengsels") wordt dan positief, en de vloeistoffen mengen niet. Dit verklaart, kwantitatief, waarom olie en water zich splitsen --- exact de vraag die in \S~4.1 werd gesteld.
+Het verschil is groot, waardoor $\Delta H_{\text{meng}}$ zeer positief is. De Gibbs-energie van mengen (hoofdstuk~\ref{ch:niet-reagerend}, \S~\ref{sec:thermodynamica-mengsels}) wordt dan positief, en de vloeistoffen mengen niet. Dit verklaart, kwantitatief, waarom olie en water zich splitsen --- exact de vraag die in \S~\ref{sec:voorbij-covalent} werd gesteld.
 
 Voor twee koolwaterstoffen, bv. hexaan ($\delta = \SI{14.9}{\mega\pascal^{1/2}}$) en heptaan ($\delta = \SI{15.2}{\mega\pascal^{1/2}}$), is het verschil klein en mengen de vloeistoffen volledig. In de chromatografie en de verfindustrie wordt de Hildebrand-parameter gebruikt om compatibele oplosmiddelen te selecteren.
 \end{voorbeeld}
@@ -293,7 +296,7 @@ Een belangrijk onderscheid tussen de intermoleculaire krachten is hun \emph{reik
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Afbeeldingen/reikwijdte_vergelijking.png}
+    \includegraphics[width=0.7\linewidth]{Figuren/reikwijdte}
     \caption{\emph{Placeholder --- toe te voegen figuur.} $|V(r)|$ in functie van $r$ op een log-log-schaal voor de vier reikwijdte-categorie\"en hierboven, elk als rechte lijn met een verschillende helling ($-1$, $-4$, $-6$) plus een sterk gepiekte, kort-dracht curve voor de gerichte waterstofbrug. Dit visualiseert in \'e\'en oogopslag waarom ion--ion-interacties op lange afstand domineren, terwijl Van der Waalskrachten enkel op zeer korte afstand relevant worden.}
     \label{fig:reikwijdte}
 \end{figure}
@@ -324,24 +327,92 @@ Dispersie (London) & 0{,}5--10 & $1/r^6$ \\
 
 Een opvallende observatie: alle Van der Waalskrachten (Keesom, Debye, London) delen dezelfde $1/r^6$-afhankelijkheid. Dit is geen toeval: alle drie zijn ze zwakke storingen van de elektronenstructuur, en dezelfde wiskundige structuur geldt. Merk verder op dat de energiebereiken van de covalente binding en de ion--ioninteractie elkaar volledig overlappen: het onderscheid tussen ``intramoleculair'' en ``intermoleculair'' is dus niet in de eerste plaats een kwestie van energieschaal, maar van de aard van de interactie (gedeelde elektronenparen versus elektrostatische aantrekking tussen afgeronde ladingen, hoofdstuk~\ref{ch:kwantum}).
 
-\section{Industri\"ele relevantie}
+\section{Intermoleculaire krachten aan het werk}
+\label{sec:im-toepassingen}
 
-De intermoleculaire krachten bepalen een breed gamma aan industri\"ele processen en materiaaleigenschappen:
+Intermoleculaire krachten zijn zwak in vergelijking met chemische bindingen, maar ze werken overal en altijd. In deze paragraaf bekijken we een reeks situaties uit het dagelijks leven en de industrie waarin ze de doorslag geven. Telkens stellen we dezelfde vraag: \emph{welke kracht domineert, en wat volgt daaruit?}
 
+\begin{toepassing}{Water koken: veel energie, en soms een verrassing}
+Om water te verdampen moeten alle waterstofbruggen van een molecule met zijn buren verbroken worden. Daarom is de verdampingsenthalpie van water per kilogram uitzonderlijk hoog: \SI{2257}{\kilo\joule\per\kilo\gram}, tegenover \SI{838}{} voor ethanol en \SI{335}{\kilo\joule\per\kilo\gram} voor hexaan. Dat maakt stoom de ideale warmtedrager in de industrie: een kilogram condenserende stoom levert veel warmte bij een constante temperatuur. Om dezelfde reden is een koeltoren zo effici\"ent: verdampt \SI{1}{\percent} van het koelwater, dan koelt de rest ongeveer \SI{5}{\kelvin} af.
+
+De sterke cohesie heeft ook een keerzijde. Een dampbel kan pas groeien als ze groot genoeg is om de oppervlaktespanning te overwinnen. In een zeer gladde, schone kom (bv.\ een glas water in de microgolfoven) ontbreken de kleine oneffenheden of luchtbelletjes waarop bellen kunnen ontstaan. Het water kan dan enkele graden boven \SI{100}{\celsius} komen zonder te koken, en bij de minste verstoring explosief opkoken. In het labo voorkom je dat met kookstenen; in een verdamper met een ruw oppervlak of een kleine gasstroom.
+\end{toepassing}
+
+\begin{toepassing}{Lijmen en kleefband: contact is alles}
+Een lijm of een kleefband hecht vooral via Van der Waalskrachten en, als de oppervlakken polair zijn, via waterstofbruggen. Hoe sterk kan dat zijn? Voor twee vlakke oppervlakken op afstand $D$ geeft de theorie een aantrekking per oppervlakte
+\begin{equation}
+\frac{F}{A} = \frac{A_\mathrm{H}}{6\pi D^3},
+\label{eq:hamaker}
+\end{equation}
+met $A_\mathrm{H} \approx \SI{1e-19}{\joule}$ de \emph{Hamakerconstante}. Bij moleculair contact ($D \approx \SI{0.4}{\nano\metre}$) is dat
+\[
+\frac{F}{A} = \frac{10^{-19}}{6\pi(0.4\times10^{-9})^3} \approx \SI{8e7}{\pascal} = \SI{800}{\bar}.
+\]
+Twee perfect vlakke oppervlakken zouden dus enorm sterk aan elkaar kleven. In de praktijk raken twee vaste stoffen elkaar maar op enkele toppen van hun ruwheid; elders is $D$ honderden keren groter, en door de $1/D^3$-afhankelijkheid valt de kracht weg. Daarom is een lijm altijd \emph{vloeibaar} wanneer hij wordt aangebracht: hij vloeit in alle oneffenheden en maakt zo overal moleculair contact. Pas daarna hardt hij uit.
+
+De gekko gebruikt hetzelfde principe zonder lijm. Zijn tenen dragen miljoenen fijne haartjes die zich elk afzonderlijk aan de ruwheid van een muur aanpassen. De gemeten hechting, ongeveer \SI{10}{\newton\per\square\centi\metre}, is duizendmaal minder dan de theoretische waarde, maar ruim voldoende om het dier aan \'e\'en poot te laten hangen.
+
+Waarom kleeft bijna niets aan polyetheen of teflon? Hun oppervlak heeft enkel zwakke dispersiekrachten en geen polaire groepen (lage \emph{oppervlakte-energie}: \SI{20}{} tot \SI{33}{\milli\joule\per\square\metre}, tegenover \SI{72}{} voor water en ruim boven \SI{100}{} voor glas of metaal). Een lijm bevochtigt zo'n oppervlak slecht. Industrieel behandelt men kunststof daarom eerst met een corona- of plasmabehandeling, die polaire groepen (\ce{-OH}, \ce{-COOH}) op het oppervlak aanbrengt.
+\end{toepassing}
+
+\begin{toepassing}{Coatings: waterafstotend, krasvast of vuilafstotend}
+Een coating moet aan de ondergrond hechten, maar haar buitenkant moet vaak net \emph{niet} kleven. Een waterafstotende coating (teflon, siliconen, fluorhoudende impregneermiddelen voor textiel) heeft aan de buitenkant enkel \ce{-CF3}- of \ce{-CH3}-groepen. Water vormt er geen waterstofbruggen mee en trekt zich samen tot druppels. Fluor is daarbij bijzonder effectief: het is klein en zeer weinig polariseerbaar, zodat zelfs de dispersiekrachten zwak zijn.
+
+Bij het formuleren van een verf kies je het oplosmiddel met de Hildebrandparameter uit \S~\ref{sec:hildebrand}: het oplosmiddel moet het bindmiddel (de polymeerhars) goed oplossen, dus een vergelijkbare $\delta$ hebben, en daarna snel genoeg verdampen. Dezelfde redenering verklaart waarom aceton een verflaag of piepschuim aantast, en water niet.
+\end{toepassing}
+
+\begin{toepassing}{Adsorptie: moleculen vasthouden op een oppervlak}
+Actieve kool heeft een inwendig oppervlak van \SIrange{500}{1500}{\square\metre\per\gram}: \'e\'en theelepel heeft het oppervlak van een voetbalveld. Organische moleculen blijven er via dispersiekrachten aan hangen (\emph{fysisorptie}, typisch \SIrange{5}{40}{\kilo\joule\per\mole}). Grote, goed polariseerbare moleculen (oplosmiddeldampen, geurstoffen, chloor uit leidingwater) worden het sterkst vastgehouden; kleine, weinig polariseerbare gassen zoals \ce{N2} en \ce{O2} nauwelijks. Daarom werkt een actief-koolfilter in een dampkap of een gasmasker.
+
+Zeolieten zijn kristallijne alumino-silicaten met pori\"en van moleculaire afmetingen en geladen kationen (\ce{Na+}, \ce{Ca^2+}) in hun wanden. Watermoleculen binden er via ion--dipoolinteracties, met een adsorptie-enthalpie die hoger ligt dan de condensatie-enthalpie van water. Zeolieten drogen gassen en oplosmiddelen daardoor tot extreem lage watergehaltes. Zuurstofconcentratoren gebruiken een zeoliet die \ce{N2} sterker bindt dan \ce{O2}: het quadrupoolmoment van \ce{N2} is groter en interageert met de kationen. Adsorptie komt uitgebreid terug in hoofdstuk~\ref{ch:oppervlakte}.
+\end{toepassing}
+
+\begin{toepassing}{Nylon versus polyetheen}
+Polyetheen (PE) en nylon-6,6 zijn beide lange ketens, maar hun eigenschappen verschillen sterk. Tussen PE-ketens werken enkel dispersiekrachten; HDPE smelt rond \SI{130}{\celsius}. In nylon vormen de amidegroepen (\ce{-CO-NH-}) waterstofbruggen tussen naburige ketens; nylon-6,6 smelt pas bij \SI{265}{\celsius}, is stijver en sterker. Kevlar gaat nog verder: zijn starre ketens liggen perfect geordend naast elkaar met een waterstofbrug om de paar atomen. Per gewicht is een Kevlarvezel vijf keer sterker dan staal.
+
+De keerzijde: dezelfde amidegroepen trekken water aan. Nylon neemt enkele procent vocht op, zwelt en wordt zachter. Bij het spuitgieten moet nylongranulaat daarom eerst gedroogd worden.
+\end{toepassing}
+
+\begin{toepassing}{Smeermiddelen}
+Een smeerolie bestaat uit lange koolwaterstofketens. De dispersiekrachten tussen de ketens bepalen de viscositeit: langere ketens geven meer contactpunten en een dikkere olie. Bij hogere temperatuur bewegen de ketens sneller en daalt de viscositeit sterk; additieven (lange polymeren die bij hoge temperatuur ontrollen) beperken dat effect. Vaste smeermiddelen zoals grafiet en \ce{MoS2} hebben een gelaagde structuur: binnen een laag sterke covalente bindingen, tussen de lagen enkel zwakke Van der Waalskrachten. De lagen schuiven daardoor gemakkelijk over elkaar.
+\end{toepassing}
+
+\begin{toepassing}{Koelmiddelen en luchtscheiding}
+Een koelmiddel moet verdampen bij een lage temperatuur (zwakke intermoleculaire krachten) en daarbij toch veel warmte opnemen (voldoende sterke krachten). Ammoniak, met waterstofbruggen, kookt bij \SI{-33}{\celsius} en neemt \SI{1370}{\kilo\joule\per\kilo\gram} op; het fluorhoudende R-134a kookt bij \SI{-26}{\celsius} maar neemt slechts \SI{217}{\kilo\joule\per\kilo\gram} op. Ammoniak is daarom het koelmiddel van grote industri\"ele installaties (koelhuizen, brouwerijen), ondanks zijn giftigheid.
+
+Bij de cryogene luchtscheiding worden stikstof (kookpunt \SI{77.4}{\kelvin}), argon (\SI{87.3}{\kelvin}) en zuurstof (\SI{90.2}{\kelvin}) door destillatie gescheiden. Deze moleculen hebben enkel dispersiekrachten van vergelijkbare sterkte; de kookpunten liggen daardoor dicht bij elkaar en de kolommen zijn hoog, met tientallen schotels.
+\end{toepassing}
+
+\begin{toepassing}{DNA en geneesmiddelen}
+De twee strengen van DNA worden samengehouden door waterstofbruggen tussen de basen: twee tussen A en T, drie tussen G en C. Elke brug is zwak, maar met duizenden achter elkaar is de dubbele helix stabiel. Bij verhitting tot ongeveer \SI{95}{\celsius} breken ze en gaan de strengen uit elkaar; de PCR-techniek benut dat. Een geneesmiddel werkt op dezelfde manier: het past in de holte van een eiwit en wordt daar vastgehouden door een combinatie van waterstofbruggen, ionische interacties en dispersiekrachten. Een kleine wijziging van \'e\'en groep kan de binding honderd keer sterker of zwakker maken.
+\end{toepassing}
+
+\section{Samenvatting en reflectie}
+
+\begin{samenvatting}{Intermoleculaire krachten}
 \begin{itemize}
-\item \textbf{Destillatie}: kookpunten en verdampingsenthalpie\"en bepalen de energiekost en de haalbaarheid van scheiding (hoofdstuk~\ref{ch:niet-reagerend}).
-\item \textbf{Extractie}: de keuze van oplosmiddel wordt bepaald door de Hildebrand-parameter en de polariteit.
-\item \textbf{Chromatografie}: de retentie van analyten op een stationaire fase wordt bepaald door intermoleculaire interacties.
-\item \textbf{Polymeren}: de glasovergangstemperatuur, de kristalliniteit en de mechanische eigenschappen worden bepaald door de intermoleculaire krachten tussen polymeerketens.
-\item \textbf{Materialen}: de compatibiliteit van polymeren met additieven, vulstoffen en coatings wordt voorspeld via $\delta$-parameters.
-\item \textbf{Farmaceutica}: de oplosbaarheid van actieve ingredi\"enten, de biologische beschikbaarheid en de formulering worden bepaald door intermoleculaire krachten.
-\item \textbf{Eiwitvouwing}: de tertiaire structuur van eiwitten wordt gestabiliseerd door een combinatie van waterstofbruggen, elektrostatische interacties en hydrofobe effecten.
-\item \textbf{Oppervlakken en collo\"iden}: de stabiliteit van suspensies en emulsies berust op de balans tussen Van der Waals-aantrekking en elektrostatische afstoting (hoofdstuk~\ref{ch:oppervlakte}).
+\item Intermoleculaire krachten zijn van elektrostatische oorsprong. Van sterk naar zwak: ion--ion, ion--dipool, waterstofbrug, dipool--dipool (Keesom), dipool--ge\"induceerde dipool (Debye) en dispersie (London).
+\item Dispersiekrachten werken tussen alle moleculen en groeien met de polariseerbaarheid, dus met de grootte van de elektronenwolk. Bij grote moleculen domineren ze vaak.
+\item De Lennard-Jonespotentiaal combineert afstoting ($1/r^{12}$) en aantrekking ($1/r^6$); de parameters $\varepsilon$ en $\sigma$ hangen samen met de Van der Waalsconstanten $a$ en $b$.
+\item De verdampingsenthalpie is een maat voor de cohesie. Volgens de regel van Trouton is $\Delta S_\mathrm{vap} \approx \SI{85}{\joule\per\mole\per\kelvin}$; vloeistoffen met waterstofbruggen wijken naar boven af.
+\item De Hildebrandparameter $\delta = \sqrt{\Delta E_\mathrm{vap}/V_\mathrm{m}}$ voorspelt de mengbaarheid: gelijkaardige $\delta$ mengt.
+\item Toepassingen: koken en stoom als warmtedrager, lijmen (contact is alles, $F/A \propto 1/D^3$), coatings, adsorptie, polymeren, smeermiddelen, koelmiddelen en biomoleculen.
 \end{itemize}
+\end{samenvatting}
 
-\begin{besluit}{Intermoleculaire krachten: de schakel tussen micro en macro}
-Intermoleculaire krachten vormen de schakel tussen de kwantummechanische elektronenstructuur van moleculen (hoofdstuk~\ref{ch:kwantum}) en de macroscopische eigenschappen van vloeistoffen en mengsels waarvan de spontaniteit door hoofdstuk~\ref{ch:spontaniteit} wordt beoordeeld. Hun sterkte bepaalt kookpunten, verdampingsenthalpie\"en, viscositeit, oppervlaktespanning en mengbaarheid; via de regel van Trouton (\S~\ref{sec:trouton}) en de Hildebrand-parameter (\S~4.7) konden we deze microscopische krachten bovendien rechtstreeks aan de entropie- en Gibbs-energiebegrippen uit hoofdstuk~\ref{ch:spontaniteit} koppelen. In de volgende hoofdstukken zullen we deze krachten impliciet blijven gebruiken: bij de afwijkingen van de wet van Raoult en de activiteitscoëfficiënt (hoofdstuk~\ref{ch:niet-reagerend}), bij de DLVO-theorie van collo\"idale stabiliteit (hoofdstuk~\ref{ch:oppervlakte}), en bij diffusie in vloeistoffen (hoofdstuk~\ref{ch:kinetiek}, \S~"Diffusielimitatie"). Met dit hoofdstuk beschikt de lezer over de fysische basis om deze latere toepassingen te begrijpen.
-\end{besluit}
+\begin{reflectie}{Intermoleculaire krachten}
+\begin{enumerate}
+\item Methaan en water hebben bijna dezelfde molaire massa. Waarom is het ene een gas en het andere een vloeistof bij kamertemperatuur?
+\item Waarom stijgt het kookpunt van de alkanen met de ketenlengte, terwijl de moleculen niet polair zijn?
+\item Een lijm hecht goed op glas, maar niet op een plastic boterpot. Verklaar, en geef een industri\"ele oplossing.
+\item Waarom moet een lijm vloeibaar zijn wanneer je hem aanbrengt?
+\item Waarom houdt actieve kool tolueendamp goed vast en stikstof nauwelijks?
+\item Nylon en polyetheen zijn beide lange polymeerketens. Waarom smelt nylon bij een veel hogere temperatuur, en waarom moet het gedroogd worden voor verwerking?
+\item Welke eigenschappen zoek je in een goed koelmiddel, en hoe hangen die samen met de intermoleculaire krachten?
+\end{enumerate}
+\end{reflectie}
+
+Intermoleculaire krachten blijven in de volgende hoofdstukken op de achtergrond aanwezig: in de afwijkingen van de wet van Raoult en de activiteitsco\"effici\"enten (hoofdstuk~\ref{ch:niet-reagerend}) en in de adsorptie en oppervlaktespanning (hoofdstuk~\ref{ch:oppervlakte}).
 
 \newpage
 \section{Oefeningen}
