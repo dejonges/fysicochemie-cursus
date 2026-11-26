@@ -147,6 +147,21 @@ De fundamentele voorwaarde voor fase-evenwicht werd in hoofdstuk~\ref{ch:spontan
 \end{equation}
 Deze vergelijking geldt voor het evenwicht tussen vaste stof en vloeistof, tussen vloeistof en damp, tussen twee vloeistoffasen en zelfs tussen verschillende kristalstructuren. Vrijwel alle fase-evenwichten die in de chemische technologie worden bestudeerd, kunnen uiteindelijk tot deze eenvoudige voorwaarde worden herleid.
 
+\subsection{De fasenregel van Gibbs}
+\label{sec:fasenregel}
+
+Hoeveel variabelen mag je vrij kiezen voor een systeem in evenwicht? Voor een zuivere stof die kookt, ligt de temperatuur vast zodra je de druk kiest: water kookt bij \SI{1}{atm} altijd bij \SI{100}{\celsius}. Voor een mengsel dat kookt, mag je ook nog de samenstelling kiezen. De \emph{fasenregel van Gibbs} telt dit precies:
+\begin{equation}
+\boxed{F = C - P + 2}
+\label{eq:fasenregel}
+\end{equation}
+met $F$ het aantal \emph{vrijheidsgraden} (intensieve variabelen die je vrij kunt kiezen), $C$ het aantal componenten en $P$ het aantal fasen. De regel volgt uit een eenvoudige telling: elke fase heeft $T$, $p$ en $C-1$ onafhankelijke molfracties; elke component levert per extra fase \'e\'en evenwichtsvoorwaarde $\mu_i^{(\alpha)} = \mu_i^{(\beta)}$, en ook $T$ en $p$ zijn overal gelijk.
+\begin{itemize}
+\item Zuiver water, vloeistof + damp: $F = 1 - 2 + 2 = 1$. Kies $p$, dan ligt $T$ vast (de dampdruklijn).
+\item Zuiver water op het tripelpunt: $F = 1 - 3 + 2 = 0$. Er is maar \'e\'en punt.
+\item Benzeen--tolueen, vloeistof + damp: $F = 2 - 2 + 2 = 2$. Kies $p$ en $x$, dan liggen $T$ en $y$ vast. Dat is precies wat een VLE-diagram toont.
+\end{itemize}
+
 \section{Fase-evenwicht van zuivere stoffen: Clapeyron, Antoine en het fasediagram}
 
 \subsection{De vergelijking van Clapeyron}
@@ -243,8 +258,8 @@ De vergelijkingen van Clapeyron beschrijven de helling van de evenwichtslijnen i
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Afbeeldingen/fasediagram_zuivere_stof.png}
-    \caption{\emph{Placeholder --- toe te voegen figuur.} Schematisch $p$--$T$-fasediagram van een zuivere stof (bv.\ water), met drie evenwichtslijnen die elkaar ontmoeten in het tripelpunt: de sublimatielijn (vast--damp), de smeltlijn (vast--vloeistof, met voor water een lichte \emph{negatieve} helling zoals berekend in het voorbeeld bij vergelijking~\eqref{eq:clapeyron}) en de dampdruklijn (vloeistof--damp, volgens Clausius--Clapeyron, eindigend in het kritische punt). Markeer het tripelpunt en het kritische punt expliciet, en duid de gebieden vaste stof, vloeistof, gas en superkritisch flu\"idum aan.}
+    \includegraphics[width=0.7\linewidth]{Figuren/fasediagram}
+    \caption{Fasediagram van water, met een logaritmische drukas. De dampdruklijn loopt van het tripelpunt tot het kritisch punt; de smeltlijn heeft een lichte \emph{negatieve} helling (hier overdreven getekend), zodat ijs bij hogere druk smelt. Bij \SI{1}{atm} kookt water bij \SI{100}{\celsius}.}
     \label{fig:fasediagram}
 \end{figure}
 
@@ -378,21 +393,61 @@ Voor het mengsel uit het vorige voorbeeld geldt $\alpha_{AB} = p_A^*/p_B^* = \SI
 
 \section{Het damp-vloeistofdiagram: hefboomwet en azeotropen}
 
-\subsection{Het damp-vloeistofdiagram}
+\subsection{Zelf een VLE-diagram opstellen}
 \label{sec:vle-diagram}
 
-De resultaten van de wet van Raoult worden grafisch voorgesteld in een \emph{damp-vloeistofdiagram}. Voor een binaire mengsel bij constante temperatuur worden twee curven getekend:
-\begin{itemize}
-\item De \emph{bubbelpuntcurve}: $P$ als functie van $x_A$, volgens $P = x_A p_A^* + x_B p_B^*$.
-\item De \emph{dauwpuntcurve}: $P$ als functie van $y_A$, afgeleid uit de bubbelpuntcurve via $y_i = x_i p_i^*/P$.
-\end{itemize}
-Samen begrenzen beide curven het gebied waarin vloeistof en damp gelijktijdig aanwezig zijn. Een punt binnen dit tweefasengebied representeert een mengsel dat gedeeltelijk vloeibaar en gedeeltelijk damp is.
+Een damp-vloeistofdiagram (VLE-diagram) toont voor een binair mengsel welke vloeistof met welke damp in evenwicht is. Voor een ideaal mengsel kun je het volledig zelf opstellen met twee ingredi\"enten: de wet van Raoult en de dampdrukken van de zuivere componenten (Antoine, \S~\ref{sec:antoine}). Er zijn drie gangbare voorstellingen.
+
+\subsubsection{Het $P$--$x$--$y$-diagram (constante temperatuur)}
+
+Kies de temperatuur, bereken $p_A^*$ en $p_B^*$, en doorloop $x_A$ van 0 tot 1:
+\begin{enumerate}
+\item bubbelpuntdruk: $P = x_A p_A^* + (1 - x_A) p_B^*$;
+\item dampsamenstelling: $y_A = x_A p_A^*/P$;
+\item zet $P$ uit tegen $x_A$ (de \emph{bubbelpuntlijn}, een rechte) en tegen $y_A$ (de \emph{dauwpuntlijn}, gekromd).
+\end{enumerate}
+Boven de bubbelpuntlijn is het mengsel volledig vloeibaar, onder de dauwpuntlijn volledig damp. Daartussen liggen vloeistof en damp naast elkaar (figuur~\ref{fig:vle-diagram}). Een horizontale lijn in dat gebied verbindt een vloeistof met de damp waarmee ze in evenwicht is: een \emph{bindlijn}.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.75\linewidth]{Afbeeldingen/vle_diagram_hefboomwet.png}
-    \caption{\emph{Placeholder --- toe te voegen figuur.} $P$--$x$--$y$-diagram voor het benzeen--tolueenmengsel bij \SI{90}{\celsius} uit de voorbeelden hierboven: een rechte bubbelpuntcurve (lineair in $x_A$) en een gekromde dauwpuntcurve, beide lopend tussen $p_B^*=\SI{0.54}{\bar}$ (bij $x_A=0$) en $p_A^*=\SI{1.35}{\bar}$ (bij $x_A=1$). Markeer het globale punt $z_A=0.50$ uit het hefboomwet-voorbeeld (\S~\ref{sec:hefboomwet}) op de horizontale lijn $P=\SI{0.864}{\bar}$, met de bijhorende $x_A=0.40$ en $y_A=0.625$ als de twee uiteinden van het ``hefboom''-lijnstuk --- dit visualiseert in \'e\'en oogopslag zowel de wet van Raoult als de hefboomwet.}
+    \includegraphics[width=0.75\linewidth]{Figuren/pxy_benzeen_tolueen}
+    \caption{$P$--$x$--$y$-diagram van benzeen (A) en tolueen (B) bij \SI{90}{\celsius}, berekend met de wet van Raoult en de Antoinevergelijking. De bindlijn bij $P \approx \SI{0.87}{\bar}$ verbindt vloeistof met $x_A = 0.40$ en damp met $y_A = 0.63$; het punt $z_A = 0.50$ hoort bij het voorbeeld van de hefboomwet (\S~\ref{sec:hefboomwet}).}
     \label{fig:vle-diagram}
+\end{figure}
+
+\subsubsection{Het $T$--$x$--$y$-diagram (constante druk)}
+
+In een destillatiekolom ligt de druk vast en varieert de temperatuur. Het $T$--$x$--$y$-diagram is daarom het meest gebruikte. Het opstellen vraagt \'e\'en extra stap, omdat $p^*$ afhangt van de onbekende temperatuur:
+\begin{enumerate}
+\item kies $x_A$;
+\item zoek de temperatuur waarbij $x_A p_A^*(T) + (1 - x_A) p_B^*(T) = P$. Dat is een vergelijking in \'e\'en onbekende, op te lossen met \emph{Doelzoeken} in Excel of door een paar temperaturen te proberen;
+\item bereken $y_A = x_A p_A^*(T)/P$;
+\item herhaal voor andere $x_A$ en zet $T$ uit tegen $x_A$ en $y_A$.
+\end{enumerate}
+De bubbelpuntlijn ligt nu \emph{onder}: een vloeistof begint te koken wanneer je ze opwarmt tot op die lijn. De dauwpuntlijn ligt erboven (figuur~\ref{fig:txy}).
+
+\begin{voorbeeld}{Kookpunt van een benzeen--tolueenmengsel bij 1 atm}
+Gevraagd: de kooktemperatuur en de eerste damp van een vloeistof met $x_A = 0.40$ bij $P = \SI{1.013}{\bar}$. Antoine (\si{mmHg}, \si{\celsius}): benzeen $A = 6.90565$, $B = 1211.033$, $C = 220.790$; tolueen $A = 6.95464$, $B = 1344.800$, $C = 219.482$.
+
+Probeer \SI{95}{\celsius}: $p_A^* = \SI{1.569}{\bar}$, $p_B^* = \SI{0.636}{\bar}$, en $0.40(1.569) + 0.60(0.636) = \SI{1.009}{\bar}$: net te laag. Bij \SI{95.1}{\celsius} klopt de som. Daar is $y_A = 0.40 \times 1.575/1.013 = 0.62$.
+
+De eerste damp bevat dus 62\,\% benzeen, tegenover 40\,\% in de vloeistof. Condenseer je die damp en laat je hem opnieuw koken, dan wordt hij nog rijker. Dat is het principe van een destillatiekolom: elke schotel is een nieuwe stap tussen de bubbelpunt- en de dauwpuntlijn.
+\end{voorbeeld}
+
+\subsubsection{Het $x$--$y$-diagram}
+
+Zet je voor elk punt $y_A$ uit tegen $x_A$, dan krijg je de \emph{evenwichtslijn} van het $x$--$y$-diagram (figuur~\ref{fig:txy}, rechts). Hoe verder die lijn boven de diagonaal $y = x$ ligt, hoe gemakkelijker de scheiding. Voor een ideaal mengsel met constante relatieve vluchtigheid $\alpha$ geldt
+\begin{equation}
+y_A = \frac{\alpha\,x_A}{1 + (\alpha - 1)\,x_A}.
+\label{eq:xy-alpha}
+\end{equation}
+Dit diagram is het vertrekpunt van de grafische methode van McCabe--Thiele, waarmee je in de cursus Scheidingstechnologie het aantal schotels van een destillatiekolom bepaalt.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/txy_benzeen_tolueen}
+    \caption{Links: $T$--$x$--$y$-diagram van benzeen--tolueen bij \SI{1}{atm}. Rechts: het bijbehorende $x$--$y$-diagram. Beide berekend met Raoult en Antoine; zuiver benzeen kookt bij \SI{80.1}{\celsius}, zuiver tolueen bij \SI{110.6}{\celsius}.}
+    \label{fig:txy}
 \end{figure}
 
 \subsection{De hefboomwet (lever rule)}
@@ -437,7 +492,7 @@ Wanneer de intermoleculaire interacties tussen ongelijke moleculen sterker zijn,
 
 \begin{itemize}
 \item \textbf{Zoutzuur--water} ($\mathrm{HCl}$--$\mathrm{H_2O}$) bij $x_{\mathrm{HCl}} = 0.112$ en $T = \SI{110}{\celsius}$. Dit wordt commercieel gebruikt voor de productie van standaard zoutzuur met precies bekende samenstelling.
-\item \textbf{Aceton--chloroform} bij $T = \SI{64.5}{\celsius}$ (hoger dan aceton \SI{56}{\celsius} en chloroform \SI{61}{\celsius}). De verklaring ligt in waterstofbruggen tussen aceton en chloroform (hoofdstuk~\ref{ch:intermoleculair}, \S~4.2.6).
+\item \textbf{Aceton--chloroform} bij $T = \SI{64.5}{\celsius}$ (hoger dan aceton \SI{56}{\celsius} en chloroform \SI{61}{\celsius}). De verklaring ligt in waterstofbruggen tussen aceton en chloroform (hoofdstuk~\ref{ch:intermoleculair}, \S~\ref{sec:waterstofbruggen}).
 \end{itemize}
 
 \section{Re\"ele mengsels: activiteit en activiteitsco\"effici\"entmodellen}
@@ -485,6 +540,36 @@ x_{\mathrm{CO_2}} = \frac{\SI{4e-4}{\bar}}{\SI{1640}{\bar}} \approx 2.4\times10^
 \]
 bedraagt: een daling met een factor \num{7500}. Het sterk oververzadigde $\mathrm{CO_2}$ kan niet ogenblikkelijk ontsnappen en komt vrij als bellen --- het ``bruisen''.
 \end{voorbeeld}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/raoult_henry}
+    \caption{Parti\"ele dampdruk van een component met positieve afwijking van Raoult. Bij hoge molfractie (bijna zuiver) volgt de curve de wet van Raoult; in sterke verdunning volgt ze de wet van Henry, met een andere helling $H_i$. Daartussen is een activiteitsco\"effici\"entmodel nodig.}
+    \label{fig:raoult-henry}
+\end{figure}
+
+\paragraph{Raoult en Henry: twee limieten van \'e\'en curve.}
+Figuur~\ref{fig:raoult-henry} toont het verband. Voor het oplosmiddel (bijna zuiver) geldt Raoult; voor de opgeloste stof (sterk verdund) geldt Henry. Een opgeloste molecule is in een verdunde oplossing volledig omringd door oplosmiddelmoleculen; zijn ``ontsnappingsneiging'' wordt dus bepaald door de interactie met het oplosmiddel, niet met zijn eigen soort. Daarom is $H_i$ geen eigenschap van de stof alleen, maar van het paar opgeloste stof--oplosmiddel.
+
+\paragraph{Let op de eenheden.}
+Henryconstanten worden in de literatuur in minstens vier vormen opgegeven. In deze cursus gebruiken we $p_i = x_i H_i$ met $H_i$ in \si{\bar}. Veel tabellen geven echter de oplosbaarheid $k_\mathrm{H} = c_i/p_i$ in \si{\mole\per\litre\per\bar}. Voor verdunde waterige oplossingen (\SI{55.5}{\mole} water per liter) is de omrekening
+\begin{equation}
+H_i\ (\si{\bar}) \approx \frac{55.5}{k_\mathrm{H}\ (\si{\mole\per\litre\per\bar})}.
+\end{equation}
+Controleer daarom altijd de eenheid en of de tabel $p/x$ of $c/p$ geeft: een vergissing levert een fout van een factor $10^4$ of meer.
+
+\paragraph{Temperatuurafhankelijkheid.}
+Gassen lossen bijna altijd \emph{slechter} op bij hogere temperatuur: oplossen is exotherm, en volgens Le Chatelier verschuift het evenwicht dan naar de gasfase. Net als bij Clausius--Clapeyron geldt in goede benadering $\ln k_\mathrm{H} = \text{cte} + \frac{-\Delta_\mathrm{opl}H}{R}\cdot\frac{1}{T}$.
+
+\begin{toepassing}{Zuurstof in water: van vissenkom tot stoomketel}
+Voor zuurstof in water bij \SI{25}{\celsius} is $k_\mathrm{H} = \SI{1.3e-3}{\mole\per\litre\per\bar}$ ($H \approx \SI{4.3e4}{\bar}$). Lucht bevat \SI{0.21}{\bar} zuurstof, dus water in evenwicht met lucht bevat
+\[
+c_{\ce{O2}} = (1.3\times10^{-3})(0.21) = \SI{2.7e-4}{\mole\per\litre} \approx \SI{8.7}{\milli\gram\per\litre}.
+\]
+Met $-\Delta_\mathrm{opl}H/R \approx \SI{1700}{\kelvin}$ stijgt dat tot ongeveer \SI{13}{\milli\gram\per\litre} bij \SI{5}{\celsius} en daalt het tot \SI{7.3}{\milli\gram\per\litre} bij \SI{35}{\celsius}. Vissen hebben minstens \SIrange{4}{5}{\milli\gram\per\litre} nodig: in een warme zomer, wanneer bovendien algen 's nachts zuurstof verbruiken, wordt het kritiek. In een waterzuiveringsinstallatie blaast men daarom lucht in de beluchtingstanks.
+
+Een stoomketel wil net \emph{geen} zuurstof, omdat die het staal corrodeert (hoofdstuk~\ref{ch:elektrochemie}). Het voedingswater wordt daarom in een \emph{ontgasser} met stoom tot het kookpunt verwarmd: de oplosbaarheid daalt, en de stoom voert de vrijgekomen zuurstof (die nu een zeer lage partieeldruk heeft) af. Zo haalt men minder dan \SI{10}{\micro\gram\per\litre}.
+\end{toepassing}
+
 
 \subsection{Modellen voor activiteitsco\"effici\"enten}
 \label{sec:activiteitsmodellen}
@@ -590,6 +675,39 @@ c_{\text{water}} = \SI{0.1}{\mole\per\litre} \cdot \frac{V_w}{V_w + K_D V_o} = \
 Ongeveer \SI{97.7}{\percent} van het jodium wordt in een enkele extractiestap verwijderd.
 \end{voorbeeld}
 
+
+\subsubsection{Ternaire diagrammen}
+\label{sec:ternair}
+
+Bij vloeistof-vloeistofextractie zijn er minstens drie componenten: de \emph{drager} (bv.\ water), de \emph{opgeloste stof} die je wilt winnen (bv.\ aceton) en het \emph{extractiemiddel} (bv.\ methylisobutylketon, MIBK). Hun evenwicht stel je voor in een \emph{ternair diagram}: een gelijkzijdige driehoek (figuur~\ref{fig:ternair}).
+\begin{itemize}
+\item Elke hoek is een zuivere component; elke zijde een binair mengsel.
+\item Een punt binnen de driehoek is een mengsel van alle drie. De massafractie van een component lees je af als de afstand tot de zijde tegenover zijn hoek: op die zijde is ze 0, in de hoek 1. De drie fracties tellen altijd op tot 1.
+\item De \emph{binodale curve} begrenst het gebied waarin het mengsel in twee vloeistoffasen uiteenvalt. Binnen dat gebied verbinden \emph{bindlijnen} de twee fasen die met elkaar in evenwicht zijn: het \emph{raffinaat} (waterrijk, links) en het \emph{extract} (MIBK-rijk, rechts).
+\item Waar de bindlijnen krimpen tot een punt, worden beide fasen identiek: het \emph{plooipunt}.
+\end{itemize}
+
+Het belangrijkste rekeninstrument is opnieuw de hefboomwet. Meng je twee stromen F en S, dan ligt het mengpunt M op de rechte FS, en de verhouding van de hoeveelheden is omgekeerd evenredig met de afstanden: $m_\mathrm{F}/m_\mathrm{S} = \overline{\mathrm{MS}}/\overline{\mathrm{MF}}$. Valt M in het tweefasengebied, dan splitst het mengsel langs de bindlijn door M in raffinaat R en extract E.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.72\linewidth]{Figuren/ternair}
+    \caption{Ternair diagram water--aceton--MIBK bij \SI{25}{\celsius} (massafracties, benaderende waarden). Binnen de binodale curve vormen zich twee vloeistoffasen, verbonden door bindlijnen. Het voorbeeld: voeding F (30\,\% aceton in water) wordt gemengd met evenveel zuiver MIBK (S) tot M, dat splitst in raffinaat R en extract E.}
+    \label{fig:ternair}
+\end{figure}
+
+\begin{voorbeeld}{Aceton uit water extraheren met MIBK}
+\SI{100}{\kilo\gram} water met \SI{30}{\percent} aceton wordt gemengd met \SI{100}{\kilo\gram} zuiver MIBK.
+
+\textbf{Mengpunt.} Het mengsel van \SI{200}{\kilo\gram} bevat 30 kg aceton, 70 kg water en 100 kg MIBK: M = (15\,\% aceton, 35\,\% water, 50\,\% MIBK). Dat ligt in het midden van de rechte FS, en binnen de binodale curve.
+
+\textbf{Bindlijn.} De bindlijn door M (figuur~\ref{fig:ternair}) geeft het raffinaat R = (13\,\% aceton, 84\,\% water, 3\,\% MIBK) en het extract E = (16\,\% aceton, 4\,\% water, 80\,\% MIBK).
+
+\textbf{Hefboomwet.} Met een acetonbalans: $200 \times 0.15 = 0.130\,m_\mathrm{R} + 0.163\,m_\mathrm{E}$ en $m_\mathrm{R} + m_\mathrm{E} = 200$, dus $m_\mathrm{E} = \SI{121}{\kilo\gram}$ en $m_\mathrm{R} = \SI{79}{\kilo\gram}$.
+
+Het extract bevat $121 \times 0.163 = \SI{19.7}{\kilo\gram}$ aceton: twee derde van de aceton is in \'e\'en stap overgegaan naar het MIBK. Het raffinaat bevat nog \SI{10}{\kilo\gram} aceton. Met een tweede extractiestap op het raffinaat, of een tegenstroomkolom, haal je bijna alles. Hoeveel stappen nodig zijn, leer je in de cursus Scheidingstechnologie.
+\end{voorbeeld}
+
 \subsection{Vast-vloeistofevenwicht (SLE)}
 \label{sec:sle}
 
@@ -604,15 +722,15 @@ Voor mengsels met een andere samenstelling begint de stolling bij een hogere tem
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Afbeeldingen/eutectisch_diagram.png}
-    \caption{\emph{Placeholder --- toe te voegen figuur.} Eutectisch fasediagram (temperatuur $T$ versus samenstelling $x_B$) voor een binair systeem $A$--$B$ zonder vaste-mengbaarheid, met twee liquiduscurven die vanuit de smeltpunten van zuiver $A$ en zuiver $B$ dalen en elkaar snijden in het eutectisch punt (het laagste punt van de liquidus). Markeer het eutectisch punt met de bijhorende samenstelling en temperatuur (bijvoorbeeld het Pb--Sn-voorbeeld: $x_{\text{Sn}}=0.61$, $T=\SI{183}{\celsius}$), en duid de gebieden vloeistof, vloeistof+vaste $A$, vloeistof+vaste $B$, en volledig vast (onder de horizontale eutectische lijn) aan.}
+    \includegraphics[width=0.7\linewidth]{Figuren/eutecticum}
+    \caption{Vereenvoudigd eutectisch diagram van lood--tin (de beperkte vaste oplosbaarheid aan beide kanten is weggelaten). De liquiduslijnen dalen vanuit de smeltpunten van lood (\SI{327}{\celsius}) en tin (\SI{232}{\celsius}) tot het eutecticum bij \num{61.9}~massaprocent tin en \SI{183}{\celsius}.}
     \label{fig:eutecticum}
 \end{figure}
 
 Typische voorbeelden:
 \begin{itemize}
-\item Lood--tin (Pb--Sn) met eutecticum bij $x_{\text{Sn}} = 0.61$ en $T = \SI{183}{\celsius}$ --- basis van soldeertin.
-\item Koper--zilver (Cu--Ag) met eutecticum bij $x_{\text{Ag}} = 0.71$ en $T = \SI{779}{\celsius}$.
+\item Lood--tin (Pb--Sn) met eutecticum bij \num{61.9}~massaprocent tin ($x_{\text{Sn}} = 0.74$) en $T = \SI{183}{\celsius}$: de basis van klassiek soldeertin. Omdat lood giftig is, gebruikt men vandaag tin--zilver--koperlegeringen die rond \SI{217}{\celsius} smelten.
+\item Koper--zilver (Cu--Ag) met eutecticum bij \num{71.9}~massaprocent zilver en $T = \SI{779}{\celsius}$ (zilversoldeer).
 \item Natriumchloride--water ($\mathrm{NaCl}$--$\mathrm{H_2O}$) met eutecticum bij \SI{-21}{\celsius}, gebruikt als koudemiddel.
 \end{itemize}
 
@@ -661,9 +779,36 @@ De voorbije secties hebben aangetoond dat damp-vloeistofevenwicht, vloeistof-vlo
 
 In alle gevallen geldt: de thermodynamica bepaalt de maximale haalbare scheiding. De procestechnologie bepaalt hoe dicht een werkelijk proces deze grens kan benaderen. Deze voorbeelden zullen in een vervolgcursus Scheidingstechnologie uitgebreid aan bod komen.
 
-\begin{besluit}{Samenvatting: van chemische potentiaal tot procesontwerp}
-In dit hoofdstuk hebben we de thermodynamica van fase-evenwichten van niet-reagerende systemen ontwikkeld, en daarmee de vier voorgaande hoofdstukken tot een werkbaar geheel samengebracht. Hoofdstuk~\ref{ch:eerstehoofdwet} gaf ons de macroscopische energieboekhouding; hoofdstuk~\ref{ch:kwantum} verklaarde waar chemische energie vandaan komt; hoofdstuk~\ref{ch:spontaniteit} gaf ons met de Gibbs-vrije energie en de chemische potentiaal het criterium voor spontaniteit; hoofdstuk~\ref{ch:intermoleculair} leverde de microscopische oorsprong van de intermoleculaire krachten die kookpunten, mengbaarheid en niet-ideaal gedrag bepalen. In dit hoofdstuk bleek de chemische potentiaal de universele sleutel: fase-evenwicht, menging, destillatie, extractie en kristallisatie berusten allen op de gelijkheid van chemische potentialen tussen fasen. De wet van Raoult beschrijft ideale mengsels; voor re\"ele mengsels worden activiteitsco\"effici\"enten en modellen zoals Margules, Van Laar, Wilson en NRTL gebruikt, gevoed door precies de intermoleculaire krachten uit hoofdstuk~\ref{ch:intermoleculair}. De hefboomwet verbindt een globale samenstelling met de fasenfracties in een tweefasensysteem en vormt het vertrekpunt van destillatieontwerp. In hoofdstuk~\ref{ch:reagerend} generaliseren we deze principes naar reagerende systemen, waarbij ook de chemische identiteit van de componenten verandert.
-\end{besluit}
+\section{Samenvatting en reflectie}
+
+\begin{samenvatting}{Fase-evenwicht in niet-reagerende systemen}
+\begin{itemize}
+\item Evenwichtsvoorwaarde: voor elke component is de chemische potentiaal gelijk in alle fasen. De fasenregel $F = C - P + 2$ telt de vrije variabelen.
+\item Zuivere stof: Clapeyron $\dd p/\dd T = \Delta H/(T\Delta V)$; voor verdampen Clausius--Clapeyron en in de praktijk Antoine. Het $p$--$T$-fasediagram toont tripelpunt en kritisch punt.
+\item Ideale mengsels: wet van Raoult $p_i = x_i p_i^*$. Bubbelpunt $P = \sum x_i p_i^*$, dampsamenstelling $y_i = x_i p_i^*/P$, relatieve vluchtigheid $\alpha = p_A^*/p_B^*$.
+\item VLE-diagrammen ($P$--$x$--$y$, $T$--$x$--$y$, $x$--$y$) stel je zelf op met Raoult en Antoine. De hefboomwet geeft de verhouding vloeistof/damp.
+\item Re\"ele mengsels: $a_i = \gamma_i x_i$; positieve en negatieve afwijkingen kunnen leiden tot azeotropen.
+\item Verdunde opgeloste stoffen en gassen: wet van Henry $p_i = x_i H_i$. Let op de eenheden; gassen lossen slechter op bij hogere temperatuur.
+\item Vloeistof-vloeistofevenwicht: verdelingswet van Nernst; ternaire diagrammen met binodale curve, bindlijnen en hefboomwet.
+\item Vast-vloeistof: eutectische diagrammen en colligatieve eigenschappen (vriespuntsdaling, kookpuntsverhoging, osmotische druk).
+\end{itemize}
+\end{samenvatting}
+
+\begin{reflectie}{Fase-evenwicht in niet-reagerende systemen}
+\begin{enumerate}
+\item Waarom kookt water in de bergen bij een lagere temperatuur, en waarom duurt het daar langer om een ei te koken?
+\item Waarom is de bubbelpuntlijn in een $P$--$x$--$y$-diagram van een ideaal mengsel een rechte, en de dauwpuntlijn niet?
+\item Wat gebeurt er met de samenstelling van de vloeistof die achterblijft in een ketel waarin je een benzeen--tolueenmengsel laat koken?
+\item Waarom kun je door gewone destillatie geen ethanol zuiverder dan 95.6\,\% maken?
+\item Waarom geldt voor het oplosmiddel de wet van Raoult en voor de opgeloste stof de wet van Henry, in dezelfde oplossing?
+\item Waarom bruist een fles spuitwater meer als ze warm is?
+\item Hoe lees je in een ternair diagram af hoeveel aceton er in het extract zit, en waarom moet het mengpunt binnen de binodale curve liggen om te kunnen extraheren?
+\end{enumerate}
+\end{reflectie}
+
+Fase-evenwicht en chemisch evenwicht berusten op hetzelfde criterium: de Gibbs-energie is minimaal, of anders gezegd, de chemische potentialen zijn in evenwicht. In hoofdstuk~\ref{ch:reagerend} passen we dit criterium toe op systemen waarin de componenten ook met elkaar reageren.
+
+
 
 \newpage
 \section{Oefeningen}

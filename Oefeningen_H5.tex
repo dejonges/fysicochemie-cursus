@@ -431,3 +431,66 @@ zodat \(p(-20\,^\circ\mathrm{C}) = 104\,\mathrm{Pa}\) (tabelwaarde \(103\,\mathr
 
 \textbf{(d)} De vluchtige aroma's van koffie ontbinden of verdampen bij verhitten. Door het water bij lage temperatuur te verwijderen blijft de smaak beter bewaard en houdt het product een poreuze structuur die snel oplost. Om dezelfde reden worden ook vaccins, bloedplasma en astronautenvoeding gevriesdroogd.
 \end{oplossing}
+
+\begin{oefening}[Numeriek: een $T$--$x$--$y$-diagram in Excel]
+Stel het $T$--$x$--$y$-diagram op van een ideaal mengsel van $n$-hexaan (A) en $n$-heptaan (B) bij \SI{1.013}{\bar}. Antoineconstanten ($\log_{10} p^*/\si{mmHg} = A - B/(T/\si{\celsius} + C)$): hexaan $A = 6.87601$, $B = 1171.17$, $C = 224.41$; heptaan $A = 6.89677$, $B = 1264.90$, $C = 216.54$.
+\begin{enumerate}
+\item[(a)] Bereken de kookpunten van de zuivere componenten.
+\item[(b)] Maak in Excel een tabel met $x_A = 0, 0.1, \ldots, 1$. Zoek voor elke $x_A$ de bubbelpunttemperatuur met Doelzoeken, en bereken $y_A$. Teken het $T$--$x$--$y$- en het $x$--$y$-diagram.
+\item[(c)] Een vloeistof met $x_A = 0.50$ wordt opgewarmd. Bij welke temperatuur begint ze te koken, en wat is de samenstelling van de eerste damp?
+\item[(d)] Bereken de relatieve vluchtigheid bij de kooktemperatuur uit (c). Is die constant over het hele diagram?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Hexaan \SI{68.7}{\celsius}, heptaan \SI{98.4}{\celsius}. (c) \SI{80.5}{\celsius}, $y_A = 0.71$. (d) $\alpha \approx 2.5$, licht dalend met de temperatuur.
+
+\textbf{(a)} Het kookpunt is de temperatuur waarbij $p^* = \SI{760}{mmHg}$: $T = B/(A - \log_{10}760) - C$. Hexaan: $1171.17/(6.87601 - 2.88081) - 224.41 = 68.7\,{}^\circ\mathrm{C}$. Heptaan: $1264.90/(6.89677 - 2.88081) - 216.54 = 98.4\,{}^\circ\mathrm{C}$.
+
+\textbf{(b)} Per rij: een cel met $T$ (beginwaarde bv.\ \SI{80}{\celsius}), cellen met $p_A^*(T)$ en $p_B^*(T)$, een cel met $x_A p_A^* + (1-x_A)p_B^* - 1.013$, en Doelzoeken die laatste cel op nul brengt door $T$ te wijzigen. Dan $y_A = x_A p_A^*/1.013$.
+
+\textbf{(c)} Bij \SI{80.5}{\celsius}: $p_A^* = \SI{1.446}{\bar}$, $p_B^* = \SI{0.580}{\bar}$, en $0.5(1.446) + 0.5(0.580) = \SI{1.013}{\bar}$. De eerste damp heeft $y_A = 0.5 \times 1.446/1.013 = 0.71$.
+
+\textbf{(d)} $\alpha = p_A^*/p_B^* = 1.446/0.580 = 2.5$. Bij \SI{68.7}{\celsius} is $\alpha \approx 2.6$, bij \SI{98.4}{\celsius} ongeveer 2.3: voor ruwe berekeningen mag je met een gemiddelde waarde werken.
+\end{oplossing}
+
+\begin{oefening}[Zuurstof uit ketelvoedingswater]
+Een stoomketel wordt gevoed met \SI{20}{\tonne\per\hour} water dat in evenwicht is met lucht bij \SI{15}{\celsius}. Voor zuurstof in water is $k_\mathrm{H} = \SI{1.3e-3}{\mole\per\litre\per\bar}$ bij \SI{25}{\celsius}, met $-\Delta_\mathrm{opl}H/R = \SI{1700}{\kelvin}$.
+\begin{enumerate}
+\item[(a)] Bereken de opgeloste zuurstof in \si{\milli\gram\per\litre} bij \SI{15}{\celsius}.
+\item[(b)] Hoeveel kilogram zuurstof komt er per jaar (8000 uur) de ketel binnen als het water niet ontgast wordt?
+\item[(c)] Bereken de Henryconstante $H$ (in \si{\bar}, op molfractiebasis) bij \SI{15}{\celsius}.
+\item[(d)] In de ontgasser wordt het water bij \SI{105}{\celsius} met stoom in contact gebracht; de partieeldruk van zuurstof in de damp is daar \SI{1e-5}{\bar}. Schat de restconcentratie. Gebruik dezelfde temperatuurafhankelijkheid (een benadering, want bij hoge temperatuur wordt de afhankelijkheid zwakker).
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \SI{10.6}{\milli\gram\per\litre}. (b) Ongeveer \SI{1.7}{\tonne} zuurstof per jaar. (c) $H \approx \SI{3.5e4}{\bar}$. (d) Ongeveer \SI{0.1}{\micro\gram\per\litre}.
+
+\textbf{(a)} $k_\mathrm{H}(288\,\mathrm{K}) = 1.3\times10^{-3}\exp[1700(1/288.15 - 1/298.15)] = 1.3\times10^{-3} \times 1.219 = 1.58\times10^{-3}\,\mathrm{mol/(L\,bar)}$. Met $p_{\ce{O2}} = 0.21\,\mathrm{bar}$: $c = 3.33\times10^{-4}\,\mathrm{mol/L} = 10.6\,\mathrm{mg/L}$. (Met de werkelijke luchtdruk en waterdampdruk vindt men \SI{10.1}{} tot \SI{10.3}{\milli\gram\per\litre}.)
+
+\textbf{(b)} $20\,000\,\mathrm{L/h} \times 10.6\,\mathrm{mg/L} \times 8000\,\mathrm{h} = 1.7\times10^{9}\,\mathrm{mg} \approx 1.7\,\mathrm{t}$ zuurstof per jaar. Die zou het staal van de ketel aantasten.
+
+\textbf{(c)} $H \approx 55.5/k_\mathrm{H} = 55.5/1.58\times10^{-3} = 3.5\times10^{4}\,\mathrm{bar}$.
+
+\textbf{(d)} $k_\mathrm{H}(378\,\mathrm{K}) = 1.3\times10^{-3}\exp[1700(1/378.15 - 1/298.15)] = 1.3\times10^{-3}\times 0.299 = 3.9\times10^{-4}\,\mathrm{mol/(L\,bar)}$. Dan $c = 3.9\times10^{-4}\times10^{-5} = 3.9\times10^{-9}\,\mathrm{mol/L} \approx 0.12\,\mathrm{\mu g/L}$. Het grootste effect komt niet van de hogere temperatuur, maar van de zeer lage partieeldruk van zuurstof in de stoom: de stoom ``wast'' de zuurstof weg. In de praktijk haalt men 5 tot \SI{10}{\micro\gram\per\litre}, omdat het evenwicht niet volledig bereikt wordt.
+\end{oplossing}
+
+\begin{oefening}[Een ternair diagram lezen]
+Gebruik het ternaire diagram water--aceton--MIBK van figuur~\ref{fig:ternair}.
+\begin{enumerate}
+\item[(a)] Lees de samenstelling af van het plooipunt.
+\item[(b)] Een mengsel bevat \SI{40}{\percent} aceton, \SI{30}{\percent} water en \SI{30}{\percent} MIBK. Is het \'e\'en- of tweefasig?
+\item[(c)] \SI{100}{\kilo\gram} voeding met \SI{30}{\percent} aceton in water wordt gemengd met \SI{50}{\kilo\gram} MIBK in plaats van \SI{100}{\kilo\gram}. Bereken het mengpunt. Ligt het nog in het tweefasengebied?
+\item[(d)] Waarom kiest men een extractiemiddel dat zo weinig mogelijk mengt met water?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Ongeveer 48\,\% aceton, 27\,\% water, 25\,\% MIBK. (b) E\'enfasig. (c) M = (20\,\% aceton, 47\,\% water, 33\,\% MIBK), in het tweefasengebied. (d) Om het extract en het raffinaat zuiver te houden en het extractiemiddel te kunnen terugwinnen.
+
+\textbf{(a)} Het plooipunt is de top van de binodale curve, waar raffinaat- en extracttak samenkomen.
+
+\textbf{(b)} Bij 40\,\% aceton reikt het tweefasengebied enkel van ongeveer 52\,\% water (raffinaattak) tot ongeveer 8\,\% water (extracttak). Een mengsel met 30\,\% water ligt daartussen in de breedte, maar boven de binodale curve: met 40\,\% aceton en evenveel water als MIBK zorgt de aceton ervoor dat alles mengt. Aceton is volledig mengbaar met zowel water als MIBK en werkt als ``brug'' tussen beide.
+
+\textbf{(c)} \SI{150}{\kilo\gram} met 30 kg aceton, 70 kg water en 50 kg MIBK: (20\,\%, 46.7\,\%, 33.3\,\%). Dit punt ligt op de rechte FS, dichter bij F, en nog binnen de binodale curve.
+
+\textbf{(d)} Water dat in het extract terechtkomt (en MIBK in het raffinaat) moet achteraf weer verwijderd worden. Een extractiemiddel met een groot tweefasengebied geeft zuiverdere fasen, en het extractiemiddel kan via destillatie gemakkelijker worden teruggewonnen en hergebruikt.
+\end{oplossing}
