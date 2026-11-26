@@ -703,3 +703,74 @@ Bij het koken van een ei ontvouwen de eiwitmoleculen: ze denatureren. Behandel d
 
 \textbf{(d)} \(\ln K = -\Delta H^\circ/RT + \Delta S^\circ/R\). Omdat \(\Delta H^\circ\) zo groot is, verandert \(\ln K\) heel sterk met de temperatuur (vergelijking van Van 't Hoff). Een ei bij kamertemperatuur blijft dus niet rauw omdat de reactie traag is, maar omdat het evenwicht ver aan de kant van het gevouwen eiwit ligt. In werkelijkheid klonteren de ontvouwen ketens daarna samen, waardoor een gekookt ei niet terug rauw wordt bij afkoelen. Dat deel is niet omkeerbaar en valt buiten dit eenvoudige model.
 \end{oplossing}
+
+\begin{oefening}[Waterstof zuiveren met de watergasshift]
+Na de stoomreformer bevat het gas per \(100\,\mathrm{mol}\) (afgerond): \(10\,\mathrm{mol}\) CO, \(30\,\mathrm{mol}\) H\(_2\)O, \(5\,\mathrm{mol}\) CO\(_2\), \(50\,\mathrm{mol}\) H\(_2\) en \(5\,\mathrm{mol}\) inert gas. In de shiftreactoren reageert
+
+\[
+\mathrm{CO(g) + H_2O(g) \rightleftharpoons CO_2(g) + H_2(g)}
+\qquad \Delta_r H^\circ = -41.2\,\mathrm{kJ/mol},\quad \Delta_r S^\circ = -42.1\,\mathrm{J/(mol\cdot K)}.
+\]
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(K\) bij \(400\,^\circ\mathrm{C}\) en bij \(220\,^\circ\mathrm{C}\). Waarom heeft de druk geen invloed op dit evenwicht?
+\item[(b)]
+  Bereken bij beide temperaturen hoeveel CO er bij evenwicht overblijft, en de molfractie CO in het uitgaande gas.
+\item[(c)]
+  De eerste reactor (HT-shift) is adiabatisch en het gas komt binnen op \(350\,^\circ\mathrm{C}\). Neem een gemiddelde molaire warmtecapaciteit van \(33\,\mathrm{J/(mol\cdot K)}\). Met hoeveel kelvin stijgt de temperatuur per mol omgezet CO? Leg uit waarom de werkelijke omzetting in die reactor lager uitvalt dan bij isotherm \(350\,^\circ\mathrm{C}\).
+\item[(d)]
+  Waarom bouwt men twee reactoren met tussenkoeling in plaats van één reactor bij \(220\,^\circ\mathrm{C}\)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(K\) = \textbf{9.9} (400 °C) en \textbf{146} (220 °C). (b) Rest CO: \textbf{3.0 mol} (3.1 \%) bij 400 °C en \textbf{0.30 mol} (0.31 \%) bij 220 °C. (c) \textbf{13 K} per mol CO; het gas eindigt rond \textbf{430 °C} met ongeveer 6.3 mol omgezet. (d) Snelheid hoog bij hoge \(T\), evenwicht gunstig bij lage \(T\).
+
+\textbf{(a)} \(\ln K = -\Delta_r H^\circ/RT + \Delta_r S^\circ/R\). Bij \(673\,\mathrm{K}\): \(\ln K = 41200/(8.314\cdot673) - 42.1/8.314 = 7.36 - 5.06 = 2.30\), dus \(K = 9.9\). Bij \(493\,\mathrm{K}\): \(\ln K = 10.05 - 5.06 = 4.99\), dus \(K = 146\). Links en rechts staan evenveel mol gas (\(\Delta\nu = 0\)): de factoren \(p/p^\circ\) vallen weg en de totale druk speelt geen rol.
+
+\textbf{(b)} Stel dat \(\xi\) mol CO reageert. Omdat \(\Delta\nu = 0\), mag je met molhoeveelheden rekenen:
+
+\[
+K = \frac{(5+\xi)(50+\xi)}{(10-\xi)(30-\xi)}.
+\]
+
+Oplossen (kwadratische vergelijking of doelzoeken in Excel) geeft \(\xi = 7.0\,\mathrm{mol}\) bij \(400\,^\circ\mathrm{C}\) (rest \(3.0\,\mathrm{mol}\) CO, molfractie \(3.0/95 = 3.1\,\%\)) en \(\xi = 9.70\,\mathrm{mol}\) bij \(220\,^\circ\mathrm{C}\) (rest \(0.30\,\mathrm{mol}\), \(0.31\,\%\)). Het totaal aantal mol reactief gas blijft 95.
+
+\textbf{(c)} Per mol omgezet CO komt \(41.2\,\mathrm{kJ}\) vrij, die \(95\,\mathrm{mol}\) gas opwarmt: \(\Delta T = 41200/(95\cdot33) = 13\,\mathrm{K}\). De werklijn is dus \(T = 350\,^\circ\mathrm{C} + 13\,\mathrm{K}\cdot\xi\). Hoe meer CO reageert, hoe warmer het gas en hoe kleiner \(K\). Het snijpunt van werklijn en evenwicht ligt bij \(\xi \approx 6.3\,\mathrm{mol}\) en \(T \approx 430\,^\circ\mathrm{C}\). Bij isotherm \(350\,^\circ\mathrm{C}\) zou \(\xi\) groter zijn: de reactie remt zichzelf af door haar eigen warmte (Le Chatelier).
+
+\textbf{(d)} Bij \(220\,^\circ\mathrm{C}\) ligt het evenwicht gunstig, maar de reactie is daar traag: je zou een enorme reactor nodig hebben. De HT-reactor (ijzeroxide-katalysator) zet snel het grootste deel om. Daarna koelt men het gas en haalt de LT-reactor (koperkatalysator) de rest, waar het evenwicht gunstig ligt. Hetzelfde patroon zie je bij de SO\(_2\)-oxidatie in de tekst: eerst snelheid, dan evenwicht.
+\end{oplossing}
+
+\begin{oefening}[Hoe ver komt één adiabatisch bed SO\(_2\)-oxidatie?]
+Een zwavelzuurfabriek voedt een gas met \(8\,\%\) SO\(_2\), \(12\,\%\) O\(_2\) en \(80\,\%\) N\(_2\) (molfracties) bij \(1\,\mathrm{bar}\) en \(420\,^\circ\mathrm{C}\) naar het eerste katalysatorbed. Voor \(\mathrm{SO_2 + \tfrac12 O_2 \rightleftharpoons SO_3}\) geldt \(\Delta_r H^\circ = -98.9\,\mathrm{kJ/mol}\) en \(\Delta_r S^\circ = -94.0\,\mathrm{J/(mol\cdot K)}\). Neem \(c_p = 32\,\mathrm{J/(mol\cdot K)}\) per mol gas.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de adiabatische temperatuurstijging bij volledige omzetting van SO\(_2\).
+\item[(b)]
+  Stel de evenwichtsomzetting \(X_\mathrm{eq}(T)\) op in een rekenblad. Gebruik
+  \(K = \dfrac{y_{\mathrm{SO_3}}}{y_{\mathrm{SO_2}}\,y_{\mathrm{O_2}}^{1/2}}\,(p/p^\circ)^{-1/2}\)
+  en druk de molfracties uit in \(X\), rekening houdend met de daling van het aantal mol.
+\item[(c)]
+  Bepaal grafisch of met doelzoeken waar de werklijn van het eerste bed de evenwichtscurve snijdt. Welke omzetting en uitlaattemperatuur haalt het bed?
+\item[(d)]
+  Waarom is een voeding met \(8\,\%\) SO\(_2\) gunstiger dan een met \(12\,\%\), ook al bevat die laatste meer product per kubieke meter?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta T_\mathrm{ad}\) = \textbf{247 K}. (c) \(X \approx\) \textbf{0.74} bij ongeveer \textbf{604 °C}. (d) Een rijker gas warmt meer op en botst vroeger tegen het evenwicht.
+
+\textbf{(a)} Per mol voeding reageert \(0.08\,\mathrm{mol}\) SO\(_2\): \(\Delta T_\mathrm{ad} = 0.08\cdot98900/32 = 247\,\mathrm{K}\).
+
+\textbf{(b)} Per mol voeding en omzetting \(X\): SO\(_2\) \(0.08(1-X)\), SO\(_3\) \(0.08X\), O\(_2\) \(0.12 - 0.04X\), totaal \(n = 1 - 0.04X\). Met \(K = \exp(-\Delta_r H^\circ/RT + \Delta_r S^\circ/R)\) bij \(1\,\mathrm{bar}\):
+
+\[
+K = \frac{X}{1-X}\left(\frac{1-0.04X}{0.12-0.04X}\right)^{1/2}.
+\]
+
+Doelzoeken per temperatuur geeft bijvoorbeeld \(X_\mathrm{eq} = 0.99\) (420 °C), 0.95 (500 °C), 0.87 (550 °C) en 0.76 (600 °C).
+
+\textbf{(c)} De werklijn is \(T = 420\,^\circ\mathrm{C} + 247\,\mathrm{K}\cdot X\). Het snijpunt met \(X_\mathrm{eq}(T)\) ligt bij \(X = 0.74\) en \(T = 604\,^\circ\mathrm{C}\). Verder komt het bed niet, hoe groot het ook is. Daarom koelt men tussen de bedden (vergelijk de figuur in de tekst).
+
+\textbf{(d)} Bij \(12\,\%\) SO\(_2\) is \(\Delta T_\mathrm{ad}\) ongeveer \(370\,\mathrm{K}\): de werklijn is vlakker, het gas wordt heter en het evenwicht wordt al bij lagere omzetting bereikt. Bovendien kan de katalysator (vanadiumpentoxide) boven ongeveer \(620\,^\circ\mathrm{C}\) beschadigd raken. Men verdunt dus bewust met lucht.
+\end{oplossing}
