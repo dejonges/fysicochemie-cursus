@@ -2,7 +2,7 @@
 % BELANGRIJK - Kruisverwijzingen (relatief via \ref, geen harde nummers):
 % Dit hoofdstuk verwijst naar labels in andere hoofdstukken. Zorg dat deze
 % aanwezig zijn (voeg toe indien nog niet aanwezig):
-%   - Hoofdstuk 1, na \chapter{...}:                        \label{ch:eerstehoofdwet}
+%   - Hoofdstuk 1, na \chapter{...}:                        \label{ch:energie}
 %   - Hoofdstuk 2, na \chapter{...}:                        \label{ch:kwantum}
 %     (Hoofdstuk 2 bevat reeds \label{sec:waterstofatoom},
 %      \label{sec:atomaire-spectra} en \label{sec:moleculaire-beweging}.)
@@ -145,7 +145,7 @@ waarin:
 \item $\varepsilon$ de diepte van de potentiaalkuil (maat voor de sterkte van de attractie),
 \item $\sigma$ de afstand waarop $V = 0$ (effectieve ``harde'' diameter).
 \end{itemize}
-Het $1/r^{12}$-gedrag is een wiskundig handige benadering van de elektronenwolk-afstoting. Het minimum van de potentiaal ligt bij $r_{\text{eq}} = 2^{1/6}\sigma \approx 1{,}122\,\sigma$.
+Het $1/r^{12}$-gedrag is een wiskundig handige benadering van de elektronenwolk-afstoting. Het minimum van de potentiaal ligt bij $r_{\text{eq}} = 2^{1/6}\sigma \approx 1.122\,\sigma$.
 
 \begin{figure}[htb]
     \centering
@@ -166,7 +166,7 @@ De bindingsenergie per mol bedraagt $N_A \varepsilon = \SI{994}{\joule\per\mole}
 \section{De brug naar de vergelijking van Van der Waals}
 \label{sec:vdw-brug}
 
-In hoofdstuk~\ref{ch:eerstehoofdwet} introduceerden we de vergelijking van Van der Waals:
+In hoofdstuk~\ref{ch:energie} introduceerden we de vergelijking van Van der Waals:
 \begin{equation}
 \left(p + \frac{a n^2}{V^2}\right)(V - nb) = nRT.
 \end{equation}
@@ -176,21 +176,21 @@ Beschouw \'e\'en molecule, omringd door een gemiddelde, uniforme dichtheid van a
 \begin{equation}
 \overline{V}_{\text{attr}} = \int_{\sigma}^{\infty} 4\pi r^2\,V_{\text{attr}}(r)\,\dd{r} = -16\pi\varepsilon\sigma^6\int_{\sigma}^{\infty}\frac{\dd{r}}{r^4} = -16\pi\varepsilon\sigma^6\left[-\frac{1}{3r^3}\right]_{\sigma}^{\infty} = -\frac{16\pi}{3}\varepsilon\sigma^3.
 \end{equation}
-Omdat elk paar moleculen bij deze telling tweemaal wordt meegerekend (net zoals bij de afleiding van het co-volume $b$ in hoofdstuk~\ref{ch:eerstehoofdwet}, \S~\ref{sec:vdw-afleiding}), bedraagt de effectieve aantrekkingsenergie per mol de helft hiervan, vermenigvuldigd met het aantal Avogadro-paren:
+Omdat elk paar moleculen bij deze telling tweemaal wordt meegerekend (net zoals bij de afleiding van het co-volume $b$ in hoofdstuk~\ref{ch:energie}, \S~\ref{sec:vdw-afleiding}), bedraagt de effectieve aantrekkingsenergie per mol de helft hiervan, vermenigvuldigd met het aantal Avogadro-paren:
 \begin{equation}
 \boxed{
 a = -\frac{N_A^2}{2}\,\overline{V}_{\text{attr}} = \frac{8\pi}{3}N_A^2\,\varepsilon\sigma^3.
 }
 \label{eq:a-vdw-lj}
 \end{equation}
-De parameter $a$ is dus evenredig met het volume van de molecule ($\sigma^3$) en de diepte van de interactiekuil ($\varepsilon$), en vergelijking~\eqref{eq:a-vdw-lj} geeft bovendien de exacte evenredigheidsconstante binnen dit vereenvoudigde model. Hiermee krijgt de $a$-parameter uit hoofdstuk~\ref{ch:eerstehoofdwet} een microscopische fundering.
+De parameter $a$ is dus evenredig met het volume van de molecule ($\sigma^3$) en de diepte van de interactiekuil ($\varepsilon$), en vergelijking~\eqref{eq:a-vdw-lj} geeft bovendien de exacte evenredigheidsconstante binnen dit vereenvoudigde model. Hiermee krijgt de $a$-parameter uit hoofdstuk~\ref{ch:energie} een microscopische fundering.
 
 \begin{voorbeeld}{De Van der Waals-parameter $a$ van argon, geschat uit de Lennard-Jonespotentiaal}
 Met de waarden $\sigma=\SI{0.340}{\nano\metre}$ en $\varepsilon=\SI{1.65e-21}{\joule}$ voor argon (voorbeeld~\ref{ex:argon-lj}) levert vergelijking~\eqref{eq:a-vdw-lj}:
 \[
 a = \frac{8\pi}{3}(6.022\times10^{23})^2(1.65\times10^{-21}\,\mathrm{J})(0.340\times10^{-9}\,\mathrm{m})^3 \approx \SI{0.197}{\pascal\,\metre^6\per\mole\squared}.
 \]
-De experimentele Van der Waals-parameter van argon bedraagt $a_{\text{Ar}}\approx\SI{0.1355}{\pascal\,\metre^6\per\mole\squared}$ (hoofdstuk~\ref{ch:eerstehoofdwet}, tabel met stofconstanten). Onze eenvoudige schatting zit dus binnen een factor anderhalf van de experimentele waarde --- een opmerkelijk goede overeenstemming voor een model dat de moleculaire dichtheid rond een molecule als uniform veronderstelt (dat wil zeggen: het verwaarloost dat buurmoleculen elkaar afschermen, wat in werkelijkheid door de paarcorrelatiefunctie $g(r)$ wordt beschreven). Dit bevestigt dat de Lennard-Jonesparameters $\varepsilon$ en $\sigma$, oorspronkelijk ingevoerd om spectroscopische en botsingsdata te beschrijven, en de macroscopische Van der Waals-parameter $a$, oorspronkelijk ingevoerd om afwijkingen van de ideale gaswet te beschrijven, twee kwantitatief consistente beschrijvingen zijn van dezelfde onderliggende intermoleculaire aantrekking.
+De experimentele Van der Waals-parameter van argon bedraagt $a_{\text{Ar}}\approx\SI{0.1355}{\pascal\,\metre^6\per\mole\squared}$ (hoofdstuk~\ref{ch:energie}, tabel met stofconstanten). Onze eenvoudige schatting zit dus binnen een factor anderhalf van de experimentele waarde --- een opmerkelijk goede overeenstemming voor een model dat de moleculaire dichtheid rond een molecule als uniform veronderstelt (dat wil zeggen: het verwaarloost dat buurmoleculen elkaar afschermen, wat in werkelijkheid door de paarcorrelatiefunctie $g(r)$ wordt beschreven). Dit bevestigt dat de Lennard-Jonesparameters $\varepsilon$ en $\sigma$, oorspronkelijk ingevoerd om spectroscopische en botsingsdata te beschrijven, en de macroscopische Van der Waals-parameter $a$, oorspronkelijk ingevoerd om afwijkingen van de ideale gaswet te beschrijven, twee kwantitatief consistente beschrijvingen zijn van dezelfde onderliggende intermoleculaire aantrekking.
 \end{voorbeeld}
 
 \section{Verdampingsenthalpie als maat voor cohesie}
@@ -204,13 +204,13 @@ De verdampingsenthalpie $\Delta H_{\text{vap}}$ van een zuivere vloeistof is de 
 \toprule
 Stof & $\Delta H_{\text{vap}}$ (\si{\kilo\joule\per\mole}) & $T_b$ & Dominante kracht \\
 \midrule
-He & 0{,}08 & \SI{4.2}{\kelvin} & Dispersie (zwak) \\
-$\mathrm{N_2}$ & 5{,}6 & \SI{77.4}{\kelvin} & Dispersie \\
-$\mathrm{CH_4}$ & 8{,}2 & \SI{111.7}{\kelvin} & Dispersie \\
-$\mathrm{CHCl_3}$ & 29{,}4 & \SI{334.3}{\kelvin} & Dipool--dipool + dispersie \\
-$\mathrm{NH_3}$ & 23{,}4 & \SI{239.8}{\kelvin} & Waterstofbrug (zwakker dan water) \\
-$\mathrm{H_2O}$ & 40{,}7 & \SI{373.15}{\kelvin} & Waterstofbrug \\
-Ethanol & 38{,}6 & \SI{351.55}{\kelvin} & Waterstofbrug \\
+He & 0.08 & \SI{4.2}{\kelvin} & Dispersie (zwak) \\
+$\mathrm{N_2}$ & 5.6 & \SI{77.4}{\kelvin} & Dispersie \\
+$\mathrm{CH_4}$ & 8.2 & \SI{111.7}{\kelvin} & Dispersie \\
+$\mathrm{CHCl_3}$ & 29.4 & \SI{334.3}{\kelvin} & Dipool--dipool + dispersie \\
+$\mathrm{NH_3}$ & 23.4 & \SI{239.8}{\kelvin} & Waterstofbrug (zwakker dan water) \\
+$\mathrm{H_2O}$ & 40.7 & \SI{373.15}{\kelvin} & Waterstofbrug \\
+Ethanol & 38.6 & \SI{351.55}{\kelvin} & Waterstofbrug \\
 $\mathrm{NaCl}$ (sublimatie) & 211 & sublimeert & Ion--ion \\
 \bottomrule
 \end{tabular}
@@ -319,7 +319,7 @@ Ion--dipool & 40--600 & $1/r^4$, $1/T$ \\
 Waterstofbrug & 10--40 & Gericht, \SI{0.2}{\nano\metre} \\
 Dipool--dipool (Keesom) & 5--25 & $1/r^6$, $1/T$ \\
 Dipool--ge\"ind. (Debye) & 2--10 & $1/r^6$ \\
-Dispersie (London) & 0{,}5--10 & $1/r^6$ \\
+Dispersie (London) & 0.5--10 & $1/r^6$ \\
 \bottomrule
 \end{tabular}
 \caption{Ordes van grootte van intermoleculaire krachten.}
