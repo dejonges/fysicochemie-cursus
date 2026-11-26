@@ -74,6 +74,19 @@ jobs:
           name: voorbeeld
           path: site/_book
 
+      # Korte controle van het boek, achteraan zodat ze bovenaan in de staart van het logboek staat
+      - name: Controle boek-PDF
+        if: always()
+        run: |
+          echo "LaTeX-stap: ${{ steps.boek.outcome }}"
+          if [ -f main.pdf ]; then echo "main.pdf aanwezig ($(stat -c%s main.pdf) bytes)"; else echo "main.pdf ONTBREEKT"; fi
+          if [ -f main.log ]; then
+            echo "--- LaTeX-fouten ---"
+            grep -n -A2 '^!' main.log | head -40 || true
+            echo "--- Ongedefinieerde verwijzingen: $(grep -c 'undefined' main.log || true) ---"
+            grep 'undefined' main.log | head -20 || true
+          fi
+
   publiceer:
     if: github.event_name != 'pull_request'
     needs: bouw
