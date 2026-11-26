@@ -66,16 +66,16 @@ De chemische potentiaal stijgt dus met de druk. Voor vloeistoffen en vaste stoff
 Voor een ideaal gas geldt $V_m = RT/p$. Invullen en integreren tussen een referentiedruk $p^\circ$ en de actuele druk $p$ levert:
 \begin{equation}
 \mu(T,p) = \mu^\circ(T) + RT \ln\frac{p}{p^\circ}.
-\label{eq:mu-p-ideaalgas-h5}
+\label{eq:mu-p-ideaalgas-h5}\label{eq:mu-ideaalgas}
 \end{equation}
-Hierin is $\mu^\circ(T)$ de chemische potentiaal in de standaardtoestand ($p = p^\circ = \SI{1}{\bar}$). Dit is exact dezelfde uitdrukking als reeds afgeleid in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:activiteit}, vergelijking~\eqref{eq:mu-ideaalgas}) --- daar volgde zij uit dezelfde redenering, toegepast op \'e\'en mol zuiver ideaal gas. De chemische potentiaal van een ideaal gas hangt dus logaritmisch af van de druk.
+Hierin is $\mu^\circ(T)$ de chemische potentiaal in de standaardtoestand ($p = p^\circ = \SI{1}{\bar}$). De chemische potentiaal van een ideaal gas hangt dus logaritmisch af van de druk: dat is het rechtstreekse gevolg van de $1/p$-afhankelijkheid van het molair volume.
 
 \subsection{Fugaciteit: een veralgemening van de druk}
 \label{sec:fugaciteit}
 
 De ideale-gasvergelijking werkt uitstekend voor verdunde gassen, maar in industri\"ele toepassingen wordt vaak gewerkt bij drukken van tientallen of honderden bar. Onder dergelijke omstandigheden voldoet de ideale gaswet niet langer, en beschrijft de druk de chemische potentiaal van een re\"eel gas niet meer volledig.
 
-Om dezelfde vorm van de thermodynamische vergelijkingen te kunnen behouden, wordt een nieuwe grootheid ingevoerd: de \emph{fugaciteit} $f$. Dit is voor gassen precies wat de \emph{activiteit} in het algemeen is (hoofdstuk~\ref{ch:spontaniteit}, \S~\ref{sec:activiteit}): een effectieve grootheid die de eenvoudige logaritmische vorm van $\mu$ behoudt, ook wanneer het systeem niet langer ideaal is. De chemische potentiaal van een re\"eel gas wordt geschreven als
+Om dezelfde vorm van de thermodynamische vergelijkingen te kunnen behouden, wordt een nieuwe grootheid ingevoerd: de \emph{fugaciteit} $f$. Dit is voor gassen precies wat de \emph{activiteit} in het algemeen is (\S~\ref{sec:activiteit}): een effectieve grootheid die de eenvoudige logaritmische vorm van $\mu$ behoudt, ook wanneer het systeem niet langer ideaal is. De chemische potentiaal van een re\"eel gas wordt geschreven als
 \begin{equation}
 \mu(T,p) = \mu^\circ(T) + RT \ln\frac{f}{f^\circ},
 \end{equation}
@@ -94,10 +94,54 @@ De fugaciteitsco\"effici\"ent is dimensieloos en vormt een directe maat voor de 
 \end{equation}
 De derde term vormt de correctie voor niet-ideaal gedrag. In de praktijk wordt $\phi$ berekend met behulp van een vergelijking van toestand (Soave--Redlich--Kwong, Peng--Robinson).
 
+\subsection{Activiteit: \'e\'en vorm voor elke fase}
+\label{sec:activiteit}
+
+De fugaciteit veralgemeent de druk voor een re\"eel gas. Hetzelfde idee werkt voor elke fase en elk mengsel: we behouden de logaritmische vorm van vergelijking~\eqref{eq:mu-ideaalgas} en vervangen de druk door een effectieve grootheid.
+
+\subsubsection{Van zuivere stof naar mengsel: partiële druk en molfractie}
+
+In een mengsel van ideale gassen gedraagt elke component zich, wat haar bijdrage tot de druk betreft, onafhankelijk van de andere componenten (wet van Dalton). De chemische potentiaal van component $i$ in het mengsel wordt daarom bekomen door in vergelijking~\eqref{eq:mu-ideaalgas} de totale druk $p$ te vervangen door de partiële druk $p_i=x_ip$ van component $i$:
+\begin{equation}
+\mu_i = \mu_i^\circ + RT\ln\frac{p_i}{p^\circ} = \mu_i^\circ + RT\ln\frac{x_i p}{p^\circ}.
+\end{equation}
+
+\subsubsection{Reële systemen: activiteit en activiteitscoëfficiënt}
+
+Vergelijking~\eqref{eq:mu-ideaalgas} is exact geldig voor een zuiver ideaal gas, en bij benadering geldig voor sterk verdunde reële gassen en ideale mengsels. Voor reële gassen, vloeistoffen en vaste stoffen -- waar intermoleculaire krachten (hoofdstuk~\ref{ch:intermoleculair}) en niet-ideaal mengsedrag een rol spelen -- blijkt de logaritmische vorm van de vergelijking experimenteel behouden te blijven, maar niet langer met de werkelijke druk, partiële druk of molfractie. In plaats daarvan wordt een \emph{effectieve}, dimensieloze grootheid ingevoerd: de \emph{activiteit} $a_i$.
+
+\begin{definitie}{Chemische potentiaal via de activiteit}
+Voor elke component $i$, in elke fase en bij elke samenstelling, geldt
+\begin{equation}
+\boxed{
+\mu_i = \mu_i^\circ + RT\ln a_i,
+}
+\label{eq:mu-activiteit}
+\end{equation}
+waarin $\mu_i^\circ$ de chemische potentiaal in de gekozen standaardtoestand voorstelt, en $a_i$ de \emph{activiteit} van component $i$: een dimensieloze grootheid die de ``effectieve'' concentratie of druk van de component in het systeem weergeeft, precies zodanig gedefinieerd dat vergelijking~\eqref{eq:mu-activiteit} exact geldig blijft.
+\end{definitie}
+
+De activiteit wordt gerelateerd aan een meetbare samenstellingsgrootheid (molfractie $x_i$, molaire concentratie $c_i$, of partiële druk $p_i$) via de \emph{activiteitscoëfficiënt} $\gamma_i$, bijvoorbeeld voor een vloeistofmengsel:
+\begin{equation}
+a_i = \gamma_i x_i.
+\end{equation}
+De activiteitscoëfficiënt is dimensieloos en vormt een rechtstreekse maat voor de afwijking van ideaal gedrag:
+\begin{itemize}
+\item Voor een ideaal gas, een ideaal gasmengsel, of een ideale (zeer verdunde of chemisch zeer gelijkaardige) vloeistofoplossing geldt $\gamma_i\to 1$, zodat $a_i\to x_i$ (of $a_i\to p_i/p^\circ$ voor gassen) en vergelijking~\eqref{eq:mu-activiteit} herleidt tot de eenvoudige uitdrukkingen uit de vorige paragrafen.
+\item $\gamma_i<1$ wijst op aantrekkende afwijkingen ten opzichte van ideaal gedrag (de component ``verkiest'' het mengsel), $\gamma_i>1$ op afstotende afwijkingen (de component ``ontwijkt'' het mengsel) -- geheel analoog aan de interpretatie van de compressibiliteitsfactor $Z$ voor reële gassen in hoofdstuk~\ref{ch:eerstehoofdwet}.
+\item Voor een zuivere gecondenseerde fase (zuivere vloeistof of vaste stof) in haar standaardtoestand geldt per conventie $a_i=1$.
+\end{itemize}
+
+\begin{toepassing}{Waarom een procesingenieur zelden met molfracties mag rekenen}
+Bij het ontwerp van een destillatiekolom voor een mengsel van ethanol en water kan de molfractie in de vloeistoffase niet zomaar worden ingevuld in vergelijking~\eqref{eq:mu-activiteit}: ethanol-watermengsels vertonen sterke afwijkingen van ideaal gedrag (onder andere door waterstofbruggen) en bezitten zelfs een azeotroop punt, een samenstelling waarbij damp en vloeistof exact dezelfde samenstelling hebben. Een ontwerp dat $\gamma_i=1$ veronderstelt, zou de benodigde schotelverdeling en energiebehoefte van de kolom volledig verkeerd inschatten. Pas de introductie van de activiteitscoëfficiënt laat toe dit reële gedrag correct te kwantificeren.
+\end{toepassing}
+
+Concrete modellen om $\gamma_i$ te berekenen (Margules, Van Laar, Wilson, NRTL) volgen in \S~\ref{sec:activiteitsmodellen}. Voor eenvoudige gevallen volstaan de benaderingen $a_i\approx p_i/p^\circ$ (ideaal gasmengsel) en $a_i\approx1$ (zuivere gecondenseerde fase); die gebruiken we ook in hoofdstuk~\ref{ch:reagerend}.
+
 \subsection{Fase-evenwicht tussen twee fasen}
 \label{sec:fase-evenwicht-voorwaarde}
 
-De fundamentele voorwaarde voor fase-evenwicht werd reeds in hoofdstuk~\ref{ch:spontaniteit} ingevoerd. Voor iedere component moet de chemische potentiaal in beide fasen identiek zijn:
+De fundamentele voorwaarde voor fase-evenwicht werd in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:chemische-potentiaal}) ingevoerd. Voor iedere component moet de chemische potentiaal in beide fasen identiek zijn:
 \begin{equation}
 \mu^{(\alpha)} = \mu^{(\beta)}.
 \end{equation}
@@ -401,7 +445,7 @@ Wanneer de intermoleculaire interacties tussen ongelijke moleculen sterker zijn,
 \subsection{Re\"ele mengsels en activiteit}
 \label{sec:activiteit-mengsel}
 
-Voor re\"ele mengsels volstaat de wet van Raoult niet langer. De chemische potentiaal van component $i$ in een re\"eel mengsel wordt beschreven met de \emph{activiteit} $a_i$ --- hetzelfde begrip dat reeds werd ingevoerd in hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:activiteit}, vergelijking~\eqref{eq:mu-activiteit}); we werken het hier concreet uit voor vloeistofmengsels:
+Voor re\"ele mengsels volstaat de wet van Raoult niet langer. De chemische potentiaal van component $i$ in een re\"eel mengsel wordt beschreven met de \emph{activiteit} $a_i$ --- het begrip uit \S~\ref{sec:activiteit} (vergelijking~\eqref{eq:mu-activiteit}), hier concreet uitgewerkt voor vloeistofmengsels:
 \begin{equation}
 \mu_i = \mu_i^* + RT \ln a_i.
 \end{equation}
