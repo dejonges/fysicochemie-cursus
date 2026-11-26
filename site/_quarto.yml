@@ -37,6 +37,9 @@ book:
           - kinetica.qmd
           - oppervlaktechemie.qmd
     right:
+      - text: "PDF"
+        href: fysicochemie.pdf
+        icon: file-earmark-pdf
       - text: "Toledo"
         href: https://toledo.kuleuven.be
         icon: box-arrow-up-right
@@ -68,7 +71,7 @@ format:
     toc: true
     toc-depth: 3
     toc-title: "Op deze pagina"
-    include-in-header: _docent.html
+    include-in-header: [_bronnen.html, _docent.html]
     html-math-method: mathjax
     include-before-body: _macros.html
     include-after-body: _figuurlabels.html

@@ -1,24 +1,41 @@
 #!/usr/bin/env python3
 """Zet de LaTeX-hoofdstukken van de cursus Fysico Chemie om naar Quarto-pagina's (.qmd).
 
-Gebruik: python3 tex2qmd.py <map-met-tex> <uitvoermap>
+De LaTeX (Overleaf) is de enige bron. Deze omzetting draait automatisch bij elke
+wijziging (zie .github/workflows); de .qmd-hoofdstukken zelf worden niet bewaard.
+
+Gebruik: python3 tex2qmd.py <map-met-main.tex> <quarto-map>
+
+- Hoofdstukken en volgorde: de \\include-regels in main.tex.
+- \\includegraphics{Figuren/naam}: figuur getekend met Python (functie naam() in _figuren/).
+- \\includegraphics{Afbeeldingen/x.png}: gewone afbeelding; bestaat ze niet, dan
+  verschijnt "Figuur in voorbereiding" met het bijschrift.
+- \\interactief{naam}: voegt _interactief/naam.qmd in.
 """
-import os, re, sys, subprocess, shutil
+import os, re, sys, subprocess, shutil, glob
 
 SRC, OUT = sys.argv[1], sys.argv[2]
 
-CHAPTERS = [  # volgorde uit main.tex
-    ("Energie", "energie"),
-    ("Kwantum_uitgebreid", "kwantum"),
-    ("Spontaniteit", "spontaniteit"),
-    ("Intermoleculair", "intermoleculair"),
-    ("Niet-reagerend evenwicht", "niet-reagerend-evenwicht"),
-    ("Reagerend evenwicht", "reagerend-evenwicht"),
-    ("Elektrochemie", "elektrochemie"),
-    ("Kinetica", "kinetica"),
-    ("Oppervlaktechemie", "oppervlaktechemie"),
-    ("Kristallografie", "kristallografie"),
-]
+SLUGS = {  # tex-bestand -> naam van de webpagina (anders: kleine letters met streepjes)
+    "Kwantum_uitgebreid": "kwantum",
+}
+
+def slug_van(tex):
+    return SLUGS.get(tex) or re.sub(r'[^a-z0-9]+', '-', tex.lower()).strip('-')
+
+def hoofdstukken():
+    main = open(os.path.join(SRC, 'main.tex'), encoding='utf-8').read()
+    main = re.sub(r'(?<!\\)%.*', '', main)
+    return [(t.strip(), slug_van(t.strip())) for t in re.findall(r'\\include\{([^}]*)\}', main)]
+
+CHAPTERS = hoofdstukken()
+
+PANDOC = ['pandoc'] if shutil.which('pandoc') else ['quarto', 'pandoc']
+
+# Python-figuren met @animatie (enkel online bewegend)
+ANIMATIES = set()
+for _py in glob.glob(os.path.join(OUT, '_figuren', 'h*.py')):
+    ANIMATIES |= set(re.findall(r'^@animatie\b.*\n(?:@.*\n)*def (\w+)', open(_py, encoding='utf-8').read(), re.M))
 
 CALLOUTS = {  # omgeving -> (Quarto-callout, titelprefix, extra attributen)
     "voorbeeld":  ("callout-tip", "Voorbeeld", ''),
@@ -198,7 +215,7 @@ def qid(label):
     return 'anker-' + l
 
 def pandoc_inline(tex):
-    r = subprocess.run(['pandoc', '-f', 'latex', '-t', 'markdown', '--wrap=none'],
+    r = subprocess.run(PANDOC + ['-f', 'latex', '-t', 'markdown', '--wrap=none'],
                        input=tex, capture_output=True, text=True)
     return r.stdout.strip().replace('\n', ' ')
 
@@ -216,6 +233,7 @@ def convert_chapter(texname, slug, chapnum):
     s = open(os.path.join(SRC, texname + '.tex'), encoding='utf-8').read()
     s = strip_comments(s)
     s = convert_si_ce(s)
+    s = re.sub(r'\\interactief\{([^}]*)\}', r'\n\nQINT\1QINT\n\n', s)
     s = re.sub(r'(\\begin\{(?:equation|align|gather|multline)\*?\})(\s*)\[', r'\1\2{}[', s)
     s = re.sub(r'(\\\\)(\s*)\[', r'\1{}\2[', s)
 
@@ -269,7 +287,7 @@ def convert_chapter(texname, slug, chapnum):
     s = re.sub(r'\\(?:ref|autoref|cref)\{([^}]*)\}', lambda m: 'QREF' + tok_label(m.group(1))[4:], s)
     s = s.replace(r'\chapter*', r'\chapter')
 
-    r = subprocess.run(['pandoc', '-f', 'latex-auto_identifiers', '-t',
+    r = subprocess.run(PANDOC + ['-f', 'latex-auto_identifiers', '-t',
                         'markdown-simple_tables-multiline_tables-grid_tables-raw_attribute+pipe_tables',
                         '--wrap=none', '--shift-heading-level-by=0'],
                        input=s, capture_output=True, text=True)
@@ -288,6 +306,7 @@ def convert_chapter(texname, slug, chapnum):
     md = re.sub(r'^::: (' + '|'.join(CALLOUTS) + r')\s*\nQCT(\d+)Q\n', callout_repl, md, flags=re.M)
 
     # figuren
+    pyfigs = []
     def figmd(m):
         path, opts, cap, lab = figs[int(m.group(1))]
         cap_md = pandoc_inline(cap) if cap else ''
@@ -300,6 +319,15 @@ def convert_chapter(texname, slug, chapnum):
         if opts:
             mw = re.search(r'width=([\d.]+)\\(?:line|text)width', opts)
             if mw: w = f' width="{round(float(mw.group(1))*100)}%"'
+        if path and path.startswith('Figuren/'):
+            naam = os.path.splitext(path[len('Figuren/'):])[0]
+            pyfigs.append(naam)
+            attr = idattr
+            if w and w != ' width="70%"':
+                attr += ' breedte="' + w.split('"')[1] + '"'
+            opties = '' if naam in ANIMATIES else '#| renderings: [light, dark]\n'
+            return (f'::: {{{attr}}}\n```{{python}}\n{opties}fig.toon(fig.{naam})\n```\n\n'
+                    f'{cap_md}\n:::')
         fn = os.path.basename(path) if path else None
         if fn and os.path.exists(os.path.join(SRC, 'Afbeeldingen', fn)):
             images_used.add(fn)
@@ -308,6 +336,7 @@ def convert_chapter(texname, slug, chapnum):
         return (f'::: {{{idattr}}}\n::: {{.callout-note appearance="minimal" icon="false"}}\n'
                 f'🖼️ *Figuur in voorbereiding* (`{fn}`)\n:::\n\n{cap_md}\n:::')
     md = re.sub(r'QFIG(\d+)Q', figmd, md)
+    md = re.sub(r'QINT(.+?)QINT', r'{{< include _interactief/\1.qmd >}}', md)
 
     # labels: koppen
     def head_lab(m):
@@ -348,6 +377,10 @@ def convert_chapter(texname, slug, chapnum):
 
     # hoofdstuktitel: eerste kop wordt niveau 1
     md = md.replace('\\\n', '\n')
+    if pyfigs:  # figuren uit _figuren/ beschikbaar maken als fig.naam
+        kop = ('```{python}\n#| include: false\n# Figuren: zie _figuren/ (h1.py, h2.py, ...)\n'
+               'import sys\nsys.path.insert(0, "_figuren")\nimport alle as fig\n```\n\n')
+        md = re.sub(r'^(# .*\n)', lambda m: m.group(1) + '\n' + kop, md, count=1, flags=re.M)
     return md
 
 label_alias = {'ch:eerstehoofdwet': 'ch:energie', 'ch:kristallografie': 'ch:vastestof'}
@@ -397,9 +430,6 @@ def main():
         mds[slug] = convert_chapter(tex, slug, n)
     for slug, md in mds.items():
         md = tighten_lists(fix_refs(md))
-        if slug == 'kinetica':
-            md = md.replace('### Temperatuurverhoging bij ammoniaksynthese',
-                            '{{< include _interactief/arrhenius.qmd >}}\n\n### Temperatuurverhoging bij ammoniaksynthese', 1)
         open(os.path.join(OUT, slug + '.qmd'), 'w', encoding='utf-8').write(md.rstrip() + '\n' + FORUM)
     for fn in images_used:
         shutil.copy(os.path.join(SRC, 'Afbeeldingen', fn), os.path.join(OUT, 'afbeeldingen', fn))
@@ -407,5 +437,13 @@ def main():
     print('hoofdstukken:', len(mds), '| labels:', len(labels), '| onopgeloste verwijzingen:', len(unresolved))
     if unresolved: print('  ', unresolved[:30])
     print('ontbrekende figuren:', len(missing_images))
+    # bewerkknop (_docent.html): welke .tex hoort bij welke pagina
+    bron = ', '.join(f'"{slug}": "{tex}.tex"' for tex, slug in CHAPTERS)
+    open(os.path.join(OUT, '_bronnen.html'), 'w', encoding='utf-8').write(
+        f'<script>window.FC_BRON = {{{bron}}};</script>\n')
+    quarto = open(os.path.join(OUT, '_quarto.yml'), encoding='utf-8').read()
+    for slug in mds:
+        if slug + '.qmd' not in quarto:
+            print(f'LET OP: {slug}.qmd staat niet in _quarto.yml (hoofdstukkenlijst)')
 
 main()

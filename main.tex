@@ -1,0 +1,148 @@
+\documentclass[11pt,a4paper]{book}
+\usepackage{mathpazo}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dutch]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{physics}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[labelfont=bf]{caption}
+
+\usepackage{xcolor}
+\definecolor{chaptergrey}{gray}{0.3}
+\usepackage[palatino, nogrey]{quotchap}
+\renewcommand*{\sectfont}{\bfseries\sffamily}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % Clear old header/footer settings
+\fancypagestyle{plain}{%dit is om de eerste pagina van een hoofdstuk identiek te maken aan de andere
+  \fancyfoot[C]{-- \thepage \,--} % Set your preferred page number position (e.g., center footer)
+  \renewcommand{\headrulewidth}{0pt} % Set to 0pt if you want no header line
+  \renewcommand{\footrulewidth}{0pt} % Adjust footer line width if needed
+}
+\fancyfoot[C]{-- \thepage \,--}
+%\fancyhead[R]{\thepage} % Zet het paginanummer rechts in de header
+\renewcommand{\headrulewidth}{0pt} % Verwijder de horizontale lijn onder de header
+
+\usepackage[version=4]{mhchem}
+\usepackage{hyperref}
+
+\usepackage{enumitem}
+ \setlist[enumerate]{topsep=3pt,itemsep=0.2ex,partopsep=0.3ex,parsep=0.2ex}
+ \setlist[itemize]{topsep=3pt,itemsep=0.2ex,partopsep=0.3ex,parsep=0.2ex}
+ \setlist[description]{topsep=6pt,itemsep=0.2ex,partopsep=0.3ex,parsep=0.2ex}
+ %\setlist[list]{topsep=6pt,itemsep=-1ex,partopsep=1ex,parsep=1ex}
+
+\usepackage{a4wide}
+\usepackage{cite}
+\usepackage{hhline}     % generates nicer table lines (without missing pixels) + more flexible
+
+\widowpenalty=10000
+\clubpenalties 5 10000 10000 10000 10000 0
+\raggedbottom
+
+\makeatother
+
+\sisetup{output-decimal-marker={.}, group-separator={\,}}
+
+\usepackage[most]{tcolorbox}
+%\tcbuselibrary{skins}
+\tcbuselibrary{breakable}
+
+\newtcolorbox{toepassing}[1]{breakable, colback=blue!2!white,colframe=blue!50!black,fonttitle=\bfseries,title={Toepassing: #1}}
+\newtcolorbox{voorbeeld}[1]{breakable, colback=green!2!white,colframe=green!50!black,fonttitle=\bfseries,title={Voorbeeld: #1}}
+\newtcolorbox{definitie}[1]{breakable, colback=yellow!2!white,colframe=yellow!60!black,fonttitle=\bfseries,title={Definitie: #1}}
+\newtcolorbox{besluit}[1]{breakable, colback=gray!2!white,colframe=gray!50!black,fonttitle=\bfseries,title={Besluit: #1}}
+
+\newcounter{oefeningcounter}[chapter]
+\renewcommand{\theoefeningcounter}{\thechapter.\arabic{oefeningcounter}}
+
+% definitie van de omgeving
+\newenvironment{oefening}[1][]{%
+  \par\vspace{0.8em} % witruimte vóór oefening
+  \noindent\stepcounter{oefeningcounter}%
+  \textbf{Oefening \theoefeningcounter%
+  \ifx\relax#1\relax\else\ (#1)\fi}\par\vspace{0.4em}
+}{%
+  \par\vspace{0.8em} % witruimte na oefening
+}
+%%%%%
+
+%\newcommand{\dx}[1]{\,\mathrm{d}#1}
+%\newcommand{\dG}{\,\mathrm{d}G}
+%\newcommand{\dH}{\,\mathrm{d}H}
+%\newcommand{\dU}{\,\mathrm{d}U}
+%\newcommand{\dS}{\,\mathrm{d}S}
+%\newcommand{\dQ}{\delta Q}
+%\newcommand{\dW}{\delta W}
+%\newcommand{\dT}{\,\mathrm{d}T}
+%\newcommand{\dp}{\,\mathrm{d}p}
+%\newcommand{\dV}{\,\mathrm{d}V}
+
+%\title{\textbf{Fysico Chemie} \\ Chemische Thermodynamica voor Industrieel Ingenieurs}
+%\author{Stijn De Jonge \\ KU Leuven \\ Faculteit Industri\"ele Ingenieurswetenschappen}
+%\date{2026}
+
+%%%%% Online versie (Quarto-site) %%%%%
+% Deze LaTeX is de enige bron: bij elke wijziging wordt de site automatisch opnieuw gemaakt.
+% Figuren uit Python staan in de map Figuren/ (worden automatisch bijgewerkt, niet zelf aanpassen):
+%     \includegraphics[width=0.7\linewidth]{Figuren/boyle}
+% Een gewenste, nog niet bestaande figuur: verwijs naar een bestand dat nog niet bestaat en
+% beschrijf in het bijschrift wat je wil zien. In de PDF verschijnt dan een kader i.p.v. een fout.
+% Een interactief onderdeel (enkel online), bv. in Kinetica:  \interactief{arrhenius}
+\newcommand{\interactief}[1]{%
+  \begin{tcolorbox}[colback=gray!3!white,colframe=gray!40!white,boxrule=0.4pt,arc=2mm]
+  \small\textbf{Probeer zelf online.} Bij dit onderdeel hoort een interactieve figuur op de cursussite: \url{https://dejonges.github.io/fysicochemie-cursus/}
+  \end{tcolorbox}}
+\let\origincludegraphics\includegraphics
+\renewcommand{\includegraphics}[2][]{%
+  \IfFileExists{#2}{\origincludegraphics[#1]{#2}}{%
+  \IfFileExists{#2.pdf}{\origincludegraphics[#1]{#2}}{%
+  \IfFileExists{#2.png}{\origincludegraphics[#1]{#2}}{%
+  \fbox{\parbox[c][3cm][c]{0.6\linewidth}{\centering\small\itshape Figuur in voorbereiding\\[2pt]\upshape\footnotesize\detokenize{#2}}}}}}}
+%%%%%
+
+\begin{document}
+
+\frontmatter
+
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\Huge\bfseries Fysico Chemie\par}
+\vspace{1cm}
+{\Large Chemische Thermodynamcia voor Industrieel Ingenieurs\par}
+\vfill
+{\Large Stijn De Jonge\par}
+\vspace{0.5cm}
+KU Leuven\\
+Faculteit Industriële Ingenieurswetenschappen\\
+%\vfill
+\vspace{0.5cm}
+{Academiejaar 2026-2027}
+\end{titlepage}
+
+\tableofcontents
+\mainmatter
+
+\include{Energie}
+\include{Kwantum_uitgebreid}
+\include{Spontaniteit}
+\include{Intermoleculair}
+\include{Niet-reagerend evenwicht}
+\include{Reagerend evenwicht}
+\include{Elektrochemie}
+\include{Kinetica}
+\include{Oppervlaktechemie}
+%\include{Transportverschijnselen}
+\include{Kristallografie}
+%\include{Oefeningen}
+
+\end{document}

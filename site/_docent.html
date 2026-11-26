@@ -1,4 +1,5 @@
 <!-- Bewerkknop voor de docent.
+     Opent het LaTeX-bestand van deze pagina op GitHub (wijziging komt via "Pull" in Overleaf).
      Verborgen voor iedereen. Eenmalig openen met ?docent achter het adres zet
      de knop aan in die browser; ?docent=uit zet hem weer uit. -->
 <style>
@@ -36,10 +37,12 @@
     if (!/\.html$/.test(naam)) return;
     var a = document.createElement("a");
     a.id = "docent-bewerk";
-    a.href = REPO + naam.replace(/\.html$/, ".qmd");
+    var bron = (window.FC_BRON || {})[naam.replace(/\.html$/, "")];
+    if (!bron) return;
+    a.href = REPO + encodeURI(bron);
     a.target = "_blank";
     a.rel = "noopener";
-    a.title = "Opent deze pagina in de GitHub-editor (alleen zichtbaar voor jou)";
+    a.title = "Opent de LaTeX van deze pagina in de GitHub-editor (alleen zichtbaar voor jou). Gewoonlijk werk je in Overleaf."
     a.textContent = "✎ Bewerk deze pagina";
     document.body.appendChild(a);
   });

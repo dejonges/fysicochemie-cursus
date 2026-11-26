@@ -166,3 +166,8 @@ main div.quarto-float { margin: 2rem 0 2.2rem; }
 // ----- Vorige / volgende hoofdstuk -----
 .page-navigation .nav-page a { border: 1px solid var(--rand); border-radius: 12px; padding: 0.7rem 1.1rem; text-decoration: none; }
 .page-navigation .nav-page a:hover { background: var(--vlak); }
+
+// ----- Animaties (getekend met Python, zie _figuren/huisstijl.py) -----
+// Elke animatie bestaat in een lichte en een donkere versie; toon enkel die van het thema.
+body.quarto-dark .animatie-licht, body:not(.quarto-dark) .animatie-donker { display: none; }
+main div.quarto-float video { width: 100%; height: auto; border-radius: 12px; }
