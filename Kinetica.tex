@@ -1,58 +1,13 @@
 %==============================================================================
-% BELANGRIJK - Kruisverwijzingen (relatief via \ref, geen harde nummers):
-% Dit hoofdstuk verwijst naar labels in andere hoofdstukken. Zorg dat deze
-% aanwezig zijn (voeg toe indien nog niet aanwezig):
-%   - Hoofdstuk 2 gebruikt reeds \label{ch:kwantum}, en o.a.
-%     \label{sec:moleculaire-beweging}.
-%   - Hoofdstuk 3 gebruikt reeds \label{ch:spontaniteit}, en o.a.
-%     \label{eq:vanthoff-diff} (differenti\"ele vergelijking van Van 't Hoff),
-%     \label{sec:haber-bosch}.
-%   - Hoofdstuk 4 gebruikt reeds \label{ch:intermoleculair}.
-%   - Hoofdstuk 5 gebruikt reeds \label{ch:niet-reagerend}.
-%   - Hoofdstuk 6 gebruikt reeds \label{ch:reagerend}, en o.a.
-%     \label{sec:vanthoff-reagerend}, \label{sec:haber-bosch-integraal}.
-%
-% LET OP - herstructurering t.o.v. de vorige versie:
-%  - Alle adsorptietheorie (fysisorptie/chemisorptie, de Langmuir-isotherme,
-%    de BET-isotherme) is nu VOLLEDIG in dit hoofdstuk geintegreerd, in
-%    plaats van te verwijzen naar een latere sectie over oppervlaktechemie
-%    (het eerder aangenomen hoofdstuk 9, ch:oppervlakte). Indien een later
-%    hoofdstuk over oppervlakte-/colloidchemie ook een eigen behandeling
-%    van adsorptie-isothermen bevat, verdient het aanbeveling dat het daar
-%    terugverwijst naar de uitgebreide behandeling hier
-%    (sec:langmuir-isotherm-kinetiek), in plaats van omgekeerd.
-%  - Nieuw toegevoegd: het Eley-Rideal-mechanisme (naast Langmuir-Hinshelwood),
-%    het Lindemann-mechanisme voor schijnbaar unimoleculaire reacties, en een
-%    sectie over de temperatuursgevoeligheid van exotherme versus endotherme
-%    reacties (voorwaartse versus achterwaartse activeringsenergie).
-%  - Het voorheen aparte, nog onvoldoende uitgewerkte hoofdstuk over
-%    transportverschijnselen (viscositeit, warmtegeleiding, grenslagen) is
-%    NIET weerhouden -- dat behoort tot een vervolgcursus transportverschijnselen.
-%    Enkel diffusie is, in beknopte en foutloze vorm, opgenomen in dit
-%    hoofdstuk: de wet van Fick en de diffusietijdschaal (\S~sec:diffusie-katalyse,
-%    bij heterogene katalyse) en de Smoluchowski-vergelijking voor
-%    diffusiegelimiteerde kinetiek plus de Stokes-Einsteinvergelijking
-%    (\S~sec:diffusielimitatie, na Michaelis-Menten).
-%  - Reeds eerder gecorrigeerd, nog steeds van toepassing: 9 instanties van
-%    \begin{voorbeeld{...}, 7 instanties van \} i.p.v. \], 1 ontbrekend
-%    sluitend $, 2 rekenfouten (Ea uit twee metingen: 64,4 niet 80 kJ/mol;
-%    ammoniak-snelheidstoename: ~10^23 niet 10^28), en 2 bare \SI{...} zonder
-%    eenheid naar \num{...}. Dit bestand vereist het pakket 'mathtools' voor
-%    \xrightleftharpoons.
-%==============================================================================
 \chapter{Chemische kinetiek}
 \label{ch:kinetiek}
 %==============================================================================
 
 \section{Thermodynamica bepaalt, kinetiek levert}
 
-In de vorige hoofdstukken hebben we de thermodynamica ontwikkeld als een krachtig instrument om te voorspellen of een proces spontaan zal verlopen, welke maximaal haalbare omzetting mogelijk is en waar het chemisch evenwicht zich zal instellen. De thermodynamica bepaalt de eindtoestand van een systeem: zij vertelt ons \emph{wat} mogelijk is.
+De thermodynamica vertelt \emph{wat} mogelijk is: of een reactie spontaan verloopt en waar het evenwicht ligt. Ze zegt niets over \emph{hoe snel}. Diamant zou spontaan moeten omzetten in grafiet, maar dat gebeurt in geen mensenleven (hoofdstuk~\ref{ch:spontaniteit}). Een methanolfabriek werkt bij \SIrange{200}{300}{\celsius}, hoewel het evenwicht een lagere temperatuur zou verkiezen. En een katalysator versnelt een reactie zonder het evenwicht te verschuiven. Dat alles is het domein van de \emph{chemische kinetiek}: de snelheid van reacties en het mechanisme waarlangs ze verlopen. De activeringsenergie en de Boltzmannfactor uit hoofdstuk~\ref{ch:kwantum} (\S~\ref{sec:activeringsenergie-kwantum} en \S~\ref{sec:boltzmannverdeling}) zijn het vertrekpunt.
 
-Toch blijven vele vragen onbeantwoord. Hoe snel zal een thermodynamisch gunstige reactie verlopen? Waarom verloopt de omzetting van diamant naar grafiet, hoewel spontaan, zo traag dat ze in een mensenleven niet meetbaar is (hoofdstuk~\ref{ch:spontaniteit})? Waarom moet een methanolfabriek bij \SIrange{200}{300}{\celsius} werken, terwijl de thermodynamica eigenlijk een veel lagere temperatuur zou voorschrijven? Waarom verhoogt een katalysator de reactiesnelheid zonder de evenwichtsconstante te wijzigen? En waarom lijkt de evenwichtsligging van een sterk exotherme reactie zo gevoelig voor temperatuur, terwijl de \emph{snelheid} van de voorwaartse reactie dat soms veel minder is?
-
-Het antwoord op deze vragen vormt het studiegebied van de \emph{chemische kinetiek}. Waar de thermodynamica de richting en de eindtoestand beschrijft, onderzoekt de kinetiek de \emph{snelheid} waarmee die toestand wordt bereikt en het \emph{mechanisme} waardoor de reactie verloopt. Het begrip \emph{activeringsenergie}, ingevoerd in hoofdstuk~\ref{ch:kwantum} (\S~\ref{sec:activeringsenergie-kwantum}) samen met de Boltzmannfactor (\S~\ref{sec:boltzmannverdeling}), vormt hier het centrale, kwantitatieve aanknopingspunt.
-
-We beginnen met de snelheidswet en de invloed van de temperatuur, en verklaren de vergelijking van Arrhenius met de botsingstheorie. Daarna behandelen we wat voor de ingenieur het belangrijkst is: reacties die met elkaar concurreren (selectiviteit), reactiemechanismen, katalyse, en de koppeling tussen reactiewarmte en snelheid die een reactor stabiel of gevaarlijk maakt. Het ontwerp van reactoren zelf volgt in het vak Reactorentechnologie; hier leggen we de kinetische basis.
+We bouwen op van snelheidswet en Arrhenius, via de botsingstheorie, naar wat de ingenieur het meest nodig heeft: selectiviteit, mechanismen, katalyse en de koppeling tussen reactiewarmte en snelheid. Het eigenlijke reactorontwerp volgt in Reactorentechnologie.
 
 \begin{toepassing}{Centrale case: ethyleenoxide, selectief en veilig}
 Ethyleenoxide (grondstof voor glycol, antivries en polyesters, met grote productie-eenheden in de Antwerpse haven) wordt gemaakt door ethyleen te oxideren over een zilverkatalysator bij \SIrange{220}{280}{\celsius}:
@@ -172,20 +127,12 @@ De reactieorde kan experimenteel worden bepaald door:
 \section{De invloed van temperatuur: de vergelijking van Arrhenius}
 \label{sec:arrhenius}
 
-Voor nagenoeg alle chemische reacties neemt de reactiesnelheid sterk toe met de temperatuur. Een ervaringsregel is dat de snelheid ongeveer verdubbelt bij elke \SI{10}{\kelvin} temperatuurstijging (dit is slechts een ruwe schatting). De kwantitatieve relatie tussen snelheidsconstante en temperatuur wordt gegeven door de \emph{vergelijking van Arrhenius}:
+Voor nagenoeg alle chemische reacties neemt de reactiesnelheid sterk toe met de temperatuur. Een ruwe vuistregel: per \SI{10}{\kelvin} verdubbelt de snelheid. Kwantitatief geldt de \emph{vergelijking van Arrhenius}:
 \begin{equation}
 \boxed{\;k = A\,\exp\!\left(-\frac{E_a}{RT}\right)\;}
 \label{eq:arrhenius}
 \end{equation}
-waarin:
-\begin{itemize}
-\item $k$ de snelheidsconstante,
-\item $A$ de pre\"exponenti\"ele factor (frequentiefactor),
-\item $E_a$ de activeringsenergie --- dezelfde grootheid die in hoofdstuk~\ref{ch:spontaniteit} werd ge\"introduceerd als de energie van de overgangstoestand ten opzichte van de reagentia,
-\item $R$ de gasconstante,
-\item $T$ de absolute temperatuur.
-\end{itemize}
-De exponenti\"ele vorm verklaart waarom de snelheid zo sterk met de temperatuur stijgt: een verhoging van $T$ verhoogt de fractie van de moleculen met voldoende energie om de activeringsdrempel te overschrijden. Merk meteen op dat deze fractie, en dus de \emph{gevoeligheid} van $k$ voor temperatuur, sterker is naarmate $E_a$ groter is --- een inzicht dat we in \S~\ref{sec:temperatuursgevoeligheid} kwantitatief zullen uitwerken.
+met $A$ de \emph{pre\"exponenti\"ele factor} en $E_a$ de \emph{activeringsenergie}, de energiedrempel tussen reagentia en overgangstoestand (\S~\ref{sec:activeringsenergie-kwantum}). De exponenti\"ele vorm verklaart waarom de snelheid zo sterk met de temperatuur stijgt: een verhoging van $T$ verhoogt de fractie van de moleculen met voldoende energie om de activeringsdrempel te overschrijden. Merk meteen op dat deze fractie, en dus de \emph{gevoeligheid} van $k$ voor temperatuur, sterker is naarmate $E_a$ groter is --- een inzicht dat we in \S~\ref{sec:temperatuursgevoeligheid} kwantitatief zullen uitwerken.
 
 \subsection{De betekenis van de activeringsenergie}
 
@@ -222,7 +169,7 @@ Een activeringsenergie van \SI{64}{\kilo\joule\per\mole} is typisch voor vele th
 
 Voor de ammoniaksynthese geldt $E_a \approx \SI{230}{\kilo\joule\per\mole}$ (zeer hoog wegens de sterke drievoudige stikstofbinding, hoofdstuk~\ref{ch:kwantum}). Een verhoging van \SI{300}{\kelvin} naar \SI{700}{\kelvin} levert:
 \[
-\frac{k(700)}{k(300)} = \exp\left[-\frac{\SI{230000}{\joule\per\mole}}{R}\left(\frac{1}{700} - \frac{1}{300}\right)\right] \approx 7.7\times10^{22} \approx 10^{23}.
+\frac{k(700)}{k(300)} = \exp\left[-\frac{230\,000}{8.314}\left(\frac{1}{700} - \frac{1}{300}\right)\right] \approx 7.7\times10^{22}.
 \]
 De reactiesnelheid neemt astronomisch toe. Dit verklaart waarom het Haber--Boschproces ondanks de thermodynamisch ongunstige hoge temperatuur toch bij \SIrange{400}{500}{\celsius} wordt uitgevoerd (hoofdstuk~\ref{ch:reagerend}, \S~\ref{sec:haber-bosch-integraal}): zonder voldoende temperatuur zou de kinetiek het proces volledig onmogelijk maken, ondanks de thermodynamische gunst bij lage temperatuur. We komen op dit precieze getal terug in \S~\ref{sec:temperatuursgevoeligheid}, waar we het vergelijken met de temperatuursgevoeligheid van de \emph{teruggaande} reactie.
 
@@ -272,7 +219,7 @@ Elke molecule botst zeven miljard keer per seconde, en legt tussen twee botsinge
 \begin{itemize}
 \item \textbf{Vacuümtechniek.} De vrije weglengte is omgekeerd evenredig met de druk. Bij \SI{e-6}{\milli\bar} (\SI{e-4}{\pascal}), typisch voor een coatingkamer of elektronenmicroscoop, is $\lambda \approx \SI{70}{\metre}$: moleculen botsen enkel nog tegen de wanden. Men spreekt van \emph{moleculaire stroming}, en de pompsnelheid wordt dan bepaald door de opening en niet meer door de viscositeit van het gas.
 \item \textbf{Knudsendiffusie.} Is de vrije weglengte groter dan de poriediameter $d_p$ (het \emph{Knudsengetal} $\mathrm{Kn} = \lambda/d_p > 1$), dan botsen moleculen vaker met de wand dan met elkaar. In de poriën van \SI{10}{\nano\metre} van de katalysatorkorrel uit hoofdstuk~\ref{ch:grensvlakken} is dat al zo bij \SI{1}{\bar}. De diffusieco\"effici\"ent hangt dan af van $\bar v$ en de poriegrootte, niet van de druk.
-\item \textbf{De wet van Graham.} Gassen die door een kleine opening ontsnappen (effusie), doen dat met een snelheid evenredig met $\bar v \propto 1/\sqrt{M}$. Helium ontsnapt daarom $\sqrt{32/4} \approx 2.8$ keer sneller uit een ballon dan zuurstof. Voor de verrijking van uranium als UF$_6$ is het verschil tussen $^{235}$U en $^{238}$U slechts een factor $\sqrt{352/349} = 1.0043$ per stap: duizenden stappen achter elkaar waren nodig, en vandaag vervangen centrifuges dit proces.
+\item \textbf{Effusie.} Door een gaatje dat kleiner is dan $\lambda$ ontsnappen moleculen met een snelheid evenredig met $\bar v \propto 1/\sqrt{M}$: de wet van Graham uit hoofdstuk~\ref{ch:energie}.
 \end{itemize}
 \end{toepassing}
 
@@ -292,9 +239,10 @@ Dat is de vergelijking van Arrhenius, met een pre\"exponenti\"ele factor $A = P\
 
 \begin{voorbeeld}{Hoe groot kan $A$ zijn?}
 Voor twee moleculen zo groot als N$_2$ ($\sigma = \SI{0.43}{\nano\metre\squared}$, $\bar v_\mathrm{rel} = \sqrt2\cdot\SI{475}{\metre\per\second} = \SI{672}{\metre\per\second}$) bij kamertemperatuur:
-\[
-A = \sigma\,\bar v_\mathrm{rel}\,N_A = (\SI{0.43e-18}{\metre\squared})(\SI{672}{\metre\per\second})(\SI{6.022e23}{\per\mole}) = \SI{1.7e8}{\metre\cubed\per\mole\per\second} = \SI{1.7e11}{\litre\per\mole\per\second}.
-\]
+\begin{align*}
+A = \sigma\,\bar v_\mathrm{rel}\,N_A &= (\SI{0.43e-18}{\metre\squared})(\SI{672}{\metre\per\second})(\SI{6.022e23}{\per\mole})\\
+&= \SI{1.7e8}{\metre\cubed\per\mole\per\second} = \SI{1.7e11}{\litre\per\mole\per\second}.
+\end{align*}
 Gemeten waarden voor eenvoudige radicaalreacties liggen in die buurt ($P \approx 0.1$--1). Voor reacties tussen grote organische moleculen meet men vaak $10^{-3}$ tot $10^{-6}$ keer minder: de sterische factor is dan klein, omdat slechts een klein stukje van elk molecule reactief is.
 \end{voorbeeld}
 
@@ -382,117 +330,77 @@ Voor $k_1 = \SI{0.10}{\per\minute}$ en $k_2 = \SI{0.05}{\per\minute}$ is $t_\mat
 \section{Reactiemechanismen en elementaire reacties}
 \label{sec:mechanismen}
 
-De \emph{bruto}reactie zoals bijvoorbeeld $\mathrm{N_2 + 3\,H_2 \rightarrow 2\,NH_3}$ beschrijft slechts de begin- en eindtoestand. In werkelijkheid verloopt vrijwel geen enkele chemische reactie in \'e\'en stap. Meestal verloopt de reactie via een reeks tussenliggende stappen die samen het \emph{reactiemechanisme} vormen.
+Bijna geen enkele reactie verloopt in \'e\'en stap. De brutoreactie beschrijft enkel begin- en eindtoestand; de weg ertussen is het \emph{reactiemechanisme}, een reeks \emph{elementaire reacties}. Een elementaire reactie is \'e\'en moleculaire gebeurtenis: een molecule die uiteenvalt (\emph{unimoleculair}), twee moleculen die botsen (\emph{bimoleculair}) of, zelden, drie tegelijk (\emph{termoleculair}). Alleen voor elementaire reacties volgt de orde uit de stoichiometrie: $A + B \rightarrow P$ is dan altijd $r = k[A][B]$.
 
-Een \emph{elementaire reactie} is een reactie die in \'e\'en moleculaire gebeurtenis plaatsvindt: een botsing tussen moleculen of een ontleding van \'e\'en molecule. Voor elementaire reacties komen de reactieorde en de stoichiometrie w\'el overeen. Een bimoleculaire elementaire reactie $A + B \rightarrow P$ is altijd tweede-orde met $r = k[A][B]$.
-
-\subsection{Moleculariteit}
-
-Elementaire reacties worden ingedeeld naar moleculariteit:
-\begin{itemize}
-\item \textbf{Unimoleculair}: \'e\'en molecule ondergaat een verandering (bv. $A \rightarrow P$, ogenschijnlijk eerste-orde --- zie evenwel \S~\ref{sec:lindemann}).
-\item \textbf{Bimoleculair}: twee moleculen botsen en reageren (bv. $A + B \rightarrow P$, tweede-orde).
-\item \textbf{Termoleculair}: drie moleculen botsen simultaan (zeldzaam, derde-orde).
-\end{itemize}
-
-\subsection{Voorbeeld: de reactie tussen waterstof en broom}
-
-De bruto-reactie $\mathrm{H_2 + Br_2 \rightarrow 2\,HBr}$ verloopt via een kettingmechanisme met meerdere elementaire stappen:
-\begin{align}
-\mathrm{Br_2} &\rightarrow 2\,\mathrm{Br\cdot} && \text{(initiatie)}, \\
-\mathrm{Br\cdot + H_2} &\rightarrow \mathrm{HBr + H\cdot} && \text{(propagatie)}, \\
-\mathrm{H\cdot + Br_2} &\rightarrow \mathrm{HBr + Br\cdot} && \text{(propagatie)}, \\
-2\,\mathrm{Br\cdot} &\rightarrow \mathrm{Br_2} && \text{(terminatie)}.
-\end{align}
-De experimenteel waargenomen snelheidswet is complex en niet eenvoudig uit de bruto-stoichiometrie af te leiden:
-\[
-r = \frac{k\,[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}}{1 + k'\,[\mathrm{HBr}]/[\mathrm{Br_2}]}.
-\]
-Dit illustreert dat de kinetiek van een meerstaps reactie niet zomaar uit de bruto-reactievergelijking kan worden afgelezen: het mechanisme moet gekend zijn.
+Een klassiek voorbeeld is $\mathrm{H_2 + Br_2 \rightarrow 2\,HBr}$. De reactie verloopt via een radicaalketen:
+\begin{align*}
+&\text{initiatie:} && \mathrm{Br_2} \rightarrow 2\,\mathrm{Br\cdot}\\
+&\text{propagatie:} && \mathrm{Br\cdot + H_2} \rightarrow \mathrm{HBr + H\cdot}, \qquad \mathrm{H\cdot + Br_2} \rightarrow \mathrm{HBr + Br\cdot}\\
+&\text{terminatie:} && 2\,\mathrm{Br\cdot} \rightarrow \mathrm{Br_2}
+\end{align*}
+met als gemeten snelheidswet $r = k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}/(1 + k'[\mathrm{HBr}]/[\mathrm{Br_2}])$. Die vorm volgt nooit uit de brutovergelijking; je hebt het mechanisme nodig.
 
 \section{De steady-state-benadering}
 \label{sec:steady-state}
 
-Voor reactiemechanismen met reactieve tussenprodukten (radicalen, ionen, enzym-substraatcomplexen, of --- zoals we hieronder zullen zien --- botsingsgeactiveerde moleculen) is de concentratie van deze tussenprodukten vaak klein en bijna constant. In dat geval kan de \emph{steady-state-benadering} (Bodenstein-aanname) worden gebruikt:
+Reactieve tussenproducten (radicalen, een enzym-substraatcomplex, een geactiveerde molecule) worden even snel verbruikt als gevormd. Hun concentratie blijft klein en nagenoeg constant. De \emph{steady-state-benadering} (Bodenstein) stelt daarom
 \begin{equation}
-\frac{\dd{[\text{tussenproduct}]}}{\dd{t}} \approx 0.
+\frac{\dd{[\text{tussenproduct}]}}{\dd{t}} \approx 0 .
 \end{equation}
-Deze aanname vereenvoudigt de afleiding van snelheidswetten aanzienlijk, en is gerechtvaardigd zolang het tussenproduct veel reactiever is dan de uitgangsstoffen, zodat het nooit in significante hoeveelheid kan opbouwen.
+Is \'e\'en stap veel trager dan de rest, dan bepaalt die \emph{snelheidsbepalende stap} de globale snelheid, zoals de smalste flessenhals de doorstroming bepaalt.
 
 \subsection{Voorbeeld: ontleding van ozon}
 \label{sec:ozon}
 
-De bruto-reactie $\mathrm{2\,O_3 \rightarrow 3\,O_2}$ verloopt via:
-\begin{align}
-\mathrm{O_3} &\xrightleftharpoons[k_{-1}]{k_1} \mathrm{O_2 + O} \quad \text{(snel evenwicht)}, \\
-\mathrm{O + O_3} &\xrightarrow{k_2} 2\,\mathrm{O_2} \quad \text{(traag)}.
-\end{align}
-De traagste stap bepaalt de snelheid: $r = k_2[\mathrm{O}][\mathrm{O_3}]$. Omdat $[\mathrm{O}]$ moeilijk meetbaar is, passen we de steady-state toe:
+$\mathrm{2\,O_3 \rightarrow 3\,O_2}$ verloopt via een snel evenwicht $\mathrm{O_3} \rightleftharpoons \mathrm{O_2 + O}$ ($k_1$, $k_{-1}$) en een trage stap $\mathrm{O + O_3} \rightarrow 2\,\mathrm{O_2}$ ($k_2$). Steady state voor het zuurstofatoom:
 \[
-\frac{\dd{[\mathrm{O}]}}{\dd{t}} = k_1[\mathrm{O_3}] - k_{-1}[\mathrm{O_2}][\mathrm{O}] - k_2[\mathrm{O}][\mathrm{O_3}] = 0.
+k_1[\mathrm{O_3}] - k_{-1}[\mathrm{O_2}][\mathrm{O}] - k_2[\mathrm{O}][\mathrm{O_3}] = 0 .
 \]
-Voor $k_2 \ll k_{-1}$ volgt $[\mathrm{O}] \approx k_1[\mathrm{O_3}]/(k_{-1}[\mathrm{O_2}])$, zodat:
+Omdat de tweede stap traag is ($k_2[\mathrm{O_3}] \ll k_{-1}[\mathrm{O_2}]$), volgt
 \[
-r = \frac{k_1 k_2}{k_{-1}} \frac{[\mathrm{O_3}]^2}{[\mathrm{O_2}]}.
+[\mathrm{O}] \approx \frac{k_1[\mathrm{O_3}]}{k_{-1}[\mathrm{O_2}]},
+\qquad
+r = k_2[\mathrm{O}][\mathrm{O_3}] = \frac{k_1 k_2}{k_{-1}} \frac{[\mathrm{O_3}]^2}{[\mathrm{O_2}]}.
 \]
-De snelheid hangt dus af van de concentratie van een product ($[\mathrm{O_2}]$), hetgeen het complexe, niet-triviale kinetische gedrag verklaart.
+Het product \ce{O2} remt de reactie: iets wat je uit de brutovergelijking nooit zou raden.
 
-\subsection{Het Lindemann-mechanisme: van botsingsactivering naar schijnbaar unimoleculair gedrag}
+\subsection{Het Lindemann-mechanisme}
 \label{sec:lindemann}
 
-Een klassiek probleem uit de vroege kinetiek betreft ogenschijnlijk unimoleculaire gasreacties, zoals de isomerisatie of ontleding van \'e\'en enkele molecule $A\to P$. Experimenteel blijkt de reactie bij hoge druk inderdaad eerste-orde te zijn, maar bij lage druk verschuift de orde naar \emph{twee}. Dit is op het eerste gezicht verrassend: hoe kan een reactie met \'e\'en molecule als reagens ooit tweede-orde gedrag vertonen?
-
-Het antwoord, voorgesteld door Lindemann (1922), is dat een molecule eerst voldoende energie moet verzamelen via een botsing vooraleer zij kan reageren. Het mechanisme bestaat uit twee stappen:
-\begin{align}
-A + A &\xrightleftharpoons[k_{-1}]{k_1} A^* + A \qquad \text{(activering/deactivering door botsing)}, \\
-A^* &\xrightarrow{k_2} P \qquad \text{(unimoleculaire ontleding van het geactiveerde molecule)}.
-\end{align}
-Hierin is $A^*$ een botsingsgeactiveerd molecule, met voldoende inwendige energie om te reageren, maar dat nog niet noodzakelijk reageert: een tweede botsing kan het evengoed weer deactiveren ($k_{-1}$).
-
-Toepassing van de steady-state-benadering (\S~\ref{sec:steady-state}) op $A^*$:
+Een molecule die ``gewoon uit elkaar valt'' ($A \to P$), gedraagt zich bij hoge druk als eerste orde, maar bij lage druk als tweede orde. Lindemann (1922) verklaarde dat: de molecule moet eerst energie krijgen door een botsing, en kan die bij een volgende botsing weer verliezen:
 \[
-\frac{\dd{[A^*]}}{\dd{t}} = k_1[A]^2 - k_{-1}[A^*][A] - k_2[A^*] = 0 \quad\Longrightarrow\quad [A^*] = \frac{k_1[A]^2}{k_{-1}[A]+k_2}.
+A + A \xrightleftharpoons[k_{-1}]{k_1} A^* + A, \qquad A^* \xrightarrow{k_2} P .
 \]
-De snelheid van productvorming is $r=k_2[A^*]$, zodat:
+Steady state voor $A^*$ geeft $[A^*] = k_1[A]^2/(k_{-1}[A]+k_2)$, en met $r = k_2[A^*]$:
 \begin{equation}
-\boxed{\;r = \frac{k_1k_2[A]^2}{k_{-1}[A]+k_2}.\;}
+\boxed{\;r = \frac{k_1k_2[A]^2}{k_{-1}[A]+k_2}\;}
 \label{eq:lindemann}
 \end{equation}
-Deze uitdrukking bezit twee grensgevallen, die precies het experimenteel waargenomen gedrag verklaren:
+Bij \textbf{hoge druk} ($k_{-1}[A] \gg k_2$) wordt een geactiveerde molecule meestal eerst weer gedeactiveerd: $r \approx (k_1k_2/k_{-1})[A]$, eerste orde. Bij \textbf{lage druk} ($k_2 \gg k_{-1}[A]$) reageert elke geactiveerde molecule meteen: $r \approx k_1[A]^2$, tweede orde, want de activerende botsing is nu de flessenhals (figuur~\ref{fig:lindemann}).
 
-\begin{itemize}
-\item \textbf{Hoge druk} ($[A]$ groot): botsingen zijn frequent, zodat $k_{-1}[A]\gg k_2$ --- een geactiveerd molecule wordt vrijwel altijd eerst gedeactiveerd door een nieuwe botsing vooraleer het kan reageren. Vergelijking~\eqref{eq:lindemann} reduceert tot
-\[
-r \approx \frac{k_1k_2}{k_{-1}}[A] = k_{\text{uni}}[A], \qquad k_{\text{uni}}=\frac{k_1k_2}{k_{-1}},
-\]
-\emph{eerste-orde} gedrag, met een effectieve snelheidsconstante $k_{\text{uni}}$ die zelf een combinatie is van drie elementaire snelheidsconstanten.
-\item \textbf{Lage druk} ($[A]$ klein): botsingen zijn zeldzaam, zodat $k_2\gg k_{-1}[A]$ --- een geactiveerd molecule reageert vrijwel altijd vooraleer een tweede botsing het kan deactiveren. Vergelijking~\eqref{eq:lindemann} reduceert tot
-\[
-r \approx k_1[A]^2,
-\]
-\emph{tweede-orde} gedrag: de activeringsstap zelf (een bimoleculaire botsing) wordt nu snelheidsbepalend.
-\end{itemize}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/lindemann}
+    \caption{Lindemann-mechanisme: de effectieve eerste-ordeconstante $k_\text{eff} = r/[A]$ in functie van de concentratie (logaritmische assen). Bij lage druk stijgt $k_\text{eff}$ evenredig met $[A]$ (tweede orde), bij hoge druk vlakt ze af tot $k_1k_2/k_{-1}$ (eerste orde). Michaelis--Menten en Langmuir--Hinshelwood tonen dezelfde verzadiging.}
+    \label{fig:lindemann}
+\end{figure}
 
-Het Lindemann-mechanisme toont zo, geheel analoog aan de Michaelis--Menten- en Langmuir--Hinshelwood-kinetiek die verderop in dit hoofdstuk aan bod komen (\S~\ref{sec:michaelis-menten} en \S~\ref{sec:langmuir-hinshelwood}), hoe een \emph{overgang tussen twee reactieordes} het natuurlijke gevolg is van een onderliggend tweestapsmechanisme met een verzadigbare tussenstap --- hier is het niet een oppervlak of een enzym dat verzadigt, maar de beschikbaarheid van geactiveerde moleculen die bij hoge druk sneller worden aangemaakt dan ze kunnen reageren.
-
-\subsection{De snelheidsbepalende stap}
-
-In vele mechanismen is er een stap die aanzienlijk trager verloopt dan de andere. Deze \emph{snelheidsbepalende stap} dicteert de globale reactiesnelheid. Wanneer men de snelheidsbepalende stap kent, kan men vaak de volledige snelheidswet direct afleiden zonder alle stappen in detail te analyseren --- zoals we hierboven zagen bij ozon (de trage stap 2) en bij Lindemann (afhankelijk van de druk, ofwel de activeringsstap, ofwel de deactivering).
+Dit patroon (een orde die verschuift doordat een tussenstap verzadigt) komt verderop nog twee keer terug: bij enzymen (\S~\ref{sec:michaelis-menten}) en bij katalysatoroppervlakken (\S~\ref{sec:langmuir-hinshelwood}).
 
 \section{Katalyse}
 \label{sec:katalyse}
 
-Een \emph{katalysator} is een stof die de reactiesnelheid verhoogt zonder zelf verbruikt te worden in de bruto-reactie. De katalysator verlaagt de activeringsenergie van zowel de voorwaartse als de teruggaande reactie, zodat de evenwichtsconstante --- en dus de thermodynamica --- ongewijzigd blijven (hoofdstuk~\ref{ch:reagerend}, \S~\ref{sec:haber-bosch-integraal}).
+Een \emph{katalysator} verhoogt de reactiesnelheid zonder zelf verbruikt te worden. Hij verlaagt de activeringsenergie van heen- \'en terugreactie evenveel, zodat de evenwichtsconstante niet verandert (hoofdstuk~\ref{ch:reagerend}).
 
 \subsection{Het principe}
 \label{sec:katalyse-principe}
 
-Zonder katalysator moet het systeem een hoge activeringsenergie $E_{a,\text{onkat}}$ overwinnen. Met katalysator wordt een alternatief reactiepad aangeboden met een lagere activeringsenergie $E_{a,\text{kat}}$. Uit de Arrheniusvergelijking volgt dat de snelheidsverhoging bedraagt:
+De katalysator biedt een andere weg met een lagere barri\`ere (figuur~\ref{fig:reactiecoordinaat-katalysator}). Volgens Arrhenius is de versnelling
 \begin{equation}
 \boxed{\;\frac{k_{\text{kat}}}{k_{\text{onkat}}} = \frac{A_{\text{kat}}}{A_{\text{onkat}}}\,\exp\!\left(\frac{E_{a,\text{onkat}} - E_{a,\text{kat}}}{RT}\right)\;}
 \label{eq:katalysator-versnelling}
 \end{equation}
-Aangezien het verschil aan activeringsenergie\"en vaak \SIrange{50}{100}{\kilo\joule\per\mole} bedraagt, kunnen snelheidsverhogingen van vele ordes van grootte worden gerealiseerd.
+Een verlaging van $E_a$ van \SI{150}{\kilo\joule\per\mole} naar \SI{75}{\kilo\joule\per\mole} geeft bij \SI{298}{\kelvin} (gelijke $A$) een factor $\exp(75\,000/(8.314 \cdot 298)) = e^{30.3} \approx 10^{13}$.
 
 \begin{figure}[htb]
     \centering
@@ -501,131 +409,85 @@ Aangezien het verschil aan activeringsenergie\"en vaak \SIrange{50}{100}{\kilo\j
     \label{fig:reactiecoordinaat-katalysator}
 \end{figure}
 
-\begin{voorbeeld}{Snelheidsverhoging door katalysator}
-Een katalysator verlaagt $E_a$ van \SI{150}{\kilo\joule\per\mole} naar \SI{75}{\kilo\joule\per\mole} (pre-exponenti\"ele factor gelijk verondersteld). Bij \SI{298}{\kelvin} is de snelheidsverhoging:
-\[
-\frac{k_{\text{kat}}}{k_{\text{onkat}}} = \exp\left(\frac{\SI{75000}{\joule\per\mole}}{(\SI{8.314}{\joule\per\mole\per\kelvin})(\SI{298}{\kelvin})}\right) = \exp(30.3) \approx 10^{13}.
-\]
-De reactie wordt bij kamertemperatuur meer dan tien biljoen keer sneller. Dit verklaart waarom katalysatoren essentieel zijn voor het laten verlopen van reacties bij aanvaardbare temperaturen.
-\end{voorbeeld}
-
-\subsection{Homogeen versus heterogeen: een fundamenteel onderscheid}
+\subsection{Homogeen versus heterogeen}
 \label{sec:homogeen-heterogeen}
 
-Katalysatoren worden in de eerste plaats ingedeeld naargelang de fase waarin zij zich bevinden ten opzichte van de reactanten. Dit onderscheid is niet louter classificatorisch: het bepaalt rechtstreeks hoe een industrieel proces wordt ontworpen, bedreven en opgeschaald.
+Het belangrijkste onderscheid voor de ingenieur is de fase (tabel~\ref{tab:homogeen-heterogeen}). Homogene katalysatoren zijn vaak selectiever en via hun liganden fijn af te stemmen, maar het product moet er nadien van gescheiden worden. Een vast katalysatorbed scheidt zichzelf. Daarom zijn de grote processen (Haber--Bosch, het contactproces, katalytisch kraken) bijna allemaal heterogeen.
 
-\begin{table}[h]
+\begin{table}[htb]
 \centering
+\caption{Homogene en heterogene katalyse vergeleken.}
+\label{tab:homogeen-heterogeen}
 \begin{tabular}{lll}
 \toprule
- & Homogene katalyse & Heterogene katalyse \\
+ & Homogeen & Heterogeen \\
 \midrule
-Fase katalysator & Zelfde fase als reactanten & Andere fase (meestal vast) \\
-Toegankelijkheid & Elk katalysatormolecule actief & Enkel oppervlakteatomen actief \\
-Selectiviteit & Doorgaans zeer hoog, afstembaar & Vaak lager, wel robuuster \\
-Scheiding van product & Vaak moeilijk (destillatie/extractie) & Eenvoudig (filtratie, vast bed) \\
-Thermische stabiliteit & Beperkt (ontbinding van complex) & Doorgaans hoog \\
-Typisch voorbeeld & Wilkinson-, Rh-katalysatoren & Fe, $\mathrm{V_2O_5}$, zeolieten \\
+Fase katalysator & zelfde fase als reactanten & andere fase (meestal vast) \\
+Actieve plaatsen & elke molecule & enkel oppervlakteatomen \\
+Selectiviteit & doorgaans hoog, afstembaar & vaak lager, wel robuust \\
+Productscheiding & moeilijk (destillatie) & eenvoudig (vast bed) \\
+Thermische stabiliteit & beperkt & doorgaans hoog \\
+Voorbeelden & zuur/base, Rh-complex, enzym & Fe, \ce{V2O5}, Pt, zeoliet \\
 \bottomrule
 \end{tabular}
-\caption{Vergelijking tussen homogene en heterogene katalyse.}
-\label{tab:homogeen-heterogeen}
 \end{table}
-
-Dit verklaart meteen een centrale spanning in de procesindustrie: homogene katalysatoren zijn vaak intrinsiek selectiever en gerichter te ontwerpen (via de ligandchemie rond een metaalcentrum), maar de moeilijke, energie-intensieve scheiding van het product uit de katalysatoroplossing (vaak destillatie van een thermisch gevoelig complex) is een aanzienlijk economisch nadeel. Heterogene katalysatoren zijn daarentegen per definitie triviaal te scheiden van een vloeibare of gasvormige productstroom (het is een vast bed), wat verklaart waarom de overgrote meerderheid van grootschalige petrochemische en anorganische processen (Haber--Bosch, contactproces, FCC) heterogeen gekatalyseerd is, ondanks vaak lagere intrinsieke selectiviteit. De rest van deze sectie werkt beide types systematisch uit, met bijzondere aandacht voor heterogene katalyse, waarvan de kinetiek onlosmakelijk verbonden is met het \emph{adsorptie-evenwicht} aan het katalysatoroppervlak.
 
 \subsection{Homogene katalyse}
 \label{sec:homogene-katalyse}
 
-Bij \emph{homogene katalyse} bevinden de katalysator en de reactanten zich in dezelfde fase. De katalysator is typisch een opgeloste stof in een vloeistof.
-
-\begin{itemize}
-\item \textbf{Zuur--basekatalyse}: $\mathrm{H^+}$ of $\mathrm{OH^-}$ als katalysator. Voorbeelden: hydrolyse van esters, inversie van sucrose.
-\item \textbf{Metaalcomplexkatalyse}: overgangsmetaalcomplexen die via oxidatie-reductiecycli werkzaam zijn. Voorbeelden: de Wilkinson-katalysator ($\mathrm{RhCl(PPh_3)_3}$) voor hydrogenering van alkenen; palladiumkatalysatoren in koppelingsreacties (Suzuki, Heck); Monsanto-proces voor azijnzuur uit methanol via $\mathrm{Rh}$-complexen.
-\item \textbf{Enzymkatalyse}: eiwitten als biologische katalysatoren, met een uitzonderlijke specificiteit en werkzaam bij milde temperaturen. Voorbeelden: fermentatieprocessen, enzymatische synthese van farmaca. Strikt genomen zijn enzymen in oplossing homogene katalysatoren, hoewel hun kinetiek (\S~\ref{sec:michaelis-menten}) sterk lijkt op die van heterogene oppervlaktekatalyse, net omdat beide gebaseerd zijn op een verzadigbare bindingsplaats.
-\end{itemize}
-
-\begin{voorbeeld}{Monsanto-proces voor azijnzuur}
-Het Monsanto-proces zet methanol om in azijnzuur via carbonylering:
-\[
-\mathrm{CH_3OH + CO \rightarrow CH_3COOH}.
-\]
-De katalysator is een opgelost $\mathrm{Rh}$-complex ($\mathrm{[Rh(CO)_2I_2]^-}$), werkzaam in waterig medium bij \SIrange{150}{200}{\celsius} en \SIrange{30}{60}{\bar} $\mathrm{CO}$. De selectiviteit bedraagt meer dan \SI{99}{\percent}. Dit is een van de meest succesvolle industri\"ele homogeen-gekatalyseerde processen ter wereld.
-\end{voorbeeld}
+Typische homogene katalysatoren zijn zuren en basen (esterhydrolyse, inversie van sucrose), opgeloste metaalcomplexen (de Wilkinsonkatalysator \ce{RhCl(PPh3)3} voor hydrogenering, Pd voor koppelingsreacties) en enzymen. Het \emph{Monsanto-proces} zet methanol en CO om tot azijnzuur met een opgelost rhodiumcomplex bij \SIrange{150}{200}{\celsius} en \SIrange{30}{60}{\bar}, met een selectiviteit boven \SI{99}{\percent}.
 
 \subsection{Heterogene katalyse}
 \label{sec:heterogene-katalyse}
 
-Bij \emph{heterogene katalyse} bevindt de katalysator zich in een andere fase dan de reactanten. Meestal gaat het om een vaste katalysator met vloeibare of gasvormige reactanten. Heterogene katalysatoren zijn bijzonder populair in de industrie omdat zij gemakkelijk uit het reactiemengsel kunnen worden gescheiden (tabel~\ref{tab:homogeen-heterogeen}).
+Een reactie op een vaste katalysator doorloopt vijf stappen (figuur~\ref{fig:katalyse-stappen}): (1) diffusie naar het oppervlak, (2) adsorptie, (3) reactie aan het oppervlak, (4) desorptie, (5) diffusie terug naar de gasfase. De traagste stap bepaalt de snelheid.
 
-De reactie verloopt aan het \emph{oppervlak} van de katalysator volgens een reeks opeenvolgende stappen:
-\begin{enumerate}
-\item \textbf{Diffusie} van de reactanten naar het oppervlak.
-\item \textbf{Adsorptie} van de reactanten aan het katalysatoroppervlak.
-\item \textbf{Reactie} tussen geadsorbeerde (of, zoals we zullen zien, tussen geadsorbeerde en niet-geadsorbeerde) species.
-\item \textbf{Desorptie} van de producten.
-\item \textbf{Diffusie} van de producten weg van het oppervlak.
-\end{enumerate}
-De traagste stap is snelheidsbepalend: naast de oppervlaktechemie (stappen 2--4, hieronder uitgewerkt) kunnen ook stappen 1 en 5 --- \emph{diffusie} van reactanten naartoe en producten weg van het oppervlak --- de globale snelheid limiteren. We bespreken dit eerst, vooraleer over te gaan naar de oppervlaktechemie zelf.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/katalyse_stappen}
+    \caption{De vijf stappen van een heterogeen gekatalyseerde reactie in een poreuze katalysatorkorrel. Stappen 1 en 5 zijn transport, stappen 2 tot 4 oppervlaktechemie.}
+    \label{fig:katalyse-stappen}
+\end{figure}
 
-\subsubsection{Diffusie: wanneer worden stappen 1 en 5 snelheidsbepalend?}
+\subsubsection{Diffusie: stappen 1 en 5}
 \label{sec:diffusie-katalyse}
 
-Diffusie is het transport van een stof onder invloed van een concentratiegradi\"ent, en wordt beschreven door de \emph{eerste wet van Fick}: de massastroom per oppervlakte-eenheid $j$ is evenredig met de concentratiegradi\"ent,
+Diffusie volgt de \emph{eerste wet van Fick}: de flux is evenredig met de concentratiegradi\"ent,
 \begin{equation}
-\boxed{\;j = -D\,\frac{\dd{c}}{\dd{x}},\;}
+\boxed{\;j = -D\,\frac{\dd{c}}{\dd{x}}\;}
 \label{eq:fick}
 \end{equation}
-waarin $D$ de \emph{diffusieco\"effici\"ent} is (\si{\metre\squared\per\second}). Gecombineerd met een massabalans levert dit de diffusievergelijking, $\partial c/\partial t = D\,\partial^2c/\partial x^2$, waaruit een fundamentele en zeer bruikbare vuistregel volgt: de karakteristieke tijd om een afstand $L$ via diffusie te overbruggen, schaalt \emph{kwadratisch} met die afstand:
+met $D$ de diffusieco\"effici\"ent (\si{\metre\squared\per\second}). Daaruit volgt de belangrijkste vuistregel van transport: de tijd om een afstand $L$ te overbruggen, schaalt met het \emph{kwadraat} van die afstand,
 \begin{equation}
-\boxed{\;t_{\text{diff}} \approx \frac{L^2}{D}.\;}
+\boxed{\;t_{\text{diff}} \approx \frac{L^2}{D}\;}
 \label{eq:diffusietijdschaal}
 \end{equation}
-Deze kwadratische schaling heeft een directe, praktische consequentie voor katalysatorontwerp: een verdubbeling van de deeltjesgrootte van een katalysatorkorrel verviervoudigt de tijd die reactanten nodig hebben om het actieve centrum in de poriën te bereiken.
 
 \begin{voorbeeld}{Diffusietijd in een poreuze katalysatorkorrel}
-Voor gasvormige diffusie in de poriën van een katalysatorkorrel geldt typisch $D\approx\SI{1e-5}{\metre\squared\per\second}$. Voor drie verschillende korrelgroottes (de karakteristieke diffusieafstand $L$, ongeveer de korrelstraal):
-\[
-\begin{array}{lll}
-L=\SI{1}{\milli\metre}: & t_{\text{diff}}=\dfrac{(\num{1e-3})^2}{\num{1e-5}} & \approx\SI{0.1}{\second},\\[2mm]
-L=\SI{0.1}{\milli\metre}: & t_{\text{diff}}=\dfrac{(\num{1e-4})^2}{\num{1e-5}} & \approx\SI{1}{\milli\second},\\[2mm]
-L=\SI{10}{\micro\metre}: & t_{\text{diff}}=\dfrac{(\num{1e-5})^2}{\num{1e-5}} & \approx\SI{10}{\micro\second}.
-\end{array}
-\]
-Een honderdvoudige verkleining van de korrelgrootte (van \SI{1}{\milli\metre} naar \SI{10}{\micro\metre}) versnelt de interne diffusie dus met een factor \num{10000}. Dit verklaart waarom industri\"ele katalysatoren vaak als fijn poeder of als korrels met een fijne poriestructuur worden toegepast: enkel zo blijft de oppervlaktereactie zelf (\S~\ref{sec:langmuir-hinshelwood}), en niet de diffusie ernaartoe, de snelheidsbepalende stap. De keerzijde --- kleinere korrels geven een grotere drukval over een gepakt bed --- is een klassieke ontwerpafweging die in een vervolgcursus reactorontwerp verder aan bod komt.
+Met $D \approx \SI{1e-5}{\metre\squared\per\second}$ (gas in poriën) is $t_\text{diff} \approx \SI{0.1}{\second}$ voor een korrel met straal \SI{1}{\milli\metre}, maar slechts \SI{10}{\micro\second} voor \SI{10}{\micro\metre}. Honderd keer kleiner is tienduizend keer sneller. Kleine korrels houden de oppervlaktereactie snelheidsbepalend, maar geven een grotere drukval over het bed: een klassieke ontwerpafweging voor Reactorentechnologie.
 \end{voorbeeld}
 
-\subsubsection{Adsorptie als eerste stap}
+\subsubsection{Adsorptie en Langmuir--Hinshelwood-kinetiek}
 \label{sec:adsorptie-kinetiek}
-
-De oppervlaktechemie begint met adsorptie. Het onderscheid tussen fysisorptie en chemisorptie, de Langmuir-isotherme en de BET-methode om het katalysatoroppervlak te meten, kwamen aan bod in hoofdstuk~\ref{ch:grensvlakken} (\S~\ref{sec:fysisorptie-chemisorptie} tot \S~\ref{sec:bet}). We gebruiken hier vooral de bedekkingsgraad volgens Langmuir,
-\[
-\theta_A = \frac{K_A\,p_A}{1+K_A\,p_A+K_B\,p_B},
-\]
-(vergelijking~\eqref{eq:langmuir-competitief}), en het inzicht dat chemisorptie de bindingen van het reagens verzwakt en zo de activeringsenergie van de volgende stap verlaagt.
-
-\subsubsection{Langmuir--Hinshelwood-kinetiek}
 \label{sec:langmuir-hinshelwood}
 
-Wanneer de oppervlaktereactie zelf snelheidsbepalend is (stap 3) en \emph{beide} reactanten eerst moeten adsorberen, leidt de competitieve Langmuir-isotherme (vergelijking~\eqref{eq:langmuir-competitief}) tot de \emph{Langmuir--Hinshelwood}-snelheidswet. Voor een bimoleculaire oppervlaktereactie tussen twee geadsorbeerde species, $A_{\text{ads}}+B_{\text{ads}}\to P$, is de snelheid evenredig met het product van beide bedekkingsgraden:
+Adsorptie (fysisorptie en chemisorptie, de Langmuir-isotherme, BET) kwam aan bod in hoofdstuk~\ref{ch:grensvlakken} (\S~\ref{sec:fysisorptie-chemisorptie} tot \S~\ref{sec:bet}). Chemisorptie verzwakt de bindingen van het reagens en verlaagt zo de barri\`ere van de oppervlaktereactie. Moeten \emph{beide} reactanten adsorberen en is de oppervlaktereactie snelheidsbepalend, dan is $r = k\,\theta_A\theta_B$. Met de competitieve Langmuir-isotherme (vergelijking~\eqref{eq:langmuir-competitief}) volgt de \emph{Langmuir--Hinshelwood}-snelheidswet:
 \begin{equation}
-r = k\,\theta_A\,\theta_B = k\cdot\frac{K_Ap_A}{1+K_Ap_A+K_Bp_B}\cdot\frac{K_Bp_B}{1+K_Ap_A+K_Bp_B} = \frac{k\,K_A\,K_B\,p_A\,p_B}{(1 + K_A\,p_A + K_B\,p_B)^2}.
+r = \frac{k\,K_A\,K_B\,p_A\,p_B}{(1 + K_A\,p_A + K_B\,p_B)^2}.
 \label{eq:langmuir-hinshelwood}
 \end{equation}
-Bij lage druk reduceert vergelijking~\eqref{eq:langmuir-hinshelwood} tot $r \approx k K_A K_B p_A p_B$ (tweede-orde gedrag, want het oppervlak is nagenoeg leeg); bij hoge druk van \'e\'en van beide componenten (bijvoorbeeld $A$) wordt het oppervlak door $A$ verzadigd (bedekkingsgraad $\theta_A\to1$, en dus $\theta_B\to0$ door verdringing), zodat de snelheid opnieuw \emph{afneemt}. Deze niet-monotone drukafhankelijkheid is een kenmerkende ``vingerafdruk'' van Langmuir--Hinshelwood-kinetiek, en volledig onbegrijpelijk zonder het onderliggende adsorptie-evenwicht.
+Bij lage druk is het oppervlak bijna leeg en $r \approx kK_AK_Bp_Ap_B$. Bij hoge $p_A$ verdringt $A$ het andere reagens van het oppervlak, en de snelheid \emph{daalt} weer (figuur~\ref{fig:lh-vs-er}). Zo werkt CO-oxidatie op platina, en zo werkt ook de ammoniaksynthese op ijzer.
 
 \subsubsection{Eley--Rideal-kinetiek}
 \label{sec:eley-rideal}
+\label{sec:lh-vs-er-onderscheid}
 
-Niet elke heterogene oppervlaktereactie vereist dat \emph{beide} reactanten adsorberen. Bij het \emph{Eley--Rideal}-mechanisme (1938, 1940) adsorbeert enkel \'e\'en component ($A$) aan het oppervlak, terwijl de tweede component ($B$) rechtstreeks vanuit de gasfase reageert met het geadsorbeerde $A$, zonder zelf te adsorberen:
-\[
-A_{\text{ads}} + B_{\text{(gas)}} \rightarrow P.
-\]
-De snelheid is dan evenredig met de bedekkingsgraad van $A$ (via de \emph{gewone}, niet-competitieve Langmuir-isotherme, want enkel $A$ adsorbeert) en met de partiële druk van $B$:
+Bij het \emph{Eley--Rideal}-mechanisme adsorbeert enkel $A$, en $B$ reageert er rechtstreeks vanuit de gasfase mee:
 \begin{equation}
 r = k\,\theta_A\,p_B = \frac{k\,K_A\,p_A\,p_B}{1+K_A\,p_A}.
 \label{eq:eley-rideal}
 \end{equation}
+Bij lage $p_A$ geven beide mechanismen hetzelfde. Bij hoge $p_A$ verschillen ze: Langmuir--Hinshelwood heeft een maximum, Eley--Rideal stijgt naar een plateau, want een volledig met $A$ bedekt oppervlak is voor $B$ juist ideaal. Dat verschil in het hogedrukgedrag is het experimentele criterium om beide te onderscheiden.
 
 \begin{figure}[htb]
     \centering
@@ -634,128 +496,57 @@ r = k\,\theta_A\,p_B = \frac{k\,K_A\,p_A\,p_B}{1+K_A\,p_A}.
     \label{fig:lh-vs-er}
 \end{figure}
 
-\subsubsection{Het onderscheid tussen Langmuir--Hinshelwood en Eley--Rideal}
-\label{sec:lh-vs-er-onderscheid}
-
-Beide mechanismen voorspellen, bij lage druk van $A$ ($K_Ap_A\ll1$), hetzelfde gedrag: $r\approx kK_Ap_Ap_B$, tweede-orde in de reactanten samen. Het onderscheid wordt pas duidelijk bij \emph{hoge} $p_A$ (figuur~\ref{fig:lh-vs-er}):
+\begin{toepassing}{Industri\"ele katalysatoren}
 \begin{itemize}
-\item \textbf{Langmuir--Hinshelwood}: de snelheid bereikt een maximum en \emph{daalt} vervolgens weer, omdat een oppervlak dat volledig met $A$ bedekt is geen ruimte meer overlaat voor $B$ om te adsorberen.
-\item \textbf{Eley--Rideal}: de snelheid stijgt monotoon en verzadigt naar een plateau $r\to k\,p_B$, omdat $B$ nooit hoeft te adsorberen: een volledig met $A$ bedekt oppervlak is voor het Eley--Rideal-pad juist \emph{optimaal}.
+\item \textbf{Haber--Bosch}: \ce{Fe3O4} met promotoren (\ce{K2O}, \ce{Al2O3}), \SIrange{400}{500}{\celsius}, \SIrange{150}{300}{\bar}. Snelheidsbepalend is de dissociatieve chemisorptie van \ce{N2}.
+\item \textbf{Contactproces}: \ce{V2O5} voor \ce{SO2 -> SO3} bij \SIrange{400}{500}{\celsius}.
+\item \textbf{Katalytisch kraken (FCC)}: zeolieten bij \SIrange{500}{600}{\celsius}. Thermisch kraken vroeg \SIrange{700}{800}{\celsius} en gaf veel cokes; de zeoliet verlaagt $E_a$ van meer dan \SI{250}{} tot ongeveer \SI{150}{\kilo\joule\per\mole} en is veel selectiever naar benzine.
+\item \textbf{Driewegkatalysator}: Pt, Pd, Rh op \ce{Al2O3} oxideert CO en koolwaterstoffen en reduceert \ce{NO_x}, met Langmuir--Hinshelwood-kinetiek.
+\item \textbf{Methanolsynthese}: \ce{Cu/ZnO/Al2O3} bij \SIrange{200}{300}{\celsius}.
 \end{itemize}
-Dit kwalitatieve verschil in het hoge-drukgedrag vormt het klassieke experimentele criterium om te bepalen welk mechanisme een gegeven heterogene reactie volgt. In de praktijk is Langmuir--Hinshelwood-kinetiek het meest voorkomende geval (bijvoorbeeld $\mathrm{CO}$-oxidatie op platina, ammoniaksynthese); Eley--Rideal-gedrag wordt onder andere waargenomen bij sommige hydrogeneringsreacties waarbij $\mathrm{H_2}$ dissociatief chemisorbeert terwijl het tweede reagens, een grotere, minder reactieve molecule, rechtstreeks vanuit de gasfase reageert.
-
-\subsubsection{Voorbeelden van heterogene katalysatoren}
-
-\begin{itemize}
-\item \textbf{Haber--Bosch (ijzerkatalysator)}: $\mathrm{Fe_3O_4}$ met $\mathrm{K_2O}$, $\mathrm{Al_2O_3}$, $\mathrm{CaO}$ als promotoren. Werkt bij \SIrange{400}{500}{\celsius} en \SIrange{150}{300}{\bar}. De snelheidsbepalende stap is de dissociatieve chemisorptie van $\mathrm{N_2}$ (\S~\ref{sec:fysisorptie-chemisorptie}), gevolgd door Langmuir--Hinshelwood-achtige oppervlaktereacties met geadsorbeerd waterstof.
-\item \textbf{Contactproces (zwavelzuur)}: $\mathrm{V_2O_5}$-katalysator voor $\mathrm{SO_2 + 1/2\,O_2 \rightarrow SO_3}$ bij \SIrange{400}{500}{\celsius}.
-\item \textbf{Katalytische kraker (FCC)}: zeoliet ($\mathrm{ZSM-5}$, USY) voor het kraken van lange koolwaterstoffen tot kortere, meer waardevolle fracties bij \SIrange{500}{600}{\celsius}.
-\item \textbf{Driewegkatalysator (auto-uitlaat)}: $\mathrm{Pt}$, $\mathrm{Pd}$, $\mathrm{Rh}$ op $\mathrm{Al_2O_3}$-drager voor de gelijktijdige oxidatie van $\mathrm{CO}$ en $\mathrm{HC}$ en reductie van $\mathrm{NO_x}$, met Langmuir--Hinshelwood-kinetiek tussen geadsorbeerd $\mathrm{CO}$ en geadsorbeerd zuurstof.
-\item \textbf{Methanolsynthese}: $\mathrm{Cu/ZnO/Al_2O_3}$-katalysator voor $\mathrm{CO + 2\,H_2 \rightarrow CH_3OH}$.
-\end{itemize}
-
-\begin{voorbeeld}{Katalytische kraking versus thermische kraking}
-Vroeger werden aardoliefracties thermisch gekraakt bij \SIrange{700}{800}{\celsius} onder hoge druk, hetgeen weinig selectief was en veel cokes opleverde. Met zeolietkatalysatoren kan men bij \SIrange{500}{600}{\celsius} werken, met een veel betere selectiviteit naar hoogwaardige benzinefracties. De katalysator verlaagt $E_a$ van meer dan \SI{250}{\kilo\joule\per\mole} tot ongeveer \SI{150}{\kilo\joule\per\mole}. Hierdoor kunnen lagere temperaturen worden gebruikt, wat zowel thermodynamisch (minder cokes) als economisch (lichtere installaties) voordelig is.
-\end{voorbeeld}
+\end{toepassing}
 
 \section{Enzymkinetiek: Michaelis--Menten}
 \label{sec:michaelis-menten}
 
-Enzymen vormen een speciale klasse van katalysatoren met een uitzonderlijke specificiteit. De klassieke modelbeschrijving is die van \emph{Michaelis--Menten}:
+Een enzym $E$ bindt zijn substraat $S$ tot een complex, dat het product vrijgeeft:
 \begin{equation}
 E + S \xrightleftharpoons[k_{-1}]{k_1} ES \xrightarrow{k_2} E + P.
 \end{equation}
-Met de steady-state-aanname voor $ES$ (\S~\ref{sec:steady-state}):
-\[
-\frac{\dd{[ES]}}{\dd{t}} = k_1[E][S] - (k_{-1} + k_2)[ES] = 0.
-\]
-Met de massabalans $[E]_0 = [E] + [ES]$ volgt de \emph{Michaelis--Mentenvergelijking}:
+Steady state voor $ES$ en de massabalans $[E]_0 = [E] + [ES]$ geven de \emph{Michaelis--Mentenvergelijking}:
 \begin{equation}
 \boxed{\;r = \frac{r_{\max}\,[S]}{K_M + [S]}\;}
+\qquad\text{met}\quad r_{\max} = k_2[E]_0, \quad K_M = \frac{k_{-1} + k_2}{k_1}.
 \end{equation}
-waarin:
-\begin{itemize}
-\item $r_{\max} = k_2\,[E]_0$ de maximale snelheid (bij verzadiging),
-\item $K_M = (k_{-1} + k_2)/k_1$ de Michaelis-constante, de concentratie waarbij $r = r_{\max}/2$.
-\end{itemize}
-Bij lage $[S]$ ($[S] \ll K_M$) gedraagt de enzymkinetiek zich als eerste-orde: $r \approx (r_{\max}/K_M)[S]$. Bij hoge $[S]$ ($[S] \gg K_M$) verzadigt het enzym en wordt $r \approx r_{\max}$ (nulde-orde in $[S]$). Deze vergelijking is wiskundig identiek aan de Langmuir-isotherme (vergelijking~\eqref{eq:langmuir-isotherm}, met $[S]\leftrightarrow p_A$, $K_M\leftrightarrow1/K_A$, en $ES/[E]_0\leftrightarrow\theta_A$): in beide gevallen verzadigt een eindig aantal bindingsplaatsen (enzym respectievelijk katalysatoroppervlak) bij toenemende concentratie of druk.
+$K_M$ is de substraatconcentratie waarbij $r = r_{\max}/2$. Bij $[S] \ll K_M$ is de reactie eerste orde, bij $[S] \gg K_M$ nulde orde: alle enzymen zijn bezet. De vergelijking heeft exact de vorm van de Langmuir-isotherme (vergelijking~\eqref{eq:langmuir-isotherm}); in beide gevallen verzadigt een eindig aantal bindingsplaatsen. Een voorbeeld: met $K_M = \SI{2.0}{\milli\mole\per\litre}$ geeft $[S] = K_M$ de helft van $r_{\max}$, en tien keer meer substraat slechts \SI{91}{\percent} van $r_{\max}$.
 
-\begin{voorbeeld}{Michaelis--Menten: numerieke interpretatie}
-Een enzym heeft $r_{\max} = \SI{5.0e-6}{\mole\per\litre\per\second}$ en $K_M = \SI{2.0e-3}{\mole\per\litre}$. Bij $[S] = \SI{2.0e-3}{\mole\per\litre}$ geldt:
-\[
-r = \frac{(\num{5.0e-6})(\num{2.0e-3})}{\num{2.0e-3} + \num{2.0e-3}} = \frac{\num{5.0e-6}}{2} = \SI{2.5e-6}{\mole\per\litre\per\second}.
-\]
-Bij $[S] = \SI{2.0e-2}{\mole\per\litre}$ (tienmaal $K_M$):
-\[
-r = \frac{(\num{5.0e-6})(\num{2.0e-2})}{\num{2.0e-3} + \num{2.0e-2}} \approx \SI{4.55e-6}{\mole\per\litre\per\second}.
-\]
-Bij een tienvoudige toename van $[S]$ neemt $r$ slechts met \SI{80}{\percent} toe: het enzym raakt verzadigd.
-\end{voorbeeld}
-
-\subsection{Diffusielimitatie: wanneer neemt transport het over van reactiekinetiek?}
+\subsection{Diffusielimitatie}
 \label{sec:diffusielimitatie}
 
-De snelheidsconstante $k_1$ waarmee een enzym $E$ en een substraat $S$ elkaar in de Michaelis--Mentenvergelijking ontmoeten (\S~\ref{sec:michaelis-menten}) kan, net als bij een heterogene katalysator (\S~\ref{sec:diffusie-katalyse}), nooit groter zijn dan de snelheid waarmee beide deeltjes elkaar via diffusie kunnen bereiken. Deze \emph{diffusie-gelimiteerde} snelheidsconstante voor een bimoleculaire ontmoeting in oplossing volgt uit de theorie van Smoluchowski:
+Enzym en substraat moeten elkaar eerst vinden. Sneller dan diffusie toelaat, kan dat niet. Volgens Smoluchowski is de maximale bimoleculaire snelheidsconstante in oplossing
 \begin{equation}
-\boxed{\;k_D = 4\pi N_A\,(D_A+D_B)\,(r_A+r_B),\;}
+\boxed{\;k_D = 4\pi N_A\,(D_A+D_B)\,(r_A+r_B)\;}
 \label{eq:smoluchowski}
 \end{equation}
-waarin $D_A$, $D_B$ de diffusieco\"effici\"enten en $r_A$, $r_B$ de straal van beide species zijn.
+Voor een klein substraat ($D \approx \SI{1e-9}{\metre\squared\per\second}$, $r \approx \SI{0.5}{\nano\metre}$) en een enzym ($D \approx \SI{1e-10}{\metre\squared\per\second}$, $r \approx \SI{3}{\nano\metre}$) is $k_D \approx \SI{3e10}{\litre\per\mole\per\second}$. Enzymen die dit benaderen (carboanhydrase, triosefosfaatisomerase) heten \emph{diffusie-perfect}: elke ontmoeting leidt tot reactie.
 
-\begin{voorbeeld}{De diffusielimiet voor een enzym--substraatontmoeting}
-Voor een klein substraat ($D_A\approx\SI{1e-9}{\metre\squared\per\second}$, $r_A\approx\SI{0.5}{\nano\metre}$) en een groter enzym ($D_B\approx\SI{1e-10}{\metre\squared\per\second}$, $r_B\approx\SI{3}{\nano\metre}$) in water geeft vergelijking~\eqref{eq:smoluchowski}:
-\[
-k_D = 4\pi(\SI{6.022e23}{\per\mole})(\SI{1.1e-9}{\metre\squared\per\second})(\SI{3.5e-9}{\metre}) \approx \SI{2.9e10}{\litre\per\mole\per\second}.
-\]
-Een enzym waarvan de experimentele verhouding $k_{\text{cat}}/K_M$ deze orde van grootte ($10^9$--$10^{10}\,\si{\litre\per\mole\per\second}$) benadert, wordt \emph{diffusie-perfect} genoemd: vrijwel elk substraatmolecule dat het enzym bereikt, wordt ook effectief omgezet, zodat de reactiechemie zelf niet langer snelheidsbepalend is. Carboanhydrase en triosefosfaatisomerase zijn klassieke voorbeelden van zulke diffusie-perfecte enzymen.
-\end{voorbeeld}
-
-Om $D$ te schatten voor een deeltje waarvan geen directe meting beschikbaar is, gebruikt men de \emph{vergelijking van Stokes--Einstein}, die diffusie (een statistisch, thermisch fenomeen) verbindt met de wrijving die een bolvormig deeltje ondervindt bij beweging door een viskeuze vloeistof (hoofdstuk~\ref{ch:intermoleculair} voor de moleculaire oorsprong van viscositeit):
+De diffusieco\"effici\"ent van een bolvormig deeltje schat je met de \emph{vergelijking van Stokes--Einstein}:
 \begin{equation}
-\boxed{\;D = \frac{k_BT}{6\pi\eta r}.\;}
+\boxed{\;D = \frac{k_BT}{6\pi\eta r}\;}
 \label{eq:stokes-einstein}
 \end{equation}
-Grotere deeltjes en een grotere viscositeit geven dus een kleinere $D$; hogere temperatuur geeft een grotere $D$.
-
-\begin{voorbeeld}{Stokes--Einstein: een homogene katalysator diffundeert trager dan zijn substraat}
-Beschouw een homogene katalysator zoals de Wilkinson-katalysator (\S~\ref{sec:homogene-katalyse}), met een effectieve straal $r\approx\SI{0.7}{\nano\metre}$, opgelost in tolueen ($\eta\approx\SI{6e-4}{\pascal\second}$) bij \SI{298}{\kelvin}:
-\[
-D_{\text{kat}} = \frac{(\SI{1.381e-23}{\joule\per\kelvin})(\SI{298}{\kelvin})}{6\pi(\SI{6e-4}{\pascal\second})(\SI{0.7e-9}{\metre})} \approx \SI{5.2e-10}{\metre\squared\per\second}.
-\]
-Ter vergelijking, een klein substraatmolecule met $r\approx\SI{0.15}{\nano\metre}$ in hetzelfde oplosmiddel diffundeert met $D\approx\SI{2.4e-9}{\metre\squared\per\second}$, ongeveer vijf maal sneller. Bij homogene katalyse (\S~\ref{sec:homogene-katalyse}) diffundeert de (doorgaans omvangrijke) katalysatorcomplex dus systematisch trager dan de kleine reactanten die het moet activeren --- een overweging die meespeelt bij het ontwerp van roersystemen in industri\"ele reactoren, om te garanderen dat menging, en niet diffusie, de species bijeenbrengt.
-\end{voorbeeld}
+Een opgeloste metaalcomplexkatalysator ($r \approx \SI{0.7}{\nano\metre}$) in tolueen ($\eta = \SI{6e-4}{\pascal\second}$) heeft $D \approx \SI{5e-10}{\metre\squared\per\second}$, vijf keer trager dan een klein substraatmolecule. In een grote reactor moet roeren, niet diffusie, de stoffen bijeenbrengen.
 
 \section{Kinetiek en reactorontwerp}
 
-Voor de ingenieur is de kinetiek niet alleen een fundamentele beschrijving van moleculair gedrag; zij vormt ook de basis van reactorontwerp. Dit deel is bewust kort: het vak Reactorentechnologie (met het boek van Levenspiel) werkt het verder uit. De verblijftijd die nodig is om een bepaalde omzetting te bereiken hangt direct af van de snelheidswet. Enkele sleutelrelaties:
-
-\subsection{Batch- of stroomreactor}
-
-Voor een eerste-orde reactie in een ideale batch- of plug-flow reactor geldt:
+Het vak Reactorentechnologie (Levenspiel) werkt reactorontwerp uit; hier enkel de kern. De benodigde verblijftijd $\tau$ volgt uit de snelheidswet. Voor een eerste-orde reactie met omzetting $X$:
 \begin{equation}
-\tau = \frac{1}{k}\ln\frac{[A]_0}{[A]} = \frac{1}{k}\ln\frac{1}{1-X},
+\tau_\text{batch/PFR} = \frac{1}{k}\ln\frac{1}{1-X},
+\qquad
+\tau_\text{CSTR} = \frac{1}{k}\,\frac{X}{1-X}.
 \end{equation}
-waarin $\tau$ de verblijftijd (of reactortijd) en $X$ de omzetting is. Voor $X = 0.99$ geldt $\tau = 4.6/k$. Voor een tweede-orde reactie:
-\begin{equation}
-\tau = \frac{1}{k[A]_0}\frac{X}{1-X}.
-\end{equation}
+In een ideaal geroerde tank (CSTR) heerst overal de lage eindconcentratie, in een batch- of propstroomreactor (PFR) daalt de concentratie geleidelijk. Voor $X = 0.90$ en $k = \SI{0.05}{\per\second}$ is $\tau_\text{PFR} = \SI{46}{\second}$ en $\tau_\text{CSTR} = \SI{180}{\second}$: de tank moet bijna vier keer groter zijn. Voor een tweede-orde reactie in een batchreactor is $\tau = X/(k[A]_0(1-X))$.
 
-\subsection{Continu geroerde tank (CSTR)}
-
-Voor een CSTR met volume $V$ en debiet $Q$ geldt voor een eerste-orde reactie:
-\begin{equation}
-X = \frac{k\tau}{1 + k\tau}, \qquad \tau = \frac{V}{Q}.
-\end{equation}
-Voor eenzelfde omzetting is een CSTR steeds groter dan een plug-flow reactor. Dit verschil neemt toe met de reactieorde.
-
-\begin{voorbeeld}{Reactorvergelijking eerste-orde}
-Voor $X = 0.90$ bij een eerste-orde reactie met $k = \SI{0.05}{\per\second}$:
-\begin{itemize}
-\item Plug-flow: $\tau = (1/k)\ln(1/(1-0.9)) = (1/0.05)\ln 10 = \SI{46}{\second}$.
-\item CSTR: $\tau = X/(k(1-X)) = 0.9/(0.05 \cdot 0.1) = \SI{180}{\second}$.
-\end{itemize}
-Een CSTR is bijna viermaal groter dan een plug-flow reactor voor dezelfde omzetting. Dit verklaart waarom de keuze van het reactortype een fundamentele ontwerpbeslissing is.
-\end{voorbeeld}
 
 \section{Warmte en snelheid: wanneer een reactor op hol slaat}
 \label{sec:runaway}
@@ -793,59 +584,37 @@ Op 10 juli 1976 liep in een fabriek in Meda, bij Seveso (Itali\"e), een reactor 
 \section{De brug tussen thermodynamica en kinetiek}
 \label{sec:brug-thermo-kinetiek}
 
-In hoofdstuk~\ref{ch:spontaniteit} zagen we dat de thermodynamica de eindtoestand van een systeem bepaalt. In dit hoofdstuk hebben we gezien dat de kinetiek bepaalt hoe snel die toestand wordt bereikt. In de praktijk moeten ingenieurs steeds beide samen beschouwen.
-
-Een exact verband tussen beide kan worden afgeleid via de activeringsenergie. Voor een omkeerbare, elementaire reactie:
+Voor een omkeerbare elementaire reactie $A \rightleftharpoons B$ is $K = k_1/k_{-1}$ (\S~\ref{sec:omkeerbare-reacties}). Beide constanten volgen Arrhenius, dus $\dd\ln k/\dd T = E_a/RT^2$ voor elk. Aftrekken geeft
 \[
-A \underset{k_{-1}}{\stackrel{k_1}{\rightleftharpoons}} B,
+\frac{\dd{\ln K}}{\dd{T}} = \frac{E_{a,\text{heen}} - E_{a,\text{terug}}}{RT^2}.
 \]
-geldt bij evenwicht $k_1[A] = k_{-1}[B]$, zodat $K = k_1/k_{-1}$. Beide snelheidsconstanten volgen de Arrheniusvergelijking~\eqref{eq:arrhenius}; differentiëren van $\ln k_1$ en $\ln k_{-1}$ afzonderlijk naar $T$ (vergelijking~\eqref{eq:arrhenius-log}) levert:
-\[
-\frac{\dd{\ln k_1}}{\dd{T}} = \frac{E_{a,\text{voorw}}}{RT^2}, \qquad \frac{\dd{\ln k_{-1}}}{\dd{T}} = \frac{E_{a,\text{terug}}}{RT^2}.
-\]
-Omdat $\ln K = \ln k_1 - \ln k_{-1}$, volgt door aftrekken:
+Vergelijk met Van 't Hoff (vergelijking~\eqref{eq:vanthoff-diff}), $\dd\ln K/\dd T = \Delta_rH^\circ/RT^2$:
 \begin{equation}
-\frac{\dd{\ln K}}{\dd{T}} = \frac{E_{a,\text{voorw}} - E_{a,\text{terug}}}{RT^2}.
-\end{equation}
-Vergelijking met de reeds afgeleide differenti\"ele vergelijking van Van 't Hoff (hoofdstuk~\ref{ch:reagerend}, vergelijking~\eqref{eq:vanthoff-diff}), $\dd{\ln K}/\dd{T} = \Delta_rH^\circ/(RT^2)$, levert onmiddellijk:
-\begin{equation}
-\boxed{\;E_{a,\text{voorw}} - E_{a,\text{terug}} \approx \Delta_r H^\circ\;}
+\boxed{\;E_{a,\text{heen}} - E_{a,\text{terug}} \approx \Delta_r H^\circ\;}
 \label{eq:Ea-verschil-drH}
 \end{equation}
-Het verschil tussen beide activeringsenergie\"en is dus de reactie-enthalpie --- geen toevallige gelijkenis, maar een rechtstreeks gevolg van het feit dat zowel $k_1/k_{-1}$ als $K$ dezelfde temperatuursafhankelijke grootheid beschrijven. Een exotherme reactie ($\Delta_rH^\circ<0$) heeft dus noodzakelijk een lagere activeringsenergie in de voorwaartse richting dan in de teruggaande richting (zoals ook al zichtbaar was in figuur~\ref{fig:reactiecoordinaat-katalysator}: het energieverschil tussen begin- en eindtoestand is exact $\Delta_rH$, ongeacht welk pad --- gekatalyseerd of niet --- wordt gevolgd).
+Dat zie je ook in figuur~\ref{fig:reactiecoordinaat-katalysator}: het hoogteverschil tussen begin- en eindtoestand is $\Delta_rH$, welke weg je ook neemt. Een exotherme reactie heeft dus altijd een lagere barri\`ere heen dan terug.
 
 \subsection{Temperatuursgevoeligheid van exotherme en endotherme reacties}
 \label{sec:temperatuursgevoeligheid}
 
-Vergelijking~\eqref{eq:Ea-verschil-drH} heeft een opmerkelijke praktische consequentie. Omdat de temperatuursgevoeligheid van een snelheidsconstante, via de Arrheniusvergelijking, recht evenredig toeneemt met $E_a$ (\S~\ref{sec:arrhenius}), zijn de voorwaartse en de achterwaartse richting van eenzelfde evenwichtsreactie \emph{nooit even gevoelig voor temperatuur} zodra $\Delta_rH^\circ\neq0$: de richting met de hoogste activeringsenergie reageert veel sterker op een temperatuurswijziging dan de richting met de laagste.
+Hoe groter $E_a$, hoe gevoeliger $k$ voor de temperatuur. Bij een exotherme evenwichtsreactie versnelt de \emph{terug}reactie dus sterker bij opwarming dan de heenreactie.
 
-\begin{voorbeeld}{Ammoniaksynthese: voorwaartse versus achterwaartse temperatuursgevoeligheid}
-Voor $\mathrm{N_2+3\,H_2\rightleftharpoons2\,NH_3}$ gebruiken we opnieuw $E_{a,\text{voorw}}\approx\SI{230}{\kilo\joule\per\mole}$ (\S~\ref{sec:ammoniak-arrhenius}) en $\Delta_rH^\circ\approx\SI{-92}{\kilo\joule\per\mole}$ (hoofdstuk~\ref{ch:reagerend}, \S~\ref{sec:haber-bosch}). Uit vergelijking~\eqref{eq:Ea-verschil-drH}:
-\[
-E_{a,\text{terug}} = E_{a,\text{voorw}} - \Delta_rH^\circ = 230 - (-92) = \SI{322}{\kilo\joule\per\mole}.
-\]
-De activeringsenergie van de \emph{ontleding} van ammoniak (de endotherme, achterwaartse reactie) is dus aanzienlijk hoger dan die van de \emph{vorming} (de exotherme, voorwaartse reactie). We berekenen de temperatuursgevoeligheid van beide snelheidsconstanten tussen \SI{300}{\kelvin} en \SI{700}{\kelvin}, op precies dezelfde manier als in \S~\ref{sec:ammoniak-arrhenius}:
-\[
-\frac{k_{\text{voorw}}(700)}{k_{\text{voorw}}(300)} \approx 7.7\times10^{22}, \qquad \frac{k_{\text{terug}}(700)}{k_{\text{terug}}(300)} \approx 1.1\times10^{32}.
-\]
-De \emph{achterwaartse} snelheidsconstante is dus tien orden van grootte gevoeliger voor deze temperatuursverhoging dan de voorwaartse! Dit is geen inconsistentie, maar de kinetische keerzijde van dezelfde medaille als de Van 't Hoff-vergelijking: omdat $K=k_{\text{voorw}}/k_{\text{terug}}$, en $k_{\text{terug}}$ veel sterker stijgt dan $k_{\text{voorw}}$, moet $K$ zelf dalen met stijgende temperatuur --- exact de daling van $K\approx6\times10^5$ naar $K\approx3\times10^{-4}$ die reeds via de zuiver thermodynamische Van 't Hoff-vergelijking werd berekend (hoofdstuk~\ref{ch:reagerend}, \S~\ref{sec:vanthoff-reagerend}). De twee berekeningswijzen --- de ene puur thermodynamisch (Van 't Hoff, met enkel $\Delta_rH^\circ$), de andere kinetisch (het \emph{verschil} in temperatuursgevoeligheid van twee afzonderlijke snelheidsconstanten) --- leveren dus, zoals ze moeten, exact hetzelfde resultaat op.
+\begin{voorbeeld}{Ammoniaksynthese: heen- en terugreactie}
+Met $E_{a,\text{heen}} \approx \SI{230}{\kilo\joule\per\mole}$ (\S~\ref{sec:ammoniak-arrhenius}) en $\Delta_rH^\circ \approx \SI{-92}{\kilo\joule\per\mole}$ is $E_{a,\text{terug}} = 230 + 92 = \SI{322}{\kilo\joule\per\mole}$. Van \SI{300}{\kelvin} naar \SI{700}{\kelvin} stijgt $k_\text{heen}$ met een factor $7.7\times10^{22}$, maar $k_\text{terug}$ met $1.1\times10^{32}$: tien grootteordes meer. Daarom daalt $K = k_\text{heen}/k_\text{terug}$ van ongeveer $6\times10^5$ naar $3\times10^{-4}$, precies wat Van 't Hoff ook gaf (\S~\ref{sec:vanthoff-reagerend}). Thermodynamica en kinetiek vertellen hetzelfde verhaal.
 \end{voorbeeld}
-
-Dit inzicht verklaart in bredere zin waarom sterk exotherme evenwichtsreacties (ammoniaksynthese, maar ook bijvoorbeeld $\mathrm{SO_2}$-oxidatie in het contactproces) bij hogere temperatuur zo snel minder opbrengst geven: het is niet enkel de \emph{ligging} van het evenwicht die verschuift (Le Ch\^atelier, hoofdstuk~\ref{ch:reagerend}), maar de onderliggende reden is dat de teruggaande (hier: endotherme) reactie een systematisch hogere activeringsenergie bezit, en dus systematisch sterker versnelt bij opwarming dan de voorwaartse reactie.
 
 \section{Industri\"ele toepassingen: een overzicht}
 
-De combinatie van thermodynamica en kinetiek bepaalt het ontwerp van vrijwel ieder industrieel chemisch proces. Enkele kenmerkende voorbeelden:
-
+Bij elk proces zoekt de ingenieur een compromis tussen evenwicht (thermodynamica) en snelheid (kinetiek), en de katalysator verschuift dat compromis.
 \begin{itemize}
-\item \textbf{Haber--Bosch (ammoniak)}: exotherme evenwichtsreactie; thermodynamisch gunstig bij lage temperatuur, maar kinetisch vereist \SIrange{400}{500}{\celsius} met heterogene $\mathrm{Fe}$-katalysator (\S~\ref{sec:heterogene-katalyse}), en de opbrengst daalt bij hoge $T$ extra snel net wegens het grote verschil in activeringsenergie tussen vorming en ontleding (\S~\ref{sec:temperatuursgevoeligheid}). Compromis tussen opbrengst en snelheid.
-\item \textbf{Methanolsynthese}: exotherme reactie bij \SIrange{200}{300}{\celsius} en \SIrange{50}{100}{\bar}, met $\mathrm{Cu/ZnO/Al_2O_3}$-katalysator. Lagere temperatuur dan Haber--Bosch wegens actievere katalysator.
-\item \textbf{Stoomreforming van methaan}: endotherme reactie bij \SIrange{800}{900}{\celsius}, Ni-katalysator. Hoge temperatuur vereist door zowel endotherme thermodynamica als kinetiek.
-\item \textbf{Contactproces ($\mathrm{SO_2}$-oxidatie)}: exotherme reactie bij \SIrange{400}{500}{\celsius} met $\mathrm{V_2O_5}$. Compromis: lage temperatuur thermodynamisch gunstig, hoge temperatuur kinetisch nodig.
-\item \textbf{Driewegkatalysator auto}: werkt bij uitlaattemperatuur (\SIrange{300}{800}{\celsius}) en moet \SIrange{95}{99}{\percent} van $\mathrm{CO}$, $\mathrm{HC}$, $\mathrm{NO_x}$ verwijderen. Heterogene katalyse met edelmetalen op $\mathrm{Al_2O_3}$-drager, Langmuir--Hinshelwood-kinetiek (\S~\ref{sec:langmuir-hinshelwood}).
+\item \textbf{Haber--Bosch} en het \textbf{contactproces}: exotherm, dus lage $T$ geeft meer opbrengst, maar zonder \SIrange{400}{500}{\celsius} is de reactie te traag.
+\item \textbf{Methanolsynthese}: ook exotherm, maar een actievere koperkatalysator laat \SIrange{200}{300}{\celsius} toe.
+\item \textbf{Stoomreforming van methaan}: endotherm; zowel evenwicht als snelheid vragen \SIrange{800}{900}{\celsius}.
+\item \textbf{Driewegkatalysator}: moet bij \SIrange{300}{800}{\celsius} meer dan \SI{95}{\percent} van CO, koolwaterstoffen en \ce{NO_x} omzetten; bij een koude start is hij nog niet actief.
 \end{itemize}
+Een betere katalysator laat een lagere temperatuur toe (meer opbrengst) zonder dat de reactie te traag wordt.
 
-In alle gevallen geldt: de katalysator verschuift het compromis tussen thermodynamica en kinetiek. Een betere katalysator laat toe een lagere temperatuur te gebruiken (thermodynamisch gunstiger) zonder de reactie onaanvaardbaar traag te maken.
 
 \section{Samenvatting en reflectie}
 
