@@ -1,0 +1,469 @@
+% Oefeningen bij dit hoofdstuk (ingevoegd achteraan het hoofdstuk met \input).
+% Een oefening:  \begin{oefening}[titel] ... \end{oefening}   (boek en website)
+% De oplossing:  \begin{oplossing} ... \end{oplossing}       (enkel website, dichtgeklapt)
+
+Constanten: $h = \SI{6.626e-34}{\joule\second}$, $c = \SI{2.998e8}{\metre\per\second}$, $k_B = \SI{1.381e-23}{\joule\per\kelvin}$, $m_e = \SI{9.109e-31}{\kilogram}$, $\SI{1}{\electronvolt} = \SI{1.602e-19}{\joule}$, $1\,\mathrm{u} = \SI{1.6605e-27}{\kilogram}$, $N_A = \SI{6.022e23}{\per\mole}$.
+
+\begin{oefening}[Energie van fotonen en het foto-elektrisch effect]
+Cesium heeft een elektronenbindingsenergie (werkfunctie) van \(1.95\,\mathrm{eV}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de minimale frequentie en golflengte van licht die nodig is om elektronen uit een cesiumoppervlak los te slaan.
+\item[(b)]
+  Wordt zichtbaar licht (ca. \(400\)--\(700\,\mathrm{nm}\)) hiervoor gebruikt? Of eerder UV?
+\item[(c)]
+  Bereken de maximale kinetische energie van de losgeslagen elektronen wanneer cesium wordt belicht met licht van \(\lambda = 400\,\mathrm{nm}\).
+\end{enumerate}
+
+\emph{Hint:} gebruik \(E_{\text{foton}} = h\nu = hc/\lambda\) en \(1~\mathrm{eV} = 1.602\times10^{-19}\,\mathrm{J}\).
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\nu_0\) = \textbf{4.71\ensuremath{\cdot{}}10\ensuremath{^{14}} Hz}, \(\lambda_0\) = \textbf{636 nm}. (b) Zichtbaar licht volstaat (alles onder 636 nm). (c) \(E_{k,\max}\) = \textbf{1.15 eV} (1.84\ensuremath{\cdot{}}10\ensuremath{^{-19}} J).
+
+\textbf{(a)} De drempelfrequentie volgt uit \(h\nu_0 = \phi\):
+
+\[
+\nu_0 = \frac{(1.95)(1.602\times10^{-19})}{6.626\times10^{-34}} = 4.71\times10^{14}\,\mathrm{Hz}, \qquad \lambda_0 = \frac{c}{\nu_0} = 636\,\mathrm{nm}
+\]
+
+\textbf{(b)} Alle licht met \(\lambda < 636\,\mathrm{nm}\) maakt elektronen vrij: dat is het grootste deel van het zichtbare spectrum (violet tot oranje). Zichtbaar licht volstaat dus; UV is niet nodig. Daarom werd cesium (en cesiumverbindingen) gebruikt in fotocellen en fotomultiplicatoren voor zichtbaar licht.
+
+\textbf{(c)} \(E_{\text{foton}} = hc/\lambda = 3.10\,\mathrm{eV}\), dus \(E_{k,\max} = 3.10 - 1.95 = 1.15\,\mathrm{eV} = 1.84\times10^{-19}\,\mathrm{J}\).
+\end{oplossing}
+
+\begin{oefening}[Energieniveaus van het waterstofatoom]
+De energieniveaus van het waterstofatoom worden gegeven door \(E_n = -13{,}6~\mathrm{eV}/n^2\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de energie van de overgang \(n=3 \to n=2\) (Balmer-reeks) en de golflengte van het uitgezonden foton.
+\item[(b)]
+  Vergelijk met de overgang \(n=2 \to n=1\) (Lyman-reeks). Welke reeks ligt in het zichtbare gebied?
+\item[(c)]
+  Hoeveel energie is minimaal nodig om een elektron uit de grondtoestand volledig te ioniseren (tot \(n \to \infty\))?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta E\) = \textbf{1.89 eV}, \(\lambda\) = \textbf{656 nm} (rood). (b) \textbf{10.2 eV}, \textbf{122 nm} (UV): de Balmer-reeks is zichtbaar. (c) \textbf{13.6 eV} (1312 kJ/mol).
+
+\textbf{(a)} \(\Delta E = 13.6\left(\frac{1}{4} - \frac{1}{9}\right) = 1.89\,\mathrm{eV}\), zodat \(\lambda = hc/\Delta E = 656\,\mathrm{nm}\): de rode H\(_\alpha\)-lijn.
+
+\textbf{(b)} \(\Delta E = 13.6\left(1 - \frac{1}{4}\right) = 10.2\,\mathrm{eV}\), zodat \(\lambda = 122\,\mathrm{nm}\) (UV). De Balmer-reeks (eindniveau \(n = 2\)) ligt in het zichtbare gebied; de Lyman-reeks (\(n = 1\)) volledig in het UV.
+
+\textbf{(c)} \(E_{\text{ion}} = 0 - (-13.6) = 13.6\,\mathrm{eV}\), of \(1312\,\mathrm{kJ/mol}\).
+\end{oplossing}
+
+\begin{oefening}[Bindingsenergie en reactie-enthalpie]
+Beschouw de synthese van waterstofchloride uit de elementen:
+
+\[
+\mathrm{H_2(g) + Cl_2(g) \rightarrow 2\,HCl(g)}.
+\]
+
+Gebruik de volgende gemiddelde bindingsenergieën:
+
+\begin{itemize}
+\item
+  \(D(\mathrm{H{-}H}) = 436\,\mathrm{kJ/mol}\)
+\item
+  \(D(\mathrm{Cl{-}Cl}) = 243\,\mathrm{kJ/mol}\)
+\item
+  \(D(\mathrm{H{-}Cl}) = 431\,\mathrm{kJ/mol}\)
+\end{itemize}
+
+Gevraagd:
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de reactie-enthalpie uit de bindingsenergieën.
+\item[(b)]
+  Vergelijk met de waarde die men via standaardvormingsenthalpieën zou krijgen (\(\Delta H_f^\circ(\mathrm{HCl,g}) = -92.3\,\mathrm{kJ/mol}\)). Verklaar eventuele verschillen.
+\item[(c)]
+  Waarom is deze benadering met gemiddelde bindingsenergieën slechts een schatting?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta_r H \approx\) \textbf{\ensuremath{-}183 kJ} per 2 mol HCl. (b) Via vormingsenthalpieën \textbf{\ensuremath{-}184.6 kJ}: minder dan 1 \% verschil. (c) Gemiddelde bindingsenergieën negeren de chemische omgeving (fout typisch 10--30 kJ/mol).
+
+\textbf{(a)} Verbroken: één H--H en één Cl--Cl; gevormd: twee H--Cl.
+
+\[
+\Delta_r H \approx 436 + 243 - 2(431) = -183\,\mathrm{kJ}\ \text{(per 2 mol HCl)}
+\]
+
+\textbf{(b)} Via vormingsenthalpieën: \(\Delta_r H^\circ = 2(-92.3) = -184.6\,\mathrm{kJ}\). Het verschil is minder dan 1 \%. Dat is hier zo goed omdat het om tweeatomige moleculen gaat: de gebruikte \(D\)-waarden zijn dan geen gemiddelden over veel verbindingen maar de werkelijke dissociatie-energieën van precies deze moleculen. Het kleine restverschil komt van afrondingen en van het feit dat bindingsenergieën en vormingsenthalpieën niet bij exact dezelfde referentietemperatuur gedefinieerd zijn.
+
+\textbf{(c)} In polyatomische moleculen hangt de sterkte van een binding af van de chemische omgeving: een C--H binding in methaan is niet even sterk als een C--H binding in benzeen. Tabelwaarden zijn gemiddelden over veel verbindingen; bovendien negeren ze resonantie, ringspanning en intermoleculaire krachten (de waarden gelden voor de gasfase). Typische fouten bedragen 10 à 30 kJ/mol.
+\end{oplossing}
+
+\begin{oefening}[Uitsluitingsprincipe en elektronenconfiguraties]
+Geef de volledige elektronenconfiguratie (in termen van orbitalen) van de volgende elementen in hun grondtoestand:
+
+\begin{enumerate}
+\item[(a)]
+  koolstof (\(Z=6\)),
+\item[(b)]
+  zuurstof (\(Z=8\)),
+\item[(c)]
+  natrium (\(Z=11\)).
+\end{enumerate}
+
+Verklaar voor zuurstof waarom de twee ongepaarde 2p-elektronen in afzonderlijke orbitalen met parallelle spin worden geplaatst (regel van Hund) en hoe dit verband houdt met het uitsluitingsprincipe van Pauli.
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} C: \textbf{1s\ensuremath{^{2}} 2s\ensuremath{^{2}} 2p\ensuremath{^{2}}}; O: \textbf{1s\ensuremath{^{2}} 2s\ensuremath{^{2}} 2p\ensuremath{^{4}}}; Na: \textbf{{[}Ne{]} 3s\ensuremath{^{1}}}. Zuurstof heeft \textbf{twee ongepaarde 2p-elektronen} met parallelle spin (Hund + Pauli).
+
+\textbf{(a)} C: \(1s^2\,2s^2\,2p^2\). \textbf{(b)} O: \(1s^2\,2s^2\,2p^4\). \textbf{(c)} Na: \(1s^2\,2s^2\,2p^6\,3s^1\), of \([\mathrm{Ne}]\,3s^1\).
+
+Zuurstof heeft vier 2p-elektronen over drie 2p-orbitalen: één orbitaal bevat een elektronenpaar, de twee overige bevatten elk één ongepaard elektron met parallelle spin. Volgens het uitsluitingsprincipe van Pauli kunnen twee elektronen enkel hetzelfde orbitaal delen als hun spins tegengesteld zijn. Elektronen met parallelle spin worden dus gedwongen in verschillende orbitalen, ruimtelijk verder van elkaar, wat hun onderlinge afstoting verlaagt. Daarom is de toestand met maximale totale spin (regel van Hund) energetisch het gunstigst. De twee ongepaarde elektronen verklaren mee waarom zuurstof twee bindingen vormt (zoals in \(\mathrm{H_2O}\)).
+\end{oplossing}
+
+\begin{oefening}[Activeringsenergie en katalysator]
+Een chemische reactie heeft een activeringsenergie van \(150\,\mathrm{kJ/mol}\). Een katalysator verlaagt deze tot \(75\,\mathrm{kJ/mol}\).
+
+\begin{enumerate}
+\item[(a)]
+  Maak een schematisch energieprofiel (qualitatief) voor de ongekatalyseerde en de gekatalyseerde reactie.
+\item[(b)]
+  Wat verandert er aan de reactie-enthalpie \(\Delta_r H\) door de katalysator? En aan de evenwichtsconstante?
+\item[(c)]
+  Hoeveel keer sneller wordt de reactie bij kamertemperatuur (\(298\,\mathrm{K}\)) dankzij de katalysator? Gebruik de Arrhenius-benadering \(k \propto e^{-E_a/RT}\).
+\end{enumerate}
+
+\emph{Hint:} bereken de verhouding \(k_{\text{kat}}/k_{\text{onkat}} = \exp\!\bigl((E_{a,\text{onkat}} - E_{a,\text{kat}})/RT\bigr)\).
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \(\Delta_r H\) en \(K\) veranderen \textbf{niet}. (c) De reactie wordt ongeveer \textbf{1.4\ensuremath{\cdot{}}10\ensuremath{^{13}} keer} sneller.
+
+\textbf{(a)} Beide profielen starten op hetzelfde niveau (reagentia) en eindigen op hetzelfde niveau (producten). De ongekatalyseerde weg heeft één hoge top (\(150\,\mathrm{kJ/mol}\) boven de reagentia); de gekatalyseerde weg heeft een lagere top (\(75\,\mathrm{kJ/mol}\)), vaak met tussenliggende dalen voor geadsorbeerde tussenproducten.
+
+\textbf{(b)} Niets. \(\Delta_r H\) en \(K\) hangen enkel af van begin- en eindtoestand (toestandsfuncties); een katalysator verandert enkel de weg. Hij versnelt de heen- en terugreactie in dezelfde mate en bereikt hetzelfde evenwicht, alleen sneller.
+
+\textbf{(c)}
+
+\[
+\frac{k_{\text{kat}}}{k_{\text{onkat}}} = \exp\!\left(\frac{75\,000}{(8.314)(298)}\right) = e^{30.3} \approx 1.4\times10^{13}
+\]
+
+Een reactie die zonder katalysator honderdduizenden jaren zou duren, verloopt nu in minder dan een seconde. Dit is de reden waarom enzymen in je lichaam reacties bij \(37\,^\circ\mathrm{C}\) mogelijk maken.
+\end{oplossing}
+
+\begin{oefening}[Constructieve en destructieve interferentie]
+Wanneer twee golffuncties \(\psi_1\) en \(\psi_2\) worden gecombineerd, ontstaat \(\psi_{\pm} = \psi_1 \pm \psi_2\).
+
+\begin{enumerate}
+\item[(a)]
+  Schets kwalitatief de waarschijnlijkheidsverdeling \(|\psi_+|^2\) en \(|\psi_-|^2\) in het gebied tussen twee kernen.
+\item[(b)]
+  Welke van beide correspondeert met een bindende toestand, welke met een antibindende? Verklaar vanuit de gemiddelde kinetische energie.
+\item[(c)]
+  Waarom wordt in de chemie vrijwel uitsluitend met de bindende toestand gewerkt?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} \(\psi_+\) is \textbf{bindend} (verhoogde dichtheid tussen de kernen), \(\psi_-\) is \textbf{antibindend} (knoopvlak tussen de kernen).
+
+\textbf{(a)} \(|\psi_+|^2\) heeft een verhoogde elektronendichtheid tussen de kernen (constructieve interferentie). \(|\psi_-|^2\) heeft halverwege de kernen een knoopvlak waar de dichtheid nul is (destructieve interferentie); de dichtheid zit aan de buitenkant van de kernen.
+
+\textbf{(b)} \(\psi_+\) is bindend, \(\psi_-\) antibindend. In \(\psi_+\) kan het elektron zich over een groter gebied uitspreiden (over beide kernen), wat de golffunctie gladder maakt en de kinetische energie verlaagt; bovendien zit de lading tussen de kernen, waar ze door beide kernen wordt aangetrokken. In \(\psi_-\) dwingt het knoopvlak een sterkere kromming van de golffunctie af (hogere kinetische energie), en de lading tussen de kernen, die ze bij elkaar zou houden, ontbreekt.
+
+\textbf{(c)} In de grondtoestand van stabiele moleculen worden eerst de bindende orbitalen gevuld, omdat die lager in energie liggen. De antibindende orbitalen zijn wel belangrijk voor de bindingsorde (bijvoorbeeld waarom \(\mathrm{He_2}\) niet bestaat), voor aangeslagen toestanden (UV-Vis-spectroscopie, fotochemie) en voor reactiviteit: een reactie breekt een binding vaak door elektronen in een antibindend orbitaal te brengen.
+\end{oplossing}
+
+\begin{oefening}[Brug naar thermodynamica: schatting van reactie-enthalpie]
+De standaardvormingsenthalpie van waterstofsulfide bedraagt \(\Delta H_f^\circ(\mathrm{H_2S,g}) = -20.6\,\mathrm{kJ/mol}\). De bindingsenergie van een S--H binding bedraagt \(363\,\mathrm{kJ/mol}\) en die van een H--H binding \(436\,\mathrm{kJ/mol}\). Schat hieruit de bindingsenergie van een S--S binding in \(\mathrm{H_2S_2}\), gegeven
+
+\[
+\mathrm{2\,H_2S(g) \rightarrow H_2S_2(g) + H_2(g)} \qquad \Delta_r H^\circ \approx +10\,\mathrm{kJ/mol}.
+\]
+
+\emph{Hint:} aan de kant van reagentia worden twee S--H bindingen verbroken; aan de kant van producten worden één S--S en één H--H binding gevormd.
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} \(D(\mathrm{S{-}S})\) \ensuremath{\approx{}} \textbf{280 kJ/mol} (literatuur ca. 265 kJ/mol).
+
+\(\mathrm{H_2S_2}\) (\(\mathrm{H{-}S{-}S{-}H}\)) bevat zelf nog twee S--H bindingen, zodat netto twee S--H bindingen verbroken en één S--S en één H--H binding gevormd worden:
+
+\[
+\Delta_r H^\circ = 2D(\mathrm{S{-}H}) - D(\mathrm{S{-}S}) - D(\mathrm{H{-}H})
+\]
+
+\[
+D(\mathrm{S{-}S}) = 2(363) - 436 - 10 = 280\,\mathrm{kJ/mol}
+\]
+
+De literatuurwaarde voor een S--S enkelvoudige binding ligt rond \(265\,\mathrm{kJ/mol}\). S--S bruggen (disulfidebruggen) zijn veel zwakker dan C--C bindingen; dat is waarom ze bij het vulkaniseren van rubber en in het permanent krullen of ontkrullen van haar (keratine) relatief gemakkelijk verbroken en opnieuw gevormd kunnen worden. De gegeven \(\Delta H_f^\circ(\mathrm{H_2S})\) is voor deze berekening niet nodig.
+\end{oplossing}
+
+\begin{oefening}[Zonnebrand, licht en de microgolfoven]
+Vergelijk drie soorten straling: UV-B-licht (\(\lambda = 300\,\mathrm{nm}\)), groen licht (\(550\,\mathrm{nm}\)) en de microgolven van een microgolfoven (\(\nu = 2.45\,\mathrm{GHz}\)).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken voor elk de energie per foton en per mol fotonen.
+\item[(b)]
+  Een C--C binding heeft een bindingsenergie van ongeveer \(350\,\mathrm{kJ/mol}\). Welke straling kan in principe bindingen in je huid (DNA, eiwitten) breken?
+\item[(c)]
+  Waarom warmt een microgolfoven je eten wel op, terwijl zijn fotonen zo weinig energie hebben?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) UV-B \textbf{399 kJ/mol}, groen \textbf{218 kJ/mol}, microgolf \textbf{0.001 kJ/mol}. (b) Enkel \textbf{UV-B} kan C--C bindingen breken. (c) Microgolven brengen watermoleculen in \textbf{rotatie}; die energie wordt warmte.
+
+\textbf{(a)} Met \(E = hc/\lambda\) en \(E_{\text{mol}} = N_A E\):
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Straling & \(E\) per foton (J) & per mol (kJ/mol) \\
+\midrule
+UV-B, 300 nm & \(6.62\times10^{-19}\) & 399 \\
+Groen, 550 nm & \(3.61\times10^{-19}\) & 218 \\
+Microgolf, 2.45 GHz (\(\lambda = 12.2\,\mathrm{cm}\)) & \(1.62\times10^{-24}\) & 0.001 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(b)} Enkel UV-B levert per foton meer energie dan nodig is om een C--C binding te breken. Daarom veroorzaakt UV zonnebrand en DNA-schade, terwijl zichtbaar licht dat niet doet, hoe fel het ook is: het gaat om de energie per foton, niet om de totale lichtintensiteit (net zoals bij het foto-elektrisch effect).
+
+\textbf{(c)} Microgolffotonen breken geen bindingen. Ze brengen polaire watermoleculen in rotatie (rotatieniveaus liggen in het microgolfgebied). Door botsingen met de omgeving wordt die rotatie-energie omgezet in ongeordende thermische beweging: warmte. Het grote aantal fotonen maakt het verschil.
+\end{oplossing}
+
+\begin{oefening}[Golfkarakter van materie: de elektronenmicroscoop]
+\begin{enumerate}
+\item[(a)]
+  Bereken de de Broglie-golflengte van een elektron dat versneld wordt over een spanning van \(100\,\mathrm{V}\) en van \(100\,\mathrm{kV}\) (zoals in een transmissie-elektronenmicroscoop). Gebruik \(E_k = eV = p^2/(2m_e)\) (niet-relativistisch).
+\item[(b)]
+  Vergelijk met de golflengte van zichtbaar licht (ca. \(500\,\mathrm{nm}\)). Waarom kan je met een elektronenmicroscoop individuele atomen zien en met een lichtmicroscoop niet?
+\item[(c)]
+  Bereken de de Broglie-golflengte van een tennisbal (\(57\,\mathrm{g}\)) aan \(50\,\mathrm{m/s}\). Waarom merken we in het dagelijks leven niets van het golfkarakter van materie?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\lambda\) = \textbf{0.123 nm} (100 V) en \textbf{0.0039 nm} (100 kV). (b) Kleiner dan een atoom, licht is duizenden keren groter. (c) Tennisbal: \(\lambda\) = \textbf{2.3\ensuremath{\cdot{}}10\ensuremath{^{-34}} m}.
+
+\textbf{(a)} \(\lambda = h/p = h/\sqrt{2m_e eV}\).
+
+\begin{itemize}
+\item
+  \(100\,\mathrm{V}\): \(\lambda = 1.23\times10^{-10}\,\mathrm{m} = 0.123\,\mathrm{nm}\).
+\item
+  \(100\,\mathrm{kV}\): \(\lambda = 3.9\times10^{-12}\,\mathrm{m} = 0.0039\,\mathrm{nm}\) (relativistisch is het \(3.7\,\mathrm{pm}\); de orde van grootte verandert niet).
+\end{itemize}
+
+\textbf{(b)} Het oplossend vermogen van een microscoop is van de orde van de golflengte. Atomen zijn ongeveer \(0.1\)--\(0.3\,\mathrm{nm}\) groot: duizenden keren kleiner dan zichtbaar licht, maar groter dan de golflengte van snelle elektronen. Elektronenmicroscopen worden in de materiaalkunde gebruikt om kristaldefecten, katalysatordeeltjes en nanostructuren te bekijken.
+
+\textbf{(c)} \(\lambda = h/(mv) = 6.626\times10^{-34}/(0.057 \times 50) = 2.3\times10^{-34}\,\mathrm{m}\): ruim \(10^{19}\) keer kleiner dan een atoomkern. Er bestaat geen opening of obstakel waarop zo'n golf merkbaar kan buigen of interfereren. Golfgedrag wordt pas zichtbaar wanneer \(\lambda\) vergelijkbaar is met de afmetingen van het systeem, en dat is enkel zo voor zeer lichte deeltjes op atomaire schaal.
+\end{oplossing}
+
+\begin{oefening}[Waarom wortels oranje zijn: het deeltje in een doos]
+In een molecule met geconjugeerde dubbele bindingen kunnen de \ensuremath{\pi{}}-elektronen zich vrij over de volledige keten bewegen. Een eenvoudig model behandelt ze als deeltjes in een ééndimensionale doos met lengte \(L\), waarin elk niveau twee elektronen bevat (Pauli).
+
+\begin{enumerate}
+\item[(a)]
+  1,3,5-Hexatriëen (\(\mathrm{CH_2{=}CH{-}CH{=}CH{-}CH{=}CH_2}\)) heeft 6 \ensuremath{\pi{}}-elektronen. Welke niveaus zijn het HOMO en het LUMO?
+\item[(b)]
+  Bereken met \(L = 0.73\,\mathrm{nm}\) de golflengte van de HOMO\ensuremath{\rightarrow{}}LUMO-overgang. Vergelijk met de experimentele absorptie bij \(258\,\mathrm{nm}\).
+\item[(c)]
+  \ensuremath{\beta{}}-Caroteen, de kleurstof in wortels, heeft 11 geconjugeerde dubbele bindingen. Leg met het model uit waarom deze molecule wél zichtbaar licht absorbeert en dus gekleurd is.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) HOMO \textbf{n = 3}, LUMO \textbf{n = 4}. (b) \(\lambda\) = \textbf{251 nm} (experimenteel 258 nm). (c) Langere keten geeft kleinere \(\Delta E\): \ensuremath{\beta{}}-caroteen absorbeert \textbf{blauw} en is dus oranje.
+
+\textbf{(a)} Zes elektronen vullen de niveaus \(n = 1, 2, 3\). HOMO: \(n = 3\); LUMO: \(n = 4\).
+
+\textbf{(b)}
+
+\[
+\Delta E = E_4 - E_3 = (16 - 9)\frac{h^2}{8m_eL^2} = \frac{7(6.626\times10^{-34})^2}{8(9.109\times10^{-31})(0.73\times10^{-9})^2} = 7.91\times10^{-19}\,\mathrm{J}
+\]
+
+\(\lambda = hc/\Delta E = 251\,\mathrm{nm}\): verrassend dicht bij de experimentele \(258\,\mathrm{nm}\) (UV, dus hexatriëen is kleurloos).
+
+\textbf{(c)} Voor \(N\) \ensuremath{\pi{}}-elektronen is \(\Delta E = (N+1)h^2/(8m_eL^2)\). Naarmate de keten langer wordt, groeit \(L^2\) sneller dan \(N+1\), zodat \(\Delta E\) daalt en \(\lambda\) stijgt. Met 22 \ensuremath{\pi{}}-elektronen over een lange keten verschuift de absorptie naar het zichtbare gebied: \ensuremath{\beta{}}-caroteen absorbeert blauw licht (rond \(450\,\mathrm{nm}\)) en we zien de complementaire kleur, oranje. Het eenvoudige model voorspelt de golflengte voor zulke lange ketens niet nauwkeurig (de \ensuremath{\pi{}}-bindingen zijn niet volledig gelijkwaardig), maar de trend is juist. Hetzelfde principe bepaalt de kleur van tomaten (lycopeen), van kleurstoffen in textiel en van de pigmenten in zonnecellen.
+\end{oplossing}
+
+\begin{oefening}[Rotatiespectrum van HCl]
+In het voorbeeld van de theorie werd voor HCl gevonden dat \(\hbar^2/(2I) = 2.10\times10^{-22}\,\mathrm{J}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de frequentie en de golflengte van de overgang \(J = 0 \to J = 1\). In welk spectraal gebied ligt die?
+\item[(b)]
+  Bereken bij \(298\,\mathrm{K}\) de verhouding van het aantal moleculen in \(J = 1\) ten opzichte van \(J = 0\). Houd rekening met de ontaarding \(2J + 1\).
+\item[(c)]
+  Kan je de concentratie van \(\mathrm{N_2}\) in een gasstroom met dezelfde techniek meten? Verklaar.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\nu\) = \textbf{6.34\ensuremath{\cdot{}}10\ensuremath{^{11}} Hz}, \(\lambda\) = \textbf{0.47 mm} (microgolf/ver-IR). (b) \(N_1/N_0\) = \textbf{2.7}. (c) \textbf{Nee}: N\ensuremath{_{2}} heeft geen dipoolmoment.
+
+\textbf{(a)} \(\Delta E = 2(\hbar^2/2I) = 4.20\times10^{-22}\,\mathrm{J}\), dus \(\nu = \Delta E/h = 6.34\times10^{11}\,\mathrm{Hz}\) en \(\lambda = c/\nu = 0.47\,\mathrm{mm}\): het verre infrarood of het microgolfgebied (terahertzgebied).
+
+\textbf{(b)}
+
+\[
+\frac{N_1}{N_0} = \frac{2(1)+1}{1}\exp\!\left(-\frac{\Delta E}{k_BT}\right) = 3\,e^{-0.102} = 2.7
+\]
+
+Er zitten dus bijna drie keer zoveel moleculen in \(J = 1\) als in \(J = 0\). De rotatieniveaus zijn bij kamertemperatuur sterk bezet, wat bevestigt dat rotatie volledig bijdraagt tot de warmtecapaciteit.
+
+\textbf{(c)} Nee. \(\mathrm{N_2}\) heeft geen permanent dipoolmoment en is daardoor microgolf-inactief (en ook IR-inactief). Voor \(\mathrm{N_2}\) moet men andere technieken gebruiken, zoals gaschromatografie of Ramanspectroscopie.
+\end{oplossing}
+
+\begin{oefening}[Broeikasgassen en infraroodspectroscopie]
+De atmosfeer bestaat voor 99 \% uit \(\mathrm{N_2}\) en \(\mathrm{O_2}\), maar de broeikaswerking komt van sporengassen zoals \(\mathrm{H_2O}\), \(\mathrm{CO_2}\) en \(\mathrm{CH_4}\).
+
+\begin{enumerate}
+\item[(a)]
+  Welke van de volgende gassen absorberen infraroodstraling: \(\mathrm{N_2}\), \(\mathrm{O_2}\), \(\mathrm{Ar}\), \(\mathrm{CO}\), \(\mathrm{CO_2}\), \(\mathrm{H_2O}\), \(\mathrm{CH_4}\)? Verklaar met de selectieregel.
+\item[(b)]
+  \(\mathrm{CO_2}\) heeft geen permanent dipoolmoment. Toch is het een broeikasgas. Welke vibraties van \(\mathrm{CO_2}\) zijn IR-actief, en welke niet?
+\item[(c)]
+  Een IR-gasanalysator in een schoorsteen meet \(\mathrm{CO}\) en \(\mathrm{CO_2}\). Waarom stoort de grote hoeveelheid \(\mathrm{N_2}\) in het rookgas die meting niet?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) IR-actief: \textbf{CO, CO\ensuremath{_{2}}, H\ensuremath{_{2}}O, CH\ensuremath{_{4}}}; inactief: N\ensuremath{_{2}}, O\ensuremath{_{2}}, Ar. (b) CO\ensuremath{_{2}}: \textbf{asymmetrische strek- en buigvibraties} zijn actief, de symmetrische strekvibratie niet. (c) N\ensuremath{_{2}} absorbeert \textbf{geen} IR.
+
+\textbf{(a)} Een vibratie is IR-actief als het dipoolmoment tijdens de vibratie verandert. IR-actief: \(\mathrm{CO}\), \(\mathrm{CO_2}\), \(\mathrm{H_2O}\), \(\mathrm{CH_4}\). IR-inactief: \(\mathrm{N_2}\) en \(\mathrm{O_2}\) (homonucleair: het dipoolmoment blijft nul bij het uitrekken van de binding) en \(\mathrm{Ar}\) (een atoom heeft geen vibraties).
+
+\textbf{(b)} \(\mathrm{CO_2}\) (O=C=O, lineair) heeft vier vibraties. De symmetrische strekvibratie behoudt de symmetrie en het dipoolmoment blijft nul: IR-inactief. De asymmetrische strekvibratie (rond \(2350\,\mathrm{cm^{-1}}\)) en de twee buigvibraties (rond \(667\,\mathrm{cm^{-1}}\)) maken de molecule tijdelijk polair: IR-actief. Vooral de buigvibratie valt samen met het gebied waarin de aarde warmte uitstraalt, en is dus verantwoordelijk voor de broeikaswerking.
+
+\textbf{(c)} \(\mathrm{N_2}\) absorbeert geen IR en is dus onzichtbaar voor de analysator. Zo kan men kleine concentraties CO (ppm-niveau) meten in een gas dat voor 70 \% uit stikstof bestaat.
+\end{oplossing}
+
+\begin{oefening}[Vibratie van HCl en het isotoopeffect]
+De vibratie van HCl absorbeert infrarood bij \(\tilde\nu = 2886\,\mathrm{cm^{-1}}\). Gebruik \(m_H = 1.008\,\mathrm{u}\), \(m_D = 2.014\,\mathrm{u}\) en \(m_{Cl} = 34.97\,\mathrm{u}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de veerconstante \(k\) van de H--Cl binding. Vergelijk met CO (\(k = 1902\,\mathrm{N/m}\)) en verklaar.
+\item[(b)]
+  Bereken de nulpuntsenergie per mol.
+\item[(c)]
+  Voorspel het golfgetal van DCl (deuterium in plaats van waterstof). De veerconstante blijft gelijk, want de elektronenstructuur verandert niet.
+\item[(d)]
+  Welke fractie van de HCl-moleculen bevindt zich bij \(298\,\mathrm{K}\) in \(v = 1\)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(k\) = \textbf{481 N/m}. (b) \(E_0\) = \textbf{17.3 kJ/mol}. (c) DCl: \textbf{2070 cm\ensuremath{^{-1}}}. (d) Fractie in \(v = 1\): \textbf{8.9\ensuremath{\cdot{}}10\ensuremath{^{-7}}}.
+
+\textbf{(a)} \(\mu = \dfrac{m_H m_{Cl}}{m_H + m_{Cl}} = 1.627\times10^{-27}\,\mathrm{kg}\) en \(\nu = c\tilde\nu = (2.998\times10^{10}\,\mathrm{cm/s})(2886\,\mathrm{cm^{-1}}) = 8.65\times10^{13}\,\mathrm{Hz}\). Uit \(\nu = \frac{1}{2\pi}\sqrt{k/\mu}\):
+
+\[
+k = (2\pi\nu)^2\mu = 481\,\mathrm{N/m}
+\]
+
+Ongeveer vier keer kleiner dan voor CO: de drievoudige binding in CO is veel stijver dan de enkelvoudige H--Cl binding.
+
+\textbf{(b)} \(E_0 = \frac{1}{2}h\nu = 2.87\times10^{-20}\,\mathrm{J}\), of \(17.3\,\mathrm{kJ/mol}\).
+
+\textbf{(c)} \(\mu_{DCl} = 3.162\times10^{-27}\,\mathrm{kg}\), dus \(\tilde\nu_{DCl} = \tilde\nu_{HCl}\sqrt{\mu_{HCl}/\mu_{DCl}} = 2886 \times 0.717 = 2070\,\mathrm{cm^{-1}}\) (experimenteel ongeveer \(2091\,\mathrm{cm^{-1}}\)). Dit isotoopeffect wordt gebruikt om reactiemechanismen te ontrafelen: een binding met deuterium heeft een lagere nulpuntsenergie en wordt dus trager verbroken.
+
+\textbf{(d)} \(N_1/N_0 = \exp(-h\nu/k_BT) = \exp(-13.9) = 8.9\times10^{-7}\). Vrijwel alle moleculen zitten in de grondtoestand; vibratie draagt bij kamertemperatuur niet bij tot de warmtecapaciteit.
+\end{oplossing}
+
+\begin{oefening}[Warmtecapaciteit voorspellen uit de moleculaire structuur]
+\begin{enumerate}
+\item[(a)]
+  Voorspel met de equipartitiestelling \(C_{V,m}\) en \(C_{p,m}\) bij kamertemperatuur voor Ar, \(\mathrm{N_2}\) en \(\mathrm{H_2O(g)}\) (niet-lineair: drie rotatie-assen). Neem aan dat vibraties bevroren zijn.
+\item[(b)]
+  Vergelijk \(C_{p,m}\) met de waarden bij \(300\,\mathrm{K}\) uit de tabel met \(C_p\)-coëfficiënten in hoofdstuk 1.
+\item[(c)]
+  Volgens dezelfde tabel stijgt \(C_{p,m}\) van \(\mathrm{CO_2}\) van \(37\,\mathrm{J/(mol\cdot K)}\) bij \(300\,\mathrm{K}\) naar \(47\,\mathrm{J/(mol\cdot K)}\) bij \(1000\,\mathrm{K}\). Verklaar.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(C_{p,m}\): Ar \textbf{20.8}, N\ensuremath{_{2}} \textbf{29.1}, H\ensuremath{_{2}}O \textbf{33.3 J/(mol\ensuremath{\cdot{}}K)}. (b) Uitstekende overeenkomst met de tabel. (c) De buigvibraties van CO\ensuremath{_{2}} worden bij hoge \(T\) \textbf{bezet}.
+
+\textbf{(a)} Elke klassiek toegankelijke kwadratische vrijheidsgraad levert \(\frac{1}{2}R\), en \(C_{p,m} = C_{V,m} + R\).
+
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+Gas & Translatie & Rotatie & \(C_{V,m}\) & \(C_{p,m}\) \\
+\midrule
+Ar & \(\frac{3}{2}R\) & 0 & \(12.5\) & \(20.8\) \\
+\(\mathrm{N_2}\) & \(\frac{3}{2}R\) & \(R\) & \(20.8\) & \(29.1\) \\
+\(\mathrm{H_2O}\) & \(\frac{3}{2}R\) & \(\frac{3}{2}R\) & \(24.9\) & \(33.3\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+(alle waarden in \(\mathrm{J/(mol\cdot K)}\))
+
+\textbf{(b)} Uit de tabel bij \(300\,\mathrm{K}\): He (zelfde als Ar) \(20.8\), \(\mathrm{N_2}\) \(28.6\) en \(\mathrm{H_2O}\) \(33.5\,\mathrm{J/(mol\cdot K)}\). De overeenstemming is uitstekend.
+
+\textbf{(c)} \(\mathrm{CO_2}\) heeft laaggelegen buigvibraties (\(667\,\mathrm{cm^{-1}}\), \(h\nu/k_B \approx 960\,\mathrm{K}\)). Al bij kamertemperatuur zijn die gedeeltelijk bezet (daarom ligt \(C_{p,m}\) bij 300 K al boven \(\frac{7}{2}R = 29.1\)), en bij \(1000\,\mathrm{K}\) dragen ze bijna volledig bij, elk met \(R\). Dit is de moleculaire verklaring voor de \(C_p\)-polynomen uit hoofdstuk 1, en het verklaart waarom rookgassen met veel \(\mathrm{CO_2}\) en \(\mathrm{H_2O}\) meer warmte transporteren dan lucht.
+\end{oplossing}
+
+\begin{oefening}[Het gele licht van natriumlampen en de kleuren van vuurwerk]
+Oude straatverlichting met natriumdamp geeft het typische oranjegele licht van \(589\,\mathrm{nm}\). Dat licht ontstaat wanneer een aangeslagen natriumatoom terugvalt naar de grondtoestand. Vuurwerk gebruikt hetzelfde principe met andere elementen: strontium kleurt rood (\(650\,\mathrm{nm}\)), barium groen (\(520\,\mathrm{nm}\)) en koper blauw (\(450\,\mathrm{nm}\)).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de energie van een foton van \(589\,\mathrm{nm}\), in joule, in elektronvolt en per mol fotonen.
+\item[(b)]
+  Rangschik de vier kleuren naar toenemende energie van de overgang.
+\item[(c)]
+  Welk deel van de natriumatomen bevindt zich in de aangeslagen toestand bij \(300\,\mathrm{K}\) en in een vlam van \(2000\,\mathrm{K}\)? Gebruik de Boltzmann-factor en verwaarloos de ontaarding van de niveaus.
+\item[(d)]
+  Waarom moet een natriumlamp eerst enkele minuten opwarmen voor ze volop licht geeft?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(E\) = \textbf{3.37\ensuremath{\cdot{}}10\ensuremath{^{-19}} J = 2.11 eV}, of \textbf{203 kJ/mol}. (b) Rood (184 kJ/mol) \textless{} geel (203) \textless{} groen (230) \textless{} blauw (266 kJ/mol). (c) Bij 300 K ongeveer \textbf{4\ensuremath{\cdot{}}10\ensuremath{^{-36}}}, bij 2000 K \textbf{5\ensuremath{\cdot{}}10\ensuremath{^{-6}}}. (d) Het natrium moet eerst verdampen.
+
+\textbf{(a)}
+
+\[
+E = \frac{hc}{\lambda} = \frac{(6.626\times10^{-34})(2.998\times10^{8})}{589\times10^{-9}} = 3.37\times10^{-19}\,\mathrm{J} = 2.11\,\mathrm{eV}
+\]
+
+Per mol fotonen: \(E\,N_A = 203\,\mathrm{kJ/mol}\), van dezelfde grootte als de energie van een chemische binding.
+
+\textbf{(b)} Met \(E = hc/\lambda\) geeft een kortere golflengte een grotere energie: rood \(650\,\mathrm{nm}\) (\(184\,\mathrm{kJ/mol}\)), geel \(589\,\mathrm{nm}\) (\(203\)), groen \(520\,\mathrm{nm}\) (\(230\)), blauw \(450\,\mathrm{nm}\) (\(266\,\mathrm{kJ/mol}\)). Elk element heeft eigen energieniveaus en dus een eigen spectraallijn, zoals bij het waterstofatoom.
+
+\textbf{(c)} De Boltzmann-factor is \(N_1/N_0 = \exp(-\Delta E/k_BT)\):
+
+\begin{itemize}
+\item
+  bij \(300\,\mathrm{K}\): \(\exp(-3.37\times10^{-19}/(1.381\times10^{-23}\times300)) = \exp(-81.4) \approx 4\times10^{-36}\);
+\item
+  bij \(2000\,\mathrm{K}\): \(\exp(-12.2) \approx 5\times10^{-6}\).
+\end{itemize}
+
+Bij kamertemperatuur is er dus praktisch geen enkel aangeslagen atoom. Zelfs in een vlam is dat slechts één atoom op de 200 000, maar door het enorme aantal atomen volstaat dat voor een felle kleur.
+
+\textbf{(d)} Bij het aanzetten is het natrium nog een vaste stof op de wand van de lamp. Een gasontlading in een hulpgas (neon) warmt de lamp op tot het natrium verdampt. Pas als er voldoende natriumatomen in de gasfase zijn, kunnen ze door botsingen met elektronen worden aangeslagen en het gele licht uitzenden.
+\end{oplossing}
+
+\begin{oefening}[TL-buis of ledlamp: waar blijft de energie?]
+In een TL-buis zenden aangeslagen kwikatomen ultraviolet licht uit van \(254\,\mathrm{nm}\). Een fluorescentielaag op de binnenwand absorbeert die fotonen en zendt zichtbaar licht uit, gemiddeld rond \(550\,\mathrm{nm}\). Een witte led werkt gelijkaardig: een blauwe led van \(450\,\mathrm{nm}\) belicht een laag die geel licht uitzendt rond \(570\,\mathrm{nm}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de energie van een foton van \(254\,\mathrm{nm}\) en van \(550\,\mathrm{nm}\), in eV.
+\item[(b)]
+  Elk geabsorbeerd foton levert hoogstens één nieuw foton op. Welk deel van de energie gaat in het beste geval verloren bij de omzetting in de TL-buis? En in de witte led?
+\item[(c)]
+  Waar blijft die energie?
+\item[(d)]
+  Hoeveel fotonen van \(550\,\mathrm{nm}\) per seconde komen overeen met \(10\,\mathrm{W}\) zichtbaar licht?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{4.88 eV} en \textbf{2.25 eV}. (b) TL-buis: hoogstens \textbf{46 \%} van de energie blijft over, dus minstens 54 \% gaat verloren. Led: hoogstens \textbf{79 \%} blijft over. (c) Als warmte in de fluorescentielaag. (d) \textbf{2.8\ensuremath{\cdot{}}10\ensuremath{^{19}} fotonen per seconde}.
+
+\textbf{(a)} \(E = hc/\lambda\) geeft \(7.82\times10^{-19}\,\mathrm{J} = 4.88\,\mathrm{eV}\) voor \(254\,\mathrm{nm}\) en \(3.61\times10^{-19}\,\mathrm{J} = 2.25\,\mathrm{eV}\) voor \(550\,\mathrm{nm}\).
+
+\textbf{(b)} Per foton is de verhouding van de energieën \(E_{\text{uit}}/E_{\text{in}} = \lambda_{\text{in}}/\lambda_{\text{uit}}\). TL-buis: \(254/550 = 0.46\). Led: \(450/570 = 0.79\). De led verliest bij de omzetting dus veel minder energie, omdat het uitgangslicht al zichtbaar en dus minder energierijk is.
+
+\textbf{(c)} Het molecule in de fluorescentielaag wordt naar een hoog energieniveau gebracht en valt eerst stapsgewijs terug via vibratieniveaus. Die energie gaat als warmte naar het rooster. Pas vanaf een lager niveau wordt het zichtbare foton uitgezonden. Daarom wordt een TL-buis warm en is ze minder zuinig dan een ledlamp.
+
+\textbf{(d)} \(N = P/E = 10/3.61\times10^{-19} = 2.8\times10^{19}\) fotonen per seconde, ongeveer \(4.6\times10^{-5}\,\mathrm{mol}\) fotonen per seconde.
+\end{oplossing}

@@ -1,0 +1,425 @@
+% Oefeningen bij dit hoofdstuk (ingevoegd achteraan het hoofdstuk met \input).
+% Een oefening:  \begin{oefening}[titel] ... \end{oefening}   (boek en website)
+% De oplossing:  \begin{oplossing} ... \end{oplossing}       (enkel website, dichtgeklapt)
+
+Neem $F = \SI{96485}{\coulomb\per\mole}$, $R = \SI{8.314}{\joule\per\mole\per\kelvin}$, $RT\ln 10/F = \SI{0.0592}{\volt}$ bij \SI{298}{\kelvin} en de standaardreductiepotentialen uit tabel~\ref{tab:reductiepotentialen}.
+
+\begin{oefening}[De Daniell-cel buiten standaardomstandigheden]
+Voor de Daniell-cel \(\mathrm{Zn(s) + Cu^{2+}(aq) \rightarrow Zn^{2+}(aq) + Cu(s)}\) geldt \(E^\circ = 1.10\,\mathrm{V}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(\Delta_r G^\circ\) en de evenwichtsconstante \(K\) bij \(298\,\mathrm{K}\). Wat betekent die waarde voor de \(\mathrm{Cu^{2+}}\)-concentratie in een volledig ontladen cel?
+\item[(b)]
+  Bereken de celspanning wanneer \(c_{\mathrm{Zn^{2+}}} = 0.10\,\mathrm{mol/L}\) en \(c_{\mathrm{Cu^{2+}}} = 1.0\,\mathrm{mol/L}\).
+\item[(c)]
+  Hoe verandert de spanning wanneer beide concentraties gehalveerd worden? En wanneer je ze omwisselt?
+\item[(d)]
+  Waarom is de spanning van een batterij tijdens het grootste deel van de ontlading vrijwel constant?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta_r G^\circ\) = \textbf{\ensuremath{-}212 kJ/mol}, \(K\) \ensuremath{\approx{}} \textbf{1.5\ensuremath{\cdot{}}10\ensuremath{^{37}}}. (b) \(E\) = \textbf{1.13 V}. (c) Halveren: \textbf{geen verandering}; omwisselen: \textbf{1.07 V}. (d) \(E\) hangt slechts \textbf{logaritmisch} af van de concentraties.
+
+\textbf{(a)} \(\Delta_r G^\circ = -nFE^\circ = -(2)(96485)(1.10) = -212.3\,\mathrm{kJ/mol}\) en
+
+\[
+\ln K = \frac{nFE^\circ}{RT} = \frac{(2)(96485)(1.10)}{(8.314)(298.15)} = 85.6 \quad\Rightarrow\quad K = 1.5\times10^{37}
+\]
+
+In evenwicht is \(c_{\mathrm{Zn^{2+}}}/c_{\mathrm{Cu^{2+}}} = 10^{37}\): een `lege' Daniell-cel bevat praktisch geen \(\mathrm{Cu^{2+}}\) meer. De cel stopt omdat de koperionen op zijn, niet omdat het evenwicht halverwege ligt.
+
+\textbf{(b)} Met \(Q = c_{\mathrm{Zn^{2+}}}/c_{\mathrm{Cu^{2+}}}\) (vaste metalen hebben activiteit 1):
+
+\[
+E = 1.10 - \frac{0.0592}{2}\log_{10}\frac{0.10}{1.0} = 1.10 + 0.0296 = 1.13\,\mathrm{V}
+\]
+
+\textbf{(c)} Halveren van beide concentraties laat \(Q\) ongewijzigd: \(E = 1.13\,\mathrm{V}\). Omwisselen geeft \(Q = 10\) en \(E = 1.10 - 0.0296 = 1.07\,\mathrm{V}\).
+
+\textbf{(d)} Een factor tien in \(Q\) verandert de spanning slechts met \(29.6\,\mathrm{mV}\) (voor \(n = 2\)). Pas helemaal op het einde van de ontlading, wanneer een reactant bijna op is en \(Q\) met vele grootteordes verandert, zakt de spanning snel in. Batterijen met vaste reactanten (zoals de loodaccu of Li-ion) hebben bovendien activiteiten die bijna constant blijven.
+\end{oplossing}
+
+\begin{oefening}[Chloor en natronloog uit zout water]
+In de chlooralkali-elektrolyse wordt pekel ontleed. Aan de anode ontstaat chloor (\(\mathrm{2\,Cl^- \rightarrow Cl_2 + 2\,e^-}\)), aan de kathode waterstof en hydroxide (\(\mathrm{2\,H_2O + 2\,e^- \rightarrow H_2 + 2\,OH^-}\), met \(E = -0.83\,\mathrm{V}\) bij pH 14). Chloor is de grondstof voor PVC en voor bleekwater.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de thermodynamische minimumspanning met \(E^\circ(\mathrm{Cl_2/Cl^-}) = 1.36\,\mathrm{V}\).
+\item[(b)]
+  Een industriële membraancel werkt bij \(3.2\,\mathrm{V}\). Bereken het elektriciteitsverbruik per ton chloor (\(M = 70.90\,\mathrm{g/mol}\)).
+\item[(c)]
+  Welk deel van die energie is thermodynamisch noodzakelijk? Waar gaat de rest naartoe?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(E_{\min}\) = \textbf{2.19 V}. (b) Ongeveer \textbf{2420 kWh per ton Cl\ensuremath{_{2}}}. (c) \textbf{68 \%} (2.19/3.2); de rest wordt \textbf{warmte} door overspanning en ohmse weerstand.
+
+\textbf{(a)} De cel moet de reactie \(\mathrm{2\,Cl^- + 2\,H_2O \rightarrow Cl_2 + H_2 + 2\,OH^-}\) afdwingen. De omkeerbare celspanning is \(E = E_{\text{kathode}} - E_{\text{anode}} = -0.83 - 1.36 = -2.19\,\mathrm{V}\), dus minstens \(2.19\,\mathrm{V}\) moet worden aangelegd.
+
+\textbf{(b)} Een ton chloor is \(10^6/70.90 = 1.41\times10^{4}\,\mathrm{mol}\), met telkens 2 mol elektronen per mol \(\mathrm{Cl_2}\):
+
+\[
+Q = (2)(1.41\times10^{4})(96485) = 2.72\times10^{9}\,\mathrm{C}, \qquad W = QV = (2.72\times10^{9})(3.2) = 8.7\times10^{9}\,\mathrm{J} = 2420\,\mathrm{kWh}
+\]
+
+\textbf{(c)} Bij \(2.19\,\mathrm{V}\) zou \(1660\,\mathrm{kWh}\) volstaan, dus \(68\,\%\) van het verbruik is thermodynamisch onvermijdelijk. De rest (\(1.0\,\mathrm{V}\)) gaat verloren als warmte: overspanning aan de elektroden (kinetiek), weerstand van de elektrolyt en het membraan. De chlooralkali-industrie is een van de grootste elektriciteitsverbruikers in de Belgische chemie (onder meer in Antwerpen en Tessenderlo).
+\end{oplossing}
+
+\begin{oefening}[Brandstofcel of verbrandingsmotor?]
+Een PEM-brandstofcel zet waterstof om in vloeibaar water: \(\mathrm{H_2(g) + \tfrac{1}{2}\,O_2(g) \rightarrow H_2O(l)}\), met \(\Delta_r H^\circ = -285.8\,\mathrm{kJ/mol}\) en \(\Delta_r G^\circ = -237.1\,\mathrm{kJ/mol}\) bij \(298\,\mathrm{K}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de maximale elektrische arbeid per mol \(\mathrm{H_2}\) en de standaardcelpotentiaal.
+\item[(b)]
+  Een cel werkt bij \(0.70\,\mathrm{V}\). Bereken de geleverde elektrische arbeid per mol \(\mathrm{H_2}\), het rendement ten opzichte van \(\Delta_r G^\circ\) en ten opzichte van \(\Delta_r H^\circ\), en de warmte die per mol vrijkomt.
+\item[(c)]
+  Vergelijk met het Carnot-rendement van een warmtemotor die werkt tussen \(900\,\mathrm{K}\) en \(300\,\mathrm{K}\) (hoofdstuk 3). Waarom geldt de Carnot-grens niet voor een brandstofcel?
+\item[(d)]
+  Hoeveel cellen in serie zijn nodig voor een stapel die \(280\,\mathrm{V}\) levert, zoals in een waterstofauto?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(w_{\max}\) = \textbf{237 kJ/mol}, \(E^\circ\) = \textbf{1.23 V}. (b) \textbf{135 kJ/mol}; rendement \textbf{57 \%} (t.o.v. \(\Delta G\)) of \textbf{47 \%} (t.o.v. \(\Delta H\)); \textbf{151 kJ/mol} warmte. (c) Carnot: \textbf{67 \%}, maar een brandstofcel is geen warmtemotor. (d) \textbf{400 cellen}.
+
+\textbf{(a)} \(w_{\max} = -\Delta_r G^\circ = 237.1\,\mathrm{kJ/mol}\) en \(E^\circ = 237\,100/(2 \times 96485) = 1.23\,\mathrm{V}\).
+
+\textbf{(b)} \(w = nFE = (2)(96485)(0.70) = 135\,\mathrm{kJ/mol}\). Rendement: \(0.70/1.23 = 57\,\%\) ten opzichte van de maximale arbeid, of \(135/285.8 = 47\,\%\) ten opzichte van de verbrandingswarmte (de gebruikelijke definitie bij voertuigen). De energiebalans (eerste hoofdwet) geeft de warmte: \(285.8 - 135 = 151\,\mathrm{kJ/mol}\), die met koelwater afgevoerd wordt.
+
+\textbf{(c)} \(\eta_{\text{Carnot}} = 1 - 300/900 = 67\,\%\); echte automotoren halen \(25\)--\(35\,\%\). Een warmtemotor zet chemische energie eerst om in warmte bij hoge temperatuur en moet dan een deel daarvan afgeven aan de koude omgeving; daaruit volgt de Carnot-grens. Een brandstofcel zet de Gibbs-energie rechtstreeks om in elektrische arbeid, zonder tussenstap via warmte: de enige grens is \(-\Delta_r G\) (vergelijking 7.5). Het theoretisch maximum is \(237/286 = 83\,\%\), onafhankelijk van een temperatuurverschil.
+
+\textbf{(d)} \(280/0.70 = 400\) cellen in serie. De stroom (en dus het vermogen) bepaalt men met het celoppervlak.
+\end{oplossing}
+
+\begin{oefening}[Hoeveel lithium zit er in je smartphone?]
+Een smartphonebatterij heeft een capaciteit van \(4000\,\mathrm{mAh}\) bij een gemiddelde spanning van \(3.85\,\mathrm{V}\). Bij het ontladen verhuist lithium als \(\mathrm{Li^+}\) van de grafietelektrode (\(\mathrm{LiC_6}\)) naar de kathode, met één elektron per lithiumatoom.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de opgeslagen energie in Wh en in kJ. Vergelijk met de energie in een reep chocolade van \(100\,\mathrm{g}\) (ongeveer \(2200\,\mathrm{kJ}\)).
+\item[(b)]
+  Hoeveel mol elektronen worden tijdens een volledige ontlading uitgewisseld?
+\item[(c)]
+  Hoeveel gram lithium moet minstens verhuizen, en hoeveel gram grafiet is nodig om het op te slaan?
+\item[(d)]
+  Waarom gebruikt men lithium en geen natrium of zink in een batterij voor een smartphone? Gebruik tabel 7.1.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{15.4 Wh} = 55 kJ, ongeveer \textbf{40 keer minder} dan een reep chocolade. (b) \textbf{0.149 mol} elektronen. (c) \textbf{1.04 g Li} en \textbf{10.8 g grafiet}. (d) Lithium heeft de \textbf{meest negatieve} reductiepotentiaal en de kleinste molaire massa.
+
+\textbf{(a)} \(E = (4.0\,\mathrm{Ah})(3.85\,\mathrm{V}) = 15.4\,\mathrm{Wh} = 15.4 \times 3600\,\mathrm{J} = 55\,\mathrm{kJ}\). Een reep chocolade bevat \(2200/55 = 40\) keer meer energie. Chemische energie in voedsel (verbranding met zuurstof uit de lucht) is veel geconcentreerder dan wat een batterij opslaat.
+
+\textbf{(b)} \(Q = (4.0\,\mathrm{A})(3600\,\mathrm{s}) = 14\,400\,\mathrm{C}\), dus \(n_e = Q/F = 0.149\,\mathrm{mol}\).
+
+\textbf{(c)} Eén elektron per Li: \(0.149\,\mathrm{mol}\) Li \(= (0.149)(6.94) = 1.04\,\mathrm{g}\). In \(\mathrm{LiC_6}\) horen bij elk Li zes koolstofatomen: \((6)(0.149)(12.01) = 10.8\,\mathrm{g}\) grafiet. Een echte batterij weegt ongeveer \(60\,\mathrm{g}\): de kathode, de elektrolyt, de stroomcollectoren en de behuizing wegen veel meer.
+
+\textbf{(d)} Lithium heeft de meest negatieve standaardreductiepotentiaal (\(-3.04\,\mathrm{V}\), tabel 7.1): als anodemateriaal levert het de hoogste celspanning. Bovendien is het het lichtste metaal (\(6.94\,\mathrm{g/mol}\)), zodat het de meeste lading per gram levert. Natrium (\(-2.71\,\mathrm{V}\), \(23\,\mathrm{g/mol}\)) is goedkoper en wordt onderzocht voor stationaire opslag; zink (\(-0.76\,\mathrm{V}\)) geeft veel minder spanning.
+\end{oplossing}
+
+\begin{oefening}[De citroenbatterij]
+In een klassiek schoolexperiment steek je een gegalvaniseerde (verzinkte) spijker en een koperen muntstuk in een citroen. Het citroensap heeft een pH van \(2.3\). Aan het koper worden waterstofionen gereduceerd (\(\mathrm{2\,H^+ + 2\,e^- \rightarrow H_2}\)); het koper zelf reageert niet.
+
+\begin{enumerate}
+\item[(a)]
+  Schrijf de celreactie en bereken de standaardcelpotentiaal.
+\item[(b)]
+  Bereken de celspanning met \(c_{\mathrm{Zn^{2+}}} = 1\times10^{-4}\,\mathrm{mol/L}\) en \(p_{\mathrm{H_2}} = 1\,\mathrm{bar}\).
+\item[(c)]
+  Een rode led heeft minstens \(1.8\,\mathrm{V}\) nodig. Hoeveel citroenen moet je in serie schakelen? Waarom brandt de led toch nauwelijks?
+\item[(d)]
+  Waarom krijg je een veel kleinere spanning met twee koperen muntstukken?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\mathrm{Zn + 2\,H^+ \rightarrow Zn^{2+} + H_2}\), \(E^\circ\) = \textbf{0.76 V}. (b) \(E\) \ensuremath{\approx{}} \textbf{0.74 V}. (c) \textbf{3 citroenen}; de stroom is zeer klein door de grote inwendige weerstand en traagheid van de elektroden. (d) Twee gelijke elektroden geven \(E^\circ = 0\).
+
+\textbf{(a)} Anode: \(\mathrm{Zn \rightarrow Zn^{2+} + 2\,e^-}\); kathode: \(\mathrm{2\,H^+ + 2\,e^- \rightarrow H_2}\). Samen: \(\mathrm{Zn + 2\,H^+ \rightarrow Zn^{2+} + H_2}\) met \(E^\circ = 0.00 - (-0.76) = 0.76\,\mathrm{V}\). Het koper dient enkel als geleidend oppervlak.
+
+\textbf{(b)} Met \(a_{\mathrm{H^+}} = 10^{-2.3}\):
+
+\[
+E = 0.76 - \frac{0.0592}{2}\log_{10}\frac{c_{\mathrm{Zn^{2+}}}\,p_{\mathrm{H_2}}}{a_{\mathrm{H^+}}^2} = 0.76 - 0.0296\,(-4 + 4.6) = 0.74\,\mathrm{V}
+\]
+
+\textbf{(c)} \(1.8/0.74 = 2.4\), dus drie citroenen in serie (\(2.2\,\mathrm{V}\)). De thermodynamica geeft enkel de spanning bij nulstroom. Zodra er stroom loopt, verliest de cel spanning door de weerstand van het citroensap en door de trage waterstofvorming op koper (overspanning). De stroom blijft beperkt tot enkele tienden van een milliampère.
+
+\textbf{(d)} Met twee identieke elektroden is \(E^\circ = 0\): enkel een klein concentratieverschil kan een spanning geven (zoals in de concentratiecel uit de theorie).
+\end{oplossing}
+
+\begin{oefening}[Roest ijzer ook zonder zuurstof? Het Pourbaix-diagram]
+In een Pourbaix-diagram tekent men de grens tussen immuniteit en corrosie bij een conventionele ionactiviteit van \(10^{-6}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de potentiaal van de horizontale lijn \(\mathrm{Fe^{2+} + 2\,e^- \rightleftharpoons Fe}\) bij \(a_{\mathrm{Fe^{2+}}} = 10^{-6}\). Waarom is deze lijn horizontaal?
+\item[(b)]
+  Vergelijk met de ondergrens van het stabiliteitsgebied van water bij pH 7. Kan ijzer in zuurstofvrij, neutraal water thermodynamisch oxideren onder vorming van waterstof? Bereken de celspanning.
+\item[(c)]
+  Waarom roest ijzer in zuurstofvrij water in de praktijk toch nauwelijks?
+\item[(d)]
+  Tot welke potentiaal moet een stalen pijpleiding minstens gebracht worden voor kathodische bescherming? Waarom is een zinkanode daarvoor geschikt?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(E\) = \textbf{\ensuremath{-}0.62 V}, horizontaal want zonder H\ensuremath{^{+}}. (b) Waterlijn bij pH 7: \ensuremath{-}0.41 V; \(E_{\text{cel}}\) = \textbf{+0.20 V}: \textbf{ja}, thermodynamisch mogelijk. (c) De reactie is \textbf{kinetisch} zeer traag. (d) Onder \textbf{\ensuremath{-}0.62 V}; zink (\(-0.76\,\mathrm{V}\)) oxideert liever dan ijzer.
+
+\textbf{(a)} Nernst voor de reductie, met \(Q = 1/a_{\mathrm{Fe^{2+}}}\):
+
+\[
+E = -0.44 - \frac{0.0592}{2}\log_{10}\frac{1}{10^{-6}} = -0.44 - 0.178 = -0.62\,\mathrm{V}
+\]
+
+Er komen geen \(\mathrm{H^+}\)- of \(\mathrm{OH^-}\)-ionen in de halfreactie voor, dus de potentiaal hangt niet van de pH af: een horizontale lijn.
+
+\textbf{(b)} Bij pH 7 ligt de waterstoflijn op \(E = -0.0592 \times 7 = -0.41\,\mathrm{V}\). Voor \(\mathrm{Fe + 2\,H^+ \rightarrow Fe^{2+} + H_2}\) is \(E_{\text{cel}} = -0.41 - (-0.62) = +0.20\,\mathrm{V} > 0\): ijzer kan zelfs zonder zuurstof thermodynamisch oxideren. In het Pourbaix-diagram ligt de ijzerlijn onder de waterlijn.
+
+\textbf{(c)} De ontwikkeling van waterstof op ijzer bij pH 7 is uiterst traag (hoge overspanning en zeer lage \(\mathrm{H^+}\)-concentratie), en het gevormde \(\mathrm{Fe(OH)_2}\) remt verdere aantasting. De drijvende kracht met zuurstof is veel groter (\(1.42\,\mathrm{V}\), voorbeeld in §7.4.1). Daarom roest een volledig ondergedompeld stuk staal in stilstaand, zuurstofarm water zoveel trager dan een stuk dat afwisselend nat en droog wordt.
+
+\textbf{(d)} Onder \(-0.62\,\mathrm{V}\) ligt het staal in het immuniteitsgebied. Wanneer je staal elektrisch verbindt met zink, vormt het zink de anode van een galvanische cel (\(E^\circ = -0.76\,\mathrm{V}\) is negatiever dan ijzer): het zink lost op en levert elektronen aan het staal, dat daardoor tot een lagere potentiaal gedwongen wordt.
+\end{oplossing}
+
+\begin{oefening}[Opofferingsanodes op een schip]
+De stalen romp van een binnenvaartschip wordt beschermd met zinkblokken. Om de romp in het immuniteitsgebied te houden, moet een gemiddelde beschermingsstroom van \(1.0\,\mathrm{A}\) lopen.
+
+\begin{enumerate}
+\item[(a)]
+  Hoeveel kilogram zink lost er per jaar op (\(M = 65.38\,\mathrm{g/mol}\))?
+\item[(b)]
+  Waarom moet het zink in elektrisch contact staan met de romp en in hetzelfde water hangen?
+\item[(c)]
+  Een loodgieter verbindt een koperen leiding rechtstreeks met een verzinkte stalen leiding. Waarom roest de stalen leiding nu sneller bij de verbinding?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Ongeveer \textbf{10.7 kg zink per jaar}. (b) De stroomkring moet gesloten zijn: \textbf{elektronen} door het metaal, \textbf{ionen} door het water. (c) Staal wordt de \textbf{anode} van een galvanische cel met koper.
+
+\textbf{(a)} Lading per jaar: \(Q = (1.0\,\mathrm{A})(3.156\times10^{7}\,\mathrm{s}) = 3.16\times10^{7}\,\mathrm{C}\), dus \(Q/F = 327\,\mathrm{mol}\) elektronen. Elk zinkatoom levert er twee (\(\mathrm{Zn \rightarrow Zn^{2+} + 2\,e^-}\)): \(164\,\mathrm{mol}\) Zn \(= 10.7\,\mathrm{kg}\). Daarom worden de blokken bij elk onderhoud vervangen.
+
+\textbf{(b)} Een galvanische cel werkt enkel met een gesloten stroomkring: de elektronen lopen van het zink door de metalen verbinding naar het staal, en de ionen bewegen door het water (de elektrolyt, de rol van de zoutbrug in de Daniell-cel). In zeewater werkt de bescherming beter dan in zoet water, omdat zout water een betere ionengeleider is.
+
+\textbf{(c)} Koper (\(+0.34\,\mathrm{V}\)) is edeler dan ijzer (\(-0.44\,\mathrm{V}\)) en zink. In contact met water vormen ze een galvanische cel waarin eerst het zink en daarna het staal als anode oplossen, terwijl op het koper zuurstof gereduceerd wordt. Daarom gebruikt men een isolerende koppeling (diëlektrische overgang) tussen beide metalen.
+\end{oplossing}
+
+\begin{oefening}[Zilver poetsen met aluminiumfolie]
+Zilver wordt zwart door een laagje zilversulfide (\(\mathrm{Ag_2S}\)). Een bekende keukentruc: leg het zilver op aluminiumfolie in een heet bad met soda (natriumcarbonaat). Gebruik \(E^\circ(\mathrm{Ag_2S + 2\,e^- \rightarrow 2\,Ag + S^{2-}}) = -0.69\,\mathrm{V}\) en \(E^\circ(\mathrm{Al^{3+}/Al}) = -1.66\,\mathrm{V}\).
+
+\begin{enumerate}
+\item[(a)]
+  Schrijf de halfreacties en de totale reactie. Welke elektrode is de anode?
+\item[(b)]
+  Bereken de standaardcelpotentiaal en \(\Delta_r G^\circ\) voor de totale reactie met \(3\,\mathrm{mol}\) \(\mathrm{Ag_2S}\).
+\item[(c)]
+  Waarom werkt de truc niet met koud leidingwater, maar wel met heet sodawater? Verbind met het voorbeeld over aluminium in de theorie.
+\item[(d)]
+  Wat is het voordeel ten opzichte van zilverpoets met een schuurmiddel?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\mathrm{3\,Ag_2S + 2\,Al \rightarrow 6\,Ag + 2\,Al^{3+} + 3\,S^{2-}}\); aluminium is de \textbf{anode}. (b) \(E^\circ\) = \textbf{0.97 V}, \(\Delta_r G^\circ\) = \textbf{\ensuremath{-}562 kJ}. (c) De \textbf{oxidelaag} van aluminium moet eerst weg. (d) Het zilver wordt \textbf{teruggevormd} in plaats van weggeschuurd.
+
+\textbf{(a)} Kathode (op het zilver): \(\mathrm{Ag_2S + 2\,e^- \rightarrow 2\,Ag + S^{2-}}\) (drie keer). Anode (de folie): \(\mathrm{Al \rightarrow Al^{3+} + 3\,e^-}\) (twee keer). Samen, met \(n = 6\):
+
+\[
+\mathrm{3\,Ag_2S + 2\,Al \rightarrow 6\,Ag + 2\,Al^{3+} + 3\,S^{2-}}
+\]
+
+In werkelijkheid vormt aluminium in de basische soda-oplossing aluminaat of hydroxide, en ontstaat er wat \(\mathrm{H_2S}\) (de geur van rotte eieren).
+
+\textbf{(b)} \(E^\circ = -0.69 - (-1.66) = 0.97\,\mathrm{V}\) en \(\Delta_r G^\circ = -nFE^\circ = -(6)(96485)(0.97) = -562\,\mathrm{kJ}\). De reactie is sterk spontaan.
+
+\textbf{(c)} Aluminium is normaal gepassiveerd door een dunne, compacte oxidelaag (voorbeeld in §7.5.1): de thermodynamica zegt `ja', maar de oxidelaag blokkeert de reactie. Sodawater is basisch; in het Pourbaix-diagram van aluminium ligt bij hoge pH een corrosiegebied (aluminaat, \(\mathrm{Al(OH)_4^-}\)), zodat de oxidelaag oplost. De warmte versnelt alles (hoofdstuk 8), en het opgeloste zout zorgt voor ionengeleiding tussen zilver en folie.
+
+\textbf{(d)} Een schuurmiddel verwijdert het \(\mathrm{Ag_2S}\) mechanisch, en daarmee ook het zilver dat erin gebonden zit. Bij de elektrochemische methode wordt het zilver teruggevormd tot metaal op het voorwerp, zodat er geen zilver verloren gaat.
+\end{oplossing}
+
+\begin{oefening}[De loodaccu: hoeveel lood voor een autostart?]
+Een autobatterij van \(12\,\mathrm{V}\) heeft een capaciteit van \(60\,\mathrm{Ah}\) en weegt \(15\,\mathrm{kg}\). De celreactie (zie het voorbeeld van de loodaccu) is
+
+\[
+\mathrm{Pb(s) + PbO_2(s) + 2\,H_2SO_4(aq) \rightarrow 2\,PbSO_4(s) + 2\,H_2O(l)}, \qquad E^\circ = 2.04\,\mathrm{V}, \quad n = 2
+\]
+
+\begin{enumerate}
+\item[(a)]
+  Hoeveel mol elektronen levert een volledige ontlading? Hoeveel gram Pb, \(\mathrm{PbO_2}\) en \(\mathrm{H_2SO_4}\) worden er minstens verbruikt in één cel?
+\item[(b)]
+  Bereken de opgeslagen energie en de specifieke energie (Wh/kg) van de batterij. Bereken ook de theoretische specifieke energie op basis van enkel de reactanten van één cel. Vergelijk met een Li-ionbatterij (ongeveer \(250\,\mathrm{Wh/kg}\)).
+\item[(c)]
+  Volgens de Nernstvergelijking stijgt de celspanning met de activiteit van het zwavelzuur. Waarom kan een garagist de laadtoestand van een loodaccu meten met een densimeter (dichtheid van de elektrolyt)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{2.24 mol e\ensuremath{^{-}}}; \textbf{232 g Pb}, \textbf{268 g PbO\ensuremath{_{2}}} en \textbf{220 g H\ensuremath{_{2}}SO\ensuremath{_{4}}} per cel. (b) \textbf{720 Wh}, dus \textbf{48 Wh/kg}; theoretisch \textbf{170 Wh/kg}. (c) Bij ontladen wordt zwavelzuur verbruikt: de \textbf{dichtheid daalt}.
+
+\textbf{(a)} \(Q = (60\,\mathrm{A})(3600\,\mathrm{s}) = 2.16\times10^{5}\,\mathrm{C}\), dus \(Q/F = 2.24\,\mathrm{mol}\) elektronen. De zes cellen staan in serie, zodat dezelfde lading door elke cel gaat. Per 2 mol elektronen reageert 1 mol Pb, 1 mol \(\mathrm{PbO_2}\) en 2 mol \(\mathrm{H_2SO_4}\): per cel \(1.12\,\mathrm{mol}\) Pb (\(232\,\mathrm{g}\)), \(1.12\,\mathrm{mol}\) \(\mathrm{PbO_2}\) (\(268\,\mathrm{g}\)) en \(2.24\,\mathrm{mol}\) \(\mathrm{H_2SO_4}\) (\(220\,\mathrm{g}\)), samen \(0.72\,\mathrm{kg}\).
+
+\textbf{(b)} \(W = (12\,\mathrm{V})(60\,\mathrm{Ah}) = 720\,\mathrm{Wh}\), of \(720/15 = 48\,\mathrm{Wh/kg}\). Per cel: \((2.04\,\mathrm{V})(60\,\mathrm{Ah}) = 122\,\mathrm{Wh}\) uit \(0.72\,\mathrm{kg}\) reactanten, dus theoretisch \(170\,\mathrm{Wh/kg}\). Water, rooster, behuizing en een overmaat aan actieve massa (die nooit volledig benut wordt) drijven het gewicht op. Li-ion haalt vijf keer meer per kilogram, dankzij de lage molaire massa en hoge spanning van lithium (Oefening 7.4). Voor een startbatterij telt vooral dat lood goedkoop, robuust en bijna volledig recycleerbaar is.
+
+\textbf{(c)} Tijdens het ontladen verdwijnt zwavelzuur uit de elektrolyt en ontstaat water: de dichtheid zakt van ongeveer \(1.28\,\mathrm{g/cm^3}\) (geladen) naar ongeveer \(1.10\,\mathrm{g/cm^3}\) (leeg). In de Nernstvergelijking staat \(Q = a_{\mathrm{H_2O}}^2/a_{\mathrm{H_2SO_4}}^2\), dus de spanning daalt licht. De dichtheid is daarom een directe maat voor de hoeveelheid zuur die nog kan reageren.
+\end{oplossing}
+
+\begin{oefening}[Het principe van de pH-meter]
+Een waterstofelektrode (\(\mathrm{H_2}\)-gas bij \(1\,\mathrm{bar}\) op platina) wordt in een oplossing met onbekende pH gedompeld.
+
+\begin{enumerate}
+\item[(a)]
+  Toon met de Nernstvergelijking aan dat haar potentiaal ten opzichte van de SHE gelijk is aan \(E = -0.0592\cdot\mathrm{pH}\) bij \(298\,\mathrm{K}\).
+\item[(b)]
+  Bereken de potentiaal bij pH 4, 7 en 9.
+\item[(c)]
+  Tussen twee waterstofelektroden, één in een buffer met pH 4.00 en één in een staal, meet men een spanning van \(177\,\mathrm{mV}\), waarbij de elektrode in het staal de negatieve pool is. Wat is de pH van het staal?
+\item[(d)]
+  Een echte pH-meter gebruikt een glaselektrode die zich net zo gedraagt. Waarom moet je hem regelmatig kalibreren met twee buffers, en waarom moet de temperatuur gekend zijn?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \textbf{\ensuremath{-}0.24 V}, \textbf{\ensuremath{-}0.41 V} en \textbf{\ensuremath{-}0.53 V}. (c) pH = \textbf{7.0}. (d) De helling (\(RT\ln 10/F\)) en het nulpunt moeten bepaald worden; de helling is \textbf{evenredig met \(T\)}.
+
+\textbf{(a)} Voor \(\mathrm{2\,H^+ + 2\,e^- \rightarrow H_2}\) met \(E^\circ = 0\) en \(p_{\mathrm{H_2}} = 1\,\mathrm{bar}\):
+
+\[
+E = 0 - \frac{0.0592}{2}\log_{10}\frac{1}{a_{\mathrm{H^+}}^2} = 0.0592\log_{10}a_{\mathrm{H^+}} = -0.0592\cdot\mathrm{pH}
+\]
+
+Dit is exact de ondergrens van het stabiliteitsgebied van water in het Pourbaix-diagram.
+
+\textbf{(b)} pH 4: \(-0.237\,\mathrm{V}\); pH 7: \(-0.414\,\mathrm{V}\); pH 9: \(-0.532\,\mathrm{V}\).
+
+\textbf{(c)} Het verschil is \(0.0592\,(\mathrm{pH}_{\text{staal}} - 4.00) = 0.177\,\mathrm{V}\), dus \(\mathrm{pH}_{\text{staal}} = 4.00 + 2.99 = 7.0\). Elke pH-eenheid geeft \(59\,\mathrm{mV}\): een pH-meter is eigenlijk een zeer gevoelige voltmeter.
+
+\textbf{(d)} Een glaselektrode heeft een eigen nulpunt (asymmetriepotentiaal) dat langzaam verschuift, en een helling die iets kan afwijken van de theoretische waarde. Met twee buffers bepaal je beide. De helling \(RT\ln10/F\) is evenredig met de absolute temperatuur: \(59.2\,\mathrm{mV}\) bij \(25\,^\circ\mathrm{C}\), maar \(61.5\,\mathrm{mV}\) bij \(37\,^\circ\mathrm{C}\). Daarom hebben pH-meters een temperatuursensor.
+\end{oplossing}
+
+\begin{oefening}[Elektrolyse bij hogere temperatuur]
+Voor \(\mathrm{H_2(g) + \tfrac{1}{2}\,O_2(g) \rightarrow H_2O(l)}\) geldt \(E^\circ = 1.229\,\mathrm{V}\) bij \(298\,\mathrm{K}\). De standaardentropieën zijn \(S^\circ(\mathrm{H_2O,l}) = 70.0\), \(S^\circ(\mathrm{H_2,g}) = 130.7\) en \(S^\circ(\mathrm{O_2,g}) = 205.2\,\mathrm{J/(mol\cdot K)}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(\Delta_r S^\circ\) en de temperatuurcoëfficiënt \((\partial E^\circ/\partial T)_p\).
+\item[(b)]
+  Schat de omkeerbare celspanning bij \(80\,^\circ\mathrm{C}\) (verwaarloos de temperatuursafhankelijkheid van \(\Delta_r S^\circ\)).
+\item[(c)]
+  Bereken de \emph{thermoneutrale spanning} \(E_{tn} = -\Delta_r H^\circ/(nF)\) met \(\Delta_r H^\circ = -285.8\,\mathrm{kJ/mol}\). Wat gebeurt er met de temperatuur van een elektrolyser die werkt tussen \(1.23\) en \(1.48\,\mathrm{V}\), en boven \(1.48\,\mathrm{V}\)?
+\item[(d)]
+  Waarom zijn hogetemperatuurelektrolysers (vaste-oxidecellen bij \(700\)--\(800\,^\circ\mathrm{C}\)) interessant wanneer er restwarmte beschikbaar is?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta_r S^\circ\) = \textbf{\ensuremath{-}163 J/(mol\ensuremath{\cdot{}}K)}, \(\partial E^\circ/\partial T\) = \textbf{\ensuremath{-}0.85 mV/K}. (b) \(E^\circ\)(353 K) \ensuremath{\approx{}} \textbf{1.18 V}. (c) \(E_{tn}\) = \textbf{1.48 V}: daaronder koelt de cel af, daarboven warmt ze op. (d) Een deel van de energie kan als \textbf{warmte} in plaats van elektriciteit worden geleverd.
+
+\textbf{(a)} \(\Delta_r S^\circ = 70.0 - 130.7 - \tfrac{1}{2}(205.2) = -163.3\,\mathrm{J/(mol\cdot K)}\). Met vergelijking (7.16) en \(n = 2\):
+
+\[
+\left(\frac{\partial E^\circ}{\partial T}\right)_p = \frac{\Delta_r S^\circ}{nF} = \frac{-163.3}{(2)(96485)} = -8.5\times10^{-4}\,\mathrm{V/K}
+\]
+
+\textbf{(b)} \(E^\circ(353\,\mathrm{K}) \approx 1.229 + (-8.5\times10^{-4})(55) = 1.18\,\mathrm{V}\). Bij hogere temperatuur is minder elektrische arbeid nodig om water te splitsen, omdat de term \(T\Delta S\) een groter deel van de benodigde energie levert.
+
+\textbf{(c)} \(E_{tn} = 285\,800/(2 \times 96485) = 1.48\,\mathrm{V}\). De totale energie die nodig is, is \(\Delta H\); daarvan moet minstens \(\Delta G\) elektrisch zijn, en de rest (\(T\Delta S\)) kan als warmte komen. Tussen \(1.23\) en \(1.48\,\mathrm{V}\) levert de stroom minder dan \(\Delta H\): de cel neemt warmte op uit de omgeving en koelt af. Boven \(1.48\,\mathrm{V}\) (de gewone praktijk, \(1.7\)--\(2.2\,\mathrm{V}\)) produceren de verliezen meer warmte dan nodig is, en moet de cel gekoeld worden.
+
+\textbf{(d)} Bij \(700\)--\(800\,^\circ\mathrm{C}\) (waterdamp in plaats van vloeibaar water) daalt de omkeerbare spanning tot ongeveer \(0.9\)--\(1.0\,\mathrm{V}\), en zijn de overspanningen kleiner omdat de reacties sneller verlopen (hoofdstuk 8). Restwarmte uit een fabriek, die anders verloren gaat, vervangt dan een deel van de dure elektriciteit.
+\end{oplossing}
+
+\begin{oefening}[Geïntegreerde case: groene waterstof]
+Een elektrolyser van \(10\,\mathrm{MW}\) in de Antwerpse haven verbruikt \(52.5\,\mathrm{kWh}\) elektriciteit per kg waterstof (\(M_{\mathrm{H_2}} = 2.016\,\mathrm{g/mol}\)). Gebruik \(\Delta_r G^\circ = 237.1\,\mathrm{kJ/mol}\) en \(\Delta_r H^\circ = 285.8\,\mathrm{kJ/mol}\) voor de ontleding van vloeibaar water.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de thermodynamische minimale elektrische arbeid per kg \(\mathrm{H_2}\), en de verbrandingswarmte (bovenste verbrandingswaarde) per kg.
+\item[(b)]
+  Bereken het rendement ten opzichte van beide. Met welke gemiddelde celspanning komt het verbruik overeen?
+\item[(c)]
+  Hoeveel ton waterstof per dag produceert de installatie op vol vermogen? Hoeveel water verbruikt ze daarvoor?
+\item[(d)]
+  Wat kost de elektriciteit per kg waterstof bij \(0.10\,\text{€/kWh}\)? Welke twee knoppen kan een ingenieur volgens dit hoofdstuk draaien om de kost te verlagen?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(W_{\min}\) = \textbf{32.7 kWh/kg}; verbrandingswarmte \textbf{39.4 kWh/kg} (142 MJ/kg). (b) \textbf{62 \%} en \textbf{75 \%}; gemiddelde celspanning \textbf{1.97 V}. (c) \textbf{4.6 ton H\ensuremath{_{2}} per dag}, met \textbf{41 ton water}. (d) \textbf{5.25 €/kg}; lagere overspanning (katalysator) en hogere temperatuur.
+
+\textbf{(a)} Eén kg is \(1000/2.016 = 496\,\mathrm{mol}\) \(\mathrm{H_2}\). Minimale arbeid: \((496)(237.1\,\mathrm{kJ}) = 1.18\times10^{5}\,\mathrm{kJ} = 32.7\,\mathrm{kWh}\). Verbrandingswarmte: \((496)(285.8\,\mathrm{kJ}) = 142\,\mathrm{MJ} = 39.4\,\mathrm{kWh}\).
+
+\textbf{(b)} \(32.7/52.5 = 62\,\%\) ten opzichte van de minimale arbeid, \(39.4/52.5 = 75\,\%\) ten opzichte van de verbrandingswarmte (de gebruikelijke definitie in de waterstofsector). De celspanning volgt uit \(W = nFE\) per mol: \(E = (52.5 \times 3.6\times10^{6}\,\mathrm{J})/((496)(2)(96485)) = 1.97\,\mathrm{V}\), in het gewone bereik van \(1.7\)--\(2.2\,\mathrm{V}\).
+
+\textbf{(c)} Per dag: \((10\,\mathrm{MW})(24\,\mathrm{h}) = 240\,\mathrm{MWh}\), dus \(240\,000/52.5 = 4570\,\mathrm{kg} \approx 4.6\,\mathrm{ton}\) \(\mathrm{H_2}\). Per kg \(\mathrm{H_2}\) is \(18.015/2.016 = 8.9\,\mathrm{kg}\) water nodig, samen ongeveer \(41\,\mathrm{ton}\) zuiver water per dag (in de praktijk meer, door de waterzuivering).
+
+\textbf{(d)} \((52.5)(0.10) = 5.25\,\text{€/kg}\), enkel aan elektriciteit; waterstof uit aardgas kost typisch \(1\)--\(2\,\text{€/kg}\) (zonder \(\mathrm{CO_2}\)-prijs). De ingenieur kan (1) de overspanning verlagen met betere elektrodekatalysatoren en dunnere membranen, en zo dichter bij \(1.23\)--\(1.48\,\mathrm{V}\) komen, en (2) bij hogere temperatuur werken, waarbij \(E^\circ\) daalt en goedkope restwarmte een deel van de energie levert (Oefening 7.11). Daarnaast kan men de installatie laten draaien wanneer de elektriciteit goedkoop is (veel zon en wind).
+\end{oplossing}
+
+\begin{oefening}[Waarom doet aluminiumfolie pijn aan je tanden?]
+Wie met een metalen tandvulling per ongeluk op een stukje aluminiumfolie bijt, voelt een scherpe pijn. Speeksel (\(\mathrm{pH} \approx 7\)) werkt als elektrolyt. Beschouw de vulling als een \(\mathrm{Ag_2O/Ag}\)-elektrode:
+
+\[
+\mathrm{Ag_2O(s) + H_2O + 2\,e^- \rightarrow 2\,Ag(s) + 2\,OH^-} \qquad E^\circ = +0.342\,\mathrm{V}
+\]
+
+en het aluminium als \(\mathrm{Al^{3+}/Al}\) met \(E^\circ = -1.662\,\mathrm{V}\), bij \([\mathrm{Al^{3+}}] = 10^{-6}\,\mathrm{mol/L}\). Werk bij \(25\,^\circ\mathrm{C}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de potentiaal van beide elektroden met de vergelijking van Nernst.
+\item[(b)]
+  Welke elektrode is de anode? Bereken de celspanning.
+\item[(c)]
+  Bereken \(\Delta_r G\) voor de reactie \(\mathrm{2\,Al + 3\,Ag_2O + 3\,H_2O \rightarrow 2\,Al^{3+} + 6\,Ag + 6\,OH^-}\).
+\item[(d)]
+  Waarom voel je de pijn alleen in tanden met een metalen vulling? Waarom is de werkelijke spanning lager dan je berekening?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(E_{\mathrm{Ag_2O/Ag}}\) = \textbf{+0.756 V}, \(E_{\mathrm{Al^{3+}/Al}}\) = \textbf{\ensuremath{-}1.780 V}. (b) Aluminium is de anode; \(E_{\text{cel}}\) = \textbf{2.54 V}. (c) \(\Delta_r G\) = \textbf{\ensuremath{-}1470 kJ/mol}. (d) De stroom loopt via de vulling naar de zenuw. Een oxidelaag en de weerstand van het speeksel verlagen de spanning.
+
+\textbf{(a)} Bij \(\mathrm{pH} = 7\) is \([\mathrm{OH^-}] = 10^{-7}\,\mathrm{mol/L}\):
+
+\[
+E_{\mathrm{Ag_2O/Ag}} = E^\circ - \frac{0.0592}{2}\log[\mathrm{OH^-}]^2 = 0.342 + 0.0592 \times 7 = +0.756\,\mathrm{V}
+\]
+
+\[
+E_{\mathrm{Al^{3+}/Al}} = E^\circ + \frac{0.0592}{3}\log[\mathrm{Al^{3+}}] = -1.662 - 0.118 = -1.780\,\mathrm{V}
+\]
+
+\textbf{(b)} De elektrode met de laagste potentiaal wordt geoxideerd: aluminium is de anode, de vulling de kathode. \(E_{\text{cel}} = 0.756 - (-1.780) = 2.54\,\mathrm{V}\), meer dan een AA-batterij.
+
+\textbf{(c)} Met \(n = 6\): \(\Delta_r G = -nFE = -(6)(96\,485)(2.54) = -1.47\times10^{6}\,\mathrm{J/mol}\). De reactie is sterk spontaan.
+
+\textbf{(d)} Je mond vormt een galvanische cel. De folie raakt de vulling of het speeksel ertussen, en de stroom loopt door de vulling. De vulling geleidt de stroom tot vlak bij de zenuw in de tand, die het als pijn registreert. Zonder metalen vulling is er geen tweede elektrode. De werkelijke spanning is lager: aluminium is bedekt met een dun \(\mathrm{Al_2O_3}\)-laagje, en zodra er stroom loopt, verlagen de weerstand van het speeksel en de polarisatie van de elektroden de klemspanning. Zelfs een fractie van een volt volstaat echter om de zenuw te prikkelen.
+\end{oplossing}
+
+\begin{oefening}[Verandert de spanning van een horlogebatterij in de winter?]
+Een zilveroxide-knoopcel in een horloge werkt volgens
+
+\[
+\mathrm{Zn(s) + Ag_2O(s) \rightarrow ZnO(s) + 2\,Ag(s)} \qquad E^\circ = 1.60\,\mathrm{V}
+\]
+
+Standaardentropieën in \(\mathrm{J/(mol\cdot K)}\): Zn 41.6, \(\mathrm{Ag_2O}\) 121.3, ZnO 43.6, Ag 42.55.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(\Delta_r S^\circ\) en de temperatuurscoëfficiënt \((\partial E^\circ/\partial T)_p\).
+\item[(b)]
+  Hoeveel verandert de spanning als het horloge van de pols (\(32\,^\circ\mathrm{C}\)) naar een winterse buitentemperatuur van \(-5\,^\circ\mathrm{C}\) gaat? Is dat veel?
+\item[(c)]
+  Bereken \(\Delta_r G^\circ\) en \(\Delta_r H^\circ\) bij \(25\,^\circ\mathrm{C}\). Hoeveel warmte geeft de cel af bij omkeerbare werking?
+\item[(d)]
+  Batterijen werken in de kou toch minder goed. Wat is daarvan de belangrijkste oorzaak, als het niet de thermodynamica is?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta_r S^\circ\) = \textbf{\ensuremath{-}34.2 J/(mol\ensuremath{\cdot{}}K)}, \(\partial E^\circ/\partial T\) = \textbf{\ensuremath{-}0.18 mV/K}. (b) De spanning stijgt met \textbf{6.6 mV (0.4 \%)}: verwaarloosbaar. (c) \(\Delta_r G^\circ\) = \textbf{\ensuremath{-}309 kJ/mol}, \(\Delta_r H^\circ\) = \textbf{\ensuremath{-}319 kJ/mol}, warmte 10.2 kJ/mol. (d) Tragere kinetiek en hogere inwendige weerstand.
+
+\textbf{(a)} \(\Delta_r S^\circ = 43.6 + 2(42.55) - 41.6 - 121.3 = -34.2\,\mathrm{J/(mol\cdot K)}\). Met \(\Delta_r S^\circ = nF(\partial E^\circ/\partial T)_p\) en \(n = 2\):
+
+\[
+\left(\frac{\partial E^\circ}{\partial T}\right)_p = \frac{-34.2}{(2)(96\,485)} = -1.77\times10^{-4}\,\mathrm{V/K}
+\]
+
+\textbf{(b)} \(\Delta E = (-1.77\times10^{-4})(-37) = +6.6\,\mathrm{mV}\). De spanning stijgt dus zelfs licht in de kou, met \(0.4\,\%\). De thermodynamica verklaart niet waarom een horloge in de winter afwijkt. Kwartshorloges gebruiken bovendien een spanningsregeling.
+
+\textbf{(c)} \(\Delta_r G^\circ = -nFE^\circ = -(2)(96\,485)(1.60) = -309\,\mathrm{kJ/mol}\) en \(\Delta_r H^\circ = \Delta_r G^\circ + T\Delta_r S^\circ = -309 + (298.15)(-0.0342) = -319\,\mathrm{kJ/mol}\). Bij omkeerbare werking is de afgegeven warmte \(q = T\Delta_r S^\circ = -10.2\,\mathrm{kJ/mol}\): ongeveer 3 \% van de reactie-enthalpie verschijnt als warmte, de rest als elektrische arbeid.
+
+\textbf{(d)} In de kou verlopen de elektrodereacties trager (Arrhenius, hoofdstuk 8) en neemt de ionengeleidbaarheid van het elektrolyt af. De inwendige weerstand stijgt, zodat de klemspanning onder belasting daalt. Dat verklaart waarom een smartphone of auto-accu in de vrieskou moeilijk doet, terwijl de evenwichtsspanning nauwelijks verandert.
+\end{oplossing}

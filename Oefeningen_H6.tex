@@ -1,0 +1,530 @@
+% Oefeningen bij dit hoofdstuk (ingevoegd achteraan het hoofdstuk met \input).
+% Een oefening:  \begin{oefening}[titel] ... \end{oefening}   (boek en website)
+% De oplossing:  \begin{oplossing} ... \end{oplossing}       (enkel website, dichtgeklapt)
+
+Neem $R = \SI{8.314}{\joule\per\mole\per\kelvin}$, $p^\circ = \SI{1}{\bar}$ en $c^\circ = \SI{1}{\mole\per\litre}$; gassen zijn ideaal.
+
+\begin{oefening}[\(K_p\), \(K_c\) en \(K_x\) voor de ammoniaksynthese]
+Voor \(\mathrm{N_2 + 3\,H_2 \rightleftharpoons 2\,NH_3}\) geldt \(K_p \approx 3\times10^{-4}\) bij \(700\,\mathrm{K}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(K_c\) bij \(700\,\mathrm{K}\). Let op de eenheden: gebruik \(c^\circ = 1\,\mathrm{mol/L} = 1000\,\mathrm{mol/m^3}\).
+\item[(b)]
+  Bereken \(K_x\) bij \(1\,\mathrm{bar}\) en bij \(200\,\mathrm{bar}\).
+\item[(c)]
+  Welke van de drie constanten verandert wanneer je de reactor bij dezelfde temperatuur op een hogere druk zet? Waarom is \(K_c \neq K_p\)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(K_c\) \ensuremath{\approx{}} \textbf{1.0}. (b) \(K_x\) = \textbf{3\ensuremath{\cdot{}}10\ensuremath{^{-4}}} bij 1 bar en \textbf{12} bij 200 bar. (c) Enkel \textbf{\(K_x\)} verandert met de druk; \(K_c \neq K_p\) omdat \(\Delta\nu = -2 \neq 0\).
+
+\textbf{(a)} Met \(p_i = c_i RT\) geldt \(K_p = K_c\,(c^\circ RT/p^\circ)^{\Delta\nu}\). Hier is
+
+\[
+\frac{c^\circ RT}{p^\circ} = \frac{(1000\,\mathrm{mol/m^3})(8.314)(700)}{10^5\,\mathrm{Pa}} = 58.2
+\]
+
+en \(\Delta\nu = -2\), dus \(K_c = K_p\,(58.2)^{2} = (3\times10^{-4})(3387) = 1.0\).
+
+\textbf{(b)} \(K_x = K_p\,(P/p^\circ)^{-\Delta\nu} = K_p\,(P/p^\circ)^{2}\): bij \(1\,\mathrm{bar}\) is \(K_x = K_p = 3\times10^{-4}\), bij \(200\,\mathrm{bar}\) is \(K_x = 3\times10^{-4} \times 40\,000 = 12\).
+
+\textbf{(c)} \(K_p\) en \(K_c\) hangen enkel van de temperatuur af; \(K_x\) groeit met \(P^2\), wat de hogere ammoniakfractie bij hoge druk verklaart. \(K_c\) en \(K_p\) verschillen omdat ze naar een andere standaardtoestand verwijzen (\(1\,\mathrm{mol/L}\) tegenover \(1\,\mathrm{bar}\)). Ze zijn enkel gelijk wanneer \(\Delta\nu = 0\), zoals bij de water-gas-shiftreactie.
+\end{oplossing}
+
+\begin{oefening}[Inert gas in de ammoniakreactor]
+In het voorbeeld van §6.3.1 werd de evenwichtssamenstelling berekend bij \(700\,\mathrm{K}\) en \(100\,\mathrm{bar}\) (\(K_p \approx 3\times10^{-4}\)), vertrekkend van \(1\,\mathrm{mol}\) \(\mathrm{N_2}\) en \(3\,\mathrm{mol}\) \(\mathrm{H_2}\): \(\xi \approx 0.445\). In een echte installatie stapelt argon (uit de lucht) zich op in de recyclestroom.
+
+\begin{enumerate}
+\item[(a)]
+  Stel de reactietabel op wanneer de voeding bovendien \(2\,\mathrm{mol}\) argon bevat, bij dezelfde totale druk van \(100\,\mathrm{bar}\).
+\item[(b)]
+  Bereken de omzetting van stikstof en de molfractie ammoniak. Vergelijk met de situatie zonder argon.
+\item[(c)]
+  Wat zou er gebeuren als je het argon toevoegt bij constant volume?
+\item[(d)]
+  Waarom voorziet men een purgestroom in de recyclelus?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \(\xi\) = \textbf{0.354} (35 \% omzetting, tegenover 44.5 \%); \(y_{\mathrm{NH_3}}\) = \textbf{0.134} (tegenover 0.286). (c) Bij constant volume: \textbf{geen effect}. (d) Zonder purge stapelt het inerte gas zich op en daalt de omzetting per doorgang.
+
+\textbf{(a)}
+
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+ & \(\mathrm{N_2}\) & \(\mathrm{H_2}\) & \(\mathrm{NH_3}\) & Ar \\
+\midrule
+Initieel (mol) & 1 & 3 & 0 & 2 \\
+Verandering (mol) & \(-\xi\) & \(-3\xi\) & \(+2\xi\) & 0 \\
+Evenwicht (mol) & \(1-\xi\) & \(3-3\xi\) & \(2\xi\) & 2 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+met \(n_{\text{tot}} = 6 - 2\xi\).
+
+\textbf{(b)} De evenwichtsvoorwaarde wordt
+
+\[
+K_p = \frac{\left(\dfrac{2\xi}{6-2\xi}\right)^2}{\left(\dfrac{1-\xi}{6-2\xi}\right)\left(\dfrac{3-3\xi}{6-2\xi}\right)^3}\left(\frac{P}{p^\circ}\right)^{-2} = 3\times10^{-4}
+\]
+
+Numeriek oplossen geeft \(\xi = 0.354\), \(n_{\text{tot}} = 5.29\,\mathrm{mol}\) en \(y_{\mathrm{NH_3}} = 0.708/5.29 = 0.134\). Zonder argon was \(\xi = 0.445\) en \(y_{\mathrm{NH_3}} = 0.286\). Het argon verdunt de reactanten: hun partiële drukken dalen, alsof de reactor bij een lagere druk werkt, en het evenwicht schuift naar de kant met meer mol gas.
+
+\textbf{(c)} Bij constant volume blijven de partiële drukken van \(\mathrm{N_2}\), \(\mathrm{H_2}\) en \(\mathrm{NH_3}\) dezelfde; enkel de totale druk stijgt. \(Q\) verandert niet, dus het evenwicht verschuift niet.
+
+\textbf{(d)} Bij elke doorgang wordt het ammoniak uitgecondenseerd en worden \(\mathrm{N_2}\) en \(\mathrm{H_2}\) teruggevoerd, maar het argon (en methaan) reageert niet en condenseert niet. Zonder purge zou de argonfractie blijven stijgen tot de reactor nauwelijks nog ammoniak maakt. Een kleine purgestroom houdt de inerte fractie op een paar procent; het verlies aan waterstof in die purge is de prijs die men betaalt.
+\end{oplossing}
+
+\begin{oefening}[Het bruine gas \(\mathrm{NO_2}\): druk en temperatuur]
+Voor \(\mathrm{N_2O_4(g) \rightleftharpoons 2\,NO_2(g)}\) geldt \(K = 0.144\) bij \(298\,\mathrm{K}\) (Oefening 3.4) en \(\Delta_r H^\circ = +57.2\,\mathrm{kJ/mol}\). \(\mathrm{N_2O_4}\) is kleurloos, \(\mathrm{NO_2}\) roodbruin.
+
+\begin{enumerate}
+\item[(a)]
+  Vertrek van zuiver \(\mathrm{N_2O_4}\) en noem \(\alpha\) de fractie die dissocieert. Toon aan dat \(K = \dfrac{4\alpha^2}{1-\alpha^2}\dfrac{P}{p^\circ}\).
+\item[(b)]
+  Bereken \(\alpha\) bij \(298\,\mathrm{K}\) en een totale druk van \(0.1\), \(1\) en \(10\,\mathrm{bar}\).
+\item[(c)]
+  Bereken \(K\) en \(\alpha\) bij \(350\,\mathrm{K}\) en \(1\,\mathrm{bar}\).
+\item[(d)]
+  Een afgesloten glazen buisje met dit gasmengsel wordt in ijswater en daarna in heet water gezet. Wat zie je? Verklaar met Le Châtelier.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \(\alpha\) = \textbf{0.51}, \textbf{0.19} en \textbf{0.06} bij 0.1, 1 en 10 bar. (c) \(K_{350}\) = \textbf{4.4}, \(\alpha\) = \textbf{0.73}. (d) Koud: bijna kleurloos; warm: \textbf{donkerbruin}.
+
+\textbf{(a)} Per mol \(\mathrm{N_2O_4}\): bij evenwicht \(1-\alpha\) mol \(\mathrm{N_2O_4}\) en \(2\alpha\) mol \(\mathrm{NO_2}\), samen \(1+\alpha\) mol. Met \(p_i = y_iP\):
+
+\[
+K = \frac{\left(\dfrac{2\alpha}{1+\alpha}\right)^2}{\dfrac{1-\alpha}{1+\alpha}}\frac{P}{p^\circ} = \frac{4\alpha^2}{(1-\alpha)(1+\alpha)}\frac{P}{p^\circ} = \frac{4\alpha^2}{1-\alpha^2}\frac{P}{p^\circ}
+\]
+
+\textbf{(b)} Omvormen geeft \(\alpha = \sqrt{K/(K + 4P/p^\circ)}\):
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+\(P\) (bar) & 0.1 & 1 & 10 \\
+\midrule
+\(\alpha\) & 0.51 & 0.19 & 0.06 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Omdat \(\Delta\nu = +1\), duwt een hogere druk het evenwicht naar \(\mathrm{N_2O_4}\).
+
+\textbf{(c)} Van 't Hoff:
+
+\[
+\ln\frac{K_{350}}{0.144} = -\frac{57\,200}{8.314}\left(\frac{1}{350} - \frac{1}{298}\right) = 3.43 \quad\Rightarrow\quad K_{350} = 4.4
+\]
+
+en \(\alpha = \sqrt{4.4/8.4} = 0.73\).
+
+\textbf{(d)} De dissociatie is endotherm. In ijswater verschuift het evenwicht naar \(\mathrm{N_2O_4}\) en wordt het gas bijna kleurloos; in heet water naar \(\mathrm{NO_2}\) en wordt het donkerbruin. Dit is een klassieke demonstratie van Le Châtelier. \(\mathrm{NO_2}\) is ook het bruine gas in smog boven drukke wegen.
+\end{oplossing}
+
+\begin{oefening}[Bij welke temperatuur werkt een kalkoven?]
+Voor \(\mathrm{CaCO_3(s) \rightleftharpoons CaO(s) + CO_2(g)}\) bedraagt de evenwichtsdruk van \(\mathrm{CO_2}\) \(0.22\,\mathrm{bar}\) bij \(800\,^\circ\mathrm{C}\) (voorbeeld in §6.4.3). Neem \(\Delta_r H^\circ = +178.3\,\mathrm{kJ/mol}\) (Oefening 3.13), constant.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de evenwichtsdruk van \(\mathrm{CO_2}\) bij \(900\,^\circ\mathrm{C}\).
+\item[(b)]
+  Bij welke temperatuur bereikt de ontbindingsdruk \(1\,\mathrm{bar}\)? Vergelijk met de temperatuur waarbij \(\Delta_r G^\circ = 0\) uit Oefening 3.13 (\(1110\,\mathrm{K}\)).
+\item[(c)]
+  Waarom blaast men lucht door een kalkoven, en waarom ontleedt kalksteen in een gesloten vat niet volledig?
+\item[(d)]
+  Hangt de evenwichtsdruk af van de hoeveelheid kalksteen in de oven?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(p_{\mathrm{CO_2}}\) \ensuremath{\approx{}} \textbf{1.2 bar}. (b) \(T\) \ensuremath{\approx{}} \textbf{1161 K} (888 °C), ongeveer 50 K boven de schatting uit hoofdstuk 3. (c) Het weggeblazen CO\ensuremath{_{2}} houdt \textbf{\(Q < K\)}. (d) \textbf{Nee}: vaste stoffen hebben activiteit 1.
+
+\textbf{(a)} Met \(K = p_{\mathrm{CO_2}}/p^\circ\) en Van 't Hoff:
+
+\[
+\ln\frac{K_{1173}}{0.22} = -\frac{178\,300}{8.314}\left(\frac{1}{1173.15} - \frac{1}{1073.15}\right) = 1.70 \quad\Rightarrow\quad K_{1173} = 1.2
+\]
+
+De evenwichtsdruk stijgt in \(100\,\mathrm{K}\) met een factor \(5.5\).
+
+\textbf{(b)} \(K = 1\) wanneer
+
+\[
+\frac{1}{T} = \frac{1}{1073.15} - \frac{8.314}{178\,300}\ln\frac{1}{0.22} \quad\Rightarrow\quad T = 1161\,\mathrm{K} = 888\,^\circ\mathrm{C}
+\]
+
+\(K = 1\) betekent \(\Delta_r G^\circ = 0\): dit is dezelfde vraag als in Oefening 3.13. Daar vond je \(1110\,\mathrm{K}\) met \(\Delta_r H^\circ\) en \(\Delta_r S^\circ\) bij \(298\,\mathrm{K}\); het verschil van ongeveer \(50\,\mathrm{K}\) komt van de temperatuurafhankelijkheid van \(\Delta_r H^\circ\) en \(\Delta_r S^\circ\) (de wet van Kirchhoff). De experimentele waarde is ongeveer \(898\,^\circ\mathrm{C}\).
+
+\textbf{(c)} Kalksteen ontleedt enkel zolang \(p_{\mathrm{CO_2}}\) in de oven onder de evenwichtsdruk blijft (\(Q < K\), dus \(\Delta_r G < 0\)). In een gesloten vat stijgt \(p_{\mathrm{CO_2}}\) tot de evenwichtsdruk en stopt de reactie. Door lucht of rookgas door de oven te blazen, wordt het \(\mathrm{CO_2}\) afgevoerd: productverwijdering uit §6.5.1.
+
+\textbf{(d)} Nee. Omdat \(a_{\mathrm{CaCO_3}} = a_{\mathrm{CaO}} = 1\), bevat \(K\) enkel \(p_{\mathrm{CO_2}}\). Zolang beide vaste stoffen aanwezig zijn, ligt de druk vast bij elke temperatuur, net zoals de dampdruk van water niet afhangt van hoeveel water er in de pot zit.
+\end{oplossing}
+
+\begin{oefening}[Oplosbaarheid en het gemeenschappelijk-ioneffect]
+Voor \(\mathrm{Ag_2CrO_4(s) \rightleftharpoons 2\,Ag^+(aq) + CrO_4^{2-}(aq)}\) geldt \(K_{ps} = 1.1\times10^{-12}\) bij \(25\,^\circ\mathrm{C}\) (\(M = 331.7\,\mathrm{g/mol}\)).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de oplosbaarheid \(s\) in zuiver water, in mol/L en mg/L.
+\item[(b)]
+  Vergelijk met AgCl (\(K_{ps} = 1.8\times10^{-10}\), voorbeeld in §6.4.3). Welk zout is het meest oplosbaar, hoewel zijn \(K_{ps}\) kleiner is?
+\item[(c)]
+  Bereken \(s\) in een oplossing die al \(0.10\,\mathrm{mol/L}\) \(\mathrm{AgNO_3}\) bevat. Verklaar met Le Châtelier.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(s\) = \textbf{6.5\ensuremath{\cdot{}}10\ensuremath{^{-5}} mol/L} (22 mg/L). (b) \textbf{Ag\ensuremath{_{2}}CrO\ensuremath{_{4}}} is beter oplosbaar dan AgCl (1.3\ensuremath{\cdot{}}10\ensuremath{^{-5}} mol/L). (c) \(s\) = \textbf{1.1\ensuremath{\cdot{}}10\ensuremath{^{-10}} mol/L}: meer dan 500 000 keer kleiner.
+
+\textbf{(a)} Per mol opgelost zout: \(c_{\mathrm{Ag^+}} = 2s\) en \(c_{\mathrm{CrO_4^{2-}}} = s\), dus
+
+\[
+K_{ps} = (2s)^2 s = 4s^3 \quad\Rightarrow\quad s = \left(\frac{1.1\times10^{-12}}{4}\right)^{1/3} = 6.5\times10^{-5}\,\mathrm{mol/L}
+\]
+
+of \((6.5\times10^{-5})(331.7) = 0.022\,\mathrm{g/L} = 22\,\mathrm{mg/L}\).
+
+\textbf{(b)} AgCl: \(s = \sqrt{1.8\times10^{-10}} = 1.3\times10^{-5}\,\mathrm{mol/L}\). Ag\ensuremath{_{2}}CrO\ensuremath{_{4}} is vijf keer beter oplosbaar, ondanks de kleinere \(K_{ps}\). Je kan \(K_{ps}\)-waarden enkel rechtstreeks vergelijken voor zouten met dezelfde stoichiometrie, omdat de exponenten in de uitdrukking verschillen.
+
+\textbf{(c)} Nu is \(c_{\mathrm{Ag^+}} \approx 0.10\,\mathrm{mol/L}\) (de bijdrage van het zout is verwaarloosbaar), dus
+
+\[
+s = \frac{K_{ps}}{(0.10)^2} = 1.1\times10^{-10}\,\mathrm{mol/L}
+\]
+
+Het toegevoegde \(\mathrm{Ag^+}\) verhoogt \(Q\), zodat het evenwicht naar de vaste stof schuift. Dit principe gebruikt men om ionen zo volledig mogelijk neer te slaan, bijvoorbeeld om zware metalen uit afvalwater te verwijderen met een overmaat neerslagmiddel.
+\end{oplossing}
+
+\begin{oefening}[Ketelsteen in de waterkoker]
+Voor \(\mathrm{CaCO_3(s) \rightleftharpoons Ca^{2+}(aq) + CO_3^{2-}(aq)}\) geldt \(K_{ps} = 3.3\times10^{-9}\) bij \(25\,^\circ\mathrm{C}\) (\(M = 100.1\,\mathrm{g/mol}\)).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de oplosbaarheid van calciumcarbonaat in zuiver water.
+\item[(b)]
+  Kraantjeswater in Vlaanderen bevat vaak \(2.5\,\mathrm{mmol/L}\) \(\mathrm{Ca^{2+}}\) of meer. Hoe kan dat, gezien het resultaat van (a)? Gebruik het evenwicht
+\end{enumerate}
+
+\[
+\mathrm{Ca^{2+}(aq) + 2\,HCO_3^-(aq) \rightleftharpoons CaCO_3(s) + CO_2(aq) + H_2O(l)}
+\]
+
+\begin{enumerate}
+\setcounter{enumi}{2}
+\item[(a)]
+  Leg uit waarom kalk neerslaat wanneer je het water kookt. Combineer met de wet van Henry (hoofdstuk 5, Oefening 5.10).
+\item[(b)]
+  Waarom lost azijn of citroenzuur ketelsteen op?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(s\) = \textbf{5.7\ensuremath{\cdot{}}10\ensuremath{^{-5}} mol/L} (5.7 mg/L). (b) Calcium is opgelost als \textbf{calciumwaterstofcarbonaat}, dankzij opgelost CO\ensuremath{_{2}}. (c) Bij koken \textbf{ontsnapt CO\ensuremath{_{2}}}: \(Q\) daalt en CaCO\ensuremath{_{3}} slaat neer. (d) Zuur zet carbonaat om in \textbf{CO\ensuremath{_{2}}} en water.
+
+\textbf{(a)} \(s = \sqrt{K_{ps}} = \sqrt{3.3\times10^{-9}} = 5.7\times10^{-5}\,\mathrm{mol/L}\), of \(5.7\,\mathrm{mg/L}\). Dat is ongeveer vijftig keer minder dan het calcium in hard water.
+
+\textbf{(b)} Regenwater neemt in de bodem \(\mathrm{CO_2}\) op (uit de afbraak van organisch materiaal) en lost onderweg kalksteen op via de omgekeerde reactie: \(\mathrm{CaCO_3 + CO_2 + H_2O \rightarrow Ca^{2+} + 2\,HCO_3^-}\). In de oplossing zit het carbonaat grotendeels als \(\mathrm{HCO_3^-}\), zodat de concentratie \(\mathrm{CO_3^{2-}}\) laag blijft en het product \(c_{\mathrm{Ca^{2+}}}c_{\mathrm{CO_3^{2-}}}\) onder \(K_{ps}\) blijft. Het water is in evenwicht zolang er voldoende opgelost \(\mathrm{CO_2}\) is.
+
+\textbf{(c)} Bij opwarmen daalt de oplosbaarheid van \(\mathrm{CO_2}\) sterk (de Henry-constante stijgt, Oefening 5.10) en bij koken wordt het gas er bovendien uitgedreven. Het verwijderen van een product (\(\mathrm{CO_2}\)) verschuift het evenwicht naar rechts: \(\mathrm{CaCO_3}\) slaat neer op het verwarmingselement. Bovendien is \(K_{ps}\) van \(\mathrm{CaCO_3}\) kleiner bij hogere temperatuur. Daarom zie je kalk in de waterkoker en in warmwaterleidingen, en nauwelijks in koudwaterleidingen.
+
+\textbf{(d)} Een zuur levert \(\mathrm{H^+}\), dat met carbonaat reageert: \(\mathrm{CaCO_3 + 2\,H^+ \rightarrow Ca^{2+} + CO_2 + H_2O}\). Het \(\mathrm{CO_2}\) ontsnapt (je ziet bellen), zodat de reactie volledig naar rechts verloopt.
+\end{oplossing}
+
+\begin{oefening}[Water-gas-shift: waterstof uit koolmonoxide]
+Bij de productie van waterstof volgt na de stoomreforming van methaan (§6.4.4) een tweede reactor voor de water-gas-shiftreactie:
+
+\[
+\mathrm{CO(g) + H_2O(g) \rightleftharpoons CO_2(g) + H_2(g)}, \qquad K \approx 9 \text{ bij } 700\,\mathrm{K}
+\]
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de evenwichtsomzetting van CO wanneer \(1\,\mathrm{mol}\) CO en \(1\,\mathrm{mol}\) stoom gevoed worden.
+\item[(b)]
+  Bereken de omzetting met een stoomovermaat (\(3\,\mathrm{mol}\) \(\mathrm{H_2O}\) per mol CO).
+\item[(c)]
+  Heeft de totale druk invloed op dit evenwicht? En is \(K_c\) verschillend van \(K_p\)?
+\item[(d)]
+  In een echte stoomreformer verlopen stoomreforming en shift tegelijk. Waarom moet men beide evenwichten simultaan oplossen in plaats van na elkaar?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{75 \%}. (b) \textbf{95 \%}. (c) \textbf{Geen} drukinvloed en \(K_c = K_p\), want \(\Delta\nu = 0\). (d) Beide reacties delen CO, H\ensuremath{_{2}}O en H\ensuremath{_{2}}: elke reactie verandert het reactiequotiënt van de andere.
+
+\textbf{(a)} Reactietabel: \(1-\xi\) CO, \(1-\xi\) \(\mathrm{H_2O}\), \(\xi\) \(\mathrm{CO_2}\), \(\xi\) \(\mathrm{H_2}\). Omdat \(\Delta\nu = 0\) vallen \(n_{\text{tot}}\) en \(P\) weg:
+
+\[
+K = \frac{\xi^2}{(1-\xi)^2} = 9 \quad\Rightarrow\quad \frac{\xi}{1-\xi} = 3 \quad\Rightarrow\quad \xi = 0.75
+\]
+
+\textbf{(b)} Met \(3\,\mathrm{mol}\) stoom:
+
+\[
+\frac{\xi^2}{(1-\xi)(3-\xi)} = 9 \quad\Rightarrow\quad 8\xi^2 - 36\xi + 27 = 0 \quad\Rightarrow\quad \xi = 0.951
+\]
+
+Een overmaat van de goedkope reactant (stoom) drijft de omzetting van de dure reactant op: Le Châtelier in de praktijk.
+
+\textbf{(c)} Met \(\Delta\nu = 0\) is \(K_x = K_p = K_c\); de druk verandert de evenwichtssamenstelling niet. Men kiest de druk dus op basis van de andere processtappen.
+
+\textbf{(d)} Elke mol CO die de shiftreactie wegneemt, verlaagt het reactiequotiënt van de reformingreactie en verbruikt stoom die ook de reforming nodig heeft; het gevormde \(\mathrm{H_2}\) verhoogt het quotiënt van beide. Het evenwicht is pas bereikt wanneer beide voorwaarden tegelijk voldaan zijn: twee vergelijkingen in twee reactie-uitbreidingen \(\xi_1\) en \(\xi_2\), samen met de massabalansen. Na elkaar oplossen zou de terugkoppeling negeren.
+\end{oplossing}
+
+\begin{oefening}[Geïntegreerde case: methanolsynthese]
+Methanol, grondstof voor kunststoffen en een mogelijke brandstof, wordt gemaakt uit synthesegas:
+
+\[
+\mathrm{CO(g) + 2\,H_2(g) \rightleftharpoons CH_3OH(g)}
+\]
+
+met \(\Delta_r H^\circ = -90.7\,\mathrm{kJ/mol}\) en \(\Delta_r G^\circ = -25.3\,\mathrm{kJ/mol}\) bij \(298\,\mathrm{K}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(K_p\) bij \(298\,\mathrm{K}\).
+\item[(b)]
+  Schat \(K_p\) bij \(500\,\mathrm{K}\) met Van 't Hoff (\(\Delta_r H^\circ\) constant).
+\item[(c)]
+  Hoe hangt \(K_x\) af van de totale druk? Bereken de evenwichtsomzetting van CO bij \(500\,\mathrm{K}\) voor een stoichiometrische voeding (1 mol CO, 2 mol \(\mathrm{H_2}\)) bij \(1\), \(50\) en \(100\,\mathrm{bar}\).
+\item[(d)]
+  Waarom werkt men in de praktijk bij \(200\)--\(300\,^\circ\mathrm{C}\) met een koper--zinkoxidekatalysator, terwijl een lagere temperatuur thermodynamisch gunstiger is? Verbind met hoofdstuk 2 (activeringsenergie).
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(K_{298}\) = \textbf{2.7\ensuremath{\cdot{}}10\ensuremath{^{4}}}. (b) \(K_{500}\) \ensuremath{\approx{}} \textbf{0.010}. (c) \(K_x = K_p(P/p^\circ)^2\); omzetting \textbf{0.5 \%}, \textbf{75 \%} en \textbf{85 \%} bij 1, 50 en 100 bar. (d) Bij lagere \(T\) is de reactie \textbf{te traag}.
+
+\textbf{(a)} \(K = \exp(25\,300/(8.314 \times 298.15)) = \exp(10.21) = 2.7\times10^{4}\).
+
+\textbf{(b)}
+
+\[
+\ln\frac{K_{500}}{K_{298}} = -\frac{-90\,700}{8.314}\left(\frac{1}{500} - \frac{1}{298.15}\right) = -14.8 \quad\Rightarrow\quad K_{500} = 0.010
+\]
+
+De reactie is exotherm: \(K\) daalt met een factor drie miljoen tussen kamertemperatuur en \(500\,\mathrm{K}\).
+
+\textbf{(c)} \(\Delta\nu = 1 - 3 = -2\), dus \(K_x = K_p (P/p^\circ)^2\). Met \(1-\xi\) CO, \(2-2\xi\) \(\mathrm{H_2}\), \(\xi\) \(\mathrm{CH_3OH}\) en \(n_{\text{tot}} = 3 - 2\xi\):
+
+\[
+K_p = \frac{\xi\,(3-2\xi)^2}{(1-\xi)(2-2\xi)^2}\left(\frac{P}{p^\circ}\right)^{-2}
+\]
+
+Numeriek oplossen met \(K_p = 0.010\):
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+\(P\) (bar) & 1 & 50 & 100 \\
+\midrule
+omzetting CO & 0.5 \% & 75 \% & 85 \% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Zonder hoge druk is methanolsynthese bij deze temperatuur zinloos.
+
+\textbf{(d)} Bij lage temperatuur is \(K\) groot, maar de reactie verloopt dan zelfs met een katalysator te traag: de snelheidsconstante daalt exponentieel met \(-E_a/RT\) (hoofdstuk 2, Oefening 2.5). De ingenieur kiest de laagste temperatuur waarbij de katalysator nog voldoende actief is, werkt bij \(50\)--\(100\,\mathrm{bar}\) om het evenwicht terug te duwen, condenseert de methanol na de reactor en recycleert het niet-omgezette gas. Het is exact dezelfde afweging als bij Haber--Bosch.
+\end{oplossing}
+
+\begin{oefening}[Koolmonoxidevergiftiging]
+Koolmonoxide bindt aan hemoglobine (Hb) in het bloed en verdringt zuurstof:
+
+\[
+\mathrm{HbO_2 + CO \rightleftharpoons HbCO + O_2}, \qquad K \approx 210 \text{ bij } 37\,^\circ\mathrm{C}
+\]
+
+waarbij \(K = \dfrac{c_{\mathrm{HbCO}}\,p_{\mathrm{O_2}}}{c_{\mathrm{HbO_2}}\,p_{\mathrm{CO}}}\). Lucht bevat \(21\,\%\) zuurstof bij \(1\,\mathrm{bar}\). Veronderstel dat het bloed in evenwicht komt met de ingeademde lucht en dat alle hemoglobine als \(\mathrm{HbO_2}\) of HbCO voorkomt.
+
+\begin{enumerate}
+\item[(a)]
+  Welke fractie van de hemoglobine is bezet door CO bij \(35\,\mathrm{ppm}\) CO (de alarmgrens van een CO-melder), \(100\,\mathrm{ppm}\) en \(1000\,\mathrm{ppm}\)?
+\item[(b)]
+  Vanaf ongeveer \(50\,\%\) HbCO is vergiftiging levensbedreigend. Waarom is een slecht afgestelde geiser of houtkachel in een slecht geventileerde badkamer zo gevaarlijk?
+\item[(c)]
+  Waarom krijgt een slachtoffer zuivere zuurstof toegediend, liefst in een drukkamer? Bereken de HbCO-fractie bij \(100\,\mathrm{ppm}\) CO wanneer men zuivere zuurstof bij \(1\,\mathrm{bar}\) ademt.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{3.4 \%}, \textbf{9 \%} en \textbf{50 \%}. (b) Al \textbf{1000 ppm} (0.1 \%) volstaat. (c) Met zuivere O\ensuremath{_{2}} daalt de fractie tot \textbf{2 \%}: Le Châtelier.
+
+\textbf{(a)} De verhouding is \(c_{\mathrm{HbCO}}/c_{\mathrm{HbO_2}} = K\,p_{\mathrm{CO}}/p_{\mathrm{O_2}}\), en de bezette fractie is \(r/(1+r)\):
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+CO & \(r = 210\,p_{\mathrm{CO}}/0.21\) & fractie HbCO \\
+\midrule
+35 ppm & 0.035 & 3.4 \% \\
+100 ppm & 0.10 & 9 \% \\
+1000 ppm & 1.0 & 50 \% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(b)} Omdat \(K\) zo groot is, volstaat een CO-concentratie die \(210\) keer kleiner is dan die van zuurstof om de helft van de hemoglobine te blokkeren: \(0.21/210 = 0.001\,\mathrm{bar}\), of \(0.1\,\%\) CO. Bij onvolledige verbranding (te weinig zuurstof in een kleine, afgesloten ruimte) wordt dat gemakkelijk bereikt. CO is bovendien kleur- en geurloos. Daarom zijn CO-melders verplicht bij verbrandingstoestellen.
+
+\textbf{(c)} Door \(p_{\mathrm{O_2}}\) te verhogen, verschuift het evenwicht naar links (Le Châtelier): \(r = 210 \times 10^{-4}/1.0 = 0.021\), dus HbCO daalt van \(9\,\%\) naar \(2\,\%\). In een drukkamer (\(2\) à \(3\,\mathrm{bar}\) zuurstof) gaat dat nog sneller. De evenwichtsligging is hier evengoed van belang als de snelheid waarmee het evenwicht zich instelt (hoofdstuk 8).
+\end{oplossing}
+
+\begin{oefening}[Fruitaroma's maken: verestering]
+Ethylacetaat (geur van peren en nagellakremover) ontstaat uit azijnzuur en ethanol:
+
+\[
+\mathrm{CH_3COOH(l) + C_2H_5OH(l) \rightleftharpoons CH_3COOC_2H_5(l) + H_2O(l)}, \qquad K \approx 4
+\]
+
+Behandel het mengsel als ideaal en druk de activiteiten uit met molfracties.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de evenwichtsomzetting van azijnzuur wanneer je \(1\,\mathrm{mol}\) zuur en \(1\,\mathrm{mol}\) ethanol mengt.
+\item[(b)]
+  Bereken de omzetting met \(3\,\mathrm{mol}\) ethanol per mol zuur.
+\item[(c)]
+  Geef een tweede manier om de omzetting bijna volledig te maken. Hoe gebeurt dat in een reactieve destillatiekolom?
+\item[(d)]
+  Waarom verandert een zure katalysator (zwavelzuur) de omzetting niet, maar is hij toch onmisbaar?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{67 \%}. (b) \textbf{90 \%}. (c) \textbf{Water of ester verwijderen} tijdens de reactie. (d) Een katalysator verandert \(K\) niet, maar \textbf{versnelt} het bereiken van het evenwicht.
+
+\textbf{(a)} Reactietabel: \(1-\xi\) zuur, \(1-\xi\) ethanol, \(\xi\) ester, \(\xi\) water. Omdat het aantal mol niet verandert, valt \(n_{\text{tot}}\) weg:
+
+\[
+K = \frac{\xi^2}{(1-\xi)^2} = 4 \quad\Rightarrow\quad \frac{\xi}{1-\xi} = 2 \quad\Rightarrow\quad \xi = 0.67
+\]
+
+\textbf{(b)}
+
+\[
+\frac{\xi^2}{(1-\xi)(3-\xi)} = 4 \quad\Rightarrow\quad 3\xi^2 - 16\xi + 12 = 0 \quad\Rightarrow\quad \xi = 0.90
+\]
+
+\textbf{(c)} Door een product voortdurend te verwijderen, blijft \(Q < K\) en loopt de reactie door. In een reactieve destillatiekolom gebeuren reactie en scheiding in hetzelfde toestel: de vluchtige ester (en het azeotroop met water) gaat naar boven, weg uit de reactiezone. Op laboschaal gebruikt men een Dean--Stark-opstelling of een droogmiddel om het water weg te vangen.
+
+\textbf{(d)} De katalysator verlaagt de activeringsenergie van heen- en terugreactie in dezelfde mate (Oefening 2.5): \(K\) blijft \(4\). Zonder katalysator duurt het echter dagen tot weken voor het evenwicht bereikt is, met katalysator minuten tot uren.
+\end{oplossing}
+
+\begin{oefening}[Stikstofoxiden uit de automotor]
+In de verbrandingskamer van een motor reageert de stikstof uit de lucht met zuurstof:
+
+\[
+\mathrm{N_2(g) + O_2(g) \rightleftharpoons 2\,NO(g)}, \qquad \Delta_r H^\circ = +180.5\,\mathrm{kJ/mol}, \quad K \approx 4.0\times10^{-4} \text{ bij } 2000\,\mathrm{K}
+\]
+
+\begin{enumerate}
+\item[(a)]
+  Lucht (\(79\,\%\) \(\mathrm{N_2}\), \(21\,\%\) \(\mathrm{O_2}\)) wordt opgewarmd tot \(2000\,\mathrm{K}\). Bereken de evenwichtsmolfractie NO.
+\item[(b)]
+  Schat \(K\) bij \(298\,\mathrm{K}\) met Van 't Hoff. Hoeveel NO zou er in evenwicht met lucht bij kamertemperatuur zijn?
+\item[(c)]
+  Het uitlaatgas koelt in een fractie van een seconde af, maar bevat toch honderden ppm NO. Hoe verklaar je dat? Wat doet een driewegkatalysator?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(y_{\mathrm{NO}}\) \ensuremath{\approx{}} \textbf{0.8 \%}. (b) \(K_{298}\) \ensuremath{\approx{}} \textbf{5\ensuremath{\cdot{}}10\ensuremath{^{-31}}}; \(y_{\mathrm{NO}}\) \ensuremath{\approx{}} \textbf{3\ensuremath{\cdot{}}10\ensuremath{^{-16}}}. (c) Het evenwicht \textbf{bevriest} bij snelle afkoeling (kinetiek); de katalysator versnelt de afbraak van NO.
+
+\textbf{(a)} Per mol lucht: \(0.79-x\) \(\mathrm{N_2}\), \(0.21-x\) \(\mathrm{O_2}\) en \(2x\) NO, samen nog steeds 1 mol (\(\Delta\nu = 0\)):
+
+\[
+K = \frac{(2x)^2}{(0.79-x)(0.21-x)} = 4.0\times10^{-4}
+\]
+
+Omdat \(x\) klein is: \(2x \approx \sqrt{(4.0\times10^{-4})(0.79)(0.21)} = 8.1\times10^{-3}\), dus ongeveer \(0.8\,\%\) NO, of \(8000\,\mathrm{ppm}\).
+
+\textbf{(b)}
+
+\[
+\ln\frac{K_{298}}{4.0\times10^{-4}} = -\frac{180\,500}{8.314}\left(\frac{1}{298.15} - \frac{1}{2000}\right) = -61.9 \quad\Rightarrow\quad K_{298} = 4.9\times10^{-31}
+\]
+
+en \(y_{\mathrm{NO}} = \sqrt{K\cdot 0.79 \cdot 0.21} = 3\times10^{-16}\): praktisch nul. Bij kamertemperatuur is NO thermodynamisch onstabiel en zou het volledig ontbinden tot \(\mathrm{N_2}\) en \(\mathrm{O_2}\).
+
+\textbf{(c)} De ontbinding van NO heeft een hoge activeringsenergie. Bij hoge temperatuur stelt het evenwicht zich snel in, maar tijdens de snelle afkoeling wordt de reactie zo traag dat de samenstelling `bevriest' op de waarde van hoge temperatuur. Thermodynamica zegt wat er zou moeten gebeuren, kinetiek bepaalt of het gebeurt (hoofdstuk 8). De driewegkatalysator (platina, palladium, rodium) verlaagt de activeringsenergie, zodat NO in de uitlaat toch reageert, met CO en onverbrande koolwaterstoffen tot \(\mathrm{N_2}\), \(\mathrm{CO_2}\) en \(\mathrm{H_2O}\).
+\end{oplossing}
+
+\begin{oefening}[Gekoppelde evenwichten in spuitwater]
+In een fles spuitwater zijn twee evenwichten gekoppeld: een fase-evenwicht en een chemisch evenwicht.
+
+\[
+\mathrm{CO_2(g) \rightleftharpoons CO_2(aq)}, \qquad c_{\mathrm{CO_2(aq)}} = k_H\,p_{\mathrm{CO_2}} \text{ met } k_H = 0.034\,\mathrm{mol/(L\cdot bar)}
+\]
+
+\[
+\mathrm{CO_2(aq) + H_2O(l) \rightleftharpoons H^+(aq) + HCO_3^-(aq)}, \qquad K_a = 4.45\times10^{-7}
+\]
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de concentratie opgelost \(\mathrm{CO_2}\) en de pH in een gesloten fles onder \(3\,\mathrm{bar}\) \(\mathrm{CO_2}\) bij \(25\,^\circ\mathrm{C}\). Verwaarloos de autoprotolyse van water.
+\item[(b)]
+  Bereken de pH nadat de fles lang open heeft gestaan in lucht (\(p_{\mathrm{CO_2}} = 4\times10^{-4}\,\mathrm{bar}\)). Welk bekend getal herken je?
+\item[(c)]
+  Waarom smaakt verschaald spuitwater minder fris?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(c_{\mathrm{CO_2}}\) = \textbf{0.10 mol/L}, pH = \textbf{3.7}. (b) pH = \textbf{5.6}, de pH van zuiver regenwater. (c) Minder CO\ensuremath{_{2}} en dus \textbf{minder zuur}.
+
+\textbf{(a)} Henry: \(c_{\mathrm{CO_2}} = (0.034)(3) = 0.10\,\mathrm{mol/L}\). Met \(c_{\mathrm{H^+}} = c_{\mathrm{HCO_3^-}} = h\) en een vrijwel constante \(c_{\mathrm{CO_2}}\) (het gas vult wat dissocieert aan):
+
+\[
+K_a = \frac{h^2}{c_{\mathrm{CO_2}}} \quad\Rightarrow\quad h = \sqrt{(4.45\times10^{-7})(0.10)} = 2.1\times10^{-4}\,\mathrm{mol/L}, \quad \mathrm{pH} = 3.7
+\]
+
+\textbf{(b)} Nu is \(c_{\mathrm{CO_2}} = (0.034)(4\times10^{-4}) = 1.4\times10^{-5}\,\mathrm{mol/L}\), zodat \(h = 2.5\times10^{-6}\,\mathrm{mol/L}\) en pH \(= 5.6\). Dit is precies de pH van regenwater in evenwicht met de atmosfeer: regen is van nature licht zuur. Pas onder pH 5.6 spreekt men van zure regen.
+
+\textbf{(c)} De zure, prikkelende smaak komt van het opgeloste \(\mathrm{CO_2}\) en de lage pH. Bij het openen daalt \(p_{\mathrm{CO_2}}\), ontsnapt het gas (Henry, hoofdstuk 5) en verschuift het tweede evenwicht naar links. De koppeling werkt in beide richtingen: elk evenwicht verandert het reactiequotiënt van het andere, net zoals bij de gekoppelde reacties van §6.4.4.
+\end{oplossing}
+
+\begin{oefening}[Waterstof uit houtskool: de watergasreactie]
+Bij de vergassing van steenkool of houtskool reageert stoom met koolstof tot synthesegas:
+
+\[
+\mathrm{C(s) + H_2O(g) \rightleftharpoons CO(g) + H_2(g)}
+\]
+
+Gegeven bij \(298\,\mathrm{K}\): \(\Delta_r H^\circ = +131.3\,\mathrm{kJ/mol}\) en de standaardentropieën \(S^\circ\) (in \(\mathrm{J/(mol\cdot K)}\)): \(\mathrm{C(s)}\) 5.74, \(\mathrm{H_2O(g)}\) 188.8, \(\mathrm{CO(g)}\) 197.7, \(\mathrm{H_2(g)}\) 130.7. Neem \(\Delta_r H^\circ\) en \(\Delta_r S^\circ\) constant. Er is steeds een overmaat koolstof, en de voeding is zuivere stoom.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(\Delta_r S^\circ\). Boven welke temperatuur is \(K > 1\)?
+\item[(b)]
+  Stel de uitdrukking voor \(K\) op. Waarom komt de koolstof er niet in voor?
+\item[(c)]
+  Bereken de omzettingsgraad van de stoom en de molfractie waterstof bij \(900\,\mathrm{K}\) en \(1100\,\mathrm{K}\), telkens bij \(1\,\mathrm{bar}\).
+\item[(d)]
+  Herhaal bij \(1100\,\mathrm{K}\) en \(10\,\mathrm{bar}\). Waarom werkt men in de praktijk toch vaak onder druk?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta_r S^\circ\) = \textbf{+133.9 J/(mol\ensuremath{\cdot{}}K)}; \(K > 1\) boven \textbf{981 K}. (c) 900 K: \(K\) = 0.24, omzetting \textbf{44 \%}, \(y_{\mathrm{H_2}}\) = 0.30. 1100 K: \(K\) = 5.7, omzetting \textbf{92 \%}, \(y_{\mathrm{H_2}}\) = 0.48. (d) Bij 10 bar daalt de omzetting tot \textbf{60 \%}.
+
+\textbf{(a)} \(\Delta_r S^\circ = 197.7 + 130.7 - 5.74 - 188.8 = +133.9\,\mathrm{J/(mol\cdot K)}\). Er ontstaan twee mol gas uit één mol gas. \(K > 1\) wanneer \(\Delta_r G^\circ < 0\), dus boven \(T = 131\,300/133.9 = 981\,\mathrm{K}\).
+
+\textbf{(b)} Een zuivere vaste stof heeft activiteit 1 (heterogeen evenwicht), zodat
+
+\[
+K = \frac{(p_{\mathrm{CO}}/p^\circ)(p_{\mathrm{H_2}}/p^\circ)}{p_{\mathrm{H_2O}}/p^\circ}
+\]
+
+\textbf{(c)} Reactietabel per mol stoom, met omzettingsgraad \(\xi\): \(\mathrm{H_2O}\) \(1-\xi\), \(\mathrm{CO}\) \(\xi\), \(\mathrm{H_2}\) \(\xi\), totaal \(1+\xi\). Bij totale druk \(P\) (in bar):
+
+\[
+K = \frac{\xi^2}{(1-\xi)(1+\xi)}\,P = \frac{\xi^2}{1-\xi^2}\,P \quad\Rightarrow\quad \xi = \sqrt{\frac{K}{K+P}}
+\]
+
+\begin{itemize}
+\item
+  \(900\,\mathrm{K}\): \(\Delta_r G^\circ = +10.8\,\mathrm{kJ/mol}\), \(K = 0.235\), \(\xi = 0.44\), \(y_{\mathrm{H_2}} = \xi/(1+\xi) = 0.30\);
+\item
+  \(1100\,\mathrm{K}\): \(\Delta_r G^\circ = -15.9\,\mathrm{kJ/mol}\), \(K = 5.7\), \(\xi = 0.92\), \(y_{\mathrm{H_2}} = 0.48\).
+\end{itemize}
+
+De reactie is endotherm, dus een hogere temperatuur verschuift het evenwicht naar rechts (Le Châtelier, Van 't Hoff).
+
+\textbf{(d)} Bij \(10\,\mathrm{bar}\): \(\xi = \sqrt{5.7/15.7} = 0.60\). Het aantal mol gas neemt toe, dus een hogere druk verschuift het evenwicht naar links. Toch werkt men vaak onder druk: kleinere apparaten voor dezelfde doorzet, en het gas moet voor de verdere synthese (methanol, ammoniak) toch gecomprimeerd worden. Men compenseert met een hogere temperatuur. Dit is dezelfde afweging als bij Haber--Bosch, maar met het omgekeerde teken.
+\end{oplossing}

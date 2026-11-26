@@ -1,0 +1,481 @@
+% Oefeningen bij dit hoofdstuk (ingevoegd achteraan het hoofdstuk met \input).
+% Een oefening:  \begin{oefening}[titel] ... \end{oefening}   (boek en website)
+% De oplossing:  \begin{oplossing} ... \end{oplossing}       (enkel website, dichtgeklapt)
+
+Neem $g = \SI{9.81}{\metre\per\second\squared}$, $\sigma_{\text{water}} = \SI{72}{\milli\newton\per\metre}$ bij \SI{20}{\celsius}, $k_B = \SI{1.381e-23}{\joule\per\kelvin}$ en $R = \SI{8.314}{\joule\per\mole\per\kelvin}$.
+
+\begin{oefening}[Hoeveel energie kost een wolk mist?]
+Een ultrasone luchtbevochtiger vernevelt water tot fijne druppeltjes zonder het te verwarmen.
+
+\begin{enumerate}
+\item[(a)]
+  Toon aan dat het totale oppervlak van een volume \(V\) verdeeld in bolletjes met straal \(r\) gelijk is aan \(A = 3V/r\).
+\item[(b)]
+  Bereken de minimale arbeid (de toename van de Gibbs-energie) om \(1.0\,\mathrm{L}\) water te vernevelen tot druppels met \(r = 1\,\mathrm{\mu m}\) en met \(r = 10\,\mathrm{\mu m}\).
+\item[(c)]
+  Vergelijk met de energie om \(1.0\,\mathrm{L}\) water \(5\,^\circ\mathrm{C}\) op te warmen en om het volledig te verdampen (\(\Delta_{\text{vap}}H \approx 2.45\,\mathrm{MJ/kg}\)). Waarom is een ultrasone bevochtiger zo zuinig?
+\item[(d)]
+  Waarom vloeien de druppels spontaan weer samen tot grotere druppels?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \textbf{216 J} voor \(1\,\mathrm{\mu m}\) en \textbf{22 J} voor \(10\,\mathrm{\mu m}\). (c) Opwarmen kost \(21\,\mathrm{kJ}\), verdampen \textbf{2.45 MJ}: vernevelen vraagt ruim tienduizend keer minder energie dan verdampen. (d) Samenvloeien verkleint het oppervlak en verlaagt dus \(G\).
+
+\textbf{(a)} Het aantal druppels is \(N = V/(\tfrac{4}{3}\pi r^3)\), elk met oppervlak \(4\pi r^2\). Dus \(A = N\cdot 4\pi r^2 = 3V/r\). Hoe kleiner de druppels, hoe groter het oppervlak.
+
+\textbf{(b)} Met vergelijking (9.1) is \(\Delta G = \sigma\,\Delta A\) (het oorspronkelijke oppervlak is verwaarloosbaar):
+
+\begin{itemize}
+\item
+  \(r = 1\,\mathrm{\mu m}\): \(A = 3\times10^{-3}/10^{-6} = 3000\,\mathrm{m^2}\), \(\Delta G = 0.072 \times 3000 = 216\,\mathrm{J}\).
+\item
+  \(r = 10\,\mathrm{\mu m}\): \(A = 300\,\mathrm{m^2}\), \(\Delta G = 22\,\mathrm{J}\).
+\end{itemize}
+
+Eén liter water krijgt dus het oppervlak van een half voetbalveld.
+
+\textbf{(c)} Opwarmen: \(Q = (1\,\mathrm{kg})(4184\,\mathrm{J/(kg\cdot K)})(5\,\mathrm{K}) = 21\,\mathrm{kJ}\). Verdampen: \(2.45\,\mathrm{MJ}\). Een verdampingsbevochtiger moet de volledige verdampingsenthalpie leveren (hoofdstuk 5), een ultrasone bevochtiger enkel de oppervlakte-energie en de verliezen in de piëzokristal. Het water verdampt later in de kamer met warmte uit de omgeving, zodat de lucht wat afkoelt.
+
+\textbf{(d)} Bij samenvloeien daalt \(A\) en dus \(G = G_{\text{bulk}} + \sigma A\): het proces is spontaan. Fijne mist is enkel kinetisch stabiel, zolang de druppels elkaar weinig raken.
+\end{oplossing}
+
+\begin{oefening}[Capillariteit: van keukenpapier tot boomtoppen]
+Gebruik de wet van Jurin (9.4).
+
+\begin{enumerate}
+\item[(a)]
+  Hoe hoog stijgt water (\(\rho = 1000\,\mathrm{kg/m^3}\), \(\theta = 0^\circ\)) in een glazen capillair met een binnendiameter van \(0.20\,\mathrm{mm}\)?
+\item[(b)]
+  Herhaal voor kwik (\(\sigma = 485\,\mathrm{mN/m}\), \(\rho = 13600\,\mathrm{kg/m^3}\), \(\theta = 140^\circ\)) in hetzelfde capillair. Verklaar het teken.
+\item[(c)]
+  De vezels van keukenpapier vormen poriën met een straal van ongeveer \(25\,\mathrm{\mu m}\) en een contacthoek van \(30^\circ\). Hoe hoog kan water opstijgen in een verticaal opgehangen vel?
+\item[(d)]
+  De houtvaten (xyleem) van een boom hebben een straal van ongeveer \(20\,\mathrm{\mu m}\). Hoe hoog brengt capillariteit het water? Welke straal zou nodig zijn voor een sequoia van \(100\,\mathrm{m}\)? Wat besluit je?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{14.7 cm}. (b) \textbf{\ensuremath{-}5.6 cm}: kwik daalt. (c) Ongeveer \textbf{51 cm}. (d) Slechts \textbf{0.73 m}; voor \(100\,\mathrm{m}\) zou \(r = 0.15\,\mathrm{\mu m}\) nodig zijn: capillariteit alleen verklaart het watertransport in bomen niet.
+
+\textbf{(a)} \(h = \dfrac{2\sigma\cos\theta}{\rho g r} = \dfrac{2(0.072)(1)}{(1000)(9.81)(1.0\times10^{-4})} = 0.147\,\mathrm{m}\).
+
+\textbf{(b)} \(h = \dfrac{2(0.485)\cos 140^\circ}{(13600)(9.81)(1.0\times10^{-4})} = -0.056\,\mathrm{m}\). Omdat \(\cos 140^\circ < 0\), is de meniscus bol en wordt het kwik naar beneden gedrukt. Kwik bevochtigt glas niet: de cohesie tussen kwikatomen (metaalbinding, hoofdstuk 2) is veel sterker dan de adhesie aan glas. Daarom lees je een kwikthermometer af aan de top van een bolle meniscus.
+
+\textbf{(c)} \(h = \dfrac{2(0.072)\cos 30^\circ}{(1000)(9.81)(25\times10^{-6})} = 0.51\,\mathrm{m}\). Het papier zuigt een plas dus gemakkelijk op, ook tegen de zwaartekracht in. Kleinere poriën zuigen hoger, maar de stroming wordt trager.
+
+\textbf{(d)} \(h = 0.147 \times (100/20) = 0.73\,\mathrm{m}\). Voor \(h = 100\,\mathrm{m}\): \(r = 2\sigma/(\rho g h) = 1.5\times10^{-7}\,\mathrm{m}\). In werkelijkheid trekt de verdamping uit de bladeren het water omhoog: in de minuscule poriën van de celwanden in het blad (nanometers) houdt de oppervlaktespanning een sterke negatieve druk in stand, en de waterkolom hangt dankzij de cohesie tussen watermoleculen (waterstofbruggen, hoofdstuk 4) als een touw aan die menisci.
+\end{oplossing}
+
+\begin{oefening}[Waarom bruist spuitwater aan de wand van het glas?]
+In een geopende fles spuitwater is het water oververzadigd met \(\mathrm{CO_2}\): het bevat evenveel opgelost gas als in evenwicht met ongeveer \(2.5\,\mathrm{bar}\) \(\mathrm{CO_2}\) (wet van Henry, hoofdstuk 5).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken met Young--Laplace de overdruk in een gasbelletje met straal \(10\,\mathrm{\mu m}\), \(1\,\mathrm{\mu m}\) en \(0.1\,\mathrm{\mu m}\).
+\item[(b)]
+  Een belletje kan enkel groeien als de \(\mathrm{CO_2}\)-druk erin lager is dan de evenwichtsdruk van \(2.5\,\mathrm{bar}\) die het opgeloste gas ``wil'' uitoefenen. Neem een atmosferische druk van \(1\,\mathrm{bar}\). Vanaf welke straal kan een belletje groeien?
+\item[(c)]
+  Waarom ontstaan bellen niet midden in het water maar op krasjes, stofvezels of een Mentos-snoepje?
+\item[(d)]
+  Waarom bruist een glas spuitwater sterker in een glas dat niet perfect gespoeld is?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{0.14}, \textbf{1.44} en \textbf{14.4 bar}. (b) Groei vanaf ongeveer \textbf{\(r \approx 1\,\mathrm{\mu m}\)}. (c) Krasjes en vezels bevatten al \textbf{gaszakjes} die groter zijn dan die kritische straal. (d) Vuil en vezels leveren zulke kiemen.
+
+\textbf{(a)} \(\Delta p = 2\sigma/r\):
+
+\begin{itemize}
+\item
+  \(r = 10\,\mathrm{\mu m}\): \(\Delta p = 2(0.072)/10^{-5} = 1.44\times10^{4}\,\mathrm{Pa} = 0.14\,\mathrm{bar}\)
+\item
+  \(r = 1\,\mathrm{\mu m}\): \(1.44\,\mathrm{bar}\)
+\item
+  \(r = 0.1\,\mathrm{\mu m}\): \(14.4\,\mathrm{bar}\)
+\end{itemize}
+
+\textbf{(b)} De druk in de bel is \(p_{\text{atm}} + 2\sigma/r\). Ze kan groeien zolang die druk kleiner is dan \(2.5\,\mathrm{bar}\), dus \(2\sigma/r < 1.5\,\mathrm{bar}\), of \(r > 2(0.072)/(1.5\times10^{5}) = 0.96\,\mathrm{\mu m}\). Een kleiner belletje heeft zo'n hoge inwendige druk dat het gas er volgens Henry terug uit oplost.
+
+\textbf{(c)} Een belletje moet spontaan uit één molecule \(\mathrm{CO_2}\) groeien tot een micrometer: alle tussenstadia zijn onstabiel, dus dat gebeurt praktisch nooit. Een kras, een vezel of het ruwe oppervlak van een Mentos houdt echter kleine luchtzakjes vast die al groter zijn dan de kritische straal. Van daaruit groeien de bellen, laten ze los en blijft er een nieuw zakje achter: zo ontstaan de bekende parelsnoeren.
+
+\textbf{(d)} Een perfect gladde, schone glazen wand heeft weinig kiemplaatsen. Restjes vaatdoek, stof of droogvlekken zijn ideale nucleatiekiemen. Champagneglazen worden daarom soms bewust met een laser op de bodem geëtst.
+\end{oplossing}
+
+\begin{oefening}[Twee zeepbellen: welke wint?]
+Twee zeepbellen met straal \(1.0\,\mathrm{cm}\) en \(3.0\,\mathrm{cm}\) (\(\sigma = 25\,\mathrm{mN/m}\)) worden via een buisje met een kraantje met elkaar verbonden.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de overdruk in elke bel. Waarom staat er \(4\sigma/r\) en niet \(2\sigma/r\)?
+\item[(b)]
+  Wat gebeurt er wanneer het kraantje opengaat? Waar stopt het proces?
+\item[(c)]
+  Verklaar met hetzelfde principe waarom ijskristallen in roomijs dat lang in de diepvries ligt groter en korreliger worden, en waarom schuim op bier na een tijdje uit minder, maar grotere bellen bestaat.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{10 Pa} in de kleine en \textbf{3.3 Pa} in de grote bel. (b) De \textbf{kleine bel loopt leeg} in de grote, tot er enkel een gebogen filmpje met de straal van de grote bel overblijft. (c) \textbf{Ostwald-rijping}: kleine deeltjes hebben een hogere druk of chemische potentiaal en verdwijnen ten voordele van grote.
+
+\textbf{(a)} Een zeepbel heeft twee grensvlakken (binnen- en buitenkant van de film), zodat \(\Delta p = 4\sigma/r\):
+
+\begin{itemize}
+\item
+  \(r = 1.0\,\mathrm{cm}\): \(\Delta p = 4(0.025)/0.010 = 10\,\mathrm{Pa}\)
+\item
+  \(r = 3.0\,\mathrm{cm}\): \(\Delta p = 3.3\,\mathrm{Pa}\)
+\end{itemize}
+
+\textbf{(b)} Gas stroomt van hoge naar lage druk: de kleine bel loopt leeg in de grote. Daardoor wordt de kleine bel nog kleiner, haar druk stijgt nog meer, en het proces versnelt. Het stopt pas wanneer van de kleine bel een kapje over is met dezelfde kromtestraal als de grote bel. Dit is tegenintuïtief (je zou verwachten dat de drukken gelijk worden bij gelijke bellen), maar volgt rechtstreeks uit Young--Laplace en uit de daling van het totale oppervlak, dus van \(G\).
+
+\textbf{(c)} Kleine ijskristallen en kleine gasbellen hebben een sterkere kromming en dus een hogere chemische potentiaal (vergelijk met de hogere druk in de bel). Watermoleculen gaan van kleine naar grote kristallen, gas diffundeert van kleine naar grote bellen. Het totale grensvlak en dus \(G\) dalen. Ijsfabrikanten voegen stabilisatoren toe en raden aan de diepvries niet te vaak te openen: elke temperatuurschommeling versnelt de rijping.
+\end{oplossing}
+
+\begin{oefening}[Wast warm water beter? Oppervlaktespanning en temperatuur]
+Voor water geldt \(\sigma = 72.75\,\mathrm{mN/m}\) bij \(20\,^\circ\mathrm{C}\), met \(V_m = 18.05\,\mathrm{cm^3/mol}\) en \(T_c = 647.1\,\mathrm{K}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de constante \(k\) in de vergelijking van Eötvös (9.2) uit deze gegevens.
+\item[(b)]
+  Voorspel \(\sigma\) bij \(60\,^\circ\mathrm{C}\) (\(V_m = 18.32\,\mathrm{cm^3/mol}\)) en bij \(80\,^\circ\mathrm{C}\) (\(V_m = 18.54\,\mathrm{cm^3/mol}\)). De gemeten waarden zijn \(66.2\) en \(62.6\,\mathrm{mN/m}\). Hoe goed is de voorspelling?
+\item[(c)]
+  Waarom daalt de oppervlaktespanning met de temperatuur, en wat gebeurt er bij het kritische punt?
+\item[(d)]
+  Geef twee redenen waarom een afwas in warm water beter lukt dan in koud water.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(k = 1.41\times10^{-7}\,\mathrm{J/(K\cdot mol^{2/3})}\). (b) Voorspeld \textbf{63.9} en \textbf{59.3 mN/m}: ongeveer \textbf{4--5 \% te laag}. (c) Zwakkere cohesie ten opzichte van de thermische energie; \(\sigma \to 0\) bij \(T_c\). (d) Lagere \(\sigma\) en vet dat smelt en sneller oplost.
+
+\textbf{(a)} \(k = \dfrac{\sigma V_m^{2/3}}{T_c - T} = \dfrac{(0.07275)(18.05\times10^{-6})^{2/3}}{647.1 - 293.15} = 1.41\times10^{-7}\,\mathrm{J/(K\cdot mol^{2/3})}\), dicht bij de ``universele'' waarde van ongeveer \(2.1\times10^{-7}\) voor niet-geassocieerde vloeistoffen. Water wijkt af door de waterstofbruggen.
+
+\textbf{(b)} \(\sigma = k(T_c - T)/V_m^{2/3}\):
+
+\begin{itemize}
+\item
+  \(60\,^\circ\mathrm{C}\): \(\sigma = 63.9\,\mathrm{mN/m}\) (gemeten \(66.2\), afwijking \(-3.5\,\%\))
+\item
+  \(80\,^\circ\mathrm{C}\): \(\sigma = 59.3\,\mathrm{mN/m}\) (gemeten \(62.6\), afwijking \(-5\,\%\))
+\end{itemize}
+
+Een empirische correlatie met één constante, gefit op één punt, extrapoleert dus redelijk maar niet perfect. Daarom gebruikt men in de praktijk varianten met een gecorrigeerde \(T_c\) (bijvoorbeeld \(T_c - 6\,\mathrm{K}\)).
+
+\textbf{(c)} Bij hogere temperatuur is de thermische energie groter ten opzichte van de intermoleculaire aantrekking (hoofdstuk 4); het kost minder Gibbs-energie om een molecule naar het oppervlak te brengen. Bij \(T_c\) verdwijnt het onderscheid tussen vloeistof en damp (hoofdstuk 5), er is geen grensvlak meer en \(\sigma = 0\).
+
+\textbf{(d)} Water met een lagere oppervlaktespanning bevochtigt borden en vezels beter en dringt dieper in kleine spleten. Daarnaast smelten vetten met een smeltpunt boven kamertemperatuur, verlopen oplos- en diffusieprocessen sneller (Stokes--Einstein: \(D \propto T/\eta\), en \(\eta\) daalt sterk), en werkt het afwasmiddel sneller. Het afwasmiddel zelf verlaagt \(\sigma\) nog veel meer dan de temperatuur.
+\end{oplossing}
+
+\begin{oefening}[Hoeveel afwasmiddel heb je nodig? CMC en micellen]
+Natriumdodecylsulfaat (SDS, \(M = 288.4\,\mathrm{g/mol}\)) heeft een CMC van \(8.2\times10^{-3}\,\mathrm{mol/L}\) bij \(25\,^\circ\mathrm{C}\) en vormt micellen van gemiddeld \(62\) moleculen.
+
+\begin{enumerate}
+\item[(a)]
+  Hoeveel gram SDS moet je minstens in een afwasbak van \(15\,\mathrm{L}\) doen om de CMC te bereiken? Moderne vaatwasmiddelen bevatten vooral niet-ionische surfactanten met een CMC rond \(1\times10^{-4}\,\mathrm{mol/L}\) (\(M \approx 530\,\mathrm{g/mol}\)). Hoeveel gram is dan nodig?
+\item[(b)]
+  Een oplossing bevat \(1.0\times10^{-2}\,\mathrm{mol/L}\) SDS. Hoeveel SDS is vrij opgelost, en hoeveel micellen zijn er per liter?
+\item[(c)]
+  In een eenvoudig model geldt \(\Delta G^\circ_{\text{mic}} \approx RT\ln x_{\text{CMC}}\), met \(x_{\text{CMC}}\) de molfractie surfactant bij de CMC. Bereken \(\Delta G^\circ_{\text{mic}}\) per mol surfactant. Met \(\Delta H^\circ_{\text{mic}} \approx -1.5\,\mathrm{kJ/mol}\): bereken \(T\Delta S^\circ_{\text{mic}}\). Wat is de drijvende kracht?
+\item[(d)]
+  Waarom wordt een afwasmiddel minder doeltreffend in een gootsteen vol vet?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{35 g} SDS, maar slechts ongeveer \textbf{0.8 g} niet-ionische surfactant. (b) Vrij: \textbf{\(8.2\times10^{-3}\,\mathrm{mol/L}\)}; micellen: \textbf{\(2.9\times10^{-5}\,\mathrm{mol/L}\)} (\(1.7\times10^{19}\) per liter). (c) \(\Delta G^\circ_{\text{mic}} \approx\) \textbf{\ensuremath{-}21.9 kJ/mol} en \(T\Delta S^\circ \approx\) \textbf{+20 kJ/mol}: entropisch gedreven. (d) Het vet verbruikt de surfactant tot de vrije concentratie onder de CMC zakt.
+
+\textbf{(a)} SDS: \(15\,\mathrm{L} \times 8.2\times10^{-3}\,\mathrm{mol/L} \times 288.4\,\mathrm{g/mol} = 35\,\mathrm{g}\), een flinke scheut. Niet-ionisch: \(15 \times 1\times10^{-4} \times 530 = 0.8\,\mathrm{g}\). Een lagere CMC betekent dat veel minder product nodig is om micellen te vormen; daarom zijn moderne, geconcentreerde wasmiddelen zo zuinig. Een lange hydrofobe staart en het ontbreken van een geladen kop (geen elektrostatische afstoting tussen de koppen) verlagen de CMC.
+
+\textbf{(b)} Boven de CMC blijft de vrije concentratie gelijk aan de CMC: \(8.2\times10^{-3}\,\mathrm{mol/L}\). De rest, \(1.8\times10^{-3}\,\mathrm{mol/L}\), zit in micellen: \(1.8\times10^{-3}/62 = 2.9\times10^{-5}\,\mathrm{mol/L}\) micellen, of \(1.7\times10^{19}\) micellen per liter.
+
+\textbf{(c)} Met \(55.5\,\mathrm{mol/L}\) water: \(x_{\text{CMC}} = 8.2\times10^{-3}/55.5 = 1.48\times10^{-4}\), dus \(\Delta G^\circ_{\text{mic}} = (8.314)(298.15)\ln(1.48\times10^{-4}) = -21.9\,\mathrm{kJ/mol}\). Dan \(T\Delta S^\circ = \Delta H^\circ - \Delta G^\circ = -1.5 + 21.9 = +20.4\,\mathrm{kJ/mol}\). Bijna de volledige drijvende kracht is entropisch: het hydrofoob effect (§9.4.2). De geordende watermoleculen rond de koolwaterstofstaarten komen vrij wanneer de staarten in de micel verdwijnen (hoofdstuk 3, \(\Delta G = \Delta H - T\Delta S\)).
+
+\textbf{(d)} Vet wordt opgelost in de kern van de micellen en surfactant adsorbeert aan het grote vet--watergrensvlak. Dat onttrekt surfactant aan de oplossing. Zakt de vrije concentratie onder de CMC, dan verdwijnen de micellen, stijgt de oppervlaktespanning en komt het vet terug vrij. Bij een zeer vette afwas moet je dus water verversen of meer middel toevoegen.
+\end{oplossing}
+
+\begin{oefening}[De zeta-potentiaal van klei meten met elektroforese]
+Kleideeltjes in rivierwater bewegen in een elektrisch veld van \(1000\,\mathrm{V/m}\) met een snelheid van \(35\,\mathrm{\mu m/s}\) naar de positieve elektrode. Na toevoegen van \(10\,\mathrm{mmol/L}\) \(\mathrm{CaCl_2}\) daalt de snelheid tot \(9.5\,\mathrm{\mu m/s}\). Volgens de vergelijking van Smoluchowski is de elektroforetische mobiliteit \(u = v/E = \varepsilon_r\varepsilon_0\zeta/\eta\), met voor water \(\varepsilon_r = 78.5\), \(\varepsilon_0 = 8.854\times10^{-12}\,\mathrm{F/m}\) en \(\eta = 8.9\times10^{-4}\,\mathrm{Pa\,s}\).
+
+\begin{enumerate}
+\item[(a)]
+  Wat is het teken van de oppervlaktelading van de kleideeltjes?
+\item[(b)]
+  Bereken de zeta-potentiaal voor en na toevoegen van \(\mathrm{CaCl_2}\).
+\item[(c)]
+  Voorspel de stabiliteit van de dispersie in beide gevallen.
+\item[(d)]
+  Waarom is \(\mathrm{Ca^{2+}}\) veel doeltreffender dan \(\mathrm{Na^+}\), en waarom gebruiken drinkwaterbedrijven \(\mathrm{Al^{3+}}\)-zouten?
+\item[(e)]
+  Waarom is het water aan de monding van een rivier in de zee vaak troebel en slibt de haven er dicht?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{Negatief}. (b) \(\zeta \approx\) \textbf{\ensuremath{-}45 mV} voor en \textbf{\ensuremath{-}12 mV} na toevoegen. (c) Eerst \textbf{stabiel} (\(|\zeta| > 30\,\mathrm{mV}\)), daarna bijna aan de grens van \textbf{snelle coagulatie}. (d) Meerwaardige tegenionen comprimeren de dubbellaag veel sterker. (e) Zeewater is een zoutoplossing: de klei coaguleert en bezinkt.
+
+\textbf{(a)} De deeltjes bewegen naar de positieve elektrode: ze zijn negatief geladen. Klei krijgt die lading door isomorfe substitutie (\(\mathrm{Al^{3+}}\) in plaats van \(\mathrm{Si^{4+}}\) in het kristalrooster) en door ionisatie van randgroepen.
+
+\textbf{(b)} \(\zeta = \dfrac{u\,\eta}{\varepsilon_r\varepsilon_0}\) met \(\varepsilon_r\varepsilon_0 = 6.95\times10^{-10}\,\mathrm{F/m}\):
+
+\begin{itemize}
+\item
+  voor: \(u = 3.5\times10^{-8}\,\mathrm{m^2/(V\cdot s)}\), \(\zeta = \dfrac{(3.5\times10^{-8})(8.9\times10^{-4})}{6.95\times10^{-10}} = 0.045\,\mathrm{V}\), dus \(\zeta = -45\,\mathrm{mV}\)
+\item
+  na: \(u = 9.5\times10^{-9}\,\mathrm{m^2/(V\cdot s)}\), \(\zeta = -12\,\mathrm{mV}\)
+\end{itemize}
+
+\textbf{(c)} Met \(|\zeta| = 45\,\mathrm{mV}\) is er een hoge DLVO-energiedrempel en blijft de klei zweven: het water blijft troebel. Bij \(12\,\mathrm{mV}\) is de afstoting bijna verdwenen en domineert de Van der Waals-aantrekking: de deeltjes klonteren samen tot vlokken die bezinken.
+
+\textbf{(d)} Een tegenion met een hogere lading schermt de oppervlaktelading veel efficiënter af: de dubbellaag wordt dunner (kleinere Debye-lengte) en \(\zeta\) daalt, en tweewaardige ionen worden bovendien sterker in de Stern-laag gebonden. Empirisch neemt de benodigde coagulatieconcentratie zeer sterk af met de lading van het tegenion (de regel van Schulze--Hardy): \(\mathrm{Al^{3+}}\) werkt al bij veel lagere doses dan \(\mathrm{Ca^{2+}}\), en die op hun beurt veel beter dan \(\mathrm{Na^+}\). Bovendien vormt \(\mathrm{Al^{3+}}\) in water vlokkig \(\mathrm{Al(OH)_3}\) dat de deeltjes mee insluit.
+
+\textbf{(e)} Zeewater bevat ongeveer \(0.5\,\mathrm{mol/L}\) \(\mathrm{NaCl}\) en daarnaast \(\mathrm{Mg^{2+}}\) en \(\mathrm{Ca^{2+}}\). Waar rivierwater zich met zeewater mengt, coaguleert de klei en bezinkt ze. Zo ontstaan slikken en schorren, en moet een haven als Antwerpen of Zeebrugge voortdurend gebaggerd worden.
+\end{oplossing}
+
+\begin{oefening}[Mayonaise en dressing: grensvlak en HLB]
+Mayonaise bevat ongeveer \(80\,\mathrm{vol\%}\) olie in de vorm van druppels met een straal van ongeveer \(1\,\mathrm{\mu m}\) in een waterfase met eigeel en azijn.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken het olie--watergrensvlak in \(1\,\mathrm{L}\) mayonaise.
+\item[(b)]
+  Bereken de grensvlakenergie bij een grensvlakspanning van \(30\,\mathrm{mN/m}\) (zonder emulgator) en \(5\,\mathrm{mN/m}\) (met eigeel). Is mayonaise thermodynamisch stabiel?
+\item[(c)]
+  Een fabrikant wil een vinaigrette (O/W) stabiliseren met een mengsel van Span 80 (HLB \(4.3\)) en Tween 80 (HLB \(15.0\)) en mikt op een HLB van \(10\). Het HLB-getal van een mengsel is het massagewogen gemiddelde. Welk massapercentage Tween 80 is nodig?
+\item[(d)]
+  Welke emulgator (Span 80 alleen of Tween 80 alleen) kies je voor een W/O-product zoals een vette handcrème of margarine? Verklaar met de structuur van de moleculen.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{2400 m\ensuremath{^{2}}} per liter. (b) \textbf{72 J} zonder en \textbf{12 J} met emulgator; mayonaise blijft \textbf{thermodynamisch onstabiel}, maar is kinetisch stabiel. (c) Ongeveer \textbf{53 \%} Tween 80. (d) \textbf{Span 80} (HLB 4.3).
+
+\textbf{(a)} Met \(A = 3V_{\text{olie}}/r\) (oefening 9.1): \(A = 3(0.80\times10^{-3}\,\mathrm{m^3})/(1\times10^{-6}\,\mathrm{m}) = 2400\,\mathrm{m^2}\).
+
+\textbf{(b)} \(G_{\text{grensvlak}} = \sigma A\): \(0.030 \times 2400 = 72\,\mathrm{J}\) zonder emulgator, \(0.005 \times 2400 = 12\,\mathrm{J}\) met eigeel. Ook met emulgator blijft \(\Delta G > 0\) ten opzichte van een gescheiden laag olie en water: de emulsie is thermodynamisch onstabiel (§9.6). Lecithine en eiwitten uit het eigeel verlagen de energie die je met de garde moet leveren en vormen vooral een beschermende laag die het samenvloeien van druppels kinetisch verhindert. Bij te veel opwarmen of invriezen breekt die laag en ``schift'' de mayonaise.
+
+\textbf{(c)} Met \(w\) de massafractie Tween 80: \(15.0\,w + 4.3(1 - w) = 10\), dus \(w = 5.7/10.7 = 0.53\), of \(53\,\%\) Tween 80 en \(47\,\%\) Span 80. Mengsels van een hydrofiele en een lipofiele emulgator laten toe het HLB-getal fijn af te stemmen.
+
+\textbf{(d)} Voor een W/O-emulsie is een lipofiele emulgator met HLB \(3\)--\(6\) nodig: Span 80 (sorbitanmono-oleaat) heeft een kleine polaire kop en een lange oliezuurstaart, en buigt het grensvlak rond de waterdruppels. Tween 80 is hetzelfde molecule met lange polyethyleenoxideketens aan de kop: sterk hydrofiel, en dus geschikt voor O/W (melk, dressing, vloeibare geneesmiddelen).
+\end{oplossing}
+
+\begin{oefening}[Waarom roomt gehomogeniseerde melk niet op?]
+Vetbolletjes in rauwe melk hebben een straal van ongeveer \(1.5\,\mathrm{\mu m}\); na homogeniseren is dat ongeveer \(0.25\,\mathrm{\mu m}\). De dichtheid van melkvet is \(920\,\mathrm{kg/m^3}\), die van de waterfase \(1030\,\mathrm{kg/m^3}\), en de viscositeit van de waterfase \(2.0\times10^{-3}\,\mathrm{Pa\,s}\). De snelheid waarmee een bolletje opstijgt is gegeven door de wet van Stokes, \(v = 2r^2\Delta\rho\,g/(9\eta)\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de opstijgsnelheid (in cm per dag) voor beide groottes.
+\item[(b)]
+  Bereken met Stokes--Einstein (hoofdstuk 8, vergelijking (8.35)) de diffusiecoëfficiënt bij \(20\,^\circ\mathrm{C}\), en de typische afstand die een bolletje door Brownse beweging aflegt in één dag (\(\sqrt{2Dt}\)).
+\item[(c)]
+  Verklaar waarom op rauwe melk na een dag een roomlaag ligt, maar niet op gehomogeniseerde melk.
+\item[(d)]
+  Waarom vallen deeltjes kleiner dan \(1\,\mathrm{\mu m}\) onder de definitie van een colloïde (§9.5)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{2.3 cm/dag} voor rauwe en \textbf{0.065 cm/dag} (0.65 mm) voor gehomogeniseerde melk. (b) \(D = 7.2\times10^{-14}\) en \(4.3\times10^{-13}\,\mathrm{m^2/s}\); per dag ongeveer \textbf{0.11 mm} en \textbf{0.27 mm}. (c) Kleine bolletjes stijgen 36 keer trager en Brownse beweging en convectie houden ze verspreid. (d) Bij die grootte wint de thermische beweging het van de zwaartekracht.
+
+\textbf{(a)} Met \(\Delta\rho = 110\,\mathrm{kg/m^3}\):
+
+\begin{itemize}
+\item
+  \(r = 1.5\,\mathrm{\mu m}\): \(v = \dfrac{2(1.5\times10^{-6})^2(110)(9.81)}{9(2.0\times10^{-3})} = 2.7\times10^{-7}\,\mathrm{m/s} = 2.3\,\mathrm{cm/dag}\)
+\item
+  \(r = 0.25\,\mathrm{\mu m}\): \(v = 7.5\times10^{-9}\,\mathrm{m/s} = 0.065\,\mathrm{cm/dag}\)
+\end{itemize}
+
+Omdat \(v \propto r^2\), maakt een zes keer kleinere straal het opromen 36 keer trager.
+
+\textbf{(b)} \(D = \dfrac{k_BT}{6\pi\eta r}\):
+
+\begin{itemize}
+\item
+  \(r = 1.5\,\mathrm{\mu m}\): \(D = 7.2\times10^{-14}\,\mathrm{m^2/s}\), \(\sqrt{2D\cdot 86400\,\mathrm{s}} = 0.11\,\mathrm{mm}\)
+\item
+  \(r = 0.25\,\mathrm{\mu m}\): \(D = 4.3\times10^{-13}\,\mathrm{m^2/s}\), \(\sqrt{2Dt} = 0.27\,\mathrm{mm}\)
+\end{itemize}
+
+\textbf{(c)} In rauwe melk stijgen de bolletjes in een dag enkele centimeter, veel meer dan de Brownse verplaatsing: er vormt zich een roomlaag (in werkelijkheid nog sneller, omdat de bolletjes samenklonteren tot grotere trossen). In gehomogeniseerde melk stijgen ze minder dan een millimeter per dag, vergelijkbaar met de willekeurige Brownse verplaatsing; kleine temperatuurstromingen in de koelkast mengen de melk bovendien voortdurend. Na enkele weken zou je nog altijd geen duidelijke roomlaag zien, maar dan is de melk allang bedorven.
+
+\textbf{(d)} Een deeltje is colloïdaal wanneer de Brownse beweging de zwaartekracht ruwweg in evenwicht houdt. Uit (a) en (b) zie je dat dit omslagpunt rond \(1\,\mathrm{\mu m}\) ligt: kleinere deeltjes blijven verspreid, grotere zakken of stijgen merkbaar.
+\end{oplossing}
+
+\begin{oefening}[Pesticiden uit drinkwater halen met actieve kool]
+Een drinkwaterbedrijf behandelt \(1.0\times10^{5}\,\mathrm{m^3}\) water per dag dat \(2.0\,\mathrm{\mu g/L}\) van een pesticide bevat. De norm is \(0.1\,\mathrm{\mu g/L}\). De adsorptie op actieve kool volgt een Langmuir-isotherme (§9.3) \(q = q_{\max}Kc/(1 + Kc)\), met \(q_{\max} = 50\,\mathrm{mg/g}\), \(K = 20\,\mathrm{L/mg}\) en \(c\) in mg/L.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de belading \(q\) van de kool in evenwicht met \(2.0\,\mathrm{\mu g/L}\) en met \(0.1\,\mathrm{\mu g/L}\). In welk gebied van de isotherme zit je?
+\item[(b)]
+  Methode A: men roert poederkool door het water tot de concentratie \(0.1\,\mathrm{\mu g/L}\) bereikt. Hoeveel gram kool is per liter nodig, en hoeveel ton per dag?
+\item[(c)]
+  Methode B: het water stroomt door een vast bed korrelkool. Voor het bed doorbreekt, staat de kool in evenwicht met de ingangsconcentratie. Hoeveel kool wordt dan per dag verbruikt?
+\item[(d)]
+  Verklaar waarom methode B zoveel zuiniger is. Welk verband zie je met tegenstroomprocessen in de scheidingstechniek?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(q = 1.9\,\mathrm{mg/g}\) bij \(2.0\,\mathrm{\mu g/L}\) en \textbf{0.10 mg/g} bij \(0.1\,\mathrm{\mu g/L}\): het lineaire gebied. (b) \textbf{0.019 g/L}, of ongeveer \textbf{1.9 ton per dag}. (c) Ongeveer \textbf{99 kg per dag}. (d) In een vast bed raakt de kool beladen bij de \textbf{hoge ingangsconcentratie}.
+
+\textbf{(a)} \(2.0\,\mathrm{\mu g/L} = 0.0020\,\mathrm{mg/L}\), dus \(Kc = 0.040\) en \(q = 50 \times 0.040/1.040 = 1.92\,\mathrm{mg/g}\). Bij \(0.1\,\mathrm{\mu g/L}\): \(Kc = 0.002\) en \(q = 0.0998\,\mathrm{mg/g}\). Omdat \(Kc \ll 1\) zit je in het lineaire gebied \(q \approx q_{\max}Kc\): de belading is evenredig met de concentratie, en de kool is nog bijna leeg (\(\theta < 4\,\%\)).
+
+\textbf{(b)} Een massabalans per liter: \(m\,q_{\text{eind}} = c_0 - c_{\text{eind}}\), dus \(m = (0.0020 - 0.0001)/0.0998 = 0.019\,\mathrm{g/L}\). Voor \(10^{8}\,\mathrm{L}\) per dag: \(1.9\times10^{6}\,\mathrm{g} = 1.9\,\mathrm{ton}\) kool per dag.
+
+\textbf{(c)} Te verwijderen: \((0.0020 - 0.0001)\,\mathrm{mg/L} \times 10^{8}\,\mathrm{L} = 1.9\times10^{5}\,\mathrm{mg}\) per dag. Met \(q = 1.92\,\mathrm{mg/g}\): \(9.9\times10^{4}\,\mathrm{g} = 99\,\mathrm{kg}\) per dag.
+
+\textbf{(d)} In methode A eindigt alle kool in evenwicht met het gezuiverde water, bij de laagste concentratie en dus de laagste belading. In het vaste bed ziet de kool aan de ingang eerst het vervuilde water en raakt ze tot een twintig keer hogere belading gevuld, terwijl de laatste lagen kool het water tot onder de norm zuiveren. Dat is hetzelfde principe als bij tegenstroomextractie of een absorptiekolom: het scheidingsmiddel verlaat het toestel in evenwicht met de rijkste stroom. Daarom gebruiken drinkwaterbedrijven korrelkoolfilters, en poederkool enkel bij een plotse, tijdelijke vervuiling.
+\end{oplossing}
+
+\begin{oefening}[Lopen op water]
+Een schaatsenrijder (het insect) heeft een massa van ongeveer \(10\,\mathrm{mg}\) en raakt het water over een totale beenlengte van ongeveer \(3\,\mathrm{cm}\). De oppervlaktespanning kan per eenheid contactlengte een verticale kracht van hoogstens \(2\sigma\) leveren (één bijdrage aan elke kant van het been).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de maximale draagkracht van het wateroppervlak en vergelijk met het gewicht van het insect.
+\item[(b)]
+  Herhaal met zeepwater (\(\sigma = 30\,\mathrm{mN/m}\)). Waarom zakt het insect in de praktijk toch door wanneer je een druppel afwasmiddel toevoegt?
+\item[(c)]
+  Kan een stalen naald (\(\rho = 7900\,\mathrm{kg/m^3}\), lengte \(3\,\mathrm{cm}\), diameter \(0.5\,\mathrm{mm}\)) op water drijven? Waarom moet je ze voorzichtig neerleggen?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Ongeveer \textbf{4.3 mN}, ruim \textbf{40 keer} het gewicht van \(0.098\,\mathrm{mN}\). (b) Nog \(1.8\,\mathrm{mN}\), maar het afwasmiddel laat de waterafstotende beentjes \textbf{bevochtigen}. (c) Ja: gewicht \textbf{0.46 mN} tegenover 4.3 mN, op voorwaarde dat het oppervlak niet doorbroken wordt.
+
+\textbf{(a)} \(F_{\max} = 2\sigma L = 2(0.072)(0.03) = 4.3\times10^{-3}\,\mathrm{N}\). Het gewicht is \(mg = (10\times10^{-6})(9.81) = 9.8\times10^{-5}\,\mathrm{N}\). Het insect gebruikt dus maar een fractie van de draagkracht en kan zelfs springen zonder door het oppervlak te gaan.
+
+\textbf{(b)} \(F_{\max} = 2(0.030)(0.03) = 1.8\,\mathrm{mN}\), nog altijd veel meer dan het gewicht. De echte reden is de bevochtiging: de beentjes zijn bedekt met waterafstotende haartjes (een grote contacthoek), zodat het wateroppervlak een kuiltje vormt in plaats van rond het been te sluiten. Surfactant adsorbeert op die haartjes, de contacthoek daalt, het water bevochtigt het been en de opwaartse component van de kracht verdwijnt. Daarom zijn zeep en olievlekken dodelijk voor waterinsecten.
+
+\textbf{(c)} \(V = \pi(0.25\times10^{-3})^2(0.03) = 5.9\times10^{-9}\,\mathrm{m^3}\), \(m = 46\,\mathrm{mg}\), gewicht \(0.46\,\mathrm{mN}\), kleiner dan de \(4.3\,\mathrm{mN}\) die het oppervlak kan dragen. De naald drijft dus, ook al is staal acht keer zwaarder dan water. Leg je ze schuin of met een tik neer, dan breekt ze door het oppervlak: eens ondergedompeld is er geen grensvlak meer dat ze draagt, en zinkt ze.
+\end{oplossing}
+
+\begin{oefening}[Geïntegreerde case: van rivierwater naar drinkwater]
+Een drinkwaterbedrijf zuivert \(1.0\times10^{5}\,\mathrm{m^3}\) rivierwater per dag. Het water is troebel door kleideeltjes met een diameter van \(1\,\mathrm{\mu m}\) (\(\rho = 2600\,\mathrm{kg/m^3}\)) en een zeta-potentiaal van \(-35\,\mathrm{mV}\). Neem \(\eta = 1.0\times10^{-3}\,\mathrm{Pa\,s}\) en de wet van Stokes uit oefening 9.9.
+
+\begin{enumerate}
+\item[(a)]
+  Hoe lang duurt het voor een kleideeltje \(3\,\mathrm{m}\) diep bezinkt in een bezinkbekken? Waarom bezinkt het in de praktijk helemaal niet?
+\item[(b)]
+  Men doseert \(5\,\mathrm{mg/L}\) aluminium als \(\mathrm{Al_2(SO_4)_3}\) (\(M = 342.2\,\mathrm{g/mol}\)). Hoeveel aluminiumsulfaat is er per dag nodig?
+\item[(c)]
+  Na coagulatie en zacht roeren (flocculatie) vormen zich losse vlokken van \(100\,\mathrm{\mu m}\) diameter met een effectief dichtheidsverschil van slechts \(100\,\mathrm{kg/m^3}\) (ze bevatten veel water). Bereken hun bezinktijd over \(3\,\mathrm{m}\).
+\item[(d)]
+  Waarom roert men na het doseren eerst snel en daarna langzaam?
+\item[(e)]
+  Na bezinken en zandfiltratie volgt een actievekoolfilter (oefening 9.10) en een desinfectie. Rangschik de stappen van de installatie en geef bij elke stap het fysicochemische principe uit deze cursus.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Ongeveer \textbf{40 dagen}, maar Brownse beweging en stroming houden de stabiele deeltjes zwevend. (b) Ongeveer \textbf{3.2 ton} aluminiumsulfaat per dag. (c) Ongeveer \textbf{1.5 uur}: ongeveer \textbf{600 keer sneller} dan losse deeltjes. (d) Snel mengen verdeelt het coagulant, traag roeren laat vlokken groeien zonder ze te breken. (e) Coagulatie (DLVO), flocculatie, bezinking (Stokes), filtratie, adsorptie (Langmuir), desinfectie.
+
+\textbf{(a)} \(v = \dfrac{2(0.5\times10^{-6})^2(1600)(9.81)}{9(1.0\times10^{-3})} = 8.7\times10^{-7}\,\mathrm{m/s}\), dus \(t = 3/8.7\times10^{-7} = 3.4\times10^{6}\,\mathrm{s} \approx 40\,\mathrm{dagen}\). Zo'n bekken zou onbetaalbaar groot zijn. Bovendien houden kleine stromingen, windwerking en Brownse beweging deeltjes van die grootte in suspensie, en met \(|\zeta| = 35\,\mathrm{mV}\) klonteren ze niet spontaan samen (§9.5.3).
+
+\textbf{(b)} \(5\,\mathrm{g/m^3} \times 10^{5}\,\mathrm{m^3} = 500\,\mathrm{kg}\) Al per dag, of \(500/26.98 = 18.5\,\mathrm{kmol}\) Al. Per mol \(\mathrm{Al_2(SO_4)_3}\) zijn er twee mol Al, dus \(9.3\,\mathrm{kmol} \times 342.2\,\mathrm{kg/kmol} = 3.2\,\mathrm{ton}\) per dag. Een tankwagen om de paar dagen.
+
+\textbf{(c)} \(v = \dfrac{2(50\times10^{-6})^2(100)(9.81)}{9(1.0\times10^{-3})} = 5.4\times10^{-4}\,\mathrm{m/s}\), dus \(t = 3/5.4\times10^{-4} = 5500\,\mathrm{s} \approx 1.5\,\mathrm{h}\). Dat is ongeveer 600 keer sneller dan de losse deeltjes, ondanks het veel kleinere dichtheidsverschil: de factor \(r^2\) in de wet van Stokes wint ruim.
+
+\textbf{(d)} Het coagulant moet in enkele seconden overal in het water verdeeld zijn, voor het \(\mathrm{Al^{3+}}\) hydrolyseert; daarom intens mengen (``flash mixing''). Daarna moeten de gedestabiliseerde deeltjes elkaar ontmoeten en vlokken vormen. Te hard roeren breekt de losse vlokken weer stuk, dus roert men minutenlang traag.
+
+\textbf{(e)}
+
+\begin{enumerate}
+\item[(a)]
+  Coagulatie met \(\mathrm{Al^{3+}}\) of \(\mathrm{Fe^{3+}}\): de dubbellaag wordt samengedrukt en \(\zeta\) daalt (DLVO, §9.5).
+\item[(b)]
+  Flocculatie: botsingen en groei van vlokken.
+\item[(c)]
+  Bezinking: wet van Stokes, \(v \propto r^2\).
+\item[(d)]
+  Zandfiltratie: de laatste vlokken blijven aan de zandkorrels hangen.
+\item[(e)]
+  Actieve kool: adsorptie van opgeloste organische stoffen en pesticiden (Langmuir, §9.3).
+\item[(f)]
+  Desinfectie met UV-licht of chloor: chemische kinetiek van het afdoden van micro-organismen (hoofdstuk 8).
+\end{enumerate}
+\end{oplossing}
+
+\begin{oefening}[Een vlek van rodebietensap op een bord]
+De kleurstof van rode biet hecht zich sterk aan porselein. In een experiment worden identieke borden (diameter \(26\,\mathrm{cm}\)) in oplossingen van de kleurstof gedompeld. Na het instellen van het evenwicht wordt de concentratie \(c\) in de oplossing en de geadsorbeerde hoeveelheid \(n\) op het bord gemeten:
+
+\begin{center}
+\begin{tabular}{llllll}
+\toprule
+\(c\) (mmol/L) & 0.010 & 0.025 & 0.050 & 0.10 & 0.20 \\
+\midrule
+\(n\) (nmol) & 34.3 & 60.0 & 80.0 & 96.0 & 106.7 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Voor adsorptie uit oplossing schrijf je de Langmuir-isotherme als \(\theta = n/n_m = Kc/(1+Kc)\).
+
+\begin{enumerate}
+\item[(a)]
+  Toon aan dat een grafiek van \(c/n\) tegen \(c\) een rechte geeft. Bepaal daaruit \(n_m\) en \(K\).
+\item[(b)]
+  Bereken de oppervlakte die één kleurstofmolecule inneemt in een volledige monolaag. Veronderstel dat alleen de bovenkant van het bord bedekt wordt.
+\item[(c)]
+  Je spoelt het bord met kraanwater waarin nog \(c = 0.001\,\mathrm{mmol/L}\) kleurstof zit. Welke bezettingsgraad hoort daar bij evenwicht bij?
+\item[(d)]
+  Toch blijft de vlek na spoelen zichtbaar. Wat besluit je over de snelheid van desorptie? Waarom helpen warm water en afwasmiddel?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(n_m\) = \textbf{120 nmol}, \(K\) = \textbf{40 L/mmol} (4\ensuremath{\cdot{}}10\ensuremath{^{4}} L/mol). (b) Ongeveer \textbf{0.73 nm\ensuremath{^{2}}} per molecule. (c) \(\theta\) = \textbf{0.04}. (d) De desorptie is zeer traag: de vlek is niet in evenwicht met het spoelwater.
+
+\textbf{(a)} Herschrijf de isotherme als
+
+\[
+\frac{c}{n} = \frac{1}{K\,n_m} + \frac{c}{n_m}
+\]
+
+\begin{center}
+\begin{tabular}{llllll}
+\toprule
+\(c\) (mmol/L) & 0.010 & 0.025 & 0.050 & 0.10 & 0.20 \\
+\midrule
+\(c/n\) (mmol/(L\ensuremath{\cdot{}}nmol)) & 2.92\ensuremath{\cdot{}}10\ensuremath{^{-4}} & 4.17\ensuremath{\cdot{}}10\ensuremath{^{-4}} & 6.25\ensuremath{\cdot{}}10\ensuremath{^{-4}} & 1.04\ensuremath{\cdot{}}10\ensuremath{^{-3}} & 1.88\ensuremath{\cdot{}}10\ensuremath{^{-3}} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+De punten liggen op een rechte met helling \(8.33\times10^{-3}\,\mathrm{nmol^{-1}}\), dus \(n_m = 120\,\mathrm{nmol}\). Het asafsnijpunt bedraagt \(2.08\times10^{-4}\), zodat \(K = 1/(n_m \times 2.08\times10^{-4}) = 40\,\mathrm{L/mmol}\).
+
+\textbf{(b)} Oppervlak van het bord: \(\pi (0.13)^2 = 0.053\,\mathrm{m^2}\). Aantal moleculen: \((120\times10^{-9})(6.022\times10^{23}) = 7.2\times10^{16}\). Per molecule: \(0.053/7.2\times10^{16} = 7.3\times10^{-19}\,\mathrm{m^2} = 0.73\,\mathrm{nm^2}\), een realistische grootte voor een middelgroot organisch molecule.
+
+\textbf{(c)} \(Kc = 40 \times 0.001 = 0.04\), dus \(\theta = 0.04/1.04 = 0.04\). Bij evenwicht zou 96 \% van de kleurstof dus moeten loskomen.
+
+\textbf{(d)} De Langmuir-isotherme beschrijft het evenwicht, niet hoe snel het bereikt wordt. De kleurstof is chemisch gebonden (chemisorptie). Desorptie heeft een hoge activeringsenergie en verloopt daardoor zeer traag (hoofdstuk 8). Warm water versnelt de desorptie (Arrhenius). Afwasmiddel bezet zelf het oppervlak en lost de kleurstof op in micellen, zodat de concentratie vrije kleurstof in de oplossing laag blijft. Daarom moet je een vlek snel behandelen, voordat de chemisorptie volledig is.
+\end{oplossing}
+
+\begin{oefening}[Waarom schift melk in sinaasappelsap?]
+Melk is een colloïdale dispersie van caseïnemicellen (ongeveer \(150\,\mathrm{nm}\)) in water. De zeta-potentiaal van die micellen hangt af van de pH:
+
+\begin{center}
+\begin{tabular}{lllllll}
+\toprule
+pH & 6.7 & 6.0 & 5.5 & 5.0 & 4.6 & 4.0 \\
+\midrule
+\(\zeta\) (mV) & \ensuremath{-}20 & \ensuremath{-}15 & \ensuremath{-}10 & \ensuremath{-}5 & 0 & +5 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Naast de elektrische dubbellaag worden de micellen ook gestabiliseerd door een laagje uitstekende eiwitketens aan hun oppervlak. Die ``haartjes'' houden de deeltjes op afstand, maar klappen in bij lage pH.
+
+\begin{enumerate}
+\item[(a)]
+  Bij welke pH is de micel elektrisch neutraal? Hoe heet die pH?
+\item[(b)]
+  Volgens de vuistregel uit dit hoofdstuk zou melk met \(\zeta = -20\,\mathrm{mV}\) niet stabiel zijn. Waarom is verse melk toch stabiel?
+\item[(c)]
+  Sinaasappelsap heeft een pH van ongeveer 3.8. Verklaar met het DLVO-model waarom melk schift als je de twee mengt.
+\item[(d)]
+  Geef twee toepassingen van ditzelfde verschijnsel in de voedingsindustrie.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{pH 4.6}, het isoelektrisch punt. (b) Door de extra sterische afstoting van de eiwitketens. (c) Rond pH 4.6 verdwijnt de elektrische afstoting, de haartjes klappen in en de Van der Waals-aantrekking wint. (d) Yoghurt en zuivelkaas.
+
+\textbf{(a)} \(\zeta = 0\) bij pH 4.6: het isoelektrisch punt van caseïne. Daar is de netto lading van de micel nul.
+
+\textbf{(b)} Bij \(|\zeta| = 20\,\mathrm{mV}\) is de elektrische afstoting alleen niet voldoende. De laag eiwitketens rond de micel zorgt voor sterische afstoting: als twee deeltjes elkaar naderen, worden de ketens samengedrukt, wat ongunstig is voor de entropie. De vuistregel van \(30\,\mathrm{mV}\) geldt voor dispersies die enkel elektrisch gestabiliseerd zijn.
+
+\textbf{(c)} Bij het mengen daalt de pH in de buurt van 4.6. De zeta-potentiaal nadert nul, zodat de energiedrempel in de DLVO-curve verdwijnt. Tegelijk verliezen de eiwitketens hun lading en klappen ze in, zodat ook de sterische bescherming wegvalt. De Van der Waals-aantrekking brengt de micellen samen: ze coaguleren tot vlokken.
+
+\textbf{(d)} Bij yoghurt zetten melkzuurbacteriën lactose om in melkzuur, zodat de pH langzaam daalt naar ongeveer 4.5 en de melk een gel vormt. Bij verse kaas en kwark gebeurt hetzelfde, waarna het vaste deel van de wei wordt gescheiden. Bij gewone kaas gebruikt men stremsel: een enzym knipt de eiwitketens af en neemt zo de sterische stabilisatie weg.
+\end{oplossing}

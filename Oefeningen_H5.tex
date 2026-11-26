@@ -1,0 +1,433 @@
+% Oefeningen bij dit hoofdstuk (ingevoegd achteraan het hoofdstuk met \input).
+% Een oefening:  \begin{oefening}[titel] ... \end{oefening}   (boek en website)
+% De oplossing:  \begin{oplossing} ... \end{oplossing}       (enkel website, dichtgeklapt)
+
+Neem $R = \SI{8.314}{\joule\per\mole\per\kelvin}$, $\SI{1}{\bar} = \SI{e5}{\pascal}$ en $\SI{760}{mmHg} = \SI{1.01325}{\bar}$.
+
+\begin{oefening}[Dampdruk van water: Antoine of Clausius--Clapeyron?]
+Voor water geldt de Antoine-vergelijking \(\log_{10} p = A - B/(T + C)\) met \(A = 8.07131\), \(B = 1730.63\), \(C = 233.426\), waarbij \(p\) in mmHg en \(T\) in °C (geldig van \(1\) tot \(100\,^\circ\mathrm{C}\)).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de dampdruk van water bij \(50\), \(80\) en \(120\,^\circ\mathrm{C}\), in mbar.
+\item[(b)]
+  Schat dezelfde dampdrukken met de vergelijking van Clausius--Clapeyron, vertrekkend van het normale kookpunt (\(1.013\,\mathrm{bar}\) bij \(100\,^\circ\mathrm{C}\)) met \(\Delta H_{\text{vap}} = 40.7\,\mathrm{kJ/mol}\).
+\item[(c)]
+  Verklaar de verschillen. Welke waarde bij \(120\,^\circ\mathrm{C}\) vertrouw je het meest?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Antoine: \textbf{123 mbar}, \textbf{473 mbar} en \textbf{1993 mbar}. (b) Clausius--Clapeyron: \textbf{133 mbar}, \textbf{482 mbar} en \textbf{1975 mbar}. (c) Clausius--Clapeyron wijkt tot 8 \% af omdat \(\Delta H_{\text{vap}}\) niet constant is.
+
+\textbf{(a)} Bij \(50\,^\circ\mathrm{C}\):
+
+\[
+\log_{10} p = 8.07131 - \frac{1730.63}{50 + 233.426} = 1.965 \quad\Rightarrow\quad p = 92.3\,\mathrm{mmHg} = 123\,\mathrm{mbar}
+\]
+
+Op dezelfde manier: \(354.5\,\mathrm{mmHg} = 473\,\mathrm{mbar}\) bij \(80\,^\circ\mathrm{C}\) en \(1495\,\mathrm{mmHg} = 1993\,\mathrm{mbar}\) bij \(120\,^\circ\mathrm{C}\). Controleer eerst de eenheden met een bekend punt: bij \(100\,^\circ\mathrm{C}\) geeft de vergelijking \(760\,\mathrm{mmHg}\).
+
+\textbf{(b)} Bij \(50\,^\circ\mathrm{C}\):
+
+\[
+\ln\frac{p_2}{1.013\,\mathrm{bar}} = -\frac{40\,700}{8.314}\left(\frac{1}{323.15} - \frac{1}{373.15}\right) = -2.03 \quad\Rightarrow\quad p_2 = 0.133\,\mathrm{bar}
+\]
+
+Bij \(80\,^\circ\mathrm{C}\) en \(120\,^\circ\mathrm{C}\) vind je \(482\) en \(1975\,\mathrm{mbar}\).
+
+\textbf{(c)} De experimentele waarden zijn \(123\), \(474\) en \(1985\,\mathrm{mbar}\). Antoine is een empirische fit en is binnen het geldigheidsgebied zeer nauwkeurig. Clausius--Clapeyron veronderstelt een constante \(\Delta H_{\text{vap}}\), terwijl die bij lagere temperatuur groter is (\(43.0\,\mathrm{kJ/mol}\) bij \(50\,^\circ\mathrm{C}\)): hoe verder van het referentiepunt, hoe groter de fout. Bij \(120\,^\circ\mathrm{C}\) ligt de temperatuur buiten het geldigheidsgebied van deze Antoine-parameters, maar dicht bij het referentiepunt van Clausius--Clapeyron: beide schattingen liggen binnen 1 \% van de werkelijkheid. Dit is de druk in een snelkookpan of een stoomsterilisator (autoclaaf).
+\end{oplossing}
+
+\begin{oefening}[Bubbelpunt van een hexaan--octaanmengsel]
+Een vloeibaar mengsel van \(n\)-hexaan (A) en \(n\)-octaan (B) met \(x_A = 0.30\) bevindt zich bij \(80\,^\circ\mathrm{C}\). De verzadigingsdampdrukken bedragen \(p_A^* = 1.42\,\mathrm{bar}\) en \(p_B^* = 0.23\,\mathrm{bar}\). Behandel het mengsel als ideaal.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de bubbelpuntdruk.
+\item[(b)]
+  Bereken de samenstelling van de eerste dampbel.
+\item[(c)]
+  Bereken de relatieve vluchtigheid \(\alpha_{AB}\) en beoordeel hoe moeilijk de scheiding door destillatie is.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(P\) = \textbf{0.587 bar}. (b) \(y_A\) = \textbf{0.726}, \(y_B\) = 0.274. (c) \(\alpha_{AB}\) = \textbf{6.2}: zeer eenvoudige scheiding.
+
+\textbf{(a)} Volgens Raoult:
+
+\[
+P = x_A p_A^* + x_B p_B^* = (0.30)(1.42) + (0.70)(0.23) = 0.426 + 0.161 = 0.587\,\mathrm{bar}
+\]
+
+\textbf{(b)} \(y_A = x_A p_A^*/P = 0.426/0.587 = 0.726\) en \(y_B = 0.274\). De damp bevat meer dan dubbel zoveel hexaan als de vloeistof.
+
+\textbf{(c)} \(\alpha_{AB} = p_A^*/p_B^* = 1.42/0.23 = 6.2\). Met \(\alpha \geq 5\) is de scheiding zeer eenvoudig: een kolom met weinig schotels volstaat. Ter vergelijking: benzeen--tolueen (\(\alpha = 2.5\)) vraagt al meer schotels, en voor isomeren met \(\alpha \approx 1.1\) zijn kolommen van honderd schotels nodig.
+\end{oplossing}
+
+\begin{oefening}[Flash-verdamping en de hefboomwet]
+In een flashvat wordt een hexaan--octaanmengsel met globale samenstelling \(z_A = 0.50\) gebracht op \(80\,^\circ\mathrm{C}\) en de druk van Oefening 5.2 (\(0.587\,\mathrm{bar}\)). Bij die temperatuur en druk zijn de vloeistof en de damp in evenwicht met de samenstellingen uit Oefening 5.2.
+
+\begin{enumerate}
+\item[(a)]
+  Waarom splitst dit mengsel in twee fasen?
+\item[(b)]
+  Bereken de verhouding \(n_L/n_V\) en de hoeveelheden vloeistof en damp per mol voeding.
+\item[(c)]
+  Hoeveel hexaan zit in de dampstroom, uitgedrukt als fractie van het hexaan in de voeding?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(x_A = 0.30 < z_A < y_A = 0.726\): tweefasengebied. (b) \(n_L/n_V\) = \textbf{1.13}; \textbf{0.53 mol} vloeistof en \textbf{0.47 mol} damp. (c) \textbf{68 \%} van het hexaan gaat naar de damp.
+
+\textbf{(a)} Bij deze \(T\) en \(P\) ligt de bubbelpuntcurve bij \(x_A = 0.30\) en de dauwpuntcurve bij \(y_A = 0.726\). Een globale samenstelling daartussen valt in het tweefasengebied: het mengsel valt uiteen in een vloeistof met \(x_A = 0.30\) en een damp met \(y_A = 0.726\).
+
+\textbf{(b)}
+
+\[
+\frac{n_L}{n_V} = \frac{y_A - z_A}{z_A - x_A} = \frac{0.726 - 0.50}{0.50 - 0.30} = 1.13
+\]
+
+Per mol voeding: \(n_L = 1.13/2.13 = 0.53\,\mathrm{mol}\) en \(n_V = 0.47\,\mathrm{mol}\).
+
+\textbf{(c)} Hexaan in de damp: \((0.47)(0.726) = 0.341\,\mathrm{mol}\), van de \(0.50\,\mathrm{mol}\) in de voeding, dus \(68\,\%\). Eén evenwichtstrap geeft een gedeeltelijke scheiding; een destillatiekolom zet zulke trappen in serie. Dit is precies de basis van de McCabe--Thiele-methode in de cursus Scheidingstechnologie.
+\end{oplossing}
+
+\begin{oefening}[Azeotropen voorspellen vanuit intermoleculaire krachten]
+Voorspel voor de volgende binaire mengsels of ze zich ongeveer ideaal gedragen, een positieve afwijking van Raoult vertonen (met mogelijk een minimaal kokende azeotroop) of een negatieve afwijking (met mogelijk een maximaal kokende azeotroop). Gebruik de intermoleculaire krachten uit hoofdstuk 4.
+
+\begin{enumerate}
+\item[(a)]
+  benzeen--tolueen,
+\item[(b)]
+  \(n\)-hexaan--ethanol,
+\item[(c)]
+  salpeterzuur--water.
+\end{enumerate}
+
+Waarom kan je met gewone destillatie geen zuivere ethanol maken, en hoe maakt de industrie toch watervrije bio-ethanol voor benzine (E10)?
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{Bijna ideaal}, geen azeotroop. (b) \textbf{Positieve afwijking}: minimaal kokende azeotroop. (c) \textbf{Negatieve afwijking}: maximaal kokende azeotroop. Ethanol--water vormt een azeotroop bij 95.6 massa-\%; men droogt verder met \textbf{moleculaire zeven} of azeotrope/extractieve destillatie.
+
+\textbf{(a)} Benzeen en tolueen zijn beide apolaire aromaten met vergelijkbare grootte en enkel dispersiekrachten. De interacties A--B zijn ongeveer even sterk als A--A en B--B: het mengsel volgt de wet van Raoult goed (\(\gamma \approx 1\)) en vormt geen azeotroop.
+
+\textbf{(b)} Ethanol vormt waterstofbruggen met zichzelf. Hexaan kan die niet vervangen: elke hexaanmolecule tussen de ethanolmoleculen breekt bruggen zonder er iets sterks voor terug te geven. De interacties A--B zijn zwakker dan A--A en B--B, de moleculen ontsnappen gemakkelijker (\(\gamma > 1\)) en de dampdruk ligt boven Raoult. Hexaan en ethanol vormen een minimaal kokende azeotroop (rond \(59\,^\circ\mathrm{C}\), lager dan beide kookpunten).
+
+\textbf{(c)} Salpeterzuur en water interageren zeer sterk: waterstofbruggen en zelfs gedeeltelijke ionisatie (\(\mathrm{HNO_3 + H_2O \rightarrow H_3O^+ + NO_3^-}\)). A--B is sterker dan A--A en B--B, de dampdruk ligt onder Raoult (\(\gamma < 1\)) en er ontstaat een maximaal kokende azeotroop (ongeveer \(68\,\%\) \(\mathrm{HNO_3}\) in massa, \(120\,^\circ\mathrm{C}\)). Daarom is geconcentreerd salpeterzuur in de handel typisch \(65\)--\(68\,\%\).
+
+\textbf{Ethanol:} bij de azeotrope samenstelling hebben damp en vloeistof dezelfde samenstelling, dus een extra destillatietrap verandert niets meer. Om voorbij \(95.6\,\%\) te geraken, moet men het evenwicht omzeilen: adsorptie van water op een moleculaire zeef (zeoliet 3A, die enkel de kleine watermoleculen binnenlaat), drukwisseldestillatie, of een hulpstof toevoegen die het VLE wijzigt (azeotrope of extractieve destillatie).
+\end{oplossing}
+
+\begin{oefening}[Activiteitscoëfficiënt van ethanol in water]
+Boven een ethanol--watermengsel met \(x_{\text{EtOH}} = 0.10\) meet men bij \(25\,^\circ\mathrm{C}\) een partiële dampdruk van ethanol van \(24\,\mathrm{mbar}\). De dampdruk van zuivere ethanol bij \(25\,^\circ\mathrm{C}\) bedraagt \(78.7\,\mathrm{mbar}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de activiteit en de activiteitscoëfficiënt van ethanol.
+\item[(b)]
+  Is dit een positieve of een negatieve afwijking van Raoult? Is dat in overeenstemming met de azeotroop van ethanol--water?
+\item[(c)]
+  Bepaal de parameter \(A\) van het Margules-éénparametermodel en voorspel daarmee \(\gamma_{\text{EtOH}}\) bij \(x = 0.50\) en bij oneindige verdunning.
+\item[(d)]
+  Waarom ruik je alcohol in een glas wijn (12 vol-\%, \(x \approx 0.04\)) veel sterker dan je met Raoult zou verwachten?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(a\) = 0.305, \(\gamma\) = \textbf{3.05}. (b) \textbf{Positieve} afwijking, consistent met een minimaal kokende azeotroop. (c) \(A\) = \textbf{1.38}; \(\gamma(0.5)\) = \textbf{1.41} en \(\gamma^\infty\) = \textbf{3.96}. (d) Ethanol ontsnapt bij lage concentratie bijna 4 keer gemakkelijker dan volgens Raoult.
+
+\textbf{(a)} Met \(p_i = a_i p_i^* = \gamma_i x_i p_i^*\):
+
+\[
+a = \frac{24}{78.7} = 0.305, \qquad \gamma = \frac{a}{x} = \frac{0.305}{0.10} = 3.05
+\]
+
+\textbf{(b)} \(\gamma > 1\): positieve afwijking. Ethanol--ethanol en water--water vormen sterke waterstofbrugnetwerken; de apolaire ethylgroep verstoort het netwerk van water. Gemengd zijn de moleculen minder goed `vastgehouden' dan in de zuivere stoffen. Een voldoende grote positieve afwijking geeft een minimaal kokende azeotroop, precies wat ethanol--water vertoont.
+
+\textbf{(c)} Met \(\ln \gamma_A = A x_B^2\):
+
+\[
+A = \frac{\ln 3.05}{(0.90)^2} = \frac{1.115}{0.81} = 1.38
+\]
+
+Bij \(x = 0.50\): \(\gamma = \exp(1.38 \times 0.25) = 1.41\). Bij oneindige verdunning (\(x_B \to 1\)): \(\gamma^\infty = e^{A} = 3.96\). De literatuurwaarde ligt rond \(4.5\)--\(5\); het symmetrische éénparametermodel is voor dit asymmetrische mengsel slechts een benadering, en daarom gebruikt men in de praktijk Wilson of NRTL.
+
+\textbf{(d)} Bij lage concentratie is \(\gamma \approx \gamma^\infty \approx 4\) à \(5\): de partiële dampdruk van ethanol boven wijn is vier tot vijf keer groter dan Raoult voorspelt. Hetzelfde effect maakt het mogelijk aroma's en alcohol uit verdunde waterige stromen te strippen, en verklaart waarom de eerste fractie bij het distilleren van wijn al sterk alcoholisch is.
+\end{oplossing}
+
+\begin{oefening}[Extractie van benzoëzuur: één keer veel of twee keer weinig?]
+Een waterige afvalstroom bevat \(0.050\,\mathrm{mol/L}\) benzoëzuur (conserveermiddel E210). De verdelingscoëfficiënt tussen tolueen en water bedraagt \(K_D = c_{\text{tol}}/c_{\text{water}} = 12\). Men extraheert \(1.0\,\mathrm{L}\) waterige oplossing met tolueen.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de resterende concentratie in het water na één extractie met \(0.50\,\mathrm{L}\) tolueen, en het percentage dat verwijderd is.
+\item[(b)]
+  Hoeveel opeenvolgende extracties met telkens \(0.50\,\mathrm{L}\) vers tolueen zijn nodig om minstens \(99\,\%\) te verwijderen?
+\item[(c)]
+  Vergelijk één extractie met \(0.50\,\mathrm{L}\) met twee extracties met elk \(0.25\,\mathrm{L}\). Wat besluit je?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(c\) = \textbf{7.1\ensuremath{\cdot{}}10\ensuremath{^{-3}} mol/L}; \textbf{85.7 \%} verwijderd. (b) \textbf{3 extracties} (2.4 is theoretisch nodig). (c) Twee keer \(0.25\,\mathrm{L}\) verwijdert \textbf{93.8 \%}: verdeeld extraheren is efficiënter.
+
+\textbf{(a)} Massabalans: \(c_0 V_w = c_w V_w + K_D c_w V_o\), dus
+
+\[
+c_w = c_0\frac{V_w}{V_w + K_D V_o} = 0.050 \cdot \frac{1}{1 + 12(0.50)} = \frac{0.050}{7} = 7.1\times10^{-3}\,\mathrm{mol/L}
+\]
+
+Er blijft \(1/7 = 14.3\,\%\) achter: \(85.7\,\%\) is verwijderd.
+
+\textbf{(b)} Na \(n\) stappen blijft \((1/7)^n\) over. \((1/7)^n \leq 0.01\) geeft \(n \geq \ln 100/\ln 7 = 2.37\), dus drie extracties (na drie stappen blijft \(0.29\,\%\) over).
+
+\textbf{(c)} Per stap met \(0.25\,\mathrm{L}\) blijft \(1/(1 + 12 \times 0.25) = 1/4\) over; na twee stappen \(1/16 = 6.25\,\%\). Met dezelfde totale hoeveelheid oplosmiddel verwijdert men \(93.8\,\%\) in plaats van \(85.7\,\%\). Meerdere kleine extracties (of een tegenstroomkolom) zijn efficiënter dan één grote, een principe dat je ook toepast bij het spoelen van een maatbeker of bij het zetten van thee in twee keer.
+\end{oplossing}
+
+\begin{oefening}[Drinkwater uit zeewater]
+Zeewater bevat ongeveer \(0.55\,\mathrm{mol/L}\) opgeloste zouten, hoofdzakelijk NaCl, dat volledig dissocieert.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de osmotische druk van zeewater bij \(25\,^\circ\mathrm{C}\).
+\item[(b)]
+  Welke druk moet een installatie voor omgekeerde osmose minstens leveren om zuiver water te produceren?
+\item[(c)]
+  Bereken de minimale arbeid om \(1\,\mathrm{m^3}\) zuiver water te winnen, in kWh. Een moderne installatie verbruikt ongeveer \(3\,\mathrm{kWh/m^3}\). Waarom is dat meer?
+\item[(d)]
+  Waarom mag je als schipbreukeling geen zeewater drinken?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Pi\) = \textbf{27 bar}. (b) Meer dan \textbf{27 bar} (in de praktijk 55--70 bar). (c) \(W_{\min}\) = \textbf{0.76 kWh/m\ensuremath{^{3}}}. (d) Zeewater is \textbf{hypertoon}: het onttrekt water aan je cellen.
+
+\textbf{(a)} Elk mol NaCl geeft twee ionen, dus \(c = 1.10\,\mathrm{mol/L} = 1100\,\mathrm{mol/m^3}\):
+
+\[
+\Pi = cRT = (1100)(8.314)(298.15) = 2.73\times10^{6}\,\mathrm{Pa} = 27\,\mathrm{bar}
+\]
+
+\textbf{(b)} Om water door het membraan van de zoute naar de zoete kant te persen, moet de uitwendige druk groter zijn dan \(\Pi\). Omdat het zeewater tijdens het proces steeds zouter wordt (het concentraat), werken installaties in de praktijk bij \(55\)--\(70\,\mathrm{bar}\).
+
+\textbf{(c)} De minimale arbeid is de arbeid om een volume \(V\) tegen de osmotische druk in te persen:
+
+\[
+W_{\min} = \Pi V = (2.73\times10^{6}\,\mathrm{Pa})(1\,\mathrm{m^3}) = 2.73\,\mathrm{MJ} = 0.76\,\mathrm{kWh}
+\]
+
+Dit is dezelfde ondergrens als de Gibbs-vrije energie van ontmenging (hoofdstuk 3). Echte installaties verbruiken vier keer meer: de druk moet boven \(\Pi\) liggen om een redelijk debiet te krijgen, het concentraat wordt zouter, en pompen en membranen hebben verliezen (irreversibiliteiten). Toch is omgekeerde osmose veel zuiniger dan verdampen: om \(1\,\mathrm{m^3}\) water te verdampen is ongeveer \(630\,\mathrm{kWh}\) warmte nodig.
+
+\textbf{(d)} Bloed heeft een osmotische druk van ongeveer \(7.9\,\mathrm{bar}\) (zie het voorbeeld van de fysiologische zoutoplossing), zeewater \(27\,\mathrm{bar}\). De nieren kunnen urine maken die hoogstens ongeveer zo zout is als zeewater, zodat ze meer water nodig hebben om het zout uit te scheiden dan je ermee binnenkrijgt. Je droogt uit.
+\end{oplossing}
+
+\begin{oefening}[Waarom je bril beslaat: het dauwpunt]
+De \emph{relatieve vochtigheid} van lucht is de verhouding van de partiële waterdampdruk tot de dampdruk van water bij dezelfde temperatuur: \(\mathrm{RV} = p_{\mathrm{H_2O}}/p^*_{\mathrm{H_2O}}(T)\). Gebruik de Antoine-vergelijking van Oefening 5.1.
+
+\begin{enumerate}
+\item[(a)]
+  In een klaslokaal is het \(22\,^\circ\mathrm{C}\) bij een relatieve vochtigheid van \(50\,\%\). Bereken de partiële waterdampdruk.
+\item[(b)]
+  Bereken het dauwpunt: de temperatuur waarbij die lucht verzadigd raakt en condens vormt.
+\item[(c)]
+  Leg uit waarom een flesje uit de koelkast (\(5\,^\circ\mathrm{C}\)) in dit lokaal beslaat, en waarom je bril beslaat als je in de winter binnenkomt.
+\item[(d)]
+  Buitenlucht van \(0\,^\circ\mathrm{C}\) met \(90\,\%\) relatieve vochtigheid wordt binnen opgewarmd tot \(21\,^\circ\mathrm{C}\), zonder water toe te voegen. Bereken de nieuwe relatieve vochtigheid. Waarom is binnenlucht in de winter zo droog?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(p_{\mathrm{H_2O}}\) = \textbf{13.2 mbar}. (b) Dauwpunt \ensuremath{\approx{}} \textbf{11 °C}. (c) Elk oppervlak kouder dan 11 °C beslaat. (d) RV daalt tot ongeveer \textbf{22 \%}.
+
+\textbf{(a)} Antoine bij \(22\,^\circ\mathrm{C}\): \(\log_{10}p^* = 8.07131 - 1730.63/255.426 = 1.296\), dus \(p^* = 19.8\,\mathrm{mmHg} = 26.3\,\mathrm{mbar}\). Met \(\mathrm{RV} = 0.50\): \(p_{\mathrm{H_2O}} = 13.2\,\mathrm{mbar}\).
+
+\textbf{(b)} Het dauwpunt is de temperatuur waarbij \(p^*(T) = 13.2\,\mathrm{mbar} = 9.88\,\mathrm{mmHg}\). Antoine omvormen:
+
+\[
+T = \frac{B}{A - \log_{10}p} - C = \frac{1730.63}{8.07131 - 0.995} - 233.426 = 11.1\,^\circ\mathrm{C}
+\]
+
+\textbf{(c)} De lucht vlak tegen een oppervlak van \(5\,^\circ\mathrm{C}\) koelt af onder het dauwpunt. De partiële waterdampdruk (\(13.2\,\mathrm{mbar}\)) is dan groter dan de dampdruk van water bij \(5\,^\circ\mathrm{C}\) (\(8.7\,\mathrm{mbar}\)): de damp is oververzadigd en condenseert. Een bril die buiten op \(0\,^\circ\mathrm{C}\) was, beslaat om dezelfde reden. Dauw op het gras en condens op koude muren (schimmel!) ontstaan zo ook.
+
+\textbf{(d)} Buiten: \(p_{\mathrm{H_2O}} = 0.90 \times p^*(0\,^\circ\mathrm{C}) = 0.90 \times 6.0 = 5.4\,\mathrm{mbar}\). Binnen is \(p^*(21\,^\circ\mathrm{C}) = 24.7\,\mathrm{mbar}\), dus \(\mathrm{RV} = 5.4/24.7 = 22\,\%\). De absolute hoeveelheid water verandert niet, maar warme lucht kan veel meer waterdamp bevatten. Daarom voelt verwarmde winterlucht droog aan en gebruiken sommige mensen een luchtbevochtiger.
+\end{oplossing}
+
+\begin{oefening}[Strooizout op de weg]
+Om wegen ijsvrij te houden, strooit men NaCl (\(M = 58.44\,\mathrm{g/mol}\)). Gebruik \(K_f = 1.86\,\mathrm{K\,kg/mol}\) voor water en veronderstel volledige dissociatie en een ideale verdunde oplossing.
+
+\begin{enumerate}
+\item[(a)]
+  Hoeveel gram NaCl per kg water is nodig om het vriespunt te verlagen tot \(-5\,^\circ\mathrm{C}\)?
+\item[(b)]
+  Waarom telt elk mol NaCl dubbel? Hoeveel \(\mathrm{CaCl_2}\) (\(M = 111.0\,\mathrm{g/mol}\)) zou je per kg water nodig hebben voor hetzelfde effect?
+\item[(c)]
+  Waarom heeft strooien bij \(-25\,^\circ\mathrm{C}\) geen zin meer met NaCl?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{79 g NaCl} per kg water. (b) Colligatief: het aantal deeltjes telt; \textbf{100 g CaCl\ensuremath{_{2}}} (3 ionen per formule-eenheid). (c) Onder het \textbf{eutecticum van \ensuremath{-}21 °C} bevriest de pekel volledig.
+
+\textbf{(a)} De vereiste molaliteit aan opgeloste deeltjes is \(m = \Delta T_f/K_f = 5/1.86 = 2.69\,\mathrm{mol/kg}\). Elk NaCl geeft twee ionen, dus \(1.34\,\mathrm{mol}\) NaCl per kg water, of \((1.34)(58.44) = 79\,\mathrm{g}\).
+
+\textbf{(b)} Vriespuntsverlaging is een colligatieve eigenschap: ze hangt enkel af van het aantal opgeloste deeltjes, omdat elk deeltje de chemische potentiaal van het water evenveel verlaagt. \(\mathrm{CaCl_2}\) geeft drie ionen: \(2.69/3 = 0.896\,\mathrm{mol}\), of \((0.896)(111.0) = 99.5 \approx 100\,\mathrm{g}\) per kg water. Per gram is NaCl dus iets efficiënter, maar \(\mathrm{CaCl_2}\) werkt tot lagere temperaturen (eutecticum \(-50\,^\circ\mathrm{C}\)) en lost exotherm op.
+
+\textbf{(c)} Het eutectisch punt van NaCl--water ligt bij \(-21\,^\circ\mathrm{C}\). Daaronder is geen vloeibare pekel meer stabiel, hoeveel zout je ook toevoegt: ijs en vast zout coëxisteren. In werkelijkheid werkt NaCl al slecht onder ongeveer \(-10\,^\circ\mathrm{C}\), omdat het zout eerst moet oplossen in een dun laagje water. In Scandinavië en Canada gebruikt men dan zand of \(\mathrm{CaCl_2}\).
+\end{oplossing}
+
+\begin{oefening}[Waarom vissen het moeilijk hebben in een warme zomer]
+De Henry-constante van zuurstof in water (molfractieschaal) bedraagt \(H = 3.27\times10^{4}\,\mathrm{bar}\) bij \(10\,^\circ\mathrm{C}\) en \(4.26\times10^{4}\,\mathrm{bar}\) bij \(25\,^\circ\mathrm{C}\). Lucht bevat \(21\,\%\) zuurstof; de totale druk is \(1.0\,\mathrm{bar}\). Water bevat \(55.5\,\mathrm{mol}\) per liter.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de opgeloste zuurstofconcentratie in mg/L bij beide temperaturen.
+\item[(b)]
+  Vissen zoals forel hebben minstens ongeveer \(6\,\mathrm{mg/L}\) zuurstof nodig. Wat gebeurt er in een warme zomer, zeker als er ook organisch materiaal afgebroken wordt?
+\item[(c)]
+  Waarom stijgt de Henry-constante met de temperatuur? Verbind met het teken van de oplosenthalpie en met Le Chatelier.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{11.4 mg/L} bij 10 °C en \textbf{8.8 mg/L} bij 25 °C. (b) De marge tot de ondergrens van 6 mg/L \textbf{halveert}. (c) Gassen oplossen is \textbf{exotherm}: hogere \(T\) verschuift het evenwicht naar de gasfase.
+
+\textbf{(a)} Met \(p_{\mathrm{O_2}} = 0.21\,\mathrm{bar}\) en \(x = p/H\):
+
+\begin{itemize}
+\item
+  \(10\,^\circ\mathrm{C}\): \(x = 0.21/3.27\times10^{4} = 6.42\times10^{-6}\), dus \(c = (6.42\times10^{-6})(55.5) = 3.56\times10^{-4}\,\mathrm{mol/L} = 11.4\,\mathrm{mg/L}\).
+\item
+  \(25\,^\circ\mathrm{C}\): \(x = 4.93\times10^{-6}\), dus \(c = 2.74\times10^{-4}\,\mathrm{mol/L} = 8.8\,\mathrm{mg/L}\).
+\end{itemize}
+
+De gemeten waarden zijn \(11.3\) en \(8.3\,\mathrm{mg/L}\).
+
+\textbf{(b)} Bij \(25\,^\circ\mathrm{C}\) is de evenwichtsconcentratie een kwart lager, en de marge boven \(6\,\mathrm{mg/L}\) zakt van \(5.4\) naar \(2.8\,\mathrm{mg/L}\). Tegelijk verbruiken vissen en bacteriën meer zuurstof bij hogere temperatuur (reactiesnelheden stijgen, hoofdstuk 8), en het water is in de zomer vaak trager en minder gemengd. Het resultaat is vissterfte, ook zonder vervuiling. Daarom mogen centrales en industrie hun koelwater niet onbeperkt warm lozen.
+
+\textbf{(c)} Een opgeloste gasmolecule wordt door het water omringd en aangetrokken (dipool--geïnduceerde dipool- en dispersiekrachten, hoofdstuk 4): oplossen is exotherm. Bij hogere temperatuur schuift het evenwicht naar de endotherme kant, de gasfase. Hetzelfde verklaart waarom lauwe frisdrank sneller verschaalt dan koude.
+\end{oplossing}
+
+\begin{oefening}[Caissonziekte bij duikers]
+Een duiker ademt perslucht (\(79\,\%\) \(\mathrm{N_2}\)) op \(30\,\mathrm{m}\) diepte, waar de totale druk \(4.0\,\mathrm{bar}\) bedraagt. Behandel bloed als water (\(55.5\,\mathrm{mol/L}\)) met een Henry-constante voor stikstof van \(H = 9.0\times10^{4}\,\mathrm{bar}\) bij \(37\,^\circ\mathrm{C}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de concentratie opgeloste stikstof in het bloed aan het oppervlak en op \(30\,\mathrm{m}\) diepte, na verzadiging.
+\item[(b)]
+  De duiker stijgt veel te snel op. Hoeveel milliliter stikstofgas (bij \(37\,^\circ\mathrm{C}\) en \(1\,\mathrm{bar}\)) komt per liter bloed vrij? Gebruik de ideale gaswet (hoofdstuk 1).
+\item[(c)]
+  Waarom gebruiken diepzeeduikers helium in plaats van stikstof in hun ademgas?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{0.49 mmol/L} aan het oppervlak, \textbf{1.95 mmol/L} op 30 m. (b) Ongeveer \textbf{38 mL N\ensuremath{_{2}}} per liter bloed (bijna 0.2 L voor 5 L bloed). (c) Helium lost \textbf{slechter} op en diffundeert sneller.
+
+\textbf{(a)} Met \(x = p_{\mathrm{N_2}}/H\) en \(c = 55.5\,x\):
+
+\begin{itemize}
+\item
+  Oppervlak: \(p_{\mathrm{N_2}} = 0.79\,\mathrm{bar}\), \(x = 8.8\times10^{-6}\), \(c = 0.49\,\mathrm{mmol/L}\).
+\item
+  \(30\,\mathrm{m}\): \(p_{\mathrm{N_2}} = 3.16\,\mathrm{bar}\), \(x = 3.5\times10^{-5}\), \(c = 1.95\,\mathrm{mmol/L}\).
+\end{itemize}
+
+\textbf{(b)} Bij snel opstijgen komt het overschot \(\Delta c = 1.46\,\mathrm{mmol/L}\) vrij als gas:
+
+\[
+V = \frac{nRT}{p} = \frac{(1.46\times10^{-3})(8.314)(310.15)}{1.0\times10^{5}} = 3.8\times10^{-5}\,\mathrm{m^3} = 38\,\mathrm{mL}
+\]
+
+Voor \(5\,\mathrm{L}\) bloed is dat bijna \(0.2\,\mathrm{L}\) gas, dat bellen vormt in bloedvaten en gewrichten: de caissonziekte. Het is hetzelfde fenomeen als het bruisen van een fles spuitwater (het voorbeeld van \(\mathrm{CO_2}\) in de theorie). Duikers stijgen daarom langzaam op met decompressiestops, zodat de stikstof via de longen kan ontsnappen.
+
+\textbf{(c)} Helium heeft een nog grotere Henry-constante (het lost slechter op in bloed en vetweefsel) en diffundeert sneller uit het lichaam. Bovendien vermijdt het de verdovende werking van stikstof onder hoge druk (dieptedronkenschap).
+\end{oplossing}
+
+\begin{oefening}[Droog ijs en superkritisch CO\ensuremath{_{2}}]
+Het tripelpunt van \(\mathrm{CO_2}\) ligt bij \(-56.6\,^\circ\mathrm{C}\) en \(5.18\,\mathrm{bar}\); het kritisch punt bij \(31.0\,^\circ\mathrm{C}\) en \(73.8\,\mathrm{bar}\). De sublimatie-enthalpie bedraagt \(25.2\,\mathrm{kJ/mol}\).
+
+\begin{enumerate}
+\item[(a)]
+  Waarom smelt droog ijs niet bij atmosferische druk, maar sublimeert het?
+\item[(b)]
+  Bereken met de vergelijking van Clausius--Clapeyron (toegepast op sublimatie) de temperatuur van droog ijs bij \(1.013\,\mathrm{bar}\).
+\item[(c)]
+  Bij het cafeïnevrij maken van koffie gebruikt men \(\mathrm{CO_2}\) bij \(40\,^\circ\mathrm{C}\) en \(250\,\mathrm{bar}\). In welke toestand bevindt het \(\mathrm{CO_2}\) zich, en waarom is dat voordelig?
+\item[(d)]
+  In een \(\mathrm{CO_2}\)-brandblusser bij \(20\,^\circ\mathrm{C}\) hoor je vloeistof klotsen. Bij welke druk ongeveer? Waarom kan dat niet in de zomer bij \(35\,^\circ\mathrm{C}\)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) De druk van \textbf{1 bar ligt onder het tripelpunt} (5.18 bar). (b) \(T\) = \textbf{194 K} (\ensuremath{-}79 °C). (c) \textbf{Superkritisch fluïdum}. (d) Ongeveer \textbf{57 bar}; boven 31 °C bestaat \textbf{geen vloeistof} meer.
+
+\textbf{(a)} Vloeibaar \(\mathrm{CO_2}\) is enkel stabiel bij drukken boven het tripelpunt. Bij \(1\,\mathrm{bar}\) grenst het gebied van de vaste stof in het fasediagram rechtstreeks aan dat van het gas: bij opwarmen gaat droog ijs meteen over naar damp. Daarom laat het geen plas na, wat het handig maakt om ijsjes of vaccins koud te houden.
+
+\textbf{(b)} Vertrekkend van het tripelpunt (\(p_1 = 5.18\,\mathrm{bar}\), \(T_1 = 216.55\,\mathrm{K}\)):
+
+\[
+\frac{1}{T_2} = \frac{1}{T_1} - \frac{R}{\Delta H_{\text{sub}}}\ln\frac{p_2}{p_1} = \frac{1}{216.55} - \frac{8.314}{25\,200}\ln\frac{1.013}{5.18} = 5.156\times10^{-3}\,\mathrm{K^{-1}}
+\]
+
+zodat \(T_2 = 194\,\mathrm{K} = -79\,^\circ\mathrm{C}\) (experimenteel \(-78.5\,^\circ\mathrm{C}\)).
+
+\textbf{(c)} \(40\,^\circ\mathrm{C} > T_c\) en \(250\,\mathrm{bar} > p_c\): het \(\mathrm{CO_2}\) is een superkritisch fluïdum. Het heeft een dichtheid zoals een vloeistof (en lost dus cafeïne goed op), maar een lage viscositeit en hoge diffusiviteit zoals een gas (en dringt dus snel in de bonen). Na de extractie laat men de druk zakken: het \(\mathrm{CO_2}\) wordt een gas en verdwijnt volledig, zonder residu van een toxisch oplosmiddel.
+
+\textbf{(d)} In de fles zijn vloeistof en damp in evenwicht; de druk is de dampdruk van \(\mathrm{CO_2}\) bij \(20\,^\circ\mathrm{C}\), ongeveer \(57\,\mathrm{bar}\). Boven de kritische temperatuur van \(31\,^\circ\mathrm{C}\) kan \(\mathrm{CO_2}\) bij geen enkele druk vloeibaar zijn: de fles bevat dan één superkritische fase en de druk stijgt sterk. Daarom moeten blussers en \(\mathrm{CO_2}\)-flessen voor frisdrankmachines koel bewaard worden.
+\end{oplossing}
+
+\begin{oefening}[Smelt ijs onder een schaats?]
+Een vaak gehoorde verklaring voor het glijden van een schaats is dat de druk onder het ijzer het ijs doet smelten. Controleer die verklaring. Gebruik voor water bij \(0\,^\circ\mathrm{C}\): \(\Delta H_{\text{fus}} = 6.01\,\mathrm{kJ/mol}\), \(V_m(\mathrm{l}) = 18.02\,\mathrm{cm^3/mol}\) en \(V_m(\mathrm{s}) = 19.65\,\mathrm{cm^3/mol}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(\mathrm{d}p/\mathrm{d}T\) voor de smeltlijn van water met de vergelijking van Clapeyron. Waarom is het teken negatief?
+\item[(b)]
+  Een schaatser van \(70\,\mathrm{kg}\) staat op één schaats. Het contactoppervlak bedraagt \(3\,\mathrm{mm} \times 10\,\mathrm{cm}\). Hoeveel daalt het smeltpunt?
+\item[(c)]
+  Hoe klein zou het contactoppervlak moeten zijn om ijs van \(-10\,^\circ\mathrm{C}\) te laten smelten?
+\item[(d)]
+  Wat besluit je over de verklaring? Wat is de werkelijke oorzaak?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\mathrm{d}p/\mathrm{d}T\) = \textbf{\ensuremath{-}135 bar/K}. (b) Druk 23 bar, smeltpunt \textbf{slechts 0.17 K lager}. (c) Ongeveer \textbf{5 mm\ensuremath{^{2}}} (1350 bar). (d) Drukvorming verklaart het glijden niet. De oorzaak is wrijvingswarmte en een dun vloeibaar laagje dat altijd op ijs aanwezig is.
+
+\textbf{(a)}
+
+\[
+\frac{\mathrm{d}p}{\mathrm{d}T} = \frac{\Delta H_{\text{fus}}}{T\,\Delta V_{\text{fus}}} = \frac{6010}{(273.15)(-1.63\times10^{-6})} = -1.35\times10^{7}\,\mathrm{Pa/K} = -135\,\mathrm{bar/K}
+\]
+
+Het teken is negatief omdat ijs een groter volume heeft dan vloeibaar water (\(\Delta V_{\text{fus}} < 0\)), door het open waterstofbrugnetwerk. Water is een van de weinige stoffen waarbij druk het smeltpunt verlaagt.
+
+\textbf{(b)} \(p = F/A = (70)(9.81)/(3\times10^{-4}) = 2.3\times10^{6}\,\mathrm{Pa} = 23\,\mathrm{bar}\), zodat \(\Delta T = 23/(-135) = -0.17\,\mathrm{K}\).
+
+\textbf{(c)} Voor \(\Delta T = -10\,\mathrm{K}\) is \(1350\,\mathrm{bar}\) nodig. Dan moet \(A = 687/(1.35\times10^{8}) = 5\times10^{-6}\,\mathrm{m^2} = 5\,\mathrm{mm^2}\), kleiner dan een speldenkop voor een volwassene.
+
+\textbf{(d)} Bij gewone schaatstemperaturen kan druk het ijs niet doen smelten. Je kan bovendien ook schaatsen op ijs van \(-20\,^\circ\mathrm{C}\), en ook met schoenen glijd je uit. Twee andere verschijnselen verklaren het: de wrijving tussen schaats en ijs levert warmte die een dun laagje doet smelten, en het ijsoppervlak draagt zelfs ver onder \(0\,^\circ\mathrm{C}\) een vloeistofachtig laagje van enkele moleculen dik. Voor een auto is het effect nog kleiner: \(1500\,\mathrm{kg}\) op vier banden van elk \(150\,\mathrm{cm^2}\) geeft slechts \(2.5\,\mathrm{bar}\), of \(0.02\,\mathrm{K}\). Deze oefening toont hoe een snelle berekening een populaire verklaring kan weerleggen.
+\end{oplossing}
+
+\begin{oefening}[Vriesdrogen van oploskoffie]
+Om oploskoffie te maken wordt koffie-extract ingevroren en daarna onder vacuüm gebracht. Het ijs sublimeert zonder te smelten, zodat de aroma's niet door verhitting verloren gaan. Het tripelpunt van water ligt bij \(273.16\,\mathrm{K}\) en \(611.7\,\mathrm{Pa}\). De sublimatie-enthalpie van ijs bedraagt \(\Delta H_{\text{sub}} = 51.0\,\mathrm{kJ/mol}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de sublimatiedruk van ijs bij \(-20\,^\circ\mathrm{C}\) en bij \(-40\,^\circ\mathrm{C}\) met de vergelijking van Clausius--Clapeyron.
+\item[(b)]
+  Onder welke druk moet de vriesdroger werken om het ijs bij \(-20\,^\circ\mathrm{C}\) te laten sublimeren? Waarom mag de druk nooit boven \(611.7\,\mathrm{Pa}\) komen?
+\item[(c)]
+  Hoeveel energie per kilogram verwijderd water moet worden toegevoerd? Vergelijk met verdampen bij \(100\,^\circ\mathrm{C}\) (\(2257\,\mathrm{kJ/kg}\)).
+\item[(d)]
+  Waarom bouwt men toch vriesdrogers, ondanks dit hogere energieverbruik?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{104 Pa} bij \ensuremath{-}20 °C en \textbf{13 Pa} bij \ensuremath{-}40 °C. (b) Onder ongeveer \textbf{100 Pa}, dus 1/1000 van de atmosfeerdruk. Boven het tripelpunt zou het ijs smelten. (c) \textbf{2.83 MJ/kg}, ongeveer 25 \% meer dan verdampen. (d) Kwaliteit: geen verhitting, behoud van aroma en structuur.
+
+\textbf{(a)} Met het tripelpunt als referentie:
+
+\[
+\ln\frac{p}{611.7\,\mathrm{Pa}} = -\frac{51\,000}{8.314}\left(\frac{1}{253.15}-\frac{1}{273.16}\right) = -1.77
+\]
+
+zodat \(p(-20\,^\circ\mathrm{C}) = 104\,\mathrm{Pa}\) (tabelwaarde \(103\,\mathrm{Pa}\)). Op dezelfde manier is \(p(-40\,^\circ\mathrm{C}) = 13\,\mathrm{Pa}\).
+
+\textbf{(b)} De waterdampdruk boven het product moet lager zijn dan \(104\,\mathrm{Pa}\), anders is er geen netto sublimatie. In de praktijk werkt men bij \(10\) à \(100\,\mathrm{Pa}\) en vangt men de damp op een condensor van ongeveer \(-50\,^\circ\mathrm{C}\). Boven de tripelpuntsdruk bestaat vloeibaar water als stabiele fase, zodat het ijs bij opwarmen zou smelten in plaats van te sublimeren. Dat is precies wat je wil vermijden.
+
+\textbf{(c)} \(51.0/0.018015 = 2830\,\mathrm{kJ/kg}\). Dat is de som van smelt- en verdampingsenthalpie en dus meer dan voor verdampen alleen (\(2257\,\mathrm{kJ/kg}\) bij \(100\,^\circ\mathrm{C}\)). Daar komen nog de energie voor de vacuümpomp en de koeling van de condensor bij.
+
+\textbf{(d)} De vluchtige aroma's van koffie ontbinden of verdampen bij verhitten. Door het water bij lage temperatuur te verwijderen blijft de smaak beter bewaard en houdt het product een poreuze structuur die snel oplost. Om dezelfde reden worden ook vaccins, bloedplasma en astronautenvoeding gevriesdroogd.
+\end{oplossing}
