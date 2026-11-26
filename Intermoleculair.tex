@@ -85,34 +85,28 @@ Zelfs tussen twee niet-polaire molecules bestaat een aantrekkingskracht. Deze on
 \end{equation}
 waarin $I_1$ en $I_2$ de ionisatie-energie\"en van de beide moleculen zijn. London-dispersie is de enige aantrekkende kracht tussen niet-polaire moleculen zoals $\mathrm{N_2}$, $\mathrm{CH_4}$, edelgassen. Ze neemt toe met de polariseerbaarheid (en dus met het aantal elektronen). Typische energie: \SIrange{0.5}{5}{\kilo\joule\per\mole}, maar voor grote moleculen aanzienlijk hoger.
 
-\begin{voorbeeld}{Kookpunten van edelgassen}
-De kookpunten van de edelgassen stijgen monotoon met het atoomnummer:
-\begin{itemize}
-\item He: \SI{4.2}{\kelvin} (2 elektronen)
-\item Ne: \SI{27.1}{\kelvin} (10)
-\item Ar: \SI{87.3}{\kelvin} (18)
-\item Kr: \SI{119.9}{\kelvin} (36)
-\item Xe: \SI{165.0}{\kelvin} (54)
-\end{itemize}
-Alle edelgassen zijn volledig niet-polair, zodat enkel London-dispersie werkt. De stijgende kookpunten weerspiegelen de toenemende polariseerbaarheid van de grotere elektronenwolken. Voor Xe, met \num{54} elektronen per atoom, bedraagt de dispersie-energie reeds voldoende om de stof bij kamertemperatuur dicht bij de vloeibaarheid te houden.
-\end{voorbeeld}
+Figuur~\ref{fig:kookpunt-alkanen} toont het effect. Edelgassen en alkanen zijn niet-polair: enkel dispersie houdt ze samen. Hoe meer elektronen, hoe groter de polariseerbaarheid en hoe hoger het kookpunt. Methaan, ethaan, propaan en butaan zijn gassen; vanaf pentaan zijn de alkanen vloeibaar bij kamertemperatuur, en vanaf ongeveer C$_{17}$ vast (paraffine). Ook de vorm telt: het compacte neopentaan (\SI{9.5}{\celsius}) kookt lager dan het langgerekte $n$-pentaan (\SI{36.1}{\celsius}), omdat staafvormige moleculen over een groter oppervlak contact maken.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/kookpunt_alkanen}
+    \caption{Normaal kookpunt van de edelgassen en van de $n$-alkanen C$_1$ tot C$_{10}$ in functie van het aantal elektronen per molecule. Meer elektronen betekent een grotere polariseerbaarheid en sterkere dispersiekrachten (gegevens: CRC Handbook of Chemistry and Physics).}
+    \label{fig:kookpunt-alkanen}
+\end{figure}
 
 \subsection{Waterstofbruggen}
 \label{sec:waterstofbruggen}
 
 Een bijzonder sterke dipool--dipoolinteractie ontstaat wanneer een waterstofatoom, covalent gebonden aan een sterk elektronegatief atoom (N, O, F), in de buurt komt van een ander elektronegatief atoom met een eenzaam elektronenpaar. De \emph{waterstofbrug} is sterk gericht en kan energie\"en tot \SI{40}{\kilo\joule\per\mole} bereiken (typisch \SIrange{10}{40}{\kilo\joule\per\mole}).
 
-\begin{voorbeeld}{Anomalie\"en van water}
-Water vormt tot vier waterstofbruggen per molecule, die een ruimtelijk netwerk vormen. Hierdoor vertoont water een reeks anomalie\"en:
-\begin{itemize}
-\item Hoog kookpunt (\SI{100}{\celsius}) vergeleken met $\mathrm{H_2S}$ (\SI{-60}{\celsius}), hoewel $\mathrm{H_2S}$ een zwaarder molecule is.
-\item Hoge verdampingsenthalpie: \SI{40.7}{\kilo\joule\per\mole} (vergeleken met \SI{8.2}{\kilo\joule\per\mole} voor methaan).
-\item Maximumdichtheid bij \SI{4}{\celsius} (ijs is minder dicht dan vloeibaar water).
-\item Hoge oppervlaktespanning: \SI{72}{\milli\newton\per\metre} (zie hoofdstuk~\ref{ch:oppervlakte}).
-\item Hoge viscositeit, hoge warmtecapaciteit.
-\end{itemize}
-Alle anomalie\"en wijzen op hetzelfde: het waterstofbrugnetwerk. Zonder dit netwerk zou water bij kamertemperatuur een gas zijn, en zou leven zoals wij het kennen onmogelijk zijn.
-\end{voorbeeld}
+Figuur~\ref{fig:kookpunt-hydriden} toont hoe groot dat effect is. Binnen elke groep stijgt het kookpunt van de hydriden met de grootte van het molecule (meer dispersie), behalve voor de eerste van de rij: \ce{NH3}, \ce{H2O} en HF koken veel hoger dan verwacht. Zonder waterstofbruggen zou water rond \SI{-100}{\celsius} koken. Hetzelfde netwerk verklaart de andere anomalie\"en van water: een hoge verdampingsenthalpie (\SI{40.7}{\kilo\joule\per\mole}, tegen \SI{8.2}{\kilo\joule\per\mole} voor methaan), een maximale dichtheid bij \SI{4}{\celsius} (ijs drijft), een hoge oppervlaktespanning (\SI{72}{\milli\newton\per\metre}, hoofdstuk~\ref{ch:grensvlakken}) en een hoge warmtecapaciteit.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/kookpunt_hydriden}
+    \caption{Normaal kookpunt van de hydriden van groep 14 tot 17. Groep 14 (\ce{CH4} tot \ce{SnH4}) volgt de verwachte stijging door dispersie. \ce{NH3}, \ce{H2O} en HF wijken sterk af door waterstofbruggen (gegevens: CRC Handbook of Chemistry and Physics).}
+    \label{fig:kookpunt-hydriden}
+\end{figure}
 
 \section{Polariseerbaarheid}
 
@@ -122,15 +116,7 @@ De \emph{polariseerbaarheid} $\alpha$ van een molecule is de mate waarin een uit
 \end{equation}
 De polariseerbaarheid hangt af van de grootte en mobiliteit van de elektronenwolk. Grote molecules met veel elektronen, of moleculen met gedelocaliseerde $\pi$-elektronen (bv. benzeen), hebben een hoge polariseerbaarheid. De polariseerbaarheid is een kwantitatieve schakel tussen de elektronenstructuur uit hoofdstuk~\ref{ch:kwantum} en de intermoleculaire krachten.
 
-\begin{voorbeeld}{Polariseerbaarheid en kookpunt van halogenen}
-De halogenen $\mathrm{Cl_2}$, $\mathrm{Br_2}$, $\mathrm{I_2}$ hebben vergelijkbare bindingsenergie\"en maar stijgende kookpunten:
-\begin{itemize}
-\item $\mathrm{Cl_2}$: \SI{-34}{\celsius} (gas bij kamertemperatuur)
-\item $\mathrm{Br_2}$: \SI{59}{\celsius} (vloeistof)
-\item $\mathrm{I_2}$: \SI{184}{\celsius} (vast bij kamertemperatuur)
-\end{itemize}
-Deze trend weerspiegelt direct de stijgende polariseerbaarheid van de grotere elektronenwolken. De covalente binding binnen de molecules is vergelijkbaar, maar de intermoleculaire (dispersie-)krachten nemen sterk toe, wat leidt tot hogere kookpunten en uiteindelijk tot een vaste stof bij kamertemperatuur voor $\mathrm{I_2}$.
-\end{voorbeeld}
+Een mooi voorbeeld zijn de halogenen: \ce{Cl2} kookt bij \SI{-34}{\celsius} (gas), \ce{Br2} bij \SI{59}{\celsius} (vloeistof) en \ce{I2} bij \SI{184}{\celsius} (vast bij kamertemperatuur). De binding binnen de molecule is vergelijkbaar; enkel de polariseerbaarheid, en dus de dispersie, groeit.
 
 \section{De Lennard-Jones-potentiaal}
 \label{sec:lennard-jones}
@@ -218,35 +204,21 @@ $\mathrm{NaCl}$ (sublimatie) & 211 & sublimeert & Ion--ion \\
 \label{tab:verdampingsenthalpie}
 \end{table}
 
-De tabel toont duidelijk de hi\"erarchie: dispersie $<$ dipool--dipool $<$ waterstofbrug $<$ ion--ion. Zij beantwoordt bovendien meteen \'e\'en van de openingsvragen van dit hoofdstuk (\S~\ref{sec:voorbij-covalent}): methaan en stikstof, met een vergelijkbare molaire massa als water, bezitten enkel zwakke dispersiekrachten en koken daardoor al ver onder kamertemperatuur, terwijl water dankzij zijn waterstofbrugnetwerk pas bij \SI{373.15}{\kelvin} kookt. Voor de ingenieur is $\Delta H_{\text{vap}}$ een directe indicator voor het energieverbruik van een destillatieproces --- water en ethanol vereisen aanzienlijk meer energie dan koolwaterstoffen.
+De tabel toont de hi\"erarchie: dispersie $<$ dipool--dipool $<$ waterstofbrug $<$ ion--ion. Methaan en stikstof, met een molaire massa vergelijkbaar met die van water, koken ver onder kamertemperatuur; water pas bij \SI{100}{\celsius}. Voor de ingenieur is $\Delta H_\text{vap}$ meteen een maat voor het energieverbruik van een destillatie: water en ethanol verdampen kost veel meer dan koolwaterstoffen.
 
 \subsection{De regel van Trouton}
 \label{sec:trouton}
 
-Tabel~\ref{tab:verdampingsenthalpie} bevat zowel $\Delta H_{\text{vap}}$ als het normale kookpunt $T_b$: de temperatuur waarbij, per definitie, de vloeistof- en dampfase bij \SI{1}{\bar} in evenwicht zijn. Uit hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:entropie-faseovergangen}) weten we dat voor elke reversibele faseovergang bij constante druk geldt $\Delta S_{\text{trans}}=\Delta H_{\text{trans}}/T_{\text{trans}}$. Toegepast op verdamping:
-\begin{equation}
-\Delta S_{\text{vap}} = \frac{\Delta H_{\text{vap}}}{T_b}.
-\end{equation}
-De empirische \emph{regel van Trouton} stelt dat deze verdampingsentropie voor de meeste ``normale'' vloeistoffen --- dat wil zeggen vloeistoffen zonder sterke, gerichte intermoleculaire interacties zoals waterstofbruggen --- ongeveer dezelfde waarde aanneemt, typisch $\Delta S_{\text{vap}}\approx\SIrange{85}{88}{\joule\per\mole\per\kelvin}$. De fysische reden is intuïtief: bij het koken wint elke vloeistof, ongeacht haar chemische aard, ongeveer dezelfde \emph{relatieve} toename in bewegingsvrijheid (van een gecondenseerde naar een verdunde gasfase), zodat de toename in het aantal toegankelijke microtoestanden (\S~\ref{sec:waarschijnlijkheid-entropie} in hoofdstuk~\ref{ch:spontaniteit}) voor de meeste vloeistoffen vergelijkbaar is.
+Bij het normale kookpunt $T_b$ zijn vloeistof en damp in evenwicht bij \SI{1}{\bar}, zodat $\Delta S_\text{vap} = \Delta H_\text{vap}/T_b$ (\S~\ref{sec:entropie-faseovergangen}). De empirische \emph{regel van Trouton} zegt dat deze verdampingsentropie voor de meeste vloeistoffen ongeveer gelijk is, \SIrange{85}{88}{\joule\per\mole\per\kelvin}. Dat is logisch: van een dichte vloeistof naar een verdund gas winnen alle moleculen ongeveer evenveel bewegingsvrijheid, dus evenveel microtoestanden.
 
-\begin{voorbeeld}{Trouton's regel getoetst aan tabel~\ref{tab:verdampingsenthalpie}}
-We berekenen $\Delta S_{\text{vap}}=\Delta H_{\text{vap}}/T_b$ voor elke stof uit tabel~\ref{tab:verdampingsenthalpie}:
-\begin{center}
-\begin{tabular}{lc}
-\toprule
-Stof & $\Delta S_{\text{vap}}$ (\si{\joule\per\mole\per\kelvin}) \\
-\midrule
-$\mathrm{N_2}$ (dispersie) & $5600/77.4 = 72.4$ \\
-$\mathrm{CH_4}$ (dispersie) & $8200/111.7 = 73.4$ \\
-$\mathrm{CHCl_3}$ (dipool--dipool) & $29400/334.3 = 87.9$ \\
-$\mathrm{NH_3}$ (zwakke waterstofbrug) & $23400/239.8 = 97.6$ \\
-$\mathrm{H_2O}$ (waterstofbrug) & $40700/373.15 = 109.1$ \\
-Ethanol (waterstofbrug) & $38600/351.55 = 109.8$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-Het patroon is opmerkelijk consistent: chloroform, dat enkel dipool--dipool- en dispersiekrachten bezit, voldoet vrijwel exact aan de regel van Trouton ($\approx\SI{88}{\joule\per\mole\per\kelvin}$). Stikstof en methaan liggen er iets onder (een bekende afwijking voor kleine, quasi-boldeeltjes met weinig interne vrijheidsgraden, zie hoofdstuk~\ref{ch:kwantum}, \S~\ref{sec:moleculaire-beweging}). Ammoniak, water en ethanol wijken daarentegen sterk en systematisch \emph{naar boven} af: hun waterstofbrugnetwerk (\S~\ref{sec:waterstofbruggen}) moet bij het verdampen worden opgebroken, wat een extra, geordend-naar-ongeordend effect toevoegt bovenop de gewone toename in bewegingsvrijheid. Merk op dat de waarde voor water, $\SI{109.1}{\joule\per\mole\per\kelvin}$, overeenkomt met de waarde $\Delta S_{\text{vap}}\approx\SI{109}{\joule\per\mole\per\kelvin}$ die reeds in hoofdstuk~\ref{ch:spontaniteit} werd berekend. Trouton's regel levert een ingenieur zo een snelle, eerste-orde consistentiecontrole: een sterke afwijking van $\approx\SI{85}{\joule\per\mole\per\kelvin}$ is een directe indicatie van gerichte intermoleculaire interacties (waterstofbruggen) die in een proces- of destillatieontwerp niet over het hoofd mogen worden gezien.
-\end{voorbeeld}
+Figuur~\ref{fig:trouton} toetst de regel. Vloeistoffen met enkel dispersie- en dipoolkrachten (chloroform, tetrachloormethaan, benzeen, hexaan) liggen netjes rond \SI{87}{\joule\per\mole\per\kelvin}; kleine bolvormige moleculen zoals \ce{N2}, Ar en \ce{CH4} iets lager. Ammoniak, ethanol en water liggen er duidelijk boven: bij het verdampen moet ook hun geordende waterstofbrugnetwerk worden opgebroken. Voor water is $\Delta S_\text{vap} = 40\,700/373.15 = \SI{109}{\joule\per\mole\per\kelvin}$. Voor de ingenieur is Trouton een snelle controle: wie $T_b$ kent, kent $\Delta H_\text{vap} \approx (\SI{87}{\joule\per\mole\per\kelvin})\,T_b$, en een sterke afwijking wijst op waterstofbruggen.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/trouton}
+    \caption{Verdampingsenthalpie tegen normaal kookpunt. De meeste vloeistoffen liggen op de lijn van Trouton ($\Delta S_\text{vap} \approx \SIrange{85}{88}{\joule\per\mole\per\kelvin}$); vloeistoffen met waterstofbruggen (blauw) liggen erboven (gegevens: NIST Chemistry WebBook).}
+    \label{fig:trouton}
+\end{figure}
 
 \section{Mengsels: regelmatige oplossingen en de Hildebrand-parameter}
 

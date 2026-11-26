@@ -1,7 +1,7 @@
 """Figuren hoofdstuk 9 – Chemische kinetiek."""
 import numpy as np
 
-from huisstijl import K, figuur, kader, label, pijl  # noqa: F401
+from huisstijl import K, figuur, kader, label, pijl, achter  # noqa: F401
 
 _R = 8.314
 
@@ -166,4 +166,60 @@ def lh_er():
     ax.set_ylim(0, 1.15)
     ax.set_xlabel("partiële druk $p_A$ (bar, bij vaste $p_B$)")
     ax.set_ylabel("snelheid (genormaliseerd)")
+    return kader(fig)
+
+
+# ------------------------------------------------------------ Lindemann
+def lindemann():
+    """k_eff = k1 k2 [A] / (k_-1 [A] + k2): overgang van tweede naar eerste orde."""
+    fig, ax = figuur(6.4, 4.4)
+    A = np.logspace(-4, 2, 300)
+    k1, km1, k2 = 1.0, 1.0, 0.01
+    keff = k1 * k2 * A / (km1 * A + k2)
+    kinf = k1 * k2 / km1
+    ax.loglog(A, keff, color=K.accent, lw=2.4)
+    ax.loglog(A, k1 * A, color=K.blauw, ls="--", lw=1.3)
+    ax.axhline(kinf, color=K.rood, ls="--", lw=1.3)
+    label(ax, 1.5e-3, 2.5e-5, "lage druk: $k_\\mathrm{eff} \\approx k_1[A]$\n(tweede orde)", K.blauw, fontsize=11)
+    label(ax, 1.5, 1.4e-2, "hoge druk: $k_\\mathrm{eff} \\approx k_1k_2/k_{-1}$\n(eerste orde)", K.rood, fontsize=11)
+    ax.set_xlim(1e-4, 1e2)
+    ax.set_ylim(1e-5, 1e-1)
+    ax.set_xlabel("concentratie $[A]$ (of druk), willekeurige eenheden")
+    ax.set_ylabel("$k_\\mathrm{eff} = r/[A]$")
+    return kader(fig)
+
+
+# ------------------------------------------- vijf stappen heterogene katalyse
+def katalyse_stappen():
+    """Gasfase - grenslaag - porie met actief oppervlak; stappen 1 t.e.m. 5."""
+    from matplotlib.patches import Rectangle, Circle
+    fig, ax = figuur(7.6, 3.6)
+    ax.set_axis_off()
+    ax.set_xlim(0, 16)
+    ax.set_ylim(0, 7)
+    ax.set_aspect("equal")
+    # katalysatorkorrel (rechts) met porie
+    ax.add_patch(Rectangle((8.5, 0.3), 7.2, 6.4, facecolor=K.vlak_grijs, edgecolor=K.as_, lw=1.4))
+    ax.add_patch(Rectangle((8.5, 2.6), 6.4, 1.8, facecolor=K.achtergrond, edgecolor=K.as_, lw=1.2))
+    for x in np.arange(9.3, 14.6, 0.9):  # actieve plaatsen op de poriewand
+        ax.plot(x, 2.6, "s", color=K.oker, ms=6)
+    label(ax, 12.1, 6.0, "poreuze katalysatorkorrel", K.zacht, ha="center", fontsize=11)
+    label(ax, 3.0, 6.0, "gasfase", K.zacht, ha="center", fontsize=11)
+    # reagens en product
+    ax.add_patch(Circle((1.4, 3.9), 0.32, color=K.blauw))
+    label(ax, 1.4, 4.45, "A", K.blauw, ha="center", fontsize=12)
+    ax.add_patch(Circle((1.4, 2.2), 0.32, color=K.rood))
+    label(ax, 1.4, 1.35, "P", K.rood, ha="center", fontsize=12)
+    stap = dict(fontsize=11.5, fontweight="bold", ha="center", va="center", bbox=achter())
+    pijl(ax, (1.9, 3.9), (10.3, 3.9), K.blauw, lw=1.8)
+    label(ax, 5.4, 3.9, "1 diffusie", K.blauw, **stap)
+    pijl(ax, (10.6, 3.6), (10.6, 2.85), K.blauw, lw=1.8)
+    label(ax, 10.6, 4.85, "2 adsorptie", K.blauw, fontsize=11.5, fontweight="bold", ha="center")
+    pijl(ax, (11.0, 2.95), (12.3, 2.95), K.oker, lw=1.8)
+    label(ax, 11.7, 1.6, "3 reactie\naan oppervlak", K.oker, fontsize=11, fontweight="bold", ha="center")
+    pijl(ax, (12.8, 2.85), (12.8, 3.5), K.rood, lw=1.8)
+    label(ax, 13.9, 4.85, "4 desorptie", K.rood, fontsize=11.5, fontweight="bold", ha="center")
+    ax.plot([12.8, 8.0], [3.5, 3.5], color=K.rood, lw=1.8)
+    pijl(ax, (8.0, 3.5), (1.9, 2.2), K.rood, lw=1.8)
+    label(ax, 5.0, 2.75, "5 diffusie terug", K.rood, **stap)
     return kader(fig)
