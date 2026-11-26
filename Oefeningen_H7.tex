@@ -423,3 +423,121 @@ Standaardentropieën in \(\mathrm{J/(mol\cdot K)}\): Zn 41.6, \(\mathrm{Ag_2O}\)
 
 \textbf{(d)} In de kou verlopen de elektrodereacties trager (Arrhenius, hoofdstuk 8) en neemt de ionengeleidbaarheid van het elektrolyt af. De inwendige weerstand stijgt, zodat de klemspanning onder belasting daalt. Dat verklaart waarom een smartphone of auto-accu in de vrieskou moeilijk doet, terwijl de evenwichtsspanning nauwelijks verandert.
 \end{oplossing}
+
+\begin{oefening}[Corrosietoeslag van een koelwaterleiding]
+Een stalen koelwaterleiding (wanddikte \(8\,\mathrm{mm}\)) vervoert belucht rivierwater. Een corrosiemeting geeft \(i_\mathrm{corr} = 15\,\mu\mathrm{A/cm^2}\). Staal: \(M = 55.85\,\mathrm{g/mol}\), \(\rho = 7.87\,\mathrm{g/cm^3}\), \(n = 2\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de corrosiesnelheid in mm per jaar.
+\item[(b)]
+  De leiding moet \(25\) jaar meegaan en minstens \(5\,\mathrm{mm}\) wand overhouden voor de druk. Volstaat de huidige wanddikte?
+\item[(c)]
+  Men overweegt het water te ontgassen. Gebruik het Evansdiagram om uit te leggen waarom \(i_\mathrm{corr}\) dan sterk daalt. Schat de nieuwe levensduur als \(i_\mathrm{corr}\) tien keer kleiner wordt.
+\item[(d)]
+  Waarom is een gemiddelde corrosiesnelheid gevaarlijk optimistisch als de aantasting plaatselijk gebeurt (putcorrosie)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{0.17 mm/jaar}. (b) \textbf{Nee}: na 25 jaar is \(4.3\,\mathrm{mm}\) weg, er blijft \(3.7\,\mathrm{mm}\). (c) Ongeveer \textbf{0.017 mm/jaar}; de toeslag van \(3\,\mathrm{mm}\) volstaat dan ruim 170 jaar. (d) Dezelfde massa verdwijnt op een klein oppervlak.
+
+\textbf{(a)} Met vergelijking~\eqref{eq:corrosiesnelheid}:
+\[
+v = \frac{(15\times10^{-6})(55.85)}{(2)(96485)(7.87)} = 5.5\times10^{-10}\,\mathrm{cm/s} = 1.74\times10^{-2}\,\mathrm{cm/jaar} = 0.17\,\mathrm{mm/jaar}.
+\]
+Of met de vuistregel: \(15 \times 12\,\mu\mathrm{m} = 0.18\,\mathrm{mm}\) per jaar.
+
+\textbf{(b)} \(25 \times 0.174 = 4.3\,\mathrm{mm}\). Er blijft \(8 - 4.3 = 3.7\,\mathrm{mm}\) over, minder dan de vereiste \(5\,\mathrm{mm}\). Men moet een dikkere wand, een coating of een andere maatregel kiezen.
+
+\textbf{(c)} In belucht neutraal water is de kathodische reactie de reductie van opgeloste zuurstof, en die wordt begrensd door de aanvoer van \(\mathrm{O_2}\) naar het oppervlak. In het Evansdiagram schuift de verticale diffusiegrens naar links als er minder zuurstof is, en het snijpunt met de anodische lijn schuift mee: \(i_\mathrm{corr}\) daalt ongeveer evenredig met de zuurstofconcentratie. Bij \(1.5\,\mu\mathrm{A/cm^2}\) is \(v = 0.017\,\mathrm{mm/jaar}\); de toeslag van \(3\,\mathrm{mm}\) volstaat dan voor \(3/0.017 \approx 170\) jaar.
+
+\textbf{(d)} De vergelijking geeft een gemiddelde over het hele oppervlak. Bij putcorrosie (bijvoorbeeld door chloride die de passieve laag lokaal doorbreekt) concentreert de anodische stroom zich op kleine plekken, terwijl het grote omringende oppervlak als kathode werkt. De lokale snelheid kan dan tientallen keren hoger liggen en een put kan de wand doorboren lang voor de gemiddelde toeslag op is.
+\end{oplossing}
+
+\begin{oefening}[Een koperraffinaderij]
+In een raffinaderij lost een onzuivere koperanode op en slaat zuiver koper neer op de kathode. Een cel werkt bij \(35\,\mathrm{kA}\), \(0.30\,\mathrm{V}\) en een stroomrendement van \(97\,\%\).
+
+\begin{enumerate}
+\item[(a)]
+  Hoeveel kilogram koper produceert \'e\'en cel per dag?
+\item[(b)]
+  Bereken het elektriciteitsverbruik in kWh per ton koper.
+\item[(c)]
+  Waarom is de spanning zo laag in vergelijking met de productie van aluminium (ongeveer \(4.2\,\mathrm{V}\))?
+\item[(d)]
+  Edele onzuiverheden (zilver, goud) slaan niet neer op de kathode en ijzer of nikkel evenmin. Verklaar met de reductiepotentialen.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{966 kg} per dag. (b) \textbf{260 kWh/t}. (c) De celreactie heeft \(\Delta_rG \approx 0\). (d) Edele metalen worden niet geoxideerd, onedele niet gereduceerd.
+
+\textbf{(a)} Met de wet van Faraday:
+\[
+m = \eta_F\,\frac{I\,t\,M}{nF} = 0.97\,\frac{(35\,000)(86\,400)(0.06355)}{(2)(96\,485)} = 966\,\mathrm{kg}.
+\]
+
+\textbf{(b)} Energie per dag: \(35\,\mathrm{kA}\times0.30\,\mathrm{V}\times24\,\mathrm{h} = 252\,\mathrm{kWh}\). Per ton: \(252/0.966 = 260\,\mathrm{kWh/t}\).
+
+\textbf{(c)} Aan de anode lost koper op en aan de kathode slaat koper neer: de netto reactie is \(\mathrm{Cu(onzuiver)} \rightarrow \mathrm{Cu(zuiver)}\), met \(\Delta_rG \approx 0\). De spanning dient enkel om overspanning en weerstand van de elektrolyt te overwinnen. Bij aluminium moet de sterke Al--O-binding echt verbroken worden.
+
+\textbf{(d)} Bij de anodepotentiaal (net boven \(+0.34\,\mathrm{V}\)) worden zilver (\(+0.80\,\mathrm{V}\)) en goud niet geoxideerd: ze vallen als anodeslib naar de bodem en worden apart gewonnen, een belangrijk deel van de opbrengst. Ijzer (\(-0.44\,\mathrm{V}\)) en nikkel gaan wel in oplossing, maar bij de kathodepotentiaal worden ze niet gereduceerd zolang er voldoende \(\mathrm{Cu^{2+}}\) is: ze blijven in de elektrolyt, die men geregeld zuivert.
+\end{oplossing}
+
+\begin{oefening}[Zelf het Pourbaix-diagram van koper opstellen]
+Gebruik \(\Delta_fG^\circ\) (kJ/mol, \(298\,\mathrm{K}\)): \(\mathrm{Cu^{2+}}\) \(+65.5\), \(\mathrm{Cu_2O}\) \(-146.0\), \(\mathrm{CuO}\) \(-129.7\), \(\mathrm{H_2O(l)}\) \(-237.1\). Neem de ionactiviteit \(10^{-6}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de grens \(\mathrm{Cu^{2+}/Cu}\). Welk type lijn is het?
+\item[(b)]
+  Stel de lijn op voor \(\mathrm{Cu_2O + 2\,H^+ + 2\,e^- \rightleftharpoons 2\,Cu + H_2O}\).
+\item[(c)]
+  Bereken de pH van de grens tussen \(\mathrm{CuO}\) en \(\mathrm{Cu^{2+}}\).
+\item[(d)]
+  Bij welke pH snijden de lijnen van (a) en (b)? Teken de drie lijnen samen met de twee waterlijnen in Excel van pH 0 tot 10, en vergelijk met figuur~\ref{fig:pourbaix-al-cu}.
+\item[(e)]
+  Lost koper op in ontlucht zoutzuur van pH~1? En in belucht?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{\(E\) = 0.16 V}, horizontaal. (b) \textbf{\(E = 0.47 - 0.0592\,\mathrm{pH}\)}. (c) \textbf{pH 6.7}. (d) \textbf{pH 5.2}. (e) Ontlucht \textbf{niet}, belucht \textbf{wel}.
+
+\textbf{(a)} \(E^\circ = \Delta_fG^\circ(\mathrm{Cu^{2+}})/2F = 65\,500/(2\cdot96\,485) = 0.339\,\mathrm{V}\). Nernst: \(E = 0.339 + 0.0296\log(10^{-6}) = 0.339 - 0.178 = 0.16\,\mathrm{V}\). Geen \(\mathrm{H^+}\) in de reactie, dus een horizontale lijn.
+
+\textbf{(b)} \(\Delta_rG^\circ = -237.1 - (-146.0) = -91.1\,\mathrm{kJ/mol}\), dus \(E^\circ = 91\,100/(2F) = 0.472\,\mathrm{V}\). Met \(Q = 1/a_{\mathrm{H^+}}^2\): \(E = 0.472 - 0.0592\,\mathrm{pH}\).
+
+\textbf{(c)} \(\mathrm{CuO + 2\,H^+ \rightleftharpoons Cu^{2+} + H_2O}\): \(\Delta_rG^\circ = 65.5 - 237.1 + 129.7 = -41.9\,\mathrm{kJ/mol}\), \(\log K = 41\,900/(2.303\cdot8.314\cdot298) = 7.35\). Uit \(\log a_{\mathrm{Cu^{2+}}} = 7.35 - 2\,\mathrm{pH} = -6\) volgt pH \(= 6.7\).
+
+\textbf{(d)} \(0.16 = 0.472 - 0.0592\,\mathrm{pH}\) geeft pH \(= 5.2\). Links daarvan grenst Cu aan \(\mathrm{Cu^{2+}}\), rechts aan \(\mathrm{Cu_2O}\). Het resultaat valt samen met de figuur in de tekst.
+
+\textbf{(e)} De onderste waterlijn ligt bij pH~1 op \(-0.06\,\mathrm{V}\), ruim onder de immuniteitsgrens van \(0.16\,\mathrm{V}\). \(\mathrm{H^+}\) is dus geen sterk genoeg oxidator: koper lost niet op en er ontstaat geen waterstof. Met opgeloste zuurstof is de bovenste waterlijn (\(1.17\,\mathrm{V}\)) de relevante oxidator, en die ligt ver in het \(\mathrm{Cu^{2+}}\)-gebied: belucht zuur tast koper wel aan, zij het traag.
+\end{oplossing}
+
+\begin{oefening}[Harder werken of zuiniger werken? Een elektrolyser]
+Voor een PEM-elektrolyser geldt (bij \(i\) in \(\mathrm{A/cm^2}\)):
+\[
+U = 1.229 + 0.05\log_{10}\frac{i}{10^{-6}} + 0.03\log_{10}\frac{i}{10^{-3}} + 0.15\,i.
+\]
+
+\begin{enumerate}
+\item[(a)]
+  Welke termen zijn de anode-overspanning, de kathode-overspanning en de ohmse verliezen? Welke Tafelhellingen horen erbij?
+\item[(b)]
+  Bereken \(U\) en het elektriciteitsverbruik in kWh per kg \(\mathrm{H_2}\) bij \(1\) en \(2\,\mathrm{A/cm^2}\).
+\item[(c)]
+  De stack kost per vierkante meter. Bij \(2\,\mathrm{A/cm^2}\) produceert dezelfde stack dubbel zoveel waterstof. Bespreek de afweging.
+\item[(d)]
+  Een betere anodekatalysator verhoogt \(i_0\) van de anode met een factor 10. Hoeveel spanning win je, bij elke stroomdichtheid?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \textbf{1.77 V} en \textbf{47.0 kWh/kg} bij 1 A/cm\(^2\); \textbf{1.94 V} en \textbf{51.7 kWh/kg} bij 2 A/cm\(^2\). (d) \textbf{0.05 V}, onafhankelijk van \(i\).
+
+\textbf{(a)} De tweede term is de anode (zuurstofontwikkeling, \(b = 50\,\mathrm{mV}\) per decade, \(i_0 = 10^{-6}\,\mathrm{A/cm^2}\)), de derde de kathode (waterstof, \(b = 30\,\mathrm{mV}\) per decade, \(i_0 = 10^{-3}\)), de laatste de ohmse weerstand van \(0.15\,\Omega\,\mathrm{cm^2}\).
+
+\textbf{(b)} Bij \(1\,\mathrm{A/cm^2}\): \(1.229 + 0.300 + 0.090 + 0.150 = 1.77\,\mathrm{V}\). Bij \(2\,\mathrm{A/cm^2}\): \(1.229 + 0.315 + 0.099 + 0.300 = 1.94\,\mathrm{V}\). Energie per kg: \(W/m = 2FU/M = (2)(96\,485)U/0.002016\,\mathrm{J/kg}\), dus \(26.6\,U\) kWh/kg: \(47.0\) en \(51.7\,\mathrm{kWh/kg}\).
+
+\textbf{(c)} Dubbele productie voor \(10\,\%\) meer elektriciteit per kg. Is elektriciteit goedkoop (veel zon of wind) en de stack duur, dan loont harder werken; is elektriciteit duur, dan werkt men bij lagere stroomdichtheid met meer stackoppervlak.
+
+\textbf{(d)} \(0.05\log_{10}(i/10^{-5}) = 0.05\log_{10}(i/10^{-6}) - 0.05\): een decade hogere \(i_0\) wint precies \'e\'en Tafelhelling, \(50\,\mathrm{mV}\), bij elke stroomdichtheid. Dat is ongeveer \(1.3\,\mathrm{kWh}\) per kg waterstof.
+\end{oplossing}
