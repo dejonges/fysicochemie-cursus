@@ -1,0 +1,541 @@
+% Oefeningen bij dit hoofdstuk (ingevoegd achteraan het hoofdstuk met \input).
+% Een oefening:  \begin{oefening}[titel] ... \end{oefening}   (boek en website)
+% De oplossing:  \begin{oplossing} ... \end{oplossing}       (enkel website, dichtgeklapt)
+
+Neem $R = \SI{8.314}{\joule\per\mole\per\kelvin}$, $N_A = \SI{6.022e23}{\per\mole}$ en $T(\mathrm{K}) = \theta(^\circ\mathrm{C}) + 273.15$.
+
+\begin{oefening}[Waarom melk in de koelkast hoort]
+Verse, gepasteuriseerde melk blijft ongeveer \(10\) dagen goed in een koelkast op \(4\,^\circ\mathrm{C}\), maar slechts \(1\) dag op het aanrecht bij \(20\,^\circ\mathrm{C}\). Neem aan dat de houdbaarheid omgekeerd evenredig is met de snelheidsconstante van het bederf.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de schijnbare activeringsenergie van het bederf.
+\item[(b)]
+  Hoe lang blijft de melk goed in een auto op een zomerdag (\(30\,^\circ\mathrm{C}\))? En in een slecht afgestelde koelkast op \(7\,^\circ\mathrm{C}\)?
+\item[(c)]
+  Met welke factor stijgt de bederfsnelheid tussen \(20\) en \(30\,^\circ\mathrm{C}\)? Vergelijk met de vuistregel ``verdubbeling per \(10\,\mathrm{K}\)''. Welke activeringsenergie hoort bij die vuistregel?
+\item[(d)]
+  Extrapoleer naar de diepvries (\(-18\,^\circ\mathrm{C}\)). Waarom is dat getal niet betrouwbaar?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(E_a \approx\) \textbf{97 kJ/mol}. (b) Bij \(30\,^\circ\mathrm{C}\) ongeveer \textbf{6 uur}; bij \(7\,^\circ\mathrm{C}\) ongeveer \textbf{6.4 dagen}. (c) Factor \textbf{3.7}; de vuistregel hoort bij \(E_a \approx 51\,\mathrm{kJ/mol}\). (d) Formeel ongeveer een jaar, maar bevriezen verandert het mechanisme.
+
+\textbf{(a)} Omdat \(t \propto 1/k\), geldt \(k_{20}/k_4 = t_4/t_{20} = 10\). Met de geïntegreerde Arrheniusvergelijking:
+
+\[
+E_a = \frac{R\,\ln(k_2/k_1)}{1/T_1 - 1/T_2} = \frac{(8.314)\ln 10}{1/277.15 - 1/293.15} = 9.7\times10^{4}\,\mathrm{J/mol} \approx 97\,\mathrm{kJ/mol}.
+\]
+
+Dit is een \emph{schijnbare} activeringsenergie: bederf is de som van bacteriegroei en vele enzymreacties, maar de temperatuursafhankelijkheid laat zich goed met één Arrheniusterm beschrijven.
+
+\textbf{(b)} Met \(t(T) = t_{20}\exp\!\left[\dfrac{E_a}{R}\left(\dfrac{1}{T} - \dfrac{1}{293.15}\right)\right]\):
+
+\begin{itemize}
+\item
+  \(30\,^\circ\mathrm{C}\): \(t = 24\,\mathrm{h}\times e^{-1.32} = 6.4\,\mathrm{h}\).
+\item
+  \(7\,^\circ\mathrm{C}\): \(t = 153\,\mathrm{h} = 6.4\,\mathrm{dagen}\). Drie graden te warm kost dus bijna vier dagen houdbaarheid. Daarom raadt het voedselagentschap een koelkasttemperatuur van hoogstens \(4\,^\circ\mathrm{C}\) aan.
+\end{itemize}
+
+\textbf{(c)} \(k_{30}/k_{20} = \exp\!\left[\dfrac{97200}{8.314}\left(\dfrac{1}{293.15} - \dfrac{1}{303.15}\right)\right] = 3.7\). Een verdubbeling per \(10\,\mathrm{K}\) rond kamertemperatuur vraagt \(E_a = R\ln 2/(1/293.15 - 1/303.15) \approx 51\,\mathrm{kJ/mol}\). De vuistregel is dus maar zo goed als de aanname dat \(E_a\) ongeveer \(50\,\mathrm{kJ/mol}\) bedraagt; voor bederf met een hogere \(E_a\) is het temperatuureffect veel groter.
+
+\textbf{(d)} De formule geeft \(t \approx 9100\,\mathrm{h} \approx 380\,\mathrm{dagen}\). Dat getal heeft weinig betekenis: bij bevriezen ondergaat het water een faseovergang (hoofdstuk 5), bacteriën stoppen met groeien en de reacties in de resterende, geconcentreerde vloeistoffase verlopen anders. Bovendien beschadigen ijskristallen de emulsie van de melk (vetbolletjes en eiwitten), zodat de textuur verandert. Een Arrheniusextrapolatie is enkel geldig zolang het mechanisme niet verandert.
+\end{oplossing}
+
+\begin{oefening}[Alcohol en koffie: nulde orde tegenover eerste orde]
+De lever breekt alcohol af via het enzym alcoholdehydrogenase. Al bij lage alcoholconcentraties is dat enzym verzadigd, zodat het bloedalcoholgehalte met een constante snelheid van ongeveer \(0.15\,\text{‰}\) per uur daalt. Cafeïne wordt daarentegen volgens een eerste-orde kinetiek afgebroken, met een halfwaardetijd van ongeveer \(5\) uur.
+
+\begin{enumerate}
+\item[(a)]
+  Na een feest bedraagt het bloedalcoholgehalte \(1.2\,\text{‰}\). Hoe lang duurt het voor je onder de wettelijke limiet van \(0.5\,\text{‰}\) zakt? Wanneer is alle alcohol afgebroken?
+\item[(b)]
+  Bereken de ``halfwaardetijd'' van alcohol vanaf \(1.2\,\text{‰}\) en vanaf \(0.6\,\text{‰}\). Waarom is dat begrip hier weinig zinvol?
+\item[(c)]
+  Je drinkt om 16 uur een koffie met \(95\,\mathrm{mg}\) cafeïne. Hoeveel cafeïne zit er om 23 uur nog in je lichaam? Na hoeveel tijd is het minder dan \(10\,\mathrm{mg}\)?
+\item[(d)]
+  Verklaar met §8.8 waarom de afbraak van alcohol nulde orde is. Helpt koffie drinken om sneller nuchter te worden?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Na \textbf{4.7 uur} onder \(0.5\,\text{‰}\), na \textbf{8 uur} alcoholvrij. (b) \(4\,\mathrm{h}\) tegenover \(2\,\mathrm{h}\): bij nulde orde hangt \(t_{1/2}\) af van de beginconcentratie. (c) Om 23 uur nog \textbf{36 mg}; minder dan \(10\,\mathrm{mg}\) na \textbf{16 uur}. (d) Verzadigd enzym; koffie verandert de afbraaksnelheid niet.
+
+\textbf{(a)} Voor een nulde-orde reactie daalt de concentratie lineair (vergelijking (8.5)): \(c(t) = c_0 - k\,t\). Dus \(t = (1.2 - 0.5)/0.15 = 4.7\,\mathrm{h}\) en de volledige afbraak duurt \(1.2/0.15 = 8.0\,\mathrm{h}\). Wie om 2 uur 's nachts stopt met drinken, mag pas rond 7 uur weer rijden, en is pas rond 10 uur alcoholvrij.
+
+\textbf{(b)} \(t_{1/2} = c_0/(2k)\): vanaf \(1.2\,\text{‰}\) is dat \(4.0\,\mathrm{h}\), vanaf \(0.6\,\text{‰}\) slechts \(2.0\,\mathrm{h}\). Een halfwaardetijd is enkel een nuttige constante bij eerste-orde kinetiek, waar ze onafhankelijk is van de beginconcentratie.
+
+\textbf{(c)} \(k = \ln 2/t_{1/2} = 0.139\,\mathrm{1/h}\). Na \(7\,\mathrm{h}\): \(m = 95\,e^{-0.139\cdot 7} = 36\,\mathrm{mg}\), ongeveer een derde van de dosis, nog genoeg om de slaap te verstoren. Voor \(10\,\mathrm{mg}\): \(t = \ln(95/10)/k = 16\,\mathrm{h}\).
+
+\textbf{(d)} Alcohol wordt afgebroken door een enzym met een kleine \(K_M\). Al bij een laag alcoholgehalte geldt \([S] \gg K_M\), zodat volgens Michaelis--Menten \(r \approx r_{\max}\): de snelheid hangt niet meer af van de concentratie (nulde orde). De enige manier om sneller af te breken is meer enzym (\(r_{\max} = k_2[E]_0\)), en dat kan je niet op een avond veranderen. Koffie maakt je wakkerder, maar verlaagt het alcoholgehalte niet.
+\end{oplossing}
+
+\begin{oefening}[Hoe oud is Ötzi? Radiokoolstofdatering]
+In 1991 werd in de Alpen de ijsmummie Ötzi gevonden. Levende organismen nemen koolstof op met een constante verhouding \(\mathrm{^{14}C/^{12}C}\); na de dood vervalt \(\mathrm{^{14}C}\) volgens een eerste-orde kinetiek met een halfwaardetijd van \(5730\) jaar. In weefsel van Ötzi bedraagt de \(\mathrm{^{14}C}\)-activiteit nog \(53\,\%\) van die van levend weefsel.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de vervalconstante \(k\).
+\item[(b)]
+  Hoe lang geleden stierf Ötzi?
+\item[(c)]
+  Welk percentage van de oorspronkelijke activiteit blijft er over na \(50000\) jaar? Waarom is radiokoolstofdatering niet bruikbaar voor dinosaurusbotten?
+\item[(d)]
+  Waarom is een halfwaardetijd die niet van de beginconcentratie afhangt hier essentieel?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(k = 1.21\times10^{-4}\,\mathrm{1/jaar}\). (b) Ongeveer \textbf{5200 jaar} geleden. (c) Nog \textbf{0.24 \%}: te weinig om betrouwbaar te meten. (d) Je hoeft de oorspronkelijke hoeveelheid \(\mathrm{^{14}C}\) niet te kennen, enkel de verhouding.
+
+\textbf{(a)} \(k = \ln 2/t_{1/2} = 0.693/5730 = 1.21\times10^{-4}\,\mathrm{1/jaar}\).
+
+\textbf{(b)} Uit vergelijking (8.7): \(t = \dfrac{1}{k}\ln\dfrac{[A]_0}{[A]} = \dfrac{\ln(1/0.53)}{1.21\times10^{-4}} = 5250\,\mathrm{jaar}\). Ötzi leefde dus rond 3300 voor Christus, in de kopertijd; dat klopt met het koperen bijltje dat bij hem gevonden werd.
+
+\textbf{(c)} \(e^{-k\cdot 50000} = 2.4\times10^{-3}\), of \(0.24\,\%\). Na zo'n negen halfwaardetijden is er zo weinig \(\mathrm{^{14}C}\) over dat besmetting met een spoor recente koolstof het resultaat volledig verstoort. Dinosaurussen zijn meer dan \(66\) miljoen jaar oud: daarvoor gebruikt men isotopen met een veel langere halfwaardetijd in het omringende gesteente (bijvoorbeeld \(\mathrm{^{40}K \rightarrow {}^{40}Ar}\)).
+
+\textbf{(d)} Bij eerste orde hangt de vervallen fractie enkel af van \(k\,t\), niet van hoeveel \(\mathrm{^{14}C}\) het monster bevatte. Je meet een verhouding (activiteit nu tegenover levend weefsel) en die verhouding bepaalt de tijd. Bij een tweede-orde proces zou je de beginconcentratie moeten kennen, en die is precies wat je niet weet.
+\end{oplossing}
+
+\begin{oefening}[Zeep maken: de verzeping van een ester]
+De verzeping van ethylacetaat met natronloog,
+
+\[
+\mathrm{CH_3COOC_2H_5 + OH^- \rightarrow CH_3COO^- + C_2H_5OH},
+\]
+
+is het modelvoorbeeld voor het maken van zeep uit vetten. De reactie is van eerste orde in elk reagens, met \(k = 0.11\,\mathrm{L/(mol\cdot s)}\) bij \(25\,^\circ\mathrm{C}\). Beide reagentia worden gemengd met dezelfde beginconcentratie \(0.050\,\mathrm{mol/L}\).
+
+\begin{enumerate}
+\item[(a)]
+  Toon aan dat de reactie zich gedraagt als een tweede-orde reactie \(r = k[A]^2\).
+\item[(b)]
+  Bereken de halfwaardetijd en de tijd nodig voor \(90\,\%\) omzetting.
+\item[(c)]
+  Bereken de esterconcentratie na \(5\) minuten.
+\item[(d)]
+  Herhaal (b) voor beginconcentraties van \(0.10\,\mathrm{mol/L}\). Wat is het verschil met een eerste-orde reactie?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \(t_{1/2} =\) \textbf{182 s} (3 min), \(t_{90} =\) \textbf{1640 s} (27 min). (c) \textbf{0.019 mol/L}. (d) \(t_{1/2} = 91\,\mathrm{s}\) en \(t_{90} = 820\,\mathrm{s}\): dubbel zo geconcentreerd gaat twee keer zo snel.
+
+\textbf{(a)} \(r = k[\text{ester}][\mathrm{OH^-}]\). Omdat beide in een verhouding 1:1 reageren en met dezelfde concentratie starten, blijven ze op elk moment gelijk: \([\text{ester}] = [\mathrm{OH^-}] = [A]\), dus \(r = k[A]^2\).
+
+\textbf{(b)} Met vergelijking (8.11): \(t_{1/2} = 1/(k[A]_0) = 1/(0.11 \times 0.050) = 182\,\mathrm{s}\). Voor \(90\,\%\) omzetting is \([A] = 0.0050\,\mathrm{mol/L}\), en met vergelijking (8.10):
+
+\[
+t = \frac{1}{k}\left(\frac{1}{[A]} - \frac{1}{[A]_0}\right) = \frac{1}{0.11}\left(200 - 20\right) = 1640\,\mathrm{s}.
+\]
+
+Dat is negen halfwaardetijden. Bij een eerste-orde reactie zou \(90\,\%\) omzetting slechts \(\ln 10/\ln 2 = 3.3\) halfwaardetijden vragen: het einde van een tweede-orde reactie verloopt veel trager, omdat beide reagentia tegelijk schaars worden.
+
+\textbf{(c)} \(1/[A] = 1/0.050 + 0.11 \times 300 = 53\,\mathrm{L/mol}\), dus \([A] = 0.019\,\mathrm{mol/L}\).
+
+\textbf{(d)} \(t_{1/2} = 1/(0.11 \times 0.10) = 91\,\mathrm{s}\) en \(t_{90} = (100 - 10)/0.11 = 820\,\mathrm{s}\). Bij tweede orde halveren alle tijden wanneer de beginconcentratie verdubbelt; bij eerste orde blijven ze ongewijzigd. Dat is ook een eenvoudige experimentele test om de orde te bepalen. In de praktijk werkt een zeepzieder daarom met geconcentreerde loog en warmte.
+\end{oplossing}
+
+\begin{oefening}[Smog in de stad: de reactieorde uit beginsnelheden]
+Stikstofmonoxide uit uitlaatgassen reageert met zuurstof tot het bruine, giftige \(\mathrm{NO_2}\): \(\mathrm{2\,NO + O_2 \rightarrow 2\,NO_2}\). Bij \(25\,^\circ\mathrm{C}\) meet men de volgende beginsnelheden:
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Proef & \([\mathrm{NO}]_0\) (mol/L) & \([\mathrm{O_2}]_0\) (mol/L) & \(r_0\) (mol/(L\ensuremath{\cdot{}}s)) \\
+\midrule
+1 & 0.010 & 0.010 & \(7.1\times10^{-3}\) \\
+2 & 0.020 & 0.010 & \(2.84\times10^{-2}\) \\
+3 & 0.010 & 0.020 & \(1.42\times10^{-2}\) \\
+4 & 0.030 & 0.020 & ? \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item[(a)]
+  Bepaal de reactieordes ten opzichte van \(\mathrm{NO}\) en \(\mathrm{O_2}\) en de totale orde.
+\item[(b)]
+  Bereken de snelheidsconstante met eenheid, en voorspel \(r_0\) voor proef 4.
+\item[(c)]
+  In lucht bij \(1\,\mathrm{bar}\) en \(25\,^\circ\mathrm{C}\) (totale concentratie \(0.040\,\mathrm{mol/L}\), \(21\,\%\) \(\mathrm{O_2}\)) is zuurstof in grote overmaat. Welke methode uit §8.3.4 herken je? Leid de schijnbare snelheidsconstante voor \(\mathrm{NO}\) af.
+\item[(d)]
+  Bereken de halfwaardetijd van \(\mathrm{NO}\) in een uitlaatpijp (\(1000\,\mathrm{ppm}\) NO) en in stadslucht (\(0.1\,\mathrm{ppm}\)). Wat besluit je?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{Tweede orde} in NO, \textbf{eerste orde} in \(\mathrm{O_2}\), derde orde in totaal. (b) \(k =\) \textbf{\(7.1\times10^{3}\,\mathrm{L^2/(mol^2\cdot s)}\)}; \(r_0 = 0.128\,\mathrm{mol/(L\cdot s)}\). (c) De isolatiemethode. (d) Ongeveer \textbf{3.5 minuten} bij \(1000\,\mathrm{ppm}\), maar ongeveer \textbf{24 dagen} bij \(0.1\,\mathrm{ppm}\).
+
+\textbf{(a)} Proef 1 \ensuremath{\rightarrow{}} 2: \([\mathrm{NO}]\) verdubbelt en \(r_0\) wordt vier keer zo groot, dus \(2^m = 4\) en \(m = 2\). Proef 1 \ensuremath{\rightarrow{}} 3: \([\mathrm{O_2}]\) verdubbelt en \(r_0\) verdubbelt, dus \(n = 1\). De snelheidswet is \(r = k[\mathrm{NO}]^2[\mathrm{O_2}]\), totale orde \(3\). Dit is een van de weinige reacties waarvan de orde wel overeenkomt met de stoichiometrie, al is ze niet termoleculair: ze verloopt via een snel evenwicht \(\mathrm{2\,NO \rightleftharpoons N_2O_2}\).
+
+\textbf{(b)} Uit proef 1: \(k = \dfrac{7.1\times10^{-3}}{(0.010)^2(0.010)} = 7.1\times10^{3}\,\mathrm{L^2/(mol^2\cdot s)}\). Proef 4: \(r_0 = 7.1\times10^{3} \times (0.030)^2 \times 0.020 = 0.128\,\mathrm{mol/(L\cdot s)}\).
+
+\textbf{(c)} Met zuurstof in grote overmaat blijft \([\mathrm{O_2}] = 0.21 \times 0.040 = 8.4\times10^{-3}\,\mathrm{mol/L}\) vrijwel constant: dat is de isolatiemethode. Het verbruik van NO is \(-\mathrm{d}[\mathrm{NO}]/\mathrm{d}t = 2r = 2k[\mathrm{O_2}]\,[\mathrm{NO}]^2 = k'[\mathrm{NO}]^2\), een schijnbare tweede-orde reactie met \(k' = 2k[\mathrm{O_2}] = 1.2\times10^{2}\,\mathrm{L/(mol\cdot s)}\).
+
+\textbf{(d)} Met \(t_{1/2} = 1/(k'[\mathrm{NO}]_0)\):
+
+\begin{itemize}
+\item
+  \(1000\,\mathrm{ppm}\): \([\mathrm{NO}]_0 = 4.0\times10^{-5}\,\mathrm{mol/L}\), \(t_{1/2} = 210\,\mathrm{s} \approx 3.5\,\mathrm{min}\).
+\item
+  \(0.1\,\mathrm{ppm}\): \([\mathrm{NO}]_0 = 4.0\times10^{-9}\,\mathrm{mol/L}\), \(t_{1/2} = 2.1\times10^{6}\,\mathrm{s} \approx 24\,\mathrm{dagen}\).
+\end{itemize}
+
+Bij tweede orde vertraagt de reactie dramatisch bij verdunning. In geconcentreerde uitlaatgassen vormt zich snel \(\mathrm{NO_2}\), maar in stadslucht is de reactie met zuurstof verwaarloosbaar. Dat het NO in de stad toch binnen minuten omgezet wordt, komt door een ander, sneller pad: de reactie met ozon, \(\mathrm{NO + O_3 \rightarrow NO_2 + O_2}\). Daarom kan je de orde van een reactie nooit blind extrapoleren naar andere concentraties.
+\end{oplossing}
+
+\begin{oefening}[Schuimend waterstofperoxide op een wonde]
+Waterstofperoxide ontleedt volgens \(\mathrm{2\,H_2O_2 \rightarrow 2\,H_2O + O_2}\). Zonder katalysator is \(E_a = 75\,\mathrm{kJ/mol}\), met jodide-ionen \(56\,\mathrm{kJ/mol}\) en met het enzym katalase (aanwezig in bloed) \(23\,\mathrm{kJ/mol}\). Neem aan dat de pre-exponentiële factor gelijk blijft.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken bij \(25\,^\circ\mathrm{C}\) hoeveel keer sneller de ontleding verloopt met jodide en met katalase.
+\item[(b)]
+  Herhaal voor katalase bij lichaamstemperatuur (\(37\,^\circ\mathrm{C}\)). Waarom is de versnellingsfactor kleiner?
+\item[(c)]
+  Tot welke temperatuur zou je de ongekatalyseerde oplossing moeten verwarmen om even snel te ontleden als met jodide bij \(25\,^\circ\mathrm{C}\)?
+\item[(d)]
+  Verklaar waarom \(\mathrm{H_2O_2}\) op een wonde schuimt, maar maandenlang goed blijft in een bruine fles. Verandert katalase de hoeveelheid zuurstof die uiteindelijk vrijkomt?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Jodide: ongeveer \textbf{2100\ensuremath{\times{}}}; katalase: ongeveer \textbf{\(1.3\times10^{9}\)\ensuremath{\times{}}} sneller. (b) Bij \(37\,^\circ\mathrm{C}\): \textbf{\(5.7\times10^{8}\)\ensuremath{\times{}}}. (c) \textbf{399 K} (\(126\,^\circ\mathrm{C}\)). (d) Katalase verlaagt de barrière; de eindtoestand (en de hoeveelheid \(\mathrm{O_2}\)) verandert niet.
+
+\textbf{(a)} Met vergelijking (8.24) en \(A_{\text{kat}} = A_{\text{onkat}}\):
+
+\[
+\frac{k_{\text{kat}}}{k_{\text{onkat}}} = \exp\!\left(\frac{\Delta E_a}{RT}\right).
+\]
+
+\begin{itemize}
+\item
+  Jodide: \(\exp\!\left(\dfrac{19000}{8.314 \times 298.15}\right) = e^{7.66} = 2.1\times10^{3}\).
+\item
+  Katalase: \(\exp\!\left(\dfrac{52000}{8.314 \times 298.15}\right) = e^{21.0} = 1.3\times10^{9}\).
+\end{itemize}
+
+\textbf{(b)} Bij \(310.15\,\mathrm{K}\): \(\exp(52000/(8.314 \times 310.15)) = 5.7\times10^{8}\). Bij hogere temperatuur hebben al meer moleculen genoeg energie om de hoge barrière te nemen, zodat de verlaging van de barrière relatief minder uitmaakt. Een katalysator is het waardevolst bij lage temperatuur.
+
+\textbf{(c)} Gelijke snelheid betekent \(E_{a,\text{onkat}}/T = E_{a,\text{jodide}}/298.15\), dus \(T = 298.15 \times 75/56 = 399\,\mathrm{K}\), ongeveer \(126\,^\circ\mathrm{C}\). Een katalysator doet bij kamertemperatuur wat anders een oven zou vragen.
+
+\textbf{(d)} Zonder katalysator is de ontleding bij kamertemperatuur zeer traag; licht en sporen metaalionen versnellen ze, daarom bewaart men het in een donkere fles, vaak met een stabilisator. Op een wonde komt het in contact met katalase uit bloed en weefsel, en het vrijgekomen zuurstofgas vormt het schuim. Katalase verlaagt enkel de activeringsenergie: \(\Delta_rG^\circ\) en de evenwichtsligging veranderen niet (§8.7.1), dus er komt uiteindelijk evenveel zuurstof vrij, alleen veel sneller. In je lichaam beschermt katalase cellen tegen het giftige \(\mathrm{H_2O_2}\) dat bij de stofwisseling ontstaat.
+\end{oplossing}
+
+\begin{oefening}[Een geneesmiddel met een tussenproduct: wanneer mag je steady-state aannemen?]
+Een ``prodrug'' \(A\) wordt in de lever omgezet in de actieve stof \(B\), die op haar beurt uitgescheiden wordt: \(A \xrightarrow{k_1} B \xrightarrow{k_2} C\), met \(k_1 = 0.10\,\mathrm{1/h}\), \(k_2 = 1.0\,\mathrm{1/h}\), \([A]_0 = 1.0\,\mathrm{mmol/L}\) en \([B]_0 = 0\). De exacte oplossing voor het tussenproduct is
+
+\[
+[B](t) = \frac{k_1[A]_0}{k_2 - k_1}\left(e^{-k_1t} - e^{-k_2t}\right).
+\]
+
+\begin{enumerate}
+\item[(a)]
+  Pas de steady-state-benadering toe op \(B\) en geef \([B]\) als functie van \([A]\).
+\item[(b)]
+  Vergelijk de steady-state-waarde met de exacte waarde na \(1\), \(5\) en \(10\) uur.
+\item[(c)]
+  Wanneer bereikt \([B]\) zijn maximum? Waarom faalt de benadering vlak na de toediening?
+\item[(d)]
+  Wat gebeurt er als de constanten omgewisseld zijn (\(k_1 = 1.0\), \(k_2 = 0.10\,\mathrm{1/h}\))? Bereken \([B]\) na \(5\) uur op beide manieren en verklaar.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \([B]_{ss} = (k_1/k_2)[A]\). (b) Na \(1\,\mathrm{h}\): \(0.090\) tegenover exact \textbf{0.060} mmol/L; na \(5\) en \(10\,\mathrm{h}\) ligt de benadering ongeveer \textbf{10 \% te laag} (\(0.061\) tegenover \(0.067\), \(0.037\) tegenover \(0.041\)). (c) Maximum na \textbf{2.6 h}. (d) \(0.067\) tegenover exact \textbf{0.67} mmol/L: de benadering faalt volledig.
+
+\textbf{(a)} \(\dfrac{\mathrm{d}[B]}{\mathrm{d}t} = k_1[A] - k_2[B] \approx 0\), dus \([B]_{ss} = \dfrac{k_1}{k_2}[A]\) met \([A] = [A]_0e^{-k_1t}\).
+
+\textbf{(b)}
+
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+\(t\) (h) & \([A]\) & \([B]_{ss}\) & \([B]_{\text{exact}}\) \\
+\midrule
+1 & 0.905 & 0.090 & 0.060 \\
+5 & 0.607 & 0.061 & 0.067 \\
+10 & 0.368 & 0.037 & 0.041 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+(alle concentraties in mmol/L). Na de eerste uren volgt de benadering het exacte verloop met een vaste afwijking: voor \(t \gg 1/k_2\) wordt de verhouding exact/benadering \(k_2/(k_2 - k_1) = 1.11\). Hoe groter \(k_2/k_1\), hoe beter de benadering.
+
+\textbf{(c)} \(\mathrm{d}[B]/\mathrm{d}t = 0\) in de exacte oplossing geeft \(t_{\max} = \dfrac{\ln(k_2/k_1)}{k_2 - k_1} = \dfrac{\ln 10}{0.9} = 2.6\,\mathrm{h}\). In het begin moet \(B\) nog opgebouwd worden: dat duurt enkele keren \(1/k_2 = 1\,\mathrm{h}\). Tijdens die inductieperiode is \(\mathrm{d}[B]/\mathrm{d}t\) duidelijk niet nul.
+
+\textbf{(d)} Nu is \([A] = e^{-5} = 0.0067\,\mathrm{mmol/L}\) en \([B]_{ss} = (1.0/0.10)\,[A] = 0.067\,\mathrm{mmol/L}\). Exact: \([B] = \dfrac{1.0}{0.10 - 1.0}(e^{-5} - e^{-0.5}) = 0.67\,\mathrm{mmol/L}\). Het tussenproduct is nu \emph{minder} reactief dan het uitgangsproduct en stapelt zich op: bijna alle \(A\) is al omgezet in \(B\). De steady-state-benadering is enkel gerechtvaardigd voor een reactief tussenproduct met een kleine, bijna constante concentratie (§8.6). In de farmacologie bepaalt deze verhouding of een geneesmiddel lang in het bloed blijft.
+\end{oplossing}
+
+\begin{oefening}[Koolmonoxide vergiftigt een brandstofcel]
+Aan de anode van een PEM-brandstofcel (hoofdstuk 7) adsorbeert waterstof op platina. Waterstof uit aardgas bevat vaak sporen CO, dat veel sterker adsorbeert. Neem een eenvoudige Langmuir-isotherme met \(K_{\mathrm{H_2}} = 2.0\,\mathrm{1/bar}\) en \(K_{\mathrm{CO}} = 1.0\times10^{6}\,\mathrm{1/bar}\), bij \(p_{\mathrm{H_2}} = 1.0\,\mathrm{bar}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de bedekkingsgraad met waterstof in zuiver \(\mathrm{H_2}\). Bij welke druk is het oppervlak half bedekt?
+\item[(b)]
+  Bereken \(\theta_{\mathrm{H_2}}\) en \(\theta_{\mathrm{CO}}\) wanneer het gas \(1\), \(10\) en \(100\,\mathrm{ppm}\) CO bevat.
+\item[(c)]
+  Waarom kan een zo kleine hoeveelheid CO de cel uitschakelen? Gaat het om fysisorptie of chemisorptie?
+\item[(d)]
+  Brandstofcellen bij hogere temperatuur zijn veel minder gevoelig voor CO. Verklaar met het teken van de adsorptie-enthalpie.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\theta_{\mathrm{H_2}} =\) \textbf{0.67}; half bedekt bij \textbf{0.50 bar}. (b) Bij \(1\,\mathrm{ppm}\): \(\theta_{\mathrm{H_2}} = 0.50\); bij \(10\,\mathrm{ppm}\): \textbf{0.15} (CO 0.77); bij \(100\,\mathrm{ppm}\): \textbf{0.02} (CO 0.97). (c) Chemisorptie met een enorme \(K_{\mathrm{CO}}\). (d) Adsorptie is exotherm, dus \(K\) daalt met de temperatuur.
+
+\textbf{(a)} Vergelijking (8.27): \(\theta = \dfrac{2.0 \times 1.0}{1 + 2.0} = 0.67\). Half bedekt bij \(K p = 1\), dus \(p = 1/K = 0.50\,\mathrm{bar}\).
+
+\textbf{(b)} Met de competitieve isotherme (8.28) en noemer \(1 + K_{\mathrm{H_2}}p_{\mathrm{H_2}} + K_{\mathrm{CO}}p_{\mathrm{CO}}\):
+
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+CO & \(K_{\mathrm{CO}}p_{\mathrm{CO}}\) & noemer & \(\theta_{\mathrm{H_2}}\) & \(\theta_{\mathrm{CO}}\) \\
+\midrule
+0 ppm & 0 & 3 & 0.67 & 0 \\
+1 ppm & 1 & 4 & 0.50 & 0.25 \\
+10 ppm & 10 & 13 & 0.15 & 0.77 \\
+100 ppm & 100 & 103 & 0.019 & 0.97 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{(c)} Wat telt is niet de druk zelf, maar het product \(K\,p\). Met \(K_{\mathrm{CO}}\) een half miljoen keer groter dan \(K_{\mathrm{H_2}}\) wint CO de concurrentie om de plaatsen al bij enkele ppm. Bij \(10\,\mathrm{ppm}\) is nog maar een kwart van de oorspronkelijke waterstofbedekking over, en de stroom daalt evenredig. CO vormt een echte chemische binding met Pt (chemisorptie, tientallen tot honderden kJ/mol); hetzelfde gebeurt met hemoglobine bij CO-vergiftiging (hoofdstuk 6). Waterstof voor brandstofcellen moet daarom zeer zuiver zijn (minder dan \(0.2\,\mathrm{ppm}\) CO).
+
+\textbf{(d)} Adsorptie is exotherm (§8.7.4). Volgens Van 't Hoff daalt een evenwichtsconstante met een negatieve \(\Delta H\) bij stijgende temperatuur, en dat effect is het grootst voor de sterkst gebonden component, CO. Bij \(150\)--\(200\,^\circ\mathrm{C}\) is \(K_{\mathrm{CO}}\) zoveel kleiner dat de cel tientallen ppm CO verdraagt.
+\end{oplossing}
+
+\begin{oefening}[De koude start van een katalysator in de uitlaat]
+In de driewegkatalysator wordt CO op platina geoxideerd volgens een Langmuir--Hinshelwood-mechanisme tussen geadsorbeerd CO en geadsorbeerde zuurstof:
+
+\[
+r = \frac{k\,K_{\mathrm{CO}}p_{\mathrm{CO}}\,K_{\mathrm{O}}p_{\mathrm{O}}}{(1 + K_{\mathrm{CO}}p_{\mathrm{CO}} + K_{\mathrm{O}}p_{\mathrm{O}})^2}.
+\]
+
+Neem \(K_{\mathrm{O}}p_{\mathrm{O}} = 0.5\) (constant) en \(K_{\mathrm{CO}} = 100\,\mathrm{1/bar}\).
+
+\begin{enumerate}
+\item[(a)]
+  Toon aan dat \(r\) maximaal is wanneer \(K_{\mathrm{CO}}p_{\mathrm{CO}} = 1 + K_{\mathrm{O}}p_{\mathrm{O}}\). Bij welke CO-druk is dat?
+\item[(b)]
+  Bereken \(r/r_{\max}\) bij \(p_{\mathrm{CO}} = 0.001\), \(0.005\), \(0.05\) en \(0.2\,\mathrm{bar}\).
+\item[(c)]
+  Hoe zou de snelheid verlopen als de reactie een Eley--Rideal-mechanisme volgde (enkel CO adsorbeert, zuurstof reageert uit de gasfase)?
+\item[(d)]
+  Bij een koude motor is \(K_{\mathrm{CO}}\) veel groter. Verklaar waarom de katalysator dan vrijwel niet werkt, en waarom de meeste CO-uitstoot van een auto in de eerste minuten na de start valt.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Maximum bij \(p_{\mathrm{CO}} =\) \textbf{0.015 bar}. (b) \(r/r_{\max} = 0.23\), \(0.75\), \(0.71\) en \textbf{0.26}: boven het optimum \textbf{remt} extra CO de reactie. (c) Bij Eley--Rideal stijgt de snelheid monotoon naar een plateau. (d) CO \textbf{bedekt het hele oppervlak} en verdringt de zuurstof (zelfvergiftiging).
+
+\textbf{(a)} Noem \(x = K_{\mathrm{CO}}p_{\mathrm{CO}}\) en \(b = 1 + K_{\mathrm{O}}p_{\mathrm{O}}\). Dan is \(r \propto x/(b + x)^2\), en
+
+\[
+\frac{\mathrm{d}}{\mathrm{d}x}\frac{x}{(b+x)^2} = \frac{(b+x) - 2x}{(b+x)^3} = 0 \quad\Rightarrow\quad x = b.
+\]
+
+Met \(b = 1.5\): \(p_{\mathrm{CO}} = 1.5/100 = 0.015\,\mathrm{bar}\). Op dat punt is \(\theta_{\mathrm{CO}} = 1.5/3 = 0.5\) en \(\theta_{\mathrm{O}} = 0.5/3 = 0.17\).
+
+\textbf{(b)} Met \(r/r_{\max} = \dfrac{x/(1.5 + x)^2}{1.5/3^2}\):
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\(p_{\mathrm{CO}}\) (bar) & \(x\) & \(r/r_{\max}\) \\
+\midrule
+0.001 & 0.1 & 0.23 \\
+0.005 & 0.5 & 0.75 \\
+0.015 & 1.5 & 1.00 \\
+0.05 & 5 & 0.71 \\
+0.2 & 20 & 0.26 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Bij lage CO-druk is de reactie eerste orde in CO; boven het optimum wordt ze negatieve orde: meer CO maakt de reactie trager. Dat is de typische vingerafdruk van Langmuir--Hinshelwood (§8.7.4).
+
+\textbf{(c)} Bij Eley--Rideal is \(r = k\theta_{\mathrm{CO}}p_{\mathrm{O}}\) met \(\theta_{\mathrm{CO}} = x/(1 + x)\). Bij de drukken \(0.001\), \(0.015\) en \(0.2\,\mathrm{bar}\) is dat \(0.09\), \(0.60\) en \(0.95\) van het plateau. Er is geen maximum: een volledig met CO bedekt oppervlak is dan juist ideaal. Experimenteel ziet men bij CO-oxidatie op Pt een duidelijk maximum, wat het Langmuir--Hinshelwood-mechanisme bevestigt.
+
+\textbf{(d)} Adsorptie is exotherm, dus bij lage temperatuur is \(K_{\mathrm{CO}}\) zeer groot en \(x \gg b\): het oppervlak is volledig met CO bedekt (\(\theta_{\mathrm{CO}} \to 1\)), zuurstof vindt geen plaats meer en \(r \to 0\). Pas wanneer de katalysator ongeveer \(250\)--\(300\,^\circ\mathrm{C}\) bereikt (de ``light-off''-temperatuur), desorbeert genoeg CO en schiet de omzetting omhoog. Daarom komt het grootste deel van de CO-uitstoot van een rit vrij in de eerste minuten, en daarom plaatsen fabrikanten de katalysator zo dicht mogelijk bij de motor of verwarmen ze hem elektrisch voor.
+\end{oplossing}
+
+\begin{oefening}[Hoeveel oppervlak zit er in een korrel? BET en actieve kool]
+Een aluminiumoxide-drager voor een katalysator heeft een BET-monolaagvolume \(V_m = 25\,\mathrm{cm^3/g}\) stikstof (gemeten bij STP: \(0\,^\circ\mathrm{C}\), \(1\,\mathrm{atm}\), molair volume \(22.4\,\mathrm{L/mol}\)). Eén \(\mathrm{N_2}\)-molecule beslaat \(0.162\,\mathrm{nm^2}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken het specifieke oppervlak in \(\mathrm{m^2/g}\).
+\item[(b)]
+  Hoeveel platina-atomen (één per \(0.090\,\mathrm{nm^2}\)) passen er in één monolaag op \(1\,\mathrm{g}\) drager? Hoeveel gram Pt is dat (\(M = 195.1\,\mathrm{g/mol}\))? Waarom gebruikt men in de praktijk veel minder?
+\item[(c)]
+  Bereken met de BET-vergelijking (8.29) en \(C = 100\) de verhouding \(V/V_m\) bij \(p/p_{\text{sat}} = 0.05\), \(0.20\) en \(0.30\). Wat stel je vast?
+\item[(d)]
+  Medicinale actieve kool heeft een specifiek oppervlak van ongeveer \(1000\,\mathrm{m^2/g}\). Hoeveel gram heeft het oppervlak van een voetbalveld (\(7140\,\mathrm{m^2}\))? Waarom is dat nuttig bij een vergiftiging?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Ongeveer \textbf{109 m\ensuremath{^{2}}/g}. (b) \(1.2\times10^{21}\) atomen, of \textbf{0.39 g Pt} per gram drager. (c) \(V/V_m = 0.88\), \(1.20\) en \(1.40\): boven de monolaag vormen zich meerdere lagen. (d) Ongeveer \textbf{7 g}.
+
+\textbf{(a)} \(n = 0.025\,\mathrm{L}/22.4\,\mathrm{L/mol} = 1.12\times10^{-3}\,\mathrm{mol}\) \(\mathrm{N_2}\) per gram. Het oppervlak is
+
+\[
+A = n N_A \sigma = (1.12\times10^{-3})(6.022\times10^{23})(0.162\times10^{-18}\,\mathrm{m^2}) = 109\,\mathrm{m^2/g}.
+\]
+
+Eén gram poeder heeft dus het oppervlak van een kleine woning.
+
+\textbf{(b)} \(N = 109\,\mathrm{m^2}/(0.090\times10^{-18}\,\mathrm{m^2}) = 1.2\times10^{21}\) atomen \(= 2.0\times10^{-3}\,\mathrm{mol} = 0.39\,\mathrm{g}\) Pt. Een volledige monolaag zou dus bijna \(40\,\%\) van het gewicht aan duur edelmetaal kosten. In een autokatalysator brengt men slechts enkele gram Pt, Pd en Rh aan als verspreide nanodeeltjes: elk atoom aan het oppervlak telt, en een kleine fractie van de plaatsen volstaat zolang de reactie niet door diffusie beperkt wordt.
+
+\textbf{(c)} \(V/V_m = \dfrac{Cx}{(1 - x)(1 - x + Cx)}\):
+
+\begin{itemize}
+\item
+  \(x = 0.05\): \(\dfrac{5}{0.95 \times 5.95} = 0.88\)
+\item
+  \(x = 0.20\): \(\dfrac{20}{0.80 \times 20.8} = 1.20\)
+\item
+  \(x = 0.30\): \(\dfrac{30}{0.70 \times 30.7} = 1.40\)
+\end{itemize}
+
+Bij een grote \(C\) (sterke binding van de eerste laag) is de monolaag al bij lage relatieve druk bijna vol.~Daarna groeit de hoeveelheid verder door fysisorptie in extra lagen, die steeds meer op condensatie lijkt; voor \(x \to 1\) divergeert \(V\). Precies daarom werkt men voor de BET-analyse in het gebied \(x \approx 0.05\)--\(0.30\).
+
+\textbf{(d)} \(7140/1000 = 7.1\,\mathrm{g}\), een paar eetlepels poeder. Bij een vergiftiging bindt de kool giftige moleculen in het maag-darmkanaal door fysisorptie, zodat ze niet in het bloed opgenomen worden. Hetzelfde principe zit in de koolfilter van een dampkap of een waterkan.
+\end{oplossing}
+
+\begin{oefening}[Lactosevrije melk met het enzym lactase]
+Lactosevrije melk wordt gemaakt door lactase toe te voegen, dat lactose splitst in glucose en galactose. Melk bevat ongeveer \(48\,\mathrm{g/L}\) lactose (\(M = 342.3\,\mathrm{g/mol}\)). Neem voor het enzym \(K_M = 2.0\times10^{-2}\,\mathrm{mol/L}\) en \(k_{\text{cat}} = k_2 = 60\,\mathrm{1/s}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(r/r_{\max}\) bij het begin, na \(90\,\%\) omzetting en na \(99\,\%\) omzetting.
+\item[(b)]
+  In welk regime (welke orde) verloopt de reactie in het begin en op het einde?
+\item[(c)]
+  Bij welke lactoseconcentratie werkt het enzym aan \(90\,\%\) van zijn maximale snelheid?
+\item[(d)]
+  De fabrikant halveert de hoeveelheid lactase om kosten te besparen. Wat gebeurt er met de behandelingstijd?
+\item[(e)]
+  Bereken \(k_{\text{cat}}/K_M\) en vergelijk met de diffusielimiet van ongeveer \(10^{9}\)--\(10^{10}\,\mathrm{L/(mol\cdot s)}\) (§8.8.1). Is dit enzym diffusie-perfect?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(r/r_{\max} =\) \textbf{0.88}, \textbf{0.41} en \textbf{0.065}. (b) Eerst bijna \textbf{nulde orde}, op het einde \textbf{eerste orde}. (c) \([S] = 9K_M =\) \textbf{0.18 mol/L}. (d) De tijd \textbf{verdubbelt}. (e) \(k_{\text{cat}}/K_M = 3\times10^{3}\,\mathrm{L/(mol\cdot s)}\): ver onder de diffusielimiet.
+
+\textbf{(a)} \([S]_0 = 48/342.3 = 0.140\,\mathrm{mol/L}\). Met \(r/r_{\max} = [S]/(K_M + [S])\):
+
+\begin{itemize}
+\item
+  begin: \(0.140/0.160 = 0.88\)
+\item
+  \(90\,\%\) omgezet, \([S] = 0.014\): \(0.014/0.034 = 0.41\)
+\item
+  \(99\,\%\) omgezet, \([S] = 0.0014\): \(0.0014/0.0214 = 0.065\)
+\end{itemize}
+
+\textbf{(b)} In het begin is \([S] = 7K_M\): het enzym is grotendeels verzadigd en de snelheid hangt weinig af van \([S]\) (bijna nulde orde). Op het einde is \([S] \ll K_M\) en geldt \(r \approx (r_{\max}/K_M)[S]\), eerste orde. De laatste procenten lactose vragen dus onevenredig veel tijd, en dat bepaalt hoe lang de melk behandeld moet worden.
+
+\textbf{(c)} \(\dfrac{[S]}{K_M + [S]} = 0.90 \Rightarrow [S] = 9K_M = 0.18\,\mathrm{mol/L}\).
+
+\textbf{(d)} \(r_{\max} = k_2[E]_0\) is evenredig met de enzymconcentratie, in elk regime. Halveer je \([E]_0\), dan halveert de snelheid op elk moment en verdubbelt de tijd voor dezelfde omzetting. Of dat goedkoper is, hangt af van de kost van het enzym tegenover de kost van grotere of langer bezette tanks.
+
+\textbf{(e)} \(k_{\text{cat}}/K_M = 60/0.020 = 3.0\times10^{3}\,\mathrm{L/(mol\cdot s)}\), ongeveer een miljoen keer kleiner dan de diffusielimiet. Bijna elke ontmoeting tussen enzym en lactose leidt dus niet tot reactie: de chemische stap, niet het transport, bepaalt de snelheid. Goed roeren of de viscositeit verlagen helpt hier niet; een hogere temperatuur (binnen de stabiliteit van het enzym) of meer enzym wel.
+\end{oplossing}
+
+\begin{oefening}[Geïntegreerde case: een reactor ontwerpen voor een exotherme reactie]
+In een fijnchemicaliënbedrijf wordt een vloeistoffasereactie \(A \rightleftharpoons B\) uitgevoerd. Bij \(60\,^\circ\mathrm{C}\) is de voorwaartse reactie van eerste orde met \(k = 0.020\,\mathrm{1/s}\), \(E_{a,\text{voorw}} = 60\,\mathrm{kJ/mol}\), \(\Delta_rH^\circ = -40\,\mathrm{kJ/mol}\) en \(K = 200\). Het debiet bedraagt \(Q = 2.0\,\mathrm{L/s}\) en de gewenste omzetting \(X = 0.95\). Behandel de reactie eerst als aflopend.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de verblijftijd en het reactorvolume voor een plug-flow reactor en voor een CSTR.
+\item[(b)]
+  Men overweegt bij \(80\,^\circ\mathrm{C}\) te werken. Bereken de nieuwe \(k\) en de nieuwe volumes.
+\item[(c)]
+  Bereken \(E_{a,\text{terug}}\) en de factor waarmee \(k_{\text{terug}}\) stijgt tussen \(60\) en \(80\,^\circ\mathrm{C}\). Bereken daaruit \(K\) bij \(80\,^\circ\mathrm{C}\) en controleer met Van 't Hoff (hoofdstuk 6).
+\item[(d)]
+  Bereken de evenwichtsomzetting \(X_{eq} = K/(1 + K)\) bij beide temperaturen. Boven welke temperatuur kan de gewenste omzetting van \(95\,\%\) thermodynamisch niet meer bereikt worden?
+\item[(e)]
+  Formuleer een advies: welke reactor en welke temperatuur, en waar moet de ingenieur nog op letten?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) PFR: \(\tau = 150\,\mathrm{s}\), \textbf{300 L}; CSTR: \(\tau = 950\,\mathrm{s}\), \textbf{1900 L}. (b) \(k =\) \textbf{0.068 1/s}; PFR \textbf{88 L}, CSTR \textbf{560 L}. (c) \(E_{a,\text{terug}} = 100\,\mathrm{kJ/mol}\); \(k_{\text{terug}}\) \ensuremath{\times{}}7.7 tegenover \(k_{\text{voorw}}\) \ensuremath{\times{}}3.4, zodat \(K\) daalt tot \textbf{88}. (d) \(X_{eq} = 0.995\) en \(0.989\); boven ongeveer \textbf{398 K (125 °C)} is 95 \% onhaalbaar. (e) Plug-flow bij ongeveer \(80\,^\circ\mathrm{C}\), met goede koeling.
+
+\textbf{(a)} Met de vergelijkingen (8.36) en (8.38):
+
+\begin{itemize}
+\item
+  PFR: \(\tau = \dfrac{1}{k}\ln\dfrac{1}{1 - X} = \dfrac{\ln 20}{0.020} = 150\,\mathrm{s}\), \(V = Q\tau = 300\,\mathrm{L}\).
+\item
+  CSTR: \(\tau = \dfrac{X}{k(1 - X)} = \dfrac{0.95}{0.020 \times 0.05} = 950\,\mathrm{s}\), \(V = 1900\,\mathrm{L}\).
+\end{itemize}
+
+Bij hoge omzetting is een CSTR meer dan zes keer groter: de hele tank werkt bij de lage eindconcentratie.
+
+\textbf{(b)} \(\dfrac{k_{80}}{k_{60}} = \exp\!\left[\dfrac{60000}{8.314}\left(\dfrac{1}{333.15} - \dfrac{1}{353.15}\right)\right] = 3.41\), dus \(k = 0.068\,\mathrm{1/s}\). Alle verblijftijden delen door \(3.41\): PFR \(88\,\mathrm{L}\), CSTR \(560\,\mathrm{L}\).
+
+\textbf{(c)} Vergelijking (8.40): \(E_{a,\text{terug}} = E_{a,\text{voorw}} - \Delta_rH^\circ = 60 + 40 = 100\,\mathrm{kJ/mol}\). Dezelfde berekening geeft voor de terugreactie een factor \(7.73\). Dus \(K_{80} = 200 \times 3.41/7.73 = 88\). Controle met Van 't Hoff: \(K_{80} = 200\exp\!\left[-\dfrac{-40000}{8.314}\left(\dfrac{1}{353.15} - \dfrac{1}{333.15}\right)\right] = 88\). Beide wegen geven hetzelfde, zoals in §8.10.1.
+
+\textbf{(d)} \(X_{eq} = 200/201 = 0.995\) bij \(60\,^\circ\mathrm{C}\) en \(88/89 = 0.989\) bij \(80\,^\circ\mathrm{C}\). Voor \(X_{eq} = 0.95\) is \(K = 19\) nodig:
+
+\[
+\frac{1}{T} = \frac{1}{333.15} + \frac{R}{\Delta_rH^\circ}\ln\frac{200}{19} \;\Rightarrow\; T \approx 398\,\mathrm{K} \approx 125\,^\circ\mathrm{C}.
+\]
+
+Merk ook op dat de aanname ``aflopend'' bij \(80\,^\circ\mathrm{C}\) minder goed klopt: met \(X = 0.95\) zit je dicht bij \(X_{eq} = 0.989\), zodat de terugreactie de netto snelheid merkbaar verlaagt en het werkelijke volume iets groter zal zijn dan berekend.
+
+\textbf{(e)} Een plug-flow reactor bij ongeveer \(80\,^\circ\mathrm{C}\) is meer dan twintig keer kleiner dan een CSTR bij \(60\,^\circ\mathrm{C}\). Hoger gaan levert steeds minder op, omdat het evenwicht opschuift naar \(A\). De ingenieur moet letten op de warmteafvoer: per mol omgezet \(A\) komt \(40\,\mathrm{kJ}\) vrij, en in een PFR concentreert die warmte zich aan de ingang. Een te warme zone verhoogt de snelheid verder (de reactor kan ``op hol slaan'') en verlaagt tegelijk de haalbare omzetting. Dit is het compromis tussen thermodynamica en kinetiek uit §8.11, op kleine schaal.
+\end{oplossing}
+
+\begin{oefening}[Waarom blijven fotochrome brillenglazen donker in de kou?]
+Fotochrome brillenglazen bevatten zilverhalogenide. UV-licht reduceert de zilverionen tot kleine zilverclusters die het glas donker kleuren. Zonder UV keren de clusters terug naar de kleurloze toestand. Dat ontkleuren is een eerste-ordeproces met een halfwaardetijd van \(60\,\mathrm{s}\) bij \(25\,^\circ\mathrm{C}\) en een activeringsenergie van \(60\,\mathrm{kJ/mol}\).
+
+\begin{enumerate}
+\item[(a)]
+  Hoe lang duurt het bij \(25\,^\circ\mathrm{C}\) tot nog 10 \% van de verkleuring overblijft?
+\item[(b)]
+  Bereken de halfwaardetijd bij \(0\,^\circ\mathrm{C}\).
+\item[(c)]
+  Hoe lang duurt het nu tot de glazen voor 90 \% ontkleurd zijn? Wat merk je daarvan als je in de winter een winkel binnenstapt?
+\item[(d)]
+  In de auto worden fotochrome glazen nauwelijks donker. Waarom?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{200 s, ruim 3 minuten}. (b) \(t_{1/2}\) = \textbf{550 s, ongeveer 9 minuten}. (c) \textbf{30 minuten}: je ziet binnen lang slechter. (d) De voorruit houdt het UV-licht tegen.
+
+\textbf{(a)} Eerste orde: \(\ln(A_0/A) = kt\) met \(k = \ln 2/t_{1/2} = 0.0116\,\mathrm{s^{-1}}\). Voor \(A/A_0 = 0.10\): \(t = \ln 10/k = 3.32\,t_{1/2} = 200\,\mathrm{s}\).
+
+\textbf{(b)} Met Arrhenius:
+
+\[
+\frac{k(273\,\mathrm{K})}{k(298\,\mathrm{K})} = \exp\left[-\frac{E_a}{R}\left(\frac{1}{273.15}-\frac{1}{298.15}\right)\right] = \exp(-2.22) = 0.109
+\]
+
+De halfwaardetijd wordt \(60/0.109 = 550\,\mathrm{s}\), ongeveer 9 minuten.
+
+\textbf{(c)} \(t = 3.32 \times 550 = 1830\,\mathrm{s} \approx 30\,\mathrm{min}\). Na een wandeling in de wintersneeuw blijven je glazen binnen nog lang donker. In de zomer zijn ze binnen enkele minuten helder. Bovendien worden ze in de kou ook donkerder: bij gelijke UV-intensiteit ligt de stationaire toestand hoger, omdat het ontkleuren trager gaat.
+
+\textbf{(d)} Het donker worden vraagt fotonen met voldoende energie om de zilverionen te reduceren, dus UV-licht. Gelaagd autoglas absorbeert vrijwel alle UV-straling. Zichtbaar licht heeft per foton te weinig energie (hoofdstuk 2). Er zijn speciale glazen die ook op zichtbaar licht reageren.
+\end{oplossing}
+
+\begin{oefening}[Jodium-131 en cesium-137 na een kernongeval]
+Na de ongevallen in Tsjernobyl (1986) en Fukushima (2011) waren vooral twee radioactieve isotopen belangrijk: jodium-131 (\(t_{1/2} = 8.02\,\mathrm{d}\)) en cesium-137 (\(t_{1/2} = 30.1\,\mathrm{jaar}\)). Radioactief verval is een eerste-ordeproces.
+
+\begin{enumerate}
+\item[(a)]
+  Welk deel van het jodium-131 is na 80 dagen nog over? Na hoeveel dagen is nog 1 \% over?
+\item[(b)]
+  Welk deel van het cesium-137 uit Tsjernobyl is in 2024 nog aanwezig?
+\item[(c)]
+  Bereken de activiteit \(A = kN\) (in becquerel, vervallen per seconde) van \(1\,\mu\mathrm{g}\) jodium-131 (\(M = 131\,\mathrm{g/mol}\)).
+\item[(d)]
+  Bij een kernongeval krijgt de bevolking jodiumtabletten met gewoon, niet-radioactief jodium. Waarom helpen die tegen jodium-131, maar niet tegen cesium-137? Waarom is jodium-131 op korte termijn gevaarlijker en cesium-137 op lange termijn?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Na 80 dagen \textbf{0.1 \%}; 1 \% na \textbf{53 dagen}. (b) Nog \textbf{42 \%}. (c) \(A\) = \textbf{4.6\ensuremath{\cdot{}}10\ensuremath{^{9}} Bq}. (d) Stabiel jodium verzadigt de schildklier. Een korte halfwaardetijd betekent een hoge activiteit maar een snel verdwijnen.
+
+\textbf{(a)} \(N/N_0 = (1/2)^{t/t_{1/2}} = (1/2)^{80/8.02} = 2^{-10} \approx 1.0\times10^{-3}\). Voor 1 \%: \(t = t_{1/2}\ln 100/\ln 2 = 8.02 \times 6.64 = 53\,\mathrm{d}\).
+
+\textbf{(b)} Van 1986 tot 2024 is 38 jaar: \((1/2)^{38/30.1} = 0.42\). Bijna de helft is er dus nog, wat verklaart waarom de zone rond Tsjernobyl nog steeds afgesloten is.
+
+\textbf{(c)} \(k = \ln 2/(8.02 \times 86\,400\,\mathrm{s}) = 1.00\times10^{-6}\,\mathrm{s^{-1}}\) en \(N = (10^{-6}/131)(6.022\times10^{23}) = 4.6\times10^{15}\) atomen, zodat \(A = kN = 4.6\times10^{9}\,\mathrm{Bq}\). Een microgram is dus al zeer radioactief.
+
+\textbf{(d)} De schildklier neemt jodium actief op. Een grote dosis stabiel jodium verzadigt de opname, zodat het radioactieve jodium niet meer wordt vastgehouden en via de nieren verdwijnt. Cesium gedraagt zich chemisch als kalium en verspreidt zich door het hele lichaam: daartegen helpt jodium niet. Bij gelijke hoeveelheid is de activiteit omgekeerd evenredig met de halfwaardetijd: jodium-131 straalt dus intens maar verdwijnt na enkele maanden. Cesium-137 straalt zwakker, maar blijft tientallen jaren in de bodem en de voedselketen.
+\end{oplossing}
