@@ -343,3 +343,99 @@ Een druivensuikertablet bevat \SI{3.0}{\gram} glucose ($M = \SI{180.16}{\gram\pe
 
 \textbf{(d)} De overige $0.75 \times 46.8 = 35.1\,\mathrm{kJ}$ is warmte. Om die af te voeren via verdamping is $35.1/2.43 = 14\,\mathrm{g}$ water nodig. De eerste hoofdwet geldt dus ook voor het lichaam: de energie uit voeding verdwijnt niet, maar gaat voor het grootste deel als warmte naar de omgeving. Daarom krijg je het warm bij inspanning, en daarom zweet je.
 \end{oplossing}
+
+\begin{oefening}[Hoe snel is een molecule?]
+\begin{enumerate}
+\item[(a)] Bereken $v_\mathrm{rms}$ van zuurstof, waterstof en helium bij \SI{20}{\celsius}.
+\item[(b)] Waterstof en helium zijn bijna afwezig in de aardatmosfeer, terwijl ze in het heelal het meest voorkomen. Geef een verklaring op basis van (a). De ontsnappingssnelheid van de aarde is \SI{11.2}{\kilo\metre\per\second}; in de bovenste lagen van de atmosfeer loopt de temperatuur op tot meer dan \SI{1000}{\kelvin}.
+\item[(c)] Een ballon gevuld met lucht verliest per dag \SI{2}{\percent} van zijn gas door de microporiën van het rubber. Schat hoeveel procent een identieke heliumballon per dag verliest.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \ce{O2}: \SI{478}{\metre\per\second}, \ce{H2}: \SI{1904}{\metre\per\second}, \ce{He}: \SI{1352}{\metre\per\second}. (b) Lichte gassen hebben een snelheidsverdeling met een staart tot boven de ontsnappingssnelheid. (c) Ongeveer \SI{5}{\percent} per dag.
+
+\textbf{(a)} $v_\mathrm{rms} = \sqrt{3RT/M}$ met $T = \SI{293.15}{\kelvin}$:
+\[
+\ce{O2}: \sqrt{\frac{3(8.314)(293.15)}{0.032}} = 478\,\mathrm{m/s},\qquad
+\ce{H2}\ (M = 0.002016): 1904\,\mathrm{m/s},\qquad
+\ce{He}\ (M = 0.004003): 1352\,\mathrm{m/s}.
+\]
+
+\textbf{(b)} Bij \SI{1000}{\kelvin} is $v_\mathrm{rms}$ van \ce{H2} ongeveer \SI{3.5}{\kilo\metre\per\second}. Dat is nog altijd lager dan \SI{11.2}{\kilo\metre\per\second}, maar $v_\mathrm{rms}$ is een gemiddelde: een kleine fractie van de moleculen is veel sneller (de Maxwell--Boltzmannverdeling, hoofdstuk~\ref{ch:kinetiek}). Over miljarden jaren ontsnappen zo de lichte moleculen uit de bovenste atmosfeer. Voor \ce{O2} en \ce{N2} is die fractie verwaarloosbaar klein.
+
+\textbf{(c)} Volgens de wet van Graham is de effusiesnelheid evenredig met $1/\sqrt{M}$: $\sqrt{28.96/4.003} = 2.69$. De heliumballon verliest dus ongeveer $2.69 \times 2 \approx 5\,\%$ per dag. (In werkelijkheid speelt ook oplossen in en diffunderen door het rubber mee, maar de trend klopt.)
+\end{oplossing}
+
+\begin{oefening}[Een batchreactor zonder koeling]
+In een batchreactor van \SI{5.0}{\cubic\metre} verloopt een exotherme reactie in waterig midden: $c_{A,0} = \SI{1.5}{\mole\per\litre}$, $\Delta_r H = \SI{-120}{\kilo\joule\per\mole}$, $\rho c_p = \SI{4.0}{\kilo\joule\per\litre\per\kelvin}$. De reactor start bij \SI{70}{\celsius} en de reactie is na \SI{2}{\hour} volledig afgelopen.
+\begin{enumerate}
+\item[(a)] Bereken de adiabatische temperatuurstijging. Tot welke temperatuur kan het mengsel opwarmen als de koeling uitvalt?
+\item[(b)] Welk gemiddeld koelvermogen (in \si{\kilo\watt}) is nodig om de temperatuur constant te houden?
+\item[(c)] Om de productie te verhogen wil men de beginconcentratie verdubbelen. Wat is het gevolg voor de veiligheid? Stel een alternatieve werkwijze voor die dezelfde hoeveelheid product oplevert met minder risico.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $\Delta T_\mathrm{ad} = \SI{45}{\kelvin}$, eindtemperatuur \SI{115}{\celsius}. (b) \SI{125}{\kilo\watt}. (c) $\Delta T_\mathrm{ad} = \SI{90}{\kelvin}$, tot \SI{160}{\celsius}; beter een semibatchreactor waarin reagens A geleidelijk wordt toegevoegd.
+
+\textbf{(a)} $\Delta T_\mathrm{ad} = c_{A,0}(-\Delta_r H)/(\rho c_p) = (1.5)(120)/4.0 = 45\,\mathrm{K}$. Het mengsel kan opwarmen tot $70 + 45 = 115\,{}^\circ\mathrm{C}$, boven het kookpunt van water: de druk in de reactor stijgt.
+
+\textbf{(b)} Totale warmte: $(5000\,\mathrm{L})(1.5\,\mathrm{mol/L})(120\,\mathrm{kJ/mol}) = 9.0\times10^5\,\mathrm{kJ}$. Over \SI{7200}{\second} is dat gemiddeld $125\,\mathrm{kW}$. In het begin, wanneer de concentratie het hoogst is, ligt het vermogen hoger dan dit gemiddelde.
+
+\textbf{(c)} De adiabatische temperatuurstijging verdubbelt tot \SI{90}{\kelvin}: het mengsel kan tot \SI{160}{\celsius} oplopen. Omdat de reactiesnelheid sterk stijgt met de temperatuur, kan de reactie dan op hol slaan. Een veiliger alternatief is een \emph{semibatch}werkwijze: je start met het oplosmiddel en de tweede reagens, en doseert A geleidelijk. Er is dan op elk moment maar weinig niet-gereageerde A aanwezig, zodat bij uitval van de koeling de temperatuur slechts weinig stijgt; je stopt dan gewoon de toevoer.
+\end{oplossing}
+
+\begin{oefening}[Vlamtemperatuur met luchtovermaat]
+Een industri\"ele oven verbrandt methaan met \SI{20}{\percent} luchtovermaat. Brandstof en lucht komen binnen op \SI{25}{\celsius}. Gebruik $\Delta_c H^\circ = \SI{-802.3}{\kilo\joule\per\mole}$ (water als damp) en de gemiddelde warmtecapaciteiten tussen \SI{298}{\kelvin} en \SI{2100}{\kelvin}: \ce{CO2} \SI{54.1}{}, \ce{H2O} \SI{43.3}{}, \ce{O2} \SI{34.9}{} en \ce{N2} \SI{33.2}{\joule\per\mole\per\kelvin}.
+\begin{enumerate}
+\item[(a)] Stel de reactievergelijking op, inclusief de overtollige zuurstof en de stikstof.
+\item[(b)] Bereken de adiabatische vlamtemperatuur.
+\item[(c)] Vergelijk met de stoichiometrische verbranding (\SI{2330}{\kelvin}, zie het voorbeeld in de tekst). Waarom gebruikt men toch luchtovermaat?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $\ce{CH4 + 2.4 O2 + 9.02 N2 -> CO2 + 2 H2O + 0.4 O2 + 9.02 N2}$. (b) $T_\mathrm{ad} \approx \SI{2065}{\kelvin}$ (\SI{1790}{\celsius}). (c) Ongeveer \SI{265}{\kelvin} lager, maar de verbranding is volledig.
+
+\textbf{(a)} Stoichiometrisch is 2 mol \ce{O2} nodig; met 20\,\% overmaat wordt dat 2.4 mol \ce{O2} en $2.4 \times 3.76 = 9.02$ mol \ce{N2}. Er blijft 0.4 mol \ce{O2} over.
+
+\textbf{(b)}
+\[
+\sum n_i \overline{C}_{p,i} = 54.1 + 2(43.3) + 0.4(34.9) + 9.02(33.2) = 454\,\mathrm{J/K}
+\]
+\[
+T_\mathrm{ad} = 298 + \frac{802\,300}{454} = 2065\,\mathrm{K}.
+\]
+Een berekening met temperatuurafhankelijke $C_p$ geeft \SI{2070}{\kelvin} (zie figuur~\ref{fig:vlamtemperatuur}).
+
+\textbf{(c)} De extra lucht moet mee opgewarmd worden, zodat de vlam ongeveer \SI{265}{\kelvin} koeler is. Toch is een kleine overmaat nodig: brandstof en lucht mengen nooit perfect, en zonder overmaat ontstaat \ce{CO} (giftig) en roet, en gaat brandstof verloren. Te veel overmaat is evenmin goed: de warme rookgassen voeren dan veel energie mee naar de schoorsteen, en het rendement van de oven daalt.
+\end{oplossing}
+
+\begin{oefening}[Numeriek: vlamtemperatuur met variabele $C_p$]
+Waterstof verbrandt stoichiometrisch met lucht: $\ce{H2 + 0.5 O2 + 1.88 N2 -> H2O(g) + 1.88 N2}$, met $\Delta_r H^\circ = \SI{-241.8}{\kilo\joule\per\mole}$. Tussen \SI{300}{\kelvin} en \SI{2500}{\kelvin} geldt in goede benadering $C_p = a + bT$ met
+\begin{center}
+\begin{tabular}{lcc}
+ & $a$ (\si{\joule\per\mole\per\kelvin}) & $b$ (\si{\joule\per\mole\per\kelvin\squared}) \\ \hline
+\ce{H2O(g)} & 31.1 & $9.92\times10^{-3}$ \\
+\ce{N2} & 28.6 & $3.70\times10^{-3}$ \\
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item[(a)] Stel de energiebalans op voor de adiabatische vlam. Schrijf ze als een vergelijking in $T_\mathrm{ad}$.
+\item[(b)] Los de vergelijking op in Excel (bv.\ met \emph{Doelzoeken}) of analytisch.
+\item[(c)] Herhaal de berekening met een constante $C_p$, gelijk aan de waarde bij \SI{298}{\kelvin}. Hoe groot is de fout?
+\item[(d)] Pas je rekenblad aan voor een luchtovermaat van \SI{50}{\percent}. Neem voor \ce{O2}: $a = 29.9$ en $b = 4.2\times10^{-3}$.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) $84.87\,(T-298) + 8.44\times10^{-3}\,(T^2-298^2) = 241\,800$. (b) $T_\mathrm{ad} = \SI{2523}{\kelvin}$. (c) \SI{2988}{\kelvin}, een overschatting met ongeveer \SI{465}{\kelvin}. (d) Ongeveer \SI{1980}{\kelvin}.
+
+\textbf{(a)} Voor het productmengsel geldt $\sum n_i a_i = 31.1 + 1.88(28.6) = 84.87$ en $\sum n_i b_i = 9.92\times10^{-3} + 1.88(3.70\times10^{-3}) = 16.88\times10^{-3}$. Integreren van $C_p$ van \SI{298}{\kelvin} tot $T$ geeft
+\[
+84.87\,(T - 298.15) + \tfrac{1}{2}(16.88\times10^{-3})(T^2 - 298.15^2) = 241\,800.
+\]
+
+\textbf{(b)} Dit is een vierkantsvergelijking in $T$: $8.44\times10^{-3}\,T^2 + 84.87\,T - 267\,850 = 0$, met als positieve wortel $T_\mathrm{ad} = 2523\,\mathrm{K}$. In Excel zet je $T$ in een cel, de linkerzijde min $241\,800$ in een tweede cel, en laat je Doelzoeken die tweede cel op nul brengen. (Met de volledige NIST-gegevens vindt men \SI{2525}{\kelvin}; de lineaire benadering is dus uitstekend.)
+
+\textbf{(c)} Bij \SI{298}{\kelvin}: $C_p(\ce{H2O}) = 34.1$ en $C_p(\ce{N2}) = 29.7\,\mathrm{J/(mol\,K)}$, samen $34.1 + 1.88(29.7) = 89.9\,\mathrm{J/K}$. Dan is $T_\mathrm{ad} = 298 + 241\,800/89.9 = 2988\,\mathrm{K}$: bijna \SI{500}{\kelvin} te hoog. Bij hoge temperatuur worden de vibraties van de moleculen actief (hoofdstuk~\ref{ch:kwantum}), zodat $C_p$ sterk stijgt. Voor grote temperatuursprongen mag je $C_p$ dus niet constant nemen.
+
+\textbf{(d)} Er komt 0.25 mol \ce{O2} en $0.75 \times 3.76 = 2.82$ mol \ce{N2} in de rookgassen: $\sum n_i a_i = 31.1 + 2.82(28.6) + 0.25(29.9) = 119.2$ en $\sum n_i b_i = 9.92\times10^{-3} + 2.82(3.70\times10^{-3}) + 0.25(4.2\times10^{-3}) = 21.40\times10^{-3}$. Doelzoeken geeft $T_\mathrm{ad} \approx 1980\,\mathrm{K}$, ruim \SI{500}{\kelvin} lager dan stoichiometrisch.
+\end{oplossing}

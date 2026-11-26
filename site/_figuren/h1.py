@@ -238,3 +238,68 @@ def compressie_pv():
     ax.set_xlabel("volume $V$ (L, 1 mol lucht)")
     ax.set_ylabel("druk $p$ (bar)")
     return kader(fig)
+
+
+# ------------------------------------------- adiabatische vlamtemperatuur
+_SHOMATE = {  # NIST WebBook: (Tmin, Tmax, A, B, C, D, E), cp in J/(mol K), t = T/1000
+    "N2": [(100, 500, 28.98641, 1.853978, -9.647459, 16.63537, 0.000117),
+           (500, 2000, 19.50583, 19.88705, -8.598535, 1.369784, 0.527601),
+           (2000, 6000, 35.51872, 1.128728, -0.196103, 0.014662, -4.553760)],
+    "O2": [(100, 700, 31.32234, -20.23531, 57.86644, -36.50624, -0.007374),
+           (700, 2000, 30.03235, 8.772972, -3.988133, 0.788313, -0.741599),
+           (2000, 6000, 20.91111, 10.72071, -2.020498, 0.146449, 9.245722)],
+    "CO2": [(298, 1200, 24.99735, 55.18696, -33.69137, 7.948387, -0.136638),
+            (1200, 6000, 58.16639, 2.720074, -0.492289, 0.038844, -6.447293)],
+    "H2O": [(298, 1700, 30.09200, 6.832514, 6.793435, -2.534480, 0.082139),
+            (1700, 6000, 41.96426, 8.622053, -1.499780, 0.098119, -11.15764)],
+}
+
+
+def _dH(stof, T):
+    """H(T) - H(298.15 K) in J/mol (Shomate, stuksgewijs geïntegreerd)."""
+    def F(c, T):
+        t = T / 1000
+        A, B, C, D, E = c
+        return 1000 * (A * t + B * t**2 / 2 + C * t**3 / 3 + D * t**4 / 4 - E / t)
+    tot, Tl = 0.0, 298.15
+    for Tmin, Tmax, *c in _SHOMATE[stof]:
+        if Tl >= Tmax:
+            continue
+        Th = min(T, Tmax)
+        tot += F(c, Th) - F(c, Tl)
+        Tl = Th
+        if Tl >= T:
+            break
+    return tot
+
+
+def _T_ad(overmaat, dcH=802.3e3):
+    n = {"CO2": 1, "H2O": 2, "O2": 2 * overmaat, "N2": 2 * (1 + overmaat) * 3.76}
+    lo, hi = 300.0, 4000.0
+    for _ in range(60):  # bisectie
+        T = (lo + hi) / 2
+        if sum(v * _dH(s, T) for s, v in n.items()) > dcH:
+            hi = T
+        else:
+            lo = T
+    return T
+
+
+def vlamtemperatuur():
+    """Adiabatische vlamtemperatuur van CH4 in lucht vs. luchtovermaat."""
+    fig, ax = figuur(6.6, 4.5)
+    x = np.linspace(0, 200, 81)
+    T = np.array([_T_ad(xi / 100) for xi in x])
+    ax.axvspan(10, 20, color=K.vlak_oker, lw=0, zorder=0)
+    label(ax, 15, 1250, "gangbaar\nin ovens", K.oker, ha="center", fontsize=10.5)
+    ax.plot(x, T - 273.15, color=K.rood, lw=2.4)
+    T0 = T[0] - 273.15
+    ax.plot(0, T0, "o", color=K.rood, ms=7, zorder=5)
+    label(ax, 23, T0 + 15, f"stoichiometrisch: {T0:.0f} °C", K.rood, fontsize=11)
+    label(ax, 110, 1500, "meer lucht = meer stikstof\ndat mee opgewarmd moet worden", K.tekst,
+          fontsize=11, style="italic")
+    ax.set_xlim(0, 200)
+    ax.set_ylim(700, 2200)
+    ax.set_xlabel("luchtovermaat (%)")
+    ax.set_ylabel(r"$T_\mathrm{ad}$ (°C)")
+    return kader(fig)

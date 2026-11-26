@@ -170,9 +170,9 @@ In hoofdstuk~\ref{ch:eerstehoofdwet} introduceerden we de vergelijking van Van d
 \end{equation}
 De parameter $a$ corrigeert voor de intermoleculaire aantrekkingskrachten. Met behulp van de Lennard-Jones-potentiaal kan deze parameter fysisch worden ge\"interpreteerd en, in tegenstelling tot een louter evenredigheidsargument, ook effectief worden berekend.
 
-Beschouw \'e\'en molecule, omringd door een gemiddelde, uniforme dichtheid van andere moleculen. Het aantal buurmoleculen in een dunne bolschil met straal $r$ en dikte $\dx{r}$ bedraagt $4\pi r^2\,\dx{r}$ maal de getalsdichtheid. De gemiddelde aantrekkingsenergie van \'e\'en molecule met al zijn buren wordt dan bekomen door de attractieve term van de Lennard-Jonespotentiaal, $V_{\text{attr}}(r) = -4\varepsilon(\sigma/r)^6$, te integreren over alle afstanden vanaf het punt waar de moleculen elkaar raken ($r=\sigma$) tot oneindig ver:
+Beschouw \'e\'en molecule, omringd door een gemiddelde, uniforme dichtheid van andere moleculen. Het aantal buurmoleculen in een dunne bolschil met straal $r$ en dikte $\dd{r}$ bedraagt $4\pi r^2\,\dd{r}$ maal de getalsdichtheid. De gemiddelde aantrekkingsenergie van \'e\'en molecule met al zijn buren wordt dan bekomen door de attractieve term van de Lennard-Jonespotentiaal, $V_{\text{attr}}(r) = -4\varepsilon(\sigma/r)^6$, te integreren over alle afstanden vanaf het punt waar de moleculen elkaar raken ($r=\sigma$) tot oneindig ver:
 \begin{equation}
-\overline{V}_{\text{attr}} = \int_{\sigma}^{\infty} 4\pi r^2\,V_{\text{attr}}(r)\,\dx{r} = -16\pi\varepsilon\sigma^6\int_{\sigma}^{\infty}\frac{\dx{r}}{r^4} = -16\pi\varepsilon\sigma^6\left[-\frac{1}{3r^3}\right]_{\sigma}^{\infty} = -\frac{16\pi}{3}\varepsilon\sigma^3.
+\overline{V}_{\text{attr}} = \int_{\sigma}^{\infty} 4\pi r^2\,V_{\text{attr}}(r)\,\dd{r} = -16\pi\varepsilon\sigma^6\int_{\sigma}^{\infty}\frac{\dd{r}}{r^4} = -16\pi\varepsilon\sigma^6\left[-\frac{1}{3r^3}\right]_{\sigma}^{\infty} = -\frac{16\pi}{3}\varepsilon\sigma^3.
 \end{equation}
 Omdat elk paar moleculen bij deze telling tweemaal wordt meegerekend (net zoals bij de afleiding van het co-volume $b$ in hoofdstuk~\ref{ch:eerstehoofdwet}, \S~1.5.4), bedraagt de effectieve aantrekkingsenergie per mol de helft hiervan, vermenigvuldigd met het aantal Avogadro-paren:
 \begin{equation}

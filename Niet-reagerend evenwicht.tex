@@ -42,13 +42,13 @@ De temperatuur waarbij dit gebeurt is geen toevallige materiaaleigenschap. Zij v
 \subsection{De chemische potentiaal als functie van druk en temperatuur}
 \label{sec:mu-p-T}
 
-De chemische potentiaal van een zuivere stof is de molaire Gibbs-vrije energie: $\mu = G_m$. Voor een zuiver systeem met $n$ mol geldt $G=n\mu$, $V=nV_m$ en $S=nS_m$. Substitutie in de fundamentele differentiaalvergelijking van hoofdstuk~\ref{ch:spontaniteit}, $\dG=V\,\dp-S\,\dT$ (vergelijking~\eqref{eq:fundG}), levert bij constante $n$:
+De chemische potentiaal van een zuivere stof is de molaire Gibbs-vrije energie: $\mu = G_m$. Voor een zuiver systeem met $n$ mol geldt $G=n\mu$, $V=nV_m$ en $S=nS_m$. Substitutie in de fundamentele differentiaalvergelijking van hoofdstuk~\ref{ch:spontaniteit}, $\dd{G}=V\,\dd{p}-S\,\dd{T}$ (vergelijking~\eqref{eq:fundG}), levert bij constante $n$:
 \begin{equation}
-n\,\d\mu = nV_m\,\dp - nS_m\,\dT,
+n\,\dd{\mu} = nV_m\,\dd{p} - nS_m\,\dd{T},
 \end{equation}
 en na deling door $n$:
 \begin{equation}
-\boxed{\;\d\mu = V_m\,\dp - S_m\,\dT.\;}
+\boxed{\;\dd{\mu} = V_m\,\dd{p} - S_m\,\dd{T}.\;}
 \label{eq:dmu-fundamenteel}
 \end{equation}
 Deze vergelijking, die rechtstreeks voortvloeit uit vergelijking~\eqref{eq:fundG} uit hoofdstuk~\ref{ch:spontaniteit}, is het vertrekpunt voor vrijwel alle berekeningen van fase-evenwichten in dit hoofdstuk.
@@ -57,7 +57,7 @@ Deze vergelijking, die rechtstreeks voortvloeit uit vergelijking~\eqref{eq:fundG
 
 Bij constante temperatuur reduceert deze vergelijking tot
 \begin{equation}
-\d\mu = V_m\,\dp.
+\dd{\mu} = V_m\,\dd{p}.
 \end{equation}
 De chemische potentiaal stijgt dus met de druk. Voor vloeistoffen en vaste stoffen, die een klein molair volume hebben, is deze afhankelijkheid beperkt. Voor gassen, die een groot molair volume hebben, is zij aanzienlijk.
 
@@ -66,7 +66,7 @@ De chemische potentiaal stijgt dus met de druk. Voor vloeistoffen en vaste stoff
 Voor een ideaal gas geldt $V_m = RT/p$. Invullen en integreren tussen een referentiedruk $p^\circ$ en de actuele druk $p$ levert:
 \begin{equation}
 \mu(T,p) = \mu^\circ(T) + RT \ln\frac{p}{p^\circ}.
-\label{eq:mu-p-ideaalgas-h5}\label{eq:mu-ideaalgas}
+\label{eq:mu-ideaalgas}
 \end{equation}
 Hierin is $\mu^\circ(T)$ de chemische potentiaal in de standaardtoestand ($p = p^\circ = \SI{1}{\bar}$). De chemische potentiaal van een ideaal gas hangt dus logaritmisch af van de druk: dat is het rechtstreekse gevolg van de $1/p$-afhankelijkheid van het molair volume.
 
@@ -154,27 +154,27 @@ Deze vergelijking geldt voor het evenwicht tussen vaste stof en vloeistof, tusse
 
 De vergelijking van Clapeyron beschrijft hoe de druk van een fase-evenwicht verandert wanneer de temperatuur wordt gewijzigd. De afleiding vertrekt van de voorwaarde dat beide fasen langs de evenwichtslijn in evenwicht blijven, zodat $d\mu^{(\alpha)} = d\mu^{(\beta)}$.
 
-Met $\d\mu = V_m\,\dp - S_m\,\dT$ (vergelijking~\eqref{eq:dmu-fundamenteel}) voor iedere fase volgt:
+Met $\dd{\mu} = V_m\,\dd{p} - S_m\,\dd{T}$ (vergelijking~\eqref{eq:dmu-fundamenteel}) voor iedere fase volgt:
 \[
-V_m^{(\beta)}\,\dp - S_m^{(\beta)}\,\dT = V_m^{(\alpha)}\,\dp - S_m^{(\alpha)}\,\dT.
+V_m^{(\beta)}\,\dd{p} - S_m^{(\beta)}\,\dd{T} = V_m^{(\alpha)}\,\dd{p} - S_m^{(\alpha)}\,\dd{T}.
 \]
 Het verschil tussen beide molaire volumes is $\Delta V_m = V_m^{(\beta)} - V_m^{(\alpha)}$ en het verschil tussen beide molaire entropie\"en is $\Delta S_m = S_m^{(\beta)} - S_m^{(\alpha)}$. Herschikken levert:
 \begin{equation}
-\frac{\dp}{\dT} = \frac{\Delta S_m}{\Delta V_m}.
+\frac{\dd{p}}{\dd{T}} = \frac{\Delta S_m}{\Delta V_m}.
 \end{equation}
 Met $\Delta S_{\text{trans}} = \Delta H_{\text{trans}}/T_{\text{trans}}$ (hoofdstuk~\ref{ch:spontaniteit}) ontstaat de \emph{algemene vergelijking van Clapeyron}:
 \begin{equation}
-\boxed{\;\frac{\dp}{\dT} = \frac{\Delta H_{\text{trans}}}{T\,\Delta V_m}\;}
+\boxed{\;\frac{\dd{p}}{\dd{T}} = \frac{\Delta H_{\text{trans}}}{T\,\Delta V_m}\;}
 \label{eq:clapeyron}
 \end{equation}
 Deze vergelijking is algemeen geldig voor iedere eerste-orde faseovergang.
 
 \begin{voorbeeld}{De smeltlijn van water}
-Water vormt een bekende uitzondering. Omdat ijs een lagere dichtheid bezit dan vloeibaar water, neemt het volume af tijdens het smelten: $\Delta V_m < 0$. Aangezien $\Delta H_{\text{fus}} > 0$, is de helling $\dp/\dT$ negatief. Een drukverhoging verlaagt de smelttemperatuur van ijs. Dit verklaart waarom schaatsen mogelijk is: de druk onder de schaats smelt het ijs lokaal, hetgeen een dunne vloeistoflaag vormt die als smeermiddel werkt.
+Water vormt een bekende uitzondering. Omdat ijs een lagere dichtheid bezit dan vloeibaar water, neemt het volume af tijdens het smelten: $\Delta V_m < 0$. Aangezien $\Delta H_{\text{fus}} > 0$, is de helling $\dd{p}/\dd{T}$ negatief. Een drukverhoging verlaagt de smelttemperatuur van ijs. Dit verklaart waarom schaatsen mogelijk is: de druk onder de schaats smelt het ijs lokaal, hetgeen een dunne vloeistoflaag vormt die als smeermiddel werkt.
 
 Voor water bij \SI{0}{\celsius} geldt $\Delta H_{\text{fus}} = \SI{6.0}{\kilo\joule\per\mole}$ en $\Delta V_m \approx \SI{-1.6e-6}{\metre\cubed\per\mole}$. De helling bedraagt dus:
 \[
-\frac{\dp}{\dT} = \frac{\SI{6000}{\joule\per\mole}}{(\SI{273.15}{\kelvin})(\SI{-1.6e-6}{\metre\cubed\per\mole})} \approx \SI{-1.4e7}{\pascal\per\kelvin} = \SI{-140}{\bar\per\kelvin}.
+\frac{\dd{p}}{\dd{T}} = \frac{\SI{6000}{\joule\per\mole}}{(\SI{273.15}{\kelvin})(\SI{-1.6e-6}{\metre\cubed\per\mole})} \approx \SI{-1.4e7}{\pascal\per\kelvin} = \SI{-140}{\bar\per\kelvin}.
 \]
 Een drukverhoging van \SI{140}{\bar} is dus nodig om het smeltpunt van ijs met \SI{1}{\kelvin} te verlagen.
 \end{voorbeeld}
@@ -189,11 +189,11 @@ Voor het vloeistof-dampevenwicht kan de algemene vergelijking van Clapeyron ster
 \end{enumerate}
 Substitutie levert:
 \begin{equation}
-\frac{1}{p}\frac{\dp}{\dT} = \frac{\Delta H_{\text{vap}}}{RT^2},
+\frac{1}{p}\frac{\dd{p}}{\dd{T}} = \frac{\Delta H_{\text{vap}}}{RT^2},
 \end{equation}
 of, equivalent:
 \begin{equation}
-\frac{\dx{\ln p}}{\dT} = \frac{\Delta H_{\text{vap}}}{RT^2}.
+\frac{\dd{\ln p}}{\dd{T}} = \frac{\Delta H_{\text{vap}}}{RT^2}.
 \end{equation}
 Indien $\Delta H_{\text{vap}}$ constant wordt verondersteld, levert integratie:
 \begin{equation}
@@ -578,7 +578,7 @@ Typische voorbeelden van LLE zijn water--olie, water--fenol en polymeer--oplosmi
 Voor een component die tussen twee onmengbare vloeistoffasen verdeelt, geldt bij evenwicht dat de chemische potentiaal in beide fasen gelijk is. Voor verdunde oplossingen volgt hieruit de \emph{verdelingswet van Nernst}:
 \begin{equation}
 \boxed{\;K_D = \frac{c_i^{(\alpha)}}{c_i^{(\beta)}}\;}
-\label{eq:nernst}
+\label{eq:nernst-verdeling}
 \end{equation}
 waarin $K_D$ de verdelings- of distributieco\"effici\"ent is, die afhangt van de aard van de component en beide oplosmiddelen, maar niet van de concentratie (in de verdunde limiet).
 

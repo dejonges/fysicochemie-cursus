@@ -35,28 +35,28 @@ In dit hoofdstuk onderzoeken we hoe chemische en elektrische energie met elkaar 
 \subsection{Chemische energie als bron van elektrische arbeid}
 \label{sec:chemische-elektrische-arbeid}
 
-Wanneer een chemische reactie spontaan verloopt, neemt de Gibbs-vrije energie van het systeem af. We tonen hieronder aan dat deze afname gelijk is aan de maximaal beschikbare \emph{niet-expansiearbeid} die het systeem kan leveren --- dat wil zeggen, alle arbeid buiten de gewone volumearbeid $-p\,\dV$ om, zoals elektrische arbeid.
+Wanneer een chemische reactie spontaan verloopt, neemt de Gibbs-vrije energie van het systeem af. We tonen hieronder aan dat deze afname gelijk is aan de maximaal beschikbare \emph{niet-expansiearbeid} die het systeem kan leveren --- dat wil zeggen, alle arbeid buiten de gewone volumearbeid $-p\,\dd{V}$ om, zoals elektrische arbeid.
 
 \subsubsection{Afleiding: waarom $\Delta G$ de maximale niet-expansiearbeid geeft}
 \label{sec:afleiding-wmax}
 
-Beschouw een gesloten systeem bij constante temperatuur en druk, dat naast volumearbeid ook een bijkomende arbeid $\dx{w}_{\text{extra}}$ met de omgeving kan uitwisselen (bijvoorbeeld elektrische arbeid, toegevoerd aan het systeem volgens de gebruikelijke tekenconventie). De eerste hoofdwet (hoofdstuk~\ref{ch:eerstehoofdwet}) geeft:
+Beschouw een gesloten systeem bij constante temperatuur en druk, dat naast volumearbeid ook een bijkomende arbeid $\dd{w}_{\text{extra}}$ met de omgeving kan uitwisselen (bijvoorbeeld elektrische arbeid, toegevoerd aan het systeem volgens de gebruikelijke tekenconventie). De eerste hoofdwet (hoofdstuk~\ref{ch:eerstehoofdwet}) geeft:
 \begin{equation}
-\dU = \dQ - p\,\dV + \dx{w}_{\text{extra}}.
+\dd{U} = \delta Q - p\,\dd{V} + \dd{w}_{\text{extra}}.
 \end{equation}
-Uit de Clausius-ongelijkheid (hoofdstuk~\ref{ch:spontaniteit}, \S~\ref{sec:waarschijnlijkheid-entropie}) geldt steeds $\dQ \leq T\,\dS$, met gelijkheid enkel voor een reversibel proces. Substitutie levert:
+Uit de Clausius-ongelijkheid (hoofdstuk~\ref{ch:spontaniteit}, \S~\ref{sec:waarschijnlijkheid-entropie}) geldt steeds $\delta Q \leq T\,\dd{S}$, met gelijkheid enkel voor een reversibel proces. Substitutie levert:
 \begin{equation}
-\dU \leq T\,\dS - p\,\dV + \dx{w}_{\text{extra}} \quad\Longrightarrow\quad \dx{w}_{\text{extra}} \geq \dU - T\,\dS + p\,\dV.
+\dd{U} \leq T\,\dd{S} - p\,\dd{V} + \dd{w}_{\text{extra}} \quad\Longrightarrow\quad \dd{w}_{\text{extra}} \geq \dd{U} - T\,\dd{S} + p\,\dd{V}.
 \end{equation}
 Bij constante temperatuur en druk is de rechterkant exact het differentiaal van de Gibbs-vrije energie:
 \begin{equation}
-\dx{(U - TS + pV)} = \dU - T\,\dS - S\,\dT + p\,\dV + V\,\dp = \dU - T\,\dS + p\,\dV \qquad (\dT=\dp=0),
+\dd{(U - TS + pV)} = \dd{U} - T\,\dd{S} - S\,\dd{T} + p\,\dd{V} + V\,\dd{p} = \dd{U} - T\,\dd{S} + p\,\dd{V} \qquad (\dd{T}=\dd{p}=0),
 \end{equation}
 zodat
 \begin{equation}
-\dx{w}_{\text{extra}} \geq \dG.
+\dd{w}_{\text{extra}} \geq \dd{G}.
 \end{equation}
-De arbeid die \emph{aan} het systeem moet worden toegevoerd is dus minstens $\dG$; omgekeerd is de arbeid die het systeem maximaal kan \emph{leveren} aan de omgeving, $-\dx{w}_{\text{extra}}$, hoogstens $-\dG$. Deze grens wordt bereikt in de reversibele limiet ($\dQ=T\,\dS$ exact), waarin het gelijkteken geldt:
+De arbeid die \emph{aan} het systeem moet worden toegevoerd is dus minstens $\dd{G}$; omgekeerd is de arbeid die het systeem maximaal kan \emph{leveren} aan de omgeving, $-\dd{w}_{\text{extra}}$, hoogstens $-\dd{G}$. Deze grens wordt bereikt in de reversibele limiet ($\delta Q=T\,\dd{S}$ exact), waarin het gelijkteken geldt:
 \begin{equation}
 \boxed{\;w_{\max} = -\Delta G.\;}
 \label{eq:wmax}
