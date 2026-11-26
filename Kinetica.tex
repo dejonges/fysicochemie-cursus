@@ -114,6 +114,16 @@ Hoe hoger de beginconcentratie, hoe korter de halfwaardetijd. Veel bimoleculaire
     \label{fig:ordes-concentratie-tijd}
 \end{figure}
 
+\begin{toepassing}{Hoe groot moet de reactor zijn?}
+Reactorentechnologie (Levenspiel) werkt dit uit; hier enkel de kern. De benodigde verblijftijd $\tau$ volgt uit de snelheidswet. Voor een eerste-orde reactie met omzetting $X$:
+\begin{equation}
+\tau_\text{batch/PFR} = \frac{1}{k}\ln\frac{1}{1-X},
+\qquad
+\tau_\text{CSTR} = \frac{1}{k}\,\frac{X}{1-X}.
+\end{equation}
+In een ideaal geroerde tank (CSTR) heerst overal de lage eindconcentratie, in een batch- of propstroomreactor (PFR) daalt de concentratie geleidelijk. Voor $X = 0.90$ en $k = \SI{0.05}{\per\second}$ is $\tau_\text{PFR} = \SI{46}{\second}$ en $\tau_\text{CSTR} = \SI{180}{\second}$: de tank moet bijna vier keer groter zijn. Voor een tweede-orde reactie in een batchreactor is $\tau = X/(k[A]_0(1-X))$.
+\end{toepassing}
+
 \subsection{Bepaling van de reactieorde}
 \label{sec:bepaling-orde}
 
@@ -172,6 +182,39 @@ Voor de ammoniaksynthese geldt $E_a \approx \SI{230}{\kilo\joule\per\mole}$ (zee
 \frac{k(700)}{k(300)} = \exp\left[-\frac{230\,000}{8.314}\left(\frac{1}{700} - \frac{1}{300}\right)\right] \approx 7.7\times10^{22}.
 \]
 De reactiesnelheid neemt astronomisch toe. Dit verklaart waarom het Haber--Boschproces ondanks de thermodynamisch ongunstige hoge temperatuur toch bij \SIrange{400}{500}{\celsius} wordt uitgevoerd (hoofdstuk~\ref{ch:reagerend}, \S~\ref{sec:haber-bosch-integraal}): zonder voldoende temperatuur zou de kinetiek het proces volledig onmogelijk maken, ondanks de thermodynamische gunst bij lage temperatuur. We komen op dit precieze getal terug in \S~\ref{sec:temperatuursgevoeligheid}, waar we het vergelijken met de temperatuursgevoeligheid van de \emph{teruggaande} reactie.
+
+\subsection{Warmte en snelheid: wanneer een reactor op hol slaat}
+\label{sec:runaway}
+
+Een exotherme reactie warmt de reactor op, en een warmere reactor reageert sneller. Zolang de koeling de warmte afvoert, vindt de reactor een stabiel werkpunt. Lukt dat niet meer, dan versnelt de reactie zichzelf: \emph{thermische runaway}.
+
+De warmteproductie is evenredig met de reactiesnelheid en stijgt dus exponentieel met de temperatuur:
+\[
+\dot Q_\mathrm{prod} = (-\Delta_rH)\,V\,k_0\,e^{-E_a/RT}\,c^n.
+\]
+De warmteafvoer door een koelmantel met koelmiddel op $T_c$ is lineair in $T$:
+\[
+\dot Q_\mathrm{afv} = UA\,(T - T_c).
+\]
+In een \emph{Semenovdiagram} (figuur~\ref{fig:semenov}) zie je beide curves. Waar ze snijden, is er evenwicht. Het onderste snijpunt is stabiel: wordt de reactor iets warmer, dan stijgt de afvoer sneller dan de productie en koelt hij terug af. Wordt het koelmiddel warmer of de koeling zwakker, dan schuift de rechte naar rechts tot ze de exponenti\"ele curve enkel nog raakt. Daarna is er geen snijpunt meer en loopt de temperatuur weg.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/semenov}
+    \caption{Semenovdiagram van een gekoelde reactor ($E_a = \SI{100}{\kilo\joule\per\mole}$, illustratieve waarden). Bij een koelmiddel van \SI{385}{\kelvin} is er een stabiel werkpunt. Bij \SI{397}{\kelvin} raakt de afvoerrechte de productiecurve: de kritische toestand. Bij \SI{400}{\kelvin} is er geen snijpunt meer: runaway.}
+    \label{fig:semenov}
+\end{figure}
+
+Uit de raakvoorwaarde (gelijke waarde \'en gelijke helling) volgt een eenvoudige vuistregel: op het kritische punt ligt de reactortemperatuur ongeveer
+\begin{equation}
+\boxed{\;\Delta T_\mathrm{krit} \approx \frac{RT_c^2}{E_a}\;}
+\label{eq:semenov}
+\end{equation}
+boven die van het koelmiddel. Voor $E_a = \SI{100}{\kilo\joule\per\mole}$ en $T_c = \SI{397}{\kelvin}$ is dat $8.314\cdot397^2/100\,000 = \SI{13}{\kelvin}$. Een reactor die meer dan een tiental graden warmer draait dan zijn koelmiddel, werkt dicht bij de grens. Hoe hoger $E_a$, hoe kleiner de marge.
+
+\begin{toepassing}{Seveso en de veiligheid van chemische installaties}
+Op 10 juli 1976 liep in een fabriek in Meda, bij Seveso (Itali\"e), een reactor voor trichloorfenol warm nadat de batch tijdens het weekend was stilgelegd zonder volledige afkoeling. Een exotherme nevenreactie versnelde zichzelf, de breekplaat opende en een wolk met dioxine (TCDD) kwam vrij over de omgeving. De ramp leidde tot de Europese Sevesorichtlijn, vandaag Seveso III. Bedrijven die grote hoeveelheden gevaarlijke stoffen behandelen, waaronder veel bedrijven in de haven van Antwerpen, moeten hun risico's op runaway en andere zware ongevallen analyseren en beheersen. De ingenieur gebruikt daarvoor de begrippen uit dit hoofdstuk en hoofdstuk~\ref{ch:energie}: de adiabatische temperatuurstijging (\S~\ref{sec:warmte-effecten}) zegt hoe ver de temperatuur kan oplopen, de activeringsenergie zegt hoe snel.
+\end{toepassing}
 
 \section{Waarom Arrhenius? De botsingstheorie}
 \label{sec:botsingstheorie}
@@ -265,7 +308,30 @@ In evenwicht is de netto snelheid nul: $K = [B]_\mathrm{eq}/[A]_\mathrm{eq} = k_
 [A] - [A]_\mathrm{eq} = \bigl([A]_0 - [A]_\mathrm{eq}\bigr)\,e^{-(k_1+k_{-1})t}.
 \label{eq:relaxatie}
 \end{equation}
-Het systeem nadert het evenwicht exponentieel, met een karakteristieke tijd $1/(k_1+k_{-1})$: de \emph{som} van beide snelheidsconstanten, niet $k_1$ alleen. De thermodynamica (via $K$) zegt waar de reactie eindigt; de kinetiek zegt hoe snel. In \S~\ref{sec:brug-thermo-kinetiek} volgt hieruit een verband tussen de activeringsenergie\"en en $\Delta_rH^\circ$.
+Het systeem nadert het evenwicht exponentieel, met een karakteristieke tijd $1/(k_1+k_{-1})$: de \emph{som} van beide snelheidsconstanten, niet $k_1$ alleen. De thermodynamica (via $K$) zegt waar de reactie eindigt; de kinetiek zegt hoe snel. Daaruit volgt meteen een verband tussen de activeringsenergie\"en en $\Delta_rH^\circ$.
+
+\subsection{De brug tussen thermodynamica en kinetiek}
+\label{sec:brug-thermo-kinetiek}
+
+Voor een omkeerbare elementaire reactie is $K = k_1/k_{-1}$. Beide constanten volgen Arrhenius, dus $\dd\ln k/\dd T = E_a/RT^2$ voor elk. Aftrekken geeft
+\[
+\frac{\dd{\ln K}}{\dd{T}} = \frac{E_{a,\text{heen}} - E_{a,\text{terug}}}{RT^2}.
+\]
+Vergelijk met Van 't Hoff (vergelijking~\eqref{eq:vanthoff-diff}), $\dd\ln K/\dd T = \Delta_rH^\circ/RT^2$:
+\begin{equation}
+\boxed{\;E_{a,\text{heen}} - E_{a,\text{terug}} \approx \Delta_r H^\circ\;}
+\label{eq:Ea-verschil-drH}
+\end{equation}
+In een energieprofiel (figuur~\ref{fig:reactiecoordinaat-katalysator}) is het hoogteverschil tussen begin- en eindtoestand is $\Delta_rH$, welke weg je ook neemt. Een exotherme reactie heeft dus altijd een lagere barri\`ere heen dan terug.
+
+\subsubsection{Temperatuursgevoeligheid van exotherme en endotherme reacties}
+\label{sec:temperatuursgevoeligheid}
+
+Hoe groter $E_a$, hoe gevoeliger $k$ voor de temperatuur. Bij een exotherme evenwichtsreactie versnelt de \emph{terug}reactie dus sterker bij opwarming dan de heenreactie.
+
+\begin{voorbeeld}{Ammoniaksynthese: heen- en terugreactie}
+Met $E_{a,\text{heen}} \approx \SI{230}{\kilo\joule\per\mole}$ (\S~\ref{sec:ammoniak-arrhenius}) en $\Delta_rH^\circ \approx \SI{-92}{\kilo\joule\per\mole}$ is $E_{a,\text{terug}} = 230 + 92 = \SI{322}{\kilo\joule\per\mole}$. Van \SI{300}{\kelvin} naar \SI{700}{\kelvin} stijgt $k_\text{heen}$ met een factor $7.7\times10^{22}$, maar $k_\text{terug}$ met $1.1\times10^{32}$: tien grootteordes meer. Daarom daalt $K = k_\text{heen}/k_\text{terug}$ van ongeveer $6\times10^5$ naar $3\times10^{-4}$, precies wat Van 't Hoff ook gaf (\S~\ref{sec:vanthoff-reagerend}). Thermodynamica en kinetiek vertellen hetzelfde verhaal.
+\end{voorbeeld}
 
 \subsection{Parallelle reacties en selectiviteit}
 \label{sec:selectiviteit}
@@ -327,7 +393,7 @@ Het tussenproduct stijgt eerst, bereikt een maximum en verdwijnt dan (figuur~\re
 
 Voor $k_1 = \SI{0.10}{\per\minute}$ en $k_2 = \SI{0.05}{\per\minute}$ is $t_\mathrm{max} = \ln 0.5/(-0.05) = \SI{13.9}{\minute}$ en $[B]_\mathrm{max} = 0.50\,[A]_0$. De les voor de ingenieur: bij reacties in serie is maximale omzetting \emph{niet} het doel. Men stopt de batch op het juiste moment, of kiest in een continue reactor de verblijftijd zo dat de opbrengst aan $B$ maximaal is, en recycleert de niet-omgezette $A$.
 
-\section{Reactiemechanismen en elementaire reacties}
+\section{Reactiemechanismen en de steady-state-benadering}
 \label{sec:mechanismen}
 
 Bijna geen enkele reactie verloopt in \'e\'en stap. De brutoreactie beschrijft enkel begin- en eindtoestand; de weg ertussen is het \emph{reactiemechanisme}, een reeks \emph{elementaire reacties}. Een elementaire reactie is \'e\'en moleculaire gebeurtenis: een molecule die uiteenvalt (\emph{unimoleculair}), twee moleculen die botsen (\emph{bimoleculair}) of, zelden, drie tegelijk (\emph{termoleculair}). Alleen voor elementaire reacties volgt de orde uit de stoichiometrie: $A + B \rightarrow P$ is dan altijd $r = k[A][B]$.
@@ -340,7 +406,7 @@ Een klassiek voorbeeld is $\mathrm{H_2 + Br_2 \rightarrow 2\,HBr}$. De reactie v
 \end{align*}
 met als gemeten snelheidswet $r = k[\mathrm{H_2}][\mathrm{Br_2}]^{1/2}/(1 + k'[\mathrm{HBr}]/[\mathrm{Br_2}])$. Die vorm volgt nooit uit de brutovergelijking; je hebt het mechanisme nodig.
 
-\section{De steady-state-benadering}
+\subsection{De steady-state-benadering}
 \label{sec:steady-state}
 
 Reactieve tussenproducten (radicalen, een enzym-substraatcomplex, een geactiveerde molecule) worden even snel verbruikt als gevormd. Hun concentratie blijft klein en nagenoeg constant. De \emph{steady-state-benadering} (Bodenstein) stelt daarom
@@ -349,7 +415,7 @@ Reactieve tussenproducten (radicalen, een enzym-substraatcomplex, een geactiveer
 \end{equation}
 Is \'e\'en stap veel trager dan de rest, dan bepaalt die \emph{snelheidsbepalende stap} de globale snelheid, zoals de smalste flessenhals de doorstroming bepaalt.
 
-\subsection{Voorbeeld: ontleding van ozon}
+\subsubsection{Voorbeeld: ontleding van ozon}
 \label{sec:ozon}
 
 $\mathrm{2\,O_3 \rightarrow 3\,O_2}$ verloopt via een snel evenwicht $\mathrm{O_3} \rightleftharpoons \mathrm{O_2 + O}$ ($k_1$, $k_{-1}$) en een trage stap $\mathrm{O + O_3} \rightarrow 2\,\mathrm{O_2}$ ($k_2$). Steady state voor het zuurstofatoom:
@@ -364,7 +430,7 @@ r = k_2[\mathrm{O}][\mathrm{O_3}] = \frac{k_1 k_2}{k_{-1}} \frac{[\mathrm{O_3}]^
 \]
 Het product \ce{O2} remt de reactie: iets wat je uit de brutovergelijking nooit zou raden.
 
-\subsection{Het Lindemann-mechanisme}
+\subsubsection{Het Lindemann-mechanisme}
 \label{sec:lindemann}
 
 Een molecule die ``gewoon uit elkaar valt'' ($A \to P$), gedraagt zich bij hoge druk als eerste orde, maar bij lage druk als tweede orde. Lindemann (1922) verklaarde dat: de molecule moet eerst energie krijgen door een botsing, en kan die bij een volgende botsing weer verliezen:
@@ -437,6 +503,37 @@ Voorbeelden & zuur/base, Rh-complex, enzym & Fe, \ce{V2O5}, Pt, zeoliet \\
 
 Typische homogene katalysatoren zijn zuren en basen (esterhydrolyse, inversie van sucrose), opgeloste metaalcomplexen (de Wilkinsonkatalysator \ce{RhCl(PPh3)3} voor hydrogenering, Pd voor koppelingsreacties) en enzymen. Het \emph{Monsanto-proces} zet methanol en CO om tot azijnzuur met een opgelost rhodiumcomplex bij \SIrange{150}{200}{\celsius} en \SIrange{30}{60}{\bar}, met een selectiviteit boven \SI{99}{\percent}.
 
+\subsection{Enzymen: Michaelis--Menten}
+\label{sec:michaelis-menten}
+
+Een enzym $E$ bindt zijn substraat $S$ tot een complex, dat het product vrijgeeft:
+\begin{equation}
+E + S \xrightleftharpoons[k_{-1}]{k_1} ES \xrightarrow{k_2} E + P.
+\end{equation}
+Steady state voor $ES$ en de massabalans $[E]_0 = [E] + [ES]$ geven de \emph{Michaelis--Mentenvergelijking}:
+\begin{equation}
+\boxed{\;r = \frac{r_{\max}\,[S]}{K_M + [S]}\;}
+\qquad\text{met}\quad r_{\max} = k_2[E]_0, \quad K_M = \frac{k_{-1} + k_2}{k_1}.
+\end{equation}
+$K_M$ is de substraatconcentratie waarbij $r = r_{\max}/2$. Bij $[S] \ll K_M$ is de reactie eerste orde, bij $[S] \gg K_M$ nulde orde: alle enzymen zijn bezet. De vergelijking heeft exact de vorm van de Langmuir-isotherme (vergelijking~\eqref{eq:langmuir-isotherm}); in beide gevallen verzadigt een eindig aantal bindingsplaatsen. Een voorbeeld: met $K_M = \SI{2.0}{\milli\mole\per\litre}$ geeft $[S] = K_M$ de helft van $r_{\max}$, en tien keer meer substraat slechts \SI{91}{\percent} van $r_{\max}$.
+
+\subsubsection{Diffusielimitatie}
+\label{sec:diffusielimitatie}
+
+Enzym en substraat moeten elkaar eerst vinden. Sneller dan diffusie toelaat, kan dat niet. Volgens Smoluchowski is de maximale bimoleculaire snelheidsconstante in oplossing
+\begin{equation}
+\boxed{\;k_D = 4\pi N_A\,(D_A+D_B)\,(r_A+r_B)\;}
+\label{eq:smoluchowski}
+\end{equation}
+Voor een klein substraat ($D \approx \SI{1e-9}{\metre\squared\per\second}$, $r \approx \SI{0.5}{\nano\metre}$) en een enzym ($D \approx \SI{1e-10}{\metre\squared\per\second}$, $r \approx \SI{3}{\nano\metre}$) is $k_D \approx \SI{3e10}{\litre\per\mole\per\second}$. Enzymen die dit benaderen (carboanhydrase, triosefosfaatisomerase) heten \emph{diffusie-perfect}: elke ontmoeting leidt tot reactie.
+
+De diffusieco\"effici\"ent van een bolvormig deeltje schat je met de \emph{vergelijking van Stokes--Einstein}:
+\begin{equation}
+\boxed{\;D = \frac{k_BT}{6\pi\eta r}\;}
+\label{eq:stokes-einstein}
+\end{equation}
+Een opgeloste metaalcomplexkatalysator ($r \approx \SI{0.7}{\nano\metre}$) in tolueen ($\eta = \SI{6e-4}{\pascal\second}$) heeft $D \approx \SI{5e-10}{\metre\squared\per\second}$, vijf keer trager dan een klein substraatmolecule. In een grote reactor moet roeren, niet diffusie, de stoffen bijeenbrengen.
+
 \subsection{Heterogene katalyse}
 \label{sec:heterogene-katalyse}
 
@@ -496,125 +593,17 @@ Bij lage $p_A$ geven beide mechanismen hetzelfde. Bij hoge $p_A$ verschillen ze:
     \label{fig:lh-vs-er}
 \end{figure}
 
-\begin{toepassing}{Industri\"ele katalysatoren}
+\begin{toepassing}{Industri\"ele katalysatoren: evenwicht tegen snelheid}
+Bij elk proces zoekt de ingenieur een compromis tussen evenwicht (thermodynamica) en snelheid (kinetiek). Een betere katalysator verschuift dat compromis: hij laat een lagere temperatuur toe, met meer opbrengst, zonder dat de reactie te traag wordt.
 \begin{itemize}
-\item \textbf{Haber--Bosch}: \ce{Fe3O4} met promotoren (\ce{K2O}, \ce{Al2O3}), \SIrange{400}{500}{\celsius}, \SIrange{150}{300}{\bar}. Snelheidsbepalend is de dissociatieve chemisorptie van \ce{N2}.
-\item \textbf{Contactproces}: \ce{V2O5} voor \ce{SO2 -> SO3} bij \SIrange{400}{500}{\celsius}.
+\item \textbf{Haber--Bosch}: \ce{Fe3O4} met promotoren (\ce{K2O}, \ce{Al2O3}), \SIrange{400}{500}{\celsius}, \SIrange{150}{300}{\bar}. Exotherm, dus lage $T$ geeft meer \ce{NH3}, maar de dissociatieve chemisorptie van \ce{N2} is zo traag dat je toch \SI{400}{\celsius} nodig hebt.
+\item \textbf{Contactproces}: \ce{V2O5} voor \ce{SO2 -> SO3} bij \SIrange{400}{500}{\celsius}, met hetzelfde dilemma.
+\item \textbf{Methanolsynthese}: ook exotherm, maar de actieve \ce{Cu/ZnO/Al2O3}-katalysator laat \SIrange{200}{300}{\celsius} toe.
+\item \textbf{Stoomreforming van methaan}: endotherm; evenwicht \'en snelheid vragen allebei \SIrange{800}{900}{\celsius}.
 \item \textbf{Katalytisch kraken (FCC)}: zeolieten bij \SIrange{500}{600}{\celsius}. Thermisch kraken vroeg \SIrange{700}{800}{\celsius} en gaf veel cokes; de zeoliet verlaagt $E_a$ van meer dan \SI{250}{} tot ongeveer \SI{150}{\kilo\joule\per\mole} en is veel selectiever naar benzine.
-\item \textbf{Driewegkatalysator}: Pt, Pd, Rh op \ce{Al2O3} oxideert CO en koolwaterstoffen en reduceert \ce{NO_x}, met Langmuir--Hinshelwood-kinetiek.
-\item \textbf{Methanolsynthese}: \ce{Cu/ZnO/Al2O3} bij \SIrange{200}{300}{\celsius}.
+\item \textbf{Driewegkatalysator}: Pt, Pd, Rh op \ce{Al2O3} oxideert CO en koolwaterstoffen en reduceert \ce{NO_x} (Langmuir--Hinshelwood). Pas boven ongeveer \SI{300}{\celsius} is hij actief: bij een koude start werkt hij nog niet.
 \end{itemize}
 \end{toepassing}
-
-\section{Enzymkinetiek: Michaelis--Menten}
-\label{sec:michaelis-menten}
-
-Een enzym $E$ bindt zijn substraat $S$ tot een complex, dat het product vrijgeeft:
-\begin{equation}
-E + S \xrightleftharpoons[k_{-1}]{k_1} ES \xrightarrow{k_2} E + P.
-\end{equation}
-Steady state voor $ES$ en de massabalans $[E]_0 = [E] + [ES]$ geven de \emph{Michaelis--Mentenvergelijking}:
-\begin{equation}
-\boxed{\;r = \frac{r_{\max}\,[S]}{K_M + [S]}\;}
-\qquad\text{met}\quad r_{\max} = k_2[E]_0, \quad K_M = \frac{k_{-1} + k_2}{k_1}.
-\end{equation}
-$K_M$ is de substraatconcentratie waarbij $r = r_{\max}/2$. Bij $[S] \ll K_M$ is de reactie eerste orde, bij $[S] \gg K_M$ nulde orde: alle enzymen zijn bezet. De vergelijking heeft exact de vorm van de Langmuir-isotherme (vergelijking~\eqref{eq:langmuir-isotherm}); in beide gevallen verzadigt een eindig aantal bindingsplaatsen. Een voorbeeld: met $K_M = \SI{2.0}{\milli\mole\per\litre}$ geeft $[S] = K_M$ de helft van $r_{\max}$, en tien keer meer substraat slechts \SI{91}{\percent} van $r_{\max}$.
-
-\subsection{Diffusielimitatie}
-\label{sec:diffusielimitatie}
-
-Enzym en substraat moeten elkaar eerst vinden. Sneller dan diffusie toelaat, kan dat niet. Volgens Smoluchowski is de maximale bimoleculaire snelheidsconstante in oplossing
-\begin{equation}
-\boxed{\;k_D = 4\pi N_A\,(D_A+D_B)\,(r_A+r_B)\;}
-\label{eq:smoluchowski}
-\end{equation}
-Voor een klein substraat ($D \approx \SI{1e-9}{\metre\squared\per\second}$, $r \approx \SI{0.5}{\nano\metre}$) en een enzym ($D \approx \SI{1e-10}{\metre\squared\per\second}$, $r \approx \SI{3}{\nano\metre}$) is $k_D \approx \SI{3e10}{\litre\per\mole\per\second}$. Enzymen die dit benaderen (carboanhydrase, triosefosfaatisomerase) heten \emph{diffusie-perfect}: elke ontmoeting leidt tot reactie.
-
-De diffusieco\"effici\"ent van een bolvormig deeltje schat je met de \emph{vergelijking van Stokes--Einstein}:
-\begin{equation}
-\boxed{\;D = \frac{k_BT}{6\pi\eta r}\;}
-\label{eq:stokes-einstein}
-\end{equation}
-Een opgeloste metaalcomplexkatalysator ($r \approx \SI{0.7}{\nano\metre}$) in tolueen ($\eta = \SI{6e-4}{\pascal\second}$) heeft $D \approx \SI{5e-10}{\metre\squared\per\second}$, vijf keer trager dan een klein substraatmolecule. In een grote reactor moet roeren, niet diffusie, de stoffen bijeenbrengen.
-
-\section{Kinetiek en reactorontwerp}
-
-Het vak Reactorentechnologie (Levenspiel) werkt reactorontwerp uit; hier enkel de kern. De benodigde verblijftijd $\tau$ volgt uit de snelheidswet. Voor een eerste-orde reactie met omzetting $X$:
-\begin{equation}
-\tau_\text{batch/PFR} = \frac{1}{k}\ln\frac{1}{1-X},
-\qquad
-\tau_\text{CSTR} = \frac{1}{k}\,\frac{X}{1-X}.
-\end{equation}
-In een ideaal geroerde tank (CSTR) heerst overal de lage eindconcentratie, in een batch- of propstroomreactor (PFR) daalt de concentratie geleidelijk. Voor $X = 0.90$ en $k = \SI{0.05}{\per\second}$ is $\tau_\text{PFR} = \SI{46}{\second}$ en $\tau_\text{CSTR} = \SI{180}{\second}$: de tank moet bijna vier keer groter zijn. Voor een tweede-orde reactie in een batchreactor is $\tau = X/(k[A]_0(1-X))$.
-
-
-\section{Warmte en snelheid: wanneer een reactor op hol slaat}
-\label{sec:runaway}
-
-Een exotherme reactie warmt de reactor op, en een warmere reactor reageert sneller. Zolang de koeling de warmte afvoert, vindt de reactor een stabiel werkpunt. Lukt dat niet meer, dan versnelt de reactie zichzelf: \emph{thermische runaway}.
-
-De warmteproductie is evenredig met de reactiesnelheid en stijgt dus exponentieel met de temperatuur:
-\[
-\dot Q_\mathrm{prod} = (-\Delta_rH)\,V\,k_0\,e^{-E_a/RT}\,c^n.
-\]
-De warmteafvoer door een koelmantel met koelmiddel op $T_c$ is lineair in $T$:
-\[
-\dot Q_\mathrm{afv} = UA\,(T - T_c).
-\]
-In een \emph{Semenovdiagram} (figuur~\ref{fig:semenov}) zie je beide curves. Waar ze snijden, is er evenwicht. Het onderste snijpunt is stabiel: wordt de reactor iets warmer, dan stijgt de afvoer sneller dan de productie en koelt hij terug af. Wordt het koelmiddel warmer of de koeling zwakker, dan schuift de rechte naar rechts tot ze de exponenti\"ele curve enkel nog raakt. Daarna is er geen snijpunt meer en loopt de temperatuur weg.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/semenov}
-    \caption{Semenovdiagram van een gekoelde reactor ($E_a = \SI{100}{\kilo\joule\per\mole}$, illustratieve waarden). Bij een koelmiddel van \SI{385}{\kelvin} is er een stabiel werkpunt. Bij \SI{397}{\kelvin} raakt de afvoerrechte de productiecurve: de kritische toestand. Bij \SI{400}{\kelvin} is er geen snijpunt meer: runaway.}
-    \label{fig:semenov}
-\end{figure}
-
-Uit de raakvoorwaarde (gelijke waarde \'en gelijke helling) volgt een eenvoudige vuistregel: op het kritische punt ligt de reactortemperatuur ongeveer
-\begin{equation}
-\boxed{\;\Delta T_\mathrm{krit} \approx \frac{RT_c^2}{E_a}\;}
-\label{eq:semenov}
-\end{equation}
-boven die van het koelmiddel. Voor $E_a = \SI{100}{\kilo\joule\per\mole}$ en $T_c = \SI{397}{\kelvin}$ is dat $8.314\cdot397^2/100\,000 = \SI{13}{\kelvin}$. Een reactor die meer dan een tiental graden warmer draait dan zijn koelmiddel, werkt dicht bij de grens. Hoe hoger $E_a$, hoe kleiner de marge.
-
-\begin{toepassing}{Seveso en de veiligheid van chemische installaties}
-Op 10 juli 1976 liep in een fabriek in Meda, bij Seveso (Itali\"e), een reactor voor trichloorfenol warm nadat de batch tijdens het weekend was stilgelegd zonder volledige afkoeling. Een exotherme nevenreactie versnelde zichzelf, de breekplaat opende en een wolk met dioxine (TCDD) kwam vrij over de omgeving. De ramp leidde tot de Europese Sevesorichtlijn, vandaag Seveso III. Bedrijven die grote hoeveelheden gevaarlijke stoffen behandelen, waaronder veel bedrijven in de haven van Antwerpen, moeten hun risico's op runaway en andere zware ongevallen analyseren en beheersen. De ingenieur gebruikt daarvoor de begrippen uit dit hoofdstuk en hoofdstuk~\ref{ch:energie}: de adiabatische temperatuurstijging (\S~\ref{sec:warmte-effecten}) zegt hoe ver de temperatuur kan oplopen, de activeringsenergie zegt hoe snel.
-\end{toepassing}
-
-\section{De brug tussen thermodynamica en kinetiek}
-\label{sec:brug-thermo-kinetiek}
-
-Voor een omkeerbare elementaire reactie $A \rightleftharpoons B$ is $K = k_1/k_{-1}$ (\S~\ref{sec:omkeerbare-reacties}). Beide constanten volgen Arrhenius, dus $\dd\ln k/\dd T = E_a/RT^2$ voor elk. Aftrekken geeft
-\[
-\frac{\dd{\ln K}}{\dd{T}} = \frac{E_{a,\text{heen}} - E_{a,\text{terug}}}{RT^2}.
-\]
-Vergelijk met Van 't Hoff (vergelijking~\eqref{eq:vanthoff-diff}), $\dd\ln K/\dd T = \Delta_rH^\circ/RT^2$:
-\begin{equation}
-\boxed{\;E_{a,\text{heen}} - E_{a,\text{terug}} \approx \Delta_r H^\circ\;}
-\label{eq:Ea-verschil-drH}
-\end{equation}
-Dat zie je ook in figuur~\ref{fig:reactiecoordinaat-katalysator}: het hoogteverschil tussen begin- en eindtoestand is $\Delta_rH$, welke weg je ook neemt. Een exotherme reactie heeft dus altijd een lagere barri\`ere heen dan terug.
-
-\subsection{Temperatuursgevoeligheid van exotherme en endotherme reacties}
-\label{sec:temperatuursgevoeligheid}
-
-Hoe groter $E_a$, hoe gevoeliger $k$ voor de temperatuur. Bij een exotherme evenwichtsreactie versnelt de \emph{terug}reactie dus sterker bij opwarming dan de heenreactie.
-
-\begin{voorbeeld}{Ammoniaksynthese: heen- en terugreactie}
-Met $E_{a,\text{heen}} \approx \SI{230}{\kilo\joule\per\mole}$ (\S~\ref{sec:ammoniak-arrhenius}) en $\Delta_rH^\circ \approx \SI{-92}{\kilo\joule\per\mole}$ is $E_{a,\text{terug}} = 230 + 92 = \SI{322}{\kilo\joule\per\mole}$. Van \SI{300}{\kelvin} naar \SI{700}{\kelvin} stijgt $k_\text{heen}$ met een factor $7.7\times10^{22}$, maar $k_\text{terug}$ met $1.1\times10^{32}$: tien grootteordes meer. Daarom daalt $K = k_\text{heen}/k_\text{terug}$ van ongeveer $6\times10^5$ naar $3\times10^{-4}$, precies wat Van 't Hoff ook gaf (\S~\ref{sec:vanthoff-reagerend}). Thermodynamica en kinetiek vertellen hetzelfde verhaal.
-\end{voorbeeld}
-
-\section{Industri\"ele toepassingen: een overzicht}
-
-Bij elk proces zoekt de ingenieur een compromis tussen evenwicht (thermodynamica) en snelheid (kinetiek), en de katalysator verschuift dat compromis.
-\begin{itemize}
-\item \textbf{Haber--Bosch} en het \textbf{contactproces}: exotherm, dus lage $T$ geeft meer opbrengst, maar zonder \SIrange{400}{500}{\celsius} is de reactie te traag.
-\item \textbf{Methanolsynthese}: ook exotherm, maar een actievere koperkatalysator laat \SIrange{200}{300}{\celsius} toe.
-\item \textbf{Stoomreforming van methaan}: endotherm; zowel evenwicht als snelheid vragen \SIrange{800}{900}{\celsius}.
-\item \textbf{Driewegkatalysator}: moet bij \SIrange{300}{800}{\celsius} meer dan \SI{95}{\percent} van CO, koolwaterstoffen en \ce{NO_x} omzetten; bij een koude start is hij nog niet actief.
-\end{itemize}
-Een betere katalysator laat een lagere temperatuur toe (meer opbrengst) zonder dat de reactie te traag wordt.
-
 
 \section{Samenvatting en reflectie}
 
@@ -624,13 +613,13 @@ Met dit hoofdstuk is de cirkel rond. De thermodynamica (hoofdstukken~\ref{ch:ene
 \begin{itemize}
 \item Snelheidswet $r = k[A]^m[B]^n$; de orde volgt uit experiment. Ge\"integreerd: nulde orde lineair, eerste orde $\ln([A]_0/[A]) = kt$ met $t_{1/2} = \ln2/k$, tweede orde $1/[A] - 1/[A]_0 = kt$.
 \item Arrhenius $k = A\,e^{-E_a/RT}$; $\ln k$ tegen $1/T$ geeft $E_a$. Botsingstheorie: $A = P\sigma\bar v_\mathrm{rel}N_A$ en $e^{-E_a/RT}$ is de fractie botsingen met genoeg energie.
+\item Runaway: de warmteproductie stijgt exponentieel, de afvoer lineair. Kritisch bij $T - T_c \approx RT_c^2/E_a$.
 \item Kinetische gastheorie: $\bar v = \sqrt{8RT/\pi M}$, vrije weglengte $\lambda = k_BT/(\sqrt2\sigma p)$ (\SI{68}{\nano\metre} voor lucht bij \SI{1}{\bar}); Graham: effusie $\propto 1/\sqrt M$.
 \item Omkeerbare reacties naderen het evenwicht met tijdsconstante $1/(k_1+k_{-1})$, en $K = k_1/k_{-1}$.
+\item $E_{a,\mathrm{heen}} - E_{a,\mathrm{terug}} \approx \Delta_rH^\circ$: daarom verliest een exotherm evenwicht opbrengst bij hoge temperatuur.
 \item Parallelle reacties: hoge $T$ bevoordeelt de reactie met de hoogste $E_a$. Reacties in serie: het tussenproduct heeft een optimale reactietijd.
 \item Mechanismen: de steady-state-benadering en de snelheidsbepalende stap leveren de snelheidswet (ozon, Lindemann, Michaelis--Menten).
 \item Een katalysator verlaagt $E_a$ in beide richtingen en verandert $K$ niet. Heterogene kinetiek bouwt op de Langmuir-isotherme (Langmuir--Hinshelwood, Eley--Rideal); transport door diffusie kan de snelheid beperken.
-\item Runaway: de warmteproductie stijgt exponentieel, de afvoer lineair. Kritisch bij $T - T_c \approx RT_c^2/E_a$.
-\item $E_{a,\mathrm{heen}} - E_{a,\mathrm{terug}} \approx \Delta_rH^\circ$: daarom verliest een exotherm evenwicht opbrengst bij hoge temperatuur.
 \end{itemize}
 \end{samenvatting}
 

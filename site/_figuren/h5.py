@@ -242,3 +242,136 @@ def ternair():
     ax.set_aspect("equal")
     ax.axis("off")
     return kader(fig)
+
+
+def mu_temperatuur():
+    """μ(T) bij 1 bar voor ijs, water en damp; helling = -S_m."""
+    fig, ax = figuur(6.4, 4.4)
+    Tm, Tb = 273.15, 373.15
+    S = {"vast": 41.0, "vloeistof": 70.0, "gas": 189.0}
+    # kies mu_vloeistof(Tm) = 0; dan mu_vast(Tm) = 0, mu_gas(Tb) = mu_vl(Tb)
+    T = np.linspace(200, 450, 300)
+    mu_l = -S["vloeistof"] * (T - Tm) / 1000
+    mu_s = -S["vast"] * (T - Tm) / 1000
+    mu_lb = -S["vloeistof"] * (Tb - Tm) / 1000
+    mu_g = mu_lb - S["gas"] * (T - Tb) / 1000
+    stabiel = np.minimum(np.minimum(mu_s, mu_l), mu_g)
+    for mu, k, nm, x, y in [(mu_s, K.blauw, "vaste stof", 222, -0.6), (mu_l, K.accent, "vloeistof", 322, -6.0),
+                            (mu_g, K.rood, "gas", 402, -10.5)]:
+        ax.plot(T, mu, color=k, lw=1.3, ls="--")
+        label(ax, x, y, nm, k, ha="left", fontsize=11.5)
+    ax.plot(T, stabiel, color=K.tekst, lw=3, alpha=0.85)
+    for Tx, nm in [(Tm, "smeltpunt\n273 K"), (Tb, "kookpunt\n373 K")]:
+        ax.axvline(Tx, color=K.zacht, lw=0.8, ls=":")
+        label(ax, Tx + 3, 4.2, nm, K.zacht, fontsize=10.5, va="top")
+    ax.set_xlim(200, 450)
+    ax.set_ylim(-12, 5)
+    ax.set_yticks([])
+    ax.set_xlabel("temperatuur $T$ (K)")
+    ax.set_ylabel(r"chemische potentiaal $\mu$")
+    return kader(fig)
+
+
+_ANTOINE_MEER = {  # log10 p/mmHg, T in °C (Dortmund/Yaws, ca. 0-150 °C)
+    "water": (8.07131, 1730.63, 233.426),
+    "ethanol": (8.20417, 1642.89, 230.300),
+    "aceton": (7.11714, 1210.595, 229.664),
+}
+
+
+def dampdruk():
+    """Dampdruk p*(T) van enkele vloeistoffen; snijpunt met 1 atm = normaal kookpunt."""
+    fig, ax = figuur(6.4, 4.4)
+    T = np.linspace(0, 120, 300)
+    reeks = [("aceton", K.oker, _ANTOINE_MEER["aceton"]), ("benzeen", K.rood, _ANTOINE["benzeen"]),
+             ("ethanol", K.groen, _ANTOINE_MEER["ethanol"]), ("tolueen", K.paars, _ANTOINE["tolueen"]),
+             ("water", K.blauw, _ANTOINE_MEER["water"])]
+    for nm, k, (A, B, C) in reeks:
+        p = 10 ** (A - B / (T + C)) * 1.01325 / 760
+        Tb = B / (A - np.log10(760)) - C
+        ax.plot(T, p, color=k, lw=2.2, label=f"{nm} ({Tb:.0f} °C)")
+        ax.plot(Tb, 1.01325, "o", color=k, ms=6, zorder=5)
+    ax.legend(loc="upper left", fontsize=10, title="normaal kookpunt", title_fontsize=10)
+    ax.axhline(1.01325, color=K.zacht, lw=0.9, ls=":")
+    label(ax, 128, 0.97, "1 atm", K.zacht, fontsize=10, va="top", ha="right")
+    ax.set_xlim(0, 130)
+    ax.set_ylim(0, 2.0)
+    ax.set_xlabel("temperatuur (°C)")
+    ax.set_ylabel("dampdruk $p^*$ (bar)")
+    return kader(fig)
+
+
+def mengen_G():
+    """ΔG_meng/RT voor een ideaal en een regelmatig mengsel (χ = ΔH-parameter / RT)."""
+    fig, ax = figuur(6.4, 4.4)
+    x = np.linspace(1e-4, 1 - 1e-4, 400)
+    ideaal = x * np.log(x) + (1 - x) * np.log(1 - x)
+    for chi, k, nm in [(0, K.accent, "ideaal ($\\Delta H_\\mathrm{meng}=0$)"), (1.5, K.oker, "zwak endotherm"),
+                       (2.7, K.rood, "sterk endotherm: ontmenging")]:
+        g = ideaal + chi * x * (1 - x)
+        ax.plot(x, g, color=k, lw=2.2, label=nm)
+    # dubbele raaklijn voor chi = 2.7 (symmetrisch: horizontaal door de minima)
+    g = ideaal + 2.7 * x * (1 - x)
+    i = np.argmin(g[: len(x) // 2])
+    ax.plot([x[i], 1 - x[i]], [g[i], g[i]], color=K.rood, lw=1, ls="--")
+    ax.plot([x[i], 1 - x[i]], [g[i], g[i]], "o", color=K.rood, ms=6)
+    label(ax, 0.5, g[i] - 0.03, "twee fasen", K.rood, ha="center", va="top", fontsize=10.5)
+    ax.axhline(0, color=K.as_, lw=0.8)
+    ax.legend(loc="lower center", fontsize=10)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(-0.75, 0.12)
+    ax.set_xlabel("molfractie $x_B$")
+    ax.set_ylabel(r"$\Delta G_\mathrm{meng}/nRT$")
+    return kader(fig)
+
+
+def azeotroop():
+    """P-x-y bij constante T voor Margules A = +1.4 en A = -1.4: drukmaximum en drukminimum."""
+    fig, axs = figuur(9.6, 4.4, ncols=2)
+    pA, pB = 1.0, 0.75
+    x = np.linspace(0, 1, 300)
+    for ax, A, titel in [(axs[0], 1.4, "positieve afwijking ($\\gamma > 1$)"),
+                         (axs[1], -1.4, "negatieve afwijking ($\\gamma < 1$)")]:
+        gA, gB = np.exp(A * (1 - x) ** 2), np.exp(A * x ** 2)
+        P = x * gA * pA + (1 - x) * gB * pB
+        y = x * gA * pA / P
+        ax.plot([0, 1], [pB, pA], color=K.zacht, lw=1.2, ls="--")
+        ax.plot(x, P, color=K.blauw, lw=2.4, label="bubbelpunt $P(x)$")
+        ax.plot(y, P, color=K.rood, lw=2.4, label="dauwpunt $P(y)$")
+        i = np.argmax(P) if A > 0 else np.argmin(P)
+        ax.plot(x[i], P[i], "o", color=K.tekst, ms=7, zorder=5)
+        dy = 0.06 if A > 0 else -0.06
+        label(ax, x[i], P[i] + dy, "azeotroop: $x = y$", K.tekst, ha="center",
+              va="bottom" if A > 0 else "top", fontsize=10.5)
+        label(ax, 0.5, 0.5 * (pA + pB) + (-0.05 if A > 0 else 0.05), "Raoult", K.zacht, ha="center",
+              va="top" if A > 0 else "bottom", fontsize=10)
+        ax.set_title(titel, fontsize=12)
+        ax.set_xlim(0, 1)
+        ax.set_xlabel("molfractie $x_A$, $y_A$")
+        ax.legend(loc="lower right" if A > 0 else "upper left", fontsize=9.5)
+    axs[0].set_ylim(0.6, 1.45)
+    axs[1].set_ylim(0.3, 1.1)
+    axs[0].set_ylabel("druk $P$ (bar)")
+    return kader(fig)
+
+
+def margules():
+    """Activiteitscoëfficiënten volgens Margules (één parameter)."""
+    fig, ax = figuur(6.4, 4.2)
+    x = np.linspace(0, 1, 200)
+    for A, k in [(1.4, K.rood), (-1.4, K.blauw)]:
+        ax.plot(x, np.exp(A * (1 - x) ** 2), color=k, lw=2.4)
+        ax.plot(x, np.exp(A * x ** 2), color=k, lw=2.4, ls="--")
+    ax.axhline(1, color=K.zacht, lw=1)
+    label(ax, 0.06, 4.0, "$\\gamma_A^\\infty = e^{A}$", K.rood, fontsize=10.5, va="center")
+    label(ax, 0.5, 2.2, "$A = +1.4$", K.rood, ha="center", fontsize=11)
+    label(ax, 0.5, 0.3, "$A = -1.4$", K.blauw, ha="center", fontsize=11)
+    label(ax, 0.98, 1.08, "ideaal", K.zacht, ha="right", fontsize=10)
+    ax.plot([], [], color=K.tekst, lw=2, label="$\\gamma_A$")
+    ax.plot([], [], color=K.tekst, lw=2, ls="--", label="$\\gamma_B$")
+    ax.legend(loc="upper center", fontsize=10)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 4.3)
+    ax.set_xlabel("molfractie $x_A$")
+    ax.set_ylabel("activiteitscoëfficiënt $\\gamma$")
+    return kader(fig)
