@@ -467,3 +467,47 @@ In een TL-buis zenden aangeslagen kwikatomen ultraviolet licht uit van \(254\,\m
 
 \textbf{(d)} \(N = P/E = 10/3.61\times10^{-19} = 2.8\times10^{19}\) fotonen per seconde, ongeveer \(4.6\times10^{-5}\,\mathrm{mol}\) fotonen per seconde.
 \end{oplossing}
+
+\begin{oefening}[Boltzmann op de berg]
+\begin{enumerate}
+\item[(a)] Bereken met de Boltzmannverdeling de luchtdruk op de top van de Mont Ventoux (\SI{1910}{\metre}) en van de Kilimanjaro (\SI{5895}{\metre}). Neem $T = \SI{273}{\kelvin}$, $M = \SI{0.029}{\kilo\gram\per\mole}$ en $p_0 = \SI{1.013}{\bar}$.
+\item[(b)] Waarom is het voor een bergbeklimmer moeilijker om te ademen op grote hoogte, hoewel lucht daar nog steeds \SI{21}{\percent} zuurstof bevat?
+\item[(c)] Zou de druk sneller of trager dalen met de hoogte op een planeet met een atmosfeer van zuivere \ce{CO2} bij dezelfde temperatuur en zwaartekracht?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \SI{0.80}{\bar} en \SI{0.48}{\bar}. (b) De partieeldruk van zuurstof is evenredig lager. (c) Sneller, want $M$ is groter.
+
+\textbf{(a)} De karakteristieke hoogte is $RT/Mg = (8.314)(273)/[(0.029)(9.81)] = 7978\,\mathrm{m}$.
+Mont Ventoux: $p = 1.013\,\mathrm{e}^{-1910/7978} = 1.013 \times 0.787 = 0.80\,\mathrm{bar}$.
+Kilimanjaro: $p = 1.013\,\mathrm{e}^{-5895/7978} = 1.013 \times 0.478 = 0.48\,\mathrm{bar}$.
+
+\textbf{(b)} De fractie zuurstof blijft 21\,\%, maar de totale druk is gehalveerd. De partieeldruk van zuurstof daalt dus van \SI{0.21}{\bar} naar ongeveer \SI{0.10}{\bar}. De hoeveelheid zuurstof die per ademteug in het bloed oplost, is evenredig met die partieeldruk (wet van Henry, hoofdstuk~\ref{ch:niet-reagerend}).
+
+\textbf{(c)} De karakteristieke hoogte $RT/Mg$ is omgekeerd evenredig met $M$. Voor \ce{CO2} ($M = \SI{0.044}{\kilo\gram\per\mole}$) is ze \SI{5.3}{\kilo\metre} in plaats van \SI{8.0}{\kilo\metre}: de druk daalt sneller. Zware moleculen blijven dichter bij de grond, net zoals \ce{CO2} zich ophoopt in kelders en gistkuipen.
+\end{oplossing}
+
+\begin{oefening}[Hoeveel sneller gaat een reactie bij hogere temperatuur?]
+Een reactie heeft een activeringsenergie van \SI{80}{\kilo\joule\per\mole}. Veronderstel dat de reactiesnelheid evenredig is met de fractie moleculen die minstens die energie bezitten, $\exp(-E_\mathrm{a}/RT)$.
+\begin{enumerate}
+\item[(a)] Hoeveel keer sneller verloopt de reactie bij \SI{35}{\celsius} dan bij \SI{25}{\celsius}?
+\item[(b)] Een melkproduct bederft in \SI{3}{dagen} bij \SI{20}{\celsius}. Schat de houdbaarheid in de koelkast bij \SI{4}{\celsius}, als het bederf een activeringsenergie van \SI{80}{\kilo\joule\per\mole} heeft.
+\item[(c)] In een industri\"ele reactor wil men de productie verdubbelen. Met hoeveel graden moet de temperatuur stijgen (start bij \SI{150}{\celsius})? Welk nadeel kan een hogere temperatuur hebben?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Factor 2.9. (b) Ongeveer 20 dagen. (c) Ongeveer \SI{13}{\kelvin}; mogelijke nadelen: lagere evenwichtsomzetting bij exotherme reacties, meer nevenreacties, hogere energiekosten.
+
+\textbf{(a)}
+\[
+\frac{k_{308}}{k_{298}} = \exp\!\left[\frac{80\,000}{8.314}\left(\frac{1}{298.15}-\frac{1}{308.15}\right)\right] = \exp(1.047) = 2.85.
+\]
+
+\textbf{(b)} Tussen \SI{293.15}{\kelvin} en \SI{277.15}{\kelvin}:
+\[
+\frac{k_{293}}{k_{277}} = \exp\!\left[\frac{80\,000}{8.314}\left(\frac{1}{277.15}-\frac{1}{293.15}\right)\right] = \exp(1.895) = 6.6.
+\]
+Het bederf gaat 6.6 keer trager: de houdbaarheid stijgt van 3 naar ongeveer 20 dagen. (In werkelijkheid speelt ook de groei van micro-organismen mee, maar de orde van grootte klopt.)
+
+\textbf{(c)} We zoeken $T_2$ zodat $\exp[(E_\mathrm{a}/R)(1/T_1 - 1/T_2)] = 2$, dus $1/T_2 = 1/T_1 - R\ln 2/E_\mathrm{a} = 1/423.15 - (8.314)(0.693)/80\,000 = 2.2912\times10^{-3}$, zodat $T_2 = 436.4\,\mathrm{K}$. Een stijging van ongeveer \SI{13}{\kelvin} volstaat. Bij hogere temperatuur liggen de Boltzmannfactoren dichter bij elkaar, zodat dezelfde verdubbeling meer graden vraagt dan rond kamertemperatuur. Een hogere temperatuur kan echter de evenwichtsomzetting van een exotherme reactie verlagen (hoofdstuk~\ref{ch:reagerend}), nevenreacties versnellen die een hogere activeringsenergie hebben, en kost meer energie.
+\end{oplossing}
