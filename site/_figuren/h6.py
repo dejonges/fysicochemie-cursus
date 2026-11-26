@@ -83,3 +83,80 @@ def haber_bosch_schema():
     pijl(ax, (9.2, 3.6), (9.85, 3.6), K.oker)
     label(ax, 9.95, 3.6, "purge\n(Ar, CH$_4$)", K.oker, fontsize=9.5, va="center")
     return kader(fig)
+
+
+def g_reactiecoordinaat():
+    """G van een ideaal gasmengsel A <-> B in functie van de reactiecoördinaat."""
+    fig, ax = figuur(6.4, 4.2)
+    T, dG0 = 298.15, -3000.0
+    xi = np.linspace(1e-4, 1 - 1e-4, 400)
+    zonder = xi * dG0
+    G = zonder + R * T * ((1 - xi) * np.log(1 - xi) + xi * np.log(xi))
+    G, zonder = G / 1e3, zonder / 1e3
+    ax.plot(xi, zonder, color=K.zacht, lw=1.3, ls=(0, (4, 3)))
+    ax.plot(xi, G, color=K.accent, lw=2.6)
+    i = np.argmin(G)
+    ax.plot(xi[i], G[i], "o", color=K.accent, ms=7)
+    ax.plot([xi[i] - 0.12, xi[i] + 0.12], [G[i], G[i]], color=K.oker, lw=1.4)
+    label(ax, xi[i], G[i] - 0.28, f"evenwicht $\\xi_\\mathrm{{eq}}$ = {xi[i]:.2f}\n$\\Delta_rG = 0$",
+          K.oker, fontsize=10.5, ha="center", va="top")
+    pijl(ax, (0.25, -1.15), (0.40, -1.85), K.accent, 1.4)
+    label(ax, 0.06, -1.55, "$\\Delta_rG < 0$:\nreactie loopt\nnaar rechts", K.accent, fontsize=10)
+    pijl(ax, (0.985, -3.35), (0.90, -3.72), K.rood, 1.4)
+    label(ax, 0.995, -2.15, "$\\Delta_rG > 0$:\nterugreactie", K.rood, fontsize=10, ha="right")
+    label(ax, 0.30, -0.35, "zonder menging (rechte)", K.zacht, fontsize=10)
+    ax.set_xlim(0, 1)
+    ax.set_ylim(-4.7, 0.3)
+    ax.set_xlabel("reactiecoördinaat $\\xi$ (mol)")
+    ax.set_ylabel("$G - G_\\mathrm{reagentia}$ (kJ)")
+    return kader(fig)
+
+
+def vanthoff_ammoniak():
+    """Van 't Hoff-diagram voor N2 + 3 H2 <-> 2 NH3 met constante reactie-enthalpie."""
+    fig, ax = figuur(6.4, 4.2)
+    dH, lnK1, T1 = -92e3, np.log(6e5), 298.15
+    x = np.linspace(1 / 800, 1 / 280, 50)
+    lnK = lnK1 - dH / R * (x - 1 / T1)
+    ax.plot(x * 1e3, lnK, color=K.accent, lw=2.4)
+    for T in (298.15, 700.0):
+        y = lnK1 - dH / R * (1 / T - 1 / T1)
+        ax.plot(1e3 / T, y, "o", color=K.rood, ms=7)
+        dx, ha = (0.07, "left") if T > 500 else (-0.07, "right")
+        label(ax, 1e3 / T + dx, y, f"{T:.0f} K: $\\ln K$ = {y:.1f}", K.rood, fontsize=10.5, va="center", ha=ha)
+    ax.axhline(0, color=K.zacht, lw=0.8)
+    label(ax, 2.35, -6, "helling $-\\Delta_rH^\\circ/R$ = +11 070 K\n(exotherm: $K$ daalt bij hogere $T$)",
+          K.accent, fontsize=10.5)
+    ax.set_xlim(1.25, 3.6)
+    ax.set_ylim(-12, 16)
+    ax.set_xlabel("$1000/T$ (K$^{-1}$)")
+    ax.set_ylabel("$\\ln K$")
+    return kader(fig)
+
+
+def nh3_druk():
+    """Evenwichtsmolfractie NH3 bij 700 K in functie van de druk (stoichiometrische voeding)."""
+    fig, ax = figuur(6.4, 4.2)
+    Kp = 3e-4
+
+    def y(P):
+        lo, hi = 0.0, 0.999999
+        for _ in range(60):
+            xi = (lo + hi) / 2
+            n = 4 - 2 * xi
+            f = (2 * xi / n) ** 2 / ((1 - xi) / n * (3 * (1 - xi) / n) ** 3) / P**2 - Kp
+            lo, hi = (xi, hi) if f < 0 else (lo, xi)
+        return 2 * xi / (4 - 2 * xi)
+
+    P = np.linspace(1, 320, 300)
+    ax.axvspan(150, 300, color=K.vlak_accent, lw=0)
+    label(ax, 225, 5, "industrieel\n150–300 bar", K.accent, fontsize=10, ha="center")
+    ax.plot(P, [100 * y(p) for p in P], color=K.blauw, lw=2.4)
+    Pt = [1, 10, 50, 100, 200, 300]
+    ax.plot(Pt, [100 * y(p) for p in Pt], "o", color=K.blauw, ms=6)
+    label(ax, 20, 44, "700 K, N$_2$ : H$_2$ = 1 : 3\n$K_p \\approx 3\\times10^{-4}$", K.zacht, fontsize=10.5)
+    ax.set_xlim(0, 320)
+    ax.set_ylim(0, 55)
+    ax.set_xlabel("totale druk $P$ (bar)")
+    ax.set_ylabel("$y_\\mathrm{NH_3}$ bij evenwicht (%)")
+    return kader(fig)
