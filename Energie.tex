@@ -107,7 +107,7 @@ Warmte en arbeid gedragen zich echter fundamenteel anders. Hun waarde hangt af v
 
 Om dit onderscheid ook mathematisch duidelijk te maken, wordt voor toestandsfuncties een exact differentiaal gebruikt, $\dd U$, terwijl voor warmte en arbeid een inexact differentiaal wordt geschreven, $\delta Q$ en $\delta W$.
 
-Het onderscheid tussen deze twee begrippen kan eenvoudig voorgestekd worden door dit voorbeeld. Stel men maakt een rondrit door de bergen van een punt A op de berg naar punt B in het dal en vervolgens weer terug naar A. Daarbij kijken we naar twee meters in de auto: een luchtdrukmeter en de benzinemeter. Voor de luchtdrukmeter maakt het niet uit welke weg er gekozen wordt: bij het meten van de luchtdruk P in A voor en na het traject wordt dezelfde waarde gevonden, en in B een andere, hogere waarde (weersveranderingen daargelaten). Voor de benzinemeter van de auto is dat echter een ander verhaal: die zal voor de rit in A een andere waarde aangeven dan na de rit in A. De luchtdruk is dus een toestandsfunctie, en de brandstofstand niet. De luchtdruk is alleen een functie van de toestand, maar de brandstofstand is daarnaast ook een functie van de afgelegde weg.
+Het onderscheid tussen deze twee begrippen kan eenvoudig voorgesteld worden door dit voorbeeld. Stel men maakt een rondrit door de bergen van een punt A op de berg naar punt B in het dal en vervolgens weer terug naar A. Daarbij kijken we naar twee meters in de auto: een luchtdrukmeter en de benzinemeter. Voor de luchtdrukmeter maakt het niet uit welke weg er gekozen wordt: bij het meten van de luchtdruk P in A voor en na het traject wordt dezelfde waarde gevonden, en in B een andere, hogere waarde (weersveranderingen daargelaten). Voor de benzinemeter van de auto is dat echter een ander verhaal: die zal voor de rit in A een andere waarde aangeven dan na de rit in A. De luchtdruk is dus een toestandsfunctie, en de brandstofstand niet. De luchtdruk is alleen een functie van de toestand, maar de brandstofstand is daarnaast ook een functie van de afgelegde weg.
 
 \subsection{Temperatuur en druk}
 
@@ -125,9 +125,60 @@ pV = nRT,
 \end{equation}
 waarin $R$ de universele gasconstante is, $R = \SI{8.314}{\joule\per\mole\per\kelvin}$. De waarde van de gasconstante kan veranderen als er andere eenheden dan de SI-eenheden gebruikt worden in de ideale gaswet. Het is belangrijk om dit steeds te verifiëren. De ideale gaswet is geen afzonderlijk model naast de re\"ele gasmodellen, maar vormt de limiet waartoe alle toestandsvergelijkingen moeten convergeren. Met andere woorden, de ideale gaswet is \emph{een limiet-wet}. Alle gassen waarbij $p \rightarrow 0$ voldoen aan de ideale gaswet. 
 
+\subsection{De ideale gaswet vanuit de moleculen: kinetische gastheorie}
+\label{sec:kinetische-gastheorie}
+
+De ideale gaswet werd experimenteel gevonden, maar ze laat zich ook afleiden uit een eenvoudig beeld van bewegende moleculen. Die afleiding is de moeite waard: ze toont wat druk en temperatuur op moleculair niveau \emph{betekenen}.
+
+We maken drie aannames. (1) Het gas bestaat uit $N$ moleculen met massa $m$ die vrij en willekeurig door elkaar bewegen. (2) De moleculen zelf nemen geen volume in. (3) Er werken geen krachten tussen de moleculen; ze botsen enkel elastisch tegen de wand.
+
+Bekijk \'e\'en molecule in een kubus met ribbe $L$. Zijn snelheid in de $x$-richting is $v_x$. Bij een botsing tegen de wand loodrecht op $x$ keert $v_x$ om, zodat de impuls verandert met $2mv_x$. De molecule komt na een heen-en-terugreis $2L$ opnieuw bij dezelfde wand, dus $v_x/(2L)$ keer per seconde. De kracht (impulsverandering per seconde) van deze ene molecule op de wand is dus
+\[
+F_1 = 2mv_x \cdot \frac{v_x}{2L} = \frac{m v_x^2}{L}.
+\]
+Voor $N$ moleculen tellen we de krachten op en delen we door de wandoppervlakte $L^2$. Met $L^3 = V$ volgt $p = Nm\langle v_x^2\rangle/V$, waarin $\langle v_x^2\rangle$ het gemiddelde over alle moleculen is. Omdat geen enkele richting bevoordeeld is, geldt $\langle v_x^2\rangle = \langle v_y^2\rangle = \langle v_z^2\rangle = \tfrac{1}{3}\langle v^2\rangle$, en dus
+\begin{equation}
+pV = \tfrac{1}{3}\,N m \langle v^2\rangle .
+\label{eq:kmt-druk}
+\end{equation}
+Druk is dus niets anders dan het gevolg van ontelbare kleine botsingen tegen de wand.
+
+Vergelijken we dit met $pV = nRT$, dan volgt met $Nm = nM$ (molaire massa $M$):
+\begin{equation}
+\boxed{\tfrac{1}{2}M\langle v^2\rangle = \tfrac{3}{2}RT}
+\qquad\text{of}\qquad
+\boxed{v_\mathrm{rms} = \sqrt{\langle v^2\rangle} = \sqrt{\frac{3RT}{M}}}
+\label{eq:vrms}
+\end{equation}
+De temperatuur is dus een rechtstreekse maat voor de gemiddelde kinetische energie van de moleculen: $\tfrac{3}{2}RT$ per mol, of $\tfrac{3}{2}k_\mathrm{B}T$ per molecule. Voor een \'e\'enatomig ideaal gas is dat meteen de volledige interne energie, $U_\mathrm{m} = \tfrac{3}{2}RT$, zodat $C_{V,\mathrm{m}} = \tfrac{3}{2}R$ (zie \S~\ref{sec:warmtecapaciteiten}).
+
+\begin{voorbeeld}{Hoe snel bewegen luchtmoleculen?}
+Voor stikstof bij \SI{25}{\celsius} ($M = \SI{0.028}{\kilo\gram\per\mole}$):
+\[
+v_\mathrm{rms} = \sqrt{\frac{3(8.314)(298)}{0.028}} = \SI{515}{\metre\per\second}.
+\]
+Dat is sneller dan het geluid (\SI{346}{\metre\per\second}), wat logisch is: geluid wordt doorgegeven door botsende moleculen en kan dus niet sneller gaan dan de moleculen zelf. Helium ($M = \SI{0.004}{\kilo\gram\per\mole}$) is $\sqrt{28/4}\approx 2.6$ keer sneller: \SI{1360}{\metre\per\second}.
+
+Toch ruik je een geopende parfumfles pas na enkele seconden aan de andere kant van de kamer. Een molecule vliegt immers niet rechtdoor: bij atmosferische druk botst ze ongeveer $10^{10}$ keer per seconde met andere moleculen. Botsingen tussen moleculen komen terug in hoofdstuk~\ref{ch:kinetiek}, waar ze de basis vormen van de reactiesnelheid.
+\end{voorbeeld}
+
+\begin{toepassing}{Effusie: de wet van Graham}
+Wanneer een gas door een zeer klein gaatje ontsnapt (\emph{effusie}), is de snelheid waarmee dat gebeurt evenredig met de molecuulsnelheid, en dus met $1/\sqrt{M}$. Voor twee gassen bij dezelfde $T$ en $p$ geldt de \emph{wet van Graham}:
+\begin{equation}
+\frac{\text{effusiesnelheid A}}{\text{effusiesnelheid B}} = \sqrt{\frac{M_\mathrm{B}}{M_\mathrm{A}}}.
+\end{equation}
+\begin{itemize}
+\item Een heliumballon loopt sneller leeg dan een luchtballon: helium ontsnapt $\sqrt{29/4}\approx 2.7$ keer sneller door de microporiën van het rubber.
+\item Bij de verrijking van uranium wordt het verschil tussen \ce{^{235}UF6} en \ce{^{238}UF6} benut. De verhouding van de effusiesnelheden is slechts $\sqrt{352.0/349.0} = 1.0043$. Daarom waren duizenden diffusietrappen achter elkaar nodig; vandaag gebruikt men gascentrifuges.
+\item Lekdetectie in vacu\"umsystemen gebeurt met helium: het lichte, snelle heliumatoom vindt zelfs de kleinste lekken.
+\end{itemize}
+\end{toepassing}
+
+Het model van de kinetische gastheorie verklaart ook waarom re\"ele gassen afwijken van de ideale gaswet. Aanname (2) en (3) zijn immers niet exact: moleculen hebben wel een eigen volume en trekken elkaar wel aan. Die twee correcties vormen precies de basis van de vergelijking van Van der Waals verderop.
+
 \subsection{Afwijkingen van ideaal gedrag: experimentele observaties}
 
-De ideale gaswet werd oorspronkelijk afgeleid onder twee aannames: (1) moleculen bezitten geen eigen volume, en (2) er bestaan geen intermoleculaire krachten tussen de gasmoleculen onderling. Voor verdunde gassen bij matige druk werken deze aannames uitstekend. Reeds in de negentiende eeuw evenwel stelden fysische chemici vast dat systematische afwijkingen optreden naarmate men de condities extremalisatie.
+De ideale gaswet werd oorspronkelijk afgeleid onder twee aannames: (1) moleculen bezitten geen eigen volume, en (2) er bestaan geen intermoleculaire krachten tussen de gasmoleculen onderling. Voor verdunde gassen bij matige druk werken deze aannames uitstekend. Reeds in de negentiende eeuw evenwel stelden fysische chemici vast dat systematische afwijkingen optreden naarmate de omstandigheden extremer worden: hogere druk en lagere temperatuur.
 
 \subsubsection{Boyle-afwijkingen}
 
@@ -1014,6 +1065,79 @@ waarin $\Delta_r C_p^\circ = \sum_i \nu_i C_{p,i}^\circ$ het verschil is tussen 
 \end{equation}
 Voor ingenieurs is dit een belangrijk werkingsinstrument: wanneer $C_p$-waarden voldoende nauwkeurig zijn gekend, kan de reactie-enthalpie bij de procestemperatuur rechtstreeks uit standaardtabellen worden afgeleid.
 
+\section{Warmte-effecten van reacties: de adiabatische temperatuur}
+\label{sec:warmte-effecten}
+
+Een reactie-enthalpie uit een tabel lijkt een abstract getal. In een reactor wordt ze heel concreet: de vrijgekomen warmte moet ergens heen. Ofwel wordt ze afgevoerd via een koelmantel of warmtewisselaar, ofwel blijft ze in het reactiemengsel en stijgt de temperatuur. Voor de ingenieur is de belangrijkste vraag dan: \emph{hoe warm wordt het mengsel als er niet gekoeld wordt?}
+
+\subsection{De energiebalans over een reactor}
+
+Omdat enthalpie een toestandsfunctie is, mogen we de weg van reagentia naar producten zelf kiezen. De eenvoudigste weg bestaat uit twee stappen:
+\begin{enumerate}
+\item de reactie laten verlopen bij \SI{298}{\kelvin}: de enthalpie verandert met $\xi\,\Delta_r H^\circ(\SI{298}{\kelvin})$, met $\xi$ het aantal mol omgezet;
+\item het productmengsel opwarmen van \SI{298}{\kelvin} tot de eindtemperatuur $T$: de enthalpie verandert met $\sum_i n_i \int_{298}^{T} C_{p,i}\,\dd T$, gesommeerd over alle stoffen die de reactor verlaten (ook inerte stoffen zoals stikstof).
+\end{enumerate}
+Bij een \emph{adiabatische} reactor ($Q = 0$, geen asarbeid) is de totale enthalpieverandering nul. De eindtemperatuur, de \emph{adiabatische temperatuur} $T_\mathrm{ad}$, volgt dus uit
+\begin{equation}
+\boxed{\;0 = \xi\,\Delta_r H^\circ(\SI{298}{\kelvin}) + \sum_{i,\,\mathrm{uit}} n_i \int_{298}^{T_\mathrm{ad}} C_{p,i}\,\dd T\;}
+\label{eq:adiabatische-temperatuur}
+\end{equation}
+Bij een exotherme reactie is de eerste term negatief; de tweede term moet die compenseren door een temperatuurstijging. Met een gemiddelde, constante warmtecapaciteit van het productmengsel wordt dit eenvoudig:
+\begin{equation}
+T_\mathrm{ad} - 298 \approx \frac{\xi\,(-\Delta_r H^\circ)}{\sum_i n_i \overline{C}_{p,i}}.
+\label{eq:adiabatische-temperatuur-cp}
+\end{equation}
+Komt de voeding niet binnen op \SI{298}{\kelvin}, dan voeg je een derde stap toe: de voeding eerst afkoelen (of opwarmen) tot \SI{298}{\kelvin}.
+
+\begin{voorbeeld}{Adiabatische vlamtemperatuur van aardgas}
+Methaan verbrandt met de stoichiometrische hoeveelheid lucht (\SI{21}{\percent} \ce{O2}, \SI{79}{\percent} \ce{N2}, dus 3.76 mol \ce{N2} per mol \ce{O2}). Voeding en lucht komen binnen op \SI{25}{\celsius}:
+\[
+\ce{CH4 + 2 O2 + 7.52 N2 -> CO2 + 2 H2O(g) + 7.52 N2}
+\]
+Het water verlaat de vlam als damp, dus gebruiken we $\Delta_r H^\circ = \SI{-802.3}{\kilo\joule\per\mole}$ (en niet $-890.3$, dat geldt voor vloeibaar water; het verschil is $2\times\SI{44.0}{\kilo\joule\per\mole}$ verdampingsenthalpie).
+
+Als gemiddelde warmtecapaciteiten tussen \SI{298}{\kelvin} en \SI{2300}{\kelvin} nemen we \ce{CO2}: \SI{54.8}{}, \ce{H2O}: \SI{44.2}{} en \ce{N2}: \SI{33.5}{\joule\per\mole\per\kelvin}. Per mol methaan:
+\[
+\sum_i n_i\overline{C}_{p,i} = 54.8 + 2(44.2) + 7.52(33.5) = \SI{395}{\joule\per\kelvin}
+\]
+\[
+T_\mathrm{ad} = 298 + \frac{802\,300}{395} = \SI{2330}{\kelvin}\;(\approx\SI{2060}{\celsius}).
+\]
+Gemeten vlamtemperaturen liggen iets lager, rond \SI{2220}{\kelvin}. Bij zulke hoge temperaturen valt een klein deel van \ce{CO2} en \ce{H2O} terug uiteen in \ce{CO}, \ce{H2} en \ce{O2} (een evenwicht, hoofdstuk~\ref{ch:reagerend}); die ontbinding slorpt warmte op.
+
+Merk op dat bijna twee derde van de warmtecapaciteit van het rookgas afkomstig is van stikstof, dat niet eens deelneemt aan de reactie. Verbranden met zuivere zuurstof geeft daarom veel hogere temperaturen: een snijbrander met acetyleen en zuurstof haalt meer dan \SI{3300}{\kelvin}.
+\end{voorbeeld}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/vlamtemperatuur}
+    \caption{Adiabatische vlamtemperatuur van methaan als functie van de luchtovermaat, berekend met temperatuurafhankelijke warmtecapaciteiten (NIST). Elke extra kilogram lucht moet mee opgewarmd worden en verlaagt de eindtemperatuur. Ovens werken meestal met 10 tot 20\,\% luchtovermaat: genoeg om volledige verbranding te verzekeren, niet zoveel dat de vlam te sterk afkoelt.}
+    \label{fig:vlamtemperatuur}
+\end{figure}
+
+\subsection{Adiabatische temperatuurstijging in een vloeistofreactor}
+
+In een vloeistofreactor is het oplosmiddel (vaak water) de grootste warmtebuffer. Per liter reactiemengsel met beginconcentratie $c_{A,0}$ van de reagens en volumieke warmtecapaciteit $\rho c_p$ wordt vergelijking~(\ref{eq:adiabatische-temperatuur-cp}) bij volledige omzetting:
+\begin{equation}
+\boxed{\Delta T_\mathrm{ad} = \frac{c_{A,0}\,(-\Delta_r H)}{\rho\,c_p}}
+\label{eq:delta-T-ad}
+\end{equation}
+Dit getal is een eerste veiligheidscontrole voor elke exotherme reactie: het is de temperatuurstijging die optreedt als de koeling volledig uitvalt.
+
+\begin{voorbeeld}{Wat als de koeling uitvalt?}
+In een batchreactor verloopt een hydrogenering in waterig midden met $c_{A,0} = \SI{2.0}{\mole\per\litre}$ en $\Delta_r H = \SI{-100}{\kilo\joule\per\mole}$. Met $\rho c_p \approx \SI{4.18}{\kilo\joule\per\litre\per\kelvin}$:
+\[
+\Delta T_\mathrm{ad} = \frac{(2.0)(100)}{4.18} = \SI{48}{\kelvin}.
+\]
+Start de reactor op \SI{60}{\celsius}, dan kan het mengsel bij uitval van de koeling tot \SI{108}{\celsius} opwarmen: boven het kookpunt van water. De druk in de reactor loopt op, en bovendien versnelt de reactie sterk bij hogere temperatuur. In hoofdstuk~\ref{ch:kinetiek} zien we hoe die combinatie kan leiden tot een \emph{thermal runaway}.
+
+Een vuistregel uit de procesveiligheid: bij $\Delta T_\mathrm{ad}$ kleiner dan ongeveer \SI{50}{\kelvin} is het risico beperkt; bij meer dan \SI{200}{\kelvin} is een grondige veiligheidsstudie nodig.
+\end{voorbeeld}
+
+\begin{toepassing}{Tussenkoeling, opnieuw}
+Bij de compressor zagen we dat tussenkoeling de eindtemperatuur beperkt. Exotherme gasreactoren werken volgens hetzelfde principe. In een zwavelzuurfabriek wordt \ce{SO2} omgezet tot \ce{SO3} in vier katalysatorbedden na elkaar. In elk bed stijgt de temperatuur adiabatisch; tussen de bedden koelt een warmtewisselaar het gas opnieuw af. De vrijgekomen warmte wordt zo meteen nuttig gebruikt om stoom te maken. Waarom de temperatuur laag moet blijven, ondanks dat de reactie dan trager verloopt, zie je in hoofdstuk~\ref{ch:reagerend}: bij een exotherme reactie daalt de evenwichtsomzetting met de temperatuur.
+\end{toepassing}
+
 \section{Faseovergangen en overgangsenthalpie\"en}
 
 Wanneer een stof van fase verandert - smelten, verdampen, sublimeren - wordt warmte uitgewisseld zonder dat de temperatuur verandert. De benodigde warmte per mol wordt de \emph{overgangsenthalpie} genoemd. We kennen onder andere volgende overgangsenthalpieën:
@@ -1112,6 +1236,33 @@ De eerste hoofdwet beschrijft het behoud van energie tijdens een proces. Zij zeg
 Beschouw een warme kop koffie die op tafel wordt geplaatst. Vrijwel onmiddellijk begint de koffie af te koelen totdat thermisch evenwicht met de omgeving is bereikt. Het omgekeerde verschijnsel wordt daarentegen nooit waargenomen. Niemand heeft ooit gezien hoe een kop lauwe koffie spontaan warmte uit de omgeving opneemt en daardoor opnieuw heet wordt.
 
 Zowel het afkoelen als het spontaan opwarmen van een kop koffie voldoen aan de energiebalans van de eerste hoofdwet. De wet van behoud van energie maakt geen onderscheid tussen beide mogelijkheden. Blijkbaar is nog een bijkomend natuurkundig principe nodig. Naast de hoeveelheid energie moet er een tweede grootheid bestaan die bepaalt in welke richting een proces zich spontaan kan ontwikkelen. Het zoeken naar deze tweede grootheid, en naar de moleculaire oorsprong ervan, vormt het onderwerp van de volgende twee hoofdstukken.
+
+\section{Samenvatting en reflectie}
+
+\begin{samenvatting}{Energie en de eerste hoofdwet}
+\begin{itemize}
+\item Een \emph{systeem} is open (massa- en energie-uitwisseling) of gesloten (enkel energie). Toestandsfuncties ($U$, $H$, $p$, $T$, \ldots) hangen enkel af van de toestand; warmte en arbeid hangen af van de weg.
+\item De ideale gaswet $pV = nRT$ is een limietwet voor $p \to 0$. De kinetische gastheorie verklaart ze: druk ontstaat door botsingen tegen de wand, en $\tfrac{1}{2}M\langle v^2\rangle = \tfrac{3}{2}RT$. Re\"ele gassen beschrijf je met de compressibiliteitsfactor $Z$ of de vergelijking van Van der Waals.
+\item Eerste hoofdwet: $\Delta U = Q + W$. Energie gaat nooit verloren, ze verandert enkel van vorm.
+\item Enthalpie $H = U + pV$ is de natuurlijke grootheid voor processen bij constante druk en voor stromende systemen: $\Delta H = Q_p$.
+\item Warmtecapaciteit: $\Delta H = \int C_p\,\dd T$. Voor een ideaal gas geldt $C_p - C_V = R$.
+\item Reactie-enthalpie\"en volgen uit vormingsenthalpie\"en (wet van Hess) en worden met de wet van Kirchhoff naar andere temperaturen omgerekend.
+\item De adiabatische temperatuur volgt uit $0 = \xi\Delta_r H^\circ + \sum n_i\int C_{p,i}\,\dd T$. Ze bepaalt vlamtemperaturen en is de eerste veiligheidscontrole voor exotherme reactoren.
+\item Faseovergangen vragen veel energie bij constante temperatuur: verdampen van water kost ruim vijf keer meer dan opwarmen van 0 tot \SI{100}{\celsius}.
+\end{itemize}
+\end{samenvatting}
+
+\begin{reflectie}{Energie en de eerste hoofdwet}
+\begin{enumerate}
+\item Waarom is de hoogte van een berg een toestandsfunctie, maar de lengte van het pad naar de top niet? Geef een thermodynamisch equivalent van beide.
+\item Een fietsband voelt warm aan na het oppompen. Leg uit met de eerste hoofdwet \'en met het moleculaire beeld van de kinetische gastheorie.
+\item Waarom gebruik je voor een warmtewisselaar of een reactor de enthalpie en niet de interne energie?
+\item Waarom loopt een heliumballon sneller leeg dan een ballon gevuld met lucht?
+\item Een oven verbrandt aardgas met \SI{100}{\percent} luchtovermaat in plaats van \SI{10}{\percent}. Wat gebeurt er met de vlamtemperatuur, en waarom is dat nadelig voor het rendement van de oven?
+\item Twee reacties hebben dezelfde $\Delta_r H$, maar de ene loopt in een verdunde oplossing en de andere in een geconcentreerde. Welke is gevaarlijker bij uitval van de koeling?
+\item Waarom kan de eerste hoofdwet niet voorspellen of een kop koffie spontaan afkoelt of opwarmt?
+\end{enumerate}
+\end{reflectie}
 
 \newpage
 \section{Oefeningen}
