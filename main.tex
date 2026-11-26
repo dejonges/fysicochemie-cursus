@@ -107,6 +107,11 @@
   \IfFileExists{#2.pdf}{\origincludegraphics[#1]{#2}}{%
   \IfFileExists{#2.png}{\origincludegraphics[#1]{#2}}{%
   \fbox{\parbox[c][3cm][c]{0.6\linewidth}{\centering\small\itshape Figuur in voorbereiding\\[2pt]\upshape\footnotesize\detokenize{#2}}}}}}}
+% Uitwerking van een oefening: enkel op de website (dichtgeklapt), niet in het boek.
+%     \begin{oefening} ... \end{oefening}
+%     \begin{oplossing} ... \end{oplossing}
+\usepackage{environ}
+\NewEnviron{oplossing}{}
 %%%%%
 
 \begin{document}

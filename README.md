@@ -28,6 +28,17 @@ Cursus Fysicochemie (KU Leuven, Groep T). **De LaTeX in deze map is de enige bro
 - **Geanimeerde figuren** bewegen enkel op de website. In het boek komt automatisch één stilstaand beeld met de vermelding "animatie: zie online".
 - **Breedte**: `width=0.7\linewidth` is de standaard. Een andere breedte geldt zowel in het boek als op de site.
 
+## Oefeningen en oplossingen
+
+```latex
+\begin{oefening}
+Opgave ... (in het boek én op de site)
+\end{oefening}
+\begin{oplossing}
+Uitwerking ... (enkel op de site, dichtgeklapt onder de oefening)
+\end{oplossing}
+```
+
 ## Interactieve onderdelen
 
 `\interactief{arrhenius}` voegt op die plaats op de website de interactieve figuur uit `site/_interactief/arrhenius.qmd` in. In het boek staat er een kort kader met een verwijzing naar de site.
