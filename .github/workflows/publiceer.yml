@@ -84,7 +84,9 @@ jobs:
             echo "--- LaTeX-fouten ---"
             grep -n -A2 '^!' main.log | head -40 || true
             echo "--- Ongedefinieerde verwijzingen: $(grep -c 'undefined' main.log || true) ---"
-            grep 'undefined' main.log | head -20 || true
+            grep 'undefined' main.log | head -5 || true
+            echo "--- Einde van main.log ---"
+            tail -n 45 main.log
           fi
 
   publiceer:
