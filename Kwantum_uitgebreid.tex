@@ -5,254 +5,143 @@
 
 \section{Van de eerste hoofdwet naar de moleculaire schaal}
 
-In het vorige hoofdstuk hebben we de eerste wet van de thermodynamica ontwikkeld als een krachtig hulpmiddel om de energieverandering in fysische en chemische processen te beschrijven. Daarbij hebben we energie behandeld als een macroscopische, continue grootheid: we telden warmte en arbeid op, definieerden de interne energie $U$ en de enthalpie $H$, en gebruikten warmtecapaciteiten $C_p$ en $C_V$ om de temperatuursafhankelijkheid van deze grootheden te beschrijven. Deze aanpak is buitengewoon krachtig, maar zij is ook volledig \emph{fenomenologisch}: de thermodynamica vertelt ons \emph{hoeveel} energie tijdens een proces vrijkomt of wordt opgenomen, maar zij verklaart niet \emph{waarom} verschillende stoffen een verschillende energie bezitten, en evenmin waarom een warmtecapaciteit een bepaalde waarde heeft of met de temperatuur varieert.
+In hoofdstuk~\ref{ch:energie} behandelden we energie als een macroscopische, continue grootheid: we telden warmte en arbeid op, definieerden $U$ en $H$, en gebruikten $C_p$ en $C_V$. Die aanpak is krachtig maar \emph{fenomenologisch}. De thermodynamica zegt \emph{hoeveel} energie een proces vrijzet, niet \emph{waarom}. Waarom komt bij de verbranding van waterstof zoveel energie vrij? Waarom heeft een tweeatomig gas een grotere warmtecapaciteit dan een eenatomig gas, en waarom stijgt die met de temperatuur?
 
-Waarom komt bij de reactie van waterstof met zuurstof zoveel energie vrij? Waarom is energie nodig om water opnieuw te ontbinden? Waarom is grafiet onder normale omstandigheden stabieler dan diamant, hoewel beide uitsluitend uit koolstofatomen bestaan?
+De antwoorden liggen op de schaal van atomen en moleculen. Daar blijkt energie niet continu maar \emph{gekwantiseerd}: enkel bepaalde waarden zijn toegelaten. Dat geldt voor de elektronen in een atoom, wat de chemische binding en de reactie-enthalpie verklaart, maar ook voor de translatie, rotatie en vibratie van een molecule als geheel. Zodra we die energieniveaus kennen, rijst de vraag hoe een groot aantal moleculen zich erover verdeelt. Het antwoord, de Boltzmannverdeling, leidt naar de entropie van hoofdstuk~\ref{ch:spontaniteit}.
 
-De antwoorden op al deze vragen kunnen niet worden gevonden door uitsluitend naar de stof als geheel te kijken. Zij liggen verborgen op een veel kleinere schaal, namelijk in de opbouw van de atomen en moleculen waaruit de stof bestaat, en in de manier waarop deze deeltjes energie kunnen opnemen. Uiteindelijk worden alle chemische eigenschappen bepaald door de elektronen rond de atoomkernen, door de manier waarop deze elektronen chemische bindingen vormen, en door de bewegingsvrijheden -- translatie, rotatie en vibratie -- die een molecule als geheel bezit.
-
-Dit hoofdstuk vormt daarom een noodzakelijke schakel tussen hoofdstuk~\ref{ch:energie} en hoofdstuk~\ref{ch:spontaniteit}. In hoofdstuk~\ref{ch:energie} hebben we energie behandeld als een boekhoudkundige grootheid, zonder ons af te vragen waar zij vandaan komt. In dit hoofdstuk dalen we af naar de microscopische wereld van atomen en moleculen om te ontdekken dat energie op die schaal helemaal niet continu is, maar \emph{gekwantiseerd}: enkel bepaalde, discrete energiewaarden zijn toegelaten. We zullen zien dat dit geldt voor de elektronen in een atoom (wat de chemische binding en de reactie-enthalpie verklaart), maar evenzeer voor de manier waarop een molecule als geheel kan bewegen: zij kan translateren, roteren en vibreren, en elk van deze bewegingsvormen blijkt eveneens gekwantiseerd te zijn, elk gekenmerkt door een eigen kwantumgetal.
-
-Zodra we weten welke discrete energietoestanden een systeem van vele atomen en moleculen ter beschikking heeft, rijst immers een nieuwe vraag: \emph{hoe verdelen al deze deeltjes zich over die toestanden bij een gegeven temperatuur?} Het antwoord op die vraag is statistisch van aard en leidt rechtstreeks naar het begrip \emph{entropie}, het centrale thema van hoofdstuk~\ref{ch:spontaniteit}. Het doel van dit hoofdstuk is dus niet om een volledige cursus kwantummechanica te ontwikkelen, maar om te begrijpen welke fundamentele idee\"en aan de basis liggen van de moderne beschrijving van atomen en moleculen, en hoe deze idee\"en uiteindelijk leiden tot chemische bindingen, moleculaire spectra en de energieverschillen die we in de thermodynamica beschrijven.
-
-Het belang van deze kennis reikt bovendien ver voorbij dit hoofdstuk. De elektronenstructuur die we hier opbouwen, is bijvoorbeeld precies wat later bepaalt hoe sterk een molecule chemisch aan een katalysatoroppervlak bindt (chemisorptie, hoofdstuk~\ref{ch:kinetiek}), en de energiebanden die ontstaan wanneer atomaire orbitalen zich in een kristal tot een vaste stof verenigen, liggen aan de basis van het onderscheid tussen geleiders, halfgeleiders en isolatoren (hoofdstuk~\ref{ch:vastestof}). Kwantummechanica is dus geen geïsoleerd theoretisch intermezzo, maar het fundament waarop een groot deel van de latere, industrieel toepasbare hoofdstukken van deze cursus rust.
+Het doel is geen volledige cursus kwantummechanica, maar de fundamenten die later terugkomen: de elektronenstructuur bepaalt hoe sterk een molecule aan een katalysator bindt (hoofdstuk~\ref{ch:grensvlakken}), en vibratie- en rotatieniveaus zijn de basis van de spectroscopie die je in latere vakken gebruikt.
 
 \section{Van klassieke fysica naar kwantummechanica}
 
-Rond 1900 leek de natuurkunde bijna af. De mechanica van Newton, de thermodynamica en de elektromagnetische theorie van Maxwell verklaarden zowat alles wat men kon meten. Toch bleven er enkele hardnekkige raadsels over. Het grootste: volgens de klassieke fysica kan een atoom niet stabiel zijn. Een elektron dat rond een kern draait, is een versnelde lading; het zou voortdurend straling uitzenden, energie verliezen en binnen een fractie van een seconde in de kern storten.
-
-Drie experimenten toonden waar het misliep: de straling van een gloeiend voorwerp, het foto-elektrisch effect en de lijnenspectra van atomen. Samen leidden ze tot een nieuwe theorie, de \emph{kwantummechanica}. De klassieke fysica is daarmee niet fout; ze is een uitstekende benadering voor grote voorwerpen. Op de schaal van atomen en elektronen gelden echter andere regels. We overlopen kort de belangrijkste stappen, telkens met het oog op wat we er later nodig hebben.
+Rond 1900 leek de natuurkunde bijna af, maar enkele waarnemingen bleven onverklaarbaar. Volgens de klassieke fysica kan een atoom zelfs niet stabiel zijn: een elektron dat rond een kern draait, is een versnelde lading en zou binnen een fractie van een seconde al stralend in de kern storten. Drie experimenten toonden waar het misliep: de straling van een gloeiend voorwerp, het foto-elektrisch effect en de lijnenspectra van atomen. De klassieke fysica is daarmee niet fout, maar ze is een benadering die enkel voor grote voorwerpen geldt.
 
 \subsection{Energie als discrete grootheid}
 
-Een metalen staaf die wordt verwarmd, begint eerst donkerrood te gloeien. Bij een hogere temperatuur verandert de kleur geleidelijk naar oranje, vervolgens geel en uiteindelijk bijna wit. De kleur van het uitgezonden licht hangt dus rechtstreeks samen met de temperatuur van het voorwerp.
-
-De natuurkundigen van die tijd wilden deze warmtestraling theoretisch beschrijven. Daartoe beschouwden zij een ideaal voorwerp dat alle invallende straling volledig absorbeert en opnieuw uitzendt. Een dergelijk voorwerp wordt een \emph{zwart lichaam} genoemd. Het uitgestraalde spectrum van een zwart lichaam bleek experimenteel zeer nauwkeurig meetbaar en vormde daardoor een ideale test voor de bestaande theorieën.
-
-De klassieke theorie voorspelde echter een fundamenteel verkeerd resultaat. Volgens de wetten van de klassieke elektromagnetica zouden de atomen in een warm voorwerp elektromagnetische golven met alle mogelijke frequenties kunnen uitzenden. Bovendien zou elke mogelijke trillingsmodus gemiddeld dezelfde hoeveelheid energie bevatten, overeenkomstig de equipartitiestelling uit de klassieke statistische mechanica.
-
-Het aantal mogelijke trillingsmodi neemt echter zeer sterk toe naarmate de frequentie groter wordt. De klassieke theorie voorspelde daardoor dat vooral straling met een zeer hoge frequentie, zoals ultraviolet licht, een enorme hoeveelheid energie zou bevatten. Wiskundig leidde de theorie zelfs tot de absurde conclusie dat de totale uitgestraalde energie oneindig groot moest zijn.
-
-Dit resultaat staat bekend als de \emph{ultravioletcatastrofe}, ook wel de Rayleigh-Jeans-catastrofe. De voorspelling was duidelijk in tegenspraak met experimenten. In werkelijkheid neemt de intensiteit van de warmtestraling na een bepaalde frequentie juist sterk af, zodat slechts een beperkte hoeveelheid energie wordt uitgestraald (zie Figuur \ref{fig:UVcatastrophe}).
+Een metalen staaf die je verwarmt, gloeit eerst donkerrood, dan oranje, geel en bijna wit. Een ideaal voorwerp dat alle straling absorbeert en weer uitzendt, heet een \emph{zwart lichaam}. Volgens de klassieke theorie zou elke trillingsmodus van het stralingsveld gemiddeld dezelfde energie krijgen. Omdat het aantal modi sterk stijgt met de frequentie, voorspelde die theorie een oneindige uitgestraalde energie, vooral in het ultraviolet: de \emph{ultravioletcatastrofe} (figuur~\ref{fig:UVcatastrophe}). In werkelijkheid daalt de intensiteit bij hoge frequenties sterk.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/uv_catastrofe}
-    \caption{De Ultravioletcatastrofe is de fout bij korte golflengten in de wet van Rayleigh-Jeans voor uitgestraalde energie door een ideaal zwart-lichaam. De fout, die veel meer uitgesproken is voor korte golflengten, is het verschil tussen de zwarte kromme (de verkeerde kromme die wordt voorspeld door de wet van Rayleigh-Jeans) en de blauwe kromme (de correcte kromme die wordt voorspeld door de wet van Planck).}
+    \includegraphics[width=0.62\linewidth]{Figuren/uv_catastrofe}
+    \caption{Stralingsspectrum van een zwart lichaam. De wet van Rayleigh--Jeans (klassiek) loopt bij korte golflengten naar oneindig; de wet van Planck volgt de metingen.}
     \label{fig:UVcatastrophe}
 \end{figure}
 
-De vraag was dus fundamenteel: \emph{waarom straalt een warm voorwerp geen oneindige hoeveelheid hoogfrequente straling uit?} In 1900 stelde de Duitse natuurkundige Max Planck een gedurfde hypothese voor. Hij veronderstelde dat de atomen in een warm voorwerp niet willekeurig energie kunnen opnemen of afgeven. De uitwisseling van energie gebeurt uitsluitend in kleine, ondeelbare pakketjes, die later \emph{kwanta} werden genoemd.
-
+Max Planck loste dit in 1900 op met een gedurfde hypothese: energie wordt enkel uitgewisseld in ondeelbare pakketjes, \emph{kwanta}, met grootte
 \begin{equation}
 \boxed{
 E=h\nu=h\frac{c}{\lambda}
 }
 \end{equation}
-waarin $h$ de constante van Planck is ($h=6.626\times10^{-34}\;\si{\joule\second}$), $\nu$ de frequentie van de elektromagnetische straling voorstelt, $\lambda$ de golflengte van de elektromagnetische straling en $c$ de lichtsnelheid.
-
-Deze eenvoudige hypothese had verstrekkende gevolgen. Voor laagfrequente straling is de energie van één quantum klein, zodat vele energietoestanden gemakkelijk bereikbaar zijn. Bij zeer hoge frequenties wordt de energie van één quantum echter veel groter. De trillende deeltjes beschikken dan vaak niet over voldoende energie om een dergelijk quantum uit te zenden. Hierdoor wordt de emissie van hoogfrequente straling automatisch onderdrukt. De experimenteel waargenomen afname van de intensiteit bij hoge frequenties volgde daardoor vanzelf uit Plancks theorie. Zijn vergelijking beschreef het volledige spectrum van de warmtestraling met een nauwkeurigheid die voordien onmogelijk was.
-
-Hoewel Planck zijn hypothese aanvankelijk vooral als een mathematische truc beschouwde, bleek het later een fundamentele eigenschap van de natuur te beschrijven. Voor het eerst werd het klassieke idee verlaten dat energie een volledig continue grootheid is. Op macroscopische schaal zijn de energiekwanta zo klein dat energie continu \emph{lijkt} te veranderen. Op atomaire schaal worden deze energiestappen echter bepalend voor het gedrag van materie. Hierdoor zijn de klassieke mechanica en de kwantummechanica geen afzonderlijke theorie\"en, maar veeleer een mooie aanvulling op elkaar.
+met $h=\SI{6.626e-34}{\joule\second}$ de constante van Planck, $\nu$ de frequentie en $\lambda$ de golflengte. Bij hoge frequentie is één kwantum zo groot dat de trillende deeltjes het zelden kunnen leveren, waardoor de uitstraling daar vanzelf wegvalt. Op macroscopische schaal zijn de kwanta zo klein dat energie continu \emph{lijkt}; op atomaire schaal bepalen ze het gedrag van materie.
 
 \begin{voorbeeld}{Fotonenergie over het elektromagnetisch spectrum}
-Om een gevoel te krijgen voor de grootteorde van $E=h\nu$, vergelijken we de energie van één foton voor drie golflengten: een FM-radiogolf ($\lambda=\SI{3}{\meter}$), zichtbaar groen licht ($\lambda=\SI{520}{\nano\meter}$) en een röntgenfoton ($\lambda=\SI{0.1}{\nano\meter}$).
-
-Met $E=hc/\lambda$ en $h=\SI{6.626e-34}{\joule\second}$, $c=\SI{3.00e8}{\meter\per\second}$:
-
+Met $E=hc/\lambda$ en $c=\SI{3.00e8}{\meter\per\second}$:
 \begin{align*}
-E_{\text{radio}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{3} = \SI{6.63e-26}{\joule} \\[2mm]
-E_{\text{groen}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{520\times10^{-9}} = \SI{3.82e-19}{\joule} \\[2mm]
-E_{\text{X-ray}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{0.1\times10^{-9}} = \SI{1.99e-15}{\joule}
+E_{\text{radio}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{3} = \SI{6.63e-26}{\joule} \quad (\lambda=\SI{3}{\meter}) \\
+E_{\text{groen}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{520\times10^{-9}} = \SI{3.82e-19}{\joule} \quad (\lambda=\SI{520}{\nano\meter}) \\
+E_{\text{X}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{0.1\times10^{-9}} = \SI{1.99e-15}{\joule} \quad (\lambda=\SI{0.1}{\nano\meter})
 \end{align*}
-
-Tussen een radiogolf en een röntgenfoton zit dus een factor van ongeveer $10^{10}$ in energie, hoewel beide ``gewoon'' elektromagnetische straling zijn. Dit verklaart meteen waarom radiogolven volledig onschadelijk zijn voor chemische bindingen (energie per foton veel kleiner dan een bindingsenergie), terwijl röntgenstraling en ultraviolet licht chemische bindingen kunnen breken of elektronen kunnen losmaken: hun fotonenergie ligt in dezelfde grootteorde als de energieverschillen tussen elektronische toestanden in atomen en moleculen.
+Tussen radio en röntgen zit een factor $10^{10}$. Radiogolven zijn daarom onschadelijk voor chemische bindingen, terwijl UV- en röntgenfotonen bindingen kunnen breken: hun energie ligt in dezelfde grootteorde als elektronische energieverschillen (figuur~\ref{fig:spectrum-bindingen}).
 \end{voorbeeld}
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/spectrum_bindingen}
-    \caption{Energie van één mol fotonen over het elektromagnetisch spectrum, vergeleken met enkele bindingsenergieën en met $RT$ bij kamertemperatuur. Ultraviolet licht heeft genoeg energie om C--C-bindingen te breken (zonnebrand, vergeelde kunststof); infrarood en microgolven doen moleculen enkel sneller trillen en draaien.}
+    \includegraphics[width=0.62\linewidth]{Figuren/spectrum_bindingen}
+    \caption{Energie van één mol fotonen over het elektromagnetisch spectrum, vergeleken met enkele bindingsenergieën en met $RT$ bij kamertemperatuur. Ultraviolet licht kan C--C-bindingen breken (zonnebrand, vergeelde kunststof); infrarood en microgolven doen moleculen enkel sneller trillen en draaien.}
     \label{fig:spectrum-bindingen}
 \end{figure}
 
 \subsection{Het foto-elektrisch effect}
 
-Hoewel de hypothese van Planck het spectrum van een zwart lichaam perfect kon beschrijven, bleef onduidelijk of de energiekwanta werkelijk een fysische betekenis hadden. In 1905 gaf Albert Einstein aan Plancks idee een veel diepere betekenis. Hij stelde voor dat elektromagnetische straling niet alleen in discrete hoeveelheden wordt uitgezonden of geabsorbeerd, maar dat het zelf uit afzonderlijke energiepakketjes bestaat. Elk van deze pakketjes, later \emph{fotonen} genoemd, bezit dezelfde gekwantiseerde energie als Planck postuleerde, $E=h\nu$.
-
-Deze hypothese bood een verklaring voor het foto-elektrisch effect. Wanneer elektromagnetische straling op een metalen oppervlak valt, kunnen elektronen uit het metaal worden vrijgemaakt. Klassiek zou men verwachten dat een grotere lichtintensiteit de elektronen steeds meer energie geeft, ongeacht de golflengte (kleur) van het licht. Experimenten tonen echter een volledig ander gedrag.
-
+In 1905 ging Einstein een stap verder: licht \emph{bestaat} uit energiepakketjes, \emph{fotonen}, elk met energie $h\nu$. Dat verklaart het foto-elektrisch effect. Valt licht op een metaal, dan komen er elektronen vrij, maar:
 \begin{enumerate}
-\item Onder een bepaalde drempelfrequentie worden helemaal geen elektronen uitgestoten, zelfs niet wanneer de lichtintensiteit zeer groot is.
-\item Zodra de frequentie boven deze drempel komt, worden de elektronen vrijwel onmiddellijk vrijgemaakt.
-\item De maximale kinetische energie van de uitgestoten elektronen hangt uitsluitend af van de frequentie van het invallende licht en niet van de lichtintensiteit.
+\item onder een drempelfrequentie komt geen enkel elektron vrij, hoe intens het licht ook is;
+\item boven de drempel komen de elektronen onmiddellijk vrij;
+\item hun maximale kinetische energie hangt af van de frequentie, niet van de intensiteit.
 \end{enumerate}
+Eén elektron absorbeert telkens één foton. Een deel van de fotonenergie, de \emph{werkfunctie} $\Phi$, is nodig om het elektron uit het metaal te halen; de rest wordt kinetische energie (figuur~\ref{fig:photoelectric}):
+\begin{equation}
+E_{\mathrm{kin,max}} = \tfrac{1}{2}m_ev^2 = h\nu-\Phi .
+\end{equation}
+Typische werkfuncties liggen tussen \SI{2}{} en \SI{5}{\electronvolt} ($\SI{1}{\electronvolt}=\SI{1.602e-19}{\joule}$, de energie van een elektron na een spanningsverschil van \SI{1}{\volt}). Figuur~\ref{fig:ek-frequentie} toont de lineaire samenhang met helling $h$. De werkfunctie is kleiner dan de ionisatie-energie van een vrij atoom (natrium: \SI{2.3}{} tegenover \SI{5.1}{\electronvolt}), omdat de elektronen in een metaal al vrij bewegen en enkel het oppervlak moeten verlaten.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/foto_elektrisch}
-    \caption{Een invallende elektromagnetische straling met energie $h \nu$ is in staat om een elektron uit het metaal te verwijderen. Hiervoor wordt de energie enerzijds gebruikt om te ontsnappen uit het metaal ($\Phi$) en anderzijds om het elektron te versnellen ($E_k$).}
+    \includegraphics[width=0.55\linewidth]{Figuren/foto_elektrisch}
+    \caption{Een foton met energie $h\nu$ maakt een elektron vrij: een deel van de energie dient om het metaal te verlaten ($\Phi$), de rest wordt kinetische energie ($E_k$).}
     \label{fig:photoelectric}
 \end{figure}
 
-Einstein verklaarde deze waarnemingen door aan te nemen dat één elektron telkens slechts één foton absorbeert. Een deel van de energie van dit foton is nodig om het elektron uit het metaal los te maken. Deze minimale energie wordt de \emph{werkfunctie} genoemd en wordt aangeduid met $\Phi$. Wanneer de energie van het foton groter is dan de werkfunctie, blijft het overschot over als kinetische energie van het uitgestoten elektron. Dit leidt tot de vergelijking van Einstein (zie Figuur \ref{fig:photoelectric}):
-
-\begin{equation}
-h\nu = \Phi + E_{\mathrm{kin,max}}
-\end{equation}
-
-of
-
-\begin{equation}
-E_{\mathrm{kin,max}} = \frac{1}{2}m_ev^2  = h\nu-\Phi
-\end{equation}
-
-De werkfunctie is een materiaaleigenschap. Typische waarden liggen tussen ongeveer \SI{2}{\electronvolt} - \SI{5}{\electronvolt}, afhankelijk van het gebruikte metaal. Een elektronvolt is de hoeveelheid kinetische energie die 1 elektron krijgt als het een spanningsverschil van 1 volt doorloopt. Eén elektronvolt is gelijk aan ongeveer \SI{1.602e-19}{\joule}.
-
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/ek_frequentie}
-    \caption{Maximale kinetische energie van de uitgestoten elektronen in functie van de frequentie van het invallende licht, voor natrium en koper. Onder de drempelfrequentie $\nu_0 = \Phi/h$ komen geen elektronen vrij; daarboven stijgt $E_{\mathrm{kin,max}}$ lineair met helling $h$, voor elk metaal dezelfde.}
+    \includegraphics[width=0.6\linewidth]{Figuren/ek_frequentie}
+    \caption{Maximale kinetische energie van de uitgestoten elektronen tegen de frequentie, voor natrium en koper. Onder $\nu_0 = \Phi/h$ komen geen elektronen vrij; daarboven stijgt $E_{\mathrm{kin,max}}$ lineair met helling $h$, voor elk metaal dezelfde.}
     \label{fig:ek-frequentie}
 \end{figure}
 
 \begin{voorbeeld}{Foto-elektrisch effect}
-
-Een natriumoppervlak heeft een werkfunctie van
-$\Phi=\SI{2.30}{eV}$.
-Het wordt bestraald met ultraviolet licht met een golflengte van
-$\lambda=\SI{250}{nm}$.
-
-De energie van één foton bij die golflengte bedraagt
-
-\begin{equation*}
-E=\frac{hc}{\lambda}.
-\end{equation*}
-
-Invullen geeft
-
-\begin{align*}
-E
-&=
-\frac{(\SI{6.626e-34}{J\,s})
-(\SI{3.00e8}{m/s})}
-{\SI{250e-9}{m}}
-\\
-&=
-\SI{7.95e-19}{J}
-\\
-&=
-\SI{4.96}{eV}.
-\end{align*}
-
-De maximale kinetische energie van het elektron bedraagt bijgevolg
-
+Natrium ($\Phi=\SI{2.30}{eV}$) wordt bestraald met UV-licht van \SI{250}{nm}. Eén foton heeft
 \[
-E_{\mathrm{kin,max}}
-=
-4.96-2.30
-=
-\SI{2.66}{eV}
+E=\frac{hc}{\lambda}=\frac{(6.626\times10^{-34})(3.00\times10^{8})}{250\times10^{-9}}=\SI{7.95e-19}{J}=\SI{4.96}{eV},
 \]
-
-Het elektron wordt dus uit het metaal losgemaakt en verlaat het oppervlak met een kinetische energie van \SI{2.66}{eV}.
-
+zodat $E_{\mathrm{kin,max}}=4.96-2.30=\SI{2.66}{eV}$.
 \end{voorbeeld}
-
-De werkfunctie mag niet worden verward met de ionisatie-energie. De \emph{werkfunctie} is de minimale energie die nodig is om een elektron uit een vast metaal los te maken. Het elektron bevond zich reeds in de geleidingsband van het metaal en hoeft enkel het oppervlak te verlaten. De \emph{ionisatie-energie} is de energie die nodig is om een elektron volledig uit een geïsoleerd atoom of molecuul te verwijderen. Hierbij moet de volledige aantrekkingskracht van de atoomkern worden overwonnen. Omdat een elektron in een metaal reeds relatief vrij kan bewegen, is de werkfunctie doorgaans aanzienlijk kleiner dan de ionisatie-energie van hetzelfde element. Zo bedraagt de werkfunctie van natrium ongeveer \SI{2.3}{eV}, terwijl de eerste ionisatie-energie ongeveer \SI{5.1}{eV} bedraagt.
-
-De verklaring van het foto-elektrisch effect vormde een van de eerste overtuigende bewijzen dat licht zich niet alleen als een golf, maar ook als een verzameling deeltjes kan gedragen. Samen met Plancks hypothese vormde dit het vertrekpunt voor de ontwikkeling van de moderne kwantummechanica.
 
 \subsection{Het model van Bohr}
 \label{sec:bohr}
 
-Reeds in de negentiende eeuw was experimenteel bekend dat verhit waterstofgas licht uitzendt bij slechts een beperkt aantal scherp bepaalde golflengten; een \emph{lijnenspectrum}; in plaats van een continu spectrum zoals bij een gloeiende metalen staaf. In 1885 vond de Zwitserse wiskundige Johann Balmer een eenvoudige, zuiver empirische formule die de golflengten van de toen gekende zichtbare lijnen van waterstof nauwkeurig beschreef, zonder dat er op dat ogenblik enige fysische verklaring voor bestond. Precies dit raadsel, waarom zendt waterstof licht uit bij deze en geen andere golflengten, vormde de uitdaging waarvoor Bohr in 1913 een eerste theoretische verklaring zou geven. Zijn model is historisch van groot belang: het vormt de brug tussen de klassieke natuurkunde en de kwantummechanica, en het introduceert voor het eerst het idee dat ook het impulsmoment van het elektron gekwantiseerd zou kunnen zijn.
-
-Bohr vertrok van het klassieke beeld van een elektron dat in een cirkelvormige baan rond de kern beweegt, gehouden door de Coulombaantrekking, maar voegde daaraan een niet-klassiek postulaat toe: enkel die banen zijn toegelaten waarvoor het impulsmoment een geheel veelvoud is van $\hbar= \frac{h}{2 \pi}$,
+Verhit waterstofgas zendt licht uit bij slechts enkele scherpe golflengten: een \emph{lijnenspectrum}. Bohr verklaarde dit in 1913 met een elektron op een cirkelbaan rond de kern, aangevuld met een niet-klassiek postulaat: enkel banen waarvoor het impulsmoment een geheel veelvoud is van $\hbar = h/2\pi$ zijn toegelaten,
 \begin{equation}
-p r = m_ev r = n\hbar, \qquad n=1,2,3,\ldots
+m_ev r = n\hbar, \qquad n=1,2,3,\ldots
 \end{equation}
-Door deze kwantisatievoorwaarde te combineren met de klassieke voorwaarde dat de Coulombkracht precies de centripetale kracht levert, $\dfrac{e^2}{4\pi\varepsilon_0r^2}=\dfrac{m_ev^2}{r}$, volgen zowel de toegelaten baanstralen als de bijbehorende energie\"en:
+Combineer je dit met de voorwaarde dat de Coulombkracht de centripetale kracht levert, $e^2/(4\pi\varepsilon_0r^2)=m_ev^2/r$, dan volgen de baanstralen en energieën (figuur~\ref{fig:bohr-model}):
 \begin{equation}
-r_n = n^2a_0, \qquad a_0=\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}\approx\SI{52.9}{\pico\metre} \quad\text{(de Bohr-straal)},
+r_n = n^2a_0, \quad a_0=\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}=\SI{52.9}{\pico\metre}, \qquad
+E_n = -\frac{m_ee^4}{8\varepsilon_0^2h^2}\frac{1}{n^2} = -\frac{\SI{13.6}{eV}}{n^2}.
 \end{equation}
-\begin{equation}
-E_n = -\frac{m_ee^4}{8\varepsilon_0^2h^2}\frac{1}{n^2} = -\frac{13.6~\mathrm{eV}}{n^2}, \qquad n=1,2,3,\ldots
-\end{equation}
-Deze laatste uitdrukking is exact dezelfde vergelijking die we verderop (\S~\ref{sec:waterstofatoom}) via de Schr\"odingervergelijking zullen terugvinden. Bohrs model gaf dus, ondanks zijn eenvoudige en deels ad-hoc karakter, reeds het volledig correcte energiespectrum van het waterstofatoom, en daarmee automatisch ook de correcte Rydberg-formule voor het waterstofspectrum (\S~\ref{sec:atomaire-spectra}).
+Dit is exact het energiespectrum dat de Schr\"odingervergelijking later geeft (\S~\ref{sec:waterstofatoom}).
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/bohr}
+    \includegraphics[width=0.5\linewidth]{Figuren/bohr}
     \caption{Schematische voorstelling van het model van Bohr.}
     \label{fig:bohr-model}
 \end{figure}
 
-Toch bleek het model van Bohr uiteindelijk ontoereikend, om drie fundamentele redenen:
-\begin{enumerate}
-\item Het werkt uitsluitend voor waterstofachtige systemen met precies \"e\"en elektron ($\mathrm{H}$, $\mathrm{He^+}$, $\mathrm{Li^{2+}}$,\ldots); voor elk atoom met meer dan \"e\"en elektron levert het geen correcte voorspellingen, omdat het geen rekening houdt met de onderlinge afstoting tussen elektronen.
-\item De kwantisatievoorwaarde $m_evr=n\hbar$ wordt zonder diepere rechtvaardiging \emph{opgelegd}: het model verklaart niet \emph{waarom} enkel deze banen zijn toegelaten, het stelt dit gewoon vast omdat het de juiste antwoorden oplevert.
-\item Het model beschrijft het elektron nog steeds als een klassiek deeltje met een precieze positie en snelheid op een welbepaalde baan --- een beeld dat, zoals we in \S~\ref{sec:dubbelspleet} zullen zien, fundamenteel onverenigbaar is met het golfkarakter van materie.
-\end{enumerate}
-Deze tekortkomingen tonen aan dat een eenvoudige aanpassing van de klassieke mechanica niet volstaat. Er was een volledig nieuw theoretisch kader nodig, waarin kwantisatie niet langer als extra postulaat wordt toegevoegd, maar automatisch uit de fundamentele vergelijkingen zelf volgt. De eerste stap naar dat kader werd gezet door Louis de Broglie.
+Toch schiet het model tekort. Het werkt enkel voor systemen met één elektron (H, He$^+$, Li$^{2+}$). De kwantisatievoorwaarde wordt opgelegd zonder verklaring. En het beschrijft het elektron als een klassiek deeltje op een baan, wat onverenigbaar is met het golfkarakter van materie (\S~\ref{sec:dubbelspleet}).
 
 \subsection{Het golfkarakter van materie}
 
-Het voorstel van Planck betekende een revolutionaire stap vooruit, maar veranderde aanvankelijk nog niets aan het beeld dat natuurkundigen van materie hadden. Licht werd beschouwd als een elektromagnetische golf, terwijl elektronen en andere materiedeeltjes werden voorgesteld als kleine, duidelijk gelokaliseerde deeltjes.
-
-Dat onderscheid werd al snel minder vanzelfsprekend. Einstein had in 1905 door het foto-elektrisch effect aangetoond dat licht zich in bepaalde omstandigheden ook gedraagt alsof het uit afzonderlijke energiepakketjes bestaat. Licht, dat traditioneel als een golf werd beschouwd, vertoonde dus eveneens een deeltjeskarakter.
-
-In 1924 stelde Louis de Broglie voor dat deze dualiteit ook in de omgekeerde richting moest gelden. Wanneer licht zowel golf- als deeltjeseigenschappen kan vertonen, dan zou materie mogelijk eveneens een golfkarakter bezitten. Hij veronderstelde dat aan ieder deeltje met impuls $p$ een golflengte kan worden toegekend:
-
+Als licht zowel golf als deeltje is, stelde De Broglie in 1924, dan heeft materie misschien ook een golfkarakter. Aan elk deeltje met impuls $p=mv$ kent hij een golflengte toe:
 \begin{equation}
 \boxed{
-\lambda=\frac{h}{p}
+\lambda=\frac{h}{p}=\frac{h}{mv}
 }
 \end{equation}
-waarin $h$ de constante van Planck is en $p$ de impuls van het deeltje. Voor een niet-relativistisch deeltje met massa $m$ en snelheid $v$ geldt
-\begin{equation}
-p=mv
-\end{equation}
-zodat de de Broglie-golflengte ook kan worden geschreven als
-\begin{equation}
-\lambda=\frac{h}{mv}
-\end{equation}
+Voor macroscopische voorwerpen is die golflengte onmeetbaar klein. Voor elektronen is ze vergelijkbaar met de afstand tussen atomen, zodat een kristal elektronen afbuigt zoals röntgenstraling.
 
-De de Broglie-golflengte betekent niet dat een elektron letterlijk als een kleine, materiële golf door de ruimte beweegt. Zij geeft aan dat het gedrag van een deeltje door een golffunctie moet worden beschreven en dat het onder geschikte omstandigheden verschijnselen zoals interferentie en diffractie kan vertonen.
-
-Voor macroscopische voorwerpen is de impuls zo groot dat de bijbehorende golflengte onvoorstelbaar klein wordt. Het golfkarakter is dan experimenteel niet waarneembaar. Voor elektronen op atomaire schaal kan de de Broglie-golflengte daarentegen vergelijkbaar zijn met de afstand tussen atomen. Daardoor kunnen elektronen worden afgebogen door de regelmatige structuur van een kristal, op een vergelijkbare manier als röntgenstraling.
-
-\begin{voorbeeld}{De de Broglie-golflengte van een elektron en een wandelende persoon}
-\textbf{Een elektron versneld over \SI{150}{\volt}.} Het elektron krijgt een kinetische energie $E_\mathrm{kin} = eU = p^2/2m_e$, zodat $p = \sqrt{2m_e eU}$ en
+\begin{voorbeeld}{De De Broglie-golflengte van een elektron en een wandelende persoon}
+Een elektron versneld over \SI{150}{\volt} heeft $E_\mathrm{kin} = eU = p^2/2m_e$, dus
 \[
-\lambda = \frac{h}{\sqrt{2m_e eU}} = \frac{6.626\times10^{-34}}{\sqrt{2(9.109\times10^{-31})(1.602\times10^{-19})(150)}} = \SI{1.00e-10}{\metre} = \SI{0.100}{\nano\metre}.
+\lambda = \frac{h}{\sqrt{2m_e eU}} = \frac{6.626\times10^{-34}}{\sqrt{2(9.109\times10^{-31})(1.602\times10^{-19})(150)}} = \SI{0.100}{\nano\metre},
 \]
-Dat is precies de afstand tussen atomen in een kristal. Zulke elektronen worden dus afgebogen door een kristalrooster, net zoals r\"ontgenstraling: een rechtstreeks bewijs van het golfkarakter van materie. De elektronenmicroscoop maakt hier gebruik van.
-
-\textbf{Een wandelende persoon} ($m = \SI{75}{\kilo\gram}$, $v = \SI{1.5}{\metre\per\second}$):
-\[
-\lambda = \frac{h}{mv} = \frac{6.626\times10^{-34}}{(75)(1.5)} = \SI{5.9e-36}{\metre}.
-\]
-Dat is ontelbare grootteordes kleiner dan een atoomkern. De de Broglie-relatie geldt dus voor alle materie, maar enkel voor zeer lichte deeltjes zoals elektronen is de golflengte groot genoeg om gemeten te worden.
+precies de afstand tussen atomen in een kristal. De elektronenmicroscoop maakt hier gebruik van. Een wandelaar ($m = \SI{75}{\kilo\gram}$, $v = \SI{1.5}{\metre\per\second}$) heeft $\lambda = 6.626\times10^{-34}/(75 \times 1.5) = \SI{5.9e-36}{\metre}$: ontelbare grootteordes kleiner dan een atoomkern.
 \end{voorbeeld}
-
 
 \subsection{De dubbelspleetproef}
 \label{sec:dubbelspleet}
 
-De hypothese van De Broglie werd spoedig experimenteel bevestigd. Wanneer een elektronenbundel door een plaat met twee fijne spleten wordt gestuurd, ontstaat op een scherm achter de spleten een patroon dat typisch is voor golven: een afwisseling van heldere en donkere banden (diffractiepatroon). Dit patroon kan alleen worden verklaard wanneer de elektronen zich als golven gedragen.
-
-Wanneer de proef met \"e\"en elektron tegelijk wordt uitgevoerd, verschijnt telkens slechts \"e\"en punt op het scherm. Pas na vele elektronen ontstaat het golfpatroon langzaam. Elk afzonderlijk elektron wordt dus als deeltje gedetecteerd, maar de verdeling van de detectiepunten vertoont een golfkarakter.
+Stuur je elektronen door twee fijne spleten, dan ontstaat op een scherm een interferentiepatroon van heldere en donkere banden, typisch voor golven. Gebeurt dit met één elektron tegelijk, dan verschijnt telkens één punt; pas na vele elektronen wordt het patroon zichtbaar (figuur~\ref{fig:dubbelespleet}). Elk elektron wordt als deeltje gedetecteerd, maar de verdeling van de punten is die van een golf.
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.3\linewidth]{Afbeeldingen/Double-slit_experiment_results_Tonomura_2.jpg}
-    \caption{Resultaten van een dubbelespleetexperiment waaruit de vorming van een interferentiepatroon van afzonderlijke elektronen blijkt. Het aantal elektronen bedraagt 11 (a), 200 (b), 6000 (c), 40000 (d) en 140000 (e).}
+    \caption{Dubbelspleetexperiment met afzonderlijke elektronen: na 11 (a), 200 (b), 6000 (c), 40\,000 (d) en 140\,000 (e) elektronen.}
     \label{fig:dubbelespleet}
 \end{figure}
 
 \begin{toepassing}{Een Brussels weetje: de Solvayconferentie van 1927}
-De Belgische industrieel Ernest Solvay, die rijk werd met zijn sodaproces (\ce{Na2CO3}, nog steeds de basis van de glasindustrie), financierde vanaf 1911 de \emph{Solvayconferenties} voor natuurkunde in Brussel. De vijfde conferentie, in oktober 1927, ging over ``elektronen en fotonen''. De groepsfoto van die week is wellicht de bekendste foto uit de geschiedenis van de wetenschap: Einstein, Bohr, Planck, Marie Curie, Schr\"odinger, Heisenberg, De Broglie, Dirac, Pauli en Born staan er samen op. Van de 29 deelnemers hadden er 17 een Nobelprijs of zouden er een krijgen. In Brussel werd toen hevig gediscussieerd over de betekenis van de golffunctie, het onderwerp van de volgende paragraaf. Einsteins bezwaar ``God dobbelt niet'' en Bohrs antwoord ``Einstein, vertel God niet wat Hij moet doen'' stammen uit die discussies.
+Ernest Solvay, rijk geworden met zijn sodaproces (\ce{Na2CO3}, nog steeds de basis van de glasindustrie), financierde vanaf 1911 de Solvayconferenties voor natuurkunde in Brussel. De vijfde, in oktober 1927, ging over ``elektronen en fotonen''. Op de groepsfoto staan onder meer Einstein, Bohr, Planck, Marie Curie, Schr\"odinger, Heisenberg, De Broglie, Dirac en Pauli: 17 van de 29 deelnemers hadden of kregen een Nobelprijs. Er werd hevig gediscussieerd over de betekenis van de golffunctie, het onderwerp van de volgende paragraaf. Einsteins ``God dobbelt niet'' en Bohrs antwoord ``Einstein, vertel God niet wat Hij moet doen'' stammen uit die discussies.
 \end{toepassing}
 
 \section{De golffunctie en de Schr\"odingervergelijking}
@@ -260,639 +149,330 @@ De Belgische industrieel Ernest Solvay, die rijk werd met zijn sodaproces (\ce{N
 \subsection{De golffunctie}
 \label{sec:golffunctie}
 
-Het dubbelespleetexperiment toont dat het gedrag van elektronen niet volledig kan worden beschreven met het klassieke beeld van een deeltje dat op ieder ogenblik een welbepaalde baan volgt. Om het golfkarakter van een elektron wiskundig te beschrijven, wordt in de kwantummechanica een \emph{golffunctie} ingevoerd, die wordt aangeduid met het symbool $\psi$.
-
-De golffunctie bevat alle informatie die binnen de kwantummechanica over de toestand van het elektron beschikbaar is en kan afhangen van de positie en van de tijd:
-
-\begin{equation}
-\psi=\psi(\vec{r},t).
-\end{equation}
-
-De waarde van $\psi$ zelf is in het algemeen geen rechtstreeks meetbare fysische grootheid. De golffunctie kan bovendien complex zijn, zodat zij zowel een reëel als een imaginair deel kan bevatten. Om uit de golffunctie een meetbare voorspelling af te leiden, is daarom een interpretatieregel nodig.
-
-De fysische betekenis van de golffunctie werd in 1926 verduidelijkt door Max Born. Hij stelde voor om $\psi$ niet te interpreteren als een materiële golf die door de ruimte is uitgesmeerd. In plaats daarvan bepaalt de golffunctie de waarschijnlijkheid waarmee een elektron op een bepaalde plaats kan worden waargenomen.
-
-De grootheid
-
-\begin{equation}
-|\psi(\vec{r},t)|^2
-=
-\psi^*(\vec{r},t)\psi(\vec{r},t)
-\end{equation}
-
-wordt de \emph{waarschijnlijkheidsdichtheid} genoemd. Hierin is $\psi^*$ de complex geconjugeerde van de golffunctie. De kans om het elektron op tijdstip $t$ aan te treffen in een klein volume-element $\dd V$ rond de positie $\vec{r}$ is
-
+In de kwantummechanica wordt de toestand van een deeltje beschreven door een \emph{golffunctie} $\psi(\vec r, t)$. De waarde van $\psi$ is zelf niet meetbaar (ze kan zelfs complex zijn). Max Born gaf in 1926 de interpretatie: $|\psi|^2 = \psi^*\psi$ is een \emph{waarschijnlijkheidsdichtheid}. De kans om het deeltje in een klein volume $\dd V$ rond $\vec r$ aan te treffen is
 \begin{equation}
 \boxed{
-\dd P
-=
-|\psi(\vec{r},t)|^2\,\dd V.
+\dd P = |\psi(\vec{r},t)|^2\,\dd V .
 }
 \end{equation}
+Omdat het deeltje ergens moet zijn, is de golffunctie \emph{genormaliseerd}: $\int |\psi|^2\,\dd V = 1$ over de volledige ruimte.
 
-De kans om het elektron in een groter gebied $\Omega$ aan te treffen, wordt verkregen door de waarschijnlijkheidsdichtheid over dat gebied te integreren:
-
-\begin{equation}
-P_{\Omega}
-=
-\int_{\Omega}
-|\psi(\vec{r},t)|^2\,\dd V.
-\end{equation}
-
-Omdat het elektron zich ergens in de ruimte moet bevinden, moet de totale waarschijnlijkheid gelijk zijn aan één:
-
-\begin{equation}
-\int_{\text{volledige ruimte}}
-|\psi(\vec{r},t)|^2\,\dd V
-=
-1.
-\end{equation}
-
-Een golffunctie die aan deze voorwaarde voldoet, wordt \emph{genormaliseerd} genoemd.
-
-De kwantummechanica voorspelt dus in het algemeen niet waar een individueel elektron bij een meting zal worden aangetroffen. Zij voorspelt wel met welke waarschijnlijkheid de verschillende mogelijke meetresultaten zullen optreden. Wanneer hetzelfde experiment zeer vaak onder identieke omstandigheden wordt uitgevoerd, ontstaat een verdeling die overeenkomt met $|\psi|^2$.
-
-Dit verklaart ook het diffractiepatroon in het dubbelespleetexperiment. Elk elektron wordt bij detectie als een afzonderlijk deeltje op één welbepaalde plaats waargenomen. De verdeling van een groot aantal inslagen wordt echter bepaald door de golffunctie en vertoont daardoor een diffractiepatroon.
-
-Deze probabilistische interpretatie is niet zomaar een wiskundige bijzaak: zij is de eerste keer in dit hoofdstuk dat waarschijnlijkheid een fundamentele rol speelt in de beschrijving van de natuur, in plaats van louter een gevolg te zijn van onze onwetendheid. In hoofdstuk~\ref{ch:spontaniteit} zullen we zien dat exact dezelfde idee -- een groot aantal mogelijke toestanden waarover een systeem zich verdeelt volgens een waarschijnlijkheid -- aan de basis ligt van de entropie.
+De kwantummechanica voorspelt dus niet waar één elektron zal worden aangetroffen, wel hoe vaak elke plaats voorkomt als je de meting vele keren herhaalt. Dat is precies wat de dubbelspleetproef toont. Het is ook de eerste keer in deze cursus dat waarschijnlijkheid een fundamentele rol speelt in plaats van onze onwetendheid te weerspiegelen. In hoofdstuk~\ref{ch:spontaniteit} ligt diezelfde idee aan de basis van de entropie.
 
 \subsection{Van golffunctie naar orbitaal}
 
-Een \emph{atomair orbitaal} is een toegelaten ruimtelijke golffunctie voor een elektron in een atoom. Een orbitaal is dus geen baan waarlangs het elektron rond de kern beweegt, zoals in het klassieke model van Bohr. Het is een gebied met een statistische kans om het elektron aan te treffen. Wanneer deze waarschijnlijkheidsdichtheid in drie dimensies wordt weergegeven, ontstaat de voorstelling van een elektronenwolk. Zo'n elektronenwolk mag niet worden geïnterpreteerd als een materiële wolk waarin de lading van het elektron letterlijk over de ruimte is verspreid. Zij toont in welke gebieden rond de kern de kans om het elektron aan te treffen groot of klein is.
-
-In de praktijk worden orbitalen vaak voorgesteld door een oppervlak dat een bepaald percentage, bijvoorbeeld $90\,\%$ of $95\,\%$, van de totale waarschijnlijkheid omsluit. De vorm van dit oppervlak hangt af van de vorm van de golffunctie. Op die manier ontstaan de karakteristieke vormen van $s$-, $p$- en andere orbitalen (zie Figuur \ref{fig:orbitalen}).
+Een \emph{atomair orbitaal} is een toegelaten golffunctie voor een elektron in een atoom. Het is geen baan, maar een gebied met een bepaalde kans om het elektron aan te treffen. Meestal tekent men het oppervlak dat \SI{90}{\percent} van die kans omsluit; zo ontstaan de vormen van $s$-, $p$- en $d$-orbitalen (figuur~\ref{fig:orbitalen}).
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/orbitalen}
-    \caption{Typische waarschijnlijkheidsverdelingen voor verschillende golffuncties.}
+    \includegraphics[width=0.62\linewidth]{Figuren/orbitalen}
+    \caption{Typische waarschijnlijkheidsverdelingen van $s$-, $p$- en $d$-orbitalen.}
     \label{fig:orbitalen}
 \end{figure}
 
 \subsection{De Schr\"odingervergelijking}
 
-De vergelijking waarmee de mogelijke golffuncties van een kwantummechanisch systeem worden bepaald, werd in 1926 door Erwin Schr\"odinger voorgesteld. Voor één elektron in een één dimensionale ruimte en in een toestand met een welbepaalde energie luidt de tijdsonafhankelijke Schr\"odingervergelijking:
-
+De mogelijke golffuncties volgen uit de vergelijking die Schr\"odinger in 1926 opstelde. Voor één deeltje in één dimensie, in een toestand met welbepaalde energie, luidt ze
 \begin{equation}
 \boxed{
--\frac{\hbar^2}{2m}
-\frac{\partial^2\psi}{\partial x^2}
-+
-V(x)\psi
-=
-E\psi,
+-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2} + V(x)\psi = E\psi,
 }
 \label{eq:Schrodinger}
 \end{equation}
-
-waarin $\hbar=h/(2\pi)$ de gereduceerde constante van Planck is, $m$ de massa van het beschouwde deeltje, $V(x)$ de potentiële energie en $E$ de totale energie.
-
-De Schr\"odingervergelijking is voor de kwantummechanica wat de bewegingswetten van Newton zijn voor de klassieke mechanica. De vergelijking levert echter niet rechtstreeks de baan of de exacte positie van een deeltje. Haar oplossingen zijn de golffuncties die voor het beschouwde systeem mogelijk zijn. Niet elke willekeurige golffunctie vormt een fysisch aanvaardbare oplossing. Drie voorwaarden moeten voldaan zijn:
-\begin{itemize}
-\item \textbf{Eindig}: $\psi$ mag nergens naar oneindig gaan, want $|\psi|^2$ zou dan een oneindige waarschijnlijkheidsdichtheid impliceren op die plaats hetgeen fysisch onmogelijk is.
-\item \textbf{Continu}: $\psi$ (en, voor een eindige potentiaal, ook haar eerste afgeleide) mag geen abrupte sprongen vertonen. De Schr\"odingervergelijking bevat immers een \emph{tweede} afgeleide van $\psi$; die is enkel gedefinieerd wanneer $\psi$ zelf voldoende vloeiend verloopt.
-\item \textbf{Normaliseerbaar}: de totale waarschijnlijkheid om het deeltje ergens in de ruimte aan te treffen moet gelijk zijn aan 1 (\S~\ref{sec:golffunctie}), wat vereist dat $|\psi|^2$ over de volledige ruimte convergeert; voor een gebonden toestand moet $\psi$ dus naar nul gaan op grote afstand.
-\end{itemize}
-Door deze voorwaarden zijn voor gebonden systemen vaak slechts bepaalde golffuncties en bepaalde energiewaarden toegestaan. De bijbehorende energieën zijn hierdoor gekwantiseerd.
-
-Voor een elektron in een atoom wordt de potentiële energie hoofdzakelijk bepaald door de elektrostatische aantrekking tussen het negatief geladen elektron en de positief geladen kern. De oplossingen van de Schr\"odingervergelijking voor deze potentiële energie leveren de atomaire orbitalen en de bijbehorende energieniveaus. Verderop in dit hoofdstuk (\S~\ref{sec:moleculaire-beweging}) passen we exact dezelfde vergelijking toe op heel andere potentialen; een deeltje dat vrij kan bewegen in een begrensde ruimte, en een molecule die roteert of vibreert. We zullen zien dat ook daar automatisch discrete energieniveaus en nieuwe kwantumgetallen uit de vergelijking volgen.
-
-De stabiliteit van het atoom volgt daarmee niet uit het beeld van een elektron dat in een klassieke baan rond de kern beweegt. Een stabiele atomaire toestand wordt beschreven door een genormaliseerde golffunctie met een welbepaalde energie. De laagste toegelaten oplossing is de grondtoestand. Een toestand waarin het elektron onbeperkt op de kern zou instorten, behoort niet tot de fysisch toegelaten stationaire oplossingen.
+met $m$ de massa, $V(x)$ de potentiële energie en $E$ de totale energie. De eerste term is de kinetische energie: hoe sterker $\psi$ gekromd is, hoe groter die energie. De vergelijking speelt dezelfde rol als de wetten van Newton, maar levert geen baan; haar oplossingen zijn de toegelaten golffuncties. Een fysisch aanvaardbare oplossing moet overal \emph{eindig} zijn, \emph{continu} verlopen en \emph{normaliseerbaar} zijn (voor een gebonden deeltje gaat $\psi$ naar nul op grote afstand). Juist die voorwaarden laten voor een opgesloten deeltje slechts bepaalde energieën toe.
 
 \subsection{Discrete energieniveaus}
 \label{sec:discrete-energieniveaus}
 
-Een opmerkelijk gevolg van de Schr\"odingervergelijking is dat slechts een beperkt aantal oplossingen fysisch toegelaten is. Niet elke willekeurige golffunctie voldoet immers aan de randvoorwaarden van het probleem. Alleen golven die op een consistente manier rond de atoomkern kunnen bestaan, blijken stabiele oplossingen te vormen.
-
-Dit kan worden begrepen door een vergelijking te maken met een trillende gitaarsnaar. Wanneer een snaar aan beide uiteinden is vastgemaakt, kan zij niet willekeurig trillen. Slechts bepaalde trillingspatronen zijn mogelijk. Voor de materiegolf van een elektron geldt een gelijkaardig principe: slechts een beperkt aantal golffuncties is mogelijk. Aangezien iedere toegelaten golffunctie overeenkomt met \"e\"en welbepaalde energie, volgt automatisch dat ook slechts een beperkt aantal energieniveaus bestaat.
-
-Deze analogie kan onmiddellijk wiskundig concreet gemaakt worden aan de hand van het eenvoudigst mogelijke voorbeeld: een deeltje met massa $m$ dat vrij kan bewegen binnen een ééndimensionale ``doos'' met lengte $L$, en de wanden van de doos niet kan verlaten ($V=0$ binnen de doos, $V=\infty$ daarbuiten). Binnen de doos herleidt de Schr\"odingervergelijking zich tot
+Een gitaarsnaar die aan beide uiteinden vastzit, kan enkel trillen in patronen met een geheel aantal halve golflengten. Voor een materiegolf geldt hetzelfde, en dat maken we concreet met het eenvoudigste voorbeeld: een deeltje dat vrij beweegt in een ééndimensionale \emph{doos} met lengte $L$ ($V=0$ binnen, $V=\infty$ buiten). Binnen de doos wordt vergelijking~\eqref{eq:Schrodinger}
 \[
 -\frac{\hbar^2}{2m}\frac{\dd^2\psi}{\dd x^2} = E\psi,
 \]
-met als algemene oplossing $\psi(x)=A\sin(kx)+B\cos(kx)$, waarin $k=\sqrt{2mE}/\hbar$. Omdat het deeltje de wanden niet kan verlaten, moet $\psi$ daar continu aansluiten bij de waarde nul erbuiten (de \emph{continuïteitsvoorwaarde} hierboven): $\psi(0)=0$ en $\psi(L)=0$. De eerste voorwaarde geeft onmiddellijk $B=0$. De tweede voorwaarde, $A\sin(kL)=0$, kan voor een niet-triviale golffunctie met $A\neq0$ enkel voldaan zijn wanneer
+met algemene oplossing $\psi(x)=A\sin(kx)+B\cos(kx)$ en $k=\sqrt{2mE}/\hbar$. Omdat $\psi$ continu moet aansluiten op nul buiten de doos, geldt $\psi(0)=0$, dus $B=0$, en $\psi(L)=A\sin(kL)=0$, dus
 \[
-kL = n\pi, \qquad n=1,2,3,\ldots,
+kL = n\pi, \qquad n=1,2,3,\ldots
 \]
-exact zoals bij een trillende snaar met vaste uiteinden, die enkel staande golven toelaat met een geheel aantal halve golflengten tussen de vaste punten. Substitutie van $k=n\pi/L$ in $E=\hbar^2k^2/(2m)$ levert de gekwantiseerde energie:
+Met $E=\hbar^2k^2/(2m)$ volgt de gekwantiseerde energie
 \begin{equation}
 E_n = \frac{n^2h^2}{8mL^2}, \qquad n=1,2,3,\ldots
 \label{eq:deeltje-in-doos}
 \end{equation}
-De kwantisatie volgt hier dus rechtstreeks en uitsluitend uit de randvoorwaarden $\psi(0)=\psi(L)=0$; geen enkele extra aanname was nodig. Dit eenvoudige model, het \emph{deeltje in een doos}, is niet zomaar een wiskundige oefening: we passen het verderop in dit hoofdstuk (\S~\ref{sec:translatie}) rechtstreeks toe om de gekwantiseerde translatie-energie van een molecule te beschrijven.
-
-Zonder bijkomende hypothesen verklaart dezelfde theorie zowel de stabiliteit van atomen als het bestaan van discrete spectraallijnen. Eigenschappen die binnen de klassieke fysica volledig onverklaarbaar bleken, blijken rechtstreeks voort te vloeien uit het golfkarakter van elektronen. We zullen in \S~\ref{sec:atomaire-spectra} zien dat exact deze discrete energieniveaus rechtstreeks aanleiding geven tot de karakteristieke lijnenspectra waarmee atomen en moleculen experimenteel geïdentificeerd worden.
+De kwantisatie volgt hier uitsluitend uit de randvoorwaarden; er is geen extra postulaat nodig zoals bij Bohr. We gebruiken dit resultaat verderop voor de translatie van een molecule (\S~\ref{sec:translatie}).
 
 \section{Het waterstofatoom en atomaire spectra}
 
 \subsection{Het waterstofatoom en zijn energieniveaus}
 \label{sec:waterstofatoom}
 
-De Schr\"odingervergelijking kan voor het waterstofatoom exact analytisch worden opgelost. Dit doen we analoog aan het 'deeltje in een doos' voorbeeld van hierboven maar dan met een potentiële energie die overeenkomt met de Coulombpotentiaal ($V(r)= -\frac{e^2}{4 \pi \epsilon_0 r}$). De resulterende energieniveaus blijken ook hier uitsluitend af te hangen van het hoofdkwantumgetal $n$:
+Voor het waterstofatoom, met de Coulombpotentiaal $V(r)= -e^2/(4\pi\varepsilon_0 r)$, kan de Schr\"odingervergelijking exact worden opgelost. De energieniveaus hangen enkel af van het hoofdkwantumgetal $n$:
 \begin{equation}
-E_n = -\frac{13.6~\mathrm{eV}}{n^2}, \qquad n = 1,2,3,\ldots
+E_n = -\frac{\SI{13.6}{eV}}{n^2}, \qquad n = 1,2,3,\ldots
 \end{equation}
-De negatieve waarde duidt erop dat het elektron aan de kern gebonden is: positieve energie zou een vrij (ongebonden) elektron betekenen.
+Het minteken betekent dat het elektron gebonden is. De grondtoestand heeft $E_1 = \SI{-13.6}{eV}$, dan volgen $E_2 = \SI{-3.40}{eV}$ en $E_3 = \SI{-1.51}{eV}$; voor grote $n$ nadert de energie nul.
 
-De laagste energie, de \emph{grondtoestand}, correspondeert met $n=1$ en bedraagt $E_1 = -13.6~\mathrm{eV}$. Voor $n=2$ geldt $E_2 = -3.4~\mathrm{eV}$, voor $n=3$ geldt $E_3 = -1.51~\mathrm{eV}$, enzovoort. Naarmate $n$ groter wordt, nadert de energie aan nul: het elektron wordt steeds zwakker gebonden.
-
-\begin{voorbeeld}{Energie van een foton bij de overgang $n=2 \to n=1$}
-Wanneer een waterstofatoom terugvalt van de eerste aangeslagen toestand ($n=2$) naar de grondtoestand ($n=1$), wordt het energieverschil uitgezonden als een foton:
-\[
-\Delta E = E_2 - E_1 = -3.4 - (-13.6) = 10.2~\mathrm{eV}.
-\]
-Met $E = hc/\lambda$ volgt de golflengte van dit foton:
-\[
-\lambda = \frac{hc}{\Delta E} = \frac{(6.626\times 10^{-34})(2.998\times 10^{8})}{(10.2)(1.602\times 10^{-19})} \approx 1.22 \times 10^{-7}~\mathrm{m} = \SI{122}{\nano\meter}.
-\]
-Dit is de eerste lijn van het Lyman-reeks, in het ultraviolette deel van het spectrum. Deze berekening toont concreet hoe het golfkarakter van het elektron leidt tot discrete spectraallijnen die experimenteel kunnen worden gemeten.
-\end{voorbeeld}
-
-\subsection{Atomaire spectra: van energieniveaus naar spectraallijnen}
+\subsection{Atomaire spectra}
 \label{sec:atomaire-spectra}
 
-Het voorbeeld hierboven illustreert een algemeen principe dat veel breder toepasbaar is dan het waterstofatoom alleen: telkens wanneer een elektron overgaat van een hoger naar een lager energieniveau, wordt het energieverschil uitgezonden als een foton met een welbepaalde frequentie. Omgekeerd kan een atoom een foton absorberen, op voorwaarde dat de fotonenergie exact overeenkomt met het verschil tussen twee toegelaten energieniveaus. Dit verklaart waarom atomen en moleculen niet om het even welke golflengte absorberen of uitzenden, maar uitsluitend welbepaalde, karakteristieke golflengten. Dit leidt uiteindelijk tot een specifiek \emph{lijnenspectrum} van een element.
+Valt een elektron terug naar een lager niveau, dan wordt het energieverschil uitgezonden als een foton met $h\nu = \Delta E$. Omgekeerd absorbeert een atoom enkel fotonen waarvan de energie precies overeenkomt met het verschil tussen twee niveaus. Daarom heeft elk element een eigen \emph{lijnenspectrum} (figuur~\ref{fig:waterstofspectrum}). Voor waterstof vat de \emph{Rydberg-formule} alle overgangen samen:
+\begin{equation}
+\boxed{
+\frac{1}{\lambda} = R_H\left(\frac{1}{n_i^2}-\frac{1}{n_j^2}\right), \qquad n_j > n_i
+}
+\end{equation}
+met $R_H = \SI{1.097e7}{\per\meter}$. Overgangen naar $n_i=1$ vormen de Lyman-reeks (UV), naar $n_i=2$ de Balmer-reeks (deels zichtbaar) en naar $n_i=3$ de Paschen-reeks (infrarood).
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/waterstof}
-    \caption{Specifiek lijnenspectrum voor waterstof (bovenaan). De individuele lijnen komen overeen met energieovergangen die een elektron in het waterstofatoom kan maken (onderaan). De energiesprongen naar de grondtoestand ($n=1$) worden Lyman-lijnen genoemd; de transities naar $n=2$ zijn de Balmer-lijnen en die naar $n = 3$ zijn de Paschen-lijnen.}
+    \includegraphics[width=0.62\linewidth]{Figuren/waterstof}
+    \caption{Lijnenspectrum van waterstof (boven) en de overgangen tussen energieniveaus die het veroorzaken (onder): Lyman (naar $n=1$), Balmer (naar $n=2$) en Paschen (naar $n=3$).}
     \label{fig:waterstofspectrum}
 \end{figure}
 
-Voor waterstof kunnen alle mogelijke overgangen tussen niveaus $n_i$ en $n_j$ (met $n_j>n_i$) samengevat worden in de \emph{Rydberg-formule}:
-\begin{equation}
-\boxed{
-\frac{1}{\lambda} = R_H\left(\frac{1}{n_i^2}-\frac{1}{n_j^2}\right)
-}
-\end{equation}
-waarin $R_H = \SI{1.097e7}{\per\meter}$ de Rydbergconstante voor waterstof is. Overgangen die eindigen op $n_i=1$ vormen de Lyman-reeks (ultraviolet), overgangen die eindigen op $n_i=2$ vormen de Balmer-reeks (deels zichtbaar licht), en overgangen die eindigen op $n_i=3$ vormen de Paschen-reeks (infrarood).
-
-\begin{voorbeeld}{De Balmer H$_\alpha$-lijn}
-De beroemde rode lijn in het waterstofspectrum, de H$_\alpha$-lijn, komt overeen met de overgang $n_j=3 \to n_i=2$. Met de Rydberg-formule:
+\begin{voorbeeld}{Twee lijnen van waterstof}
+De overgang $n=2 \to n=1$ geeft $\Delta E = -3.40 - (-13.6) = \SI{10.2}{eV}$, dus
 \[
-\frac{1}{\lambda} = R_H\left(\frac{1}{2^2}-\frac{1}{3^2}\right) = (1.097\times10^{7})\left(\frac{1}{4}-\frac{1}{9}\right) = (1.097\times10^{7})(0.1389)
+\lambda = \frac{hc}{\Delta E} = \frac{(6.626\times 10^{-34})(2.998\times 10^{8})}{(10.2)(1.602\times 10^{-19})} = \SI{122}{\nano\meter},
 \]
+de eerste Lyman-lijn in het UV. De rode H$_\alpha$-lijn is de overgang $3 \to 2$:
 \[
-\frac{1}{\lambda} = \SI{1.524e6}{\per\meter} \quad\Rightarrow\quad \lambda = \SI{656}{\nano\meter}.
+\frac{1}{\lambda} = (1.097\times10^{7})\left(\frac{1}{4}-\frac{1}{9}\right) = \SI{1.524e6}{\per\meter} \quad\Rightarrow\quad \lambda = \SI{656}{\nano\meter}.
 \]
-Dit is precies de karakteristieke rode lijn die men waarneemt in het spectrum van waterstofgas, en die bijvoorbeeld in de sterrenkunde wordt gebruikt om waterstof in verre sterrenstelsels te identificeren.
+Sterrenkundigen herkennen waterstof in verre sterrenstelsels aan precies deze lijn.
 \end{voorbeeld}
 
-Deze redenering is niet beperkt tot atomen. Zoals we verder in dit hoofdstuk zullen zien (\S~\ref{sec:moleculaire-beweging}), bezitten moleculen naast elektronische energieniveaus ook gekwantiseerde rotatie- en vibratieniveaus. Overgangen tussen deze niveaus geven aanleiding tot \emph{moleculaire spectra}: rotatiespectra in het microgolfgebied, vibratiespectra in het infrarood, en elektronische spectra in het zichtbare en ultraviolette gebied. Spectroscopie (de studie van deze spectra) is in de chemische industrie een onmisbaar instrument voor kwaliteitscontrole, procesanalyse (bijvoorbeeld online infraroodmetingen) en de identificatie van onbekende stoffen, precies omdat elk molecule een uniek 'vingerafdruk'-spectrum bezit dat rechtstreeks bepaald wordt door zijn gekwantiseerde energieniveaus. Dit is onderdeel van latere cursussen zoals Instrumentele Analytische Chemie.
+Moleculen hebben naast elektronische ook gekwantiseerde rotatie- en vibratieniveaus (\S~\ref{sec:moleculaire-beweging}). Daarom heeft elke stof een eigen ``vingerafdruk''-spectrum, de basis van de spectroscopie in kwaliteitscontrole en procesanalyse.
 
 \section{Kwantumgetallen, het uitsluitingsprincipe en het periodiek systeem}
 
-\subsection{Van golffunctie naar chemische energie}
+\subsection{Kwantumgetallen en orbitalen}
 
-Elke toegelaten oplossing van de Schr\"odingervergelijking wordt gekenmerkt door een welbepaalde golffunctie en een bijbehorende energie. Een elektron kan zich dus niet in een willekeurige energietoestand bevinden, maar uitsluitend in \"e\"en van de discrete energieniveaus die door de vergelijking worden toegelaten.
-
-Hiermee krijgt de chemische energie van een stof een volledig nieuwe betekenis. De energie van een atoom wordt niet bepaald door een elektron die beweegt zoals beschreven in de klassieke mechanica (continue energie), maar door de verzameling van de kwantummechanisch toegelaten energietoestanden waarin de elektronen zich bevinden. Wanneer elektronen tijdens een chemische reactie van energietoestand veranderen, verandert bijgevolg ook de totale energie van het systeem. De chemische energie is dus een rechtstreeks afhankelijk van de kwantummechanische energieniveaus van elektronen.
-
-De oplossingen van de Schr\"odingervergelijking worden gekarakteriseerd door hun energie en door de ruimtelijke vorm van hun golffunctie. Iedere oplossing beschrijft een specifieke waarschijnlijkheidsverdeling rondom de atoomkern. Dergelijke oplossingen noemen we \emph{orbitalen}. Een orbitaal is dus geen bijkomend model dat naast de Schr\"odingervergelijking bestaat. Integendeel, een orbitaal is een oplossing van deze vergelijking. Voor het waterstofatoom kunnen alle oplossingen exact analytisch worden berekend. Het resultaat is een reeks orbitalen die verschillen in energie, grootte en vorm. De eenvoudigste oplossing van de Schr\"odingervergelijking is de toestand met de laagste energie, de \emph{grondtoestand}. Voor het waterstofatoom komt deze overeen met het zogenaamde 1s-orbitaal. De waarschijnlijkheidsverdeling is volledig bolsymmetrisch: de kans is het grootst dicht bij de kern en neemt geleidelijk af naarmate de afstand groter wordt.
-
-Wanneer meerdere oplossingen van de Schr\"odingervergelijking bestaan, moeten we deze op een ondubbelzinnige manier kunnen onderscheiden. Elke toegelaten golffunctie wordt volledig bepaald door vier \emph{kwantumgetallen}:
-
+Elke oplossing van de Schr\"odingervergelijking voor een atoom is een orbitaal met een eigen energie en vorm. De chemische energie van een stof is dus de energie van de toegelaten toestanden waarin de elektronen zich bevinden; verandert die bezetting tijdens een reactie, dan verandert de energie. Elke elektrontoestand wordt volledig bepaald door vier \emph{kwantumgetallen}:
 \begin{itemize}
-\item Het \emph{hoofdkwantumgetal} $n$ bepaalt in de eerste plaats de energie van het elektron en geeft een indicatie van de gemiddelde afstand tot de atoomkern.
-\item Het \emph{azimutaal kwantumgetal} $l$ bepaalt de vorm van het orbitaal. Hieruit volgen de gekende $s$-, $p$-, $d$- en $f$-orbitalen.
-\item Het \emph{magnetisch kwantumgetal} $m_l$ beschrijft de ruimtelijke ori\"entatie van een orbitaal.
-\item De \emph{spin} $m_s$ kan slechts twee waarden aannemen, $+\tfrac{1}{2}$ en $-\tfrac{1}{2}$. Hoewel de naam doet vermoeden dat een elektron om zijn eigen as draait, is dit beeld slechts een analogie. Spin is een fundamentele kwantummechanische eigenschap zonder klassiek equivalent.
+\item het \emph{hoofdkwantumgetal} $n$ bepaalt vooral de energie en de gemiddelde afstand tot de kern;
+\item het \emph{nevenkwantumgetal} $l$ bepaalt de vorm: $s$, $p$, $d$, $f$;
+\item het \emph{magnetisch kwantumgetal} $m_l$ bepaalt de oriëntatie;
+\item de \emph{spin} $m_s = \pm\tfrac{1}{2}$ is een kwantumeigenschap zonder klassiek equivalent (het elektron ``draait'' niet echt).
 \end{itemize}
 
-Deze vier kwantumgetallen beschrijven de \emph{elektronische} toestand van een atoom. Verderop in dit hoofdstuk zullen we ontdekken dat een molecule, in tegenstelling tot een geïsoleerd atoom, ook nog kan bewegen als geheel; het kan transleren, roteren en vibreren. En elk van deze drie bewegingsvormen geeft aanleiding tot een eigen, bijkomend kwantumgetal, volledig los van de vier kwantumgetallen die hierboven beschreven staan.
-
-Een golffunctie moet overal in de ruimte een continue en fysisch aanvaardbare oplossing vormen van de Schr\"odingervergelijking. Hierdoor zijn slechts bepaalde ruimtelijke golfpatronen mogelijk, net zoals een trillende snaar slechts bepaalde staande golven kan aannemen. Bij een staande golf op een snaar zijn er plaatsen die nooit bewegen. Deze punten worden \emph{knopen} genoemd. Op analoge wijze bestaan er in een atoom oppervlakken waarop de golffunctie precies nul is. Deze worden \emph{knoopoppervlakken} genoemd. Omdat de waarschijnlijkheidsdichtheid wordt gegeven door $|\psi|^2$, is de kans om een elektron op een knoopoppervlak aan te treffen exact nul.
-
-Het eenvoudigste golfpatroon bezit geen knoopoppervlakken en komt overeen met het bolsymmetrische $1s$-orbitaal. Hogere oplossingen van de Schr\"odingervergelijking bevatten één of meerdere knoopoppervlakken, waardoor de golffunctie afwisselend positieve en negatieve waarden aanneemt. Hoewel deze tekenverandering geen invloed heeft op de waarschijnlijkheidsdichtheid ($|\psi|^2$ is immers steeds positief) bepaalt zij wel de vorm van het orbitaal en de manier waarop verschillende golffuncties met elkaar kunnen interfereren. Iedere bijkomende knoop betekent dat de golffunctie sterker moet variëren in de ruimte. Wiskundig komt dit overeen met een grotere kromming van de golffunctie, waardoor de kinetische energie van het elektron toeneemt. De kromming van de golffunctie is namelijk een maat voor de kinetische energie  van het elektron op die plaats. De tweede afgeleide van een functie beschrijft namelijk de kromming van de curve, de kinetische energie is een tweede afgeleide van de Schr\"odingervergelijking \eqref{eq:Schrodinger}. Orbitalen met meer knoopoppervlakken bezitten daarom automatisch een hogere totale energie dan orbitalen met minder knopen.
-
-Dit is volledig analoog aan een trillende gitaarsnaar. De grondtoon bezit geen inwendige knopen en heeft de laagste energie. Hogere boventonen bevatten steeds meer knopen en vereisen een hogere trillingsenergie. Op dezelfde manier beschrijven de verschillende atomaire orbitalen de toegelaten staande golven van de elektrongolffunctie. Meer knoopoppervlakken komen overeen met hogere energietoestanden. Dit is dezelfde logica die we verderop zullen terugvinden bij de rotatie- en vibratietoestanden van een molecule: meer 'structuur' in de golffunctie betekent steeds meer energie.
+Net als een trillende snaar hebben orbitalen \emph{knopen}: oppervlakken waar $\psi = 0$ en de kans om het elektron te vinden dus nul is. Het $1s$-orbitaal heeft er geen. Elke extra knoop betekent een sterker gekromde golffunctie, dus een grotere kinetische energie in vergelijking~\eqref{eq:Schrodinger}. Meer knopen geeft daarom een hogere energie, net zoals een boventoon meer energie vraagt dan de grondtoon. Dezelfde logica keert terug bij rotatie en vibratie: meer structuur in de golffunctie betekent meer energie.
 
 \subsection{Het uitsluitingsprincipe van Pauli}
 
-De Schr\"odingervergelijking levert de toegelaten orbitalen waarin elektronen zich kunnen bevinden. Daarmee is echter nog niet bepaald hoe meerdere elektronen over deze orbitalen worden verdeeld. De ontbrekende bouwsteen werd in 1925 geleverd door Wolfgang Pauli.
-
-Pauli formuleerde het \emph{uitsluitingsprincipe}, dat stelt dat twee elektronen binnen hetzelfde atoom nooit volledig dezelfde kwantumtoestand kunnen bezitten. Anders geformuleerd: geen twee elektronen mogen dezelfde vier kwantumgetallen hebben.
+De Schr\"odingervergelijking zegt welke orbitalen bestaan, niet hoe meerdere elektronen erover verdeeld worden. Dat legde Pauli in 1925 vast.
 
 \begin{definitie}{Uitsluitingsprincipe van Pauli}
-Elk orbitaal kan maximaal twee elektronen bevatten. Wanneer twee elektronen hetzelfde orbitaal bezetten, moeten zij een tegengestelde spin hebben. Het uitsluitingsprincipe is geen gevolg van de elektrostatische afstoting tussen elektronen, maar een fundamentele eigenschap van de natuur die geldt voor alle fermionen.
+Twee elektronen in hetzelfde atoom kunnen nooit dezelfde vier kwantumgetallen hebben. Een orbitaal bevat dus hoogstens twee elektronen, met tegengestelde spin.
 \end{definitie}
 
-Een orbitaal wordt immers volledig beschreven door de drie kwantumgetallen die de vorm en oriëntatie bepalen. Indien twee elektronen hetzelfde orbitaal bezetten, verschillen zij enkel nog in hun vierde kwantumgetal: de spin. Daarom kan een orbitaal slechts twee elektronen bevatten, één met spin $+\tfrac{1}{2}$ en één met spin $-\tfrac{1}{2}$. De reden hiervoor ligt diep verankerd in de kwantummechanica. Elektronen zijn \emph{fermionen} en worden beschreven door een antisymmetrische golffunctie. Wanneer twee elektronen dezelfde vier kwantumgetallen zouden bezitten, zou deze gezamenlijke golffunctie overal nul worden. Een dergelijke toestand is fysisch onmogelijk, waardoor twee elektronen nooit volledig dezelfde kwantumtoestand kunnen innemen. De waarschijnlijkheidsdichtheid $|\psi|^2$ zou in dit geval overal nul zijn en dus onbestaande.
-
-Het uitsluitingsprincipe heeft ingrijpende gevolgen voor de opbouw van atomen. Zodra een orbitaal door twee elektronen is bezet, moeten bijkomende elektronen uitwijken naar een orbitaal met een hogere energie. Hierdoor ontstaat automatisch een gelaagde elektronenstructuur met \emph{schillen} en \emph{subschillen}.
-
-Vanuit chemisch oogpunt is dit een van de belangrijkste resultaten van de kwantummechanica. De Schr\"odingervergelijking bepaalt welke orbitalen bestaan en welke energie zij bezitten, terwijl het uitsluitingsprincipe van Pauli vastlegt hoe deze orbitalen worden opgevuld. Samen verklaren zij de elektronenconfiguraties van alle elementen en vormen zij de basis voor het periodiek systeem, de chemische binding en uiteindelijk de enorme verscheidenheid aan chemische stoffen.
+Dit is geen gevolg van de elektrostatische afstoting, maar een fundamentele eigenschap van elektronen (fermionen): hun gezamenlijke golffunctie zou bij twee identieke toestanden overal nul worden. Zodra een orbitaal vol is, moeten extra elektronen naar een hoger orbitaal. Zo ontstaat de gelaagde structuur van schillen en subschillen.
 
 \subsection{Het periodiek systeem}
 
-Bij het opbouwen van een atoom worden de elektronen niet willekeurig verdeeld. Zij bezetten eerst de orbitalen met de laagste energie. Dit staat bekend als het \emph{Aufbauprincipe}, afgeleid van het Duitse woord \emph{Aufbau}, dat ``opbouw'' betekent. Wanneer meerdere orbitalen dezelfde energie bezitten, zoals de drie $p$-orbitalen of de vijf $d$-orbitalen, geldt bovendien de \emph{regel van Hund}. Elektronen vullen deze orbitalen eerst afzonderlijk op, telkens met een gelijke spin, voordat een tweede elektron aan een reeds bezet orbitaal wordt toegevoegd. Op die manier wordt de totale energie van het atoom zo laag mogelijk gehouden.
-
-De opbouw van de eerste elementen illustreert deze regels:
-
+Elektronen bezetten eerst de orbitalen met de laagste energie (\emph{Aufbauprincipe}). Over orbitalen met gelijke energie, zoals de drie $2p$-orbitalen, verdelen ze zich eerst afzonderlijk met gelijke spin (\emph{regel van Hund}):
 \begin{align*}
-\text{H:}  &\qquad 1s^1 \\
-\text{He:} &\qquad 1s^2 \\
-\text{Li:} &\qquad 1s^2\,2s^1 \\
-\text{Be:} &\qquad 1s^2\,2s^2 \\
-\text{B:}  &\qquad 1s^2\,2s^2\,2p^1_x \\
-\text{C:}  &\qquad 1s^2\,2s^2\,2p^1_x\, 2p^1_y \\
-\text{N:}  &\qquad 1s^2\,2s^2\,2p^1_x\,2p^1_y\,2p^1_z \\
-\text{O:}  &\qquad 1s^2\,2s^2\,2p^2_x\,2p^1_y\,2p^1_z \\
+\text{C:}  &\quad 1s^2\,2s^2\,2p^1_x\, 2p^1_y &
+\text{N:}  &\quad 1s^2\,2s^2\,2p^1_x\,2p^1_y\,2p^1_z &
+\text{O:}  &\quad 1s^2\,2s^2\,2p^2_x\,2p^1_y\,2p^1_z
 \end{align*}
+De opvulvolgorde is $1s \to 2s \to 2p \to 3s \to 3p \to 4s \to 3d \to 4p \to 5s \to 4d \to \cdots$. Dat $4s$ vóór $3d$ komt, volgt uit de vorm van de golffuncties en de afscherming door de andere elektronen.
 
-Voor stikstof worden de drie elektronen in de $2p$-schil eerst verdeeld over drie verschillende orbitalen. Pas vanaf zuurstof begint de vorming van elektronenparen in de $2p$-orbitalen. De volgorde waarin de orbitalen worden opgevuld wordt bepaald door hun energie. Voor de meeste elementen geldt de volgende opvulvolgorde:
-
-\begin{equation*}
-1s
-\rightarrow
-2s
-\rightarrow
-2p
-\rightarrow
-3s
-\rightarrow
-3p
-\rightarrow
-4s
-\rightarrow
-3d
-\rightarrow
-4p
-\rightarrow
-5s
-\rightarrow
-4d
-\rightarrow
-5p
-\rightarrow
-6s
-\rightarrow
-4f
-\rightarrow
-5d
-\rightarrow
-\cdots
-\end{equation*}
-
-Hoewel deze volgorde op het eerste gezicht verrassend lijkt, volgt zij rechtstreeks uit de oplossingen van de Schr\"odingervergelijking. De energie van een orbitaal wordt niet uitsluitend bepaald door de afstand tot de kern, maar ook door de vorm van de golffunctie en de afscherming door andere elektronen. Hierdoor ligt het $4s$-orbitaal bijvoorbeeld iets lager in energie dan de $3d$-orbitalen en wordt het doorgaans eerst opgevuld.
-
-De elektronen in de buitenste schil, de \emph{valentie-elektronen}, bepalen in grote mate de chemische eigenschappen van een element. Elementen met eenzelfde aantal valentie-elektronen vertonen daarom vergelijkbaar chemisch gedrag en komen in dezelfde groep van het periodiek systeem terecht. Het periodiek systeem is daardoor geen toevallige ordening van elementen. De Schr\"odingervergelijking bepaalt de toegelaten orbitalen, het uitsluitingsprincipe van Pauli legt vast hoeveel elektronen elk orbitaal kan bevatten, het Aufbauprincipe beschrijft de volgorde waarin de orbitalen worden opgevuld en de regel van Hund bepaalt hoe elektronen over gelijkwaardige orbitalen worden verdeeld. Samen verklaren deze principes de elektronenconfiguraties van alle elementen en vormen zij de basis van de chemische binding, de molecuulstructuur en uiteindelijk de enorme verscheidenheid aan stoffen die in de natuur voorkomen.
-
-Daarmee vormt de kwantummechanica de brug tussen de fundamentele natuurkunde van het atoom en de chemie van materialen, reacties en processen.
+De buitenste elektronen, de \emph{valentie-elektronen}, bepalen grotendeels de chemie. Elementen met hetzelfde aantal valentie-elektronen gedragen zich gelijkaardig en staan in dezelfde groep. Het periodiek systeem is dus geen toevallige ordening: de Schr\"odingervergelijking, het uitsluitingsprincipe, het Aufbauprincipe en de regel van Hund verklaren samen de elektronenconfiguratie van elk element.
 
 \section{Chemische bindingen}
-
-\subsection{De vorming van chemische bindingen}
-
-Wanneer twee atomen dicht genoeg naar elkaar toe worden gebracht, beginnen hun golffuncties elkaar te be\"invloeden. Op dat ogenblik ontstaat een \emph{chemische binding}. Het is fundamenteel om te begrijpen dat een binding niet ontstaat doordat de atomen simpelweg aan elkaar 'kleven', maar doordat hun gemeenschappelijke golffunctie een nieuwe, stabiele oplossing vormt van de Schr\"odingervergelijking. Een chemische binding vormt omdat het samengebrachte systeem een lagere energie kan bereiken dan de gescheiden atomen afzonderlijk. De totale energie wordt bepaald door de nieuwe gemeenschappelijke golffunctie. 
-
-Wanneer twee golffuncties worden samengebracht, kan dit op twee manieren gebeuren. Wanneer de golffuncties in fase zijn, versterken zij elkaar: dit heet \emph{constructieve interferentie} en leidt tot een bindende toestand met lagere energie. Wanneer de golffuncties in tegenfase zijn, heffen zij elkaar op: dit heet \emph{destructieve interferentie} en leidt tot een antibindende toestand met hogere energie.
 
 \subsection{Molecuulorbitalen}
 \label{sec:molecuulorbitalen}
 
-De hierboven beschreven constructieve en destructieve interferentie kan wiskundig expliciet worden gemaakt. Net zoals een atomair orbitaal een oplossing is van de Schr\"odingervergelijking voor \"e\"en atoomkern, is een \emph{molecuulorbitaal} (MO) een oplossing van de Schr\"odingervergelijking voor het volledige, samengevoegde systeem van twee (of meer) atoomkernen. Deze molecuulorbitalen kunnen bij benadering worden opgebouwd uit de reeds gekende atomaire orbitalen, via de methode van de \emph{lineaire combinatie van atomaire orbitalen} (LCAO):
+Brengt men twee atomen dicht bij elkaar, dan beïnvloeden hun golffuncties elkaar. Een binding ontstaat wanneer de gemeenschappelijke golffunctie een lagere energie heeft dan de gescheiden atomen. Een \emph{molecuulorbitaal} (MO) is een oplossing van de Schr\"odingervergelijking voor het volledige molecule. Bij benadering bouwt men het op als \emph{lineaire combinatie van atomaire orbitalen} (LCAO):
 \begin{equation}
-\psi_{\text{MO}} = c_1\,\psi_A \pm c_2\,\psi_B,
+\psi_{\text{MO}} = c_1\,\psi_A \pm c_2\,\psi_B .
 \end{equation}
-waarin $\psi_A$ en $\psi_B$ atomaire orbitalen op respectievelijk atoom $A$ en atoom $B$ voorstellen, en $c_1$, $c_2$ co\"effici\"enten zijn die het relatieve gewicht van elk atomair orbitaal weergeven. Het plusteken komt overeen met constructieve interferentie, het minteken met destructieve interferentie.
-
-\subsubsection{Bindende en antibindende orbitalen}
-
 \begin{itemize}
-\item De \emph{bindende} combinatie ($\psi_A+\psi_B$) versterkt de golffunctie in de ruimte tussen beide kernen. De waarschijnlijkheidsdichtheid $|\psi_{\text{MO}}|^2$ is daar dus groter dan in de afzonderlijke atomen, zodat negatief geladen elektronendichtheid zich ophoopt tussen de twee positief geladen kernen. Dit trekt beide kernen naar elkaar toe: de energie van deze toestand ligt \emph{lager} dan die van de gescheiden atomen.
-\item De \emph{antibindende} combinatie ($\psi_A-\psi_B$) heft de golffunctie precies op halverwege tussen beide kernen, wat een \emph{knoopvlak} met $\psi=0$ oplevert. Zonder elektronendichtheid tussen de kernen om de onderlinge kernafstoting tegen te werken, ligt de energie van deze toestand \emph{hoger} dan die van de gescheiden atomen. Antibindende orbitalen worden aangeduid met een asterik, bijvoorbeeld $\sigma^*$.
+\item De \emph{bindende} combinatie ($+$, constructieve interferentie) versterkt $\psi$ tussen de kernen. De negatieve elektronendichtheid daar trekt beide kernen aan: lagere energie.
+\item De \emph{antibindende} combinatie ($-$, aangeduid met $^*$) heeft een knoopvlak tussen de kernen. Zonder elektronendichtheid daar wint de kernafstoting: hogere energie.
 \end{itemize}
-
-\subsubsection{$\sigma$- en $\pi$-orbitalen}
-
-Naargelang de geometrie van de overlap tussen de atomaire orbitalen onderscheidt men twee hoofdtypes van molecuulorbitalen:
-\begin{itemize}
-\item Een \emph{$\sigma$-orbitaal} ontstaat uit een overlap 'kop-aan-kop' langs de bindingsas (bijvoorbeeld twee $1s$-orbitalen, of twee $p$-orbitalen die naar elkaar toe wijzen). $\sigma$-orbitalen zijn rotatiesymmetrisch rond de bindingsas.
-\item Een \emph{$\pi$-orbitaal} ontstaat uit een zijdelingse overlap van twee $p$-orbitalen die loodrecht op de bindingsas staan. $\pi$-orbitalen bezitten een knoopvlak dat de bindingsas zelf bevat.
-\end{itemize}
-Een enkelvoudige binding bestaat steeds uit \"e\"en $\sigma$-binding; een dubbele binding uit \"e\"en $\sigma$- en \"e\"en $\pi$-binding; een drievoudige binding uit \"e\"en $\sigma$- en twee $\pi$-bindingen.
-
-\subsubsection{Bindingsorde}
-
-Het aantal elektronen in bindende versus antibindende orbitalen bepaalt of, en hoe sterk, een molecule bijeengehouden wordt. Dit wordt gekwantificeerd door de \emph{bindingsorde}:
+Een \emph{$\sigma$-orbitaal} ontstaat door overlap langs de bindingsas en is rotatiesymmetrisch rond die as; een \emph{$\pi$-orbitaal} ontstaat door zijdelingse overlap van $p$-orbitalen. Een enkelvoudige binding is één $\sigma$-binding, een dubbele binding $\sigma + \pi$, een drievoudige $\sigma + 2\pi$. De sterkte volgt uit de \emph{bindingsorde}:
 \begin{equation*}
-\text{bindingsorde} = \frac{(\text{aantal bindende elektronen}) - (\text{aantal antibindende elektronen})}{2}
+\text{bindingsorde} = \frac{(\text{bindende elektronen}) - (\text{antibindende elektronen})}{2}.
 \end{equation*}
-Een bindingsorde van nul betekent dat er, netto, geen enkele binding overblijft: een dergelijke molecule is niet stabiel.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/molecuulorbitalen}
-    \caption{(links) Molecuulorbitaaldiagram voor \ce{H2}: links en rechts de atomaire $1s$-orbitalen van elk waterstofatoom (op gelijke energie), in het midden de twee molecuulorbitalen die eruit ontstaan. het bindende $\sigma_{1s}$ (lager in energie dan de atomaire orbitalen) en het antibindende $\sigma_{1s}^*$ (hoger in energie). --- (rechts) Molecuulorbitaaldiagram voor \ce{He}}
+    \includegraphics[width=0.62\linewidth]{Figuren/molecuulorbitalen}
+    \caption{Molecuulorbitaaldiagram voor \ce{H2} (links) en \ce{He2} (rechts): de twee atomaire $1s$-orbitalen vormen een bindend $\sigma_{1s}$- en een antibindend $\sigma_{1s}^*$-orbitaal.}
     \label{fig:mo-H2}
 \end{figure}
 
 \begin{voorbeeld}{Waarom $\mathrm{H_2}$ bestaat en $\mathrm{He_2}$ niet}
-Voor $\mathrm{H_2}$ combineren de twee atomaire $1s$-orbitalen tot \"e\"en bindend orbitaal $\sigma_{1s}$ en \"e\"en antibindend orbitaal $\sigma_{1s}^*$ (figuur~\ref{fig:mo-H2}). Elk H-atoom levert \"e\"en elektron, samen dus twee elektronen. Volgens het Aufbauprincipe en het uitsluitingsprincipe van Pauli bezetten beide elektronen, met tegengestelde spin, het laagst energetische orbitaal: $\sigma_{1s}^2$. De bindingsorde bedraagt
-\[
-\text{bindingsorde}(\mathrm{H_2}) = \frac{2-0}{2} = 1,
-\]
-een enkelvoudige binding, in overeenstemming met de bekende structuur $\mathrm{H\!-\!H}$.
-
-Voor het hypothetische molecule $\mathrm{He_2}$ zijn er, met twee elektronen per heliumatoom, in totaal vier elektronen te verdelen. Twee daarvan bezetten $\sigma_{1s}$, maar de resterende twee moeten (want $\sigma_{1s}$ is al volledig bezet) het antibindende $\sigma_{1s}^*$-orbitaal bezetten: $\sigma_{1s}^2\sigma_{1s}^{*2}$. De bindingsorde bedraagt
-\[
-\text{bindingsorde}(\mathrm{He_2}) = \frac{2-2}{2} = 0.
-\]
-Er blijft dus, netto, geen enkele binding over: de bindende en antibindende bijdragen heffen elkaar precies op. Dit verklaart rechtstreeks, kwantummechanisch, waarom $\mathrm{He_2}$ niet als stabiele molecule bestaat, terwijl $\mathrm{H_2}$ dat wel doet.
+In \ce{H2} bezetten de twee elektronen het bindende $\sigma_{1s}$ (figuur~\ref{fig:mo-H2}): bindingsorde $(2-0)/2 = 1$, een enkelvoudige binding. In \ce{He2} moeten de vier elektronen ook $\sigma_{1s}^*$ vullen: bindingsorde $(2-2)/2 = 0$. Bindende en antibindende bijdragen heffen elkaar op, en \ce{He2} bestaat niet als stabiele molecule.
 \end{voorbeeld}
 
-\subsection{Bindingsenergie en reactie-enthalpie}
-
-Uit de combinatie van bindende en antibindende orbitalen ontstaat het fundamentele inzicht dat chemische energie niets anders is dan het energieverschil tussen de elektronenconfiguratie van de reagentia en deze van de reactieproducten. Bij de vorming van een chemische binding bereiken de elektronen een lagere energietoestand; het energieverschil wordt vrijgesteld.
-
-Wanneer tijdens een chemische reactie bestaande bindingen worden verbroken en nieuwe bindingen worden gevormd, verandert de totale energie van het systeem. Het verschil tussen de bindingsenergie\"en van de reagentia en deze van de reactieproducten bepaalt de \emph{reactie-enthalpie}. Een negatieve reactie-enthalpie betekent dat de producten energetisch gunstiger zijn dan de reagentia: warmte wordt vrijgesteld. Een positieve reactie-enthalpie betekent dat het systeem energie moet opnemen.
-
-\subsection{Bindingslengte en evenwicht}
+\subsection{Bindingsenergie, reactie-enthalpie en bindingslengte}
 \label{sec:bindingslengte}
 
-Wanneer twee atomen te ver van elkaar verwijderd zijn, is hun golffunctie-overlap te klein om een binding te vormen. Wanneer zij te dicht bij elkaar worden, stijgt de energie door de afstoting tussen de kernen. Op een welbepaalde afstand is de totale energie minimaal: dit is de \emph{evenwichtsafstand} of \emph{bindingslengte}. De welbepaalde lengte van een chemische binding is dus een rechtstreeks gevolg van het evenwicht tussen aantrekkende en afstotende krachten op atomaire schaal.
+Bij de vorming van een binding komen de elektronen in een lagere energietoestand en wordt het verschil vrijgezet. De reactie-enthalpie is dus het verschil tussen de energie van de bindingen in reagentia en producten: zijn de nieuwe bindingen samen sterker, dan is de reactie exotherm.
 
-Deze evenwichtsafstand is niet zomaar een geometrisch detail: zij bepaalt, zoals we hierna zullen zien, rechtstreeks hoe snel of hoe traag een molecule kan roteren en vibreren.
+Te ver uit elkaar overlappen de golffuncties niet genoeg; te dicht bij elkaar stoten de kernen elkaar af. Bij de \emph{bindingslengte} is de energie minimaal (figuur~\ref{fig:morse-h2}). Die lengte en de kromming van de put bepalen hoe een molecule roteert en vibreert.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/morse_h2}
-    \caption{Potentiële energie van $\mathrm{H_2}$ in functie van de afstand tussen de kernen. Het minimum ligt bij de bindingslengte $r_e = 74\,\mathrm{pm}$. Door de trillingsenergie (horizontale niveaus) ligt de laagste toestand iets boven de bodem van de put, zodat de energie om de binding te breken ($D_0$) kleiner is dan de diepte van de put ($D_e$).}
+    \includegraphics[width=0.62\linewidth]{Figuren/morse_h2}
+    \caption{Potentiële energie van \ce{H2} tegen de kernafstand, met minimum bij $r_e = \SI{74}{\pico\metre}$. Door de trillingsenergie (horizontale niveaus) ligt de laagste toestand boven de bodem, zodat de bindingsenergie $D_0$ kleiner is dan de putdiepte $D_e$.}
     \label{fig:morse-h2}
 \end{figure}
 
 \section{Moleculaire beweging en moleculaire spectra}
 \label{sec:moleculaire-beweging}
 
-Tot nu toe hebben we de Schr\"odingervergelijking uitsluitend toegepast op elektronen binnen een atoom of molecule. Een molecule is echter meer dan een verzameling elektronen rond vaste kernen: het is een fysisch object dat als geheel door de ruimte kan bewegen (\emph{translatie}), dat rond zijn eigen zwaartepunt kan tollen (\emph{rotatie}), en waarvan de atoomkernen ten opzichte van elkaar kunnen trillen rond hun evenwichtsafstand (\emph{vibratie}). Elk van deze drie bewegingsvormen is, net als de elektronische toestand van een atoom, onderworpen aan de Schr\"odingervergelijking, en elk ervan blijkt \emph{eveneens gekwantiseerd} te zijn. Dit levert drie nieuwe, onafhankelijke kwantumgetallen op, telkens gekoppeld aan een eigen energie-uitdrukking.
+Een molecule kan als geheel door de ruimte bewegen (\emph{translatie}), rond zijn zwaartepunt tollen (\emph{rotatie}) en zijn kernen laten trillen rond de evenwichtsafstand (\emph{vibratie}). Ook die bewegingen volgen de Schr\"odingervergelijking en zijn dus gekwantiseerd, elk met een eigen kwantumgetal. Zo kan een molecule energie opnemen zonder dat een elektron van toestand verandert. Dit verklaart de warmtecapaciteit en vormt de basis van infrarood- en microgolfspectroscopie.
 
-Dit onderscheid is niet louter academisch: het is essentieel om te begrijpen hoe een molecule energie kan opnemen of afgeven zonder dat er een elektron van energietoestand verandert of een chemische binding wordt verbroken. Het verklaart bovendien rechtstreeks de warmtecapaciteit, en het vormt de basis van de infrarood- en microgolfspectroscopie die in de chemische industrie op grote schaal wordt gebruikt voor proces- en kwaliteitscontrole.
-
-\subsection{Translatiebeweging: het deeltje in een doos}
+\subsection{Translatie: het deeltje in een doos}
 \label{sec:translatie}
 
-De eenvoudigste vorm van moleculaire beweging is de vrije, rechtlijnige verplaatsing van een deeltje door de ruimte. Dit is exact het deeltje-in-een-doos-probleem dat we reeds oplosten in \S~\ref{sec:discrete-energieniveaus}: daar vonden we, uit de randvoorwaarden $\psi(0)=\psi(L)=0$ alleen, dat een deeltje met massa $m$, vrij bewegend binnen een ééndimensionale doos met lengte $L$, enkel de gekwantiseerde energie\"en van vergelijking~\eqref{eq:deeltje-in-doos} kan aannemen. Passen we dit toe op de translatiebeweging van een molecule, dan wordt het kwantumgetal $n$ het \emph{translationele kwantumgetal} $n_{\mathrm{trans}}$:
+De translatie van een molecule in een vat is het deeltje in een doos van \S~\ref{sec:discrete-energieniveaus}, met translationeel kwantumgetal $n_{\mathrm{trans}}$:
 \begin{equation}
 \boxed{
 E_{n_{\mathrm{trans}}} = \frac{n_{\mathrm{trans}}^2 h^2}{8mL^2}, \qquad n_{\mathrm{trans}}=1,2,3,\ldots
 }
 \end{equation}
 
-\begin{voorbeeld}{Translatie-energieniveaus van een N$_2$-molecule}
-Beschouw een stikstofmolecule ($M=\SI{28.01}{g/mol}$, dus $m=\SI{4.652e-26}{kg}$ voor \'e\'en molecule) dat vrij kan bewegen in een vat met een karakteristieke lengte van $L=\SI{10}{cm}=\SI{0.10}{m}$.
-
-De energie van het eerste niveau ($n_{\mathrm{trans}}=1$) bedraagt:
+\begin{voorbeeld}{Translatieniveaus van \ce{N2} in een vat}
+Eén \ce{N2}-molecule ($m=\SI{4.652e-26}{kg}$) in een vat met $L=\SI{0.10}{m}$:
 \[
-E_1 = \frac{(1)^2(6.626\times10^{-34})^2}{8(4.652\times10^{-26})(0.10)^2} = \SI{1.18e-40}{J}.
+E_1 = \frac{(6.626\times10^{-34})^2}{8(4.652\times10^{-26})(0.10)^2} = \SI{1.18e-40}{J}, \qquad \Delta E_{1\to2} = 3E_1 = \SI{3.54e-40}{J}.
 \]
-Het energieverschil tussen het eerste en het tweede niveau is
-\[
-\Delta E_{1\to2} = E_2-E_1 = 3E_1 = \SI{3.54e-40}{J}.
-\]
-Vergelijk dit met de karakteristieke thermische energie $k_BT$ bij kamertemperatuur ($T=\SI{298}{K}$, $k_B=\SI{1.381e-23}{J/K}$):
-\[
-k_BT = \SI{4.12e-21}{J}.
-\]
-De verhouding bedraagt
-\[
-\frac{\Delta E_{1\to2}}{k_BT} \approx 8.6\times10^{-20}.
-\]
-Dit is een onvoorstelbaar kleine verhouding: de afstand tussen translationele energieniveaus is meer dan twintig grootteordes kleiner dan de thermische energie. Praktisch betekent dit dat een gasmolecule bij kamertemperatuur over een enorm aantal translationele toestanden beschikt en dat deze toestanden voor alle praktische doeleinden \emph{continu} lijken.
+Bij \SI{298}{K} is $k_BT = \SI{4.12e-21}{J}$, zodat $\Delta E/k_BT \approx 10^{-19}$. De translatieniveaus liggen zo dicht bij elkaar dat ze voor alle praktische doeleinden continu zijn.
 \end{voorbeeld}
 
-\subsection{Rotatiebeweging: de starre rotator}
+\subsection{Rotatie: de starre rotator}
 \label{sec:rotatie}
 
-Een tweeatomige molecule kan ook roteren rond een as loodrecht op de bindingsas. Dit wordt beschreven door het model van de \emph{starre rotator}: twee puntmassa's, verbonden door een starre staaf met lengte gelijk aan de bindingslengte $r$. De relevante massa is hierbij de \emph{gereduceerde massa}
-
-\begin{equation}
-\mu = \frac{m_1 m_2}{m_1+m_2},
-\end{equation}
-en het traagheidsmoment van de molecule bedraagt
-
-\begin{equation}
-I = \mu r^2.
-\end{equation}
-
-Het oplossen van de Schr\"odingervergelijking voor dit systeem levert een \emph{rotationeel kwantumgetal} $J=0,1,2,\ldots$ op, met bijbehorende gekwantiseerde energie
-
+Een tweeatomige molecule roteert rond een as loodrecht op de binding. In het model van de \emph{starre rotator} zijn twee massa's verbonden door een staaf met de bindingslengte $r$. Met de \emph{gereduceerde massa} $\mu = m_1 m_2/(m_1+m_2)$ en het traagheidsmoment $I = \mu r^2$ levert de Schr\"odingervergelijking het \emph{rotationeel kwantumgetal} $J$:
 \begin{equation}
 \boxed{
-E_J = J(J+1)\frac{\hbar^2}{2I} \qquad J=0,1,2,\ldots
+E_J = J(J+1)\frac{\hbar^2}{2I}, \qquad J=0,1,2,\ldots
 }
 \end{equation}
+Elk niveau is $(2J+1)$-voudig \emph{ontaard}: er bestaan $2J+1$ oriëntaties van de rotatie-as met exact dezelfde energie, zoals de drie $p$-orbitalen dezelfde energie hebben.
 
-Elk rotationeel niveau is bovendien $(2J+1)$-voudig ontaard: er bestaan $2J+1$ verschillende oriëntaties van de rotatie-as die dezelfde energie opleveren.
-
-'Ontaard' betekent hier dat verschillende, fysisch onderscheidbare toestanden van het systeem toch exact dezelfde energie hebben. Voor een gegeven waarde van $J$ bestaan er $2J+1$ zulke toestanden, die onderling verschillen in de ruimtelijke oriëntatie van de rotatie-as. Het niveau met kwantumgetal $J$ is dus eigenlijk geen enkele toestand, maar een groep van $2J+1$ samenvallende toestanden. Dit is vergelijkbaar met wat we ook bij atoomorbitalen hebben, waar bijvoorbeeld de drie $p$-orbitalen ($p_x$, $p_y$, $p_z$) ook ontaard zijn: drie verschillende, ruimtelijk te onderscheiden orbitalen met exact dezelfde energie.
-
-\begin{voorbeeld}{Rotatie-energieniveaus van HCl}
-Beschouw het HCl-molecule, met bindingslengte $r=\SI{127.5}{pm}$. De atoommassa's zijn $m_H=\SI{1.008}{u}$ en $m_{Cl}=\SI{34.97}{u}$ (met $1~\mathrm{u}=\SI{1.6605e-27}{kg}$).
-
-De gereduceerde massa bedraagt
+\begin{voorbeeld}{Rotatieniveaus van HCl}
+HCl heeft $r=\SI{127.5}{pm}$, $m_H=\SI{1.008}{u}$ en $m_{Cl}=\SI{34.97}{u}$ ($\SI{1}{u}=\SI{1.6605e-27}{kg}$). Dan is $\mu = \SI{1.628e-27}{kg}$ en $I = \mu r^2 = \SI{2.646e-47}{kg\,m^2}$, zodat
 \[
-\mu = \frac{m_H m_{Cl}}{m_H+m_{Cl}} = \SI{1.628e-27}{kg}.
+\frac{\hbar^2}{2I} = \frac{(1.0546\times10^{-34})^2}{2(2.646\times10^{-47})} = \SI{2.10e-22}{J}, \qquad \Delta E_{0\to1} = \SI{4.20e-22}{J} \approx 0.10\,k_BT.
 \]
-Het traagheidsmoment is
-\[
-I = \mu r^2 = (1.628\times10^{-27})(1.275\times10^{-10})^2 = \SI{2.646e-47}{kg\,m^2}.
-\]
-De energie van het niveau $J$ bedraagt $E_J = J(J+1)\hbar^2/(2I)$, met
-\[
-\frac{\hbar^2}{2I} = \frac{(1.0546\times10^{-34})^2}{2(2.646\times10^{-47})} = \SI{2.10e-22}{J}.
-\]
-Het energieverschil tussen de grondtoestand ($J=0$) en het eerste aangeslagen niveau ($J=1$) is
-\[
-\Delta E_{0\to1} = 2\left(\frac{\hbar^2}{2I}\right) = \SI{4.20e-22}{J}.
-\]
-Vergeleken met $k_BT=\SI{4.12e-21}{J}$ bij kamertemperatuur is dit ongeveer een tiende van de thermische energie:
-\[
-\frac{\Delta E_{0\to1}}{k_BT} \approx 0.10.
-\]
-In tegenstelling tot de translatie-energieniveaus liggen de rotatieniveaus dus dicht genoeg bij elkaar om bij kamertemperatuur in groten getale thermisch bezet te zijn: een groot aantal rotationele toestanden draagt effectief bij tot de energie van het gas. Dit is de reden waarom rotatie, in tegenstelling tot vibratie (zie verder), reeds bij kamertemperatuur volledig bijdraagt tot de warmtecapaciteit van een tweeatomig gas. Bovendien liggen overgangen tussen rotationele niveaus, zoals deze, typisch in het microgolfgebied van het elektromagnetisch spectrum gebruikt om bijvoorbeeld gasvormige verontreinigingen te detecteren.
+Rotatieniveaus liggen dicht genoeg om bij kamertemperatuur ruim bezet te zijn. Overgangen ertussen liggen in het microgolfgebied.
 \end{voorbeeld}
 
-\subsection{Vibratiebeweging: de harmonische oscillator}
+\subsection{Vibratie: de harmonische oscillator}
 \label{sec:vibratie}
 
-Naast translatie en rotatie kunnen de atomen in een molecule ook ten opzichte van elkaar trillen rond hun evenwichtsafstand (\S~\ref{sec:bindingslengte}). Voor kleine uitwijkingen gedraagt de bindingspotentiaal zich bij benadering als die van een veer, met een terugtrekkende kracht evenredig met de uitwijking: dit is het model van de \emph{harmonische oscillator}.
-
-Het oplossen van de Schr\"odingervergelijking voor een harmonisch potentiaal levert een \emph{vibrationeel kwantumgetal} $v=0,1,2,\ldots$ op, met gekwantiseerde energie
-
+Voor kleine uitwijkingen rond de bindingslengte gedraagt een binding zich als een veer met veerconstante $k$: de \emph{harmonische oscillator}. Het \emph{vibrationeel kwantumgetal} $v$ geeft
 \begin{equation}
 \boxed{
-E_v = \left(v+\frac{1}{2}\right)h\nu, \qquad v=0,1,2,\ldots
+E_v = \left(v+\frac{1}{2}\right)h\nu, \qquad \nu = \frac{1}{2\pi}\sqrt{\frac{k}{\mu}}, \qquad v=0,1,2,\ldots
 }
 \end{equation}
-waarin de trillingsfrequentie $\nu$ wordt bepaald door de veerconstante (bindingssterkte) $k$ en de gereduceerde massa $\mu$:
+Zelfs in de grondtoestand is de energie niet nul maar $\tfrac{1}{2}h\nu$, de \emph{nulpuntsenergie}: een binding trilt altijd, ook bij \SI{0}{K}.
 
-\begin{equation}
-\nu = \frac{1}{2\pi}\sqrt{\frac{k}{\mu}}.
-\end{equation}
-
-Opmerkelijk is dat zelfs in de laagste toestand ($v=0$) de energie niet nul is, maar gelijk aan $\tfrac{1}{2}h\nu$: de zogenaamde \emph{nulpuntsenergie}. Een chemische binding trilt dus altijd, zelfs bij het absolute nulpunt -- een rechtstreeks gevolg van de kwantummechanica, dat geen klassiek analogon kent.
-
-\begin{voorbeeld}{Vibratie-energie van CO}
-Het CO-molecule heeft een veerconstante (bindingsstijfheid) van $k=\SI{1902}{N/m}$. De atoommassa's zijn $m_C=\SI{12.00}{u}$ en $m_O=\SI{15.999}{u}$.
-
-De gereduceerde massa bedraagt
+\begin{voorbeeld}{Vibratie van CO}
+CO heeft $k=\SI{1902}{N/m}$ en $\mu = \SI{1.139e-26}{kg}$. Dan is
 \[
-\mu = \frac{m_C m_O}{m_C+m_O} = \SI{1.139e-26}{kg}.
+\nu = \frac{1}{2\pi}\sqrt{\frac{1902}{1.139\times10^{-26}}} = \SI{6.50e13}{Hz}, \qquad \tilde\nu = \nu/c = \SI{2168}{cm^{-1}},
 \]
-De trillingsfrequentie is
-\[
-\nu = \frac{1}{2\pi}\sqrt{\frac{1902}{1.139\times10^{-26}}} = \SI{6.50e13}{Hz},
-\]
-wat overeenkomt met een golfgetal $\tilde{\nu}=\nu/c \approx \SI{2168}{cm^{-1}}$, in goede overeenstemming met de experimenteel waargenomen infraroodabsorptie van CO (ongeveer \SI{2143}{cm^{-1}}).
-
-Het energieverschil tussen twee opeenvolgende vibratieniveaus bedraagt
-\[
-\Delta E_{v\to v+1} = h\nu = (6.626\times10^{-34})(6.50\times10^{13}) = \SI{4.31e-20}{J}.
-\]
-Vergeleken met $k_BT=\SI{4.12e-21}{J}$ bij kamertemperatuur is dit ruim tien keer groter:
-\[
-\frac{\Delta E_{v\to v+1}}{k_BT} \approx 10.5.
-\]
-De kans dat een molecule zich bij kamertemperatuur in het eerste aangeslagen vibratieniveau bevindt, wordt gegeven door de Boltzmann-factor $\exp(-\Delta E/k_BT) \approx \exp(-10.5) \approx 2.7\times10^{-5}$: op ongeveer 37000 CO-moleculen bevindt zich er dus gemiddeld slechts \'e\'en in $v=1$. Vrijwel alle moleculen bevinden zich bij kamertemperatuur in de vibrationele grondtoestand $v=0$. Dit in scherp contrast met de rotatieniveaus, die bij dezelfde temperatuur wél in groten getale bezet zijn.
-
-De nulpuntsenergie van deze binding bedraagt
-\[
-E_0 = \frac{1}{2}h\nu = \SI{2.15e-20}{J} \; \widehat{=}\; \SI{12.97}{kJ/mol},
-\]
-een energie die aanwezig is zelfs wanneer het molecule zich in zijn laagst mogelijke energietoestand bevindt.
+dicht bij de gemeten infraroodabsorptie (\SI{2143}{cm^{-1}}). De stap tussen niveaus is $h\nu = \SI{4.31e-20}{J} \approx 10.5\,k_BT$. Slechts één op de $\mathrm{e}^{10.5} \approx 37\,000$ moleculen zit bij kamertemperatuur in $v=1$: vibratie is ``bevroren''. De nulpuntsenergie bedraagt $\tfrac{1}{2}h\nu = \SI{12.97}{kJ/mol}$.
 \end{voorbeeld}
 
-De drie voorbeelden hierboven illustreren een fundamenteel en algemeen geldig patroon. Voor eenzelfde molecule zijn de energieverschillen tussen translationele, rotationele, vibrationele en elektronische niveaus vele grootteordes van elkaar verschillend:
+De energiestappen van de verschillende bewegingen liggen vele grootteordes uit elkaar:
 
 \begin{center}
 \begin{tabular}{lccc}
-\hline
-\textbf{Bewegingsvorm} & \textbf{Kwantumgetal} & \textbf{Typische $\Delta E$} & \textbf{Spectraal gebied} \\
-\hline
-Translatie & $n_{\mathrm{trans}}$ & $\sim 10^{-40}~\mathrm{J}$ ($\ll k_BT$) & (quasi-continu) \\
+\toprule
+Beweging & Kwantumgetal & Typische $\Delta E$ & Spectraal gebied \\
+\midrule
+Translatie & $n_{\mathrm{trans}}$ & $\sim 10^{-40}~\mathrm{J}$ ($\ll k_BT$) & quasi-continu \\
 Rotatie & $J$ & $\sim 10^{-22}$--$10^{-21}~\mathrm{J}$ ($\sim k_BT$) & microgolf \\
 Vibratie & $v$ & $\sim 10^{-20}~\mathrm{J}$ ($\gg k_BT$) & infrarood \\
-Elektronisch & $n,l,m_l,m_s$ & $\sim 10^{-19}$--$10^{-18}~\mathrm{J}$ ($\gg k_BT$) & zichtbaar/UV \\
-\hline
+Elektronisch & $n,l,m_l,m_s$ & $\sim 10^{-19}$--$10^{-18}~\mathrm{J}$ & zichtbaar/UV \\
+\bottomrule
 \end{tabular}
 \end{center}
 
-Deze hiërarchie -- translatie $\ll$ rotatie $\ll$ vibratie $\ll$ elektronisch -- is de reden waarom een molecule zijn bewegingsvormen als het ware 'na elkaar' activeert naarmate de temperatuur stijgt: bij kamertemperatuur zijn translatie en rotatie volledig klassiek toegankelijk, is vibratie nagenoeg volledig 'bevroren' in de grondtoestand, en blijven elektronische aanslagen (op enkele bijzondere gevallen na) volledig ontoegankelijk.
+Bij stijgende temperatuur worden de bewegingen daarom ``na elkaar'' geactiveerd: bij kamertemperatuur zijn translatie en rotatie volledig actief, vibratie nauwelijks, en elektronische aanslag niet.
 
 \subsection{Moleculaire spectra}
 \label{sec:moleculaire-spectra}
 
-Net zoals de discrete elektronische energieniveaus van een atoom aanleiding geven tot een lijnenspectrum (\S~\ref{sec:atomaire-spectra}), geeft elk van de vier families van gekwantiseerde energieniveaus die we in dit hoofdstuk hebben ingevoerd (elektronisch, vibrationeel, rotationeel, translationeel) aanleiding tot een eigen type moleculair spectrum, telkens wanneer een overgang tussen twee toegelaten niveaus een foton absorbeert of uitzendt met precies de bijbehorende energie $\Delta E=h\nu$. Omdat de energieschalen van deze vier families, zoals de tabel hierboven toont, vele grootteordes uit elkaar liggen, vallen de drie spectrale gebieden volledig gescheiden van elkaar: microgolf, infrarood en zichtbaar/UV.
-
-\subsubsection{Rotatiespectra}
-
-Overgangen tussen rotationele niveaus $J$ volgen de selectieregel $\Delta J=\pm1$ en liggen, zoals reeds vermeld bij het HCl-voorbeeld, typisch in het microgolfgebied. Een essentiële bijkomende voorwaarde is dat de molecule een \emph{permanent dipoolmoment} moet bezitten: enkel dan kan het roterende elektrische veld van de molecule koppelen met het elektromagnetische veld van de straling. Homonucleaire tweeatomige moleculen zoals $\mathrm{N_2}$ en $\mathrm{O_2}$ bezitten geen permanent dipoolmoment en zijn daardoor volledig 'microgolf-inactief', ongeacht hoe sterk ze roteren. Dit is een rechtstreekse verklaring waarom deze twee, verreweg de belangrijkste componenten van de atmosfeer, geen rotatiespectrum vertonen.
-
-\subsubsection{Vibratiespectra}
-
-Overgangen tussen vibrationele niveaus $v$ volgen, in de harmonische benadering, de selectieregel $\Delta v=\pm1$ en liggen in het infraroodgebied, zoals reeds geïllustreerd met het CO-voorbeeld. Ook hier geldt een voorwaarde: het dipoolmoment van de molecule moet \emph{veranderen} tijdens de vibratie. Bij een homonucleaire molecule zoals $\mathrm{N_2}$ verandert de (nul blijvende) lading-verdeling niet tijdens het uitrekken van de binding, zodat ook deze molecule infrarood-inactief is. Dit is precies de reden waarom broeikasgassen zoals $\mathrm{CO_2}$, $\mathrm{H_2O}$ en $\mathrm{CH_4}$ (moleculen met een vibratie die wél het dipoolmoment verandert) infraroodstraling sterk absorberen, terwijl de veel talrijkere $\mathrm{N_2}$- en $\mathrm{O_2}$-moleculen in de atmosfeer dat niet doen.
-
-\subsubsection{Elektronische spectra}
-
-Overgangen tussen molecuulorbitalen (typisch tussen het hoogst bezette molecuulorbitaal (HOMO) en het laagst onbezette molecuulorbitaal (LUMO), bijvoorbeeld een $\pi\to\pi^*$-overgang in een molecule met geconjugeerde dubbele bindingen) liggen, gezien hun veel grotere energieschaal, in het zichtbare of ultraviolette gebied. Dit type spectrum, UV-Vis-spectroscopie, is de industriële tegenhanger van de atomaire emissiespectra, en verklaart bovendien waarom sommige stoffen gekleurd zijn: een molecule die zichtbaar licht van een bepaalde golflengte absorbeert (om een elektron van het HOMO naar het LUMO te bevorderen) vertoont de complementaire kleur.
-
-Voor de chemisch ingenieur zijn deze drie types spectroscopie complementaire, niet-destructieve analysetechnieken: rotatiespectra voor de identificatie van kleine, polaire gasmoleculen; infraroodspectroscopie als het meest gebruikte routine-instrument voor kwalitatieve en kwantitatieve procesanalyse (elke functionele groep heeft een karakteristieke infraroodabsorptie); en UV-Vis-spectroscopie voor geconjugeerde en aromatische verbindingen, kleurstoffen en concentratiebepalingen via de wet van Lambert--Beer.
+Elke overgang tussen twee niveaus absorbeert of zendt een foton uit met $\Delta E = h\nu$. Omdat de energieschalen zo verschillen, vallen de spectra in gescheiden gebieden:
+\begin{itemize}
+\item \textbf{Rotatiespectra} (microgolf, selectieregel $\Delta J=\pm1$) vereisen een permanent dipoolmoment. \ce{N2} en \ce{O2} hebben dat niet en zijn microgolf-inactief.
+\item \textbf{Vibratiespectra} (infrarood, $\Delta v=\pm1$) vereisen dat het dipoolmoment \emph{verandert} tijdens de trilling. Daarom absorberen \ce{CO2}, \ce{H2O} en \ce{CH4} infrarood (broeikasgassen) en \ce{N2} en \ce{O2} niet. Elke functionele groep heeft een eigen IR-band, wat infraroodspectroscopie het standaardinstrument voor procesanalyse maakt.
+\item \textbf{Elektronische spectra} (zichtbaar en UV), bijvoorbeeld een $\pi\to\pi^*$-overgang tussen het hoogst bezette (HOMO) en laagst onbezette molecuulorbitaal (LUMO), verklaren kleur: een stof die een bepaalde golflengte absorbeert, toont de complementaire kleur. UV-Vis-spectroscopie meet zo concentraties via de wet van Lambert--Beer.
+\end{itemize}
 
 \section{Van kwantumtoestanden naar thermodynamica}
 
-\subsection{Van kwantentoestanden naar warmtecapaciteit}
+\subsection{Warmtecapaciteit}
 
-In hoofdstuk \ref{ch:energie} werd de molaire warmtecapaciteit bij constant volume, $C_{V,m}$, ingevoerd als een experimenteel gegeven grootheid. Ook blijkt $C_{V,m}$ voor een eenatomig ideaal gas ongeveer $\tfrac{3}{2}R$ te bedragen, terwijl deze voor een tweeatomig gas bij kamertemperatuur eerder in de buurt van $\tfrac{5}{2}R$ ligt. Met de kennis van dit hoofdstuk kunnen we deze waarnemingen nu volledig verklaren.
-
-Volgens de \emph{equipartitiestelling} uit de klassieke statistische mechanica draagt elke bewegingsvorm die \emph{klassiek} (dat wil zeggen: quasi-continu, met $\Delta E \ll k_BT$) toegankelijk is, een energie van $\tfrac{1}{2}R$ per mol bij aan de molaire interne energie, voor elke onafhankelijke richting (\emph{vrijheidsgraad}) waarin die beweging kan plaatsvinden.
-
+In hoofdstuk~\ref{ch:energie} was $C_{V,m}$ een experimenteel gegeven: ongeveer $\tfrac{3}{2}R$ voor een eenatomig gas en $\tfrac{5}{2}R$ voor een tweeatomig gas bij kamertemperatuur. Nu kunnen we dat verklaren. Volgens de \emph{equipartitiestelling} draagt elke bewegingsrichting die klassiek toegankelijk is ($\Delta E \ll k_BT$) $\tfrac{1}{2}R$ per mol bij.
 \begin{itemize}
-\item Een eenatomig gasdeeltje kan enkel translateren, in drie onafhankelijke richtingen ($x,y,z$). Aangezien we in \S~\ref{sec:translatie} aantoonden dat translationele energieniveaus voor alle praktische doeleinden continu zijn, draagt elke richting volledig bij: $C_{V,m}=3\times\tfrac{1}{2}R=\tfrac{3}{2}R$.
-\item Een lineair tweeatomig gasdeeltje (zoals CO of HCl) kan bovendien roteren rond twee onafhankelijke assen loodrecht op de bindingsas (rotatie rond de bindingsas zelf verandert de kernposities niet en telt niet mee). Omdat we in \S~\ref{sec:rotatie} aantoonden dat de rotationele niveaus bij kamertemperatuur reeds dicht genoeg liggen om quasi-klassiek bezet te zijn, draagt elke rotatierichting eveneens $\tfrac{1}{2}R$ bij: $C_{V,m}=\tfrac{3}{2}R \text{ (translatie)}+\tfrac{2}{2}R\text{ (rotatie)}=\tfrac{5}{2}R\approx\SI{20.79}{J/(mol\,K)}$.
-\item Vibratie draagt bij kamertemperatuur nagenoeg niet bij, precies omdat we in \S~\ref{sec:vibratie} aantoonden dat $\Delta E_{\mathrm{vib}}\gg k_BT$: vrijwel alle moleculen bevinden zich in $v=0$ en er is geen toegankelijke 'vibrationele vrijheidsgraad'. Pas bij voldoende hoge temperatuur, wanneer $k_BT$ vergelijkbaar wordt met $h\nu$, beginnen ook de vibratieniveaus bij te dragen (elk met een bijdrage van $R$, want vibratie bevat zowel kinetische als potentiële energie), en stijgt $C_{V,m}$ geleidelijk verder, tot uiteindelijk richting $\tfrac{7}{2}R$ voor een lineair tweeatomig gas.
+\item Een eenatomig gas transleert in drie richtingen: $C_{V,m}=\tfrac{3}{2}R$.
+\item Een lineair tweeatomig gas roteert bovendien rond twee assen (rotatie rond de bindingsas telt niet): $C_{V,m}=\tfrac{5}{2}R = \SI{20.8}{J/(mol\,K)}$. Voor CO is de gemeten waarde \SI{20.2}{J/(mol\,K)}.
+\item Vibratie draagt pas bij als $k_BT$ vergelijkbaar wordt met $h\nu$, en dan met $R$ per trilling (kinetische plus potentiële energie). $C_{V,m}$ stijgt daardoor geleidelijk naar $\tfrac{7}{2}R$.
 \end{itemize}
-
-Dit verklaart meteen ook waarom de warmtecapaciteit $C_p$ in hoofdstuk~\ref{ch:energie} empirisch met de temperatuur bleek te variëren, en vaak werd weergegeven als een polynoom in $T$: naarmate de temperatuur stijgt, worden stelselmatig meer vibrationele (en bij zeer hoge temperatuur zelfs elektronische) vrijheidsgraden thermisch toegankelijk, en neemt de energie die het systeem per graad temperatuurstijging kan opslaan geleidelijk toe. De temperatuursafhankelijkheid van $C_p$ is dus geen toevallige empirische curve-fit, maar een rechtstreeks gevolg van de gekwantiseerde energieniveaus die in dit hoofdstuk werden afgeleid.
-
-\begin{voorbeeld}{Warmtecapaciteit van CO: van kwantumfysica naar hoofdstuk~\ref{ch:energie}}
-Op basis van de equipartitiestelling en de resultaten van de vorige paragrafen verwachten we voor CO bij kamertemperatuur ($T\approx\SI{298}{K}$, waar rotatie klassiek is maar vibratie nagenoeg volledig bevroren):
-\[
-C_{V,m} \approx \frac{5}{2}R = \frac{5}{2}(8.314) = \SI{20.79}{J/(mol\,K)}.
-\]
-De experimentele waarde voor CO bij kamertemperatuur bedraagt ongeveer $C_{V,m}\approx\SI{20.2}{J/(mol\,K)}$, in uitstekende overeenstemming met deze eenvoudige kwantummechanische redenering. Het kleine resterende verschil is te wijten aan een zeer kleine, maar niet volledig verwaarloosbare, vibrationele bijdrage bij kamertemperatuur (consistent met onze berekening dat de Boltzmann-factor voor $v=1$ klein maar niet exact nul is) en aan de niet-ideale rotatie-vibratie-koppeling in een reëel molecule.
-\end{voorbeeld}
+Daarom stijgt $C_p$ met de temperatuur en wordt hij in tabellen als polynoom in $T$ gegeven: bij hogere temperatuur komen meer vibraties vrij. Die temperatuurafhankelijkheid is geen toevallige curve-fit, maar een gevolg van gekwantiseerde energieniveaus.
 
 \subsection{Activeringsenergie en overgangstoestand}
 \label{sec:activeringsenergie-kwantum}
 
-Tijdens een chemische reactie verdwijnen oude bindingen niet op hetzelfde ogenblik waarop nieuwe bindingen ontstaan. De elektronenwolk moet zich voortdurend aanpassen terwijl atomen dichter bij elkaar komen, bestaande bindingen worden uitgerekt en nieuwe bindingen geleidelijk ontstaan. Gedurende dit proces bevindt het systeem zich in een opeenvolging van tijdelijke elektronenconfiguraties. Sommige hiervan zijn energetisch minder gunstig dan zowel de reagentia als de reactieproducten.
+Tijdens een reactie verdwijnen oude bindingen niet op hetzelfde ogenblik dat nieuwe ontstaan. Het systeem passeert tussentoestanden waarvan sommige een hogere energie hebben dan zowel reagentia als producten. De minimale energie om die \emph{overgangstoestand} te bereiken, is de \emph{activeringsenergie}. Ze verklaart waarom een reactie thermodynamisch gunstig maar toch traag kan zijn: de thermodynamica bepaalt de eindtoestand, de kinetiek hoe snel die bereikt wordt. Enkel moleculen die toevallig genoeg energie bezitten, halen de overgangstoestand. Hoeveel dat er zijn, zegt de Boltzmannverdeling.
 
-De minimale energie die nodig is om deze \emph{overgangstoestand} te bereiken, noemen we de \emph{activeringsenergie}. Het bestaan van een activeringsenergie verklaart waarom een reactie tegelijkertijd thermodynamisch gunstig en kinetisch traag kan zijn. De thermodynamica bepaalt welke toestand uiteindelijk het stabielst is, terwijl de kinetiek bepaalt hoe snel het systeem deze toestand kan bereiken.
-
-Merk op dat ook het overwinnen van een activeringsenergie uiteindelijk een kwestie is van energieverdeling over toegankelijke toestanden: enkel moleculen die, door de toevallige verdeling van translationele, rotationele en vibrationele energie over een populatie van moleculen, tijdelijk over voldoende energie beschikken, kunnen de overgangstoestand bereiken. Dit is meteen een eerste hint naar het onderwerp van het volgende hoofdstuk: de statistische verdeling van moleculen over hun toegankelijke energietoestanden.
-
-\section{De Boltzmannverdeling: hoe moleculen zich over energieniveaus verdelen}
+\section{De Boltzmannverdeling}
 \label{sec:boltzmannverdeling}
 
-We weten nu dat een molecule enkel bepaalde energieniveaus kan bezetten: elektronisch, vibrationeel, rotationeel en translationeel. In een mol gas zitten echter $6\times10^{23}$ moleculen. De vraag is dan niet meer in welk niveau \emph{\'e\'en} molecule zit, maar \emph{hoeveel} moleculen zich gemiddeld in elk niveau bevinden bij een gegeven temperatuur.
-
-Het antwoord is de \emph{Boltzmannverdeling}. Voor twee niveaus $i$ en $j$ met een energieverschil $\Delta E = E_i - E_j$ geldt in thermisch evenwicht:
+Een mol gas bevat $6\times10^{23}$ moleculen. De vraag is dus niet in welk niveau \emph{één} molecule zit, maar hoeveel moleculen gemiddeld in elk niveau zitten. In thermisch evenwicht geldt voor twee niveaus met energieverschil $\Delta E = E_i - E_j$ de \emph{Boltzmannverdeling}:
 \begin{equation}
 \boxed{\frac{N_i}{N_j} = \frac{g_i}{g_j}\,\exp\!\left(-\frac{\Delta E}{k_\mathrm{B}T}\right)}
 \label{eq:boltzmann}
 \end{equation}
-Hierin is $k_\mathrm{B} = \SI{1.381e-23}{\joule\per\kelvin}$ de constante van Boltzmann en $g_i$ het aantal toestanden met dezelfde energie (de \emph{ontaarding}; voor vibratieniveaus is $g = 1$). Per mol schrijf je $\Delta E_\mathrm{m}/RT$ in plaats van $\Delta E/k_\mathrm{B}T$, want $R = N_\mathrm{A}k_\mathrm{B}$.
-
-We leiden deze verdeling hier niet af; dat gebeurt in de statistische thermodynamica. De betekenis is wel eenvoudig. Het product $k_\mathrm{B}T$ is de typische hoeveelheid thermische energie die een molecule bij botsingen opneemt en afgeeft (bij \SI{298}{\kelvin} is $RT = \SI{2.48}{\kilo\joule\per\mole}$). De exponenti\"ele factor vergelijkt de stap naar een hoger niveau met die thermische energie:
+met $k_\mathrm{B} = \SI{1.381e-23}{\joule\per\kelvin}$ en $g_i$ de ontaarding (voor vibratieniveaus $g = 1$). Per mol schrijf je $\Delta E_\mathrm{m}/RT$, want $R = N_\mathrm{A}k_\mathrm{B}$. We leiden de verdeling hier niet af, maar de betekenis is eenvoudig: $k_\mathrm{B}T$ is de typische thermische energie die een molecule bij botsingen uitwisselt ($RT = \SI{2.48}{\kilo\joule\per\mole}$ bij \SI{298}{\kelvin}).
 \begin{itemize}
-\item $\Delta E \ll k_\mathrm{B}T$: beide niveaus zijn bijna even sterk bezet. De beweging gedraagt zich klassiek (translatie, rotatie).
-\item $\Delta E \gg k_\mathrm{B}T$: het hogere niveau is vrijwel leeg. De beweging is ``bevroren'' (vibratie bij kamertemperatuur, elektronische aanslag).
-\item Een hogere temperatuur bevolkt de hogere niveaus, maar het laagste niveau blijft altijd het sterkst bezet (bij gelijke $g$).
+\item $\Delta E \ll k_\mathrm{B}T$: beide niveaus zijn bijna even sterk bezet; de beweging gedraagt zich klassiek (translatie, rotatie).
+\item $\Delta E \gg k_\mathrm{B}T$: het hogere niveau is vrijwel leeg; de beweging is ``bevroren'' (vibratie bij kamertemperatuur).
+\item Een hogere temperatuur bevolkt hogere niveaus, maar het laagste blijft altijd het sterkst bezet (bij gelijke $g$).
 \end{itemize}
 
 \begin{voorbeeld}{Vibrerende stikstof in een vlam}
-De vibratie van \ce{N2} heeft een golfgetal van \SI{2330}{\per\centi\metre}, dus $\Delta E = hc\tilde\nu = \SI{4.63e-20}{\joule}$.
-\begin{itemize}
-\item Bij \SI{300}{\kelvin}: $\Delta E/k_\mathrm{B}T = 11.2$ en $N_1/N_0 = \mathrm{e}^{-11.2} = 1.4\times10^{-5}$. Praktisch alle moleculen zitten in $v = 0$.
-\item Bij \SI{2000}{\kelvin} (een vlam): $\Delta E/k_\mathrm{B}T = 1.68$ en $N_1/N_0 = 0.19$. Bijna een op de vijf moleculen vibreert.
-\end{itemize}
-Dit verklaart waarom $C_p$ van stikstof stijgt van \SI{29.1}{} naar \SI{36}{\joule\per\mole\per\kelvin} tussen kamertemperatuur en \SI{2000}{\kelvin}: de vibratie neemt steeds meer energie op. Het is ook de reden waarom we bij de vlamtemperatuur in hoofdstuk~\ref{ch:energie} met een temperatuurafhankelijke $C_p$ moesten rekenen.
+De vibratie van \ce{N2} ($\tilde\nu = \SI{2330}{\per\centi\metre}$) heeft $\Delta E = hc\tilde\nu = \SI{4.63e-20}{\joule}$. Bij \SI{300}{\kelvin} is $\Delta E/k_\mathrm{B}T = 11.2$ en $N_1/N_0 = 1.4\times10^{-5}$. Bij \SI{2000}{\kelvin} is $\Delta E/k_\mathrm{B}T = 1.68$ en $N_1/N_0 = 0.19$: bijna één op vijf moleculen vibreert. Daarom stijgt $C_p$ van stikstof van \SI{29.1}{} naar \SI{36}{\joule\per\mole\per\kelvin}, en moesten we voor de vlamtemperatuur in hoofdstuk~\ref{ch:energie} met een temperatuurafhankelijke $C_p$ rekenen.
 \end{voorbeeld}
 
 \begin{toepassing}{De luchtdruk op de berg}
-De Boltzmannverdeling geldt voor elke vorm van energie, ook voor de potenti\"ele energie in het zwaartekrachtveld. Een molecule lucht op hoogte $h$ heeft per mol een energie $Mgh$ meer dan op zeeniveau. Het aantal moleculen per volume, en dus de druk, daalt daarom exponentieel met de hoogte:
+De Boltzmannverdeling geldt voor elke vorm van energie, ook voor de potentiële energie $Mgh$ per mol in het zwaartekrachtveld. De druk daalt daarom exponentieel met de hoogte:
 \begin{equation}
 p(h) = p_0 \exp\!\left(-\frac{Mgh}{RT}\right).
 \end{equation}
-Met $M = \SI{0.029}{\kilo\gram\per\mole}$ en $T \approx \SI{273}{\kelvin}$ daalt de druk met een factor $\mathrm{e}$ per $RT/Mg \approx \SI{8}{\kilo\metre}$. Op de top van de Mont Blanc (\SI{4808}{\metre}) is de druk ongeveer \SI{0.55}{\bar}, op de Everest (\SI{8849}{\metre}) nog \SI{0.33}{\bar}. Daar kookt water al bij ongeveer \SI{70}{\celsius}, een verband dat we in hoofdstuk~\ref{ch:niet-reagerend} kwantitatief maken.
+Met $M = \SI{0.029}{\kilo\gram\per\mole}$ en $T \approx \SI{273}{\kelvin}$ daalt de druk met een factor $\mathrm{e}$ per \SI{8}{\kilo\metre}. Op de Mont Blanc (\SI{4808}{\metre}) is de druk ongeveer \SI{0.55}{\bar}, op de Everest (\SI{8849}{\metre}) \SI{0.33}{\bar}. Water kookt daar al bij ongeveer \SI{70}{\celsius} (hoofdstuk~\ref{ch:niet-reagerend}).
 \end{toepassing}
 
 \subsection{Waarom reacties sneller gaan bij hogere temperatuur}
 
-Een reactie verloopt enkel als de botsende moleculen samen minstens de activeringsenergie $E_\mathrm{a}$ bezitten (\S~\ref{sec:activeringsenergie-kwantum}). De fractie moleculen met zoveel energie volgt uit dezelfde Boltzmannfactor, $\exp(-E_\mathrm{a}/RT)$. Voor $E_\mathrm{a} = \SI{50}{\kilo\joule\per\mole}$ is die fractie bij \SI{35}{\celsius} een factor
+Een reactie verloopt enkel als botsende moleculen minstens de activeringsenergie $E_\mathrm{a}$ bezitten. Die fractie volgt uit dezelfde Boltzmannfactor, $\exp(-E_\mathrm{a}/RT)$. Voor $E_\mathrm{a} = \SI{50}{\kilo\joule\per\mole}$ is ze bij \SI{35}{\celsius} een factor
 \[
 \exp\!\left[\frac{50\,000}{8.314}\left(\frac{1}{298.15} - \frac{1}{308.15}\right)\right] = 1.9
 \]
-groter dan bij \SI{25}{\celsius}. Dat is de oorsprong van de bekende vuistregel dat een reactie ongeveer twee keer sneller gaat per \SI{10}{\celsius} temperatuurstijging, en van de wet van Arrhenius in hoofdstuk~\ref{ch:kinetiek}. Een koelkast werkt volgens hetzelfde principe: bij \SI{4}{\celsius} verlopen de bederfreacties in voedsel enkele keren trager dan bij kamertemperatuur.
+groter dan bij \SI{25}{\celsius}. Dat is de oorsprong van de vuistregel ``twee keer sneller per \SI{10}{\celsius}'' en van de wet van Arrhenius (hoofdstuk~\ref{ch:kinetiek}). Een koelkast vertraagt bederfreacties volgens hetzelfde principe.
 
-\subsection{Van energieniveaus naar entropie}
-
-We kunnen nu de rode draad van dit hoofdstuk samenvatten. Energie is op moleculaire schaal gekwantiseerd: voor de elektronen (orbitalen, bindingen, reactie-enthalpie\"en) en voor de bewegingen van de molecule als geheel (translatie, rotatie, vibratie). De Boltzmannverdeling vertelt hoe een grote groep moleculen zich bij een gegeven temperatuur over die niveaus verdeelt. Hieruit volgen meteen de warmtecapaciteit, de temperatuurafhankelijkheid van $C_p$ en de temperatuurafhankelijkheid van reactiesnelheden.
-
-E\'en vraag blijft open: \emph{waarom verlopen sommige processen spontaan in \'e\'en richting, ook als de energie daar geen uitsluitsel over geeft?} Het antwoord ligt in het \emph{aantal manieren} waarop energie en moleculen over de beschikbare toestanden verdeeld kunnen worden. Dat aantal is de basis van de \emph{entropie}, het centrale begrip van hoofdstuk~\ref{ch:spontaniteit}.
+Eén vraag blijft open: waarom verlopen sommige processen spontaan in één richting, ook als de energie geen uitsluitsel geeft? Het antwoord ligt in het \emph{aantal manieren} waarop energie en moleculen over de toestanden verdeeld kunnen worden: de entropie van hoofdstuk~\ref{ch:spontaniteit}.
 
 \section{Samenvatting en reflectie}
 
 \begin{samenvatting}{Kwantummechanica en moleculaire energie}
 \begin{itemize}
 \item Energie wordt uitgewisseld in kwanta: $E = h\nu = hc/\lambda$. Licht gedraagt zich als deeltjes (foto-elektrisch effect), materie als golven ($\lambda = h/p$).
-\item De golffunctie $\psi$ beschrijft een deeltje; $|\psi|^2$ is de waarschijnlijkheid om het op een bepaalde plaats te vinden. De Schr\"odingervergelijking levert enkel discrete energie\"en op wanneer het deeltje opgesloten is.
-\item Waterstofatoom: $E_n = -\SI{13.6}{\electronvolt}/n^2$. Vier kwantumgetallen ($n$, $l$, $m_l$, $m_s$) en het uitsluitingsprincipe van Pauli verklaren de opbouw van het periodiek systeem.
-\item Molecuulorbitalen ontstaan door combinatie van atoomorbitalen: bindend (lagere energie) en antibindend (hogere energie). De bindingsorde verklaart waarom \ce{H2} bestaat en \ce{He2} niet.
-\item Een molecule bezit gekwantiseerde translatie-, rotatie- en vibratieniveaus. De energieschalen verschillen sterk: translatie $\ll$ rotatie $\ll$ vibratie $\ll$ elektronisch. Overgangen geven respectievelijk microgolf-, infrarood- en UV/Vis-spectra.
-\item Boltzmannverdeling: $N_i/N_j = (g_i/g_j)\exp(-\Delta E/k_\mathrm{B}T)$. Zij verklaart de warmtecapaciteit, de stijging van $C_p$ met $T$ en de sterke temperatuurafhankelijkheid van reactiesnelheden.
+\item De golffunctie $\psi$ beschrijft een deeltje; $|\psi|^2$ is de waarschijnlijkheid om het op een plaats te vinden. Een opgesloten deeltje heeft enkel discrete energieën.
+\item Waterstofatoom: $E_n = -\SI{13.6}{\electronvolt}/n^2$. Vier kwantumgetallen ($n$, $l$, $m_l$, $m_s$) en het uitsluitingsprincipe van Pauli verklaren het periodiek systeem.
+\item Molecuulorbitalen zijn bindend (lagere energie) of antibindend (hogere energie). De bindingsorde verklaart waarom \ce{H2} bestaat en \ce{He2} niet.
+\item Een molecule heeft gekwantiseerde translatie-, rotatie- en vibratieniveaus: translatie $\ll$ rotatie $\ll$ vibratie $\ll$ elektronisch. Overgangen geven microgolf-, infrarood- en UV/Vis-spectra.
+\item Boltzmannverdeling: $N_i/N_j = (g_i/g_j)\exp(-\Delta E/k_\mathrm{B}T)$. Zij verklaart de warmtecapaciteit, de stijging van $C_p$ met $T$ en de temperatuurafhankelijkheid van reactiesnelheden.
 \end{itemize}
 \end{samenvatting}
 
