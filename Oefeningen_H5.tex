@@ -4,7 +4,7 @@
 
 Neem $R = \SI{8.314}{\joule\per\mole\per\kelvin}$, $\SI{1}{\bar} = \SI{e5}{\pascal}$ en $\SI{760}{mmHg} = \SI{1.01325}{\bar}$.
 
-\begin{oefening}
+\begin{oefening}\label{oef:h5-1}
 Voor water geldt de Antoine-vergelijking \(\log_{10} p = A - B/(T + C)\) met \(A = 8.07131\), \(B = 1730.63\), \(C = 233.426\), waarbij \(p\) in mmHg en \(T\) in °C (geldig van \(1\) tot \(100\,^\circ\mathrm{C}\)).
 
 \begin{enumerate}
@@ -38,7 +38,7 @@ Bij \(80\,^\circ\mathrm{C}\) en \(120\,^\circ\mathrm{C}\) vind je \(482\) en \(1
 \textbf{(c)} De experimentele waarden zijn \(123\), \(474\) en \(1985\,\mathrm{mbar}\). Antoine is een empirische fit en is binnen het geldigheidsgebied zeer nauwkeurig. Clausius--Clapeyron veronderstelt een constante \(\Delta H_{\text{vap}}\), terwijl die bij lagere temperatuur groter is (\(43.0\,\mathrm{kJ/mol}\) bij \(50\,^\circ\mathrm{C}\)): hoe verder van het referentiepunt, hoe groter de fout. Bij \(120\,^\circ\mathrm{C}\) ligt de temperatuur buiten het geldigheidsgebied van deze Antoine-parameters, maar dicht bij het referentiepunt van Clausius--Clapeyron: beide schattingen liggen binnen 1 \% van de werkelijkheid. Dit is de druk in een snelkookpan of een stoomsterilisator (autoclaaf).
 \end{oplossing}
 
-\begin{oefening}
+\begin{oefening}\label{oef:h5-2}
 Een vloeibaar mengsel van \(n\)-hexaan (A) en \(n\)-octaan (B) met \(x_A = 0.30\) bevindt zich bij \(80\,^\circ\mathrm{C}\). De verzadigingsdampdrukken bedragen \(p_A^* = 1.42\,\mathrm{bar}\) en \(p_B^* = 0.23\,\mathrm{bar}\). Behandel het mengsel als ideaal.
 
 \begin{enumerate}
@@ -65,7 +65,7 @@ P = x_A p_A^* + x_B p_B^* = (0.30)(1.42) + (0.70)(0.23) = 0.426 + 0.161 = 0.587\
 \end{oplossing}
 
 \begin{oefening}
-In een flashvat wordt een hexaan--octaanmengsel met globale samenstelling \(z_A = 0.50\) gebracht op \(80\,^\circ\mathrm{C}\) en de druk van Oefening 5.2 (\(0.587\,\mathrm{bar}\)). Bij die temperatuur en druk zijn de vloeistof en de damp in evenwicht met de samenstellingen uit Oefening 5.2.
+In een flashvat wordt een hexaan--octaanmengsel met globale samenstelling \(z_A = 0.50\) gebracht op \(80\,^\circ\mathrm{C}\) en de druk van Oefening~\ref{oef:h5-2} (\(0.587\,\mathrm{bar}\)). Bij die temperatuur en druk zijn de vloeistof en de damp in evenwicht met de samenstellingen uit Oefening~\ref{oef:h5-2}.
 
 \begin{enumerate}
 \item[(a)]
@@ -93,7 +93,7 @@ Per mol voeding: \(n_L = 1.13/2.13 = 0.53\,\mathrm{mol}\) en \(n_V = 0.47\,\math
 \end{oplossing}
 
 \begin{oefening}
-Voorspel voor de volgende binaire mengsels of ze zich ongeveer ideaal gedragen, een positieve afwijking van Raoult vertonen (met mogelijk een minimaal kokende azeotroop) of een negatieve afwijking (met mogelijk een maximaal kokende azeotroop). Gebruik de intermoleculaire krachten uit hoofdstuk 4.
+Voorspel voor de volgende binaire mengsels of ze zich ongeveer ideaal gedragen, een positieve afwijking van Raoult vertonen (met mogelijk een minimaal kokende azeotroop) of een negatieve afwijking (met mogelijk een maximaal kokende azeotroop). Gebruik de intermoleculaire krachten uit hoofdstuk~\ref{ch:intermoleculair}.
 
 \begin{enumerate}
 \item[(a)]
@@ -213,13 +213,13 @@ Zeewater bevat ongeveer \(0.55\,\mathrm{mol/L}\) opgeloste zouten, hoofdzakelijk
 W_{\min} = \Pi V = (2.73\times10^{6}\,\mathrm{Pa})(1\,\mathrm{m^3}) = 2.73\,\mathrm{MJ} = 0.76\,\mathrm{kWh}
 \]
 
-Dit is dezelfde ondergrens als de Gibbs-vrije energie van ontmenging (hoofdstuk 3). Echte installaties verbruiken vier keer meer: de druk moet boven \(\Pi\) liggen om een redelijk debiet te krijgen, het concentraat wordt zouter, en pompen en membranen hebben verliezen (irreversibiliteiten). Toch is omgekeerde osmose veel zuiniger dan verdampen: om \(1\,\mathrm{m^3}\) water te verdampen is ongeveer \(630\,\mathrm{kWh}\) warmte nodig.
+Dit is dezelfde ondergrens als de Gibbs-vrije energie van ontmenging (hoofdstuk~\ref{ch:spontaniteit}). Echte installaties verbruiken vier keer meer: de druk moet boven \(\Pi\) liggen om een redelijk debiet te krijgen, het concentraat wordt zouter, en pompen en membranen hebben verliezen (irreversibiliteiten). Toch is omgekeerde osmose veel zuiniger dan verdampen: om \(1\,\mathrm{m^3}\) water te verdampen is ongeveer \(630\,\mathrm{kWh}\) warmte nodig.
 
 \textbf{(d)} Bloed heeft een osmotische druk van ongeveer \(7.9\,\mathrm{bar}\) (zie het voorbeeld van de fysiologische zoutoplossing), zeewater \(27\,\mathrm{bar}\). De nieren kunnen urine maken die hoogstens ongeveer zo zout is als zeewater, zodat ze meer water nodig hebben om het zout uit te scheiden dan je ermee binnenkrijgt. Je droogt uit.
 \end{oplossing}
 
 \begin{oefening}
-De \emph{relatieve vochtigheid} van lucht is de verhouding van de partiële waterdampdruk tot de dampdruk van water bij dezelfde temperatuur: \(\mathrm{RV} = p_{\mathrm{H_2O}}/p^*_{\mathrm{H_2O}}(T)\). Gebruik de Antoine-vergelijking van Oefening 5.1.
+De \emph{relatieve vochtigheid} van lucht is de verhouding van de partiële waterdampdruk tot de dampdruk van water bij dezelfde temperatuur: \(\mathrm{RV} = p_{\mathrm{H_2O}}/p^*_{\mathrm{H_2O}}(T)\). Gebruik de Antoine-vergelijking van Oefening~\ref{oef:h5-1}.
 
 \begin{enumerate}
 \item[(a)]
@@ -270,7 +270,7 @@ Om wegen ijsvrij te houden, strooit men NaCl (\(M = 58.44\,\mathrm{g/mol}\)). Ge
 \textbf{(c)} Het eutectisch punt van NaCl--water ligt bij \(-21\,^\circ\mathrm{C}\). Daaronder is geen vloeibare pekel meer stabiel, hoeveel zout je ook toevoegt: ijs en vast zout coëxisteren. In werkelijkheid werkt NaCl al slecht onder ongeveer \(-10\,^\circ\mathrm{C}\), omdat het zout eerst moet oplossen in een dun laagje water. In Scandinavië en Canada gebruikt men dan zand of \(\mathrm{CaCl_2}\).
 \end{oplossing}
 
-\begin{oefening}
+\begin{oefening}\label{oef:h5-10}
 De Henry-constante van zuurstof in water (molfractieschaal) bedraagt \(H = 3.27\times10^{4}\,\mathrm{bar}\) bij \(10\,^\circ\mathrm{C}\) en \(4.26\times10^{4}\,\mathrm{bar}\) bij \(25\,^\circ\mathrm{C}\). Lucht bevat \(21\,\%\) zuurstof; de totale druk is \(1.0\,\mathrm{bar}\). Water bevat \(55.5\,\mathrm{mol}\) per liter.
 
 \begin{enumerate}
@@ -298,7 +298,7 @@ De gemeten waarden zijn \(11.3\) en \(8.3\,\mathrm{mg/L}\).
 
 \textbf{(b)} Bij \(25\,^\circ\mathrm{C}\) is de evenwichtsconcentratie een kwart lager, en de marge boven \(6\,\mathrm{mg/L}\) zakt van \(5.4\) naar \(2.8\,\mathrm{mg/L}\). Tegelijk verbruiken vissen en bacteriën meer zuurstof bij hogere temperatuur (reactiesnelheden stijgen, hoofdstuk~\ref{ch:kinetiek}), en het water is in de zomer vaak trager en minder gemengd. Het resultaat is vissterfte, ook zonder vervuiling. Daarom mogen centrales en industrie hun koelwater niet onbeperkt warm lozen.
 
-\textbf{(c)} Een opgeloste gasmolecule wordt door het water omringd en aangetrokken (dipool--geïnduceerde dipool- en dispersiekrachten, hoofdstuk 4): oplossen is exotherm. Bij hogere temperatuur schuift het evenwicht naar de endotherme kant, de gasfase. Hetzelfde verklaart waarom lauwe frisdrank sneller verschaalt dan koude.
+\textbf{(c)} Een opgeloste gasmolecule wordt door het water omringd en aangetrokken (dipool--geïnduceerde dipool- en dispersiekrachten, hoofdstuk~\ref{ch:intermoleculair}): oplossen is exotherm. Bij hogere temperatuur schuift het evenwicht naar de endotherme kant, de gasfase. Hetzelfde verklaart waarom lauwe frisdrank sneller verschaalt dan koude.
 \end{oplossing}
 
 \begin{oefening}
@@ -308,7 +308,7 @@ Een duiker ademt perslucht (\(79\,\%\) \(\mathrm{N_2}\)) op \(30\,\mathrm{m}\) d
 \item[(a)]
   Bereken de concentratie opgeloste stikstof in het bloed aan het oppervlak en op \(30\,\mathrm{m}\) diepte, na verzadiging.
 \item[(b)]
-  De duiker stijgt veel te snel op. Hoeveel milliliter stikstofgas (bij \(37\,^\circ\mathrm{C}\) en \(1\,\mathrm{bar}\)) komt per liter bloed vrij? Gebruik de ideale gaswet (hoofdstuk 1).
+  De duiker stijgt veel te snel op. Hoeveel milliliter stikstofgas (bij \(37\,^\circ\mathrm{C}\) en \(1\,\mathrm{bar}\)) komt per liter bloed vrij? Gebruik de ideale gaswet (hoofdstuk~\ref{ch:energie}).
 \item[(c)]
   Waarom gebruiken diepzeeduikers helium in plaats van stikstof in hun ademgas?
 \end{enumerate}
