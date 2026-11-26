@@ -366,3 +366,66 @@ De waarde voor butaan bij \(20\,^\circ\mathrm{C}\) klopt goed met de gemeten \(2
 
 \textbf{(d)} Bij gebruik verdampt vloeibaar gas in de bus. De verdampingsenthalpie wordt aan de vloeistof onttrokken, die afkoelt. Daardoor daalt de dampdruk, zodat de vlam kleiner wordt. Waterdamp uit de lucht bevriest op de koude wand. Dit is een kruisoefening tussen hoofdstuk 4 (Trouton) en hoofdstuk 5 (Clausius--Clapeyron).
 \end{oplossing}
+
+\begin{oefening}[Hoe sterk kan een lijm zijn?]
+Twee oppervlakken trekken elkaar aan met $F/A = A_\mathrm{H}/(6\pi D^3)$, met $A_\mathrm{H} = \SI{1e-19}{\joule}$.
+\begin{enumerate}
+\item[(a)] Bereken $F/A$ voor $D = \SI{0.4}{\nano\metre}$ (moleculair contact) en voor $D = \SI{40}{\nano\metre}$ (typische ruwheid van een gepolijst oppervlak).
+\item[(b)] Welke massa zou je kunnen ophangen aan een perfect contact van \SI{1}{\square\centi\metre}?
+\item[(c)] Verklaar met (a) waarom een lijm vloeibaar moet zijn bij het aanbrengen, en waarom twee glasplaatjes met een dun laagje water ertussen moeilijk uit elkaar te schuiven zijn.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \SI{8.3e7}{\pascal} (\SI{830}{\bar}) en \SI{83}{\pascal}. (b) Ongeveer \SI{850}{\kilo\gram}. (c) De kracht daalt met een factor $10^6$ als de afstand honderd keer groter wordt.
+
+\textbf{(a)} $D = 0.4\,\mathrm{nm}$: $F/A = 10^{-19}/[6\pi(0.4\times10^{-9})^3] = 10^{-19}/(1.21\times10^{-27}) = 8.3\times10^7\,\mathrm{Pa}$.
+$D = 40\,\mathrm{nm}$ is honderd keer verder, dus $10^6$ keer zwakker: $83\,\mathrm{Pa}$.
+
+\textbf{(b)} $F = (8.3\times10^7)(10^{-4}) = 8300\,\mathrm{N}$, goed voor $8300/9.81 \approx 850\,\mathrm{kg}$.
+
+\textbf{(c)} Vaste oppervlakken raken elkaar enkel op de toppen van hun ruwheid; elders is de afstand tientallen nanometer en de aantrekking verwaarloosbaar. Een vloeibare lijm vult de holtes en brengt overal moleculair contact tot stand; na uitharden blijft dat contact behouden. Tussen twee glasplaatjes vormt water een dunne film die beide oppervlakken bevochtigt; de oppervlaktespanning aan de rand en de waterstofbruggen met het glas houden de plaatjes samen.
+\end{oplossing}
+
+\begin{oefening}[Een koelmiddel kiezen]
+Voor een koelhuis bij \SI{-25}{\celsius} moet een koelinstallatie \SI{500}{\kilo\watt} warmte afvoeren. Het koelmiddel verdampt in de verdamper. Gegevens bij het normale kookpunt:
+\begin{center}
+\begin{tabular}{lccc}
+ & kookpunt (\si{\celsius}) & $\Delta H_\mathrm{vap}$ (\si{\kilo\joule\per\mole}) & $M$ (\si{\gram\per\mole}) \\ \hline
+ammoniak (\ce{NH3}) & $-33.3$ & 23.4 & 17.03 \\
+R-134a (\ce{CH2FCF3}) & $-26.1$ & 22.2 & 102.0 \\
+propaan (\ce{C3H8}) & $-42.1$ & 19.0 & 44.10 \\
+\end{tabular}
+\end{center}
+\begin{enumerate}
+\item[(a)] Bereken voor elk koelmiddel de verdampingsenthalpie per kilogram en het massadebiet dat nodig is.
+\item[(b)] Verklaar de hoge waarde van ammoniak met de intermoleculaire krachten.
+\item[(c)] Waarom gebruikt men toch R-134a of propaan in een huishoudkoelkast?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \ce{NH3}: \SI{1374}{\kilo\joule\per\kilo\gram}, \SI{0.36}{\kilo\gram\per\second}; R-134a: \SI{218}{\kilo\joule\per\kilo\gram}, \SI{2.3}{\kilo\gram\per\second}; propaan: \SI{431}{\kilo\joule\per\kilo\gram}, \SI{1.16}{\kilo\gram\per\second}. (b) Waterstofbruggen bij een klein molecule. (c) Veiligheid.
+
+\textbf{(a)} Per kilogram: $\Delta h = \Delta H_\mathrm{vap}/M$, bv.\ voor \ce{NH3}: $23\,400/0.01703 = 1.374\times10^6\,\mathrm{J/kg}$. Het massadebiet is $\dot m = \dot Q/\Delta h = 500/1374 = 0.36\,\mathrm{kg/s}$. Analoog voor R-134a ($22\,200/0.102 = 218\,\mathrm{kJ/kg}$, $\dot m = 2.3\,\mathrm{kg/s}$) en propaan ($19\,000/0.0441 = 431\,\mathrm{kJ/kg}$, $\dot m = 1.16\,\mathrm{kg/s}$).
+
+\textbf{(b)} Per mol liggen de drie waarden dicht bij elkaar, maar ammoniak is een zeer licht molecule. Dankzij de waterstofbruggen heeft het toch een verdampingsenthalpie die vergelijkbaar is met die van veel zwaardere moleculen. Per kilogram is dat zes keer meer dan R-134a: kleinere leidingen en compressoren volstaan.
+
+\textbf{(c)} Ammoniak is giftig en ruikt sterk; het wordt enkel in grote, bewaakte installaties gebruikt. R-134a is niet giftig en niet brandbaar, maar is een sterk broeikasgas en wordt daarom uitgefaseerd. Propaan (R-290) heeft een veel lagere klimaatimpact, maar is brandbaar; in een huishoudkoelkast is de hoeveelheid zo klein (minder dan \SI{150}{\gram}) dat het risico aanvaardbaar is.
+\end{oplossing}
+
+\begin{oefening}[Actieve kool in een dampkap]
+Een actief-koolfilter wordt gebruikt om tolueendamp uit ventilatielucht te verwijderen.
+\begin{enumerate}
+\item[(a)] Rangschik de volgende gassen naar hoe sterk ze op actieve kool adsorberen, en verklaar: \ce{N2}, \ce{CH4}, tolueen (\ce{C7H8}), hexaan.
+\item[(b)] Het filter kan \SI{0.30}{\gram} tolueen per gram kool opnemen. De lucht bevat \SI{200}{ppm} (volume) tolueen bij \SI{20}{\celsius} en \SI{1}{\bar}, en het debiet bedraagt \SI{0.5}{\cubic\metre\per\second}. Hoeveel kool is nodig voor 8 uur werking?
+\item[(c)] Waarom verliest een koolfilter zijn werking sneller bij een hoge luchtvochtigheid?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \ce{N2} $<$ \ce{CH4} $<$ hexaan $<$ tolueen. (b) Minstens \SI{36}{\kilo\gram}, met veiligheidsmarge ongeveer \SI{50}{\kilo\gram}. (c) Water condenseert in de pori\"en en concurreert om de plaatsen.
+
+\textbf{(a)} Fysisorptie op koolstof gebeurt via dispersiekrachten, die toenemen met de polariseerbaarheid, dus met de grootte van het molecule. \ce{N2} en \ce{CH4} zijn klein en worden nauwelijks vastgehouden. Hexaan en tolueen zijn groot; tolueen heeft bovendien een vlak aromatisch $\pi$-systeem dat goed op de vlakke grafietlagen van de kool past.
+
+\textbf{(b)} Molaire concentratie lucht: $p/RT = 10^5/(8.314 \times 293.15) = 41.0\,\mathrm{mol/m^3}$. Tolueen: $200\times10^{-6} \times 41.0 = 8.21\times10^{-3}\,\mathrm{mol/m^3}$, of $8.21\times10^{-3} \times 92.14 = 0.756\,\mathrm{g/m^3}$. In 8 uur: $0.756 \times 0.5 \times 28\,800 = 10\,900\,\mathrm{g}$ tolueen. Nodig: $10.9/0.30 \approx 36\,\mathrm{kg}$ kool. Met een veiligheidsmarge (het filter mag niet volledig verzadigd raken) kiest men ongeveer \SI{50}{\kilo\gram}.
+
+\textbf{(c)} In de fijnste pori\"en condenseert waterdamp al onder de verzadigingsdruk (capillaire condensatie, hoofdstuk~\ref{ch:oppervlakte}). Het water bezet dan plaatsen die anders voor tolueen beschikbaar waren. Men droogt de lucht daarom vaak eerst, of verwarmt ze licht.
+\end{oplossing}
