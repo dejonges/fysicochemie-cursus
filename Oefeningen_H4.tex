@@ -1,0 +1,368 @@
+% Oefeningen bij dit hoofdstuk (ingevoegd achteraan het hoofdstuk met \input).
+% Een oefening:  \begin{oefening}[titel] ... \end{oefening}   (boek en website)
+% De oplossing:  \begin{oplossing} ... \end{oplossing}       (enkel website, dichtgeklapt)
+
+Constanten: $R = \SI{8.314}{\joule\per\mole\per\kelvin}$, $k_B = \SI{1.381e-23}{\joule\per\kelvin}$, $N_A = \SI{6.022e23}{\per\mole}$, $4\pi\varepsilon_0 = \SI{1.113e-10}{\coulomb\squared\per\joule\per\metre}$.
+
+\begin{oefening}[Kookpunten van een homologe reeks]
+De kookpunten van de \(n\)-alkanen bij \(1\,\mathrm{bar}\) zijn:
+
+\begin{center}
+\begin{tabular}{lllllll}
+\toprule
+Alkaan & \(\mathrm{CH_4}\) & \(\mathrm{C_2H_6}\) & \(\mathrm{C_3H_8}\) & \(\mathrm{C_4H_{10}}\) & \(\mathrm{C_5H_{12}}\) & \(\mathrm{C_6H_{14}}\) \\
+\midrule
+\(T_b\) (°C) & \(-162\) & \(-89\) & \(-42\) & \(0\) & \(36\) & \(69\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}
+\item[(a)]
+  Verklaar de trend vanuit intermoleculaire krachten. Welke kracht is dominant?
+\item[(b)]
+  Waarom stijgt het kookpunt minder snel naarmate de keten langer wordt?
+\item[(c)]
+  Voorspel het kookpunt van \(n\)-octaan (\(\mathrm{C_8H_{18}}\)).
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{London-dispersie}. (c) \(T_b\)(octaan) \ensuremath{\approx{}} \textbf{125 °C} (experimenteel 126 °C).
+
+\textbf{(a)} Alkanen zijn apolair: enkel London-dispersie werkt. Elke extra \(\mathrm{CH_2}\)-groep voegt elektronen toe, waardoor de polariseerbaarheid en het contactoppervlak tussen de ketens toenemen. De dispersie-energie per molecule stijgt en er is meer warmte nodig om de moleculen uit de vloeistof te halen.
+
+\textbf{(b)} Elke \(\mathrm{CH_2}\)-groep voegt een ongeveer constant bedrag toe aan \(\Delta H_{\text{vap}}\) (ongeveer \(4\)--\(5\,\mathrm{kJ/mol}\)). Volgens Trouton is \(T_b \approx \Delta H_{\text{vap}}/\Delta S_{\text{vap}}\); in absolute temperatuur is een zelfde stijging van \(\Delta H_{\text{vap}}\) relatief steeds kleiner. Bovendien kunnen lange ketens opkrullen, waardoor niet elke extra groep volledig in contact komt met de buren.
+
+\textbf{(c)} De stijging per koolstofatoom daalt van \(73\) naar \(33\,^\circ\mathrm{C}\); extrapolatie (ongeveer \(+30\) en \(+28\,^\circ\mathrm{C}\) voor \(\mathrm{C_7}\) en \(\mathrm{C_8}\)) geeft \(T_b \approx 125\,^\circ\mathrm{C}\). De experimentele waarde is \(126\,^\circ\mathrm{C}\). Dit is precies waarom men ruwe olie in een destillatiekolom kan scheiden in fracties: gas, benzine, kerosine, diesel.
+\end{oplossing}
+
+\begin{oefening}[Waterstofbruggen: vergelijking van \(\mathrm{H_2O}\), \(\mathrm{H_2S}\), \(\mathrm{H_2Se}\) en \(\mathrm{H_2Te}\)]
+De kookpunten van de waterstofverbindingen van groep 16 zijn: \(\mathrm{H_2O}\) \(100\,^\circ\mathrm{C}\), \(\mathrm{H_2S}\) \(-60\,^\circ\mathrm{C}\), \(\mathrm{H_2Se}\) \(-42\,^\circ\mathrm{C}\) en \(\mathrm{H_2Te}\) \(-2\,^\circ\mathrm{C}\). De verdampingsenthalpieën van \(\mathrm{H_2O}\) en \(\mathrm{H_2S}\) bedragen \(40.7\) en \(18.7\,\mathrm{kJ/mol}\).
+
+\begin{enumerate}
+\item[(a)]
+  Verklaar waarom het kookpunt stijgt van \(\mathrm{H_2S}\) naar \(\mathrm{H_2Te}\), maar \(\mathrm{H_2O}\) een anomalie vormt.
+\item[(b)]
+  Hoeveel waterstofbruggen kan een watermolecule gemiddeld vormen? Verklaar het netwerkkarakter.
+\item[(c)]
+  Bereken de verhouding \(\Delta H_{\text{vap}}(\mathrm{H_2O})/\Delta H_{\text{vap}}(\mathrm{H_2S})\). Verklaar de verhouding vanuit de aard van de intermoleculaire krachten.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{Waterstofbruggen} in water. (b) Tot \textbf{vier} waterstofbruggen per molecule. (c) Verhouding \textbf{2.2}.
+
+\textbf{(a)} Van S naar Te worden de moleculen groter en beter polariseerbaar: London-dispersie neemt toe, en daarmee het kookpunt. Zonder waterstofbruggen zou water, volgens deze trend, rond \(-80\,^\circ\mathrm{C}\) koken. Zuurstof is echter klein en sterk elektronegatief: de O--H binding is sterk gepolariseerd en de vrije elektronenparen op O zijn goed toegankelijk, zodat water sterke waterstofbruggen vormt. S, Se en Te zijn te weinig elektronegatief.
+
+\textbf{(b)} Elke watermolecule heeft twee H-atomen (donoren) en twee vrije elektronenparen (acceptoren) en kan dus tot vier waterstofbruggen vormen, tetraëdrisch georiënteerd. In vloeibaar water zijn er gemiddeld ongeveer 3.5 per molecule. Dat geeft een driedimensionaal netwerk dat voortdurend breekt en opnieuw gevormd wordt (op een tijdschaal van picoseconden). In ijs is het netwerk volledig en open, wat verklaart waarom ijs drijft.
+
+\textbf{(c)} \(40.7/18.7 = 2.2\). In \(\mathrm{H_2S}\) werken enkel dipool--dipool- en dispersiekrachten; in water komt het waterstofbrugnetwerk daarbovenop, dat meer dan de helft van de cohesie levert. Dit verklaart waarom water zo'n uitstekend koelmiddel en warmtebuffer is (hoofdstuk 1), maar ook waarom het indampen van waterige stromen in de industrie zoveel energie kost.
+\end{oplossing}
+
+\begin{oefening}[Lennard-Jones: parameters en verdampingsenthalpie]
+Voor methaan gelden \(\sigma = 0.381\,\mathrm{nm}\) en \(\varepsilon/k_B = 148\,\mathrm{K}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de evenwichtsafstand \(r_{\text{eq}}\).
+\item[(b)]
+  Bereken de molaire interactie-energie \(N_A\varepsilon\) van één paar.
+\item[(c)]
+  Vergelijk met de experimentele verdampingsenthalpie \(\Delta H_{\text{vap}} = 8.2\,\mathrm{kJ/mol}\). Verklaar de verhouding (een molecule heeft ongeveer 12 buren in de vloeistof).
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(r_{\text{eq}}\) = \textbf{0.428 nm}. (b) \(N_A\varepsilon\) = \textbf{1.23 kJ/mol}. (c) Verhouding \textbf{6.7} \ensuremath{\approx{}} 6 paarinteracties per molecule.
+
+\textbf{(a)} \(r_{\text{eq}} = 2^{1/6}\sigma = 1.122 \times 0.381 = 0.428\,\mathrm{nm}\).
+
+\textbf{(b)} \(N_A\varepsilon = N_A k_B (148\,\mathrm{K}) = R(148) = 1.23\,\mathrm{kJ/mol}\).
+
+\textbf{(c)} \(8.2/1.23 = 6.7\). Bij verdamping verbreekt een molecule ongeveer 12 contacten met buren, maar elk contact wordt gedeeld door twee moleculen: per molecule verdwijnen dus ongeveer \(12/2 = 6\) paarinteracties. De verwachte verdampingsenergie is \(6 N_A\varepsilon \approx 7.4\,\mathrm{kJ/mol}\), en met \(\Delta H = \Delta U + RT\) (bij \(112\,\mathrm{K}\) ongeveer \(0.9\,\mathrm{kJ/mol}\)) komt men op \(8.3\,\mathrm{kJ/mol}\): een opmerkelijke overeenkomst voor zo'n eenvoudig model.
+\end{oplossing}
+
+\begin{oefening}[Hildebrand-parameter en mengbaarheid]
+Gegeven de Hildebrand-parameters: tolueen \(\delta = 18.2\,\mathrm{MPa^{1/2}}\), cyclohexaan \(16.8\), methanol \(29.7\) en water \(47.9\,\mathrm{MPa^{1/2}}\). De molaire volumes van tolueen en methanol zijn \(106.8\) en \(40.5\,\mathrm{cm^3/mol}\).
+
+\begin{enumerate}
+\item[(a)]
+  Welke paren vloeistoffen zullen volgens de Hildebrand-theorie volledig mengen? Welke niet?
+\item[(b)]
+  Bereken de mengenthalpie per liter voor een 50/50-mengsel (volumefracties) van tolueen en methanol. Vergelijk met de bijdrage \(T\Delta S_{\text{meng}}\) van een ideaal mengsel bij \(298\,\mathrm{K}\). Wat voorspelt de theorie?
+\item[(c)]
+  In werkelijkheid mengen tolueen en methanol volledig, en ook methanol en water. Waarom faalt de Hildebrand-parameter hier?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Enkel \textbf{tolueen--cyclohexaan} mengt volgens de theorie. (b) \(\Delta H_{\text{meng}}\) = \textbf{33 kJ} \textgreater{} \(T\Delta S\) = 25 kJ: theorie voorspelt ontmenging. (c) Waterstofbruggen vallen buiten het model.
+
+\textbf{(a)} Kleine \(\Delta\delta\) betekent mengbaar. Tolueen--cyclohexaan (\(\Delta\delta = 1.4\)) mengt volledig. Volgens de theorie zouden tolueen--methanol (\(11.5\)), methanol--water (\(18.2\)) en zeker tolueen--water (\(29.7\)) en cyclohexaan--water niet mengen.
+
+\textbf{(b)} Met \((\Delta\delta)^2 = (11.5)^2 = 132\,\mathrm{MPa} = 1.32\times10^{8}\,\mathrm{J/m^3}\):
+
+\[
+\Delta H_{\text{meng}} = V(\delta_1 - \delta_2)^2\phi_1\phi_2 = (10^{-3})(1.32\times10^{8})(0.5)(0.5) = 33\,\mathrm{kJ}\ \text{per liter}
+\]
+
+Eén liter bevat \(4.68\,\mathrm{mol}\) tolueen en \(12.35\,\mathrm{mol}\) methanol (\(x_{\text{tol}} = 0.275\)), dus \(\Delta S_{\text{meng}} = -R\sum n_i\ln x_i = 83\,\mathrm{J/K}\) en \(T\Delta S_{\text{meng}} = 25\,\mathrm{kJ}\). Omdat \(\Delta H_{\text{meng}} > T\Delta S_{\text{meng}}\), voorspelt de theorie \(\Delta G_{\text{meng}} > 0\): ontmenging.
+
+\textbf{(c)} De Hildebrand-theorie geldt voor regelmatige oplossingen zonder specifieke interacties. Methanol en water vormen onderling waterstofbruggen die even sterk zijn als die in de zuivere stoffen; de theorie, die enkel naar de totale cohesie kijkt, ziet dat niet. Ook tolueen kan als zwakke acceptor (\ensuremath{\pi{}}-elektronen) met de OH-groep van methanol interageren. Voor zulke systemen gebruikt men Hansen-parameters, die \(\delta\) opsplitsen in dispersie-, polaire en waterstofbrugbijdragen, of activiteitscoëfficiëntmodellen (hoofdstuk 5).
+\end{oplossing}
+
+\begin{oefening}[Brug naar Van der Waals: van \(\varepsilon\) naar \(a\)]
+De Van der Waals-parameter \(a\) kan geschat worden uit de Lennard-Jones-parameters met \(a = \frac{8\pi}{3}N_A^2\varepsilon\sigma^3\) (vergelijking uit § De brug naar de vergelijking van Van der Waals).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken \(a\) voor methaan met de gegevens van Oefening 4.3.
+\item[(b)]
+  Vergelijk met de waarde \(a = 0.230\,\mathrm{Pa\,m^6/mol^2}\) die volgt uit de kritieke gegevens (Oefening 1.14). Vergelijk de afwijking met die voor argon in het voorbeeld van de theorie.
+\item[(c)]
+  Verklaar waarom de parameter \(a\) groter is voor \(\mathrm{CO_2}\) (\(0.364\)) dan voor \(\mathrm{N_2}\) (\(0.137\,\mathrm{Pa\,m^6/mol^2}\)).
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(a\) = \textbf{0.343 Pa\ensuremath{\cdot{}}m\ensuremath{^{6}}/mol\ensuremath{^{2}}}. (b) Een factor \textbf{1.5} te groot (systematisch). (c) CO\ensuremath{_{2}} heeft sterkere aantrekking: \textbf{grotere \(a\)}.
+
+\textbf{(a)} \(\varepsilon = (148)(1.381\times10^{-23}) = 2.04\times10^{-21}\,\mathrm{J}\):
+
+\[
+a = \frac{8\pi}{3}(6.022\times10^{23})^2(2.04\times10^{-21})(0.381\times10^{-9})^3 = 0.343\,\mathrm{Pa\,m^6/mol^2}
+\]
+
+\textbf{(b)} De schatting is een factor \(1.5\) te groot, net zoals voor argon (\(0.197\) tegenover \(0.136\)). Dat de afwijking voor beide gassen even groot is, wijst op een systematische fout van het model: het veronderstelt een uniforme dichtheid van buren tot op \(r = \sigma\), terwijl in werkelijkheid de buren elkaar afschermen.
+
+\textbf{(c)} \(\mathrm{CO_2}\) heeft meer elektronen (22 tegenover 14) en is een langgerekte molecule met een groot quadrupoolmoment: de dispersie- en elektrostatische aantrekking zijn sterker. Een grotere \(a\) betekent grotere afwijkingen van ideaal gedrag, een hoger kritiek punt (\(31\,^\circ\mathrm{C}\) tegenover \(-147\,^\circ\mathrm{C}\)) en dus dat \(\mathrm{CO_2}\) bij kamertemperatuur vloeibaar gemaakt kan worden door druk (zoals in een brandblusser), stikstof niet.
+\end{oplossing}
+
+\begin{oefening}[Polariseerbaarheid en dispersie: de halogenen]
+De polariseerbaarheidsvolumes (in \(\text{Å}^3\)) zijn: \(\mathrm{F_2}\) 1.56, \(\mathrm{Cl_2}\) 4.61, \(\mathrm{Br_2}\) 7.15 en \(\mathrm{I_2}\) 10.5. De kookpunten zijn \(-188\), \(-34\), \(59\) en \(184\,^\circ\mathrm{C}\).
+
+\begin{enumerate}
+\item[(a)]
+  Verklaar de trend in polariseerbaarheid vanuit de elektronenstructuur.
+\item[(b)]
+  Bereken de verhouding van de London-dispersie-energie tussen twee \(\mathrm{I_2}\)-moleculen en twee \(\mathrm{F_2}\)-moleculen. Veronderstel gelijke ionisatie-energie en afstand.
+\item[(c)]
+  Verbind met de kookpunten. Waarom is jood bij kamertemperatuur een vaste stof en fluor een gas?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (b) \(V(\mathrm{I_2})/V(\mathrm{F_2})\) \ensuremath{\approx{}} \textbf{45}. (c) Sterkere dispersie: I\ensuremath{_{2}} is \textbf{vast} bij kamertemperatuur.
+
+\textbf{(a)} Van F naar I bevinden de valentie-elektronen zich in steeds hogere schillen (2p tot 5p), verder van de kern en sterker afgeschermd door de binnenste elektronen. Ze zijn losser gebonden en de elektronenwolk vervormt gemakkelijker in een elektrisch veld.
+
+\textbf{(b)} \(V_{\text{London}} \propto \alpha_1\alpha_2 = \alpha^2\), dus \(V(\mathrm{I_2})/V(\mathrm{F_2}) = (10.5/1.56)^2 = 45\). (In werkelijkheid is de ionisatie-energie van \(\mathrm{I_2}\) kleiner en de afstand groter, wat de verhouding wat verkleint.)
+
+\textbf{(c)} De veel sterkere dispersie verklaart de kookpuntstijging van \(-188\) naar \(184\,^\circ\mathrm{C}\). Voor \(\mathrm{I_2}\) zijn de dispersiekrachten bij kamertemperatuur sterk genoeg om een moleculair kristal te vormen; voor \(\mathrm{F_2}\) is \(k_BT\) veel groter dan de interactie-energie. Hetzelfde principe verklaart waarom grote, apolaire moleculen (was, paraffine) vast zijn.
+\end{oplossing}
+
+\begin{oefening}[Geïntegreerde case: oplosmiddelselectie voor extractie]
+Een farmaceutisch bedrijf moet een actief ingrediënt (API) uit een waterige oplossing extraheren. De API heeft een Hildebrand-parameter \(\delta_{\text{API}} = 21.0\,\mathrm{MPa^{1/2}}\). Drie kandidaat-oplosmiddelen worden overwogen: ethylacetaat (\(\delta = 18.6\)), dichloormethaan (\(20.2\)) en hexaan (\(14.9\,\mathrm{MPa^{1/2}}\)).
+
+\begin{enumerate}
+\item[(a)]
+  Welk oplosmiddel biedt de hoogste oplosbaarheid voor de API?
+\item[(b)]
+  Welk oplosmiddel zal zich het best scheiden van de waterige fase? Verbind met intermoleculaire krachten.
+\item[(c)]
+  Welke bijkomende overwegingen spelen een rol in de praktijk (veiligheid, toxiciteit, milieubelasting)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{Dichloormethaan} (\(\Delta\delta\) = 0.8). (c) In de praktijk vaak \textbf{ethylacetaat} (minder toxisch).
+
+\textbf{(a)} Dichloormethaan: \(\Delta\delta = 0.8\), tegenover \(2.4\) voor ethylacetaat en \(6.1\) voor hexaan. De mengenthalpie, evenredig met \((\Delta\delta)^2\), is voor DCM het kleinst.
+
+\textbf{(b)} Alle drie zijn slecht mengbaar met water (\(\delta = 47.9\)). Hexaan scheidt het scherpst (enkel dispersie), maar lost de API slecht op. DCM en ethylacetaat lossen een beetje water op (ethylacetaat ongeveer 3 \%, omdat de estergroep waterstofbruggen accepteert); DCM scheidt beter. DCM is bovendien zwaarder dan water (\(1.33\,\mathrm{g/cm^3}\)) en vormt de onderste laag, ethylacetaat de bovenste.
+
+\textbf{(c)} DCM is vermoedelijk kankerverwekkend en wordt in de farmaceutische industrie steeds meer vervangen (`green solvent'-selectiegidsen). Ethylacetaat is minder toxisch, biologisch afbreekbaar en toegelaten als restoplosmiddel, maar wel brandbaar. Verder spelen het kookpunt (energie om het oplosmiddel terug af te dampen en te recycleren), de prijs, het risico op emulsievorming (hoofdstuk 9) en wettelijke limieten voor restoplosmiddelen in het eindproduct mee. In de praktijk kiest men vaak ethylacetaat.
+\end{oplossing}
+
+\begin{oefening}[De regel van Trouton als snelle schatting]
+Een ingenieur moet snel het energieverbruik schatten van een verdamper voor benzeen (\(T_b = 353.2\,\mathrm{K}\)) en voor methanol (\(T_b = 337.8\,\mathrm{K}\)).
+
+\begin{enumerate}
+\item[(a)]
+  Schat met de regel van Trouton (\(\Delta S_{\text{vap}} \approx 88\,\mathrm{J/(mol\cdot K)}\)) de verdampingsenthalpie van beide stoffen.
+\item[(b)]
+  De experimentele waarden zijn \(30.7\) en \(35.2\,\mathrm{kJ/mol}\). Bereken de werkelijke \(\Delta S_{\text{vap}}\). Voor welke stof faalt de regel, en waarom?
+\item[(c)]
+  Hoeveel energie is minimaal nodig om \(1\,\mathrm{ton}\) methanol te verdampen (\(M = 32.04\,\mathrm{g/mol}\))?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Benzeen \textbf{31.1}, methanol \textbf{29.7 kJ/mol}. (b) Benzeen 86.9 J/(mol\ensuremath{\cdot{}}K) (Trouton klopt), methanol \textbf{104 J/(mol\ensuremath{\cdot{}}K)} (16 \% afwijking door H-bruggen). (c) \textbf{1.1 GJ} (\ensuremath{\approx{}} 305 kWh).
+
+\textbf{(a)} Benzeen: \(\Delta H_{\text{vap}} \approx (88)(353.2) = 31.1\,\mathrm{kJ/mol}\). Methanol: \((88)(337.8) = 29.7\,\mathrm{kJ/mol}\).
+
+\textbf{(b)} Benzeen: \(30\,700/353.2 = 86.9\,\mathrm{J/(mol\cdot K)}\): Trouton werkt uitstekend (fout 1 \%). Methanol: \(35\,200/337.8 = 104\,\mathrm{J/(mol\cdot K)}\): de regel onderschat \(\Delta H_{\text{vap}}\) met 16 \%. Methanol vormt waterstofbruggen; de vloeistof is meer geordend dan een `normale' vloeistof, zodat verdampen een extra entropiewinst (en enthalpiekost) oplevert.
+
+\textbf{(c)} \(n = 10^6/32.04 = 3.12\times10^4\,\mathrm{mol}\), dus \(Q = (3.12\times10^4)(35.2) = 1.10\times10^{6}\,\mathrm{kJ} = 1.1\,\mathrm{GJ}\), of ongeveer \(305\,\mathrm{kWh}\). Met de regel van Trouton zou de ingenieur de verdamper 16 \% te klein ontwerpen.
+\end{oplossing}
+
+\begin{oefening}[Waarom waterleidingen springen als het vriest]
+IJs heeft bij \(0\,^\circ\mathrm{C}\) een dichtheid van \(0.917\,\mathrm{g/cm^3}\), vloeibaar water \(1.000\,\mathrm{g/cm^3}\).
+
+\begin{enumerate}
+\item[(a)]
+  Hoeveel neemt het volume toe wanneer \(1\,\mathrm{L}\) water bevriest?
+\item[(b)]
+  Verklaar vanuit de waterstofbruggen waarom ijs een lagere dichtheid heeft dan water, terwijl voor bijna alle andere stoffen de vaste fase dichter is.
+\item[(c)]
+  Geef twee gevolgen van deze anomalie in het dagelijks leven of in de natuur.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Volumetoename van \textbf{9 \%}. (b) Open, tetraëdrisch \textbf{waterstofbrugrooster} in ijs.
+
+\textbf{(a)} \(V_{\text{ijs}} = 1000/0.917 = 1091\,\mathrm{cm^3}\): een toename van 9 \%. In een volle, gesloten leiding kan het water nergens heen; de druk loopt op tot honderden bar en de leiding scheurt.
+
+\textbf{(b)} In ijs vormt elke molecule precies vier waterstofbruggen in een tetraëdrische, open roosterstructuur met veel lege ruimte. Bij smelten breekt een deel van die bruggen; de moleculen kunnen dichter bij elkaar komen en de lege ruimtes opvullen. De richting van de waterstofbrug, niet haar sterkte, is hier doorslaggevend.
+
+\textbf{(c)} Voorbeelden: ijs drijft, zodat meren van boven naar onder bevriezen en het leven eronder overleeft; vorst doet rotsen en wegdek barsten (vorstverwering, putten in de weg); bevroren flessen in de diepvries springen; het smeltpunt van ijs daalt licht bij hoge druk (de helling van de smeltlijn in het fasediagram is negatief, zie hoofdstuk 5).
+\end{oplossing}
+
+\begin{oefening}[Welke kracht domineert in HCl?]
+HCl is een polaire molecule met dipoolmoment \(\mu = 1.08\,\mathrm{D} = 3.60\times10^{-30}\,\mathrm{C\,m}\), polariseerbaarheid \(\alpha = 2.93\times10^{-40}\,\mathrm{C^2\,m^2/J}\) en ionisatie-energie \(I = 12.7\,\mathrm{eV}\). Beschouw twee HCl-moleculen op \(r = 0.40\,\mathrm{nm}\) bij \(298\,\mathrm{K}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de Keesom-energie (dipool--dipool).
+\item[(b)]
+  Bereken de London-dispersie-energie.
+\item[(c)]
+  Vergelijk beide met elkaar en met \(k_BT\). Welke kracht domineert? Is dat wat je verwachtte?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(V_{\text{Keesom}}\) = \textbf{\ensuremath{-}0.32 kJ/mol}. (b) \(V_{\text{London}}\) = \textbf{\ensuremath{-}0.78 kJ/mol}. (c) \textbf{Dispersie} domineert.
+
+\textbf{(a)}
+
+\[
+V_{\text{Keesom}} = -\frac{2\mu^4}{3(4\pi\varepsilon_0)^2k_BT\,r^6} = -5.4\times10^{-22}\,\mathrm{J}\ (-0.32\,\mathrm{kJ/mol})
+\]
+
+\textbf{(b)} Met \(I_1 = I_2 = I\) wordt \(\frac{I_1I_2}{I_1+I_2} = I/2\):
+
+\[
+V_{\text{London}} = -\frac{3}{4}\frac{I}{2}\frac{\alpha^2}{(4\pi\varepsilon_0)^2r^6} = -1.29\times10^{-21}\,\mathrm{J}\ (-0.78\,\mathrm{kJ/mol})
+\]
+
+\textbf{(c)} De dispersie is meer dan twee keer zo sterk als de dipool--dipoolinteractie; samen met de kleine Debye-bijdrage levert ze ongeveer twee derde van de aantrekking. Dat is verrassend: zelfs voor een duidelijk polaire molecule domineert London-dispersie. Beide energieën zijn kleiner dan \(k_BT = 4.1\times10^{-21}\,\mathrm{J}\) per paar; pas omdat een molecule in de vloeistof veel buren heeft, wordt HCl beneden \(-85\,^\circ\mathrm{C}\) vloeibaar. Enkel voor zeer kleine, sterk polaire moleculen (water, ammoniak) of bij waterstofbruggen domineren de gerichte krachten.
+\end{oplossing}
+
+\begin{oefening}[Waarom aceton piepschuim oplost]
+Polystyreen (piepschuim, isomo) heeft een Hildebrand-parameter \(\delta \approx 18.6\,\mathrm{MPa^{1/2}}\). Gegeven: aceton \(20.0\), ethanol \(26.5\) en hexaan \(14.9\,\mathrm{MPa^{1/2}}\).
+
+\begin{enumerate}
+\item[(a)]
+  Rangschik de drie oplosmiddelen volgens hun vermogen om polystyreen op te lossen.
+\item[(b)]
+  Een druppel nagellakremover (aceton) op een piepschuimen beker maakt meteen een gat. Een druppel wodka (ethanol/water) niet. Verklaar.
+\item[(c)]
+  Geef een industriële toepassing van dit principe bij het recyclen of verwerken van kunststoffen.
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{Aceton} lost polystyreen het best op (\(\Delta\delta\) = 1.4), daarna hexaan (3.7), ethanol het slechtst (7.9).
+
+\textbf{(a)} \(\Delta\delta\): aceton \(1.4\), hexaan \(3.7\), ethanol \(7.9\). Aceton lost polystyreen het best op, ethanol het slechtst.
+
+\textbf{(b)} Aceton heeft een cohesie-energiedichtheid die bijna gelijk is aan die van polystyreen: het mengen kost weinig enthalpie en de polymeerketens worden gesolvateerd. Het schuim bestaat voor 98 \% uit lucht, zodat een beetje opgelost polymeer al een gat geeft. Ethanol (en zeker water, \(\delta = 47.9\)) heeft een veel sterkere cohesie door waterstofbruggen en `wil' niet mengen met het apolaire polymeer. Daarom kan je wel koffie, maar geen nagellakremover in een piepschuimen beker gieten.
+
+\textbf{(c)} Oplosmiddelgebaseerde recyclage (bijvoorbeeld het CreaSolv-proces): een mengsel van kunststoffen wordt behandeld met een oplosmiddel dat selectief één polymeer oplost, dat dan zuiver teruggewonnen wordt. Andere voorbeelden: lijmen en coatings (het oplosmiddel moet de polymeerbinder oplossen) en de keuze van handschoenmateriaal dat bestand is tegen bepaalde oplosmiddelen.
+\end{oplossing}
+
+\begin{oefening}[Waarom zout oplost in water en niet in olie]
+Gegeven: de roosterenthalpie van NaCl bedraagt \(+787\,\mathrm{kJ/mol}\) (energie om het kristal te scheiden in gasvormige ionen). De hydratatie-enthalpieën van de gasvormige ionen zijn \(-406\,\mathrm{kJ/mol}\) voor \(\mathrm{Na^+}\) en \(-378\,\mathrm{kJ/mol}\) voor \(\mathrm{Cl^-}\).
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de oploswarmte van NaCl in water met een kringproces (wet van Hess).
+\item[(b)]
+  Welke intermoleculaire kracht levert de hydratatie-enthalpie? Waarom is die zo groot?
+\item[(c)]
+  De oploswarmte is licht positief, toch lost NaCl goed op. Wat drijft het oplossen? Waarom lost NaCl niet op in hexaan?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \(\Delta_{\text{sol}}H\) \ensuremath{\approx{}} \textbf{+3 kJ/mol}. (b) \textbf{Ion--dipool}interactie. (c) \textbf{Entropie} drijft het oplossen.
+
+\textbf{(a)} \(\Delta_{\text{sol}}H = \Delta_{\text{rooster}}H + \Delta_{\text{hyd}}H(\mathrm{Na^+}) + \Delta_{\text{hyd}}H(\mathrm{Cl^-}) = 787 - 406 - 378 = +3\,\mathrm{kJ/mol}\) (experimenteel \(+3.9\,\mathrm{kJ/mol}\)). Twee zeer grote getallen heffen elkaar bijna volledig op.
+
+\textbf{(b)} Ion--dipoolinteractie: elk ion wordt omringd door een schil van watermoleculen die hun dipool naar het ion richten (O naar \(\mathrm{Na^+}\), H naar \(\mathrm{Cl^-}\)). Water heeft een groot dipoolmoment en kleine moleculen, zodat er veel watermoleculen dicht bij het ion passen.
+
+\textbf{(c)} Entropie: de ionen verlaten het geordende kristal en verspreiden zich door de oplossing, zodat \(T\Delta S\) de kleine positieve \(\Delta H\) overtreft (\(\Delta G < 0\), zie Oefening 3.11). Hexaan heeft geen dipoolmoment en kan de ionen enkel met zwakke dispersiekrachten omringen (een paar kJ/mol): de \(787\,\mathrm{kJ/mol}\) roosterenthalpie wordt nooit gecompenseerd. Daarom moet je bij het koken zout in het water doen en niet in de olie.
+\end{oplossing}
+
+\begin{oefening}[Waarom ritst DNA open bij 95 °C?]
+De twee strengen van DNA worden samengehouden door waterstofbruggen tussen de basen: een A--T-paar vormt er twee, een G--C-paar drie. Bij een PCR-test worden de strengen gescheiden door te verhitten tot ongeveer \(95\,^\circ\mathrm{C}\). Neem aan dat elke waterstofbrug \(10\,\mathrm{kJ/mol}\) bijdraagt.
+
+\begin{enumerate}
+\item[(a)]
+  Bereken de totale waterstofbrugenergie van een stukje DNA van 20 basenparen met 50 \% G--C. Doe hetzelfde voor een stuk met 80 \% G--C.
+\item[(b)]
+  Vergelijk de energie van één waterstofbrug met \(RT\) bij \(25\) en \(95\,^\circ\mathrm{C}\). Wat betekent dit voor één afzonderlijke brug?
+\item[(c)]
+  Waarom blijft de dubbele helix toch stabiel bij lichaamstemperatuur?
+\item[(d)]
+  Welk stuk DNA heeft de hoogste smelttemperatuur? Waarom breken de covalente bindingen in de ruggengraat niet bij \(95\,^\circ\mathrm{C}\)?
+\end{enumerate}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) \textbf{500 kJ/mol} (50 \% G--C) en \textbf{560 kJ/mol} (80 \% G--C). (b) \(RT\) = 2.5 kJ/mol bij 25 °C en 3.1 kJ/mol bij 95 °C: één brug breekt en herstelt voortdurend. (c) De bruggen werken samen als een rits. (d) Het G--C-rijke stuk. Een covalente binding is met ongeveer 350 kJ/mol veel sterker.
+
+\textbf{(a)} 50 \% G--C: 10 A--T-paren \ensuremath{\times{}} 2 + 10 G--C-paren \ensuremath{\times{}} 3 = 50 bruggen, dus \(500\,\mathrm{kJ/mol}\). 80 \% G--C: 4 \ensuremath{\times{}} 2 + 16 \ensuremath{\times{}} 3 = 56 bruggen, dus \(560\,\mathrm{kJ/mol}\).
+
+\textbf{(b)} \(RT = 2.48\,\mathrm{kJ/mol}\) bij \(298\,\mathrm{K}\) en \(3.06\,\mathrm{kJ/mol}\) bij \(368\,\mathrm{K}\). Een waterstofbrug van \(10\,\mathrm{kJ/mol}\) is slechts drie à vier keer \(RT\). De Boltzmann-factor \(\exp(-10/2.5) \approx 0.02\) toont dat een afzonderlijke brug af en toe door thermische beweging breekt.
+
+\textbf{(c)} Om de strengen te scheiden moeten alle bruggen tegelijk breken. Zolang de buren nog vastzitten, herstelt een gebroken brug zich meteen: de helix gedraagt zich als een rits. Daarnaast dragen ook de dispersiekrachten tussen de gestapelde basen veel bij aan de stabiliteit. Het opgegeven getal is dus een vereenvoudiging.
+
+\textbf{(d)} Het G--C-rijke stuk heeft meer bruggen en smelt bij een hogere temperatuur. Daarom kiest men bij PCR de temperaturen op basis van het G--C-gehalte van de primers. Een C--C- of C--O-binding in de ruggengraat heeft een energie van ongeveer \(350\,\mathrm{kJ/mol}\), meer dan honderd keer \(RT\). Bij \(95\,^\circ\mathrm{C}\) blijft die binding intact. Dat verschil tussen intermoleculaire en covalente krachten maakt het mogelijk de strengen te scheiden zonder het molecule te vernietigen.
+\end{oplossing}
+
+\begin{oefening}[Waarom faalt een butaanbrander in de winter?]
+Campinggas is meestal butaan (\(T_b = -0.5\,^\circ\mathrm{C}\)). In koude landen gebruikt men propaan (\(T_b = -42.1\,^\circ\mathrm{C}\)). Een brander werkt alleen als de druk in de bus boven de buitendruk van ongeveer \(1\,\mathrm{bar}\) ligt.
+
+\begin{enumerate}
+\item[(a)]
+  Schat de verdampingsenthalpie van beide gassen met de regel van Trouton (\(\Delta S_{\text{vap}} \approx 88\,\mathrm{J/(mol\cdot K)}\)).
+\item[(b)]
+  Bereken met de vergelijking van Clausius--Clapeyron de druk in de bus bij \(20\,^\circ\mathrm{C}\) en bij \(-10\,^\circ\mathrm{C}\), voor butaan en voor propaan.
+\item[(c)]
+  Verklaar waarom een butaanbrander in de winter niet werkt.
+\item[(d)]
+  Waarom wordt een gasbus koud en berijpt ze tijdens gebruik?
+\end{enumerate}
+
+\emph{Kruisoefening: maak deel 2 na hoofdstuk 5 (Clausius--Clapeyron).}
+\end{oefening}
+\begin{oplossing}
+\textbf{Resultaat:} (a) Butaan \textbf{24.0 kJ/mol}, propaan \textbf{20.3 kJ/mol}. (b) Butaan \textbf{2.1 bar} (20 °C) en \textbf{0.7 bar} (\ensuremath{-}10 °C); propaan \textbf{9.5 bar} en \textbf{3.7 bar}. (c) Bij \ensuremath{-}10 °C ligt de druk van butaan onder 1 bar. (d) De verdamping onttrekt warmte aan de vloeistof.
+
+\textbf{(a)} \(\Delta H_{\text{vap}} \approx 88\,T_b\): butaan \(88 \times 272.7 = 24.0\,\mathrm{kJ/mol}\) (tabelwaarde \(22.4\)), propaan \(88 \times 231.1 = 20.3\,\mathrm{kJ/mol}\) (tabelwaarde \(19.0\)).
+
+\textbf{(b)} Met het normale kookpunt als referentie (\(p = 1.013\,\mathrm{bar}\) bij \(T_b\)):
+
+\[
+\ln\frac{p}{1.013\,\mathrm{bar}} = -\frac{\Delta H_{\text{vap}}}{R}\left(\frac{1}{T}-\frac{1}{T_b}\right)
+\]
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+ & 20 °C & \ensuremath{-}10 °C \\
+\midrule
+Butaan & 2.1 bar & 0.69 bar \\
+Propaan & 9.5 bar & 3.7 bar \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+De waarde voor butaan bij \(20\,^\circ\mathrm{C}\) klopt goed met de gemeten \(2.1\,\mathrm{bar}\). Voor propaan geeft de schatting iets te veel; gemeten is ongeveer \(8.4\,\mathrm{bar}\).
+
+\textbf{(c)} Onder zijn kookpunt van \(-0.5\,^\circ\mathrm{C}\) heeft butaan een dampdruk lager dan \(1\,\mathrm{bar}\): er is geen overdruk om het gas naar de brander te duwen. Propaan heeft zwakkere dispersiekrachten (kleiner molecule, minder elektronen), een lager kookpunt en dus nog ruim voldoende druk bij vriesweer.
+
+\textbf{(d)} Bij gebruik verdampt vloeibaar gas in de bus. De verdampingsenthalpie wordt aan de vloeistof onttrokken, die afkoelt. Daardoor daalt de dampdruk, zodat de vlam kleiner wordt. Waterdamp uit de lucht bevriest op de koude wand. Dit is een kruisoefening tussen hoofdstuk 4 (Trouton) en hoofdstuk 5 (Clausius--Clapeyron).
+\end{oplossing}
