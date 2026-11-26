@@ -425,69 +425,14 @@ L=\SI{10}{\micro\metre}: & t_{\text{diff}}=\dfrac{(\num{1e-5})^2}{\num{1e-5}} & 
 Een honderdvoudige verkleining van de korrelgrootte (van \SI{1}{\milli\metre} naar \SI{10}{\micro\metre}) versnelt de interne diffusie dus met een factor \num{10000}. Dit verklaart waarom industri\"ele katalysatoren vaak als fijn poeder of als korrels met een fijne poriestructuur worden toegepast: enkel zo blijft de oppervlaktereactie zelf (\S~\ref{sec:langmuir-hinshelwood}), en niet de diffusie ernaartoe, de snelheidsbepalende stap. De keerzijde --- kleinere korrels geven een grotere drukval over een gepakt bed --- is een klassieke ontwerpafweging die in een vervolgcursus reactorontwerp verder aan bod komt.
 \end{voorbeeld}
 
-\subsubsection{Fysisorptie en chemisorptie}
-\label{sec:fysisorptie-chemisorptie}
+\subsubsection{Adsorptie als eerste stap}
+\label{sec:adsorptie-kinetiek}
 
-Adsorptie van een molecule aan een oppervlak kan op twee fundamenteel verschillende manieren gebeuren:
-\begin{itemize}
-\item \textbf{Fysisorptie}: het molecule wordt via zwakke Van der Waals-krachten (hoofdstuk~\ref{ch:intermoleculair}) aan het oppervlak gebonden. De adsorptie-enthalpie is klein (typisch \SIrange{5}{40}{\kilo\joule\per\mole}, vergelijkbaar met een verdampingsenthalpie), niet-specifiek, en kan in meerdere lagen optreden (\S~\ref{sec:bet}). Fysisorptie is snel, reversibel, en neemt toe bij lagere temperatuur.
-\item \textbf{Chemisorptie}: het molecule vormt een echte chemische binding (covalent of ionogen, hoofdstuk~\ref{ch:kwantum}) met het oppervlak, vaak gepaard met dissociatie (bijvoorbeeld $\mathrm{H_2}\to2\,\mathrm{H}_{\text{ads}}$). De adsorptie-enthalpie is groot (typisch \SIrange{40}{800}{\kilo\joule\per\mole}), sterk specifiek voor bepaalde oppervlakteatomen, en beperkt tot \'e\'en enkele monolaag. Chemisorptie is de stap die eigenlijk verantwoordelijk is voor katalytische activiteit: de chemische binding tussen reagens en oppervlak verzwakt de interne bindingen van het reagens (bijvoorbeeld de sterke $\mathrm{N\equiv N}$-binding bij Haber--Bosch), wat exact de activeringsenergie van de daaropvolgende reactiestap verlaagt.
-\end{itemize}
-Beide vormen van adsorptie zijn, net als elke andere fase-overgang (hoofdstuk~\ref{ch:niet-reagerend}), exotherm: een molecule dat zich aan een oppervlak bindt, verliest bewegingsvrijheid (negatieve adsorptie-entropie, hoofdstuk~\ref{ch:spontaniteit}), zodat enkel een negatieve adsorptie-enthalpie een spontaan ($\Delta G_{\text{ads}}<0$) proces kan opleveren.
-
-\subsubsection{Het adsorptie-evenwicht en de Langmuir-isotherme}
-\label{sec:langmuir-isotherm-kinetiek}
-
-Om de kinetiek van een oppervlaktereactie te beschrijven, hebben we eerst een kwantitatieve uitdrukking nodig voor de \emph{bedekkingsgraad} $\theta$ van het oppervlak: de fractie van de beschikbare adsorptieplaatsen die bezet is, met $0\leq\theta\leq1$.
-
-Beschouw een gas $A$ met partiële druk $p_A$ boven een oppervlak met een vast aantal adsorptieplaatsen. We veronderstellen (het model van \emph{Langmuir}):
-\begin{itemize}
-\item alle adsorptieplaatsen zijn energetisch equivalent;
-\item elke plaats kan hoogstens \'e\'en molecule dragen (monolaagadsorptie);
-\item geadsorbeerde moleculen be\"invloeden elkaar niet.
-\end{itemize}
-De snelheid van adsorptie is evenredig met zowel de partiële druk (botsingsfrequentie met het oppervlak) als de fractie \emph{vrije} plaatsen $(1-\theta)$:
+De oppervlaktechemie begint met adsorptie. Het onderscheid tussen fysisorptie en chemisorptie, de Langmuir-isotherme en de BET-methode om het katalysatoroppervlak te meten, kwamen aan bod in hoofdstuk~\ref{ch:grensvlakken} (\S~\ref{sec:fysisorptie-chemisorptie} tot \S~\ref{sec:bet}). We gebruiken hier vooral de bedekkingsgraad volgens Langmuir,
 \[
-r_{\text{ads}} = k_a\,p_A\,(1-\theta).
+\theta_A = \frac{K_A\,p_A}{1+K_A\,p_A+K_B\,p_B},
 \]
-De snelheid van desorptie is evenredig met de fractie \emph{bezette} plaatsen:
-\[
-r_{\text{des}} = k_d\,\theta.
-\]
-In evenwicht zijn beide snelheden gelijk, $r_{\text{ads}}=r_{\text{des}}$:
-\[
-k_a\,p_A(1-\theta) = k_d\,\theta \quad\Longrightarrow\quad \theta = \frac{k_a\,p_A}{k_d+k_a\,p_A}.
-\]
-Met de \emph{adsorptie-evenwichtsconstante} $K_A\equiv k_a/k_d$ (met dimensie druk$^{-1}$) volgt de \emph{Langmuir-isotherme}:
-\begin{equation}
-\boxed{\;\theta_A = \frac{K_A\,p_A}{1+K_A\,p_A}.\;}
-\label{eq:langmuir-isotherm}
-\end{equation}
-Bij lage druk ($K_Ap_A\ll1$) is $\theta_A\approx K_Ap_A$: de bedekking stijgt lineair met de druk. Bij hoge druk ($K_Ap_A\gg1$) is $\theta_A\to1$: het oppervlak is volledig verzadigd en verdere drukverhoging heeft nauwelijks effect --- exact hetzelfde verzadigingsgedrag als de Michaelis--Mentenvergelijking (\S~\ref{sec:michaelis-menten}) en, zoals we in \S~\ref{sec:lindemann} zagen, wiskundig verwant aan het hoge-drukgrensgeval van het Lindemann-mechanisme.
-
-Voor twee competitief adsorberende gassen $A$ en $B$ geldt op dezelfde manier:
-\begin{equation}
-\theta_A = \frac{K_Ap_A}{1+K_Ap_A+K_Bp_B}, \qquad \theta_B = \frac{K_Bp_B}{1+K_Ap_A+K_Bp_B}.
-\label{eq:langmuir-competitief}
-\end{equation}
-Een sterker adsorberende component (grotere $K$) verdringt een zwakker adsorberende component van het oppervlak --- een effect dat rechtstreeks in de Langmuir--Hinshelwood-kinetiek (\S~\ref{sec:langmuir-hinshelwood}) zal terugkomen.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.65\linewidth]{Afbeeldingen/langmuir_isotherm.png}
-    \caption{\emph{Placeholder --- toe te voegen figuur.} De Langmuir-isotherme (vergelijking~\eqref{eq:langmuir-isotherm}): bedekkingsgraad $\theta_A$ (verticaal, van 0 tot 1) in functie van de partiële druk $p_A$ (horizontaal), voor twee verschillende waarden van $K_A$ (bijvoorbeeld een factor 10 verschil). Beide curven vertonen het karakteristieke Langmuir-verzadigingsgedrag: lineair bij lage druk, afvlakkend naar $\theta_A=1$ bij hoge druk, met de curve voor de grotere $K_A$ die sneller verzadigt.}
-    \label{fig:langmuir-isotherm}
-\end{figure}
-
-\subsubsection{De BET-isotherme: voorbij de monolaag}
-\label{sec:bet}
-
-De Langmuir-isotherme veronderstelt monolaagadsorptie --- gerechtvaardigd voor chemisorptie, maar niet voor fysisorptie, waar bij voldoende hoge relatieve druk meerdere lagen fysisorberen (vergelijkbaar met condensatie, hoofdstuk~\ref{ch:niet-reagerend}). Brunauer, Emmett en Teller (1938) breidden het Langmuir-model uit tot multilaagadsorptie, wat leidt tot de \emph{BET-isotherme}:
-\begin{equation}
-\frac{V}{V_m} = \frac{C\,x}{(1-x)\bigl[1-x+Cx\bigr]}, \qquad x=\frac{p}{p_{\text{sat}}},
-\label{eq:bet}
-\end{equation}
-waarin $V$ het geadsorbeerde volume, $V_m$ het volume van precies \'e\'en monolaag, $p_{\text{sat}}$ de verzadigingsdampdruk van het adsorberende gas bij de gegeven temperatuur (hoofdstuk~\ref{ch:niet-reagerend}), en $C$ een constante gerelateerd aan het verschil tussen de adsorptie-enthalpie van de eerste laag en de condensatie-enthalpie van de volgende lagen. De BET-vergelijking wordt industrieel op grote schaal gebruikt om, via stikstofadsorptie bij \SI{77}{\kelvin}, het specifieke oppervlak (\si{\metre\squared\per\gram}) van poreuze katalysatoren te bepalen ($V_m$ levert immers rechtstreeks het aantal adsorptieplaatsen, en dus het oppervlak, op) --- een routinematige, onmisbare karakterisatietechniek voor elke heterogene katalysator.
+(vergelijking~\eqref{eq:langmuir-competitief}), en het inzicht dat chemisorptie de bindingen van het reagens verzwakt en zo de activeringsenergie van de volgende stap verlaagt.
 
 \subsubsection{Langmuir--Hinshelwood-kinetiek}
 \label{sec:langmuir-hinshelwood}
@@ -712,4 +657,4 @@ Voor de ingenieur vormen thermodynamica en kinetiek samen de basis van elk react
 \newpage
 \section{Oefeningen}
 
-\input{Oefeningen_H8}
+\input{Oefeningen_H9}

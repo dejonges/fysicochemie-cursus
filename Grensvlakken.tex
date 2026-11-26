@@ -1,0 +1,603 @@
+%==============================================================================
+\chapter{Grensvlakken en materialen}
+\label{ch:grensvlakken}\label{ch:oppervlakte}\label{ch:vastestof}\label{ch:kristallografie}
+%==============================================================================
+
+\section{Waarom grensvlakken en vaste stoffen samen?}
+\label{sec:grensvlakken-inleiding}
+
+Tot nu toe beschouwden we homogene fasen: een gas, een vloeistof, een mengsel. In de procesindustrie gebeurt het belangrijkste werk echter vaak aan een \emph{grensvlak}. Een katalysator werkt enkel aan zijn oppervlak, een adsorbens houdt moleculen vast aan de wand van zijn poriën, een elektrode wisselt elektronen uit aan het contact met de elektrolyt (hoofdstuk~\ref{ch:elektrochemie}), en een emulsie of verf blijft stabiel dankzij moleculen die zich aan een grensvlak ophopen. Welk oppervlak een vaste stof aanbiedt, en hoe dat oppervlak eruitziet, wordt bepaald door haar kristalstructuur, haar defecten en haar korrelgrootte. Daarom behandelen we grensvlakken en vaste stoffen in \'e\'en hoofdstuk.
+
+Hoe belangrijk het oppervlak wordt, hangt af van de grootte. Een bol met diameter $d$ en dichtheid $\rho$ heeft een \emph{specifiek oppervlak}
+\begin{equation}
+a_s = \frac{6}{\rho\,d}.
+\label{eq:specifiek-oppervlak}
+\end{equation}
+Een glasparel van \SI{1}{\milli\metre} heeft amper \SI{0.003}{\metre\squared\per\gram}; poeder van \SI{1}{\micro\metre} al \SI{3}{\metre\squared\per\gram}. Actieve kool haalt \SI{1000}{\metre\squared\per\gram}, het oppervlak van vier tennisvelden in een theelepel, niet door kleine korrels maar door een netwerk van poriën van enkele nanometer. Bij een platinadeeltje van \SI{2}{\nano\metre} ligt ongeveer de helft van de atomen aan het oppervlak: elk atoom telt mee voor de katalyse.
+
+\begin{toepassing}{Centrale case: een katalysatorkorrel}
+In de zwavelzuurfabriek, de stoomreformer en de uitlaat van een auto (hoofdstuk~\ref{ch:reagerend}) zit de katalysator op een poreuze drager, bijvoorbeeld een korrel $\gamma$-$\mathrm{Al_2O_3}$ van enkele millimeter met poriën van ongeveer \SI{10}{\nano\metre} en een specifiek oppervlak van \SI{200}{\metre\squared\per\gram}. Daarop zitten platinadeeltjes van enkele nanometer. In dit hoofdstuk beantwoorden we de vragen die een ingenieur over zo'n korrel stelt: hoe meet je dat oppervlak (\S~\ref{sec:bet}), waarom vullen de poriën zich met vloeistof bij een druk onder de dampdruk (\S~\ref{sec:kelvin}), hoe sterk hechten de reactanten aan het oppervlak (\S~\ref{sec:langmuir-isotherm-kinetiek}), en hoe weet je welke kristalvorm en hoe grote metaaldeeltjes je hebt (\S~\ref{sec:xrd}). Een tweede, alledaagse case loopt door de delen over surfactanten en colloïden: hoe een wasmiddel vet van textiel haalt.
+\end{toepassing}
+
+\section{Oppervlaktespanning}
+\label{sec:oppervlaktespanning}
+
+De \emph{oppervlaktespanning} $\sigma$ (of $\gamma$) is de arbeid die nodig is om de oppervlakte van een vloeistof met \'e\'en eenheid te vergroten:
+\begin{equation}
+\boxed{\;\sigma = \left(\frac{\partial G}{\partial A}\right)_{T,p,n}\;}
+\label{eq:oppervlaktespanning}
+\end{equation}
+De eenheid is \si{\joule\per\metre\squared} of equivalent \si{\newton\per\metre}. De oppervlaktespanning is dus de toename van de Gibbs-vrije energie per eenheid oppervlakte, een directe toepassing van de thermodynamica uit hoofdstuk~\ref{ch:spontaniteit}.
+
+Voor water bedraagt $\sigma \approx \SI{72}{\milli\newton\per\metre}$ bij \SI{20}{\celsius}; voor ethanol $\sigma \approx \SI{22}{\milli\newton\per\metre}$; voor kwik $\sigma \approx \SI{485}{\milli\newton\per\metre}$. Hoge oppervlaktespanning wijst op sterke cohesie tussen de moleculen (hoofdstuk~\ref{ch:intermoleculair}).
+
+\subsection{Temperatuursafhankelijkheid}
+
+Naarmate de temperatuur stijgt, worden de intermoleculaire krachten relatief zwakker ten opzichte van de thermische beweging. De oppervlaktespanning neemt dus af met de temperatuur, en nadert nul bij het kritische punt waar het onderscheid tussen vloeistof en damp verdwijnt (hoofdstuk~\ref{ch:niet-reagerend}, \S~\ref{sec:kritisch-punt}). Een empirische correlatie is die van E\"otv\"os:
+\begin{equation}
+\sigma V_m^{2/3} = k\,(T_c - T),
+\end{equation}
+waarin $V_m$ het molaire volume, $T_c$ de kritische temperatuur en $k$ een universele constante is.
+
+\subsection{De vergelijking van Young--Laplace}
+
+Een gekromd grensvlak heeft een drukverschil ten gevolge van de oppervlaktespanning. Voor een bolle bel met straal $r$ geldt de \emph{vergelijking van Young--Laplace}:
+\begin{equation}
+\boxed{\;\Delta p = \frac{2\sigma}{r}\;}
+\label{eq:young-laplace}
+\end{equation}
+Hoe kleiner de bel, hoe groter de binnendruk. Dit verklaart waarom kleine bellen in een vloeistof spontaan in grotere bellen samensmelten (Ostwald-rijping).
+
+\begin{voorbeeld}{Druk in een zeepbel}
+Een zeepbel met straal $r = \SI{1}{\milli\metre}$ heeft een oppervlaktespanning van $\sigma = \SI{25}{\milli\newton\per\metre}$ (verlaagd door zeep). De binnendruk bedraagt:
+\[
+\Delta p = \frac{2(\SI{0.025}{\newton\per\metre})}{\SI{1e-3}{\metre}} = \SI{50}{\pascal}.
+\]
+Voor een longblaasje met $r = \SI{50}{\micro\metre}$ in water ($\sigma = \SI{72}{\milli\newton\per\metre}$, zonder surfactant):
+\[
+\Delta p = \frac{2(\SI{0.072}{\newton\per\metre})}{\SI{50e-6}{\metre}} = \SI{2880}{\pascal} \approx \SI{0.029}{\bar}.
+\]
+Dit verklaart de fysiologische noodzaak van longsurfactant (fosfolipiden), die de oppervlaktespanning drastisch verlaagt en de ademhaling mogelijk maakt.
+\end{voorbeeld}
+
+\subsection{Capillariteit}
+
+Wanneer een vloeistof in contact komt met een vaste wand, kan de vloeistof opstijgen (hydrofiel) of dalen (hydrofoob). De \emph{stijghoogte} in een capillair met straal $r$ wordt gegeven door de wet van Jurin:
+\begin{equation}
+\boxed{\;h = \frac{2\sigma \cos\theta}{\rho g r}\;}
+\end{equation}
+waarin $\theta$ de contacthoek, $\rho$ de dichtheid en $g$ de valversnelling zijn. Voor volledige bevochtiging ($\theta = 0$) stijgt water in een capillair van \SI{0.1}{\milli\metre} met ongeveer \SI{15}{\centi\metre}.
+
+\subsection{Bevochtiging en de contacthoek}
+\label{sec:contacthoek}
+
+Leg een druppel op een vaste stof en hij spreidt uit of blijft als een bolletje liggen. Aan de rand van de druppel trekken drie grensvlakspanningen aan het contactpunt: vast--gas ($\sigma_{sg}$), vast--vloeistof ($\sigma_{sl}$) en vloeistof--gas ($\sigma_{lg}$). Evenwicht langs het oppervlak geeft de \emph{vergelijking van Young}:
+\begin{equation}
+\boxed{\;\sigma_{sg} = \sigma_{sl} + \sigma_{lg}\cos\theta\;}
+\label{eq:young}
+\end{equation}
+met $\theta$ de \emph{contacthoek}, gemeten door de vloeistof (figuur~\ref{fig:contacthoek}). Een hoge oppervlakte-energie van de vaste stof (glas, metaal, gereinigd met een coronabehandeling) geeft een kleine contacthoek: de vloeistof bevochtigt. Een lage oppervlakte-energie (PTFE, paraffine, siliconen) geeft $\theta > 90^\circ$. Dezelfde intermoleculaire krachten die in hoofdstuk~\ref{ch:intermoleculair} (\S~\ref{sec:im-toepassingen}) bepaalden of een lijm hecht, bepalen hier of verf, inkt of een coating zich mooi spreidt.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/contacthoek}
+    \caption{Een druppel op een hydrofiel oppervlak (links, kleine contacthoek) en op een hydrofoob oppervlak (rechts, grote contacthoek). De hoek wordt gemeten door de vloeistof, tussen het vaste oppervlak en de raaklijn aan het vloeistofoppervlak.}
+    \label{fig:contacthoek}
+\end{figure}
+
+\subsection{Kleine druppels en nauwe poriën: de vergelijking van Kelvin}
+\label{sec:kelvin}
+
+Een gekromd oppervlak verandert ook de dampdruk. Een molecule in een kleine druppel staat onder de extra druk $2\sigma/r$ van Young--Laplace; zijn chemische potentiaal stijgt met $V_m\,\Delta p$ (hoofdstuk~\ref{ch:niet-reagerend}). Evenwicht met de damp vraagt dan een hogere dampdruk:
+\begin{equation}
+\boxed{\;\ln\frac{p}{p_\mathrm{sat}} = \pm\frac{2\sigma V_m}{rRT}\;}
+\label{eq:kelvin}
+\end{equation}
+met het plusteken voor een bolle druppel en het minteken voor een holle meniscus in een porie die bevochtigd wordt. Dit is de \emph{vergelijking van Kelvin}.
+
+\begin{voorbeeld}{Mist, silicagel en een vochtige katalysator}
+Voor water bij \SI{20}{\celsius} is $2\sigma V_m/RT = 2(0.072)(\num{1.8e-5})/(8.314\cdot293) = \SI{1.06e-9}{\metre}$.
+\begin{itemize}
+\item Een druppeltje met $r = \SI{10}{\nano\metre}$: $\ln(p/p_\mathrm{sat}) = 0.106$, dus $p = 1.11\,p_\mathrm{sat}$. Zo'n druppel verdampt in lucht die net verzadigd is. Wolken vormen zich daarom pas op stofdeeltjes of zoutkristalletjes (condensatiekernen), en zuivere lucht kan sterk oververzadigd raken.
+\item Een porie met $r = \SI{2}{\nano\metre}$ en volledige bevochtiging: $\ln(p/p_\mathrm{sat}) = -0.53$, dus $p = 0.59\,p_\mathrm{sat}$. Bij een relatieve vochtigheid van \SI{59}{\percent} condenseert water al in zulke poriën. Dat is het werkingsprincipe van silicagel als droogmiddel, en de reden waarom een poreuze katalysatordrager in vochtige lucht water opneemt. Omgekeerd gebruikt men deze \emph{capillaire condensatie} om de poriegrootteverdeling van een materiaal te meten.
+\end{itemize}
+\end{voorbeeld}
+
+\section{Adsorptie aan grensvlakken}
+\label{sec:adsorptie-grensvlakken}
+
+\emph{Adsorptie} is de ophoping van een stof aan een grensvlak, zonder dat ze in de bulk doordringt (dat heet absorptie). Het molecule dat zich hecht, heet het \emph{adsorbaat}; de vaste stof het \emph{adsorbens}. Adsorptie is de eerste stap van elke heterogeen gekatalyseerde reactie (hoofdstuk~\ref{ch:kinetiek}) en de basis van belangrijke scheidingsprocessen: gasdroging, waterzuivering met actieve kool, en de productie van zuivere waterstof, stikstof of zuurstof.
+
+\subsection{Fysisorptie en chemisorptie}
+\label{sec:fysisorptie-chemisorptie}
+
+Adsorptie van een molecule aan een oppervlak kan op twee fundamenteel verschillende manieren gebeuren:
+\begin{itemize}
+\item \textbf{Fysisorptie}: het molecule wordt via zwakke Van der Waals-krachten (hoofdstuk~\ref{ch:intermoleculair}) aan het oppervlak gebonden. De adsorptie-enthalpie is klein (typisch \SIrange{5}{40}{\kilo\joule\per\mole}, vergelijkbaar met een verdampingsenthalpie), niet-specifiek, en kan in meerdere lagen optreden (\S~\ref{sec:bet}). Fysisorptie is snel, reversibel, en neemt toe bij lagere temperatuur.
+\item \textbf{Chemisorptie}: het molecule vormt een echte chemische binding (covalent of ionogen, hoofdstuk~\ref{ch:kwantum}) met het oppervlak, vaak gepaard met dissociatie (bijvoorbeeld $\mathrm{H_2}\to2\,\mathrm{H}_{\text{ads}}$). De adsorptie-enthalpie is groot (typisch \SIrange{40}{800}{\kilo\joule\per\mole}), sterk specifiek voor bepaalde oppervlakteatomen, en beperkt tot \'e\'en enkele monolaag. Chemisorptie is de stap die eigenlijk verantwoordelijk is voor katalytische activiteit: de chemische binding tussen reagens en oppervlak verzwakt de interne bindingen van het reagens (bijvoorbeeld de sterke $\mathrm{N\equiv N}$-binding bij Haber--Bosch), wat exact de activeringsenergie van de daaropvolgende reactiestap verlaagt.
+\end{itemize}
+Beide vormen van adsorptie zijn, net als elke andere fase-overgang (hoofdstuk~\ref{ch:niet-reagerend}), exotherm: een molecule dat zich aan een oppervlak bindt, verliest bewegingsvrijheid (negatieve adsorptie-entropie, hoofdstuk~\ref{ch:spontaniteit}), zodat enkel een negatieve adsorptie-enthalpie een spontaan ($\Delta G_{\text{ads}}<0$) proces kan opleveren.
+
+\subsection{Het adsorptie-evenwicht en de Langmuir-isotherme}
+\label{sec:langmuir-isotherm-kinetiek}
+
+Om adsorptie en later de kinetiek van een oppervlaktereactie te beschrijven, hebben we een kwantitatieve uitdrukking nodig voor de \emph{bedekkingsgraad} $\theta$ van het oppervlak: de fractie van de beschikbare adsorptieplaatsen die bezet is, met $0\leq\theta\leq1$.
+
+Beschouw een gas $A$ met partiële druk $p_A$ boven een oppervlak met een vast aantal adsorptieplaatsen. We veronderstellen (het model van \emph{Langmuir}):
+\begin{itemize}
+\item alle adsorptieplaatsen zijn energetisch equivalent;
+\item elke plaats kan hoogstens \'e\'en molecule dragen (monolaagadsorptie);
+\item geadsorbeerde moleculen be\"invloeden elkaar niet.
+\end{itemize}
+De snelheid van adsorptie is evenredig met zowel de partiële druk (botsingsfrequentie met het oppervlak) als de fractie \emph{vrije} plaatsen $(1-\theta)$:
+\[
+r_{\text{ads}} = k_a\,p_A\,(1-\theta).
+\]
+De snelheid van desorptie is evenredig met de fractie \emph{bezette} plaatsen:
+\[
+r_{\text{des}} = k_d\,\theta.
+\]
+In evenwicht zijn beide snelheden gelijk, $r_{\text{ads}}=r_{\text{des}}$:
+\[
+k_a\,p_A(1-\theta) = k_d\,\theta \quad\Longrightarrow\quad \theta = \frac{k_a\,p_A}{k_d+k_a\,p_A}.
+\]
+Met de \emph{adsorptie-evenwichtsconstante} $K_A\equiv k_a/k_d$ (met dimensie druk$^{-1}$) volgt de \emph{Langmuir-isotherme}:
+\begin{equation}
+\boxed{\;\theta_A = \frac{K_A\,p_A}{1+K_A\,p_A}.\;}
+\label{eq:langmuir-isotherm}
+\end{equation}
+Bij lage druk ($K_Ap_A\ll1$) is $\theta_A\approx K_Ap_A$: de bedekking stijgt lineair met de druk. Bij hoge druk ($K_Ap_A\gg1$) is $\theta_A\to1$: het oppervlak is volledig verzadigd en verdere drukverhoging heeft nauwelijks effect --- hetzelfde verzadigingsgedrag dat in hoofdstuk~\ref{ch:kinetiek} terugkomt bij enzymen (Michaelis--Menten).
+
+Voor twee competitief adsorberende gassen $A$ en $B$ geldt op dezelfde manier:
+\begin{equation}
+\theta_A = \frac{K_Ap_A}{1+K_Ap_A+K_Bp_B}, \qquad \theta_B = \frac{K_Bp_B}{1+K_Ap_A+K_Bp_B}.
+\label{eq:langmuir-competitief}
+\end{equation}
+Een sterker adsorberende component (grotere $K$) verdringt een zwakker adsorberende component van het oppervlak Dat effect bepaalt de snelheid van oppervlaktereacties (hoofdstuk~\ref{ch:kinetiek}) en het vergiftigen van katalysatoren, bijvoorbeeld door CO op het platina van een brandstofcel.
+
+De constante $K$ is een evenwichtsconstante en volgt dus de vergelijking van Van 't Hoff (hoofdstuk~\ref{ch:reagerend}): omdat adsorptie exotherm is, daalt $K$ bij stijgende temperatuur. Een adsorbens laadt men daarom koud en onder druk, en regenereert men warm of bij lage druk.
+
+\begin{toepassing}{Zuivere waterstof met drukwisseladsorptie (PSA)}
+Na de stoomreformer en de shiftreactoren (hoofdstuk~\ref{ch:reagerend}, \S~\ref{sec:case-waterstof}) bevat het gas ongeveer \SI{75}{\percent} H$_2$, de rest is vooral CO$_2$, met wat CH$_4$, CO en water. In een PSA-eenheid stroomt dit gas bij ongeveer \SI{25}{\bar} door kolommen met actieve kool en zeoliet. CO$_2$, CH$_4$ en CO adsorberen sterk (grote $K$), H$_2$ nauwelijks: het verlaat de kolom met een zuiverheid van \SI{99.999}{\percent}. Is een kolom vol, dan laat men de druk zakken tot net boven \SI{1}{\bar}: volgens de Langmuir-isotherme komt het grootste deel van het adsorbaat weer vrij. Enkele kolommen wisselen elkaar af in cycli van enkele minuten. Hetzelfde principe levert stikstof uit lucht (koolstofmoleculaire zeven) en zuurstof voor zuurstofconcentrators in de zorg (zeolieten die N$_2$ sterker binden dan O$_2$).
+\end{toepassing}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/langmuir_isotherm}
+    \caption{De Langmuir-isotherme (vergelijking~\eqref{eq:langmuir-isotherm}) voor twee waarden van de adsorptieconstante. Bij lage druk stijgt de bedekking lineair, bij hoge druk nadert ze een volledige monolaag. Een sterker adsorberend gas (grotere $K$) verzadigt het oppervlak al bij lage druk.}
+    \label{fig:langmuir-isotherm}
+\end{figure}
+
+\subsection{De BET-isotherme: voorbij de monolaag}
+\label{sec:bet}
+
+De Langmuir-isotherme veronderstelt monolaagadsorptie --- gerechtvaardigd voor chemisorptie, maar niet voor fysisorptie, waar bij voldoende hoge relatieve druk meerdere lagen fysisorberen (vergelijkbaar met condensatie, hoofdstuk~\ref{ch:niet-reagerend}). Brunauer, Emmett en Teller (1938) breidden het Langmuir-model uit tot multilaagadsorptie, wat leidt tot de \emph{BET-isotherme}:
+\begin{equation}
+\frac{V}{V_m} = \frac{C\,x}{(1-x)\bigl[1-x+Cx\bigr]}, \qquad x=\frac{p}{p_{\text{sat}}},
+\label{eq:bet}
+\end{equation}
+waarin $V$ het geadsorbeerde volume, $V_m$ het volume van precies \'e\'en monolaag, $p_{\text{sat}}$ de verzadigingsdampdruk van het adsorberende gas bij de gegeven temperatuur (hoofdstuk~\ref{ch:niet-reagerend}), en $C$ een constante gerelateerd aan het verschil tussen de adsorptie-enthalpie van de eerste laag en de condensatie-enthalpie van de volgende lagen. De BET-vergelijking wordt industrieel op grote schaal gebruikt om, via stikstofadsorptie bij \SI{77}{\kelvin}, het specifieke oppervlak (\si{\metre\squared\per\gram}) van poreuze katalysatoren te bepalen ($V_m$ levert immers rechtstreeks het aantal adsorptieplaatsen, en dus het oppervlak, op) --- een routinematige, onmisbare karakterisatietechniek voor elke heterogene katalysator.
+
+In de praktijk gebruikt men de gelineariseerde vorm
+\begin{equation}
+\frac{x}{V(1-x)} = \frac{1}{V_mC} + \frac{C-1}{V_mC}\,x ,
+\label{eq:bet-lineair}
+\end{equation}
+die in het gebied $x = 0.05$--$0.30$ een rechte geeft. Uit helling en asafsnede volgen $V_m$ en $C$. Elk stikstofmolecule in de monolaag neemt ongeveer \SI{0.162}{\nano\metre\squared} in, zodat
+\begin{equation}
+a_s = \frac{V_m}{\SI{22414}{\centi\metre\cubed\per\mole}}\,N_A\,(\SI{0.162e-18}{\metre\squared}) = \SI{4.35}{\metre\squared\per\gram}\ \text{per}\ \si{\centi\metre\cubed}\,(\mathrm{STP})/\si{\gram}\ \text{monolaag}.
+\label{eq:bet-oppervlak}
+\end{equation}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/bet_isotherm}
+    \caption{Stikstofadsorptie bij \SI{77}{\kelvin} op een poreuze drager (BET-model met $C = 100$ en $V_m = \SI{46}{\centi\metre\cubed\per\gram}$). Rond $x \approx 0.1$ is de eerste laag vol; daarna groeien meer lagen en volgt capillaire condensatie in de poriën.}
+    \label{fig:bet-isotherm}
+\end{figure}
+
+\begin{voorbeeld}{Het oppervlak van de katalysatordrager}
+Voor de $\gamma$-$\mathrm{Al_2O_3}$-korrel van de centrale case levert de BET-rechte $V_m = \SI{46}{\centi\metre\cubed}$ (STP) per gram. Met vergelijking~\eqref{eq:bet-oppervlak}: $a_s = 46 \times 4.35 = \SI{200}{\metre\squared\per\gram}$. Een korrel van \SI{1}{\gram} heeft dus een inwendig oppervlak van \SI{200}{\metre\squared}, terwijl de buitenkant van die korrel nog geen \SI{5}{\centi\metre\squared} meet. Vergelijk met vergelijking~\eqref{eq:specifiek-oppervlak}: zonder poriën zouden de korrels kleiner dan \SI{10}{\nano\metre} moeten zijn.
+\end{voorbeeld}
+
+\subsection{Adsorptie uit een oplossing}
+\label{sec:adsorptie-oplossing}
+
+Ook opgeloste stoffen adsorberen: kleurstoffen, pesticiden of geurstoffen op actieve kool, eiwitten op een membraan. Het adsorbens is dan zelden homogeen genoeg voor Langmuir, en men gebruikt vaak de empirische \emph{Freundlich-isotherme}
+\begin{equation}
+q = K_F\,c^{1/n},
+\label{eq:freundlich}
+\end{equation}
+met $q$ de geadsorbeerde hoeveelheid per kg adsorbens, $c$ de concentratie in oplossing en $n > 1$. Op een log--logschaal is dat een rechte. Zoals bij gasadsorptie geldt: hydrofobe, slecht oplosbare moleculen adsorberen het sterkst op hydrofobe kool (hoofdstuk~\ref{ch:intermoleculair}, \S~\ref{sec:im-toepassingen}).
+
+\section{Surfactanten en micelvorming}
+\label{sec:surfactanten}
+
+\emph{Surfactanten} (oppervlakte-actieve stoffen) zijn moleculen met een dualistische structuur: een hydrofiele kop en een hydrofobe staart. In water accumuleren zij aan het vloeistof--luchtgrensvlak, met de hydrofobe staart naar de lucht gericht. Hierdoor wordt de oppervlaktespanning sterk verlaagd.
+
+\subsection{De kritische micelconcentratie (CMC)}
+
+Boven een bepaalde concentratie, de \emph{kritische micelconcentratie} (CMC), organiseren surfactanten zich spontaan in aggregaten: \emph{micellen}. In een micel zijn de hydrofobe staarten naar binnen gericht en de hydrofiele koppen naar buiten, zodat het micel als geheel wateroplosbaar is. Onder de CMC gedragen surfactanten zich als gewone opgeloste stoffen; boven de CMC blijft de concentratie vrije surfactant constant en worden bijkomende moleculen in micellen opgenomen.
+
+\begin{voorbeeld}{CMC van natriumdodecylsulfaat}
+Natriumdodecylsulfaat (SDS, $\mathrm{CH_3(CH_2)_{11}OSO_3Na}$) heeft een CMC van \SI{8.2e-3}{\mole\per\litre} bij \SI{25}{\celsius}. Onder deze concentratie daalt de oppervlaktespanning geleidelijk met de SDS-concentratie; boven de CMC blijft de oppervlaktespanning constant op ongeveer \SI{35}{\milli\newton\per\metre}. Dit is een direct gevolg van de micelvorming: bijkomende SDS verhoogt enkel het aantal micellen, niet de concentratie vrije surfactant.
+\end{voorbeeld}
+
+\subsection{Thermodynamica van micelvorming}
+
+Micelvorming is een spontaan proces met een negatieve Gibbs-energie. De drijvende kracht is de entropie: de waterstructuur rond de hydrofobe staarten (``ijskragen'') wordt verbroken wanneer de staarten zich in een micel samenpakken. Dit \emph{hydrofoob effect} is entropisch van aard, een directe illustratie van de principes uit hoofdstuk~\ref{ch:spontaniteit} (\S~\ref{sec:waarschijnlijkheid-entropie}).
+
+\begin{toepassing}{Tweede case: hoe een wasmiddel vet verwijdert}
+Een vetvlek op katoen is hydrofoob en bevochtigt het water slecht. Surfactanten in het wasmiddel adsorberen met hun staart aan het vet en met hun kop naar het water: de grensvlakspanning vet--water daalt van ongeveer \SI{50}{\milli\newton\per\metre} tot enkele \si{\milli\newton\per\metre}. Daardoor verandert de contacthoek (vergelijking~\eqref{eq:young}) en rolt het vet op tot druppeltjes die loskomen van de vezel. Boven de CMC worden die druppeltjes in micellen opgenomen; de geladen koppen houden ze uit elkaar (\S~\ref{sec:colloiden}). Warmer water helpt, omdat vet vloeibaarder wordt en de oppervlaktespanning daalt, maar moderne enzymen en surfactanten werken al bij \SI{30}{\celsius}, wat veel energie bespaart.
+\end{toepassing}
+
+\section{Collo\"idale dispersies en stabiliteit}
+\label{sec:colloiden}
+
+Een \emph{collo\"ide} is een dispersie van deeltjes met een grootte tussen \SI{1}{\nano\metre} en \SI{1}{\micro\metre} in een continue fase. Voorbeelden: emulsies (melk, mayonaise), suspensies (verf), schuimen (bier), aerosolen (mist). Collo\"idale deeltjes zijn groot genoeg om Brownse beweging te vertonen, maar klein genoeg om niet snel te sedimenteren.
+
+\subsection{Het potentieel van DLVO}
+\label{sec:dlvo}
+
+De stabiliteit van een collo\"idale dispersie wordt bepaald door de balans tussen twee krachten:
+\begin{itemize}
+\item \textbf{Van der Waals-aantrekking} (hoofdstuk~\ref{ch:intermoleculair}): brengt deeltjes samen en leidt tot coagulatie.
+\item \textbf{Elektrostatische afstoting}: ontstaat door geladen oppervlakken met een elektrische dubbellaag; werkt de aantrekking tegen.
+\end{itemize}
+De som van beide krachten als functie van de afstand vormt de \emph{potenti\"ele energiecurve} van DLVO (Derjaguin--Landau--Verwey--Overbeek). Bij voldoende afstoting ontstaat een energiedrempel die coagulatie verhindert; de dispersie is dan kinetisch stabiel (figuur~\ref{fig:dlvo}). Voegt men zout toe, dan wordt de afstoting korter van bereik en verdwijnt de drempel.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/dlvo}
+    \caption{DLVO-energie tussen twee colloïdale deeltjes (schematisch): de som van een Van der Waals-aantrekking en een elektrostatische afstoting. Bij weinig zout is er een drempel van tientallen $k_BT$ en blijft de dispersie stabiel; bij veel zout verdwijnt de drempel en klonteren de deeltjes samen.}
+    \label{fig:dlvo}
+\end{figure}
+
+\subsection{De elektrische dubbellaag}
+
+In waterige oplossingen krijgen collo\"idale deeltjes een oppervlaktelading door ionisatie van oppervlaktegroepen, adsorptie van ionen (\S~\ref{sec:adsorptie-grensvlakken}) of isomorfe substitutie. Deze lading wordt gecompenseerd door een tegenionenwolk: de \emph{elektrische dubbellaag}. Het model van Gouy--Chapman--Stern beschrijft twee gebieden:
+\begin{enumerate}
+\item Een \emph{Stern-laag}: stevig gebonden tegenionen dicht bij het oppervlak.
+\item Een \emph{diffuse laag}: een wolk van tegenionen met geleidelijk afnemende concentratie, die in de bulk overgaat.
+\end{enumerate}
+Het potentiaalverloop in de diffuse laag is exponentieel, met karakteristieke lengte $\kappa^{-1}$ (Debye-lengte). In water bij \SI{25}{\celsius} geldt voor een 1:1-zout $\kappa^{-1} \approx \SI{0.304}{\nano\metre}/\sqrt{c/(\si{\mole\per\litre})}$: ongeveer \SI{10}{\nano\metre} in zoet water ($c \approx \SI{1}{\milli\mole\per\litre}$), maar slechts \SI{0.4}{\nano\metre} in zeewater. Dat verklaart waarom rivierslib neerslaat zodra de rivier de zee bereikt: de delta's van de Schelde en de Nijl zijn ook een colloïdchemisch verschijnsel.
+
+\subsection{De zeta-potentiaal}
+
+Het praktisch meetbare potentiaal aan de grens tussen de Stern-laag en de diffuse laag is de \emph{zeta-potentiaal} $\zeta$. Een collo\"ide met $|\zeta| > \SI{30}{\milli\volt}$ is doorgaans stabiel; bij $|\zeta| < \SI{10}{\milli\volt}$ coaguleert de dispersie snel.
+
+\begin{voorbeeld}{Zeta-potentiaal en waterzuivering}
+In waterzuiveringsinstallaties worden collo\"idale deeltjes (klei, organisch materiaal) verwijderd door coagulatie. Door toevoeging van $\mathrm{Al_2(SO_4)_3}$ of $\mathrm{FeCl_3}$ wordt de zeta-potentiaal verlaagd: de veelwaardige kationen ($\mathrm{Al^{3+}}$, $\mathrm{Fe^{3+}}$) comprimeren de dubbellaag en reduceren $\zeta$. Hierdoor verliest het collo\"ide zijn stabiliteit en slaat het neer. Dit is het werkingsmechanisme van flocculatie in drinkwaterproductie.
+\end{voorbeeld}
+
+\subsection{Elektrokinetische verschijnselen}
+
+Wanneer een collo\"ide met geladen oppervlak zich in een elektrisch veld bevindt, kunnen twee verschijnselen optreden:
+\begin{itemize}
+\item \textbf{Elektroforese}: de deeltjes bewegen naar de tegengesteld geladen elektrode.
+\item \textbf{Elektro-osmose}: de vloeistof beweegt langs een geladen vaste wand wanneer een elektrisch veld wordt aangelegd.
+\end{itemize}
+Beide verschijnselen worden beschreven door de vergelijking van Smoluchowski en worden toegepast in inktprinters, elektroforetische coatings, DNA-scheiding en microfluidica.
+
+\section{Emulsies en stabilisatoren}
+\label{sec:emulsies}
+
+Een \emph{emulsie} is een dispersie van een vloeistof in een andere onmengbare vloeistof. Twee types worden onderscheiden:
+\begin{itemize}
+\item \textbf{Olie-in-water (O/W)}: oliedruppels in waterige fase (melk, mayonaise, cosmeticum).
+\item \textbf{Water-in-olie (W/O)}: waterdruppels in oliefase (boter, margarine, sommige zalven).
+\end{itemize}
+Emulsies zijn thermodynamisch onstabiel (de Gibbs-energie van de grensvlakken is positief), maar kunnen kinetisch stabiel worden gemaakt door \emph{emulgatoren}: surfactanten of vaste deeltjes die zich aan het vloeistof--vloeistofgrensvlak hechten en een beschermende laag vormen.
+
+\subsection{Het HLB-getal}
+
+De keuze van de juiste surfactant voor een emulsie wordt geholpen door het \emph{HLB-getal} (Hydrofiel--Lipofiel Balans):
+\begin{itemize}
+\item HLB 3--6: W/O-emulgator.
+\item HLB 8--18: O/W-emulgator.
+\end{itemize}
+Voor mayonaise (O/W) gebruikt men bijvoorbeeld eiwit (HLB $\sim$ 13); voor margarine (W/O) gebruikt men mono- en diglyceriden (HLB $\sim$ 4).
+
+\section{Schuimen en antischuimmiddelen}
+
+Een \emph{schuim} is een dispersie van gas in vloeistof. Schuimen zijn kinetisch stabiel door surfactanten die de gasbel-wanden versterken (Marangoni-effect: herstel van lokale oppervlaktespanningsgradi\"enten). Schuimen zijn gewenst in bier, scheerschuim en brandblusschuim, maar ongewenst in fermentoren, destillatiekolommen en waswater.
+
+\emph{Antischuimmiddelen} werken door de lokale oppervlaktespanning sterk te verlagen of door de film te verzwakken. Vaak gebruikt men siliconenoli\"e\"en of hydrofoob silica.
+
+\section{De vaste stof: van atomen naar kristallen}
+\label{sec:vaste-stof}
+
+Het oppervlak waarop alles in dit hoofdstuk gebeurt, hoort bij een vaste stof. Een katalysatordrager, een elektrode, een pigment of een zeoliet heeft eigenschappen die rechtstreeks volgen uit hoe de atomen gerangschikt zijn: in een regelmatig kristal, met defecten, of amorf. Voor de chemisch ingenieur is de vaste stof dus veel meer dan een passieve drager: de kristalstructuur bepaalt de katalytische activiteit, de elektronenstructuur ligt aan de basis van zonnecellen en led's, en defecten bepalen de sterkte en de corrosie van constructiematerialen.
+
+\subsection{Kristalstructuren: de Bravais-roosters}
+\label{sec:bravais}
+
+Een \emph{kristal} is een vaste stof waarin de atomen in een regelmatige, driedimensionale rangschikking zijn geordend. Deze rangschikking wordt beschreven door een \emph{kristalrooster}: een oneindige herhaling van een elementaire cel langs drie onafhankelijke richtingen.
+
+\subsubsection{De elementaire cel}
+
+De \emph{elementaire cel} is de kleinste eenheid die, door herhaling in drie richtingen, het volledige kristal opbouwt. Zij wordt gekenmerkt door drie roosterconstanten $a$, $b$, $c$ (lengtes) en drie hoeken $\alpha$, $\beta$, $\gamma$ (tussen de assen).
+
+Er bestaan precies \emph{14} onafhankelijke roostertypes, de \emph{Bravais-roosters}, verdeeld over 7 kristalsystemen:
+\begin{itemize}
+\item \textbf{Kubisch}: primitief (P), ruimtelijk gecentreerd (I), vlakgecentreerd (F).
+\item \textbf{Tetragonaal}: primitief, ruimtelijk gecentreerd.
+\item \textbf{Orthorombisch}: primitief, ruimtelijk gecentreerd, vlakgecentreerd, basaal gecentreerd.
+\item \textbf{Hexagonaal}: primitief.
+\item \textbf{Trigonaal} (rhombohedrisch): primitief.
+\item \textbf{Monoclien}: primitief, basaal gecentreerd.
+\item \textbf{Triklien}: primitief.
+\end{itemize}
+Tel je deze op (3+2+4+1+1+2+1), dan kom je inderdaad op precies 14 uit: geen enkel ander roostertype is met een periodieke driedimensionale rangschikking van punten verenigbaar.
+
+\subsubsection{De drie kubische roosters}
+
+De eenvoudigste en belangrijkste roosters voor metallische en ionische vaste stoffen zijn de drie kubische types:
+
+\begin{itemize}
+\item \textbf{Primitief kubisch (P)}: atomen op de 8 hoeken van een kubus. Aantal atomen per cel: $8 \times \tfrac{1}{8} = 1$.
+\item \textbf{Ruimtelijk gecentreerd kubisch (BCC, I)}: bijkomend atoom in het centrum. Aantal atomen per cel: $1 + 1 = 2$.
+\item \textbf{Vlakgecentreerd kubisch (FCC, F)}: bijkomend atoom op elk van de 6 vlakken (gedeeld door 2 cellen). Aantal atomen per cel: $1 + 6 \times \tfrac{1}{2} = 4$.
+\end{itemize}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.95\linewidth]{Figuren/kubische_roosters}
+    \caption{De drie kubische Bravais-roosters: primitief kubisch (enkel hoekatomen), ruimtelijk gecentreerd (BCC, met een atoom in het centrum) en vlakgecentreerd (FCC, met een atoom op elk van de zes vlakken). Een hoekatoom wordt gedeeld door acht cellen, een vlakatoom door twee.}
+    \label{fig:kubische-roosters}
+\end{figure}
+
+\begin{voorbeeld}{Pakking en atoomradius in FCC}
+In een FCC-rooster (bv. Cu, Al, $\gamma$-Fe) raken de atomen langs de diagonaal van een vlak. Met roosterconstante $a$ geldt $4r = a\sqrt{2}$, zodat $r = a\sqrt{2}/4$. Voor koper met $a = \SI{0.361}{\nano\metre}$:
+\[
+r = \frac{\SI{0.361}{\nano\metre}\,\sqrt{2}}{4} = \SI{0.128}{\nano\metre}.
+\]
+De pakking (fractie van het volume ingenomen door atomen) bedraagt $\pi/(3\sqrt{2}) \approx 0.74$ --- de dichtst mogelijke bolpakking.
+\end{voorbeeld}
+
+\subsubsection{Structuren van ionische en covalente vaste stoffen}
+
+Enkele veelvoorkomende structuurtypen:
+
+\begin{itemize}
+\item \textbf{NaCl-structuur}: FCC-rooster van $\mathrm{Cl^-}$ met $\mathrm{Na^+}$ in alle octa\"edrische holtes. Co\"ordinatiegetal 6:6.
+\item \textbf{CsCl-structuur}: primitief kubisch rooster van $\mathrm{Cl^-}$ met $\mathrm{Cs^+}$ in het lichaam-centrum. Co\"ordinatiegetal 8:8.
+\item \textbf{Zinkblende (ZnS)}: FCC-rooster van $\mathrm{S^{2-}}$ met $\mathrm{Zn^{2+}}$ in de helft van de tetra\"edrische holtes. Co\"ordinatie 4:4. Belangrijk voor halfgeleiders (GaAs, CdTe).
+\item \textbf{Fluoriet ($\mathrm{CaF_2}$)}: FCC-rooster van $\mathrm{Ca^{2+}}$ met $\mathrm{F^-}$ in alle tetra\"edrische holtes. Belangrijk voor $\mathrm{UO_2}$, $\mathrm{CeO_2}$, $\mathrm{ZrO_2}$.
+\item \textbf{Diamant}: FCC-rooster met twee interpenetrerende subroosters, elk atoom tetra\"edrisch omringd. Dit is de structuur van Si, Ge, C (diamant).
+\end{itemize}
+
+\subsection{R\"ontgendiffractie en de wet van Bragg}
+\label{sec:xrd}
+
+De experimentele methode bij uitstek voor de bepaling van kristalstructuren is \emph{r\"ontgendiffractie} (XRD). De golflengte van r\"ontgenstraling (\SIrange{0.1}{1}{\angstrom}) is van dezelfde orde als interatomaire afstanden, zodat diffractie optreedt aan de roostervlakken.
+
+\subsubsection{Millerindices: het aanduiden van roostervlakken}
+\label{sec:miller}
+
+Om een specifieke set evenwijdige roostervlakken ondubbelzinnig aan te duiden, gebruikt men \emph{Millerindices} $(hkl)$: drie gehele getallen, bepaald door de omgekeerde waarden van de snijpunten van het vlak met de drie kristalassen (uitgedrukt in eenheden van de roosterconstanten $a$, $b$, $c$) te nemen en tot de kleinste gehele verhouding te herleiden. Een vlak dat de $x$-, $y$- en $z$-as elk op afstand $a$ snijdt, heeft dus Millerindices $(111)$; een vlak evenwijdig met de $y$- en $z$-as (het snijdt enkel de $x$-as) heeft indices $(100)$.
+
+Voor een \emph{kubisch} rooster met roosterconstante $a$ is de afstand tussen opeenvolgende $(hkl)$-vlakken:
+\begin{equation}
+\boxed{\;d_{hkl} = \frac{a}{\sqrt{h^2+k^2+l^2}}.\;}
+\label{eq:dhkl}
+\end{equation}
+Voor de $(111)$-vlakken geeft dit bijvoorbeeld $d_{111}=a/\sqrt{1^2+1^2+1^2}=a/\sqrt3$ --- de relatie die we hieronder gebruiken om, via de wet van Bragg, de roosterconstante van koper te bepalen. Deze combinatie --- Millerindices om een vlak te identificeren, vergelijking~\eqref{eq:dhkl} om de bijhorende vlakafstand te berekenen, en de wet van Bragg (hieronder) om die vlakafstand experimenteel te meten --- vormt samen het volledige gereedschap om een onbekende kubische kristalstructuur te karakteriseren.
+
+\subsubsection{De wet van Bragg}
+\label{sec:bragg}
+
+Wanneer een r\"ontgenbundel invalt op een kristal onder hoek $\theta$ ten opzichte van een set roostervlakken met intervlakafstand $d$, treden versterkende interferenties op wanneer:
+\begin{equation}
+\boxed{\;n\lambda = 2\,d\,\sin\theta\;}
+\label{eq:bragg}
+\end{equation}
+waarin $\lambda$ de golflengte en $n$ een geheel getal is (de ``orde''). Uit de gemeten hoeken $\theta$ kan $d$ worden berekend via vergelijking~\eqref{eq:dhkl}, en uit het volledige diffractiepatroon de kristalstructuur worden gereconstrueerd.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/bragg_geometrie}
+    \caption{Braggdiffractie aan twee evenwijdige roostervlakken op afstand $d$. De straal die het onderste vlak treft, legt een extra weg $2d\sin\theta$ af. Enkel als dat een geheel aantal golflengten is, versterken de gereflecteerde stralen elkaar (vergelijking~\eqref{eq:bragg}).}
+    \label{fig:bragg-geometrie}
+\end{figure}
+
+\begin{voorbeeld}{Bepaling van de roosterconstante van koper --- let op $2\theta$ versus $\theta$}
+Een veelvoorkomende valkuil bij het praktisch gebruik van de wet van Bragg is de volgende: XRD-toestellen rapporteren doorgaans de hoek $2\theta$ tussen de invallende en de gediffracteerde bundel (de hoek waarover de detector effectief draait), \emph{niet} de hoek $\theta$ uit vergelijking~\eqref{eq:bragg} zelf, die ten opzichte van het roostervlak wordt gemeten. Het rechtstreeks invullen van een gerapporteerde $2\theta$-waarde als $\theta$ levert een systematisch verkeerd resultaat op.
+
+Een poederdiffractiepatroon van koper ($\lambda = \SI{0.154}{\nano\metre}$, Cu K$\alpha$) toont een eerste piek bij $2\theta = 43.1^\circ$, dus $\theta = 21.55^\circ$. Voor de $(111)$-vlakken geeft de wet van Bragg ($n=1$):
+\[
+d_{111} = \frac{\lambda}{2\sin\theta} = \frac{\SI{0.154}{\nano\metre}}{2\sin(21.55^\circ)} = \frac{\SI{0.154}{\nano\metre}}{0.7337} \approx \SI{0.210}{\nano\metre}.
+\]
+Met vergelijking~\eqref{eq:dhkl}, $d_{111} = a/\sqrt{3}$ voor een kubisch rooster:
+\[
+a = d_{111}\sqrt{3} \approx (\SI{0.210}{\nano\metre})(1.732) \approx \SI{0.363}{\nano\metre},
+\]
+in uitstekende overeenstemming met de bekende roosterconstante van Cu ($a=\SI{0.3615}{\nano\metre}$, reeds gebruikt in \S~\ref{sec:bravais}). Zou men $43.1^\circ$ ten onrechte rechtstreeks als $\theta$ hebben ingevuld, dan volgt $d_{111}\approx\SI{0.113}{\nano\metre}$ en $a\approx\SI{0.195}{\nano\metre}$ --- bijna een factor twee te klein, en duidelijk onverenigbaar met de bekende dichtheid en atoomstraal van koper. Controleer daarom bij elke XRD-analyse expliciet of de gerapporteerde hoek $\theta$ dan wel $2\theta$ voorstelt, vooraleer de wet van Bragg toe te passen.
+\end{voorbeeld}
+
+\subsubsection{Het poederdiffractiepatroon}
+
+In plaats van een enkelkristal wordt in de praktijk vaak een poeder gebruikt, zodat alle mogelijke vlakori\"entaties simultaan aanwezig zijn. Het resulterende \emph{poederdiffractiepatroon} (XRD-patroon) is een reeks pieken bij verschillende $2\theta$. De positie van de pieken geeft de roosterconstanten; de intensiteit geeft de atoomposities binnen de cel; de breedte geeft informatie over korrelgrootte en defecten.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/xrd_poederpatroon}
+    \caption{Berekend poederdiffractogram van koper (FCC, $a = \SI{0.3615}{\nano\metre}$, Cu K$\alpha$-straling). In een FCC-rooster zijn enkel reflecties zichtbaar waarvoor $h$, $k$ en $l$ allemaal even of allemaal oneven zijn. Elke piekpositie geeft via de wet van Bragg en vergelijking~\eqref{eq:dhkl} de roosterconstante.}
+    \label{fig:xrd-poederpatroon}
+\end{figure}
+
+Vergelijking met databanken (JCPDS, ICDD) laat toe een onbekende stof in seconden te identificeren. Dit is standaard in katalysatorkarakterisatie, kwaliteitscontrole, forensische chemie en farmaceutische analyse (polymorfie).
+
+Ook de \emph{breedte} van een piek is nuttig. Een oneindig groot kristal geeft een scherpe piek; een kristalletje van enkele nanometer heeft te weinig roostervlakken om buiten de Braggvoorwaarde volledig uit te doven, en geeft een brede piek. De \emph{vergelijking van Scherrer} schat de kristalgrootte $\tau$:
+\begin{equation}
+\tau = \frac{K\lambda}{\beta\cos\theta},
+\label{eq:scherrer}
+\end{equation}
+met $K \approx 0.9$ en $\beta$ de piekbreedte op halve hoogte, in radialen op de $2\theta$-schaal.
+
+\begin{voorbeeld}{Hoe groot zijn de platinadeeltjes op de katalysator?}
+Het diffractogram van de katalysator uit de centrale case toont een brede Pt(111)-piek bij $2\theta = 39.8^\circ$ met een halfwaardebreedte van $4.5^\circ = \SI{0.0785}{\radian}$. Met $\theta = 19.9^\circ$:
+\[
+\tau = \frac{(0.9)(\SI{0.154}{\nano\metre})}{(0.0785)\cos 19.9^\circ} = \SI{1.9}{\nano\metre}.
+\]
+De platinadeeltjes zijn dus ongeveer \SI{2}{\nano\metre} groot: goed verdeeld. Na een tijd bij hoge temperatuur wordt de piek smaller; de deeltjes groeien samen (sinteren) en de katalysator verliest actief oppervlak. XRD is zo een snelle controle op de veroudering van een katalysator.
+\end{voorbeeld}
+
+\subsection{Defecten in kristallen}
+\label{sec:defecten}
+
+Een perfect kristal zonder defecten bestaat in de praktijk niet. Zelfs de zuiverste materialen bevatten defecten, en deze defecten bepalen vaak de macroscopische eigenschappen: elektrische geleiding, mechanische sterkte, kleur, katalytische activiteit. Defecten worden ingedeeld naar dimensie.
+
+\subsubsection{Puntdefecten}
+
+\begin{itemize}
+\item \textbf{Vacatures}: een ontbrekend atoom op een roosterplaats. Evenwichtsvacatures volgen $\exp(-E_v/k_BT)$, met $E_v \sim \SI{1}{\electronvolt}$ in metalen. Bij \SI{300}{\kelvin} is deze fractie volledig verwaarloosbaar ($\sim10^{-17}$): pas dicht bij het smeltpunt (bijvoorbeeld \SI{1300}{\kelvin} voor koper, smeltpunt \SI{1358}{\kelvin}) wordt de vacaturefractie praktisch relevant, met een typische waarde van $\sim10^{-4}$ --- een gevolg van de sterke exponenti\"ele temperatuursafhankelijkheid, geheel analoog aan de Arrhenius-gevoeligheid van reactiesnelheden (hoofdstuk~\ref{ch:kinetiek}).
+\item \textbf{Interstiti\"eel}: een extra atoom op een niet-roosterplaats. Vaak in combinatie met vacatures (Frenkel-defect in ionische kristallen).
+\item \textbf{Onzuiverheden (doping)}: een vreemd atoom op een roosterplaats. Cruciaal voor halfgeleiders (hoofdstuk~\ref{ch:kwantum} en \S~\ref{sec:doping}) en katalysatoren (hoofdstuk~\ref{ch:kinetiek}).
+\item \textbf{Schottky-defect}: een koppel vacatures in ionische kristallen (een kation- en een anionvacature), zodat neutraliteit behouden blijft.
+\end{itemize}
+
+\subsubsection{Lijndefecten (dislocaties)}
+
+\emph{Dislocaties} zijn \'e\'endimensionale defecten die plastische vervorming mogelijk maken. De twee belangrijkste types:
+\begin{itemize}
+\item \textbf{Randdislocatie (edge)}: een extra half-vlak ingevoerd in het kristal.
+\item \textbf{Schroefdislocatie (screw)}: het rooster is langs een as verschoven.
+\end{itemize}
+Dislocaties bepalen de hardheid, rekeigenschappen en \emph{kruip} van metalen. In katalysatoren zijn schroefdislocaties vaak actieve sites, omdat atomen aan het oppervlak daar zwakker gebonden zijn.
+
+\subsubsection{Vlakdefecten}
+
+\begin{itemize}
+\item \textbf{Korrelgrenzen}: grenzen tussen kristallieten in polykristallijne materialen. Be\"invloeden diffusie, corrosie en elektrische geleiding.
+\item \textbf{Stacking faults}: fout in de stapelvolgorde van atoomvlakken.
+\item \textbf{Antifase-grenzen}: in geordende legeringen.
+\end{itemize}
+
+\subsubsection{Non-stoichiometrie}
+
+Vele vaste stoffen wijken af van de ideale stoichiometrie. \emph{Non-stoichiometrische verbindingen} hebben een variabele samenstelling, zoals $\mathrm{Fe_{1-x}O}$ (wustiet, $x \sim 0.05$), $\mathrm{TiO_{2-x}}$, $\mathrm{UO_{2+x}}$. De oorzaak is een combinatie van vacatures en geoxideerde/gereduceerde ionen. Non-stoichiometrie is cruciaal voor katalysatoren (bv. $\mathrm{V_2O_{5-x}}$ in het contactproces, hoofdstuk~\ref{ch:kinetiek}) en voor batterijmaterialen (Li-ion-intercalatie).
+
+\subsection{Elektronenstructuur: van ge\"isoleerd atoom tot vaste stof}
+
+In hoofdstuk~\ref{ch:kwantum} zagen we dat een ge\"isoleerd atoom discrete energieniveaus heeft. Wanneer $N$ atomen samengebracht worden in een kristal, overlappen hun golffuncties. Volgens het uitsluitingsprincipe van Pauli (hoofdstuk~\ref{ch:kwantum}) mogen geen twee elektronen dezelfde toestand bezetten. Hierdoor splitst elk niveau van het ge\"isoleerde atoom in $N$ niveaus, dicht opeen. Het is hetzelfde mechanisme als bij de molecuulorbitalen van hoofdstuk~\ref{ch:kwantum} (\S~\ref{sec:molecuulorbitalen}): twee atoomorbitalen geven een bindend en een antibindend niveau, $N$ atoomorbitalen geven er $N$. Voor macroscopisch $N$ ($\sim10^{23}$) vormen deze niveaus een continu\"um: een \emph{energieband}.
+
+\subsubsection{Geleiders, halfgeleiders en isolatoren}
+
+In een kristal worden twee banden onderscheiden:
+\begin{itemize}
+\item \textbf{Valentieband}: de hoogste geheel gevulde band.
+\item \textbf{Geleidingsband}: de eerstvolgende, lege of deels gevulde band.
+\end{itemize}
+Tussen beide kan een \emph{verboden zone} (band gap, $E_g$) liggen. De classificatie:
+\begin{itemize}
+\item \textbf{Geleider} (metaal): de valentieband is deels gevuld of overlapt met de geleidingsband. Elektronen kunnen vrij bewegen; $E_g = 0$.
+\item \textbf{Halfgeleider}: $E_g = \SIrange{0.5}{3}{\electronvolt}$. Bij lage temperatuur is de geleidingsband leeg (geen geleiding); bij hoge temperatuur kunnen elektronen thermisch worden geactiveerd.
+\item \textbf{Isolator}: $E_g > \SI{4}{\electronvolt}$. De thermische activering is verwaarloosbaar bij kamertemperatuur.
+\end{itemize}
+
+\begin{voorbeeld}{Band gaps van enkele materialen}
+\begin{itemize}
+\item Si: $E_g = \SI{1.12}{\electronvolt}$ (halfgeleider).
+\item GaAs: $E_g = \SI{1.42}{\electronvolt}$ (halfgeleider).
+\item Diamant: $E_g \approx \SI{5.5}{\electronvolt}$ (isolator).
+\item $\mathrm{SiO_2}$: $E_g \approx \SI{9}{\electronvolt}$ (isolator).
+\item Cu: $E_g = 0$ (geleider).
+\end{itemize}
+Het verschil tussen Si en GaAs is klein maar cruciaal: GaAs laat hogere snelheden en zonnecellen met hogere effici\"entie toe, Si domineert de markt via lagere kostprijs.
+\end{voorbeeld}
+
+\subsubsection{Doping van halfgeleiders}
+\label{sec:doping}
+
+Door kleine hoeveelheden onzuiverheden toe te voegen (\emph{doping}) kan de geleidingsband bevolkt worden:
+\begin{itemize}
+\item \textbf{n-type}: donoratomen (bv. P in Si, 5 valentie-elektronen) leveren een extra elektron. Donorniveau vlak onder de geleidingsband.
+\item \textbf{p-type}: acceptoratomen (bv. B in Si, 3 valentie-elektronen) cre\"eren een gat. Acceptorniveau vlak boven de valentieband.
+\end{itemize}
+De benodigde activeringsenergie om deze donor- of acceptorniveaus te ioniseren is nu veel kleiner dan $E_g$, zodat reeds bij kamertemperatuur voldoende ladingsdragers beschikbaar zijn. Doping is de basis van transistors, zonnecellen, LED's en batterijbesturing.
+
+\subsection{Thermodynamica van vaste stoffen}
+
+De thermodynamica uit hoofdstuk~\ref{ch:spontaniteit} is volledig van toepassing op vaste stoffen. Enkele bijzondere aspecten:
+
+\subsubsection{Faseovergangen in de vaste stof}
+
+Naast smelten en verdampen kent de vaste stof ook \emph{vast-vast faseovergangen}. IJzer transformeert bij \SI{912}{\celsius} van BCC ($\alpha$-Fe) naar FCC ($\gamma$-Fe), en bij \SI{1394}{\celsius} terug naar BCC ($\delta$-Fe). Koolstof kent grafiet (stabiel bij 1 bar) en diamant (stabiel bij hoge druk). De Clapeyron-vergelijking uit hoofdstuk~\ref{ch:niet-reagerend} is van toepassing, maar de volumeveranderingen in de vaste fase zijn klein.
+
+\subsubsection{Smeltentropie en -enthalpie}
+
+Smeltenthalpie\"en van metalen volgen de regel van Richards: $\Delta S_{\text{fus}} \approx \SI{8.4}{\joule\per\mole\per\kelvin}$ voor vele metalen. Dit is een empirische schatting die de uniformiteit van smeltprocessen benadrukt.
+
+\subsubsection{Warmtecapaciteit van vaste stoffen}
+
+Bij lage temperatuur volgt $C_V$ de wet van Debye ($T^3$-afhankelijkheid). Bij hoge temperatuur nadert $C_V$ de klassieke limiet van Dulong--Petit:
+\begin{equation}
+C_{V,m} \approx 3R = \SI{24.9}{\joule\per\mole\per\kelvin}.
+\end{equation}
+Deze wet is een directe toepassing van het equipartitiebeginsel: elk atoom heeft 6 vrijheidsgraden (3 kinetisch + 3 potentieel), met $\tfrac{1}{2}k_BT$ per vrijheidsgraad.
+
+\begin{voorbeeld}{Warmtecapaciteit van koper en diamant}
+Voor Cu bij \SI{298}{\kelvin} geldt $C_{p,m} \approx \SI{24.4}{\joule\per\mole\per\kelvin}$, vrijwel gelijk aan $3R = \SI{24.9}{\joule\per\mole\per\kelvin}$. De overeenkomst met de wet van Dulong--Petit bevestigt dat alle atomaire vrijheidsgraden thermisch actief zijn. Voor diamant bij \SI{298}{\kelvin} geldt $C_{p,m} \approx \SI{6.1}{\joule\per\mole\per\kelvin}$, veel lager dan $3R$, wegens de hoge frequenties van de C--C-bindingen (kwantummechanische bevriezing bij kamertemperatuur, hoofdstuk~\ref{ch:kwantum}, \S~\ref{sec:moleculaire-beweging}).
+\end{voorbeeld}
+
+\subsection{Materiaaleigenschappen sturen via defecten}
+
+De ingenieur kan materiaaleigenschappen sturen via \emph{defect engineering}:
+
+\begin{itemize}
+\item \textbf{Legering}: door toevoeging van vreemde atomen worden dislocaties verankerd, het materiaal wordt harder (bv. staal = Fe + C + Cr + Mn).
+\item \textbf{Doping}: halfgeleiders worden geleidbaar gemaakt via gecontroleerde onzuiverheden (\S~\ref{sec:doping}).
+\item \textbf{Korrelgrootte}: volgens Hall--Petch neemt de hardheid toe met $\sim d^{-1/2}$ ($d$ korrelgrootte). Nanokristallijne materialen zijn aanzienlijk harder.
+\item \textbf{Warmtebehandeling}: temperatuurverloop regelt de verdeling van defecten en faseverdeling.
+\end{itemize}
+
+
+\section{Toepassingen in de procesindustrie}
+
+\begin{itemize}
+\item \textbf{Katalysatoren}: een poreuze drager met groot BET-oppervlak, actieve metaaldeeltjes van enkele nanometer, en een kristalstructuur die de selectiviteit bepaalt (zeolieten). De kinetiek van oppervlaktereacties volgt in hoofdstuk~\ref{ch:kinetiek}.
+\item \textbf{Scheiding door adsorptie}: gasdroging met silicagel en zeolieten, PSA voor waterstof, stikstof en zuurstof, actieve kool voor drinkwater en afgassen.
+\item \textbf{Wasmiddelen en cosmetica}: surfactanten, micellen, emulsies.
+\item \textbf{Waterzuivering}: coagulatie en flocculatie via de zeta-potentiaal, adsorptie op actieve kool.
+\item \textbf{Voeding en farmacie}: emulsies (melk, mayonaise, crèmes), schuimen, suspensies, liposomen; polymorfie van geneesmiddelen, gecontroleerd met XRD.
+\item \textbf{Mijnbouw}: flotatie, waarbij hydrofoob gemaakte ertsdeeltjes aan luchtbellen hechten.
+\item \textbf{Coatings en verf}: bevochtiging, pigmentdispersies, hechting.
+\item \textbf{Energie}: halfgeleiders voor zonnecellen en led's, intercalatiematerialen ($\mathrm{LiCoO_2}$, $\mathrm{LiFePO_4}$) voor batterijen, perovskieten voor brandstofcellen (hoofdstuk~\ref{ch:elektrochemie}).
+\item \textbf{Constructiematerialen}: staal, roestvast staal, keramiek, beton: polykristallijn, met bewust gestuurde defecten.
+\end{itemize}
+
+\section{Samenvatting en reflectie}
+
+Grensvlakken en vaste stoffen brengen bijna alles uit de vorige hoofdstukken samen: de intermoleculaire krachten bepalen oppervlaktespanning en adsorptie, de Gibbsenergie bepaalt of een emulsie stabiel is of een druppel verdampt, en de kwantummechanica bepaalt de banden van een halfgeleider. In het laatste hoofdstuk, over kinetiek, gebruiken we de adsorptie-isothermen om te beschrijven hoe snel een reactie op een katalysatoroppervlak verloopt.
+
+\begin{samenvatting}{Grensvlakken en materialen}
+\begin{itemize}
+\item Het specifiek oppervlak schaalt met $1/d$; poreuze materialen halen honderden tot duizend \si{\metre\squared\per\gram}.
+\item Oppervlaktespanning $\sigma = (\partial G/\partial A)_{T,p}$. Young--Laplace: $\Delta p = 2\sigma/r$. Capillaire stijghoogte $h = 2\sigma\cos\theta/\rho g r$.
+\item Young: $\sigma_{sg} = \sigma_{sl} + \sigma_{lg}\cos\theta$; lage oppervlakte-energie geeft slechte bevochtiging.
+\item Kelvin: kleine druppels hebben een hogere dampdruk; in nauwe poriën condenseert damp onder $p_\mathrm{sat}$.
+\item Fysisorptie (zwak, meerdere lagen) en chemisorptie (chemische binding, \'e\'en laag) zijn exotherm. Langmuir: $\theta = Kp/(1+Kp)$; BET meet het oppervlak met N$_2$ bij \SI{77}{\kelvin}. Adsorbentia laden koud en onder druk, regenereren warm of bij lage druk.
+\item Surfactanten verlagen $\sigma$ en vormen micellen boven de CMC. Colloïden zijn kinetisch stabiel door een DLVO-drempel; zout en meerwaardige ionen breken die af.
+\item Kristallen: 14 Bravais-roosters; FCC en hcp zijn het dichtst gepakt (\SI{74}{\percent}). XRD: $n\lambda = 2d\sin\theta$ met $d_{hkl} = a/\sqrt{h^2+k^2+l^2}$; piekbreedte geeft de kristalgrootte (Scherrer).
+\item Defecten en doping bepalen sterkte, geleidbaarheid en katalytische activiteit. Banden ontstaan uit dezelfde orbitaaloverlap als molecuulorbitalen.
+\end{itemize}
+\end{samenvatting}
+
+\begin{reflectie}{Grensvlakken en materialen}
+\begin{enumerate}
+\item Waarom heeft een katalysator met hetzelfde metaalgehalte maar kleinere metaaldeeltjes meer activiteit?
+\item Waarom spreidt water zich uit op schoon glas maar vormt het bolletjes op een gewaxte auto?
+\item Leg uit waarom silicagel water opneemt bij een relatieve vochtigheid onder \SI{100}{\percent}.
+\item Waarom laadt men een adsorbens bij hoge druk en lage temperatuur? Welke grootheid uit hoofdstuk~\ref{ch:reagerend} zit hierachter?
+\item Waarom meet men het BET-oppervlak met stikstof bij \SI{77}{\kelvin} en niet bij kamertemperatuur?
+\item Waarom slaat slib neer waar een rivier in zee uitmondt?
+\item Wat zegt een verbreding van een XRD-piek over een katalysator die al maanden in dienst is?
+\item Waarom is een halfgeleider bij hoge temperatuur een betere geleider, terwijl een metaal dan slechter geleidt?
+\end{enumerate}
+\end{reflectie}
+
+\newpage
+\section{Oefeningen}
+
+\input{Oefeningen_H8}
