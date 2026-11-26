@@ -78,6 +78,29 @@ waarin $F$ de constante van Faraday voorstelt, $F = N_A e = \SI{96485}{\coulomb\
 w_{\text{elek,max}} = n F E.
 \end{equation}
 
+\subsection{De wet van Faraday: lading is stof}
+\label{sec:faraday}
+
+Elke mol elektronen die door een elektrode gaat, zet een vaste hoeveelheid stof om. Voor een halfreactie met $n$ elektronen per formule-eenheid en een lading $Q_e = It$ is de omgezette massa
+\begin{equation}
+\boxed{\;m = \frac{I\,t}{nF}\,M\;}
+\label{eq:faraday}
+\end{equation}
+Dit is de \emph{wet van Faraday}. Ze is geen thermodynamica maar boekhouding: de lading telt de elektronen, de stoichiometrie vertaalt ze naar mol. Combineer je ze met de spanning $U$, dan volgt de elektrische energie per kilogram product:
+\begin{equation}
+\frac{W}{m} = \frac{nFU}{M\,\eta_F},
+\label{eq:energie-per-kg}
+\end{equation}
+waarin $\eta_F$ het \emph{stroomrendement} (Faraday-rendement) is: het deel van de lading dat echt de gewenste reactie dient.
+
+\begin{toepassing}{Waarom aluminium recycleren loont}
+Aluminium wordt geproduceerd door elektrolyse van $\mathrm{Al_2O_3}$, opgelost in gesmolten kryoliet bij ongeveer \SI{960}{\celsius} (Hall--H\'eroultproces). Per Al-atoom zijn drie elektronen nodig. Een typische cel werkt bij \SI{4.2}{\volt} met een stroomrendement van \SI{95}{\percent}:
+\[
+\frac{W}{m} = \frac{(3)(\SI{96485}{\coulomb\per\mole})(\SI{4.2}{\volt})}{(\SI{0.02698}{\kilogram\per\mole})(0.95)} = \SI{4.7e7}{\joule\per\kilogram} \approx \SI{13}{\kilo\watt\hour\per\kilogram}.
+\]
+Dat is evenveel als een gemiddeld Belgisch gezin in anderhalve dag verbruikt, voor \'e\'en kilogram metaal. Omsmelten van schroot kost minder dan \SI{5}{\percent} daarvan, omdat de chemische binding Al--O dan niet opnieuw verbroken moet worden. Ter vergelijking: bij de elektrolytische raffinage van koper is de celspanning slechts \SI{0.3}{\volt} (de anode en kathode zijn allebei koper), wat neerkomt op ongeveer \SI{0.25}{\kilo\watt\hour\per\kilogram}.
+\end{toepassing}
+
 \section{De celpotentiaal als thermodynamische grootheid}
 \label{sec:celpotentiaal}
 
@@ -98,8 +121,8 @@ Deze vergelijking vormt de brug tussen de chemische thermodynamica uit de vorige
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Afbeeldingen/daniell_cel_schema.png}
-    \caption{\emph{Placeholder --- toe te voegen figuur.} Schema van de Daniell-cel: links een zinkelektrode ondergedompeld in een $\mathrm{ZnSO_4}$-oplossing (anode, oxidatie: $\mathrm{Zn\to Zn^{2+}+2e^-}$), rechts een koperelektrode in een $\mathrm{CuSO_4}$-oplossing (kathode, reductie: $\mathrm{Cu^{2+}+2e^-\to Cu}$), verbonden door een externe draad (elektronenstroom van Zn naar Cu, met een voltmeter/verbruiker) en een zoutbrug onderaan (ionenstroom, sluit de stroomkring). Markeer de gemeten celspanning $E^\circ=\SI{1.10}{\volt}$.}
+    \includegraphics[width=0.8\linewidth]{Figuren/daniell_cel}
+    \caption{De Daniell-cel. Zink wordt geoxideerd aan de anode, koperionen worden gereduceerd aan de kathode. Elektronen lopen door de uitwendige draad, ionen door de zoutbrug; samen sluiten ze de stroomkring.}
     \label{fig:daniell-cel}
 \end{figure}
 
@@ -128,7 +151,7 @@ Alle andere halfreacties worden uitgedrukt als \emph{reductiepotentiaal} ten opz
 \boxed{\;E^\circ_{\text{cel}} = E^\circ_{\text{kathode}} - E^\circ_{\text{anode}}\;}
 \label{eq:Ecel}
 \end{equation}
-Merk op dat dit exact overeenkomt met het Daniell-cel-voorbeeld hierboven: $E^\circ_{\text{cel}}=E^\circ(\mathrm{Cu^{2+}/Cu})-E^\circ(\mathrm{Zn^{2+}/Zn})=0{,}34-(-0{,}76)=\SI{1.10}{\volt}$, identiek aan de waarde die daar rechtstreeks uit $\Delta_rG^\circ$ werd berekend --- een mooie consistentiecontrole tussen beide rekenwijzen.
+Merk op dat dit exact overeenkomt met het Daniell-cel-voorbeeld hierboven: $E^\circ_{\text{cel}}=E^\circ(\mathrm{Cu^{2+}/Cu})-E^\circ(\mathrm{Zn^{2+}/Zn})=0.34-(-0.76)=\SI{1.10}{\volt}$, identiek aan de waarde die daar rechtstreeks uit $\Delta_rG^\circ$ werd berekend --- een mooie consistentiecontrole tussen beide rekenwijzen.
 
 Een selectie van standaardreductiepotentialen bij \SI{298}{\kelvin}:
 
@@ -138,19 +161,19 @@ Een selectie van standaardreductiepotentialen bij \SI{298}{\kelvin}:
 \toprule
 Halfreactie & $E^\circ$ (V) \\
 \midrule
-$\mathrm{F_2 + 2\,e^- \rightarrow 2\,F^-}$ & $+2{,}87$ \\
-$\mathrm{Au^+ + e^- \rightarrow Au}$ & $+1{,}69$ \\
-$\mathrm{Cl_2 + 2\,e^- \rightarrow 2\,Cl^-}$ & $+1{,}36$ \\
-$\mathrm{O_2 + 4\,H^+ + 4\,e^- \rightarrow 2\,H_2O}$ & $+1{,}23$ \\
-$\mathrm{Ag^+ + e^- \rightarrow Ag}$ & $+0{,}80$ \\
-$\mathrm{Fe^{3+} + e^- \rightarrow Fe^{2+}}$ & $+0{,}77$ \\
-$\mathrm{Cu^{2+} + 2\,e^- \rightarrow Cu}$ & $+0{,}34$ \\
-$\mathrm{2\,H^+ + 2\,e^- \rightarrow H_2}$ (SHE) & $0{,}00$ \\
-$\mathrm{Fe^{2+} + 2\,e^- \rightarrow Fe}$ & $-0{,}44$ \\
-$\mathrm{Zn^{2+} + 2\,e^- \rightarrow Zn}$ & $-0{,}76$ \\
-$\mathrm{Al^{3+} + 3\,e^- \rightarrow Al}$ & $-1{,}66$ \\
-$\mathrm{Na^+ + e^- \rightarrow Na}$ & $-2{,}71$ \\
-$\mathrm{Li^+ + e^- \rightarrow Li}$ & $-3{,}04$ \\
+$\mathrm{F_2 + 2\,e^- \rightarrow 2\,F^-}$ & $+2.87$ \\
+$\mathrm{Au^+ + e^- \rightarrow Au}$ & $+1.69$ \\
+$\mathrm{Cl_2 + 2\,e^- \rightarrow 2\,Cl^-}$ & $+1.36$ \\
+$\mathrm{O_2 + 4\,H^+ + 4\,e^- \rightarrow 2\,H_2O}$ & $+1.23$ \\
+$\mathrm{Ag^+ + e^- \rightarrow Ag}$ & $+0.80$ \\
+$\mathrm{Fe^{3+} + e^- \rightarrow Fe^{2+}}$ & $+0.77$ \\
+$\mathrm{Cu^{2+} + 2\,e^- \rightarrow Cu}$ & $+0.34$ \\
+$\mathrm{2\,H^+ + 2\,e^- \rightarrow H_2}$ (SHE) & $0.00$ \\
+$\mathrm{Fe^{2+} + 2\,e^- \rightarrow Fe}$ & $-0.44$ \\
+$\mathrm{Zn^{2+} + 2\,e^- \rightarrow Zn}$ & $-0.76$ \\
+$\mathrm{Al^{3+} + 3\,e^- \rightarrow Al}$ & $-1.66$ \\
+$\mathrm{Na^+ + e^- \rightarrow Na}$ & $-2.71$ \\
+$\mathrm{Li^+ + e^- \rightarrow Li}$ & $-3.04$ \\
 \bottomrule
 \end{tabular}
 \caption{Standaardreductiepotentialen bij \SI{298}{\kelvin}.}
@@ -177,7 +200,7 @@ Buiten de standaardtoestand hangt de celpotentiaal af van de actuele samenstelli
 \end{equation}
 Dit is de \emph{vergelijking van Nernst}, waarin $Q=\prod_i a_i^{\nu_i}$ het reactiequoti\"ent van de celreactie is. Zij beschrijft hoe de celpotentiaal verandert met de activiteiten van de betrokken componenten. Bij \SI{298}{\kelvin} en met $\ln$ omgezet naar $\log_{10}$:
 \begin{equation}
-E = E^\circ - \frac{0{,}0592}{n} \log_{10} Q.
+E = E^\circ - \frac{0.0592}{n} \log_{10} Q.
 \label{eq:nernst-log10}
 \end{equation}
 De factor $\num{0.0592}~\mathrm{V}$ (nauwkeuriger: $RT\ln10/F=\SI{0.05916}{\volt}$ bij \SI{298.15}{\kelvin}) zal in \S~\ref{sec:pourbaix-waterlijnen} opnieuw verschijnen als de karakteristieke helling van de evenwichtslijnen in een Pourbaix-diagram.
@@ -185,7 +208,7 @@ De factor $\num{0.0592}~\mathrm{V}$ (nauwkeuriger: $RT\ln10/F=\SI{0.05916}{\volt
 \begin{voorbeeld}{Concentratiecel}
 Een concentratiecel bestaat uit twee identieke elektroden in oplossingen met verschillende concentraties. Beschouw twee $\mathrm{Cu/Cu^{2+}}$-elektroden met $c_1 = \SI{0.10}{\mole\per\litre}$ en $c_2 = \SI{1.0}{\mole\per\litre}$. De standaardcelpotentiaal is nul, maar de Nernstvergelijking levert:
 \[
-E = 0 - \frac{0{,}0592}{2}\log_{10}\frac{0{,}10}{1{,}0} = -\frac{0{,}0592}{2}(-1) = \SI{0.0296}{\volt}.
+E = 0 - \frac{0.0592}{2}\log_{10}\frac{0.10}{1.0} = -\frac{0.0592}{2}(-1) = \SI{0.0296}{\volt}.
 \]
 De cel levert een kleine spanning enkel dankzij het concentratieverschil. Dit principe wordt toegepast in concentratiecellen voor corrosie en in biologische membraanpotentialen.
 \end{voorbeeld}
@@ -203,9 +226,9 @@ Hiermee kan de evenwichtsconstante van een redoxreactie rechtstreeks uit de stan
 \begin{voorbeeld}{Evenwichtsconstante van een redoxreactie}
 Voor $\mathrm{Cu + 2\,Ag^+ \rightleftharpoons Cu^{2+} + 2\,Ag}$ geldt $E^\circ = \SI{0.46}{\volt}$ en $n = 2$ (\S~\ref{sec:standaardreductiepotentiaal}). De evenwichtsconstante bij \SI{298}{\kelvin} volgt uit:
 \[
-\ln K = \frac{n F E^\circ}{RT} = \frac{(2)(\SI{96485}{\coulomb\per\mole})(\SI{0.46}{\volt})}{(\SI{8.314}{\joule\per\mole\per\kelvin})(\SI{298}{\kelvin})} = 35{,}8,
+\ln K = \frac{n F E^\circ}{RT} = \frac{(2)(\SI{96485}{\coulomb\per\mole})(\SI{0.46}{\volt})}{(\SI{8.314}{\joule\per\mole\per\kelvin})(\SI{298}{\kelvin})} = 35.8,
 \]
-zodat $K \approx 3{,}6 \times 10^{15}$. De reactie verloopt vrijwel volledig naar rechts.
+zodat $K \approx 3.6 \times 10^{15}$. De reactie verloopt vrijwel volledig naar rechts.
 \end{voorbeeld}
 
 \subsubsection{Temperatuursafhankelijkheid van de celpotentiaal: $\Delta_rS^\circ$ en $\Delta_rH^\circ$ zonder calorimetrie}
@@ -259,6 +282,12 @@ E^\circ_{\text{min}} = \frac{\SI{474400}{\joule\per\mole}}{(4)(\SI{96485}{\coulo
 In de praktijk werken industri\"ele elektrolysers bij \SIrange{1.7}{2.2}{\volt}, hoofdzakelijk wegens overspanning aan de zuurstofelektrode. Het verschil tussen thermodynamische minimum en werkelijke celspanning bepaalt het energieverbruik en de effici\"entie van waterstofproductie.
 \end{voorbeeld}
 
+\paragraph{Omkeerbare en thermoneutrale spanning.} De \SI{1.23}{\volt} dekt enkel $\Delta_rG^\circ$. De reactie vraagt in totaal $\Delta_rH^\circ = \SI{571.6}{\kilo\joule}$ (per 2 mol H$_2$); het verschil $T\Delta_rS^\circ$ moet als warmte binnenkomen. Levert de stroom ook die warmte, dan is de nodige spanning
+\[
+U_\mathrm{tn} = \frac{\Delta_rH^\circ}{nF} = \frac{\SI{571600}{\joule\per\mole}}{(4)(\SI{96485}{\coulomb\per\mole})} = \SI{1.48}{\volt},
+\]
+de \emph{thermoneutrale spanning}. Onder \SI{1.48}{\volt} koelt een elektrolyser af, erboven warmt hij op en moet hij gekoeld worden. Met vergelijking~\eqref{eq:energie-per-kg} en $n=2$ per mol H$_2$ volgt het elektriciteitsverbruik per kilogram waterstof: \SI{32.7}{\kilo\watt\hour\per\kilogram} bij \SI{1.23}{\volt}, \SI{39.4}{\kilo\watt\hour\per\kilogram} bij \SI{1.48}{\volt} (precies de verbrandingswarmte, HHV) en ongeveer \SI{50}{\kilo\watt\hour\per\kilogram} bij een realistische \SI{1.9}{\volt}.
+
 \subsection{De galvanische cel en de batterij}
 
 Wanneer een spontane oxidatie- en reductiereactie ruimtelijk worden gescheiden in twee halfcellen, kan de vrijgekomen chemische energie worden omgezet in elektrische arbeid. De \emph{anode} is de elektrode waar oxidatie plaatsvindt (elektronen vertrekken); de \emph{kathode} is de elektrode waar reductie plaatsvindt (elektronen komen aan).
@@ -273,6 +302,14 @@ De loodaccu, nog steeds de standaardbatterij in automobielen, is gebaseerd op:
 Bij de ontlading is $E^\circ = \SI{2.04}{\volt}$; bij het laden wordt dezelfde spanning in omgekeerde richting aangelegd. Een typische autobatterij van zes cellen in serie levert \SI{12}{\volt}. Het grote voordeel van de loodaccu is dat de vaste reactieproducten ($\mathrm{PbSO_4}$) op de elektroden blijven zitten, zodat de cel kan worden herladen.
 \end{voorbeeld}
 
+\begin{voorbeeld}{Hoeveel energie past er in een kilogram batterij?}
+De theoretische specifieke energie volgt uit $nFE$ gedeeld door de massa van de reagentia. Voor de loodaccu is per formule-omzetting $n=2$ en de massa van Pb, PbO$_2$ en 2~H$_2$SO$_4$ samen \SI{642.6}{\gram}:
+\[
+\frac{(2)(\SI{96485}{\coulomb\per\mole})(\SI{2.04}{\volt})}{\SI{0.6426}{\kilogram\per\mole}} = \SI{6.1e5}{\joule\per\kilogram} = \SI{170}{\watt\hour\per\kilogram}.
+\]
+Voor een lithium-ioncel ($\mathrm{LiC_6 + CoO_2 \rightarrow C_6 + LiCoO_2}$, $n=1$, $E\approx\SI{3.7}{\volt}$, \SI{169.9}{\gram} reagentia) vind je op dezelfde manier \SI{580}{\watt\hour\per\kilogram}. Echte cellen halen ongeveer een kwart (lood: \SIrange{30}{40}{\watt\hour\per\kilogram}) tot de helft (Li-ion: \SIrange{150}{270}{\watt\hour\per\kilogram}) van de theorie, door behuizing, stroomcollectoren, elektrolyt en het feit dat niet alle actief materiaal mag reageren. De hoge spanning en de lichte elementen verklaren waarom lithium de elektrische auto mogelijk maakte: dezelfde lading levert bijna dubbel zoveel energie, en per elektron hoort er veel minder massa bij.
+\end{voorbeeld}
+
 \subsection{Brandstofcellen}
 
 Een \emph{brandstofcel} zet continu een externe brandstof (typisch waterstof) en een oxidator (typisch zuurstof) om in elektrische arbeid, zonder de brandstof eerst te moeten opslaan. De reactie in een PEM-brandstofcel (Proton Exchange Membrane) is:
@@ -280,6 +317,38 @@ Een \emph{brandstofcel} zet continu een externe brandstof (typisch waterstof) en
 \mathrm{2\,H_2(g) + O_2(g) \rightarrow 2\,H_2O(l)},
 \]
 met $\Delta_r G^\circ = \SI{-474.4}{\kilo\joule\per\mole}$ bij \SI{298}{\kelvin} (voor 2 mol $\mathrm{H_2}$) --- exact de omgekeerde reactie van de elektrolyse van water hierboven --- zodat $E^\circ = \SI{1.23}{\volt}$. In de praktijk wordt \SIrange{0.6}{0.8}{\volt} per cel gehaald wegens kinetische verliezen.
+
+\section{Elektrodekinetiek in het kort: waarom de spanning afwijkt}
+\label{sec:elektrodekinetiek}
+
+Thermodynamica geeft de spanning bij stroom nul. Zodra er stroom loopt, verliest een galvanische cel spanning en vraagt een elektrolyser extra spanning. Het verschil tussen de werkelijke elektrodepotentiaal en de evenwichtspotentiaal heet de \emph{overspanning} $\eta$. Ze heeft drie bronnen:
+\begin{itemize}
+\item \textbf{Activeringsoverspanning}: de elektronenoverdracht aan het oppervlak heeft een activeringsenergie, net als elke chemische reactie (hoofdstuk~\ref{ch:kinetiek}). Een deel van de spanning gaat op aan het verlagen van die barri\`ere.
+\item \textbf{Ohmse verliezen}: de elektrolyt, het membraan en de contacten hebben een weerstand; het spanningsverlies is $iR$.
+\item \textbf{Concentratie-overspanning}: bij hoge stroom raken de reagentia aan het oppervlak uitgeput; diffusie begrenst dan de stroom.
+\end{itemize}
+
+Voor de activeringsoverspanning geldt bij voldoende grote stroom een eenvoudig empirisch verband, de \emph{vergelijking van Tafel}:
+\begin{equation}
+\boxed{\;\eta = b\,\log_{10}\frac{i}{i_0}\;}
+\label{eq:tafel}
+\end{equation}
+Hierin is $i$ de stroomdichtheid (A/cm$^2$), $i_0$ de \emph{uitwisselingsstroomdichtheid} en $b$ de \emph{Tafelhelling}, typisch \SIrange{0.03}{0.12}{\volt} per decade. Tien keer meer stroom kost dus telkens een vaste extra spanning. De volledige theorie (de vergelijking van Butler--Volmer) beschrijft ook het gebied rond $\eta = 0$; voor deze cursus volstaat Tafel.
+
+De grootheid die het verschil maakt, is $i_0$: ze meet hoe snel de reactie heen en terug verloopt in evenwicht, en hangt sterk af van het elektrodemateriaal. Voor waterstofontwikkeling is $i_0$ op platina ongeveer \SI{e-3}{\ampere\per\centi\metre\squared}, op kwik ongeveer \SI{e-12}{\ampere\per\centi\metre\squared}. Een elektrokatalysator doet dus wat elke katalysator doet: hij verlaagt de activeringsenergie en verhoogt $i_0$, zonder de evenwichtspotentiaal te veranderen.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/elektrolyser_polarisatie}
+    \caption{Celspanning van een PEM-elektrolyser als functie van de stroomdichtheid, opgesplitst in de omkeerbare spanning en de drie verliezen (illustratieve parameters). De zuurstofelektrode is de grootste kinetische rem; bij hoge stroom wegen de ohmse verliezen door.}
+    \label{fig:elektrolyser-polarisatie}
+\end{figure}
+
+\begin{toepassing}{Rendement van elektrolysers en brandstofcellen}
+Een PEM-elektrolyser bij \SI{2}{\ampere\per\centi\metre\squared} werkt rond \SI{1.9}{\volt} (figuur~\ref{fig:elektrolyser-polarisatie}). Het rendement op basis van de verbrandingswarmte is dan $1.48/1.9 = \SI{78}{\percent}$. Een brandstofcel werkt omgekeerd: ze levert typisch \SI{0.7}{\volt} in plaats van \SI{1.23}{\volt}, een elektrisch rendement van $0.7/1.48 = \SI{47}{\percent}$ (HHV). Een waterstofketen elektriciteit $\rightarrow$ waterstof $\rightarrow$ elektriciteit verliest dus meer dan de helft van de energie. De ontwerper kiest telkens tussen een grote stroomdichtheid (kleine, goedkope stack) en een lage spanning (hoog rendement): \'e\'en Tafelregel bepaalt die afweging.
+\end{toepassing}
+
+Corrosie is ook een elektrodeproces, en daar komt dezelfde kinetiek terug (\S~\ref{sec:corrosiesnelheid}). Een uitgebreide behandeling van elektrodekinetiek volgt in latere vakken.
 
 \section{Corrosie en het Pourbaix-diagram}
 
@@ -300,18 +369,51 @@ E^\circ_{\text{cel}} = E^\circ_{\text{kathode}} - E^\circ_{\text{anode}} = \SI{1
 \]
 We passen de Nernstvergelijking~\eqref{eq:nernst} toe op typische omstandigheden: neutraal water (pH~7, dus $a_{\mathrm{H^+}}=10^{-7}$), lucht ($p_{\mathrm{O_2}}\approx\SI{0.21}{\bar}$) en een spoor opgelost $\mathrm{Fe^{2+}}$ ($a_{\mathrm{Fe^{2+}}}\approx10^{-6}$):
 \[
-Q = \frac{a_{\mathrm{Fe^{2+}}}^2}{p_{\mathrm{O_2}}\cdot a_{\mathrm{H^+}}^4} = \frac{(10^{-6})^2}{(0{,}21)(10^{-7})^4} \approx 4{,}8\times10^{16}.
+Q = \frac{a_{\mathrm{Fe^{2+}}}^2}{p_{\mathrm{O_2}}\cdot a_{\mathrm{H^+}}^4} = \frac{(10^{-6})^2}{(0.21)(10^{-7})^4} \approx 4.8\times10^{16}.
 \]
 \[
-E = E^\circ_{\text{cel}} - \frac{RT}{nF}\ln Q = \SI{1.67}{\volt} - \frac{(\SI{8.314}{})( \SI{298}{})}{(4)(\SI{96485}{})}\ln(4{,}8\times10^{16}) \approx \SI{1.42}{\volt}.
+E = E^\circ_{\text{cel}} - \frac{RT}{nF}\ln Q = \SI{1.67}{\volt} - \frac{(\SI{8.314}{})( \SI{298}{})}{(4)(\SI{96485}{})}\ln(4.8\times10^{16}) \approx \SI{1.42}{\volt}.
 \]
 Zelfs na deze correctie voor realistische, verdunde omstandigheden blijft $E$ sterk positief ($\Delta_rG=-nFE\approx\SI{-549}{\kilo\joule\per\mole}$): de corrosie van ijzer in beluchte neutrale omgevingen is dus, thermodynamisch gezien, sterk spontaan. Dit verklaart meteen waarom corrosiebescherming (verf, coatings, legeren, kathodische bescherming, \S~\ref{sec:sturen-stabiliteit}) in de praktijk onmisbaar is: de thermodynamica biedt geen enkele natuurlijke rem.
 \end{voorbeeld}
 
+\subsection{Hoe snel corrodeert een metaal?}
+\label{sec:corrosiesnelheid}
+
+De thermodynamica zegt \emph{of} een metaal corrodeert; de ingenieur wil weten \emph{hoeveel millimeter per jaar}. Omdat corrosie een elektrochemische reactie is, volgt de snelheid rechtstreeks uit de \emph{corrosiestroomdichtheid} $i_\mathrm{corr}$ en de wet van Faraday (vergelijking~\eqref{eq:faraday}). Delen door de dichtheid $\rho$ geeft de dikte die per tijdseenheid verdwijnt:
+\begin{equation}
+\boxed{\;v_\mathrm{corr} = \frac{i_\mathrm{corr}\,M}{nF\rho}\;}
+\label{eq:corrosiesnelheid}
+\end{equation}
+
+\begin{voorbeeld}{Van microampère naar millimeter per jaar}
+Voor staal ($M = \SI{55.85}{\gram\per\mole}$, $n=2$, $\rho = \SI{7.87}{\gram\per\centi\metre\cubed}$) en $i_\mathrm{corr} = \SI{1}{\micro\ampere\per\centi\metre\squared}$:
+\[
+v_\mathrm{corr} = \frac{(\SI{e-6}{\ampere\per\centi\metre\squared})(\SI{55.85}{\gram\per\mole})}{(2)(\SI{96485}{\coulomb\per\mole})(\SI{7.87}{\gram\per\centi\metre\cubed})} = \SI{3.7e-11}{\centi\metre\per\second} = \SI{0.012}{\milli\metre}/jaar.
+\]
+Een handige vuistregel: \SI{1}{\micro\ampere\per\centi\metre\squared} komt voor staal overeen met ongeveer \SI{12}{\micro\metre} per jaar. Onbeschermd staal in zeewater corrodeert met \SIrange{0.1}{0.2}{\milli\metre}/jaar, dus \SIrange{10}{20}{\micro\ampere\per\centi\metre\squared}. Daarom voorziet de ontwerper van een drukvat of leiding een \emph{corrosietoeslag}: typisch \SI{3}{\milli\metre} extra wanddikte voor twintig jaar dienst.
+\end{voorbeeld}
+
+Waar komt $i_\mathrm{corr}$ vandaan? Op een corroderend metaal lopen twee reacties tegelijk: de oxidatie van het metaal (anodisch) en de reductie van zuurstof of H$^+$ (kathodisch). Er loopt geen netto stroom naar buiten, dus beide stromen zijn even groot. Het metaal neemt vanzelf de potentiaal aan waar dat zo is: de \emph{corrosiepotentiaal} $E_\mathrm{corr}$. Een \emph{Evansdiagram} (figuur~\ref{fig:evans}) zet beide Tafellijnen uit tegen de logaritme van de stroom; hun snijpunt geeft $E_\mathrm{corr}$ en $i_\mathrm{corr}$.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/evans_diagram}
+    \caption{Evansdiagram van staal in belucht water (schematisch). Het snijpunt van de anodische en de kathodische lijn bepaalt de corrosiepotentiaal en de corrosiestroom. Hier wordt de kathodische stroom begrensd door de aanvoer van zuurstof.}
+    \label{fig:evans}
+\end{figure}
+
+Het Evansdiagram verklaart enkele vaststellingen uit de praktijk:
+\begin{itemize}
+\item In neutraal water is de aanvoer van opgeloste zuurstof meestal de traagste stap. Meer zuurstof, hogere temperatuur of sterkere stroming verschuift de diffusiegrens naar rechts en verhoogt $i_\mathrm{corr}$. Ontgassen van ketelvoedingswater (hoofdstuk~\ref{ch:niet-reagerend}) haalt precies die kathodische reactie weg.
+\item Twee verschillende metalen in contact vormen een \emph{galvanisch koppel}: het minst edele metaal wordt anode. De verhouding van de oppervlakken telt: een kleine anode tegenover een grote kathode concentreert de volledige kathodische stroom op een klein stuk metaal. Stalen klinknagels in een koperen plaat zijn dus een slecht idee, koperen klinknagels in een stalen plaat veel minder.
+\item Een opofferingsanode (zink, magnesium) of een uitwendige stroombron verschuift de potentiaal van het staal naar beneden, tot onder de evenwichtspotentiaal van ijzer: de anodische stroom van het staal valt weg (\S~\ref{sec:sturen-stabiliteit}).
+\end{itemize}
+
 \subsection{Het Pourbaix-diagram}
 \label{sec:pourbaix}
 
-Het \emph{Pourbaix-diagram} (potentiaal--pH-diagram) is een fasediagram voor elektrochemische systemen. Net zoals een klassiek fasediagram (hoofdstuk~\ref{ch:niet-reagerend}, \S~"Het fasediagram van een zuivere stof") de stabiele fase van een stof weergeeft als functie van temperatuur en druk, beschrijft een Pourbaix-diagram welke chemische vorm van een element stabiel is als functie van de elektrische potentiaal (verticale as) en de pH (horizontale as). Het vormt een krachtig hulpmiddel voor de selectie van constructiematerialen en het beheersen van corrosie.
+Het \emph{Pourbaix-diagram} (potentiaal--pH-diagram) is een fasediagram voor elektrochemische systemen. Net zoals een klassiek fasediagram (hoofdstuk~\ref{ch:niet-reagerend}, \S~\ref{sec:fasediagram}) de stabiele fase van een stof weergeeft als functie van temperatuur en druk, beschrijft een Pourbaix-diagram welke chemische vorm van een element stabiel is als functie van de elektrische potentiaal (verticale as) en de pH (horizontale as). Het vormt een krachtig hulpmiddel voor de selectie van constructiematerialen en het beheersen van corrosie.
 
 \subsubsection{Waarom potentiaal en pH?}
 
@@ -370,8 +472,8 @@ Met vergelijkingen~\eqref{eq:lijn-boven} en~\eqref{eq:lijn-onder}:
 \toprule
 pH & 0 & 7 (neutraal) & 14 \\
 \midrule
-$E_{\mathrm{O_2/H_2O}}$ (V) & $1{,}23$ & $0{,}82$ & $0{,}40$ \\
-$E_{\mathrm{H^+/H_2}}$ (V) & $0{,}00$ & $-0{,}41$ & $-0{,}83$ \\
+$E_{\mathrm{O_2/H_2O}}$ (V) & $1.23$ & $0.82$ & $0.40$ \\
+$E_{\mathrm{H^+/H_2}}$ (V) & $0.00$ & $-0.41$ & $-0.83$ \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -380,10 +482,56 @@ Beide lijnen dalen dus met exact dezelfde helling ($\SI{-0.0592}{\volt}$ per pH-
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Afbeeldingen/pourbaix_generiek_waterlijnen.png}
-    \caption{\emph{Placeholder --- toe te voegen figuur.} Generiek Pourbaix-diagram (potentiaal $E$ verticaal, pH horizontaal) met de drie gebieden (immuniteit onderaan, corrosie bij lage pH/hoge $E$, passiviteit bij hoge $E$/gematigde pH) schematisch aangeduid rond een centraal metaal-oxide-systeem, samen met de twee parallelle, dalende stabiliteitslijnen van water uit vergelijkingen~\eqref{eq:lijn-boven} en~\eqref{eq:lijn-onder} (helling $\SI{-0.0592}{\volt}$/pH, onderling \SI{1.23}{\volt} uit elkaar), met het tussenliggende stabiliteitsgebied van water gearceerd.}
+    \includegraphics[width=0.75\linewidth]{Figuren/pourbaix_water}
+    \caption{Het stabiliteitsgebied van water. Beide grenslijnen dalen met \SI{0.0592}{\volt} per pH-eenheid en liggen altijd \SI{1.23}{\volt} uit elkaar. In de volgende Pourbaix-diagrammen zijn ze als stippellijnen ingetekend.}
     \label{fig:pourbaix-generiek}
 \end{figure}
+
+\subsection{Zelf een Pourbaix-diagram opstellen: zink}
+\label{sec:pourbaix-zelf}
+
+Een Pourbaix-diagram is geen mysterie: het volgt volledig uit tabelwaarden van $\Delta_fG^\circ$ en de vergelijking van Nernst. We stellen het diagram van zink stap voor stap op.
+
+\paragraph{Stap 1: kies de soorten en zoek $\Delta_fG^\circ$.} We beperken ons tot de vier belangrijkste vormen van zink in water (waarden in kJ/mol bij \SI{298}{\kelvin}, uit de NBS-tabellen):
+\begin{center}
+\begin{tabular}{lcccc}
+\toprule
+soort & Zn(s) & Zn$^{2+}$(aq) & Zn(OH)$_2$(s) & ZnO$_2^{2-}$(aq) \\
+$\Delta_fG^\circ$ & 0 & $-147.1$ & $-553.5$ & $-384.2$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Daarnaast is $\Delta_fG^\circ(\mathrm{H_2O,l}) = \SI{-237.1}{\kilo\joule\per\mole}$ en $\Delta_fG^\circ(\mathrm{H^+}) = 0$.
+
+\paragraph{Stap 2: kies de activiteit van de opgeloste ionen.} Bij corrosie stelt men de grens meestal bij $a = 10^{-6}$: lost er minder dan dat op, dan noemt men het metaal praktisch niet aangetast.
+
+\paragraph{Stap 3: schrijf elke grensreactie en pas Nernst toe.} Elke grens is een evenwicht tussen twee soorten. Er zijn drie types.
+
+\emph{Horizontale lijn, enkel elektronen.} $\mathrm{Zn^{2+} + 2\,e^- \rightleftharpoons Zn}$ met $E^\circ = \Delta_fG^\circ(\mathrm{Zn^{2+}})/2F = \SI{-0.762}{\volt}$:
+\[
+E = -0.762 + \frac{0.0592}{2}\log a_{\mathrm{Zn^{2+}}} = -0.762 - 0.178 = \SI{-0.94}{\volt}.
+\]
+
+\emph{Verticale lijn, enkel H$^+$.} $\mathrm{Zn(OH)_2 + 2\,H^+ \rightleftharpoons Zn^{2+} + 2\,H_2O}$ heeft $\Delta_rG^\circ = -147.1 + 2(-237.1) - (-553.5) = \SI{-67.8}{\kilo\joule\per\mole}$, dus $\log K = 67\,800/(2.303\,RT) = 11.9$. Met $K = a_{\mathrm{Zn^{2+}}}/a_{\mathrm{H^+}}^2$ volgt $\log a_{\mathrm{Zn^{2+}}} = 11.9 - 2\,\mathrm{pH}$, en de grens $a = 10^{-6}$ ligt bij pH~8.9. Op dezelfde manier ligt de grens Zn(OH)$_2$/ZnO$_2^{2-}$ bij pH~11.8.
+
+\emph{Schuine lijn, elektronen en H$^+$.} $\mathrm{Zn(OH)_2 + 2\,H^+ + 2\,e^- \rightleftharpoons Zn + 2\,H_2O}$ heeft $\Delta_rG^\circ = 2(-237.1) - (-553.5) = \SI{79.2}{\kilo\joule\per\mole}$, dus $E^\circ = -79\,200/2F = \SI{-0.41}{\volt}$ en
+\[
+E = -0.41 - 0.0592\,\mathrm{pH}.
+\]
+Per H$^+$ per elektron daalt de lijn met \SI{0.0592}{\volt} per pH-eenheid, net als de waterlijnen.
+
+\paragraph{Stap 4: teken en controleer.} De lijnen snijden elkaar; van elke lijn houd je enkel het stuk waar beide soorten ook echt de stabielste zijn. Figuur~\ref{fig:pourbaix-zink} toont het resultaat. Een rekenblad kan hetzelfde zonder lijnen te zoeken: bereken voor elk punt $(E, \mathrm{pH})$ de Gibbsenergie van elke soort ten opzichte van het metaal en kleur het punt volgens de laagste waarde. Zo zijn alle diagrammen in dit hoofdstuk berekend.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/pourbaix_zink}
+    \caption{Pourbaix-diagram van zink bij \SI{25}{\celsius} en ionactiviteit $10^{-6}$ (berekend uit NBS-gegevens). Rood: corrosie, blauw: passief, groen: immuun. Stippellijnen: stabiliteitsgebied van water.}
+    \label{fig:pourbaix-zink}
+\end{figure}
+
+\begin{toepassing}{Waarom verzinkt staal zo goed werkt}
+Zink is \emph{amfoteer}: het lost op in zuur (Zn$^{2+}$) en in sterke base (ZnO$_2^{2-}$), maar tussen pH~9 en~12 vormt het een beschermende hydroxide- en carbonaatlaag. In regenwater en de meeste natuurlijke milieus ligt de pH daar niet ver vandaan, zodat een zinklaag maar traag verdwijnt (enkele \si{\micro\metre} per jaar). Raakt de laag beschadigd, dan wordt het blootgestelde staal kathodisch beschermd: zink ligt in het diagram veel lager dan ijzer en offert zich op. Daarom is verzinken (thermisch of galvanisch) de goedkoopste duurzame bescherming voor vangrails, bouwstaal en elektriciteitsmasten. In beton (pH~13) of in contact met kalk werkt zink veel minder goed, wat het diagram ook toont.
+\end{toepassing}
 
 \subsection{Het Pourbaix-diagram van ijzer}
 \label{sec:pourbaix-ijzer}
@@ -391,19 +539,20 @@ Beide lijnen dalen dus met exact dezelfde helling ($\SI{-0.0592}{\volt}$ per pH-
 IJzer behoort tot de meest gebruikte constructiematerialen in de chemische procesindustrie. Het Pourbaix-diagram van ijzer toont drie hoofdgebieden:
 
 \begin{itemize}
-\item Bij lage potentialen: immuniteit (metaal Fe stabiel).
-\item Bij midden-hoge potentialen en lage pH: corrosie (opgelost $\mathrm{Fe^{2+}}$ of $\mathrm{Fe^{3+}}$).
-\item Bij hoge potentialen en gemiddelde pH: passiviteit (vast $\mathrm{Fe_2O_3}$ of $\mathrm{FeOOH}$).
+\item Bij lage potentialen: immuniteit (metaal Fe stabiel), onder ongeveer \SI{-0.6}{\volt}.
+\item Bij lage pH: corrosie, als opgelost $\mathrm{Fe^{2+}}$ of, bij hoge potentiaal, $\mathrm{Fe^{3+}}$.
+\item Bij neutrale tot basische pH: passiviteit door de vaste oxiden magnetiet ($\mathrm{Fe_3O_4}$) en hematiet ($\mathrm{Fe_2O_3}$).
 \end{itemize}
+Een belangrijke vaststelling: de immuniteitsgrens van ijzer ligt bij elke pH \emph{onder} de onderste waterlijn. IJzer is dus nergens stabiel in contact met water. In zuur water (lage pH, lage potentiaal) corrodeert het zelfs zonder zuurstof, met H$^+$ als oxidator en waterstofgas als product.
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=0.7\linewidth]{Afbeeldingen/pourbaix_ijzer.png}
-    \caption{\emph{Placeholder --- toe te voegen figuur.} Het Pourbaix-diagram van ijzer: immuniteitsgebied (Fe) onderaan, geflankeerd door corrosiegebieden ($\mathrm{Fe^{2+}}$ bij lage pH, $\mathrm{Fe^{3+}}$ bij lage pH en hoge $E$) en een centraal passiviteitsgebied (vaste oxiden $\mathrm{Fe_2O_3}$/$\mathrm{FeOOH}$) bij gematigde tot hoge pH. Overlay de twee stabiliteitslijnen van water uit figuur~\ref{fig:pourbaix-generiek} om te tonen dat het corrosiegebied van ijzer bij neutrale pH grotendeels binnen het stabiliteitsgebied van water valt --- consistent met het cijfervoorbeeld in \S~\ref{sec:corrosie}.}
+    \includegraphics[width=0.75\linewidth]{Figuren/pourbaix_ijzer}
+    \caption{Pourbaix-diagram van ijzer bij \SI{25}{\celsius} en ionactiviteit $10^{-6}$ (berekend uit NBS-gegevens; Fe(OH)$_2$ en FeOOH zijn weggelaten). Bij neutrale pH en beluchting (bovenaan het watergebied) ligt ijzer in het gebied van Fe$_2$O$_3$; zonder lucht (onderaan) in dat van Fe$^{2+}$ of Fe$_3$O$_4$.}
     \label{fig:pourbaix-ijzer}
 \end{figure}
 
-IJzeroxiden zijn echter poreus en weinig hechtend, zodat de bescherming onvolledig is. Daarom wordt staal gecoat, geverfd of gelegeerd met chroom (roestvast staal), dat een veel compactere oxidefilm vormt.
+Het diagram voorspelt dat ijzer in belucht neutraal water passief zou zijn. Toch roest een stalen balk. IJzeroxiden zijn echter poreus en weinig hechtend, zodat de bescherming onvolledig is; bovendien verschuiven chloride-ionen de grenzen in het nadeel van de passieve laag. Daarom wordt staal gecoat, geverfd of gelegeerd met chroom (roestvast staal), dat een veel compactere oxidefilm vormt.
 
 \section{Materiaalkeuze en corrosiebeheersing}
 
@@ -412,7 +561,18 @@ IJzeroxiden zijn echter poreus en weinig hechtend, zodat de bescherming onvolled
 Een weloverwogen materiaalkeuze vereist steeds de combinatie van thermodynamische en kinetische inzichten. Het Pourbaix-diagram voorspelt welk gebied stabiel is, maar niet hoe snel de overgang verloopt.
 
 \begin{voorbeeld}{Aluminium: thermodynamisch reactief, praktisch inert}
-Aluminium bezit een sterk negatieve standaardpotentiaal ($E^\circ = \SI{-1.66}{\volt}$, tabel~\ref{tab:reductiepotentialen}), wat erop wijst dat oxidatie thermodynamisch zeer gunstig is. Toch behoort aluminium tot de meest corrosiebestendige constructiematerialen. De verklaring ligt in de vorming van een uiterst dunne, compacte en sterk hechtende laag aluminiumoxide, die het onderliggende metaal afschermt van de omgeving. Binnen een groot gebied van het Pourbaix-diagram bevindt aluminium zich in passiviteit.
+Aluminium bezit een sterk negatieve standaardpotentiaal ($E^\circ = \SI{-1.66}{\volt}$, tabel~\ref{tab:reductiepotentialen}), wat erop wijst dat oxidatie thermodynamisch zeer gunstig is. Toch behoort aluminium tot de meest corrosiebestendige constructiematerialen. De verklaring ligt in de vorming van een uiterst dunne, compacte en sterk hechtende laag aluminiumoxide, die het onderliggende metaal afschermt van de omgeving. Figuur~\ref{fig:pourbaix-al-cu} toont dat aluminium enkel passief is tussen pH~4.5 en~9. Daarbuiten lost het oxide op: in zuur als Al$^{3+}$, in base als aluminaat Al(OH)$_4^-$. Daarom mag een aluminium pan niet in de vaatwasmachine met een sterk alkalisch vaatwasmiddel, en ontkalkt men aluminium niet met sterk zuur.
+\end{voorbeeld}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/pourbaix_al_cu}
+    \caption{Pourbaix-diagrammen van aluminium (links) en koper (rechts) bij \SI{25}{\celsius} en ionactiviteit $10^{-6}$ (berekend uit NBS-gegevens). Let op de verschillende schaal van de potentiaalas.}
+    \label{fig:pourbaix-al-cu}
+\end{figure}
+
+\begin{voorbeeld}{Koper: een edel metaal in zuur zonder lucht}
+Bij koper ligt het immuniteitsgebied grotendeels \emph{boven} de onderste waterlijn (figuur~\ref{fig:pourbaix-al-cu}). In zuur water zonder opgeloste zuurstof is H$^+$ dus niet sterk genoeg om koper te oxideren: koper lost niet op in verdund zoutzuur, zink en ijzer wel. Met lucht erbij verschuift de potentiaal naar boven en komt koper in het Cu$^{2+}$-gebied terecht; daarom corrodeert koper wel in belucht zuur. Bij neutrale pH vormt koper een laagje Cu$_2$O en, buiten, op termijn het groene patina. Koperen waterleidingen gaan zo decennia mee, tenzij het water zuur en zuurstofrijk is.
 \end{voorbeeld}
 
 \begin{voorbeeld}{Roestvast staal}
@@ -439,15 +599,35 @@ Aardgasleidingen en opslagtanks worden vaak kathodisch beschermd door een kleine
 
 Een Pourbaix-diagram voorspelt uitsluitend welke toestand thermodynamisch stabiel is. Het geeft geen informatie over de snelheid waarmee een overgang tussen twee toestanden verloopt. Deze beperking is fundamenteel, en volledig analoog aan het onderscheid tussen thermodynamica en kinetiek dat reeds in hoofdstuk~\ref{ch:spontaniteit} (bij de omzetting van diamant naar grafiet) en hoofdstuk~\ref{ch:reagerend} (bij de ammoniaksynthese) werd benadrukt: thermodynamica bepaalt of een reactie mogelijk is; de kinetiek bepaalt hoe snel zij verloopt. Een metaal kan zich in het corrosiegebied bevinden zonder dat in de praktijk een merkbare aantasting optreedt (kinetisch vertraagd), of omgekeerd kan een metaal in het passiviteitsgebied toch corroderen wanneer de beschermende oxidefilm lokaal wordt beschadigd.
 
-\section{Elektrochemie in de energietransitie}
+\section{Samenvatting en reflectie}
 
-Dit hoofdstuk sluit af met een actueel thema: de energietransitie. Batterijen, brandstofcellen en elektrolysers zijn geen afzonderlijke technologie\"en, maar verschillende verschijningsvormen van dezelfde elektrochemische thermodynamica. Of het nu gaat om het ontwerpen van een corrosiebestendige reactor, het selecteren van een constructiemateriaal, het ontwikkelen van een batterij of het produceren van groene waterstof via elektrolyse --- telkens vormen de Gibbs-vrije energie, het chemisch evenwicht en de celpotentiaal de fundamentele grootheden waarop het gedrag van het systeem berust.
+Batterijen, brandstofcellen, elektrolysers en corrosie lijken verschillende werelden, maar ze steunen op dezelfde thermodynamica: $\Delta_rG = -nFE$ verbindt de spanning met de Gibbsenergie van hoofdstuk~\ref{ch:spontaniteit} en het evenwicht van hoofdstuk~\ref{ch:reagerend}. Of je nu groene waterstof produceert, een batterij kiest of een leiding beschermt, je stelt telkens dezelfde vragen: welke spanning laat de thermodynamica toe, hoeveel lading is nodig (Faraday), en hoeveel gaat verloren aan kinetiek? In het volgende hoofdstuk kijken we naar wat er aan oppervlakken gebeurt, waar ook de elektrodereacties plaatsvinden.
 
-Juist dit vermogen om verschillende toepassingen vanuit \'e\'en gemeenschappelijk thermodynamisch kader te begrijpen, vormt \'e\'en van de belangrijkste inzichten voor de chemisch ingenieur.
+\begin{samenvatting}{Elektrochemische thermodynamica}
+\begin{itemize}
+\item De maximale niet-expansiearbeid is $-\Delta G$; in een cel wordt die elektrische arbeid: $\Delta_rG = -nFE$ en $\Delta_rG^\circ = -nFE^\circ = -RT\ln K$.
+\item $E^\circ_\mathrm{cel} = E^\circ_\mathrm{kathode} - E^\circ_\mathrm{anode}$, met reductiepotentialen ten opzichte van de SHE.
+\item Nernst: $E = E^\circ - (RT/nF)\ln Q$; bij \SI{298}{\kelvin} \SI{0.0592}{\volt}/$n$ per decade.
+\item $(\partial E^\circ/\partial T)_p$ geeft $\Delta_rS^\circ$, en daarmee $\Delta_rH^\circ$, zonder calorimetrie.
+\item Faraday: $m = ItM/nF$; energie per kg product $nFU/(M\eta_F)$. Water splitsen vraagt minstens \SI{1.23}{\volt} (omkeerbaar) en \SI{1.48}{\volt} zonder warmtetoevoer (thermoneutraal).
+\item Overspanning (activering, ohmse verliezen, diffusie) maakt een elektrolyser duurder en een batterij zwakker. Tafel: $\eta = b\log(i/i_0)$; een katalysator verhoogt $i_0$.
+\item Corrosie is een galvanische cel op \'e\'en metaal. De snelheid volgt uit $i_\mathrm{corr}$ via Faraday: \SI{1}{\micro\ampere\per\centi\metre\squared} $\approx$ \SI{12}{\micro\metre} staal per jaar.
+\item Een Pourbaix-diagram toont de stabielste vorm als functie van $E$ en pH: immuniteit, corrosie, passiviteit. Het volgt volledig uit $\Delta_fG^\circ$ en Nernst, maar zegt niets over snelheid.
+\end{itemize}
+\end{samenvatting}
 
-\begin{besluit}{\'E\'en samenhangende thermodynamica}
-Corrosie, batterijen, brandstofcellen en elektrolyse lijken totaal verschillende toepassingen. Toch steunen zij allemaal op precies dezelfde thermodynamische principes die doorheen deze cursus zijn opgebouwd: de eerste hoofdwet en de enthalpie (hoofdstuk~\ref{ch:eerstehoofdwet}), de kwantummechanische oorsprong van chemische energie (hoofdstuk~\ref{ch:kwantum}), de Gibbs-vrije energie en entropie als spontaniteitscriterium (hoofdstuk~\ref{ch:spontaniteit}), en het chemisch evenwicht (hoofdstukken~\ref{ch:niet-reagerend} en~\ref{ch:reagerend}). Het uitgangspunt van dit hoofdstuk was de relatie $\Delta_r G = -nFE$, zelf een rechtstreeks gevolg van de Clausius-ongelijkheid (\S~\ref{sec:afleiding-wmax}). Deze eenvoudige vergelijking vormt de brug tussen de chemische thermodynamica en de elektrochemie. De standaardcelpotentiaal blijkt rechtstreeks verbonden met de evenwichtsconstante, haar temperatuursafhankelijkheid levert $\Delta_rS^\circ$ en $\Delta_rH^\circ$ zonder calorimetrie, de Nernstvergelijking beschrijft de invloed van de samenstelling, en het Pourbaix-diagram --- met evenwichtslijnen die rechtstreeks uit diezelfde Nernstvergelijking volgen --- vertaalt deze principes naar een praktisch instrument voor materiaalkeuze en corrosiecontrole. Daarmee vormt de elektrochemie geen afzonderlijke discipline, maar een directe toepassing van de thermodynamica die in de vorige hoofdstukken werd opgebouwd.
-\end{besluit}
+\begin{reflectie}{Elektrochemische thermodynamica}
+\begin{enumerate}
+\item Waarom kan een brandstofcel in principe een hoger rendement halen dan een verbrandingsmotor die dezelfde waterstof verbrandt?
+\item Een batterij van \SI{1.5}{\volt} en een van \SI{3.7}{\volt} leveren dezelfde lading. Welke levert meer energie, en waarom?
+\item Waarom stijgt het elektriciteitsverbruik van een elektrolyser als je hem harder laat werken (meer kilogram per uur)?
+\item Hoe kan een elektrolyser warmte uit de omgeving opnemen? Onder welke spanning gebeurt dat?
+\item Waarom is het ontgassen van ketelvoedingswater een corrosiebeschermingsmaatregel?
+\item Waarom is een kleine stalen bout in een grote koperen plaat gevaarlijker dan het omgekeerde?
+\item Aluminium heeft een veel negatievere standaardpotentiaal dan ijzer. Waarom roest een aluminium fietskader dan niet weg?
+\item Een Pourbaix-diagram voorspelt dat ijzer in belucht neutraal water passief is. Waarom roest het toch?
+\end{enumerate}
+\end{reflectie}
 
 \newpage
 \section{Oefeningen}
