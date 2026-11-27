@@ -13,3 +13,4 @@ Onderwerpen_H2.md                 : lijst van alle onderwerpen uit die versie en
 H3 (Spontaniteit.tex):
 Spontaniteit_2026-11-27.tex       : versie van 27/11 voor de herwerking rond de warmtepomp
 Onderwerpen_H3.md                 : lijst van alle onderwerpen uit die versie en waar ze in de nieuwe tekst staan
+- Kwantum_2026-11-27b_voor_feedback.tex: H2 zoals online op 27/11, voor de verwerking van Stijns eerste leesfeedback (secties 2.2 tot 2.5 daarna uitgebreid).

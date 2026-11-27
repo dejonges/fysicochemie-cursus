@@ -33,16 +33,38 @@ Net als in hoofdstuk~\ref{ch:energie} start elke sectie met een concreet problee
 \label{sec:licht-pakketjes}
 
 \begin{casus}{zon en aarde}
-De zon straalt vooral zichtbaar licht uit, de aarde vooral infrarood. Waarom hebben beide een andere ``kleur''? En wat betekent dat voor wat straling met een molecule kan doen: kan het een binding breken, of enkel opwarmen?
+De zon straalt vooral zichtbaar licht uit, de aarde vooral infrarood. We zoeken in deze sectie drie dingen:
+\begin{enumerate}
+\item bij welke golflengte de zon en de aarde het meest uitstralen, en waarom die zo verschillen;
+\item hoeveel energie één foton van elk soort straling draagt, vergeleken met de energie van een chemische binding;
+\item hoe warm de aarde zou zijn als haar atmosfeer geen infrarood tegenhield.
+\end{enumerate}
+\emph{Gegevens.} Het oppervlak van de zon is ongeveer \SI{5800}{\kelvin}, het aardoppervlak gemiddeld \SI{15}{\celsius} (\SI{288}{\kelvin}). Bij de aarde levert de zon \SI{1361}{\watt\per\metre\squared} op een vlak loodrecht op de stralen (de \emph{zonneconstante} $S$). De aarde weerkaatst \SI{30}{\percent} van dat licht. Een C--C-binding heeft een bindingsenergie van \SI{348}{\kilo\joule\per\mole}.
 
-\emph{Schat eerst zelf:} heeft een foton zichtbaar licht meer of minder energie dan een foton infrarood? Ligt die energie in de buurt van een bindingsenergie, zoals \SI{348}{\kilo\joule\per\mole} voor een C--C-binding?
+\emph{Schat eerst zelf:} heeft een foton zichtbaar licht meer of minder energie dan een foton infrarood? Kan zonlicht een binding breken? En zou de aarde zonder broeikasgassen warmer of kouder zijn dan nu, en ongeveer hoeveel?
 \end{casus}
 
-Rond 1900 leek de natuurkunde bijna af, maar enkele waarnemingen bleven onverklaarbaar. Volgens de klassieke fysica kan een atoom zelfs niet stabiel zijn: een elektron dat rond een kern draait, is een versnelde lading en zou binnen een fractie van een seconde al stralend in de kern storten. Drie experimenten toonden waar het misliep: de straling van een gloeiend voorwerp, het foto-elektrisch effect en de lijnenspectra van atomen. De klassieke fysica is daarmee niet fout, maar ze is een benadering die enkel voor grote voorwerpen geldt.
+Rond 1900 leek de natuurkunde bijna af. De wetten van Newton, de thermodynamica en de elektromagnetische theorie van Maxwell verklaarden een enorm gebied aan verschijnselen. Toch bleven enkele waarnemingen onverklaarbaar. Volgens de klassieke fysica kan een atoom zelfs niet stabiel zijn: een elektron dat rond een kern draait, is een versnelde lading, zendt dus straling uit, verliest energie en zou binnen een fractie van een seconde al spiralerend in de kern storten. Drie experimenten toonden waar het misliep: de straling van een gloeiend voorwerp, het foto-elektrisch effect en de lijnenspectra van atomen. We bekijken ze een voor een. De klassieke fysica blijkt daarbij niet fout, maar een benadering die enkel voor grote voorwerpen geldt.
 
 \subsection{Energie als discrete grootheid}
 
-Een metalen staaf die je verwarmt, gloeit eerst donkerrood, dan oranje, geel en bijna wit. Een ideaal voorwerp dat alle straling absorbeert en weer uitzendt, heet een \emph{zwart lichaam}. Volgens de klassieke theorie zou elke trillingsmodus van het stralingsveld gemiddeld dezelfde energie krijgen. Omdat het aantal modi sterk stijgt met de frequentie, voorspelde die theorie een oneindige uitgestraalde energie, vooral in het ultraviolet: de \emph{ultravioletcatastrofe} (figuur~\ref{fig:UVcatastrophe}). In werkelijkheid daalt de intensiteit bij hoge frequenties sterk.
+\paragraph{Het probleem: de kleur van een gloeiend voorwerp.}
+Een metalen staaf die je verwarmt, gloeit eerst donkerrood, dan oranje, geel en uiteindelijk bijna wit. De kleur van het uitgezonden licht hangt dus rechtstreeks af van de temperatuur. Om dat te begrijpen, bestudeerden natuurkundigen een geïdealiseerd voorwerp dat alle invallende straling absorbeert en ze bij zijn eigen temperatuur weer uitzendt: een \emph{zwart lichaam}. In het labo maak je er een met een holle oven met een klein gaatje in de wand (figuur~\ref{fig:trillingsmodi}a). Licht dat door het gaatje binnenvalt, weerkaatst zo vaak op de wanden dat het nooit meer buitenkomt; wat uit het gaatje straalt, is zuiver de warmtestraling van de wanden. Het spectrum van die straling kon men rond 1900 zeer nauwkeurig meten. Het werd de toetssteen voor elke theorie.
+
+\paragraph{Wat is een trillingsmodus?}
+In de holte vormt het elektromagnetische veld golven die heen en weer weerkaatsen tussen de wanden. Een golf kan daar niet om het even hoe trillen. Net als een gitaarsnaar die aan beide uiteinden vastzit, moet de golf aan een geleidende wand nul zijn. Er passen dus enkel \emph{staande golven} met een geheel aantal halve golflengten tussen de wanden: $L = n\lambda/2$, met $n = 1, 2, 3, \ldots$ Elk zo'n toegelaten trillingspatroon heet een \emph{trillingsmodus} van het stralingsveld. Een modus is dus geen deeltje en geen atoom, maar een manier waarop het veld in de holte kan trillen, met een eigen golflengte en frequentie.
+
+Hoe korter de golflengte, hoe meer manieren er zijn om een staande golf in de holte te passen. Op een snaar zie je dat al: tussen golflengte $2L$ en $L$ ligt één modus, maar tussen $2L/10$ en $L/10$ liggen er tien. In drie dimensies kan de golf bovendien in alle richtingen staan, en stijgt het aantal modi per frequentie-interval met $\nu^2$. Er zijn dus veel meer modi bij hoge dan bij lage frequenties.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.95\linewidth]{Figuren/trillingsmodi}
+    \caption{(a) Een zwart lichaam als holte met een gaatje. Tussen de wanden passen enkel staande golven met een geheel aantal halve golflengten: de trillingsmodi. (b) De gemiddelde energie per modus. Klassiek krijgt elke modus $kT$; volgens Planck daalt die energie sterk zodra $h\nu$ groter wordt dan $kT$.}
+    \label{fig:trillingsmodi}
+\end{figure}
+
+\paragraph{De ultravioletcatastrofe.}
+De klassieke statistische fysica kent aan elke trillingsmodus gemiddeld dezelfde energie $kT$ toe, net zoals ze dat doet voor elke vrijheidsgraad van een gasmolecule (de \emph{equipartitiestelling}). Het uitgestraalde vermogen bij een frequentie is dan evenredig met het aantal modi maal $kT$, dus met $\nu^2 kT$. Dat is de wet van Rayleigh en Jeans. Ze werkt goed bij lange golflengten, maar bij hoge frequenties stijgt ze zonder grens. Tel je alle modi op, dan zou een warm voorwerp een \emph{oneindige} hoeveelheid energie uitstralen, vooral in het ultraviolet. Dit werd de \emph{ultravioletcatastrofe} genoemd (figuur~\ref{fig:UVcatastrophe}). De metingen tonen het tegendeel: na een maximum daalt de intensiteit bij hoge frequenties sterk.
 
 \begin{figure}[htb]
     \centering
@@ -51,25 +73,55 @@ Een metalen staaf die je verwarmt, gloeit eerst donkerrood, dan oranje, geel en 
     \label{fig:UVcatastrophe}
 \end{figure}
 
-Max Planck loste dit in 1900 op met een gedurfde hypothese: energie wordt enkel uitgewisseld in ondeelbare pakketjes, \emph{kwanta}, met grootte
+\paragraph{De oplossing van Planck.}
+Max Planck loste dit in 1900 op met een gedurfde hypothese: een trillingsmodus met frequentie $\nu$ kan geen willekeurige hoeveelheid energie bevatten, maar enkel een geheel aantal ondeelbare pakketjes, \emph{kwanta}, van grootte
 \begin{equation}
 \boxed{
 E=h\nu=h\frac{c}{\lambda}
 }
 \end{equation}
-met $h=\SI{6.626e-34}{\joule\second}$ de constante van Planck, $\nu$ de frequentie en $\lambda$ de golflengte. Bij hoge frequentie is één kwantum zo groot dat de trillende deeltjes het zelden kunnen leveren, waardoor de uitstraling daar vanzelf wegvalt. Op macroscopische schaal zijn de kwanta zo klein dat energie continu \emph{lijkt}; op atomaire schaal bepalen ze het gedrag van materie.
+met $h=\SI{6.626e-34}{\joule\second}$ de constante van Planck, $\nu$ de frequentie, $\lambda$ de golflengte en $c$ de lichtsnelheid. Een modus bevat dus $0$, $h\nu$, $2h\nu$, \ldots, maar nooit $0.4\,h\nu$.
 
-De wet van Planck beschrijft de straling van elk warm voorwerp, en twee eenvoudige gevolgen ervan gebruik je voortdurend. De golflengte waarbij het meeste licht wordt uitgestraald, schuift naar kortere golflengten naarmate het voorwerp warmer is (\emph{verschuivingswet van Wien}):
+Waarom lost dat het probleem op? Bij temperatuur $T$ is de typische thermische energie die beschikbaar is van de orde $kT$. Voor een modus met lage frequentie is $h\nu \ll kT$: de pakketjes zijn klein, de energie lijkt continu, en de modus krijgt zoals klassiek ongeveer $kT$. Voor een modus met hoge frequentie is $h\nu \gg kT$: zelfs één pakketje is al te groot om met de beschikbare thermische energie te leveren, en de modus blijft meestal leeg. Planck vond dat de gemiddelde energie per modus gelijk is aan $h\nu/(e^{h\nu/kT}-1)$ (figuur~\ref{fig:trillingsmodi}b). Die uitdrukking volgt uit de Boltzmannverdeling, die we in \S\ref{sec:kwantum-thermo} uitwerken. Vermenigvuldig je ze met het aantal modi, dan krijg je het uitgestraalde vermogen per oppervlakte en per golflengte-interval, de \emph{wet van Planck}:
+\begin{equation}
+M_\lambda(T) = \frac{2\pi h c^2}{\lambda^5}\,\frac{1}{e^{hc/(\lambda k T)}-1}.
+\label{eq:planck}
+\end{equation}
+Die formule beschrijft het gemeten spectrum bij elke temperatuur. Planck zag zijn kwanta aanvankelijk als een rekentruc, maar ze bleken een fundamentele eigenschap van de natuur. Op macroscopische schaal zijn de kwanta zo klein dat energie continu \emph{lijkt}; op atomaire schaal bepalen ze het gedrag van materie.
+
+\paragraph{Twee gevolgen: de wetten van Wien en van Stefan--Boltzmann.}
+Wat betekent de wet van Planck voor de gloeiende staaf? Figuur~\ref{fig:gloeiende-staaf}a toont het spectrum bij \SI{1000}{}, \SI{1250}{} en \SI{1500}{\kelvin}. Twee zaken vallen op, en elk ervan is een wet die je in de techniek voortdurend gebruikt.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/gloeiende_staaf}
+    \caption{(a) Straling van een gloeiende staaf volgens de wet van Planck. Het maximum schuift naar kortere golflengten als de temperatuur stijgt (wet van Wien, stippellijn), en het oppervlak onder de kromme, het totale vermogen, stijgt met $T^4$ (wet van Stefan--Boltzmann). Bijna alle straling is onzichtbaar infrarood. (b) Het zichtbare deel, relatief ten opzichte van rood licht. Bij \SI{1000}{\kelvin} is blauw honderdduizend keer zwakker dan rood: de staaf gloeit donkerrood. Bij hogere temperatuur wordt het spectrum in het zichtbare vlakker en het licht witter.}
+    \label{fig:gloeiende-staaf}
+\end{figure}
+
+Ten eerste schuift het maximum naar kortere golflengten naarmate het voorwerp warmer is. Zoek je het maximum van~\eqref{eq:planck} door de afgeleide naar $\lambda$ nul te stellen, dan vind je dat het product van de golflengte van het maximum en de temperatuur een constante is, de \emph{verschuivingswet van Wien}:
 \begin{equation}
 \lambda_{\max}\,T = \SI{2898}{\micro\metre\kelvin}.
 \label{eq:wien}
 \end{equation}
-Het totale uitgestraalde vermogen per oppervlakte stijgt met de vierde macht van de temperatuur (\emph{wet van Stefan--Boltzmann}):
+De betekenis is eenvoudig: \emph{de kleur van de straling is een thermometer}. Voor de staaf bij \SI{1000}{\kelvin} ligt het maximum bij \SI{2.9}{\micro\metre}, ver in het infrarood. Slechts een miljoenste van de straling valt in het zichtbare gebied, en dat is het uiterste rode staartje van het spectrum: de staaf gloeit donkerrood, maar vooral voel je zijn warmte. Wordt de staaf warmer, dan schuift de hele kromme naar links, en komt er naast rood steeds meer oranje, geel en blauw licht bij (figuur~\ref{fig:gloeiende-staaf}b). Bij ongeveer \SI{2800}{\kelvin}, de gloeidraad van een klassieke gloeilamp, is het licht bijna wit, maar ligt het maximum nog steeds in het infrarood (\SI{1.0}{\micro\metre}): slechts ongeveer \SI{8}{\percent} van het vermogen is zichtbaar licht. Daarom zijn gloeilampen vervangen door ledlampen.
+
+Ten tweede wordt het oppervlak onder de kromme veel groter. Dat oppervlak is het totale uitgestraalde vermogen per oppervlakte. Integreer je~\eqref{eq:planck} over alle golflengten, dan vind je de \emph{wet van Stefan--Boltzmann}:
 \begin{equation}
 \frac{P}{A} = \sigma T^4, \qquad \sigma = \SI{5.67e-8}{\watt\per\metre\squared\per\kelvin\tothe{4}}.
 \label{eq:stefan-boltzmann}
 \end{equation}
-Een gloeiende staaf verkleurt daarom van rood naar wit, en een thermische camera ``ziet'' mensen en lekkende isolatie in het infrarood rond \SI{10}{\micro\metre}.
+Ook hier is de betekenis direct bruikbaar: \emph{het stralingsverlies stijgt met de vierde macht van de temperatuur}. Van \SI{1000}{} naar \SI{1500}{\kelvin} stijgt de temperatuur met de helft, maar de uitstraling met een factor $1.5^4 = 5.1$. Bij kamertemperatuur is straling een bescheiden vorm van warmteoverdracht; in een oven of in de vuurhaard van een stoomketel is ze dominant. Een echt oppervlak straalt minder dan een zwart lichaam, $P/A = \varepsilon\sigma T^4$, met een \emph{emissiviteit} $\varepsilon$ tussen 0 en 1: ongeveer 0.05 voor blank gepolijst metaal, 0.8 tot 0.9 voor geoxideerd staal, baksteen en de menselijke huid.
+
+Beide wetten gebruik je meer dan je denkt. Een thermische camera of oorthermometer meet het infrarood rond \SI{10}{\micro\metre}: volgens~\eqref{eq:wien} straalt een mens van \SI{310}{\kelvin} het sterkst bij \SI{9.3}{\micro\metre}. Een pyrometer meet de temperatuur van gesmolten staal of van een ovenwand zonder contact, uit de intensiteit of de kleur van de straling. En de isolatie van ovens en stoomleidingen wordt berekend met~\eqref{eq:stefan-boltzmann}.
+
+\begin{voorbeeld}{Hoeveel straalt een gloeiende staaf uit?}
+Een stalen staaf met diameter \SI{2.0}{\centi\metre} en lengte \SI{30}{\centi\metre} ($\varepsilon = 0.80$) wordt in een smidse verhit tot \SI{1000}{\kelvin}. Het zijoppervlak is $A = \pi d L = \pi(0.020)(0.30) = \SI{0.0188}{\metre\squared}$. De staaf straalt
+\[
+P = \varepsilon\sigma T^4 A = (0.80)(5.67\times10^{-8})(1000)^4(0.0188) = \SI{855}{\watt}
+\]
+uit, ongeveer evenveel als een waterkoker op halve kracht. De omgeving van \SI{300}{\kelvin} straalt terug met $(300/1000)^4 = \SI{0.8}{\percent}$ daarvan, wat verwaarloosbaar is. Bij \SI{1500}{\kelvin} wordt dat $855 \times 5.06 = \SI{4.3}{\kilo\watt}$. Om een staaf op hoge temperatuur te houden, moet de smid dus steeds sneller warmte toevoeren.
+\end{voorbeeld}
 
 \begin{figure}[htb]
     \centering
@@ -78,6 +130,9 @@ Een gloeiende staaf verkleurt daarom van rood naar wit, en een thermische camera
     \label{fig:zon-aarde}
 \end{figure}
 
+\paragraph{De energie van één foton.}
+Om een gevoel te krijgen voor de grootte van $E=h\nu$, vergelijken we drie soorten straling.
+
 \begin{voorbeeld}{Fotonenergie over het elektromagnetisch spectrum}
 Met $E=hc/\lambda$ en $c=\SI{3.00e8}{\meter\per\second}$:
 \begin{align*}
@@ -85,7 +140,7 @@ E_{\text{radio}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{3} = \SI{6.63
 E_{\text{groen}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{520\times10^{-9}} = \SI{3.82e-19}{\joule} \quad (\lambda=\SI{520}{\nano\meter}) \\
 E_{\text{X}} &= \frac{(6.626\times10^{-34})(3.00\times10^{8})}{0.1\times10^{-9}} = \SI{1.99e-15}{\joule} \quad (\lambda=\SI{0.1}{\nano\meter})
 \end{align*}
-Tussen radio en röntgen zit een factor $10^{10}$. Radiogolven zijn daarom onschadelijk voor chemische bindingen, terwijl UV- en röntgenfotonen bindingen kunnen breken: hun energie ligt in dezelfde grootteorde als elektronische energieverschillen (figuur~\ref{fig:spectrum-bindingen}).
+Tussen radio en röntgen zit een factor $10^{10}$, hoewel beide ``gewoon'' elektromagnetische straling zijn. Radiogolven zijn daarom onschadelijk voor chemische bindingen, terwijl UV- en röntgenfotonen bindingen kunnen breken of elektronen kunnen losmaken: hun energie ligt in dezelfde grootteorde als elektronische energieverschillen (figuur~\ref{fig:spectrum-bindingen}).
 \end{voorbeeld}
 
 \begin{figure}[htb]
@@ -97,17 +152,38 @@ Tussen radio en röntgen zit een factor $10^{10}$. Radiogolven zijn daarom onsch
 
 \subsection{Het foto-elektrisch effect}
 
-In 1905 ging Einstein een stap verder: licht \emph{bestaat} uit energiepakketjes, \emph{fotonen}, elk met energie $h\nu$. Dat verklaart het foto-elektrisch effect. Valt licht op een metaal, dan komen er elektronen vrij, maar:
+\paragraph{Het experiment.}
+Planck had de kwanta ingevoerd voor de uitwisseling van energie tussen materie en straling. Of het licht zelf uit pakketjes bestaat, bleef open. Het antwoord kwam uit een experiment dat Heinrich Hertz in 1887 bij toeval opmerkte: een vonk sprong gemakkelijker over wanneer de elektroden met ultraviolet licht werden beschenen. Philipp Lenard onderzocht het effect rond 1902 systematisch met de opstelling van figuur~\ref{fig:foto-opstelling}a. In een vacuümbuis staan twee elektroden: een metalen plaat en een collector. Licht valt door een kwartsvenster, dat ook UV doorlaat, op de plaat. Maakt het licht elektronen vrij, dan vliegen sommige naar de collector en meet een ampèremeter in de uitwendige kring een stroom.
+
+Met een regelbare spanning kun je de collector ook negatief maken ten opzichte van de plaat. Die \emph{tegenspanning} $U$ remt de elektronen af: enkel elektronen met een kinetische energie groter dan $eU$ bereiken de collector nog. Bij een bepaalde \emph{stopspanning} $U_s$ valt de stroom volledig weg. Ook het snelste elektron haalt de collector dan net niet, zodat
+\[
+E_{\mathrm{kin,max}} = eU_s .
+\]
+Zo meet je met een eenvoudige voltmeter de maximale energie van de vrijgemaakte elektronen. Lenard varieerde vervolgens de intensiteit en de frequentie (de kleur) van het licht.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/foto_opstelling}
+    \caption{(a) Opstelling voor het foto-elektrisch effect. Licht maakt elektronen vrij uit een metalen plaat; met een tegenspanning $U$ wordt gemeten hoe snel ze zijn. (b) Stroom tegen spanning. Dubbel zoveel licht van dezelfde kleur geeft een dubbele stroom, maar dezelfde stopspanning $U_s$. Licht met een hogere frequentie geeft een grotere stopspanning, dus snellere elektronen.}
+    \label{fig:foto-opstelling}
+\end{figure}
+
+\paragraph{De waarnemingen.}
+Volgens de klassieke golftheorie draagt een lichtgolf haar energie continu, evenredig met haar intensiteit. Intenser licht zou de elektronen dus sneller moeten maken, en bij zwak licht zou het even moeten duren voor een elektron genoeg energie heeft opgestapeld. De metingen (figuur~\ref{fig:foto-opstelling}b) toonden iets heel anders:
 \begin{enumerate}
-\item onder een drempelfrequentie komt geen enkel elektron vrij, hoe intens het licht ook is;
-\item boven de drempel komen de elektronen onmiddellijk vrij;
-\item hun maximale kinetische energie hangt af van de frequentie, niet van de intensiteit.
+\item Onder een \emph{drempelfrequentie} $\nu_0$ komt geen enkel elektron vrij, hoe intens het licht ook is. Rood licht maakt uit zink geen elektronen vrij, ook niet met een sterke lamp; zwak UV-licht doet dat wel.
+\item Boven de drempel komen de elektronen \emph{onmiddellijk} vrij, ook bij zeer zwak licht. Er is geen opstapeltijd.
+\item Meer licht van dezelfde kleur geeft \emph{meer} elektronen (een grotere stroom), maar niet \emph{snellere}: de stopspanning blijft dezelfde. De maximale kinetische energie hangt enkel af van de frequentie.
 \end{enumerate}
-Eén elektron absorbeert telkens één foton. Een deel van de fotonenergie, de \emph{werkfunctie} $\Phi$, is nodig om het elektron uit het metaal te halen; de rest wordt kinetische energie (figuur~\ref{fig:photoelectric}):
+
+\paragraph{De verklaring van Einstein.}
+In 1905 stelde Einstein dat licht zelf uit energiepakketjes bestaat, later \emph{fotonen} genoemd, elk met energie $h\nu$. Eén elektron absorbeert telkens één volledig foton. Een deel van die energie, de \emph{werkfunctie} $\Phi$, is nodig om het elektron uit het metaal te halen; de rest wordt kinetische energie (figuur~\ref{fig:photoelectric}):
 \begin{equation}
-E_{\mathrm{kin,max}} = \tfrac{1}{2}m_ev^2 = h\nu-\Phi .
+h\nu = \Phi + E_{\mathrm{kin,max}}
+\qquad\text{of}\qquad
+\boxed{E_{\mathrm{kin,max}} = \tfrac{1}{2}m_ev^2 = h\nu-\Phi .}
 \end{equation}
-Typische werkfuncties liggen tussen \SI{2}{} en \SI{5}{\electronvolt} ($\SI{1}{\electronvolt}=\SI{1.602e-19}{\joule}$, de energie van een elektron na een spanningsverschil van \SI{1}{\volt}). Figuur~\ref{fig:ek-frequentie} toont de lineaire samenhang met helling $h$. De werkfunctie is kleiner dan de ionisatie-energie van een vrij atoom (natrium: \SI{2.3}{} tegenover \SI{5.1}{\electronvolt}), omdat de elektronen in een metaal al vrij bewegen en enkel het oppervlak moeten verlaten.
+De drie waarnemingen volgen er meteen uit. Is $h\nu < \Phi$, dan kan geen enkel foton een elektron vrijmaken, hoeveel fotonen er ook zijn (waarneming 1). Is $h\nu > \Phi$, dan gebeurt het bij de eerste absorptie (waarneming 2). Intenser licht betekent meer fotonen, dus meer elektronen, maar elk foton heeft nog steeds dezelfde energie (waarneming 3). De drempelfrequentie is $\nu_0 = \Phi/h$.
 
 \begin{figure}[htb]
     \centering
@@ -116,6 +192,8 @@ Typische werkfuncties liggen tussen \SI{2}{} en \SI{5}{\electronvolt} ($\SI{1}{\
     \label{fig:photoelectric}
 \end{figure}
 
+Robert Millikan, die Einstein aanvankelijk wilde weerleggen, mat in 1916 de stopspanning bij veel frequenties en voor verschillende metalen. Hij vond rechte lijnen met voor elk metaal dezelfde helling $h$ (figuur~\ref{fig:ek-frequentie}), en bepaalde zo de constante van Planck tot op een half procent nauwkeurig.
+
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.6\linewidth]{Figuren/ek_frequentie}
@@ -123,23 +201,32 @@ Typische werkfuncties liggen tussen \SI{2}{} en \SI{5}{\electronvolt} ($\SI{1}{\
     \label{fig:ek-frequentie}
 \end{figure}
 
+Energieën op deze schaal druk je handig uit in \emph{elektronvolt}: $\SI{1}{\electronvolt}=\SI{1.602e-19}{\joule}$ is de energie die één elektron krijgt bij een spanningsverschil van \SI{1}{\volt}. Een stopspanning van \SI{2.66}{\volt} betekent dus een maximale kinetische energie van \SI{2.66}{\electronvolt}. Typische werkfuncties liggen tussen \SI{2}{} en \SI{5}{\electronvolt}.
+
 \begin{voorbeeld}{Foto-elektrisch effect}
 Natrium ($\Phi=\SI{2.30}{eV}$) wordt bestraald met UV-licht van \SI{250}{nm}. Eén foton heeft
 \[
 E=\frac{hc}{\lambda}=\frac{(6.626\times10^{-34})(3.00\times10^{8})}{250\times10^{-9}}=\SI{7.95e-19}{J}=\SI{4.96}{eV},
 \]
-zodat $E_{\mathrm{kin,max}}=4.96-2.30=\SI{2.66}{eV}$.
+zodat $E_{\mathrm{kin,max}}=4.96-2.30=\SI{2.66}{eV}$. In de opstelling van figuur~\ref{fig:foto-opstelling} is een tegenspanning van \SI{2.66}{\volt} nodig om de stroom te stoppen. De drempelgolflengte van natrium is $\lambda_0 = hc/\Phi = \SI{539}{\nano\metre}$: groen licht maakt nog net elektronen vrij, rood licht niet.
 \end{voorbeeld}
+
+De werkfunctie mag je niet verwarren met de ionisatie-energie. De werkfunctie is de energie om een elektron uit een vast metaal te halen; dat elektron bewoog al vrij door het metaal en moet enkel het oppervlak verlaten. De ionisatie-energie is de energie om een elektron volledig los te maken van één vrij atoom, tegen de volle aantrekking van de kern in. Voor natrium is de werkfunctie \SI{2.3}{\electronvolt}, de eerste ionisatie-energie \SI{5.1}{\electronvolt}.
 
 Het foto-elektrisch effect is ook technisch belangrijk. Een fotocel of lichtsensor werkt op dit principe, en een zonnecel is er een variant van: daar wordt het elektron niet uit het materiaal gestoten, maar naar een hogere energieband gebracht, waar het als stroom kan wegvloeien. Ook dan geldt de drempel: silicium reageert enkel op fotonen boven ongeveer \SI{1.1}{\electronvolt}, dus golflengten korter dan \SI{1.1}{\micro\metre}.
 
 \begin{casusuitgewerkt}{zon en aarde}
-\emph{Stap 1: de kleur.} Met de wet van Wien~\eqref{eq:wien}:
+\emph{Stap 1: waar stralen zon en aarde het meest?} Met de wet van Wien~\eqref{eq:wien}:
 \[
-\lambda_{\max,\text{zon}} = \frac{2898}{5800} = \SI{0.50}{\micro\metre}, \qquad
-\lambda_{\max,\text{aarde}} = \frac{2898}{288} = \SI{10.1}{\micro\metre}.
+\lambda_{\max,\text{zon}} = \frac{\SI{2898}{\micro\metre\kelvin}}{\SI{5800}{\kelvin}} = \SI{0.50}{\micro\metre}, \qquad
+\lambda_{\max,\text{aarde}} = \frac{\SI{2898}{\micro\metre\kelvin}}{\SI{288}{\kelvin}} = \SI{10.1}{\micro\metre}.
 \]
-De zon straalt het meest in het groen, de aarde in het verre infrarood (figuur~\ref{fig:zon-aarde}). Het verschil komt enkel van de temperatuur.
+De zon straalt het meest in het groen, de aarde in het verre infrarood (figuur~\ref{fig:zon-aarde}). Het verschil komt enkel van de temperatuur: zon en aarde zijn allebei, bij benadering, zwarte lichamen.
+
+Waarom \SI{5800}{\kelvin}? De zon heeft geen vast oppervlak. Het licht dat ons bereikt, ontsnapt uit een laag van enkele honderden kilometer dik, de \emph{fotosfeer}, en die heeft ongeveer \SI{5800}{\kelvin}. Dieper in de zon is het veel heter (in de kern ongeveer 15~miljoen kelvin), en de ijle corona erboven haalt zelfs 1 tot 2~miljoen kelvin, maar straalt door haar lage dichtheid nauwelijks. Je kunt de \SI{5800}{\kelvin} zelf controleren met de wet van Stefan--Boltzmann. De zon straalt in totaal \SI{3.83e26}{\watt} uit over een bol met straal \SI{6.96e8}{\metre}:
+\[
+T = \left(\frac{P}{4\pi R^2\sigma}\right)^{1/4} = \left(\frac{3.83\times10^{26}}{4\pi(6.96\times10^{8})^2(5.67\times10^{-8})}\right)^{1/4} = \SI{5770}{\kelvin}.
+\]
 
 \emph{Stap 2: de energie per foton.} Per mol fotonen is $E_\mathrm{m} = N_\mathrm{A}hc/\lambda$:
 \[
@@ -148,16 +235,32 @@ E_\mathrm{m}(\SI{10}{\micro\metre}) = \SI{12}{\kilo\joule\per\mole}.
 \]
 Zichtbaar licht komt in de buurt van bindingsenergieën; UV-licht ($\lambda < \SI{0.35}{\micro\metre}$, meer dan \SI{340}{\kilo\joule\per\mole}) gaat erover en kan C--C-bindingen breken. Een infraroodfoton van de aarde heeft dertig keer te weinig energie om een binding te breken. Het kan een molecule enkel sneller laten trillen of draaien (figuur~\ref{fig:spectrum-bindingen}).
 
-\emph{Stap 3: hoe koud zou de aarde zijn zonder broeikasgassen?} De aarde ontvangt van de zon \SI{1361}{\watt\per\metre\squared} op haar doorsnede $\pi r^2$ en weerkaatst daarvan \SI{30}{\percent}. Ze straalt zelf uit over haar volledige oppervlak $4\pi r^2$. In evenwicht is
+\emph{Stap 3: hoe koud zou de aarde zijn zonder broeikasgassen?} We stellen een energiebalans op voor de aarde als geheel (figuur~\ref{fig:stralingsbalans}). In evenwicht is wat binnenkomt gelijk aan wat buitengaat.
+\begin{itemize}
+\item \emph{In.} De zonnestralen vallen evenwijdig in. De aarde onderschept er evenveel van als een platte schijf met dezelfde straal: haar schaduw is een cirkel met oppervlak $\pi r^2$. Daarvan wordt \SI{30}{\percent} weerkaatst door wolken, ijs en woestijnen. Er wordt dus $(1-0.30)\,S\,\pi r^2$ geabsorbeerd.
+\item \emph{Uit.} De aarde draait en houdt haar warmte vast, zodat ze dag en nacht en over haar volledige boloppervlak $4\pi r^2$ infrarood uitstraalt: $\sigma T^4 \cdot 4\pi r^2$.
+\end{itemize}
+Gelijkstellen geeft
 \[
-\sigma T^4 = \frac{(1-0.30)(1361)}{4}
+\sigma T^4 \cdot 4\pi r^2 = (1-0.30)\,S\,\pi r^2
 \quad\Longrightarrow\quad
+\sigma T^4 = \frac{(1-0.30)(1361)}{4} = \SI{238}{\watt\per\metre\squared}.
+\]
+De straal van de aarde valt weg; de factor 4 is de verhouding tussen het oppervlak van een bol en dat van zijn schaduw. Dan is
+\[
 T = \left(\frac{238}{5.67\times10^{-8}}\right)^{1/4} = \SI{255}{\kelvin} = \SI{-18}{\celsius}.
 \]
-De werkelijke gemiddelde temperatuur is \SI{15}{\celsius}. Het verschil van \SI{33}{\kelvin} is het broeikaseffect: een deel van het infrarood van de aarde wordt in de atmosfeer geabsorbeerd en gedeeltelijk teruggestraald.
+De werkelijke gemiddelde temperatuur is \SI{15}{\celsius}. Het verschil van \SI{33}{\kelvin} is het natuurlijke broeikaseffect: een deel van het infrarood van de aarde wordt in de atmosfeer geabsorbeerd en gedeeltelijk teruggestraald naar het oppervlak, dat daardoor warmer moet worden om evenveel kwijt te raken.
 
 \emph{Volgende vraag.} Figuur~\ref{fig:zon-aarde} toont dat CO$_2$ niet het hele infrarood absorbeert, maar enkel smalle banden rond \SI{4.3}{} en \SI{15}{\micro\metre}. Waarom absorbeert een gas enkel bij welbepaalde golflengten?
 \end{casusuitgewerkt}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/stralingsbalans_aarde}
+    \caption{Stralingsbalans van de aarde. Het zonlicht wordt opgevangen door de doorsnede $\pi r^2$; \SI{30}{\percent} wordt weerkaatst. De aarde straalt infrarood uit over haar volledige oppervlak $4\pi r^2$.}
+    \label{fig:stralingsbalans}
+\end{figure}
 
 \section{Discrete energieniveaus en lijnenspectra}
 \label{sec:lijnenspectra}
@@ -171,36 +274,110 @@ De CO$_2$-meter van figuur~\ref{fig:ndir} gebruikt een filter van \SI{4.26}{\mic
 \subsection{Het model van Bohr}
 \label{sec:bohr}
 
-Verhit waterstofgas zendt licht uit bij slechts enkele scherpe golflengten: een \emph{lijnenspectrum}. Bohr verklaarde dit in 1913 met een elektron op een cirkelbaan rond de kern, aangevuld met een niet-klassiek postulaat: enkel banen waarvoor het impulsmoment een geheel veelvoud is van $\hbar = h/2\pi$ zijn toegelaten,
+\paragraph{De waarneming: het lijnenspectrum van waterstof.}
+Stuur je een elektrische ontlading door een buis met waterstofgas, dan splitst de ontlading de \ce{H2}-moleculen in atomen en geeft ze die atomen extra energie. De buis licht roze-paars op. Laat je dat licht door een smalle spleet en een prisma of tralie vallen (figuur~\ref{fig:waterstof-opstelling}), dan zie je geen doorlopende regenboog zoals bij een gloeiende staaf, maar slechts vier scherpe gekleurde lijnen: bij \SI{656}{} (rood), \SI{486}{} (blauwgroen), \SI{434}{} en \SI{410}{\nano\metre} (violet). Dit is een \emph{lijnenspectrum}, en elk element heeft er een eigen.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figuren/waterstof_opstelling}
+    \caption{Het lijnenspectrum van waterstof. Het licht van een gasontladingsbuis wordt na een spleet door een prisma (of tralie) uitgesplitst. Op het scherm verschijnen enkel vier scherpe zichtbare lijnen.}
+    \label{fig:waterstof-opstelling}
+\end{figure}
+
+In 1885 merkte de Zwitserse leraar Johann Balmer op dat de vier golflengten passen in een eenvoudige formule, $\lambda = B\,n^2/(n^2-4)$ met $B = \SI{364.6}{\nano\metre}$ en $n = 3, 4, 5, 6$. Probeer maar: $n=3$ geeft $364.6 \times 9/5 = \SI{656}{\nano\metre}$. Rydberg schreef dit later om tot
+\[
+\frac{1}{\lambda} = R_H\left(\frac{1}{2^2} - \frac{1}{n^2}\right), \qquad R_H = \SI{1.097e7}{\per\metre},
+\]
+en voorspelde dat er ook reeksen met $1/1^2$ en $1/3^2$ moesten bestaan. Die werden later gevonden in het ultraviolet (Lyman) en het infrarood (Paschen). De formule werkte perfect, maar niemand wist waarom. Waarom zendt waterstof enkel deze golflengten uit, en waarom zijn ze te schrijven als een verschil van twee termen $1/n^2$?
+
+\paragraph{De postulaten van Bohr.}
+Niels Bohr gaf in 1913 het eerste antwoord. Hij hield het klassieke beeld van een elektron dat op een cirkelbaan rond de kern draait, vastgehouden door de Coulombaantrekking, maar voegde er twee niet-klassieke postulaten aan toe:
+\begin{enumerate}
+\item Enkel banen waarvoor het impulsmoment een geheel veelvoud is van $\hbar = h/2\pi$ zijn toegelaten:
 \begin{equation}
-m_ev r = n\hbar, \qquad n=1,2,3,\ldots
+m_e v r = n\hbar, \qquad n=1,2,3,\ldots
+\label{eq:bohr-kwantisatie}
 \end{equation}
-Combineer je dit met de voorwaarde dat de Coulombkracht de centripetale kracht levert, $e^2/(4\pi\varepsilon_0r^2)=m_ev^2/r$, dan volgen de baanstralen en energieën (figuur~\ref{fig:bohr-model}):
+Op zo'n baan straalt het elektron, in strijd met de klassieke fysica, \emph{niet}. Het atoom is daar stabiel.
+\item Het atoom zendt enkel straling uit wanneer het elektron van een baan met energie $E_j$ naar een lagere baan $E_i$ springt. Het energieverschil verlaat het atoom als één foton: $h\nu = E_j - E_i$.
+\end{enumerate}
+
+\paragraph{De afleiding, stap voor stap.}
+Uit deze twee postulaten en de gewone klassieke mechanica volgen de toegelaten banen en energieën.
+
+\emph{Stap 1: krachtevenwicht.} De Coulombkracht tussen kern ($+e$) en elektron ($-e$) levert de centripetale kracht die nodig is om het elektron op een cirkelbaan met straal $r$ te houden:
+\[
+\frac{e^2}{4\pi\varepsilon_0 r^2} = \frac{m_e v^2}{r}
+\qquad\Longrightarrow\qquad
+m_e v^2 = \frac{e^2}{4\pi\varepsilon_0 r}.
+\]
+Klassiek is elke straal $r$ mogelijk, met een bijbehorende snelheid $v$.
+
+\emph{Stap 2: kwantisatie.} Uit~\eqref{eq:bohr-kwantisatie} is $v = n\hbar/(m_e r)$. Invullen in stap~1 geeft
+\[
+m_e \frac{n^2\hbar^2}{m_e^2 r^2} = \frac{e^2}{4\pi\varepsilon_0 r}
+\qquad\Longrightarrow\qquad
+r_n = n^2\,\frac{4\pi\varepsilon_0\hbar^2}{m_e e^2} = n^2 a_0 .
+\]
+Enkel welbepaalde stralen zijn nu toegelaten. De kleinste, voor $n=1$, is de \emph{straal van Bohr}:
+\[
+a_0 = \frac{4\pi\varepsilon_0\hbar^2}{m_e e^2} = \SI{52.9}{\pico\metre}.
+\]
+Dat is precies de grootteorde van een atoom. Het elektron beweegt daar met $v = \hbar/(m_e a_0) = \SI{2.19e6}{\metre\per\second}$, ongeveer \SI{0.7}{\percent} van de lichtsnelheid.
+
+\emph{Stap 3: de energie.} De totale energie is de som van de kinetische en de potentiële energie. Met stap~1 is $\tfrac12 m_e v^2 = \tfrac12\, e^2/(4\pi\varepsilon_0 r)$, zodat
+\[
+E = \tfrac12 m_e v^2 - \frac{e^2}{4\pi\varepsilon_0 r}
+= \frac{e^2}{8\pi\varepsilon_0 r} - \frac{e^2}{4\pi\varepsilon_0 r}
+= -\frac{e^2}{8\pi\varepsilon_0 r}.
+\]
+De energie is negatief: het elektron is gebonden, en je moet energie toevoeren om het los te maken. De kinetische energie is precies de helft van de absolute waarde van de potentiële energie.
+
+\emph{Stap 4: de toegelaten energieën.} Vul $r_n = n^2 a_0$ uit stap~2 in:
 \begin{equation}
-r_n = n^2a_0, \quad a_0=\frac{4\pi\varepsilon_0\hbar^2}{m_ee^2}=\SI{52.9}{\pico\metre}, \qquad
-E_n = -\frac{m_ee^4}{8\varepsilon_0^2h^2}\frac{1}{n^2} = -\frac{\SI{13.6}{eV}}{n^2}.
+\boxed{
+E_n = -\frac{e^2}{8\pi\varepsilon_0 a_0}\,\frac{1}{n^2} = -\frac{m_e e^4}{8\varepsilon_0^2 h^2}\,\frac{1}{n^2} = -\frac{\SI{13.6}{eV}}{n^2}, \qquad n = 1, 2, 3, \ldots
+}
+\label{eq:bohr-energie}
 \end{equation}
-Dit is exact het energiespectrum dat de Schr\"odingervergelijking later geeft (\S~\ref{sec:waterstofatoom}).
+De laagste energie, de \emph{grondtoestand}, is $E_1 = \SI{-13.6}{\electronvolt}$. Om het elektron daaruit volledig los te maken, is dus \SI{13.6}{\electronvolt} nodig, of $\SI{13.6}{eV} \times 96.485 = \SI{1312}{\kilo\joule\per\mole}$. Dat is exact de gemeten ionisatie-energie van waterstof.
+
+\emph{Stap 5: het spectrum.} Springt het elektron van niveau $n_j$ naar een lager niveau $n_i$, dan wordt volgens postulaat~2 een foton uitgezonden met
+\[
+\frac{hc}{\lambda} = E_{n_j} - E_{n_i} = \frac{m_e e^4}{8\varepsilon_0^2 h^2}\left(\frac{1}{n_i^2} - \frac{1}{n_j^2}\right).
+\]
+Dat is de formule van Rydberg, met
+\[
+R = \frac{m_e e^4}{8\varepsilon_0^2 h^3 c} = \SI{1.0974e7}{\per\metre}.
+\]
+De gemeten waarde voor waterstof is \SI{1.0968e7}{\per\metre}. Het verschil van \SI{0.05}{\percent} komt doordat de kern niet oneindig zwaar is, maar een beetje meebeweegt; houd je daar rekening mee, dan klopt het tot op alle meetbare cijfers. Bohr berekende dus een empirische constante volledig uit $m_e$, $e$, $\varepsilon_0$, $h$ en $c$. De Balmerlijnen zijn de sprongen naar $n_i=2$ (figuur~\ref{fig:bohr-model}).
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.5\linewidth]{Figuren/bohr}
-    \caption{Schematische voorstelling van het model van Bohr.}
+    \caption{Schematische voorstelling van het model van Bohr: een elektron valt van baan $n=3$ naar $n=2$ en zendt een foton uit met $h\nu = \Delta E$.}
     \label{fig:bohr-model}
 \end{figure}
 
-Toch schiet het model tekort. Het werkt enkel voor systemen met één elektron (H, He$^+$, Li$^{2+}$). De kwantisatievoorwaarde wordt opgelegd zonder verklaring. En het beschrijft het elektron als een klassiek deeltje op een baan, wat onverenigbaar is met het golfkarakter van materie (\S~\ref{sec:dubbelspleet}).
+\paragraph{De grenzen van het model.}
+Toch bleek het model van Bohr ontoereikend, om drie fundamentele redenen:
+\begin{enumerate}
+\item Het werkt enkel voor systemen met precies één elektron (H, He$^+$, Li$^{2+}$). Voor elk atoom met meer elektronen geeft het verkeerde resultaten, omdat het de onderlinge afstoting van de elektronen niet beschrijft.
+\item De kwantisatievoorwaarde~\eqref{eq:bohr-kwantisatie} wordt \emph{opgelegd} omdat ze het juiste antwoord geeft. Het model verklaart niet \emph{waarom} enkel die banen zijn toegelaten, en ook niet waarom een elektron op zo'n baan niet straalt.
+\item Het beschrijft het elektron als een klassiek deeltje met een precieze plaats en snelheid op een baan. Dat beeld is onverenigbaar met het golfkarakter van materie (\S\ref{sec:materiegolf}).
+\end{enumerate}
+Een kleine aanpassing van de klassieke mechanica volstaat dus niet. Er was een nieuw kader nodig, waarin kwantisatie niet wordt opgelegd maar vanzelf uit de vergelijkingen volgt. Dat kader bouwen we in de volgende twee secties op.
 
 \subsection{Atomaire spectra}
 \label{sec:atomaire-spectra}
 
-Valt een elektron terug naar een lager niveau, dan wordt het energieverschil uitgezonden als een foton met $h\nu = \Delta E$. Omgekeerd absorbeert een atoom enkel fotonen waarvan de energie precies overeenkomt met het verschil tussen twee niveaus. Daarom heeft elk element een eigen \emph{lijnenspectrum} (figuur~\ref{fig:waterstofspectrum}). Voor waterstof vat de \emph{Rydberg-formule} alle overgangen samen:
+Valt een elektron terug naar een lager niveau, dan wordt het energieverschil uitgezonden als een foton met $h\nu = \Delta E$: een \emph{emissiespectrum}. Omgekeerd absorbeert een atoom enkel fotonen waarvan de energie precies overeenkomt met het verschil tussen twee niveaus: een \emph{absorptiespectrum}, met donkere lijnen bij dezelfde golflengten. Voor waterstof vat de formule van Rydberg, die we hierboven uit het model van Bohr afleidden, alle overgangen samen:
 \begin{equation}
 \boxed{
 \frac{1}{\lambda} = R_H\left(\frac{1}{n_i^2}-\frac{1}{n_j^2}\right), \qquad n_j > n_i
 }
 \end{equation}
-met $R_H = \SI{1.097e7}{\per\meter}$. Overgangen naar $n_i=1$ vormen de Lyman-reeks (UV), naar $n_i=2$ de Balmer-reeks (deels zichtbaar) en naar $n_i=3$ de Paschen-reeks (infrarood).
+met $R_H = \SI{1.097e7}{\per\meter}$. Overgangen naar $n_i=1$ vormen de Lyman-reeks (UV), naar $n_i=2$ de Balmer-reeks (deels zichtbaar) en naar $n_i=3$ de Paschen-reeks (infrarood) (figuur~\ref{fig:waterstofspectrum}).
 
 \begin{figure}[htb]
     \centering
@@ -221,6 +398,8 @@ de eerste Lyman-lijn in het UV. De rode H$_\alpha$-lijn is de overgang $3 \to 2$
 Sterrenkundigen herkennen waterstof in verre sterrenstelsels aan precies deze lijn.
 \end{voorbeeld}
 
+Elk element heeft andere energieniveaus en dus een eigen spectrum, een vingerafdruk. Dat zie je in het dagelijks leven: natriumdamp kleurt een vlam en de oude straatlampen geel (\SI{589}{\nano\metre}), neon gloeit rood-oranje, en vuurwerk krijgt zijn kleuren van strontium (rood), barium (groen) en koper (blauw). In het labo bepaalt men zo de samenstelling van een staal: in atoomemissie- en atoomabsorptiespectrometrie meet men de intensiteit van de lijnen van een element om zijn concentratie te bepalen, tot ver onder een milligram per liter.
+
 \begin{casusuitgewerkt}{scherpe lijnen}
 Een atoom of molecule kan enkel bepaalde energieën hebben. Het absorbeert dus enkel fotonen waarvan de energie precies overeenkomt met het verschil tussen twee toegelaten niveaus, $h\nu = \Delta E$. Daarom bestaat een spectrum uit scherpe lijnen.
 
@@ -238,28 +417,82 @@ Dat is veel kleiner dan de elektronische overgangen van waterstof, die enkele el
 
 Het antwoord op die vraag begint met een verrassende vaststelling: niet enkel licht, ook materie gedraagt zich als een golf.
 
+\subsection{Golf of deeltje? Wat de experimenten toonden}
+
+Rond 1920 lag er een verwarrende verzameling waarnemingen op tafel. Sommige experimenten toonden dat licht een golf is, andere dat het uit deeltjes bestaat. Kort daarna bleek hetzelfde te gelden voor elektronen (tabel~\ref{tab:dualiteit}).
+
+\begin{table}[htb]
+\centering
+\caption{Waarnemingen die het duale karakter van licht en materie aantoonden.}
+\label{tab:dualiteit}
+\begin{tabular}{p{0.18\linewidth}p{0.36\linewidth}p{0.36\linewidth}}
+\toprule
+ & gedrag als golf & gedrag als deeltje \\
+\midrule
+licht & interferentie achter twee spleten (Young, 1801); buiging van röntgenstraling aan kristallen (Von Laue, Bragg, 1912) & foto-elektrisch effect (1905); botsing van röntgenfotonen met elektronen (Compton, 1923) \\
+elektronen & buiging aan een nikkelkristal (Davisson en Germer, 1927) en aan dunne metaalfolie (Thomson, 1927) & sporen in een nevelkamer; afzonderlijke inslagen op een scherm \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Licht als golf.} Dat licht een golf is, leek sinds 1801 bewezen. Thomas Young liet licht door twee smalle spleten vallen en zag op een scherm een patroon van heldere en donkere banden. Waar de golven uit beide spleten in fase aankomen, versterken ze elkaar; waar een top een dal ontmoet, doven ze elkaar uit. Dat heet \emph{interferentie}, en enkel golven doen dat. Ook röntgenstraling buigt af aan de regelmatige rijen atomen in een kristal, wat de basis is van de röntgendiffractie waarmee men vandaag kristalstructuren bepaalt.
+
+\paragraph{Licht als deeltje.} Het foto-elektrisch effect toonde dat licht zijn energie in pakketjes $h\nu$ afgeeft. In 1923 ging Arthur Compton een stap verder. Hij stuurde röntgenstraling op grafiet en zag dat de verstrooide straling een iets langere golflengte had, afhankelijk van de hoek. Dat kon hij enkel verklaren als een botsing tussen twee biljartballen: een foton botst op een elektron en geeft het een deel van zijn energie en zijn \emph{impuls} mee. Een foton heeft dus een impuls. Voor een deeltje zonder massa dat met de lichtsnelheid beweegt, is $E = pc$, en met $E = hc/\lambda$ volgt
+\[
+p = \frac{h}{\lambda}.
+\]
+
 \subsection{Het golfkarakter van materie}
 
-Als licht zowel golf als deeltje is, stelde De Broglie in 1924, dan heeft materie misschien ook een golfkarakter. Aan elk deeltje met impuls $p=mv$ kent hij een golflengte toe:
+\paragraph{De hypothese van De Broglie.}
+In 1924, in zijn doctoraat, keerde Louis de Broglie die redenering om. Als licht, dat we als golf kenden, ook deeltjeseigenschappen heeft, dan heeft materie, die we als deeltjes kennen, misschien ook golfeigenschappen. Aan elk deeltje met impuls $p=mv$ kende hij dezelfde relatie toe als aan een foton:
 \begin{equation}
 \boxed{
 \lambda=\frac{h}{p}=\frac{h}{mv}
 }
 \end{equation}
-Voor macroscopische voorwerpen is die golflengte onmeetbaar klein. Voor elektronen is ze vergelijkbaar met de afstand tussen atomen, zodat een kristal elektronen afbuigt zoals röntgenstraling.
+Dit betekent niet dat een elektron letterlijk als een klein, golvend draadje door de ruimte beweegt. Het betekent dat het gedrag van een deeltje beschreven wordt door een golf, en dat het onder geschikte omstandigheden interferentie en buiging vertoont. Voor macroscopische voorwerpen is de impuls zo groot dat de golflengte onmeetbaar klein is. Voor elektronen kan ze vergelijkbaar zijn met de afstand tussen atomen.
 
 \begin{voorbeeld}{De De Broglie-golflengte van een elektron en een wandelende persoon}
-Een elektron versneld over \SI{150}{\volt} heeft $E_\mathrm{kin} = eU = p^2/2m_e$, dus
+Een elektron dat vanuit rust over een spanning $U$ wordt versneld, krijgt een kinetische energie $eU = \tfrac12 m_e v^2 = p^2/2m_e$. Zijn impuls is dus $p = \sqrt{2m_e eU}$, en zijn golflengte
 \[
-\lambda = \frac{h}{\sqrt{2m_e eU}} = \frac{6.626\times10^{-34}}{\sqrt{2(9.109\times10^{-31})(1.602\times10^{-19})(150)}} = \SI{0.100}{\nano\metre},
+\lambda = \frac{h}{\sqrt{2m_e eU}} .
 \]
-precies de afstand tussen atomen in een kristal. De elektronenmicroscoop maakt hier gebruik van. Een wandelaar ($m = \SI{75}{\kilo\gram}$, $v = \SI{1.5}{\metre\per\second}$) heeft $\lambda = 6.626\times10^{-34}/(75 \times 1.5) = \SI{5.9e-36}{\metre}$: ontelbare grootteordes kleiner dan een atoomkern.
+Voor $U = \SI{150}{\volt}$:
+\[
+\lambda = \frac{6.626\times10^{-34}}{\sqrt{2(9.109\times10^{-31})(1.602\times10^{-19})(150)}} = \SI{1.00e-10}{\metre} = \SI{0.100}{\nano\metre},
+\]
+precies de afstand tussen atomen in een kristal. Zo'n elektronen buigen dus af aan een kristal, en de elektronenmicroscoop maakt hier gebruik van.
+
+Een wandelaar ($m = \SI{75}{\kilo\gram}$, $v = \SI{1.5}{\metre\per\second}$) heeft $p = \SI{112.5}{\kilo\gram\metre\per\second}$ en
+\[
+\lambda = \frac{6.626\times10^{-34}}{112.5} = \SI{5.9e-36}{\metre},
+\]
+ontelbare grootteordes kleiner dan een atoomkern. Het golfkarakter van een mens is daarom volledig onwaarneembaar. De relatie van De Broglie geldt voor alle materie, maar ze wordt enkel merkbaar bij zeer lichte deeltjes.
 \end{voorbeeld}
+
+\paragraph{De bevestiging: elektronen buigen af.}
+Drie jaar later werd de hypothese bevestigd, deels bij toeval. Clinton Davisson en Lester Germer schoten bij Bell Labs elektronen van \SI{54}{\electronvolt} loodrecht op een nikkelkristal en maten hoeveel elektronen onder elke hoek terugkaatsten (figuur~\ref{fig:davisson-germer}). Ze vonden een scherpe piek bij \SI{50}{\degree}, precies wat je verwacht voor een golf die buigt aan de rijen nikkelatomen. Een golf weerkaatst op die rijen, met onderlinge afstand $d = \SI{0.215}{\nano\metre}$, versterkt in de richting $\varphi$ waarvoor het wegverschil een hele golflengte is: $d\sin\varphi = \lambda$. Met de formule van De Broglie is
+\[
+\lambda = \frac{h}{\sqrt{2m_e eU}} = \SI{0.167}{\nano\metre}
+\quad\Longrightarrow\quad
+\sin\varphi = \frac{0.167}{0.215} = 0.776, \quad \varphi = \SI{51}{\degree}.
+\]
+Vrijwel tegelijk stuurde George Thomson elektronen door een dunne goudfolie en zag hij ringen zoals bij röntgenstraling. Sindsdien is interferentie aangetoond met neutronen, heliumatomen en zelfs met voetbalvormige C$_{60}$-moleculen van 60 koolstofatomen.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.62\linewidth]{Figuren/davisson_germer}
+    \caption{Het experiment van Davisson en Germer (1927). Elektronen van \SI{54}{\electronvolt} worden door een nikkelkristal sterk teruggekaatst onder een hoek van \SI{50}{\degree}: ze buigen af als golven met de golflengte van De Broglie.}
+    \label{fig:davisson-germer}
+\end{figure}
 
 \subsection{De dubbelspleetproef}
 \label{sec:dubbelspleet}
 
-Stuur je elektronen door twee fijne spleten, dan ontstaat op een scherm een interferentiepatroon van heldere en donkere banden, typisch voor golven. Gebeurt dit met één elektron tegelijk, dan verschijnt telkens één punt; pas na vele elektronen wordt het patroon zichtbaar (figuur~\ref{fig:dubbelespleet}). Elk elektron wordt als deeltje gedetecteerd, maar de verdeling van de punten is die van een golf.
+De meest overtuigende proef is de dubbelspleetproef van Young, maar dan met elektronen. Stuur je een elektronenbundel door twee fijne spleten, dan ontstaat op een scherm een interferentiepatroon van heldere en donkere banden, zoals bij licht. Dat patroon is enkel te verklaren als elk elektron zich als een golf door \emph{beide} spleten tegelijk beweegt: de twee deelgolven versterken of doven elkaar op het scherm.
+
+Het wordt nog vreemder wanneer de bron zo zwak is dat er telkens maar één elektron onderweg is. Dan verschijnt op het scherm telkens één scherp punt: het elektron wordt als deeltje gedetecteerd, op één plaats. Waar het volgende elektron aankomt, is niet te voorspellen. Pas na duizenden elektronen ontstaat het patroon van banden (figuur~\ref{fig:dubbelespleet}). Elk afzonderlijk elektron gedraagt zich dus bij de detectie als een deeltje, maar de verdeling van vele inslagen is die van een golf. Probeer je te meten door welke spleet een elektron gaat, dan verdwijnt het patroon. Licht en materie zijn dus geen golf óf deeltje; ze vertonen beide aspecten, afhankelijk van wat je meet.
 
 \begin{figure}[htb]
     \centering
@@ -269,27 +502,193 @@ Stuur je elektronen door twee fijne spleten, dan ontstaat op een scherm een inte
 \end{figure}
 
 \begin{toepassing}{Een Brussels weetje: de Solvayconferentie van 1927}
-Ernest Solvay, rijk geworden met zijn sodaproces (\ce{Na2CO3}, nog steeds de basis van de glasindustrie), financierde vanaf 1911 de Solvayconferenties voor natuurkunde in Brussel. De vijfde, in oktober 1927, ging over ``elektronen en fotonen''. Op de groepsfoto staan onder meer Einstein, Bohr, Planck, Marie Curie, Schr\"odinger, Heisenberg, De Broglie, Dirac en Pauli: 17 van de 29 deelnemers hadden of kregen een Nobelprijs. Er werd hevig gediscussieerd over de betekenis van de golffunctie, het onderwerp van de volgende paragraaf. Einsteins ``God dobbelt niet'' en Bohrs antwoord ``Einstein, vertel God niet wat Hij moet doen'' stammen uit die discussies.
+Ernest Solvay, rijk geworden met zijn sodaproces (\ce{Na2CO3}, nog steeds de basis van de glasindustrie), financierde vanaf 1911 de Solvayconferenties voor natuurkunde in Brussel. De vijfde, in oktober 1927, ging over ``elektronen en fotonen''. Op de groepsfoto staan onder meer Einstein, Bohr, Planck, Marie Curie, Schr\"odinger, Heisenberg, De Broglie, Dirac en Pauli: 17 van de 29 deelnemers hadden of kregen een Nobelprijs. Er werd hevig gediscussieerd over de betekenis van de golffunctie, het onderwerp van de volgende sectie. Einsteins ``God dobbelt niet'' en Bohrs antwoord ``Einstein, vertel God niet wat Hij moet doen'' stammen uit die discussies.
 \end{toepassing}
 
 \section{De golffunctie en de Schr\"odingervergelijking}
 
-\subsection{De golffunctie}
+\subsection{De golffunctie en haar betekenis}
 \label{sec:golffunctie}
 
-In de kwantummechanica wordt de toestand van een deeltje beschreven door een \emph{golffunctie} $\psi(\vec r, t)$. De waarde van $\psi$ is zelf niet meetbaar (ze kan zelfs complex zijn). Max Born gaf in 1926 de interpretatie: $|\psi|^2 = \psi^*\psi$ is een \emph{waarschijnlijkheidsdichtheid}. De kans om het deeltje in een klein volume $\dd V$ rond $\vec r$ aan te treffen is
+\paragraph{Wat beschrijft een golf?}
+Elke golf wordt beschreven door een functie die op elke plaats en elk tijdstip de \emph{amplitude} geeft: de uitwijking van een gitaarsnaar $y(x,t)$, de luchtdruk bij geluid, of bij licht de elektrische veldsterkte. Die amplitude kan positief of negatief zijn: een snaar wijkt naar boven of naar onder uit. Wat je waarneemt, is echter niet de amplitude zelf, maar de \emph{intensiteit}, de energie die per seconde aankomt. Die is evenredig met het \emph{kwadraat} van de amplitude. Een lichtmeter of je oog meet dus amplitude in het kwadraat.
+
+Denk nu aan fotonen. Laat je heel zwak licht op een fotoplaat vallen, dan komen de fotonen één voor één aan, elk op één punt. Waar de amplitude groot is, komen er veel aan; waar ze nul is, geen. Het kwadraat van de amplitude zegt dus \emph{hoe waarschijnlijk} het is dat een foton op een bepaalde plaats aankomt.
+
+\paragraph{De golffunctie van een elektron.}
+In de kwantummechanica wordt de toestand van een elektron, of van elk ander deeltje, beschreven door een \emph{golffunctie} $\psi(\vec r, t)$: de amplitude van de materiegolf op elke plaats $\vec r$ en elk tijdstip $t$. De golffunctie bevat alle informatie die over het deeltje te kennen is. Ze is zelf geen meetbare grootheid; je kunt nergens ``$\psi$ aflezen''. Ze kan positief of negatief zijn, en in het algemeen is ze zelfs een \emph{complex} getal.
+
+Waarom complex? Een golf heeft op elke plaats twee kenmerken: hoe groot de uitwijking is (de amplitude) en waar in de trilling ze zit (de \emph{fase}: op een top, in een dal, of ertussen). Een complex getal $\psi = |\psi|\,e^{i\phi}$ draagt die twee in één getal. Voor een elektron dat met welbepaalde impuls $p = \hbar k$ in de $x$-richting beweegt, is de golffunctie $\psi = A\,e^{i(kx-\omega t)}$. Het reële en het imaginaire deel zijn dan een cosinus- en een sinusgolf die een kwart golflengte verschoven zijn (figuur~\ref{fig:golffunctie}a).
+
+\paragraph{De betekenis van $\psi^*\psi$.}
+Max Born gaf in 1926 de interpretatie, naar analogie met de fotonen: het kwadraat van de amplitude is een kans. Omdat $\psi$ complex kan zijn, neem je niet gewoon $\psi^2$, maar het product van $\psi$ met zijn \emph{complex toegevoegde} $\psi^*$. Schrijf je $\psi = a + ib$, dan is $\psi^* = a - ib$ en
+\[
+\psi^*\psi = (a-ib)(a+ib) = a^2 + b^2 = |\psi|^2 .
+\]
+Dat is altijd een reëel, positief getal, zoals een kans moet zijn. Het wordt de \emph{waarschijnlijkheidsdichtheid} genoemd: de kans per volume-eenheid om het deeltje op die plaats aan te treffen (eenheid \si{\per\metre\cubed}). De kans om het deeltje op tijdstip $t$ in een klein volume $\dd V$ rond $\vec r$ te vinden, is
 \begin{equation}
 \boxed{
-\dd P = |\psi(\vec{r},t)|^2\,\dd V .
+\dd P = \psi^*(\vec{r},t)\,\psi(\vec{r},t)\,\dd V = |\psi(\vec{r},t)|^2\,\dd V .
 }
 \end{equation}
-Omdat het deeltje ergens moet zijn, is de golffunctie \emph{genormaliseerd}: $\int |\psi|^2\,\dd V = 1$ over de volledige ruimte.
+De kans om het in een groter gebied $\Omega$ te vinden, is de integraal over dat gebied, het oppervlak onder de kromme in figuur~\ref{fig:golffunctie}b:
+\[
+P_\Omega = \int_\Omega |\psi|^2\,\dd V .
+\]
+Omdat het deeltje zich ergens moet bevinden, is de totale kans gelijk aan één:
+\begin{equation}
+\int_{\text{volledige ruimte}} |\psi|^2\,\dd V = 1 .
+\label{eq:normering}
+\end{equation}
+Een golffunctie die hieraan voldoet, heet \emph{genormeerd}.
 
-De kwantummechanica voorspelt dus niet waar één elektron zal worden aangetroffen, wel hoe vaak elke plaats voorkomt als je de meting vele keren herhaalt. Dat is precies wat de dubbelspleetproef toont. Het is ook de eerste keer in deze cursus dat waarschijnlijkheid een fundamentele rol speelt in plaats van onze onwetendheid te weerspiegelen. In hoofdstuk~\ref{ch:spontaniteit} ligt diezelfde idee aan de basis van de entropie.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figuren/golffunctie_betekenis}
+    \caption{(a) De golffunctie van een elektron dat in een beperkt gebied naar rechts beweegt. Het reële en het imaginaire deel trillen een kwart golflengte verschoven; de omhullende $|\psi|$ geeft de grootte. (b) De waarschijnlijkheidsdichtheid $\psi^*\psi$. De fase valt weg, en wat overblijft is altijd positief. Het gearceerde oppervlak is de kans om het elektron tussen \SI{5.5}{} en \SI{6.5}{\nano\metre} aan te treffen.}
+    \label{fig:golffunctie}
+\end{figure}
 
-\subsection{Van golffunctie naar orbitaal}
+Voor de golf $\psi = A\,e^{i(kx-\omega t)}$ van een elektron met welbepaalde impuls is $\psi^*\psi = A\,e^{-i(kx-\omega t)}\,A\,e^{i(kx-\omega t)} = A^2$: overal even groot. Een elektron waarvan de impuls exact gekend is, kan overal zijn. Wil je het lokaliseren, zoals in figuur~\ref{fig:golffunctie}, dan moet je golven met verschillende impulsen combineren. Plaats en impuls zijn dus nooit tegelijk exact bepaald; dat is de \emph{onzekerheidsrelatie} van Heisenberg.
 
-Een \emph{atomair orbitaal} is een toegelaten golffunctie voor een elektron in een atoom. Het is geen baan, maar een gebied met een bepaalde kans om het elektron aan te treffen. Meestal tekent men het oppervlak dat \SI{90}{\percent} van die kans omsluit; zo ontstaan de vormen van $s$-, $p$- en $d$-orbitalen (figuur~\ref{fig:orbitalen}).
+\paragraph{Waarom de fase er toch toe doet.}
+In $\psi^*\psi$ valt de fase weg. Toch is ze belangrijk zodra twee golven samenkomen. In de dubbelspleetproef is de golffunctie op het scherm de som $\psi = \psi_1 + \psi_2$ van de golven uit elke spleet, en de kans is $|\psi_1 + \psi_2|^2$, niet $|\psi_1|^2 + |\psi_2|^2$. Waar beide in fase aankomen, versterken ze elkaar; waar ze tegengesteld zijn, wordt de kans nul. Dat is de oorsprong van de donkere banden. Hetzelfde mechanisme vormt verderop de chemische binding: twee atoomorbitalen die in fase overlappen, vergroten de kans om het elektron tussen de kernen te vinden (\S\ref{sec:molecuulorbitalen}).
+
+De kwantummechanica voorspelt dus niet waar één elektron zal worden aangetroffen, wel hoe vaak elke plaats voorkomt als je de meting vele keren herhaalt. Dat is precies wat de dubbelspleetproef toont: elke inslag is willekeurig, maar de verdeling volgt $|\psi|^2$. Het is ook de eerste keer in deze cursus dat waarschijnlijkheid een fundamentele rol speelt, in plaats van onze onwetendheid te weerspiegelen. In hoofdstuk~\ref{ch:spontaniteit} ligt diezelfde idee, een groot aantal mogelijke toestanden met elk een waarschijnlijkheid, aan de basis van de entropie.
+
+\subsection{De Schr\"odingervergelijking}
+
+\paragraph{Waar komt de vergelijking vandaan?}
+De golffunctie zegt wat we kunnen weten, maar welke golffuncties zijn mogelijk voor een elektron in een atoom of een molecule? Erwin Schr\"odinger stelde daarvoor in 1926 een vergelijking op. Ze kan niet worden afgeleid uit de klassieke fysica, maar je kunt wel zien waarom ze deze vorm heeft.
+
+Neem een vrij deeltje met impuls $p$. Volgens De Broglie hoort daar een golf bij met golflengte $\lambda = h/p$, bijvoorbeeld $\psi = A\sin(kx)$ met golfgetal $k = 2\pi/\lambda = p/\hbar$. Leid je die golf twee keer af, dan krijg je
+\[
+\frac{\dd^2\psi}{\dd x^2} = -k^2\psi = -\frac{p^2}{\hbar^2}\,\psi .
+\]
+Vermenigvuldig met $-\hbar^2/2m$ en gebruik dat de kinetische energie $p^2/2m$ is:
+\[
+-\frac{\hbar^2}{2m}\frac{\dd^2\psi}{\dd x^2} = \frac{p^2}{2m}\,\psi = E_\mathrm{kin}\,\psi .
+\]
+Is er ook een potentiële energie $V$, dan is $E_\mathrm{kin} = E - V$, met $E$ de totale energie. Schr\"odinger postuleerde dat deze relatie ook geldt wanneer $V$ van plaats tot plaats verandert. Zo krijg je, voor één deeltje in één dimensie en een toestand met welbepaalde energie, de \emph{tijdsonafhankelijke Schr\"odingervergelijking}:
+\begin{equation}
+\boxed{
+-\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2} + V(x)\psi = E\psi,
+}
+\label{eq:Schrodinger}
+\end{equation}
+met $\hbar=h/2\pi$, $m$ de massa van het deeltje, $V(x)$ de potentiële energie en $E$ de totale energie.
+
+\paragraph{Wat de vergelijking zegt.}
+De eerste term is de kinetische energie, en die hangt af van de \emph{kromming} van $\psi$. Waar $E - V$ groot is, beweegt het deeltje snel: de golf is daar sterk gekromd, met een korte golflengte. Waar $E - V$ klein is, is de golf vlakker. En waar $V > E$, een gebied dat klassiek verboden is, kromt de golf de andere kant op: ze trilt niet meer, maar sterft exponentieel uit. Het deeltje dringt dus een klein stukje door in een gebied waar het klassiek niet mag komen. Is zo'n gebied dun genoeg, dan kan het er zelfs doorheen: het \emph{tunneleffect}, waarop de rastertunnelmicroscoop en het geheugen in een usb-stick berusten.
+
+De Schr\"odingervergelijking speelt dezelfde rol als de wetten van Newton in de klassieke mechanica. Ze levert echter geen baan of exacte positie, maar de golffuncties die voor het systeem mogelijk zijn, en de bijbehorende energieën.
+
+\paragraph{Welke oplossingen zijn toegelaten?}
+Niet elke wiskundige oplossing van~\eqref{eq:Schrodinger} beschrijft een fysische toestand. Een aanvaardbare golffunctie moet aan drie voorwaarden voldoen:
+\begin{itemize}
+\item \textbf{Eindig}: $\psi$ mag nergens oneindig worden, want dan zou $|\psi|^2$ een oneindige kans per volume geven op die plaats, wat fysisch onmogelijk is.
+\item \textbf{Continu}: $\psi$ mag geen sprongen maken, en bij een eindige potentiaal ook haar eerste afgeleide niet. De vergelijking bevat een tweede afgeleide, en die bestaat enkel als $\psi$ vloeiend verloopt.
+\item \textbf{Normeerbaar}: de totale kans~\eqref{eq:normering} moet gelijk aan één kunnen worden gemaakt. Voor een gebonden deeltje moet $\psi$ daarom naar nul gaan op grote afstand.
+\end{itemize}
+Juist deze voorwaarden laten voor een opgesloten deeltje slechts bepaalde golffuncties toe, en dus slechts bepaalde energieën. De kwantisatie is geen extra postulaat meer zoals bij Bohr; ze volgt uit de vergelijking zelf. Dat maken we in de volgende paragraaf concreet.
+
+Voor een elektron in een atoom is $V$ de Coulombaantrekking door de kern. De oplossingen zijn de atoomorbitalen en hun energieniveaus (\S\ref{sec:waterstofatoom}). Verderop passen we dezelfde vergelijking toe op heel andere potentialen: een molecule die vrij beweegt in een vat, die roteert of die trilt (\S\ref{sec:moleculaire-beweging}). Telkens volgen er vanzelf discrete energieniveaus en nieuwe kwantumgetallen uit.
+
+Ook de stabiliteit van het atoom volgt nu. Een toestand met welbepaalde energie heeft een kansverdeling $|\psi|^2$ die niet verandert in de tijd: er beweegt geen lading heen en weer, en er wordt dus niets uitgestraald. De laagste toegelaten oplossing is de grondtoestand. Een toestand waarin het elektron in de kern stort, is geen aanvaardbare oplossing: hij zou een oneindig sterk gekromde golffunctie vereisen, met een oneindige kinetische energie.
+
+\subsection{Discrete energieniveaus}
+\label{sec:discrete-energieniveaus}
+
+Een gitaarsnaar die aan beide uiteinden vastzit, kan enkel trillen in patronen met een geheel aantal halve golflengten, net zoals het stralingsveld in de holte van figuur~\ref{fig:trillingsmodi}. Voor een materiegolf die opgesloten zit, geldt hetzelfde. Dat maken we concreet met het eenvoudigste voorbeeld: een deeltje met massa $m$ dat vrij beweegt in een ééndimensionale \emph{doos} met lengte $L$, en de wanden niet kan verlaten ($V=0$ binnen, $V=\infty$ buiten).
+
+\emph{Stap 1: de vergelijking.} Binnen de doos is $V=0$ en wordt~\eqref{eq:Schrodinger}
+\[
+-\frac{\hbar^2}{2m}\frac{\dd^2\psi}{\dd x^2} = E\psi
+\qquad\text{of}\qquad
+\frac{\dd^2\psi}{\dd x^2} = -k^2\psi, \quad k=\frac{\sqrt{2mE}}{\hbar}.
+\]
+Welke functie geeft na twee keer afleiden zichzelf terug, met een minteken? Een sinus en een cosinus. De algemene oplossing is dus $\psi(x)=A\sin(kx)+B\cos(kx)$.
+
+\emph{Stap 2: de randvoorwaarden.} Buiten de doos is $\psi = 0$, want het deeltje kan er niet zijn. Omdat $\psi$ continu moet zijn, moet ze ook aan de wanden nul zijn: $\psi(0)=0$ en $\psi(L)=0$. De eerste voorwaarde geeft $B=0$, want $\cos 0 = 1$. De tweede geeft $A\sin(kL)=0$. Met $A=0$ zou er geen deeltje zijn, dus moet $\sin(kL)=0$:
+\[
+kL = n\pi, \qquad n=1,2,3,\ldots
+\]
+Er passen dus een geheel aantal halve golflengten in de doos, $L = n\lambda/2$, net als bij de snaar.
+
+\emph{Stap 3: de energie.} Met $k = n\pi/L$ in $E=\hbar^2k^2/(2m)$ volgt
+\begin{equation}
+\boxed{
+E_n = \frac{n^2h^2}{8mL^2}, \qquad n=1,2,3,\ldots
+}
+\label{eq:deeltje-in-doos}
+\end{equation}
+
+\emph{Stap 4: de normering.} De constante $A$ volgt uit~\eqref{eq:normering}: $\int_0^L A^2\sin^2(n\pi x/L)\,\dd x = A^2 L/2 = 1$, dus $A = \sqrt{2/L}$ en
+\[
+\psi_n(x) = \sqrt{\frac{2}{L}}\,\sin\frac{n\pi x}{L}.
+\]
+
+De kwantisatie volgt hier uitsluitend uit de randvoorwaarden; er is geen extra postulaat nodig zoals bij Bohr. Figuur~\ref{fig:deeltje-doos} toont de eerste vier oplossingen. Drie eigenschappen komen in elk kwantumsysteem terug:
+\begin{itemize}
+\item De laagste energie is \emph{niet nul}: $E_1 = h^2/(8mL^2)$. Een opgesloten deeltje kan nooit volledig stilliggen. Deze \emph{nulpuntsenergie} vinden we terug bij de trillende molecule (\S\ref{sec:vibratie}).
+\item Hogere toestanden hebben meer \emph{knopen}, punten waar $\psi = 0$: toestand $n$ heeft er $n-1$. Meer knopen betekent een sterker gekromde golf, dus een hogere kinetische energie.
+\item De niveaus liggen verder uit elkaar naarmate de doos kleiner of het deeltje lichter is ($E_n \propto 1/mL^2$). Daarom is kwantisatie belangrijk voor elektronen in atomen en verwaarloosbaar voor een knikker in een doos.
+\end{itemize}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/deeltje_doos}
+    \caption{Deeltje in een doos. (a) De golffuncties van de eerste vier toestanden, elk getekend op de hoogte van zijn energie $E_n = n^2E_1$. (b) De waarschijnlijkheidsdichtheden $\psi_n^*\psi_n$. In toestand $n=2$ is de kans om het deeltje in het midden te vinden nul.}
+    \label{fig:deeltje-doos}
+\end{figure}
+
+\begin{voorbeeld}{Waar zit het deeltje, en hoe groot zijn de energiesprongen?}
+\emph{Kans in het middelste derde.} In de grondtoestand is de kans om het deeltje tussen $L/3$ en $2L/3$ te vinden
+\[
+P = \int_{L/3}^{2L/3}\frac{2}{L}\sin^2\frac{\pi x}{L}\,\dd x = \frac13 + \frac{\sqrt3}{2\pi} = 0.61 .
+\]
+Een klassiek deeltje dat heen en weer botst, zou even vaak op elke plaats zijn, met een kans van $1/3$. Het kwantumdeeltje in de grondtoestand zit liever in het midden. In toestand $n=2$ is de kans in het exacte midden nul, hoewel het deeltje links en rechts ervan wel kan zijn.
+
+\emph{Een elektron in een doos van \SI{1}{\nano\metre}.} Dat is ongeveer de lengte van een molecule met een rij geconjugeerde dubbele bindingen. Dan is
+\[
+E_1 = \frac{(6.626\times10^{-34})^2}{8(9.109\times10^{-31})(1.0\times10^{-9})^2} = \SI{6.0e-20}{\joule} = \SI{0.38}{\electronvolt},
+\]
+en de sprong van $n=1$ naar $n=2$ is $3E_1 = \SI{1.1}{\electronvolt}$, een foton van \SI{1.1}{\micro\metre}. Hoe kleiner de doos, hoe groter de sprong en hoe blauwer het licht. Dat is het principe van \emph{quantum dots}: halfgeleiderkristalletjes van enkele nanometer waarvan de kleur enkel door hun grootte wordt bepaald, gebruikt in de beeldschermen van QLED-televisies.
+\end{voorbeeld}
+
+We gebruiken dit resultaat verderop voor de translatie van een molecule in een vat (\S\ref{sec:translatie}).
+
+\subsection{Het waterstofatoom: energieniveaus en orbitalen}
+\label{sec:waterstofatoom}
+
+\paragraph{Energieniveaus.}
+Voor het waterstofatoom is $V(r)= -e^2/(4\pi\varepsilon_0 r)$, de Coulombaantrekking tussen kern en elektron, nu in drie dimensies. De Schr\"odingervergelijking kan voor deze potentiaal exact worden opgelost. De wiskunde laten we achterwege, maar het resultaat is opvallend: de energieniveaus hangen enkel af van een geheel getal $n$, het hoofdkwantumgetal,
+\begin{equation}
+E_n = -\frac{\SI{13.6}{eV}}{n^2}, \qquad n = 1,2,3,\ldots
+\end{equation}
+Het minteken betekent dat het elektron gebonden is. De grondtoestand heeft $E_1 = \SI{-13.6}{eV}$, dan volgen $E_2 = \SI{-3.40}{eV}$ en $E_3 = \SI{-1.51}{eV}$; voor grote $n$ nadert de energie nul. Dat zijn precies de niveaus van Bohr~\eqref{eq:bohr-energie}, maar nu volgt de kwantisatie uit de voorwaarden op de golffunctie, zoals bij het deeltje in een doos. Het model van Bohr was dus een gelukkige gok. De Schr\"odingervergelijking verklaart daarnaast ook atomen met meer elektronen en moleculen, waar Bohr faalde.
+
+\paragraph{Van golffunctie naar orbitaal.}
+De oplossingen van de Schr\"odingervergelijking voor een elektron in een atoom heten \emph{atoomorbitalen}. Een orbitaal is dus een toegelaten golffunctie, geen baan. Het elektron draait niet zoals bij Bohr op een cirkel rond de kern; het orbitaal geeft via $|\psi|^2$ aan waar de kans groot of klein is om het elektron aan te treffen. Teken je die kans in drie dimensies, dan krijg je een \emph{elektronenwolk}. Die wolk is geen materiële wolk waarin de lading letterlijk uitgesmeerd is: bij elke meting vind je het elektron op één plaats, maar over vele metingen vormen de plaatsen deze wolk.
+
+Het eenvoudigste orbitaal is de grondtoestand van waterstof, het \emph{1s-orbitaal}:
+\[
+\psi_{1s}(r) = \frac{1}{\sqrt{\pi a_0^3}}\,e^{-r/a_0},
+\]
+met $a_0 = \SI{52.9}{\pico\metre}$, opnieuw de straal van Bohr. Het hangt enkel af van de afstand $r$ tot de kern, niet van de richting: het orbitaal is bolvormig. De kans per volume $|\psi_{1s}|^2$ is het grootst in de kern zelf en daalt exponentieel naar buiten (figuur~\ref{fig:radiale-1s}). Betekent dit dat het elektron het vaakst in de kern zit? Nee. Op afstand $r$ ligt een bolschil met dikte $\dd r$ en volume $4\pi r^2\,\dd r$. Hoe verder van de kern, hoe groter die schil. De kans om het elektron op een afstand tussen $r$ en $r+\dd r$ te vinden, is daarom
+\[
+P(r)\,\dd r = 4\pi r^2\,|\psi_{1s}|^2\,\dd r = \frac{4r^2}{a_0^3}\,e^{-2r/a_0}\,\dd r .
+\]
+Dicht bij de kern is de schil zeer klein, ver weg is $|\psi|^2$ zeer klein; ertussen ligt een maximum. Stel je de afgeleide van $r^2e^{-2r/a_0}$ gelijk aan nul, dan vind je $2r - 2r^2/a_0 = 0$, dus $r = a_0$. De meest waarschijnlijke afstand tussen het elektron en de kern is exact de straal van Bohr. Het oude model had dus een kern van waarheid: de baan van Bohr is de plaats waar de elektronenwolk het dichtst is.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/radiale_1s}
+    \caption{Het 1s-orbitaal van waterstof. De kans per volume $\psi^*\psi$ is maximaal in de kern, maar de kans per afstand $4\pi r^2\psi^*\psi$ is maximaal bij $r = a_0$, de straal van Bohr. Binnen $2.66\,a_0$ ligt \SI{90}{\percent} van de kans.}
+    \label{fig:radiale-1s}
+\end{figure}
+
+Een wolk heeft geen scherpe rand. Om toch een vorm te tekenen, kiest men het oppervlak dat bijvoorbeeld \SI{90}{\percent} van de kans omsluit; voor het 1s-orbitaal is dat een bol met straal $2.66\,a_0 = \SI{141}{\pico\metre}$. Voor hogere energieniveaus heeft de Schr\"odingervergelijking ook oplossingen die van de richting afhangen. Zo ontstaan de halter-vormige $p$-orbitalen en de klavervormige $d$-orbitalen (figuur~\ref{fig:orbitalen}). Welke orbitalen bij elk niveau horen, wordt bepaald door drie kwantumgetallen, het onderwerp van de volgende sectie.
 
 \begin{figure}[htb]
     \centering
@@ -298,46 +697,7 @@ Een \emph{atomair orbitaal} is een toegelaten golffunctie voor een elektron in e
     \label{fig:orbitalen}
 \end{figure}
 
-\subsection{De Schr\"odingervergelijking}
-
-De mogelijke golffuncties volgen uit de vergelijking die Schr\"odinger in 1926 opstelde. Voor één deeltje in één dimensie, in een toestand met welbepaalde energie, luidt ze
-\begin{equation}
-\boxed{
--\frac{\hbar^2}{2m}\frac{\partial^2\psi}{\partial x^2} + V(x)\psi = E\psi,
-}
-\label{eq:Schrodinger}
-\end{equation}
-met $m$ de massa, $V(x)$ de potentiële energie en $E$ de totale energie. De eerste term is de kinetische energie: hoe sterker $\psi$ gekromd is, hoe groter die energie. De vergelijking speelt dezelfde rol als de wetten van Newton, maar levert geen baan; haar oplossingen zijn de toegelaten golffuncties. Een fysisch aanvaardbare oplossing moet overal \emph{eindig} zijn, \emph{continu} verlopen en \emph{normaliseerbaar} zijn (voor een gebonden deeltje gaat $\psi$ naar nul op grote afstand). Juist die voorwaarden laten voor een opgesloten deeltje slechts bepaalde energieën toe.
-
-\subsection{Discrete energieniveaus}
-\label{sec:discrete-energieniveaus}
-
-Een gitaarsnaar die aan beide uiteinden vastzit, kan enkel trillen in patronen met een geheel aantal halve golflengten. Voor een materiegolf geldt hetzelfde, en dat maken we concreet met het eenvoudigste voorbeeld: een deeltje dat vrij beweegt in een ééndimensionale \emph{doos} met lengte $L$ ($V=0$ binnen, $V=\infty$ buiten). Binnen de doos wordt vergelijking~\eqref{eq:Schrodinger}
-\[
--\frac{\hbar^2}{2m}\frac{\dd^2\psi}{\dd x^2} = E\psi,
-\]
-met algemene oplossing $\psi(x)=A\sin(kx)+B\cos(kx)$ en $k=\sqrt{2mE}/\hbar$. Omdat $\psi$ continu moet aansluiten op nul buiten de doos, geldt $\psi(0)=0$, dus $B=0$, en $\psi(L)=A\sin(kL)=0$, dus
-\[
-kL = n\pi, \qquad n=1,2,3,\ldots
-\]
-Met $E=\hbar^2k^2/(2m)$ volgt de gekwantiseerde energie
-\begin{equation}
-E_n = \frac{n^2h^2}{8mL^2}, \qquad n=1,2,3,\ldots
-\label{eq:deeltje-in-doos}
-\end{equation}
-De kwantisatie volgt hier uitsluitend uit de randvoorwaarden; er is geen extra postulaat nodig zoals bij Bohr. We gebruiken dit resultaat verderop voor de translatie van een molecule (\S~\ref{sec:translatie}).
-
-\subsection{Het waterstofatoom en zijn energieniveaus}
-\label{sec:waterstofatoom}
-
-Voor het waterstofatoom, met de Coulombpotentiaal $V(r)= -e^2/(4\pi\varepsilon_0 r)$, kan de Schr\"odingervergelijking exact worden opgelost. De energieniveaus hangen enkel af van het hoofdkwantumgetal $n$:
-\begin{equation}
-E_n = -\frac{\SI{13.6}{eV}}{n^2}, \qquad n = 1,2,3,\ldots
-\end{equation}
-Het minteken betekent dat het elektron gebonden is. De grondtoestand heeft $E_1 = \SI{-13.6}{eV}$, dan volgen $E_2 = \SI{-3.40}{eV}$ en $E_3 = \SI{-1.51}{eV}$; voor grote $n$ nadert de energie nul.
-Dat zijn precies de niveaus van Bohr, maar nu volgt de kwantisatie uit de randvoorwaarden van de golffunctie. Het model van Bohr was dus een gelukkige gok; de Schr\"odingervergelijking verklaart ook atomen met meer elektronen en moleculen.
-
-Moleculen hebben naast elektronische ook gekwantiseerde rotatie- en vibratieniveaus (\S~\ref{sec:moleculaire-beweging}). Daarom heeft elke stof een eigen ``vingerafdruk''-spectrum, de basis van de spectroscopie in kwaliteitscontrole en procesanalyse.
+Moleculen hebben naast elektronische ook gekwantiseerde rotatie- en vibratieniveaus (\S\ref{sec:moleculaire-beweging}). Daarom heeft elke stof een eigen ``vingerafdruk''-spectrum, de basis van de spectroscopie in kwaliteitscontrole en procesanalyse.
 
 \section{Kwantumgetallen, het uitsluitingsprincipe en het periodiek systeem}
 
