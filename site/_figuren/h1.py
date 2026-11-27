@@ -455,3 +455,55 @@ def vlamtemperatuur():
     ax.set_xlabel("luchtovermaat (%)")
     ax.set_ylabel(r"$T_\mathrm{ad}$ (°C)")
     return kader(fig)
+
+
+# ------------------------------------------------- kinetische gastheorie
+def kmt_botsing():
+    """Links: één molecule botst tegen de wand (impulsverandering 2mv_x, terugkeertijd 2L/v_x).
+    Rechts: verdeling van v_x over alle moleculen (N2, 25 °C): gemiddelde nul, kwadraat niet."""
+    from matplotlib.patches import Rectangle
+    fig, (ax, ax2) = figuur(10.0, 4.4, ncols=2, gridspec_kw={"width_ratios": [1.05, 1]})
+    # --- linkerpaneel: doos met één molecule
+    ax.set_axis_off()
+    ax.set_xlim(-0.6, 6.6)
+    ax.set_ylim(-1.2, 5.4)
+    ax.set_aspect("equal")
+    ax.add_patch(Rectangle((0, 0), 5, 4.4, facecolor=K.vlak_accent, edgecolor=K.accent, lw=2))
+    ax.add_patch(Rectangle((5, 0), 0.18, 4.4, facecolor=K.accent, edgecolor=K.accent, lw=0))
+    # weg van de molecule: naar de wand en terug
+    ax.plot([0.8, 4.85], [1.0, 2.33], color=K.zacht, lw=1, ls=":")
+    ax.plot([4.85, 2.0], [2.33, 3.27], color=K.zacht, lw=1, ls=":")
+    ax.plot(0.8, 1.0, "o", color=K.blauw, ms=11, zorder=5)
+    pijl(ax, (0.8, 1.0), (2.2, 1.46), K.blauw, lw=2.2)
+    label(ax, 1.5, 1.45, "$\\vec v$", K.blauw, fontsize=13, ha="right")
+    pijl(ax, (0.8, 0.5), (2.2, 0.5), K.oker, lw=2)
+    label(ax, 2.3, 0.5, "$v_x$", K.oker, fontsize=12, va="center")
+    # botsing aan de rechterwand
+    ax.plot(4.85, 2.33, "o", color=K.blauw, ms=11, zorder=5, alpha=0.55)
+    pijl(ax, (3.6, 3.95), (4.75, 3.95), K.oker, lw=2)
+    label(ax, 3.5, 3.95, "voor: $+mv_x$", K.oker, fontsize=10.5, ha="right", va="center")
+    pijl(ax, (4.75, 3.45), (3.6, 3.45), K.rood, lw=2)
+    label(ax, 3.5, 3.45, "na: $-mv_x$", K.rood, fontsize=10.5, ha="right", va="center")
+    label(ax, 5.3, 2.75, "wand krijgt\n$\\Delta p = 2mv_x$", K.tekst, fontsize=10.5, va="center")
+    # ribbe L en terugkeertijd
+    ax.annotate("", xy=(0, -0.45), xytext=(5, -0.45), arrowprops=dict(arrowstyle="<->", color=K.tekst, lw=1.2))
+    label(ax, 2.5, -0.6, "$L$: heen en terug $2L$, dus elke $2L/v_x$ een botsing", K.tekst, fontsize=10.5,
+          ha="center", va="top")
+    label(ax, 2.5, 4.85, "één molecule in een kubus", K.accent, fontsize=12, ha="center", fontweight="bold")
+    # --- rechterpaneel: verdeling van v_x
+    s = np.sqrt(8.314 * 298 / 0.028)  # standaardafwijking van v_x
+    vx = np.linspace(-1300, 1300, 400)
+    f = np.exp(-vx**2 / (2 * s**2)) / (s * np.sqrt(2 * np.pi))
+    ax2.fill_between(vx, f * 1e3, color=K.vlak_blauw, lw=0)
+    ax2.plot(vx, f * 1e3, color=K.blauw, lw=2.2)
+    ax2.axvline(0, color=K.tekst, lw=1, ls="--")
+    label(ax2, -1250, 1.45, "$\\langle v_x\\rangle = 0$: evenveel\nnaar links als naar rechts", K.tekst, fontsize=10, va="top")
+    for t in (-s, s):
+        ax2.axvline(t, color=K.rood, lw=1.4, ls=":")
+    label(ax2, s + 60, 1.0, f"$\\sqrt{{\\langle v_x^2\\rangle}}$\n= {s:.0f} m/s", K.rood, fontsize=10)
+    ax2.set_xlim(-1300, 1300)
+    ax2.set_ylim(0, 1.55)
+    ax2.set_xlabel("snelheidscomponent $v_x$ (m/s)")
+    ax2.set_ylabel("fractie moleculen (per km/s)")
+    ax2.set_title("verdeling van $v_x$ voor N$_2$ bij 25 °C", fontsize=12)
+    return kader(fig)
