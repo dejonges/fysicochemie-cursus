@@ -218,13 +218,16 @@ Vervang in de ideale gaswet $p_{\mathrm{ideaal}} \to p + a n^2/V^2$ en $V_{\math
 \end{equation}
 
 \begin{voorbeeld}{Vergelijking van het gedrag van \ce{CO2} en He}
-We vergelijken beide gassen bij $T=\SI{300}{\kelvin}$ en $V_m=\SI{1.00e-3}{\metre\cubed\per\mole}$, met $p = RT/(V_m-b) - a/V_m^2$ en $Z = pV_m/RT$. Een ideaal gas geeft $p = RT/V_m = \SI{2.49}{\mega\pascal}$.
+We vergelijken beide gassen bij $T=\SI{300}{\kelvin}$ en $V_m=\SI{1.00e-3}{\metre\cubed\per\mole}$, met $p = RT/(V_m-b) - a/V_m^2$ en $Z = pV_m/RT$. 
+
+Een ideaal gas geeft $p = RT/V_m = \SI{2.49}{\mega\pascal}$.
 
 \textbf{\ce{CO2}} ($a = \SI{0.364}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{4.27e-5}{\metre\cubed\per\mole}$):
 \[
 p = \frac{(8.314)(300)}{1.00\times10^{-3} - 4.27\times10^{-5}} - \frac{0.364}{(1.00\times10^{-3})^2} = 2.61 - 0.364 = \SI{2.24}{\mega\pascal},
 \]
 zodat $Z = 0.899$.
+
 \textbf{He} ($a = \SI{0.0035}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{2.38e-5}{\metre\cubed\per\mole}$):
 \[
 p = 2.56 - 0.0035 = \SI{2.55}{\mega\pascal}, \qquad Z = 1.023.
@@ -232,7 +235,7 @@ p = 2.56 - 0.0035 = \SI{2.55}{\mega\pascal}, \qquad Z = 1.023.
 Beide gassen wijken in tegengestelde richting af. Bij \ce{CO2} wint de aantrekking ($Z<1$), bij helium het eigen volume van de moleculen ($Z>1$).
 \end{voorbeeld}
 
-Een groot succes van de vergelijking is dat ze het \emph{kritiek punt} voorspelt. Daar verdwijnt het onderscheid tussen vloeistof en gas; in het $p$-$V$-diagram scheidt de kritieke isotherm de isothermen met een lus (condensatie) van de monotone. Wiskundig is het kritiek punt een buigpunt van die isotherm:
+Een groot succes van deze vergelijking is dat ze het \emph{kritiek punt} voorspelt. Daar verdwijnt het onderscheid tussen vloeistof en gas; in het $p$-$V$-diagram scheidt de kritieke isotherm de isothermen met een lus (condensatie) van de monotone. Wiskundig is het kritiek punt een buigpunt van die isotherm:
 \begin{equation*}
 \left.\frac{\partial p}{\partial V_m}\right|_{T_c} = -\frac{RT_c}{(V_{m,c} - b)^2} + \frac{2a}{V_{m,c}^3} = 0,
 \qquad
@@ -251,7 +254,7 @@ Met $T_c = \SI{304.1}{\kelvin}$ en $p_c = \SI{73.8}{\bar}$:
 a &= \frac{27(8.314)^2(304.1)^2}{64(7.38\times10^{6})} = \SI{0.365}{\pascal\metre\tothe{6}\per\mole\squared},\\
 b &= \frac{(8.314)(304.1)}{8(7.38\times10^{6})} = \SI{4.28e-5}{\metre\cubed\per\mole},
 \end{align*}
-in uitstekende overeenstemming met de tabelwaarden. De parameters zijn dus meetbaar uit het kritieke gedrag.
+Deze waarden zijn in uitstekende overeenstemming met de tabelwaarden. De parameters zijn dus berekenbaar uit het kritieke gedrag; hetgeen experimenteel kan gedaan worden.
 \end{voorbeeld}
 
 De theorie voorspelt ook een universele kritieke compressibiliteitsfactor $Z_c = p_c V_{m,c}/RT_c = 3/8 = 0.375$. Gemeten waarden liggen lager: 0.305 (He), 0.287 (\ce{N2}), 0.275 (\ce{CO2}), 0.242 (\ce{NH3}) en 0.229 (\ce{H2O}). Van der Waals is dus kwalitatief juist maar kwantitatief beperkt, vooral voor polaire stoffen: $a$ hangt in werkelijkheid af van $T$, moleculen zijn geen harde bollen, en vloeistofdichtheden worden onderschat. Verbeterde \emph{kubische toestandsvergelijkingen} behouden dezelfde structuur maar verfijnen de correctietermen: Redlich--Kwong (1949), Soave--Redlich--Kwong (1972) en Peng--Robinson (1976). Die laatste twee zitten in procesimulatoren zoals Aspen en HYSYS.
