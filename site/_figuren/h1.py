@@ -767,18 +767,72 @@ def _cilinder(ax, x0, titel, reactie, h_voor, hoogte_gas, warmte_in, arbeid_uit,
     label(ax, x0 + b / 2, 6.8, reactie, K.tekst, ha="center", fontsize=10.5)
 
 
-def enthalpie_arbeid():
-    """Energieboekhouding bij constante druk, per mol: thermolyse van CaCO3 (298 K, gas ontstaat,
-    systeem levert arbeid) en verbranding van tristearine (310 K, gas verdwijnt, omgeving levert
-    arbeid). Pijlen niet op schaal."""
-    fig, ax = figuur(9.0, 3.4)
+def _enthalpie_paneel():
+    fig, ax = figuur(5.2, 3.6)
     ax.set_axis_off()
-    ax.set_xlim(-1.2, 20.2)
+    ax.set_xlim(-1.2, 9.6)
     ax.set_ylim(-0.1, 7.7)
     ax.set_aspect("equal")
+    return fig, ax
+
+
+def enthalpie_thermolyse():
+    """Thermolyse van CaCO3 bij constante druk (298 K, per mol): gas ontstaat, de zuiger schuift op
+    en een deel van de toegevoerde warmte verlaat het systeem als arbeid. Pijlen niet op schaal."""
+    fig, ax = _enthalpie_paneel()
     _cilinder(ax, 0.3, "thermolyse van kalksteen (298 K)", "CaCO$_3$(s) $\\to$ CaO(s) + CO$_2$(g)",
               0.4, 3.0, True, True, "+178.3 kJ", "$-$2.5 kJ", "+175.8 kJ", "CaO(s)")
-    _cilinder(ax, 11.0, "verbranding van vet (310 K)",
+    return kader(fig)
+
+
+def enthalpie_vet():
+    """Verbranding van tristearine bij constante druk (310 K, per mol): gas verdwijnt, de atmosfeer
+    duwt de zuiger in en levert arbeid. Volume na/voor = 57/81.5. Pijlen niet op schaal."""
+    fig, ax = _enthalpie_paneel()
+    _cilinder(ax, 0.3, "verbranding van vet (310 K)",
               "C$_{57}$H$_{110}$O$_6$(s) + 81.5 O$_2$ $\\to$ 57 CO$_2$ + 55 H$_2$O(l)",
               2.6, 1.82, False, False, "$-$35 700 kJ", "+63 kJ", "$-$35 640 kJ", "H$_2$O(l)")
+    return kader(fig)
+
+def stromingsarbeid():
+    """Stromingsarbeid: aan de inlaat duwt het fluïdum stroomopwaarts (denkbeeldige zuiger) een pakketje
+    met kracht p1*A over zijn lengte L1 = V1/A naar binnen (arbeid p1V1 op het toestel); aan de uitlaat
+    duwt het uittredende pakketje het fluïdum stroomafwaarts weg (arbeid p2V2 naar de omgeving)."""
+    from matplotlib.patches import Rectangle, FancyBboxPatch
+    fig, ax = figuur(7.4, 2.6)
+    ax.set_axis_off()
+    ax.set_xlim(-0.3, 18.3)
+    ax.set_ylim(-0.2, 5.6)
+    ax.set_aspect("equal")
+    yb, h = 1.6, 1.6          # leiding: onderkant en hoogte
+    # toestel
+    ax.add_patch(FancyBboxPatch((7.0, 0.6), 4.0, 3.6, boxstyle="round,pad=0.05,rounding_size=0.3",
+                                facecolor=K.vlak_grijs, edgecolor=K.as_, lw=1.6))
+    label(ax, 9.0, 2.4, "toestel\n(open systeem)", K.tekst, ha="center", va="center", fontsize=11)
+    # leidingen
+    for x0, x1 in ((0.0, 7.0), (11.0, 18.0)):
+        ax.plot([x0, x1], [yb, yb], color=K.as_, lw=1.6)
+        ax.plot([x0, x1], [yb + h, yb + h], color=K.as_, lw=1.6)
+        ax.add_patch(Rectangle((x0, yb), x1 - x0, h, facecolor=K.vlak_accent, edgecolor="none", zorder=0))
+    # inlaat: pakketje net voor het toestel, denkbeeldige zuiger erachter
+    ax.add_patch(Rectangle((4.4, yb), 2.6, h, facecolor=K.vlak_blauw, edgecolor=K.blauw, lw=1.6))
+    ax.add_patch(Rectangle((4.15, yb), 0.25, h, facecolor=K.oker, edgecolor=K.oker))
+    pijl(ax, (2.4, yb + h / 2), (4.05, yb + h / 2), K.oker, lw=2.6)
+    label(ax, 1.2, yb + h / 2, "$F = p_1A$", K.oker, ha="center", va="center", fontsize=11, fontweight="bold")
+    label(ax, 5.7, yb + h / 2, "$p_1, V_1$", K.blauw, ha="center", va="center", fontsize=11, fontweight="bold")
+    pijl(ax, (4.4, yb - 0.45), (7.0, yb - 0.45), K.tekst, lw=1.1, stijl="<|-|>")
+    label(ax, 5.7, yb - 0.95, "$L_1 = V_1/A$", K.tekst, ha="center", fontsize=10.5)
+    label(ax, 3.4, yb + h + 0.35, "denkbeeldige zuiger:\nhet fluïdum stroomopwaarts", K.oker,
+          ha="center", fontsize=9.5)
+    label(ax, 3.5, 5.1, "inlaat: $p_1A \\cdot L_1 = p_1V_1$ geleverd aan het toestel", K.oker, ha="center",
+          fontsize=11, fontweight="bold")
+    # uitlaat: pakketje net buiten het toestel duwt stroomafwaarts weg
+    ax.add_patch(Rectangle((11.0, yb), 2.4, h, facecolor=K.vlak_blauw, edgecolor=K.blauw, lw=1.6))
+    label(ax, 12.2, yb + h / 2, "$p_2, V_2$", K.blauw, ha="center", va="center", fontsize=11, fontweight="bold")
+    pijl(ax, (13.5, yb + h / 2), (15.4, yb + h / 2), K.oker, lw=2.6)
+    label(ax, 16.6, yb + h / 2, "$F = p_2A$", K.oker, ha="center", va="center", fontsize=11, fontweight="bold")
+    label(ax, 14.6, yb + h + 0.35, "duwt het fluïdum\nstroomafwaarts weg", K.oker, ha="center", fontsize=9.5)
+    label(ax, 14.5, 5.1, "uitlaat: $p_2V_2$ geleverd aan de omgeving", K.oker, ha="center",
+          fontsize=11, fontweight="bold")
+    label(ax, 9.0, -0.1, "stroomrichting $\\rightarrow$", K.zacht, ha="center", fontsize=10)
     return kader(fig)

@@ -477,7 +477,18 @@ W = -RT\ln\frac{V_2}{V_1} = RT\ln\frac{p_2}{p_1} = (8.314)(300)\ln 10 = \SI{5.74
 \section{Enthalpie}
 \label{sec:enthalpie}
 
-In een open systeem stroomt materie in en uit. Om een pakketje flu\"idum (druk $p$, volume $V$) in een toestel te duwen, moet de stroming erachter arbeid leveren: kracht $pA$ maal verplaatsing $\dd x$, dus $p\,A\,\dd x = p\,\dd V$, of in totaal $pV$. Elke stroom draagt dus naast zijn interne energie ook deze \emph{stromingsarbeid} mee. Het is handig beide samen te nemen.
+In een open systeem, zoals een pomp, een turbine of een warmtewisselaar, stroomt materie in en uit. Dat in- en uitstromen kost arbeid. Bekijk een pakketje flu\"idum vlak v\'o\'or de inlaat van een toestel, in een leiding met doorsnede $A$ (figuur~\ref{fig:stromingsarbeid}). Het heeft druk $p_1$ en volume $V_1$, en dus lengte $L_1 = V_1/A$. Het pakketje gaat niet vanzelf naar binnen: het flu\"idum dat erop volgt (stroomopwaarts, links in de figuur) duwt het voor zich uit, net als een zuiger. Die denkbeeldige zuiger oefent een kracht $F = p_1A$ uit en verschuift het pakketje over zijn hele lengte $L_1$, tot het volledig in het toestel zit. De arbeid die zo aan het toestel geleverd wordt, is
+\[
+W_\text{in} = F\,L_1 = p_1A\cdot\frac{V_1}{A} = p_1V_1 .
+\]
+Aan de uitlaat gebeurt het omgekeerde. Het pakketje dat het toestel verlaat (druk $p_2$, volume $V_2$) moet het flu\"idum stroomafwaarts opzij duwen en levert daarbij arbeid $p_2V_2$ aan de omgeving. Elke stroom draagt dus naast zijn interne energie $U$ ook deze \emph{stromingsarbeid} $pV$ mee. Het is handig beide samen te nemen.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figuren/stromingsarbeid}
+    \caption{Stromingsarbeid. Aan de inlaat duwt het flu\"idum stroomopwaarts als een denkbeeldige zuiger een pakketje met kracht $p_1A$ over zijn lengte $L_1 = V_1/A$ naar binnen: het toestel ontvangt arbeid $p_1V_1$. Aan de uitlaat duwt het uittredende pakketje het flu\"idum stroomafwaarts weg: het toestel levert arbeid $p_2V_2$.}
+    \label{fig:stromingsarbeid}
+\end{figure}
 
 \begin{definitie}{Enthalpie}
 \begin{equation}
@@ -491,25 +502,24 @@ Differenti\"eren en de eerste hoofdwet invullen geeft $\dd H = \delta Q + V\,\dd
 \end{equation}
 De enthalpieverandering is dus de warmte bij constante druk. Omdat de meeste processen bij (nagenoeg) constante druk lopen, rekenen ingenieurs bijna altijd met $H$: warmtewisselaars, kolommen en reactoren worden ontworpen met enthalpiebalansen. Voor vaste stoffen en vloeistoffen is $pV$ klein, zodat $\Delta H \approx \Delta U$; voor gassen is het verschil $\Delta(pV) = \Delta n_\text{gas}RT$.
 
-Waar gaat dat verschil naartoe? Stel dat een reactie bij constante druk $p$ in een cilinder met een vrij bewegende zuiger loopt (figuur~\ref{fig:enthalpie-arbeid}). Ontstaat er gas, dan schuift de zuiger op en duwt het systeem de atmosfeer weg: het levert arbeid $W = -p\,\Delta V$. Verdwijnt er gas, dan duwt de atmosfeer de zuiger in en krijgt het systeem arbeid. Met de ideale gaswet is $p\,\Delta V = \Delta n_\text{gas}RT$ (het volume van vaste stoffen en vloeistoffen verwaarlozen we), zodat de eerste hoofdwet $\Delta U = Q_p + W$ wordt
+Waar gaat dat verschil naartoe? Stel dat een reactie bij constante druk $p$ in een cilinder met een vrij bewegende zuiger loopt (figuren~\ref{fig:enthalpie-thermolyse} en~\ref{fig:enthalpie-vet}). Ontstaat er gas, dan schuift de zuiger op en duwt het systeem de atmosfeer weg: het levert arbeid $W = -p\,\Delta V$. Verdwijnt er gas, dan duwt de atmosfeer de zuiger in en krijgt het systeem arbeid. Met de ideale gaswet is $p\,\Delta V = \Delta n_\text{gas}RT$ (het volume van vaste stoffen en vloeistoffen verwaarlozen we), zodat de eerste hoofdwet $\Delta U = Q_p + W$ wordt
 \begin{equation}
 \Delta U = \Delta H - \Delta n_\text{gas}RT .
 \label{eq:dU-dH}
 \end{equation}
 De warmte $Q_p = \Delta H$ en de verandering van de interne energie verschillen dus precies met de volumearbeid tegen de atmosfeer. Twee reacties uit het dagelijks leven tonen beide richtingen.
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=\textwidth]{Figuren/enthalpie_arbeid}
-    \caption{Energieboekhouding bij constante druk, per mol reactie. Links: bij de thermolyse van kalksteen ontstaat CO$_2$; de zuiger schuift op en een deel van de toegevoerde warmte verlaat het systeem weer als arbeid. Rechts: bij de verbranding van tristearine verdwijnt gas; de atmosfeer duwt de zuiger in en levert arbeid, zodat er meer warmte vrijkomt dan de interne energie daalt. Pijlen en volumes niet op schaal.}
-    \label{fig:enthalpie-arbeid}
-\end{figure}
-
 \begin{voorbeeld}{Thermolyse van kalksteen: warmte erin, arbeid eruit}
 In een kalkoven wordt kalksteen ontbonden tot ongebluste kalk, de grondstof voor cement en mortel:
 \[
 \mathrm{CaCO_3(s)} \;\longrightarrow\; \mathrm{CaO(s)} + \mathrm{CO_2(g)}, \qquad \Delta H^\circ = +\SI{178.3}{\kilo\joule\per\mole} \quad (\SI{298}{\kelvin}).
 \]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Figuren/enthalpie_thermolyse}
+    \caption{Thermolyse van kalksteen bij constante druk, per mol. Er ontstaat CO$_2$; de zuiger schuift op en een deel van de toegevoerde warmte verlaat het systeem weer als arbeid. Pijlen niet op schaal.}
+    \label{fig:enthalpie-thermolyse}
+\end{figure}
 De reactie is endotherm: je moet \SI{178.3}{\kilo\joule} warmte toevoeren per mol. Er ontstaat \'e\'en mol gas uit niets dan vaste stof, dus $\Delta n_\text{gas} = +1$ en
 \begin{align*}
 W &= -\Delta n_\text{gas}RT = -(1)(8.314)(298) = \SI{-2.48}{\kilo\joule\per\mole},\\
@@ -523,6 +533,12 @@ Je lichaam verbrandt vet, bijvoorbeeld tristearine, bij lichaamstemperatuur (\SI
 \[
 \mathrm{C_{57}H_{110}O_6(s)} + 81.5\,\mathrm{O_2(g)} \;\longrightarrow\; 57\,\mathrm{CO_2(g)} + 55\,\mathrm{H_2O(l)}, \qquad \Delta H \approx \SI{-35700}{\kilo\joule\per\mole}.
 \]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Figuren/enthalpie_vet}
+    \caption{Verbranding van tristearine bij constante druk, per mol. Er verdwijnt gas; de atmosfeer duwt de zuiger in en levert arbeid, zodat er meer warmte vrijkomt dan de interne energie daalt. Pijlen niet op schaal.}
+    \label{fig:enthalpie-vet}
+\end{figure}
 Dat is ongeveer \SI{40}{\kilo\joule} per gram vet ($M = \SI{891.5}{\gram\per\mole}$). Hier \emph{verdwijnt} gas: $\Delta n_\text{gas} = 57 - 81.5 = -24.5$. De atmosfeer duwt het volume dus samen en levert arbeid aan het systeem:
 \begin{align*}
 W &= -\Delta n_\text{gas}RT = -(-24.5)(8.314)(310) = \SI{+63}{\kilo\joule\per\mole},\\
