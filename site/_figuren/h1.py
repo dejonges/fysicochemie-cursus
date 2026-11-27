@@ -836,3 +836,61 @@ def stromingsarbeid():
           fontsize=11, fontweight="bold")
     label(ax, 9.0, -0.1, "stroomrichting $\\rightarrow$", K.zacht, ha="center", fontsize=10)
     return kader(fig)
+
+
+_CP_TAB = {  # tabel tab:cp_coeff (a, b, c), Cp in J/(mol K), 300-1000 K
+    "N2": (28.5, 3.6e-4, 4.00e-6),
+    "H2": (29.1, -6.1e-4, 1.65e-6),
+    "NH3": (24.4, 3.86e-2, -6.40e-6),
+}
+
+
+def _H_tab(stof, T, T0=298.15):
+    a, b, c = _CP_TAB[stof]
+    return a * (T - T0) + b / 2 * (T**2 - T0**2) + c / 3 * (T**3 - T0**3)
+
+
+def kirchhoff():
+    """Ammoniaksynthese N2 + 3 H2 -> 2 NH3 (dHr(298) = -92.2 kJ, Cp uit tab:cp_coeff).
+    Links: H van reagentia en producten t.o.v. de reagentia bij 298 K; de reagentia hebben de grotere
+    Cp (steilere lijn), dus de kloof ΔrH wordt groter bij hogere T. Rechts: ΔrH(T) exact (integraal)
+    en met constante ΔrCp(298)."""
+    fig, (ax1, ax2) = figuur(11.0, 4.4, ncols=2)
+    T = np.linspace(298.15, 1000, 200)
+    H0 = -92.2
+    Hr = (_H_tab("N2", T) + 3 * _H_tab("H2", T)) / 1000
+    Hp = H0 + 2 * _H_tab("NH3", T) / 1000
+    ax1.plot(T, Hr, color=K.blauw, lw=2.4)
+    ax1.plot(T, Hp, color=K.rood, lw=2.4)
+    label(ax1, 330, 62, "reagentia: N$_2$ + 3 H$_2$\n$\\Sigma C_p$ = 116 J/K (298 K)", K.blauw, fontsize=10.5)
+    label(ax1, 700, -88, "producten: 2 NH$_3$\n$\\Sigma C_p$ = 71 J/K (298 K)", K.rood, fontsize=10.5)
+    for Tx, txt in ((298.15, "$-$92.2 kJ"), (723.15, "$-$106.2 kJ")):
+        hr = (_H_tab("N2", Tx) + 3 * _H_tab("H2", Tx)) / 1000
+        hp = H0 + 2 * _H_tab("NH3", Tx) / 1000
+        pijl(ax1, (Tx, hr), (Tx, hp + 1.0), K.tekst, lw=1.8)
+        ax1.plot([Tx, Tx], [hr, hr], "o", color=K.blauw, ms=6)
+        ax1.plot([Tx, Tx], [hp, hp], "o", color=K.rood, ms=6)
+        label(ax1, Tx + 12, (hr + hp) / 2, f"$\\Delta_r H$ =\n{txt}", K.tekst, va="center", fontsize=10.5)
+    ax1.set_xlim(250, 1000)
+    ax1.set_ylim(-110, 85)
+    ax1.set_xlabel("temperatuur $T$ (K)")
+    ax1.set_ylabel("$H - H_\\mathrm{reagentia}(298\\,\\mathrm{K})$ (kJ)")
+    ax1.set_title("enthalpie van reagentia en producten", fontsize=12)
+    # rechts
+    dCp298 = 2 * sum(np.array(_CP_TAB["NH3"]) * [1, 298.15, 298.15**2]) \
+        - sum(np.array(_CP_TAB["N2"]) * [1, 298.15, 298.15**2]) \
+        - 3 * sum(np.array(_CP_TAB["H2"]) * [1, 298.15, 298.15**2])
+    ax2.plot(T, Hp - Hr, color=K.accent, lw=2.4)
+    ax2.plot(T, H0 + dCp298 * (T - 298.15) / 1000, color=K.oker, lw=2.0, ls="--")
+    label(ax2, 320, -122, "constante $\\Delta_r C_p$ = $-$45.5 J/K\n(waarde bij 298 K)", K.oker, fontsize=10.5)
+    label(ax2, 760, -103, "exact: $\\int \\Delta_r C_p(T)\\,\\mathrm{d}T$", K.accent, fontsize=10.5)
+    ax2.plot([723.15], [-106.15], "o", color=K.accent, ms=6)
+    ax2.plot([723.15], [-111.53], "o", color=K.oker, ms=6)
+    ax2.axvline(723.15, color=K.zacht, lw=1, ls=":")
+    label(ax2, 728, -88.5, "450 °C", K.zacht, fontsize=10)
+    ax2.set_xlim(250, 1000)
+    ax2.set_ylim(-130, -85)
+    ax2.set_xlabel("temperatuur $T$ (K)")
+    ax2.set_ylabel("$\\Delta_r H$ (kJ per 2 mol NH$_3$)")
+    ax2.set_title("reactie-enthalpie $\\Delta_r H(T)$", fontsize=12)
+    return kader(fig)

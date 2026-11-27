@@ -666,7 +666,7 @@ met co\"effici\"enten zoals in tabel~\ref{tab:cp_coeff}. Processimulatoren (Aspe
 
 \begin{table}[htb]
 \centering
-\caption{Benaderende co\"effici\"enten voor $C_{p,\mathrm{m}} = a + bT + cT^2$ (in \si{\joule\per\mole\per\kelvin}, $T$ in \si{\kelvin}), geldig tussen \SI{300}{\kelvin} en \SI{1000}{\kelvin} (afwijking kleiner dan \SI{1}{\joule\per\mole\per\kelvin}).
+\caption{Benaderende co\"effici\"enten voor $C_{p,\mathrm{m}} = a + bT + cT^2$ (in \si{\joule\per\mole\per\kelvin}, $T$ in \si{\kelvin}), geldig tussen \SI{300}{\kelvin} en \SI{1000}{\kelvin} (afwijking kleiner dan \SI{1}{\joule\per\mole\per\kelvin}).}
 \label{tab:cp_coeff}
 \begin{tabular}{lccc}
 \toprule
@@ -721,13 +721,86 @@ Per mol methaan komt \SI{890.3}{\kilo\joule} vrij: de basis voor het ontwerp van
 \end{voorbeeld}
 
 \section{Temperatuurafhankelijkheid van reactie-enthalpie\"en: de wet van Kirchhoff}
+\label{sec:kirchhoff}
 
-Reacties lopen zelden bij \SI{298}{\kelvin}. Omdat reagentia en producten een andere warmtecapaciteit hebben, verschuift $\Delta_r H$ met de temperatuur volgens de \emph{wet van Kirchhoff}:
+Tabellen geven reactie- en vormingsenthalpie\"en bij \SI{298}{\kelvin}, maar reacties lopen zelden bij kamertemperatuur. Ammoniak wordt gemaakt bij ongeveer \SI{450}{\celsius}, methanol bij \SI{250}{\celsius}, kalk bij \SI{900}{\celsius}. Hoe reken je de reactie-enthalpie om naar de procestemperatuur?
+
+\paragraph{Afleiding met een kringloop.} Omdat $H$ een toestandsfunctie is, mag je van reagentia bij $T_0 = \SI{298}{\kelvin}$ naar producten bij een andere temperatuur $T$ gaan langs elke weg die je wil. Vergelijk twee wegen:
+\begin{enumerate}
+\item \emph{Eerst reageren, dan opwarmen.} Laat de reactie verlopen bij $T_0$ en warm daarna de producten op van $T_0$ tot $T$:
+\[
+\Delta H_\text{weg 1} = \Delta_r H^\circ(T_0) + \int_{T_0}^{T} C_{p,\text{producten}}\,\dd T .
+\]
+\item \emph{Eerst opwarmen, dan reageren.} Warm de reagentia op van $T_0$ tot $T$ en laat de reactie daar verlopen:
+\[
+\Delta H_\text{weg 2} = \int_{T_0}^{T} C_{p,\text{reagentia}}\,\dd T + \Delta_r H^\circ(T) .
+\]
+\item Begin- en eindtoestand zijn dezelfde, dus $\Delta H_\text{weg 1} = \Delta H_\text{weg 2}$. Oplossen naar $\Delta_r H^\circ(T)$ geeft de \emph{wet van Kirchhoff}:
 \begin{equation}
-\Delta_r H^\circ(T) = \Delta_r H^\circ(T_0) + \int_{T_0}^{T} \Delta_r C_p^\circ\,\dd T
-\;\approx\; \Delta_r H^\circ(T_0) + \Delta_r C_p^\circ\,(T - T_0),
+\boxed{\;\Delta_r H^\circ(T) = \Delta_r H^\circ(T_0) + \int_{T_0}^{T} \Delta_r C_p^\circ\,\dd T\;}
+\label{eq:kirchhoff}
 \end{equation}
-met $\Delta_r C_p^\circ = \sum_i \nu_i C_{p,i}^\circ$. Je volgt eigenlijk dezelfde kringloop als in figuur~\ref{fig:hess}: reagentia afkoelen naar \SI{298}{\kelvin}, laten reageren, producten opwarmen.
+met
+\[
+\Delta_r C_p^\circ = \sum_\text{producten} \nu\, C_{p,\mathrm{m}}^\circ - \sum_\text{reagentia} \nu\, C_{p,\mathrm{m}}^\circ .
+\]
+\end{enumerate}
+In differentiaalvorm staat er $\dd(\Delta_r H^\circ)/\dd T = \Delta_r C_p^\circ$: de reactie-enthalpie verandert met de temperatuur precies zo snel als het verschil in warmtecapaciteit tussen producten en reagentia.
+
+\paragraph{Grafisch.} Teken de enthalpie van de reagentia en van de producten als functie van $T$ (figuur~\ref{fig:kirchhoff}, links). Elke lijn stijgt met een helling gelijk aan de totale warmtecapaciteit, en de verticale afstand tussen beide lijnen is $\Delta_r H^\circ(T)$. De twee wegen uit de afleiding zijn de twee manieren om van het blauwe punt linksboven naar het rode punt rechtsonder te gaan: eerst omlaag en dan langs de rode lijn, of eerst langs de blauwe lijn en dan omlaag. Lopen de lijnen evenwijdig ($\Delta_r C_p = 0$), dan hangt $\Delta_r H$ niet van de temperatuur af. Hebben de reagentia de grotere warmtecapaciteit, zoals bij de ammoniaksynthese, dan gaan de lijnen uit elkaar en wordt de reactie bij hogere temperatuur sterker exotherm.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{Figuren/kirchhoff}
+    \caption{De wet van Kirchhoff voor de ammoniaksynthese \ce{N2 + 3 H2 -> 2 NH3}. Links: enthalpie van reagentia en producten (ten opzichte van de reagentia bij \SI{298}{\kelvin}); de helling van elke lijn is zijn warmtecapaciteit, de verticale afstand is $\Delta_r H$. Rechts: $\Delta_r H(T)$ met de temperatuurafhankelijke $C_p$ uit tabel~\ref{tab:cp_coeff} en met de constante waarde $\Delta_r C_p(\SI{298}{\kelvin})$.}
+    \label{fig:kirchhoff}
+\end{figure}
+
+\paragraph{Constante $\Delta_r C_p$.} Over een beperkt temperatuurinterval mag je $\Delta_r C_p^\circ$ constant nemen, en dan wordt de integraal eenvoudig:
+\begin{equation}
+\Delta_r H^\circ(T) \approx \Delta_r H^\circ(T_0) + \Delta_r C_p^\circ\,(T - T_0).
+\label{eq:kirchhoff-constant}
+\end{equation}
+Dat is een rechte in figuur~\ref{fig:kirchhoff} (rechts). Hoe groter het temperatuurverschil, hoe meer ze afwijkt van de echte kromme, omdat de warmtecapaciteiten zelf met $T$ veranderen (figuur~\ref{fig:cp-temperatuur}).
+
+\begin{voorbeeld}{Vormingsenthalpie van waterdamp bij \SI{100}{\celsius}}
+De standaardvormingsenthalpie van waterdamp bij \SI{25}{\celsius} is \SI{-241.82}{\kilo\joule\per\mole}. Hoeveel is ze bij \SI{100}{\celsius}? De vormingsreactie is
+\[
+\ce{H2(g) + 1/2 O2(g) -> H2O(g)}.
+\]
+Met $C_{p,\mathrm{m}}^\circ$ bij \SI{298}{\kelvin} (\ce{H2O(g)} 33.58, \ce{H2} 28.82, \ce{O2} \SI{29.36}{\joule\per\mole\per\kelvin}; Atkins \& de Paula):
+\[
+\Delta_r C_p^\circ = 33.58 - 28.82 - \tfrac12(29.36) = \SI{-9.92}{\joule\per\mole\per\kelvin}.
+\]
+Over \SI{75}{\kelvin} is $\Delta_r C_p$ zeker constant, dus
+\[
+\Delta_f H^\circ(\SI{373}{\kelvin}) = -241.82 + (-9.92\times10^{-3})(75) = \SI{-242.56}{\kilo\joule\per\mole}.
+\]
+Een verschuiving van amper \SI{0.3}{\percent}: over enkele tientallen kelvin mag je de tabelwaarde meestal gewoon gebruiken.
+\end{voorbeeld}
+
+\begin{voorbeeld}{Ammoniaksynthese bij \SI{450}{\celsius}}
+In het Haber-Boschproces reageert \ce{N2 + 3 H2 -> 2 NH3} bij ongeveer \SI{723}{\kelvin}. Bij \SI{298}{\kelvin} is $\Delta_r H^\circ = 2(\SI{-46.1}{\kilo\joule\per\mole}) = \SI{-92.2}{\kilo\joule}$. Hoeveel warmte moet de koeling van de reactor per 2 mol \ce{NH3} afvoeren bij de procestemperatuur?
+
+\emph{Stap 1: $\Delta_r C_p$ als veelterm.} Met $C_p = a + bT + cT^2$ uit tabel~\ref{tab:cp_coeff} combineer je de co\"effici\"enten zoals de stoffen in de reactie:
+\begin{align*}
+\Delta a &= 2(24.4) - 28.5 - 3(29.1) = -67.0,\\
+\Delta b &= 2(3.86\times10^{-2}) - 3.6\times10^{-4} - 3(-6.1\times10^{-4}) = 7.87\times10^{-2},\\
+\Delta c &= 2(-6.40\times10^{-6}) - 4.00\times10^{-6} - 3(1.65\times10^{-6}) = -2.18\times10^{-5}.
+\end{align*}
+Bij \SI{298}{\kelvin} is $\Delta_r C_p = \SI{-45.5}{\joule\per\kelvin}$, bij \SI{723}{\kelvin} nog maar \SI{-21.5}{\joule\per\kelvin}.
+
+\emph{Stap 2: integreren} van \SI{298}{\kelvin} tot \SI{723}{\kelvin}, term per term zoals bij de opwarming van lucht:
+\begin{align*}
+\int_{298}^{723} \Delta_r C_p\,\dd T &= \Delta a\,(425) + \frac{\Delta b}{2}(723^2 - 298^2) + \frac{\Delta c}{3}(723^3 - 298^3)\\
+&= -28.5 + 17.1 - 2.5 = \SI{-14.0}{\kilo\joule}.
+\end{align*}
+\emph{Stap 3: optellen.}
+\[
+\Delta_r H^\circ(\SI{723}{\kelvin}) = -92.2 - 14.0 = \SI{-106.2}{\kilo\joule}.
+\]
+Bij de procestemperatuur komt dus \SI{15}{\percent} meer warmte vrij dan de tabelwaarde doet vermoeden, en dat moet de koeling aankunnen. Had je $\Delta_r C_p$ constant op zijn waarde bij \SI{298}{\kelvin} gehouden, dan vond je $-92.2 + (-45.5\times10^{-3})(425) = \SI{-111.5}{\kilo\joule}$: de fout van \SI{5}{\kilo\joule} is ruim een derde van de correctie zelf (figuur~\ref{fig:kirchhoff}, rechts). Over honderden kelvin gebruik je dus beter de temperatuurafhankelijke $C_p$.
+\end{voorbeeld}
 
 
 \section{Warmte-effecten van reacties: de adiabatische temperatuur}
