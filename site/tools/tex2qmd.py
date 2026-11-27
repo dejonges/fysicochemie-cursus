@@ -46,6 +46,7 @@ CALLOUTS = {  # omgeving -> (Quarto-callout, titelprefix, extra attributen)
     "samenvatting": ("callout-important", "Samenvatting", ''),
     "reflectie":  ("callout-caution", "Reflectievragen", ' icon="false"'),
     "casus":      ("callout-note", "Casus", ' .casus icon="false"'),
+    "casusuitgewerkt": ("callout-note", "Casus uitgewerkt", ' .casus icon="false"'),
     "oefening":   ("callout-note", "Oefening", ' icon="false"'),
     "oplossing":  ("callout-tip", "Oplossing", ' collapse="true" icon="false"'),  # enkel online, dichtgeklapt
 }
@@ -306,6 +307,7 @@ def convert_chapter(texname, slug, chapnum):
     # labels en verwijzingen als tokens
     s = re.sub(r'\\label\{([^}]*)\}', lambda m: tok_label(m.group(1)), s)
     s = re.sub(r'\\eqref\{([^}]*)\}', lambda m: 'QEQR' + tok_label(m.group(1))[4:], s)
+    s = re.sub(r'\\S\s*~?\s*(?=\\(?:ref|autoref|cref)\{)', '§', s)  # \S\ref -> §
     s = re.sub(r'\\(?:ref|autoref|cref)\{([^}]*)\}', lambda m: 'QREF' + tok_label(m.group(1))[4:], s)
     s = s.replace(r'\chapter*', r'\chapter')
 

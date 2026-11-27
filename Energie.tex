@@ -19,11 +19,14 @@ Figuur~\ref{fig:ammoniakfabriek} toont het hart van zo'n fabriek. Een mengsel va
     \label{fig:ammoniakfabriek}
 \end{figure}
 
-Wie zo'n installatie ontwerpt of bedient, botst meteen op vragen over energie.
-Waarom wordt het gas in de compressor zo heet, en waarom koelt men het tussen de trappen? Hoeveel arbeid kost de compressie (\S\ref{sec:compressor})?
-Mag je bij \SI{200}{\bar} nog rekenen met $pV = nRT$, of zit je er dan naast (\S\ref{sec:toestandsvergelijkingen})?
-Hoeveel warmte komt er vrij in de reactor, en hoe warm wordt een katalysatorbed als je die warmte niet afvoert (\S\ref{sec:kirchhoff} en \S\ref{sec:warmte-effecten})?
-Hoeveel koeling vraagt de condensor (\S\ref{sec:faseovergangen})?
+Wie zo'n installatie ontwerpt of bedient, botst meteen op vragen over energie. Volg het gas door de lus van figuur~\ref{fig:ammoniakfabriek}:
+\begin{itemize}
+\item Het synthesegas moet van ongeveer \SI{25}{\bar} naar \SI{200}{\bar}. Wat gebeurt er met het gas als je het samenperst, welke problemen levert dat op, en hoeveel energie kost het (\S\ref{sec:compressor})?
+\item Hoeveel gas past er bij die druk in de reactor, en mag je daarvoor nog rekenen met $pV = nRT$ (\S\ref{sec:toestandsvergelijkingen})?
+\item In de reactor komt warmte vrij. Hoeveel, en wat doet die warmte met het gas en met de omzetting (\S\ref{sec:hess} tot \S\ref{sec:katalysatorbed})?
+\item Wat kost het om de ammoniak als vloeistof uit het gas te halen (\S\ref{sec:faseovergangen})?
+\end{itemize}
+We beantwoorden die vragen niet meteen. Elke sectie start met een concreet probleem uit de fabriek, een \emph{casus}. Daarna bouwen we de theorie op die nodig is om het op te lossen, en op het einde van de sectie werken we de casus volledig uit. Vaak roept dat antwoord meteen de volgende vraag op, zodat het hoofdstuk het gas stap voor stap door de fabriek volgt.
 
 Al die vragen worden beantwoord door de \emph{thermodynamica}, de leer van hoe energie wordt opgeslagen, uitgewisseld en omgezet. Het bijzondere is dat je daarvoor de individuele moleculen niet hoeft te volgen. Een handvol macroscopische grootheden, zoals temperatuur, druk, volume en samenstelling, volstaat om het gedrag van een installatie met $10^{30}$ moleculen nauwkeurig te voorspellen. In dit hoofdstuk bouwen we die begrippen stap voor stap op, en we keren telkens terug naar de fabriek om ze toe te passen. Dezelfde begrippen gebruik je later voor elke warmtewisselaar, destillatiekolom, koelinstallatie of bioreactor.
 
@@ -83,7 +86,9 @@ Je kan ook toepassen op zeer alledaagse situaties. Rij met de auto van een bergt
 \label{sec:toestandsvergelijkingen}
 
 \begin{casus}{hoeveel gas zit er in de reactor?}
-De reactor van de ammoniakfabriek staat op \SI{200}{\bar} en 400 tot \SI{500}{\celsius}. Hoeveel mol synthesegas zit er in een kubieke meter? Hoe groot moet de reactor zijn voor een gegeven debiet, en welk volume neemt het gas in na elke compressortrap? Daarvoor heb je een relatie nodig tussen $p$, $V$, $T$ en $n$, die ook bij hoge druk klopt.
+De reactor van de ammoniakfabriek staat op \SI{200}{\bar} en ongeveer \SI{450}{\celsius}. Hoeveel mol synthesegas zit er in \'e\'en kubieke meter reactor? Het antwoord bepaalt hoe groot de reactor moet zijn voor een gegeven productie.
+
+\emph{Schat eerst zelf:} reken met $pV = nRT$. Zit er in werkelijkheid meer of minder gas in? Denk aan wat er gebeurt als moleculen zo dicht op elkaar zitten.
 \end{casus}
 
 Toestandsvariabelen zijn niet onafhankelijk: een \emph{toestandsvergelijking} verbindt ze. De eenvoudigste is de ideale gaswet. We bekijken eerst waarom ze werkt, dan wanneer ze faalt, en ten slotte hoe je dat corrigeert. Je zal in je verdere opleiding overal gassen tegenkomen, van perslucht tot stoom en koelmiddel, en dit is de plaats waar je leert inschatten hoe ver je met $pV = nRT$ komt.
@@ -433,10 +438,29 @@ Het teken van $B$ vertelt wat domineert. Een negatieve $B$ (\ce{CO2}, en \ce{N2}
 
 De viriaalvergelijking is vooral een \emph{fitvergelijking}. Ze vertrekt niet van een fysisch beeld van de moleculen zoals Van der Waals, en de co\"effici\"enten volgen niet uit een theorie maar uit metingen. Dat is meteen haar sterkte: met genoeg termen beschrijft ze experimentele gegevens zo nauwkeurig als je wil. Bij lage tot matige dichtheid volstaat vaak de term in $B$ alleen. Haar zwakte is dat ze enkel geldt in het gebied waarop gefit werd: bij hoge dichtheid en in de buurt van condensatie convergeert de reeks niet meer, en een vloeistof beschrijft ze niet.
 
+\begin{casusuitgewerkt}{hoeveel gas zit er in de reactor?}
+
+\emph{Stap 1: ideaal gas.} Bij \SI{200}{\bar} en \SI{723}{\kelvin} is
+\[
+\frac{n}{V} = \frac{p}{RT} = \frac{200\times10^{5}}{(8.314)(723)} = \SI{3330}{\mole\per\metre\cubed}.
+\]
+
+\emph{Stap 2: re\"eel gas.} Voor het mengsel (\SI{75}{\percent} \ce{H2}, \SI{25}{\percent} \ce{N2}) geeft Peng--Robinson bij deze temperatuur $Z = 1.05$, zodat
+\[
+\frac{n}{V} = \frac{p}{ZRT} = \frac{3330}{1.05} = \SI{3170}{\mole\per\metre\cubed}.
+\]
+
+\emph{Besluit.} Er zit \SI{5}{\percent} minder gas in de reactor dan de ideale gaswet voorspelt. De moleculen nemen zelf plaats in, en bij deze hoge temperatuur is hun onderlinge aantrekking te zwak om dat te compenseren ($Z > 1$). Na de compressor, bij \SI{40}{\celsius}, is de afwijking groter ($Z = 1.07$), en in een waterstoftank bij \SI{700}{\bar} loopt ze op tot \SI{50}{\percent}. Wie een reactor of een opslagtank dimensioneert, moet $Z$ dus kennen.
+
+\emph{Volgende vraag.} Om het gas op \SI{200}{\bar} te krijgen, moet een compressor het samenpersen. Daarbij wisselt het gas energie uit met zijn omgeving. Op welke manieren kan dat?
+\end{casusuitgewerkt}
+
 \section{Warmte en arbeid}
 
 \begin{casus}{energie over de grens}
-De compressor van de fabriek duwt met een as op het gas; de tussenkoelers onttrekken het gas energie via koelwater. In beide gevallen verandert de energie van het gas. Zijn dat twee vormen van hetzelfde, of verschillen ze fundamenteel?
+De compressor duwt met een draaiende as op het gas. Na de compressor gaat het gas door een koeler, waar koelwater er energie uit haalt. In beide gevallen verandert de energie van het gas. Is dat twee keer hetzelfde, of is er een wezenlijk verschil? En hoeveel energie moet de compressor minstens leveren om \SI{1}{\mole} gas van \SI{25}{\bar} naar \SI{200}{\bar} te brengen?
+
+\emph{Schat eerst zelf:} de koeler voert energie af naar het koelwater. Zou je die energie kunnen terugwinnen om de compressor mee aan te drijven?
 \end{casus}
 
 Tijdens compressie, expansie, opwarming of afkoeling wisselt een systeem energie uit met zijn omgeving. Dat kan op twee manieren: als \emph{arbeid} of als \emph{warmte}. Beide zijn padfuncties, maar ze verschillen fundamenteel van aard (figuur~\ref{fig:arbeid-warmte}).
@@ -484,10 +508,25 @@ De vuistregel is dus: een proces is (bijna) isotherm als het veel trager verloop
 Zuiver isotherm en reversibel bestaat in de industrie niet: het zou oneindig traag gaan. Wel benadert men het. Een gasexpander of stoomturbine wordt in trappen opgedeeld met \emph{tussenverwarming} ertussen, het spiegelbeeld van de tussenkoeling bij de compressor. Ook in de natuur zie je bijna isotherme expansie: een kleine luchtbel die in water opstijgt, verdubbelt van volume tussen \SI{10}{\metre} diepte en het oppervlak, maar blijft door het goede warmtecontact op watertemperatuur.
 \end{voorbeeld}
 
+\begin{casusuitgewerkt}{energie over de grens}
+
+\emph{Twee soorten overdracht.} De as van de compressor levert \emph{arbeid}: een geordende duw van schoepen of zuiger op alle moleculen in dezelfde richting. De koeler wisselt \emph{warmte} uit: ongeordende botsingen met een koudere wand. Beide veranderen de energie van het gas, maar ze zijn niet gelijkwaardig. Arbeid kan je volledig in warmte omzetten, omgekeerd lukt dat nooit volledig (hoofdstuk~\ref{ch:spontaniteit}). De warmte uit de koeler, op een lage temperatuur, is als aandrijving zo goed als waardeloos.
+
+\emph{Minimale arbeid.} Arbeid hangt af van de weg. De minste arbeid vraagt een reversibele, isotherme compressie: het spiegelbeeld van de isotherme expansie hierboven. Bij \SI{40}{\celsius} is dat per mol
+\[
+W = RT\ln\frac{p_2}{p_1} = (8.314)(313)\ln 8 = \SI{5.41}{\kilo\joule\per\mole}.
+\]
+Elke echte compressor heeft meer nodig.
+
+\emph{Volgende vraag.} Een echte compressor werkt veel te snel om isotherm te zijn: het gas komt er heet uit. Waar blijft de arbeid dan?
+\end{casusuitgewerkt}
+
 \section{De eerste hoofdwet van de thermodynamica}
 
 \begin{casus}{waarom wordt het gas heet?}
-Na de eerste compressortrap is het synthesegas ongeveer \SI{70}{\kelvin} warmer dan aan de inlaat, hoewel er geen brander of verwarming in de compressor zit. Waar komt die energie vandaan, en waar is ze gebleven?
+Een compressor verdubbelt de druk van het synthesegas, van \SI{25}{\bar} naar \SI{50}{\bar}. Het gas komt er ongeveer \SI{70}{\kelvin} warmer uit, hoewel er geen brander of verwarming in de compressor zit. Waar komt die energie vandaan, en waar is ze gebleven?
+
+\emph{Schat eerst zelf:} wordt het gas warm omdat het volume kleiner wordt? Wat zou er gebeuren als je even ver comprimeert, maar heel traag, in een koud waterbad?
 \end{casus}
 
 Warmte en arbeid zijn twee manieren waarop energie de systeemgrens oversteekt. Wanneer je een gas verwarmt, neemt het energie op; wanneer het uitzet en een zuiger wegduwt, geeft het energie af. Hoewel de twee mechanismen heel verschillend zijn, gaat het telkens om energie. Dat roept de vraag op: hoe beschrijf je de energie \emph{in} het systeem, los van de manier waarop ze binnenkwam?
@@ -521,11 +560,23 @@ W = -RT\ln\frac{V_2}{V_1} = RT\ln\frac{p_2}{p_1} = (8.314)(300)\ln 10 = \SI{5.74
 \]
 \end{voorbeeld}
 
+\begin{casusuitgewerkt}{waarom wordt het gas heet?}
+De energie komt van de as van de compressor, die arbeid verricht op het gas. Een gaspakketje is in een fractie van een seconde door de compressor, veel te snel om warmte af te geven. Dus is $Q \approx 0$ en
+\[
+\Delta U = W.
+\]
+De arbeid blijft als interne energie in het gas. Omdat $U$ van een (bijna) ideaal gas enkel van $T$ afhangt, kan die extra energie maar op \'e\'en manier zichtbaar worden: als een hogere temperatuur. Het kleinere volume is dus niet de oorzaak. Comprimeer je even ver maar heel traag in een koud bad, dan krijg je hetzelfde eindvolume bij de begintemperatuur: dezelfde soort arbeid vloeit dan als warmte naar het bad, zoals in het voorbeeld hierboven.
+
+\emph{Volgende vraag.} Een compressor is geen gesloten cilinder: het gas stroomt er voortdurend in en uit. Geldt $\Delta U = W$ dan nog, of telt er nog iets mee?
+\end{casusuitgewerkt}
+
 \section{Enthalpie}
 \label{sec:enthalpie}
 
 \begin{casus}{wat draagt een stroom mee?}
 Compressor, reactor en condensor zijn open systemen: er stroomt voortdurend gas in en uit. Om de energiebalans van zo'n toestel op te stellen, moet je weten hoeveel energie elke stroom meevoert. Is dat enkel zijn interne energie?
+
+\emph{Schat eerst zelf:} het gas komt de compressor binnen tegen een druk van \SI{25}{\bar} in. Gaat het vanzelf naar binnen, of moet iets het duwen?
 \end{casus}
 
 In een open systeem, zoals een pomp, een turbine of een warmtewisselaar, stroomt materie in en uit. Dat in- en uitstromen kost arbeid. Bekijk een pakketje flu\"idum vlak v\'o\'or de inlaat van een toestel, in een leiding met doorsnede $A$ (figuur~\ref{fig:stromingsarbeid}). Het heeft druk $p_1$ en volume $V_1$, en dus lengte $L_1 = V_1/A$. Het pakketje gaat niet vanzelf naar binnen: het flu\"idum dat erop volgt (stroomopwaarts, links in de figuur) duwt het voor zich uit, net als een zuiger. Die denkbeeldige zuiger oefent een kracht $F = p_1A$ uit en verschuift het pakketje over zijn hele lengte $L_1$, tot het volledig in het toestel zit. De arbeid die zo aan het toestel geleverd wordt, is
@@ -598,11 +649,23 @@ W &= -\Delta n_\text{gas}RT = -(-24.5)(8.314)(310) = \SI{+63}{\kilo\joule\per\mo
 De vrijgekomen warmte ($|Q_p| = \SI{35700}{\kilo\joule}$) is dus \emph{groter} dan de daling van de interne energie ($\SI{35640}{\kilo\joule}$): de \SI{63}{\kilo\joule} arbeid die de omgeving levert, komt er als warmte bij. Er lekt hier niets weg; het is precies omgekeerd als bij de kalkoven. Het effect is klein (\SI{0.2}{\percent}), wat bevestigt dat $\Delta H \approx \Delta U$ voor de meeste reacties, maar het teken van $\Delta n_\text{gas}$ bepaalt in welke richting de arbeid loopt.
 \end{voorbeeld}
 
+\begin{casusuitgewerkt}{wat draagt een stroom mee?}
+Een stroom draagt niet enkel zijn interne energie $U$ mee, maar ook de stromingsarbeid $pV$ die nodig is om hem het toestel in en uit te duwen. Samen is dat de enthalpie $H = U + pV$. Voor de compressor, die stationair werkt en geen warmte uitwisselt, volgt uit $\dd H = \delta Q + V\,\dd p$ met $\delta Q = 0$:
+\[
+W_\text{as} = \Delta H = H_\text{uit} - H_\text{in}.
+\]
+De asarbeid is dus gelijk aan de enthalpiestijging van het gas, niet aan de stijging van zijn interne energie. Hetzelfde geldt voor elke pomp of turbine. Voor de reactor en de condensor, waar warmte wordt uitgewisseld bij nagenoeg constante druk, wordt de balans $Q = \Delta H$.
+
+\emph{Volgende vraag.} Als de compressor de enthalpie van het gas met een gegeven bedrag verhoogt, hoeveel stijgt dan de temperatuur?
+\end{casusuitgewerkt}
+
 \section{Warmtecapaciteiten}
 \label{sec:warmtecapaciteiten}
 
 \begin{casus}{hoe warm precies?}
-Hoeveel stijgt de temperatuur van het synthesegas als de compressor er per mol \SI{2}{\kilo\joule} arbeid in steekt? Daarvoor moet je weten hoeveel energie het gas nodig heeft per kelvin.
+Bij de verdubbeling van de druk (van \SI{25}{\bar} naar \SI{50}{\bar}) steekt de compressor ongeveer \SI{2}{\kilo\joule} arbeid in elke mol synthesegas. Verklaart dat de \SI{70}{\kelvin} temperatuurstijging? En wat gebeurt er als je het gas in \'e\'en keer van \SI{25}{\bar} naar \SI{200}{\bar} brengt?
+
+\emph{Schat eerst zelf:} de druk stijgt nu met een factor 8 in plaats van 2. Wordt de temperatuurstijging dan ook vier keer groter?
 \end{casus}
 
 Om een stof op te warmen is warmte nodig. De \emph{warmtecapaciteit} geeft aan hoeveel energie moet worden toegevoerd om de temperatuur van een systeem met \'e\'en kelvin te verhogen:
@@ -689,7 +752,35 @@ T = (293.15)\,(2.83)^{0.286} = \SI{395}{\kelvin} = \SI{121}{\celsius},
 \]
 en de totale arbeid daalt tot $2 \cdot \tfrac{7}{2}(8.314)(395 - 293) = \SI{5.90}{\kilo\joule\per\mole}$: \SI{15}{\percent} minder dan zonder tussenkoeling. De groene weg in figuur~\ref{fig:compressie} benadert de isotherm des te beter naarmate er meer trappen zijn. Daarom hebben compressoren voor hoge drukken, zoals die voor het vullen van duikflessen (\SI{200}{\bar}) of voor de ammoniaksynthese (150 tot \SI{300}{\bar}), drie tot vijf trappen met telkens een tussenkoeler.
 
-\paragraph{Terug naar de ammoniakfabriek.} Het synthesegas komt binnen op ongeveer \SI{25}{\bar} en \SI{40}{\celsius} en moet naar \SI{200}{\bar}: opnieuw een drukverhouding 8. Stikstof en waterstof zijn tweeatomig, dus ook hier is $R/C_{p,\mathrm{m}} \approx 0.286$. In \'e\'en trap zou het gas \SI{294}{\celsius} bereiken, te heet voor de afdichtingen en de smering. In drie trappen met elk een drukverhouding 2 en tussenkoeling tot \SI{40}{\celsius} blijft elke trap onder \SI{110}{\celsius}, en daalt de arbeid van \SI{7.4}{} naar \SI{6.0}{\kilo\joule} per mol gas (isotherm zou \SI{5.4}{\kilo\joule\per\mole} zijn). Per mol \ce{NH3} moet je 2 mol synthesegas comprimeren. Een fabriek van \SI{1000}{\tonne} ammoniak per dag vraagt zo ongeveer \SI{8}{\mega\watt} aan compressiearbeid, en een echte compressor met wrijving en lekverliezen nog een derde meer. Dat is het vermogen van enkele grote windturbines, enkel om het gas op druk te brengen. (Bij \SI{200}{\bar} is $Z \approx 1.07$; voor deze schatting verwaarlozen we dat.)
+\begin{casusuitgewerkt}{hoe warm precies?}
+
+\emph{Stap 1: de \SI{70}{\kelvin} verklaard.} Synthesegas is tweeatomig, dus $C_{p,\mathrm{m}} \approx \tfrac72 R = \SI{29.1}{\joule\per\mole\per\kelvin}$. Met $W_\text{as} = \Delta H = C_{p,\mathrm{m}}\Delta T$:
+\[
+\Delta T = \frac{2000}{29.1} = \SI{69}{\kelvin}.
+\]
+Controle met vergelijking~\eqref{eq:adiabatische-compressie}: $T_2 = (313)(2)^{0.286} = \SI{382}{\kelvin}$, ook \SI{69}{\kelvin} warmer dan de inlaat op \SI{40}{\celsius}.
+
+\emph{Stap 2: in \'e\'en keer naar \SI{200}{\bar}.} De drukverhouding is 8:
+\[
+T_2 = (313)(8)^{0.286} = \SI{567}{\kelvin} = \SI{294}{\celsius}, \qquad W = (29.1)(567 - 313) = \SI{7.4}{\kilo\joule\per\mole}.
+\]
+De temperatuurstijging is \SI{254}{\kelvin}: 3.7 keer zoveel als bij de verdubbeling, niet 4 keer. De temperatuur groeit met een macht van de drukverhouding, niet evenredig ermee. Het probleem is de eindtemperatuur: bij \SI{294}{\celsius} lijden afdichtingen en smering, en de arbeid ligt \SI{37}{\percent} boven het isotherme minimum van \SI{5.41}{\kilo\joule\per\mole}.
+
+\emph{Stap 3: de oplossing.} Comprimeer in drie trappen met elk een drukverhouding 2 ($2^3 = 8$) en koel het gas na elke trap terug tot \SI{40}{\celsius}. Elke trap eindigt dan op \SI{382}{\kelvin} (\SI{109}{\celsius}), en de totale arbeid is
+\[
+W = 3\,(29.1)(382 - 313) = \SI{6.0}{\kilo\joule\per\mole},
+\]
+al veel dichter bij het minimum.
+
+\emph{Stap 4: wat betekent dat voor de fabriek?} Een fabriek van \SI{1000}{\tonne} \ce{NH3} per dag maakt $10^{9}\,\mathrm{g}/(17.03\,\mathrm{g\,mol^{-1}} \times 86\,400\,\mathrm{s}) = \SI{680}{\mole\per\second}$ ammoniak en moet daarvoor het dubbele aan synthesegas comprimeren:
+\[
+P = (2)(680)(6.0\times10^{3}) = \SI{8.2}{\mega\watt},
+\]
+en met wrijving en lekverliezen nog een derde meer. Dat is het vermogen van enkele grote windturbines, enkel om het gas op druk te brengen. (Bij \SI{200}{\bar} is $Z \approx 1.07$; voor deze schatting verwaarlozen we dat.)
+
+\emph{Volgende vraag.} De tussenkoelers moeten na elke trap \SI{2}{\kilo\joule} per mol afvoeren. Verderop in de lus moet de condensor het gas zelfs tot onder \SI{0}{\celsius} afkoelen en de ammoniak vloeibaar maken. Hoeveel warmte is dat?
+\end{casusuitgewerkt}
+
 
 \begin{figure}[htb]
     \centering
@@ -705,7 +796,9 @@ Hetzelfde effect benut men in een dieselmotor. Daar wordt lucht snel samengedruk
 \section{Enthalpie bij opwarmen en faseovergangen}
 
 \begin{casus}{de condensor}
-In de condensor wordt het gas van de reactor afgekoeld tot \SI{-10}{\celsius}. Eerst daalt de temperatuur van het gas, daarna condenseert de ammoniak. Hoeveel warmte moet de condensor afvoeren om de ammoniak vloeibaar te maken?
+In de condensor wordt het gas van de reactor afgekoeld tot \SI{-10}{\celsius}. Eerst daalt de temperatuur van het gas, daarna condenseert de ammoniak. Hoeveel warmte moet de condensor afvoeren om de ammoniak van een fabriek van \SI{1000}{\tonne} per dag vloeibaar te maken, en waarmee koel je dat?
+
+\emph{Schat eerst zelf:} bij water kost verdampen veel meer energie dan opwarmen van 0 tot \SI{100}{\celsius}. Waarom zou dat zo zijn, en verwacht je bij ammoniak hetzelfde?
 \end{casus}
 
 Bij opwarmen bij constante druk neemt de enthalpie toe volgens
@@ -773,7 +866,7 @@ Zolang een stof in dezelfde fase blijft, stijgt de enthalpie geleidelijk met $\i
 Om \SI{1}{\mole} water op te warmen van \SI{0}{\celsius} tot \SI{100}{\celsius} is $C_p\Delta T = (75.3)(100) = \SI{7.53}{\kilo\joule}$ nodig. Om het daarna te verdampen: \SI{40.7}{\kilo\joule}, 5.4 keer meer. Van de totale \SI{48.2}{\kilo\joule} gaat dus meer dan \SI{80}{\percent} naar de faseovergang. Daarom verbruikt de reboiler van een destillatiekolom zoveel meer energie dan een gewone vloeistofverwarmer.
 \end{voorbeeld}
 
-\begin{voorbeeld}{De condensor van de ammoniakfabriek}
+\begin{casusuitgewerkt}{de condensor}
 In de condensor van figuur~\ref{fig:ammoniakfabriek} gebeurt het omgekeerde van verdampen: gasvormige ammoniak condenseert en geeft daarbij zijn verdampingsenthalpie af. Bij het normale kookpunt (\SI{-33}{\celsius}) is $\Delta H_\text{vap}(\ce{NH3}) = \SI{23.3}{\kilo\joule\per\mole}$ (Atkins \& de Paula); bij de condensortemperatuur van ongeveer \SI{-10}{\celsius} is ze iets kleiner, ongeveer \SI{22}{\kilo\joule\per\mole}, omdat de verdampingsenthalpie daalt naarmate je de kritische temperatuur nadert.
 
 Hoeveel koelvermogen vraagt een fabriek van \SI{1000}{\tonne} \ce{NH3} per dag?
@@ -783,13 +876,17 @@ Hoeveel koelvermogen vraagt een fabriek van \SI{1000}{\tonne} \ce{NH3} per dag?
 \dot Q = \dot n\,\Delta H_\text{vap} = (680)(22\times10^{3}) = \SI{15}{\mega\watt}.
 \]
 Dat is enkel de faseovergang; het afkoelen van het hete gas komt er nog bij. Omdat de condensor onder \SI{0}{\celsius} werkt, kan gewoon koelwater dit niet: er is een koelmachine nodig, en die verbruikt zelf weer elektrische energie. Waarom warmte niet vanzelf van koud naar warm stroomt en hoeveel arbeid een koelmachine daarvoor minstens nodig heeft, is een vraag voor hoofdstuk~\ref{ch:spontaniteit}.
-\end{voorbeeld}
+
+\emph{Volgende vraag.} Die ammoniak ontstaat in de reactor, en daar komt bij de vorming zelf warmte vrij. Hoeveel?
+\end{casusuitgewerkt}
 
 \section{Standaardtoestanden en de wet van Hess}
 \label{sec:hess}
 
 \begin{casus}{hoeveel warmte geeft de reactie?}
 Per mol ammoniak die in de reactor ontstaat, komt warmte vrij. Hoeveel, en hoe bereken je dat voor een reactie die je nooit zelf in een calorimeter hebt gemeten?
+
+\emph{Schat eerst zelf:} is de vorming van ammoniak sterk exotherm, zoals de verbranding van aardgas, of eerder bescheiden?
 \end{casus}
 
 Enthalpie\"en worden altijd opgegeven ten opzichte van een \emph{standaardtoestand}: zuivere stof bij \SI{1}{\bar}, meestal getabelleerd bij \SI{298.15}{\kelvin}. De \emph{standaardvormingsenthalpie} $\Delta H_f^\circ$ is de enthalpieverandering wanneer \'e\'en mol van een stof gevormd wordt uit de elementen in hun standaardtoestand. Voor die elementen zelf is $\Delta H_f^\circ = 0$. Omdat $H$ een toestandsfunctie is, mag je elke reactie opsplitsen in ``ontbinden tot elementen'' en ``opbouwen tot producten'' (figuur~\ref{fig:hess}). Dat is de \emph{wet van Hess}:
@@ -813,13 +910,24 @@ Voor \ce{CH4(g) + 2 O2(g) -> CO2(g) + 2 H2O(l)} met $\Delta H_f^\circ$ = $-74.8$
 Per mol methaan komt \SI{890.3}{\kilo\joule} vrij: de basis voor het ontwerp van elke aardgasbrander.
 \end{voorbeeld}
 
-Voor de ammoniaksynthese is de rekening nog eenvoudiger, omdat \ce{N2} en \ce{H2} elementen zijn met $\Delta H_f^\circ = 0$: $\Delta_r H^\circ = 2\,\Delta H_f^\circ(\ce{NH3}) = 2(\SI{-46.1}{\kilo\joule\per\mole}) = \SI{-92.2}{\kilo\joule}$ per 2 mol \ce{NH3}, bij \SI{25}{\celsius}. In de reactor is het echter 400 tot \SI{500}{\celsius}; hoe je daarvoor corrigeert, is het onderwerp van de volgende sectie.
+\begin{casusuitgewerkt}{hoeveel warmte geeft de reactie?}
+Voor de ammoniaksynthese is de rekening eenvoudig, omdat \ce{N2} en \ce{H2} elementen zijn met $\Delta H_f^\circ = 0$:
+\[
+\Delta_r H^\circ = 2\,\Delta H_f^\circ(\ce{NH3}) = 2(\SI{-46.1}{\kilo\joule\per\mole}) = \SI{-92.2}{\kilo\joule}
+\]
+per 2 mol \ce{NH3}, bij \SI{25}{\celsius}.
+Per mol ammoniak is dat \SI{46.1}{\kilo\joule}, bijna twintig keer minder dan bij de verbranding van een mol methaan: de reactie is exotherm, maar bescheiden. Voor een fabriek van \SI{1000}{\tonne} per dag (\SI{680}{\mole\per\second}) is het toch $(680)(46.1) = \SI{31}{\mega\watt}$ aan warmte.
+
+\emph{Volgende vraag.} Dat getal geldt bij \SI{25}{\celsius}, maar de katalysator werkt pas bij 400 tot \SI{500}{\celsius}. Komt er daar evenveel warmte vrij?
+\end{casusuitgewerkt}
 
 \section{Temperatuurafhankelijkheid van reactie-enthalpie\"en: de wet van Kirchhoff}
 \label{sec:kirchhoff}
 
 \begin{casus}{tabellen bij 25 \textdegree{}C, reactor bij 450 \textdegree{}C}
 Tabellen geven de reactie-enthalpie bij \SI{298}{\kelvin}, maar de katalysator werkt pas bij 400 tot \SI{500}{\celsius}. Komt er bij die temperatuur evenveel warmte vrij?
+
+\emph{Schat eerst zelf:} bij \SI{450}{\celsius} bevatten zowel de reagentia als de producten meer enthalpie dan bij \SI{25}{\celsius}. Welke van de twee wint het meest bij het opwarmen: 4 mol gas of 2 mol gas?
 \end{casus}
 
 Niet enkel ammoniak: methanol wordt gemaakt bij ongeveer \SI{250}{\celsius}, kalk bij \SI{900}{\celsius}, en in je lichaam verlopen reacties bij \SI{37}{\celsius}. Hoe reken je een getabelleerde reactie-enthalpie om naar de procestemperatuur?
@@ -878,8 +986,8 @@ Over \SI{75}{\kelvin} is $\Delta_r C_p$ zeker constant, dus
 Een verschuiving van amper \SI{0.3}{\percent}: over enkele tientallen kelvin mag je de tabelwaarde meestal gewoon gebruiken.
 \end{voorbeeld}
 
-\begin{voorbeeld}{Ammoniaksynthese bij \SI{450}{\celsius}}
-In het Haber-Boschproces reageert \ce{N2 + 3 H2 -> 2 NH3} bij ongeveer \SI{723}{\kelvin}. Bij \SI{298}{\kelvin} is $\Delta_r H^\circ = 2(\SI{-46.1}{\kilo\joule\per\mole}) = \SI{-92.2}{\kilo\joule}$. Hoeveel warmte moet de koeling van de reactor per 2 mol \ce{NH3} afvoeren bij de procestemperatuur?
+\begin{casusuitgewerkt}{tabellen bij 25 \textdegree{}C, reactor bij 450 \textdegree{}C}
+In de reactor reageert \ce{N2 + 3 H2 -> 2 NH3} bij ongeveer \SI{723}{\kelvin}. Bij \SI{298}{\kelvin} is $\Delta_r H^\circ = \SI{-92.2}{\kilo\joule}$ per 2 mol \ce{NH3}.
 
 \emph{Stap 1: $\Delta_r C_p$ als veelterm.} Met $C_p = a + bT + cT^2$ uit tabel~\ref{tab:cp_coeff} combineer je de co\"effici\"enten zoals de stoffen in de reactie:
 \begin{align*}
@@ -894,19 +1002,26 @@ Bij \SI{298}{\kelvin} is $\Delta_r C_p = \SI{-45.5}{\joule\per\kelvin}$, bij \SI
 \int_{298}^{723} \Delta_r C_p\,\dd T &= \Delta a\,(425) + \frac{\Delta b}{2}(723^2 - 298^2) + \frac{\Delta c}{3}(723^3 - 298^3)\\
 &= -28.5 + 17.1 - 2.5 = \SI{-14.0}{\kilo\joule}.
 \end{align*}
+
 \emph{Stap 3: optellen.}
 \[
 \Delta_r H^\circ(\SI{723}{\kelvin}) = -92.2 - 14.0 = \SI{-106.2}{\kilo\joule}.
 \]
 Bij de procestemperatuur komt dus \SI{15}{\percent} meer warmte vrij dan de tabelwaarde doet vermoeden, en dat moet de koeling aankunnen. Had je $\Delta_r C_p$ constant op zijn waarde bij \SI{298}{\kelvin} gehouden, dan vond je $-92.2 + (-45.5\times10^{-3})(425) = \SI{-111.5}{\kilo\joule}$: de fout van \SI{5}{\kilo\joule} is ruim een derde van de correctie zelf (figuur~\ref{fig:kirchhoff}, rechts). Over honderden kelvin gebruik je dus beter de temperatuurafhankelijke $C_p$.
-\end{voorbeeld}
+
+Ook de schatting klopt: 4 mol reagentia hebben samen een grotere warmtecapaciteit dan 2 mol product ($\Delta_r C_p < 0$). Bij het opwarmen stijgt de enthalpie van de reagentia dus het meest, en het verschil met de producten wordt groter.
+
+\emph{Volgende vraag.} In de reactor wordt die warmte niet meteen afgevoerd. Wat gebeurt er dan met het gas?
+\end{casusuitgewerkt}
 
 
 \section{Warmte-effecten van reacties: de adiabatische temperatuur}
 \label{sec:warmte-effecten}
 
 \begin{casus}{hoe warm wordt een katalysatorbed?}
-Een katalysatorbed is zo groot en zo goed ge\"isoleerd dat de reactiewarmte er niet uit kan. Het gas komt binnen op \SI{400}{\celsius}. Hoe warm is het aan de uitgang, en waarom heeft de reactor drie bedden in plaats van \'e\'en?
+Het gas komt het katalysatorbed binnen op \SI{400}{\celsius}. Het bed is zo groot en zo goed ge\"isoleerd dat de reactiewarmte er niet uit kan. Hoe warm is het gas aan de uitgang, en wat betekent dat voor de omzetting?
+
+\emph{Schat eerst zelf:} hoe meer ammoniak er ontstaat, hoe warmer het gas wordt. Kan een bed dat maar lang genoeg is, dan al het synthesegas omzetten?
 \end{casus}
 
 In het voorbeeld van de ammoniaksynthese moest de koeling de reactiewarmte afvoeren bij een vaste temperatuur. Wat als er niet (of onvoldoende) gekoeld wordt? Dan blijft de vrijgekomen warmte in het reactiemengsel en stijgt de temperatuur. In een brander is dat precies de bedoeling, in een chemische reactor is het een veiligheidsrisico. In beide gevallen is de vraag voor de ingenieur dezelfde: \emph{hoe warm wordt het mengsel als alle reactiewarmte erin blijft?}
@@ -961,7 +1076,7 @@ Merk op dat bijna twee derde van de warmtecapaciteit van het rookgas afkomstig i
 
 Terug naar de reactor van de ammoniakfabriek. Elk katalysatorbed is groot en goed ge\"isoleerd, zodat het zich gedraagt als een adiabatische reactor: alle reactiewarmte blijft in het gas. Hoe warm wordt het?
 
-\begin{voorbeeld}{Adiabatische temperatuurstijging in het eerste bed}
+\begin{casusuitgewerkt}{hoe warm wordt een katalysatorbed?}
 Het gas komt het eerste bed binnen op \SI{400}{\celsius} met \SI{3}{\percent} \ce{NH3} (de rest die de condensor niet heeft opgevangen) en voor de rest \ce{N2} en \ce{H2} in de verhouding 1:3. We rekenen per \SI{100}{\mole} voeding: \SI{3}{\mole} \ce{NH3}, \SI{24.25}{\mole} \ce{N2} en \SI{72.75}{\mole} \ce{H2}. Stel dat in het bed \SI{8}{\mole} \ce{NH3} gevormd wordt. Dan verbruik je \SI{4}{\mole} \ce{N2} en \SI{12}{\mole} \ce{H2}, en verlaat het bed
 \[
 \SI{11}{\mole}\ \ce{NH3} + \SI{20.25}{\mole}\ \ce{N2} + \SI{60.75}{\mole}\ \ce{H2} = \SI{92}{\mole},
@@ -978,9 +1093,11 @@ Het gas komt het eerste bed binnen op \SI{400}{\celsius} met \SI{3}{\percent} \c
 \Delta T_\mathrm{ad} = \frac{425\,000}{2970} = \SI{143}{\kelvin}, \qquad T_\text{uit} \approx \SI{543}{\celsius}.
 \]
 Elke procent ammoniak die gevormd wordt, verhoogt de temperatuur dus met ongeveer \SI{16}{\kelvin}.
-\end{voorbeeld}
 
-Waarom stopt men dan niet gewoon na \'e\'en lang bed? Figuur~\ref{fig:ammoniak-bedden} toont het antwoord. In elk bed loopt de toestand langs een rechte: meer ammoniak betekent een hogere temperatuur, met de helling die we net berekenden. Maar bij hogere temperatuur ligt het chemisch evenwicht bij minder ammoniak (de gestippelde curve, hoofdstuk~\ref{ch:reagerend}). Rond \SI{530}{\celsius} botst de rechte op die curve en stopt de omzetting, hoe groot het bed ook is. Daarom koelt men het gas tussen de bedden terug tot ongeveer \SI{400}{\celsius} en laat het daarna verder reageren. Drie bedden met tussenkoeling brengen het gehalte zo van \SI{3}{} naar ongeveer \SI{20}{\percent}. De tussenkoeling is bovendien nuttig: de warmte die men daar afvoert, wordt gebruikt om stoom te maken, die op zijn beurt de compressoren aandrijft.
+\emph{En de omzetting?} Hoe hoger de temperatuur, hoe minder ammoniak er bij evenwicht kan bestaan. Daardoor stopt de omzetting in een bed lang voordat al het gas is omgezet, zoals figuur~\ref{fig:ammoniak-bedden} hieronder toont.
+\end{casusuitgewerkt}
+
+Kan een langer bed dan meer ammoniak maken? Figuur~\ref{fig:ammoniak-bedden} toont het antwoord. In elk bed loopt de toestand langs een rechte: meer ammoniak betekent een hogere temperatuur, met de helling die we net berekenden. Maar bij hogere temperatuur ligt het chemisch evenwicht bij minder ammoniak (de gestippelde curve, hoofdstuk~\ref{ch:reagerend}). Rond \SI{530}{\celsius} botst de rechte op die curve en stopt de omzetting, hoe groot het bed ook is. Daarom koelt men het gas tussen de bedden terug tot ongeveer \SI{400}{\celsius} en laat het daarna verder reageren. Drie bedden met tussenkoeling brengen het gehalte zo van \SI{3}{} naar ongeveer \SI{20}{\percent}. De tussenkoeling is bovendien nuttig: de warmte die men daar afvoert, wordt gebruikt om stoom te maken, die op zijn beurt de compressoren aandrijft.
 
 \begin{figure}[H]
     \centering
