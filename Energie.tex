@@ -510,7 +510,7 @@ In een kalkoven wordt kalksteen ontbonden tot ongebluste kalk, de grondstof voor
 \[
 \mathrm{CaCO_3(s)} \;\longrightarrow\; \mathrm{CaO(s)} + \mathrm{CO_2(g)}, \qquad \Delta H^\circ = +\SI{178.3}{\kilo\joule\per\mole} \quad (\SI{298}{\kelvin}).
 \]
-De reactie is endotherm: je moet \SI{178.3}{\kilo\joule} warmte toevoeren per mol. Er ontstaat \'e\'en mol gas uit niets dan vaste stof, dus $\Delta n_\text{gas} = +1$ en
+De reactie is endotherm: je moet \SI{178.3}{\kilo\joule} warmte toevoeren per mol. Er ontstaat \'e\'en mol gas uit enkel vaste stof, dus $\Delta n_\text{gas} = +1$ en
 \begin{align*}
 W &= -\Delta n_\text{gas}RT = -(1)(8.314)(298) = \SI{-2.48}{\kilo\joule\per\mole},\\
 \Delta U &= Q_p + W = 178.3 - 2.5 = \SI{175.8}{\kilo\joule\per\mole}.
@@ -531,12 +531,14 @@ W &= -\Delta n_\text{gas}RT = -(-24.5)(8.314)(310) = \SI{+63}{\kilo\joule\per\mo
 De vrijgekomen warmte ($|Q_p| = \SI{35700}{\kilo\joule}$) is dus \emph{groter} dan de daling van de interne energie ($\SI{35640}{\kilo\joule}$): de \SI{63}{\kilo\joule} arbeid die de omgeving levert, komt er als warmte bij. Er lekt hier niets weg; het is precies omgekeerd als bij de kalkoven. Het effect is klein (\SI{0.2}{\percent}), wat bevestigt dat $\Delta H \approx \Delta U$ voor de meeste reacties, maar het teken van $\Delta n_\text{gas}$ bepaalt in welke richting de arbeid loopt.
 \end{voorbeeld}
 
-\noindent Hoe je zulke reactie-enthalpie\"en uit getabelleerde vormingsenthalpie\"en berekent, volgt in \S\ref{sec:hess}. (Bron kalksteen: $\Delta H_f^\circ$ uit Atkins \& de Paula, \emph{Elements of Physical Chemistry}; de waarde voor tristearine is afgerond.)
-
 \section{Warmtecapaciteiten}
 \label{sec:warmtecapaciteiten}
 
-De \emph{warmtecapaciteit} is de warmte die nodig is om de temperatuur met \'e\'en kelvin te verhogen. Omdat warmte een padfunctie is, zijn er twee versies:
+Om een stof op te warmen is warmte nodig. De \emph{warmtecapaciteit} geeft aan hoeveel energie moet worden toegevoerd om de temperatuur van een systeem met \'e\'en kelvin te verhogen:
+\begin{equation}
+C = \frac{\dd Q}{\dd T}
+\end{equation}
+Omdat warmte een padfunctie is, zijn er twee versies:
 \begin{equation}
 C_V = \left(\frac{\partial U}{\partial T}\right)_V
 \qquad\qquad
