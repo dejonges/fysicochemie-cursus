@@ -477,53 +477,39 @@ def vlamtemperatuur():
 
 # ------------------------------------------------- kinetische gastheorie
 def kmt_botsing():
-    """Links: één molecule botst tegen de wand (impulsverandering 2mv_x, terugkeertijd 2L/v_x).
-    Rechts: verdeling van v_x over alle moleculen (N2, 25 °C): gemiddelde nul, kwadraat niet."""
+    """Eén molecule beweegt in de x-richting naar de wand en terug:
+    impulsverandering 2mv_x per botsing, één botsing per 2L/v_x."""
     from matplotlib.patches import Rectangle
-    fig, (ax, ax2) = figuur(10.0, 4.4, ncols=2, gridspec_kw={"width_ratios": [1.05, 1]})
-    # --- linkerpaneel: doos met één molecule
+    fig, ax = figuur(7.4, 4.6)
     ax.set_axis_off()
-    ax.set_xlim(-0.6, 6.6)
-    ax.set_ylim(-1.2, 5.4)
+    ax.set_xlim(-0.6, 7.6)
+    ax.set_ylim(-1.3, 5.3)
     ax.set_aspect("equal")
     ax.add_patch(Rectangle((0, 0), 5, 4.4, facecolor=K.vlak_accent, edgecolor=K.accent, lw=2))
     ax.add_patch(Rectangle((5, 0), 0.18, 4.4, facecolor=K.accent, edgecolor=K.accent, lw=0))
-    # weg van de molecule: naar de wand en terug
-    ax.plot([0.8, 4.85], [1.0, 2.33], color=K.zacht, lw=1, ls=":")
-    ax.plot([4.85, 2.0], [2.33, 3.27], color=K.zacht, lw=1, ls=":")
-    ax.plot(0.8, 1.0, "o", color=K.blauw, ms=11, zorder=5)
-    pijl(ax, (0.8, 1.0), (2.2, 1.46), K.blauw, lw=2.2)
-    label(ax, 1.5, 1.45, "$\\vec v$", K.blauw, fontsize=13, ha="right")
-    pijl(ax, (0.8, 0.5), (2.2, 0.5), K.oker, lw=2)
-    label(ax, 2.3, 0.5, "$v_x$", K.oker, fontsize=12, va="center")
-    # botsing aan de rechterwand
-    ax.plot(4.85, 2.33, "o", color=K.blauw, ms=11, zorder=5, alpha=0.55)
-    pijl(ax, (3.6, 3.95), (4.75, 3.95), K.oker, lw=2)
-    label(ax, 3.5, 3.95, "voor: $+mv_x$", K.oker, fontsize=10.5, ha="right", va="center")
-    pijl(ax, (4.75, 3.45), (3.6, 3.45), K.rood, lw=2)
-    label(ax, 3.5, 3.45, "na: $-mv_x$", K.rood, fontsize=10.5, ha="right", va="center")
-    label(ax, 5.3, 2.75, "wand krijgt\n$\\Delta p = 2mv_x$", K.tekst, fontsize=10.5, va="center")
+    # x-as
+    pijl(ax, (0.25, 0.35), (1.25, 0.35), K.tekst, lw=1.2)
+    label(ax, 1.35, 0.35, "$x$", K.tekst, fontsize=12, va="center")
+    # heen: molecule beweegt naar rechts met v_x
+    y1, y2 = 2.75, 1.65
+    ax.plot([0.9, 4.85], [y1, y1], color=K.zacht, lw=1, ls=":")
+    ax.plot(0.9, y1, "o", color=K.blauw, ms=12, zorder=5)
+    pijl(ax, (1.15, y1), (2.5, y1), K.oker, lw=2.4)
+    label(ax, 1.8, y1 + 0.3, "$+v_x$", K.oker, fontsize=12, ha="center")
+    label(ax, 3.6, y1 + 0.3, "voor: $+mv_x$", K.oker, fontsize=10.5, ha="center")
+    # botsing en terug: -v_x
+    ax.plot(4.85, (y1 + y2) / 2, "o", color=K.blauw, ms=12, zorder=5, alpha=0.55)
+    ax.plot([4.85, 0.9], [y2, y2], color=K.zacht, lw=1, ls=":")
+    ax.plot(3.9, y2, "o", color=K.blauw, ms=12, zorder=5)
+    pijl(ax, (3.65, y2), (2.3, y2), K.rood, lw=2.4)
+    label(ax, 3.0, y2 - 0.45, "$-v_x$", K.rood, fontsize=12, ha="center")
+    label(ax, 1.4, y2 - 0.45, "na: $-mv_x$", K.rood, fontsize=10.5, ha="center")
+    label(ax, 5.35, 2.2, "wand krijgt\n$\\Delta p = 2mv_x$", K.tekst, fontsize=10.5, va="center")
     # ribbe L en terugkeertijd
     ax.annotate("", xy=(0, -0.45), xytext=(5, -0.45), arrowprops=dict(arrowstyle="<->", color=K.tekst, lw=1.2))
     label(ax, 2.5, -0.6, "$L$: heen en terug $2L$, dus elke $2L/v_x$ een botsing", K.tekst, fontsize=10.5,
           ha="center", va="top")
-    label(ax, 2.5, 4.85, "één molecule in een kubus", K.accent, fontsize=12, ha="center", fontweight="bold")
-    # --- rechterpaneel: verdeling van v_x
-    s = np.sqrt(8.314 * 298 / 0.028)  # standaardafwijking van v_x
-    vx = np.linspace(-1300, 1300, 400)
-    f = np.exp(-vx**2 / (2 * s**2)) / (s * np.sqrt(2 * np.pi))
-    ax2.fill_between(vx, f * 1e3, color=K.vlak_blauw, lw=0)
-    ax2.plot(vx, f * 1e3, color=K.blauw, lw=2.2)
-    ax2.axvline(0, color=K.tekst, lw=1, ls="--")
-    label(ax2, -1250, 1.45, "$\\langle v_x\\rangle = 0$: evenveel\nnaar links als naar rechts", K.tekst, fontsize=10, va="top")
-    for t in (-s, s):
-        ax2.axvline(t, color=K.rood, lw=1.4, ls=":")
-    label(ax2, s + 60, 1.0, f"$\\sqrt{{\\langle v_x^2\\rangle}}$\n= {s:.0f} m/s", K.rood, fontsize=10)
-    ax2.set_xlim(-1300, 1300)
-    ax2.set_ylim(0, 1.55)
-    ax2.set_xlabel("snelheidscomponent $v_x$ (m/s)")
-    ax2.set_ylabel("fractie moleculen (per km/s)")
-    ax2.set_title("verdeling van $v_x$ voor N$_2$ bij 25 °C", fontsize=12)
+    label(ax, 2.5, 4.8, "één molecule in een kubus", K.accent, fontsize=12, ha="center", fontweight="bold")
     return kader(fig)
 
 
@@ -588,4 +574,72 @@ def vdw_correcties():
     label(ax2, 3.6, -0.75, "effect $\\propto$ (moleculen aan de wand) $\\times$ (buren) $\\propto (n/V)^2$", K.tekst,
           ha="center", va="top", fontsize=10.5)
     label(ax2, 3.8, 4.95, "stap 2: aantrekking $a$", K.accent, ha="center", fontsize=12.5, fontweight="bold")
+    return kader(fig)
+
+
+# ------------------------------------------- Van der Waals: kritiek punt
+def _vdw_pr(Vr, Tr):
+    return 8 * Tr / (3 * Vr - 1) - 3 / Vr**2
+
+
+def _maxwell(Tr):
+    """Gelijke-oppervlakteconstructie: (p_r, V_vloeistof, V_damp) bij T_r < 1."""
+    from scipy.optimize import brentq
+    # spinodalen: dp/dV = 0
+    V = np.linspace(0.36, 30, 200000)
+    dp = np.gradient(_vdw_pr(V, Tr), V)
+    teken = np.where(np.diff(np.sign(dp)))[0]
+    pmin, pmax = _vdw_pr(V[teken[0]], Tr), _vdw_pr(V[teken[1]], Tr)
+
+    def wortels(p):
+        # 3 p V^3 - (p + 8T) V^2 + 9 V - 3 = 0  (vdW in gereduceerde vorm, kubisch in V)
+        r = np.roots([3 * p, -(p + 8 * Tr), 9, -3])
+        r = np.sort(r[np.abs(r.imag) < 1e-9].real)
+        return r[0], r[-1]
+
+    def opp(p):
+        Vl, Vg = wortels(p)
+        I = 8 * Tr / 3 * np.log((3 * Vg - 1) / (3 * Vl - 1)) + 3 / Vg - 3 / Vl
+        return I - p * (Vg - Vl)
+    p = brentq(opp, max(pmin, 1e-4) + 1e-9, pmax - 1e-9)
+    return (p, *wortels(p))
+
+
+def vdw_isothermen():
+    """Van der Waals-isothermen in gereduceerde vorm: lus onder T_c, buigpunt bij T_c, monotoon erboven."""
+    fig, ax = figuur(7.4, 5.0)
+    Vr = np.linspace(0.42, 5, 800)
+    # tweefasengebied (koepel) uit de Maxwell-constructie
+    Ts = np.linspace(0.8, 0.9999, 60)
+    koepel = [_maxwell(t) for t in Ts]
+    Vl = [k[1] for k in koepel] + [1.0]
+    Vg = [k[2] for k in koepel] + [1.0]
+    pk = [k[0] for k in koepel] + [1.0]
+    xs = np.concatenate([Vl, Vg[::-1]])
+    ys = np.concatenate([pk, pk[::-1]])
+    ax.fill(xs, ys, color=K.vlak_blauw, lw=0, zorder=0)
+    ax.plot(Vl, pk, color=K.blauw, lw=1.2, ls="--", zorder=1)
+    ax.plot(Vg, pk, color=K.blauw, lw=1.2, ls="--", zorder=1)
+    label(ax, 2.3, 0.43, "vloeistof + damp", K.blauw, ha="center", va="center", fontsize=11)
+    for Tr, k in [(0.85, K.zacht), (0.9, K.zacht), (1.0, K.rood), (1.1, K.oker), (1.2, K.oker)]:
+        p = _vdw_pr(Vr, Tr)
+        if Tr < 1:
+            pm, vl, vg = _maxwell(Tr)
+            binnen = (Vr > vl) & (Vr < vg)
+            ax.plot(np.where(binnen, np.nan, Vr), p, color=K.tekst, lw=1.8)
+            ax.plot(Vr[binnen], p[binnen], color=K.tekst, lw=1, ls=":")
+            ax.plot([vl, vg], [pm, pm], color=K.tekst, lw=1.8)
+        else:
+            ax.plot(Vr, p, color=k, lw=2.4 if Tr == 1 else 1.8)
+        yl = {0.85: 0.27, 0.9: 0.37, 1.0: 0.48, 1.1: 0.59, 1.2: 0.70}[Tr]
+        label(ax, 5.08, yl, f"$T/T_c$ = {Tr:g}", k if Tr >= 1 else K.tekst, va="center", fontsize=10.5)
+    ax.plot(1, 1, "o", color=K.rood, ms=8, zorder=6)
+    ax.annotate("kritiek punt: buigpunt\nmet horizontale raaklijn", xy=(1.03, 1.02), xytext=(2.6, 1.45),
+                color=K.rood, fontsize=10.5, arrowprops=dict(arrowstyle="->", color=K.rood, lw=1.2))
+    ax.annotate("lus van Van der Waals:\nin werkelijkheid een\nhorizontaal stuk", xy=(1.45, 0.66), xytext=(1.5, 0.12),
+                color=K.zacht, fontsize=9.5, arrowprops=dict(arrowstyle="->", color=K.zacht, lw=1))
+    ax.set_xlim(0.3, 5.9)
+    ax.set_ylim(0, 1.8)
+    ax.set_xlabel(r"gereduceerd volume $V_\mathrm{m}/V_{\mathrm{m},c}$")
+    ax.set_ylabel(r"gereduceerde druk $p/p_c$")
     return kader(fig)
