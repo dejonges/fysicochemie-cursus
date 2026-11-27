@@ -381,7 +381,7 @@ def opwarmcurve_water():
 
 
 def compressie_pv():
-    """Isotherme vs. adiabatische compressie van lucht van 1 naar 8 bar."""
+    """Isotherme vs. adiabatische compressie van lucht van 1 naar 8 bar, en tweetrapscompressie met tussenkoeling."""
     fig, ax = figuur(6.8, 4.7)
     gamma = 1.4
     T1, p1 = 293.15, 1.0
@@ -397,11 +397,25 @@ def compressie_pv():
     label(ax, V1 + 0.4, p1 + 0.15, f"start: 1 bar, {T1 - 273.15:.0f} °C", K.tekst, fontsize=11)
     ax.plot(V_iso[-1], 8, "o", color=K.blauw, zorder=5)
     ax.plot(V_ad[-1], 8, "o", color=K.rood, zorder=5)
-    label(ax, V_iso[-1] - 0.25, 8.25, f"{T1 - 273.15:.0f} °C", K.blauw, ha="center", fontsize=11)
-    label(ax, V_ad[-1] + 0.25, 8.25, f"{T2 - 273.15:.0f} °C", K.rood, ha="center", fontsize=11)
-    label(ax, 10.5, 4.6, "extra arbeid die als warmte\nin het gas terechtkomt", K.oker,
+    label(ax, V_iso[-1] - 0.35, 8, f"{T1 - 273.15:.0f} °C", K.blauw, ha="right", va="center", fontsize=11)
+    label(ax, V_ad[-1] + 0.35, 8, f"{T2 - 273.15:.0f} °C", K.rood, ha="left", va="center", fontsize=11)
+    # tweetrapscompressie met tussenkoeling tot T1
+    pm = np.sqrt(8 * p1)
+    pa = np.linspace(p1, pm, 100)
+    Va = V1 * (p1 / pa) ** (1 / gamma)
+    Vm_iso = p1 * V1 / pm
+    pb = np.linspace(pm, 8, 100)
+    Vb = Vm_iso * (pm / pb) ** (1 / gamma)
+    Tm = T1 * (pm / p1) ** ((gamma - 1) / gamma)
+    ax.plot(Va, pa, color=K.groen, lw=1.8, ls="--")
+    ax.plot([Va[-1], Vm_iso], [pm, pm], color=K.groen, lw=1.8, ls="--")
+    ax.plot(Vb, pb, color=K.groen, lw=1.8, ls="--", label="2 trappen + tussenkoeling")
+    ax.plot(Vb[-1], 8, "o", color=K.groen, zorder=5)
+    label(ax, Va[-1] + 0.3, pm + 0.1, f"{Tm - 273.15:.0f} °C", K.groen, fontsize=10.5, va="bottom")
+    label(ax, Vb[-1], 8.3, f"{Tm - 273.15:.0f} °C", K.groen, ha="center", fontsize=11)
+    label(ax, 10.5, 5.2, "extra arbeid bij\nadiabatische compressie", K.oker,
           fontsize=11, ha="left", va="center")
-    pijl(ax, (10.3, 4.45), (7.6, 3.5), K.oker, lw=1.3)
+    pijl(ax, (10.3, 5.0), (7.6, 3.6), K.oker, lw=1.3)
     ax.legend(loc="upper right")
     ax.set_xlim(0, V1 * 1.12)
     ax.set_ylim(0, 9.2)
