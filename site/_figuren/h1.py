@@ -584,7 +584,6 @@ def _vdw_pr(Vr, Tr):
 
 def _maxwell(Tr):
     """Gelijke-oppervlakteconstructie: (p_r, V_vloeistof, V_damp) bij T_r < 1."""
-    from scipy.optimize import brentq
     # spinodalen: dp/dV = 0
     V = np.linspace(0.36, 30, 200000)
     dp = np.gradient(_vdw_pr(V, Tr), V)
@@ -601,7 +600,14 @@ def _maxwell(Tr):
         Vl, Vg = wortels(p)
         I = 8 * Tr / 3 * np.log((3 * Vg - 1) / (3 * Vl - 1)) + 3 / Vg - 3 / Vl
         return I - p * (Vg - Vl)
-    p = brentq(opp, max(pmin, 1e-4) + 1e-9, pmax - 1e-9)
+    lo, hi = max(pmin, 1e-4) + 1e-9, pmax - 1e-9  # bisectie (geen scipy nodig)
+    for _ in range(80):
+        mid = 0.5 * (lo + hi)
+        if np.sign(opp(mid)) == np.sign(opp(lo)):
+            lo = mid
+        else:
+            hi = mid
+    p = 0.5 * (lo + hi)
     return (p, *wortels(p))
 
 
