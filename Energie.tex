@@ -547,10 +547,13 @@ W &= -\Delta n_\text{gas}RT = -(-24.5)(8.314)(310) = \SI{+63}{\kilo\joule\per\mo
 De vrijgekomen warmte ($|Q_p| = \SI{35700}{\kilo\joule}$) is dus \emph{groter} dan de daling van de interne energie ($\SI{35640}{\kilo\joule}$): de \SI{63}{\kilo\joule} arbeid die de omgeving levert, komt er als warmte bij. Er lekt hier niets weg; het is precies omgekeerd als bij de kalkoven. Het effect is klein (\SI{0.2}{\percent}), wat bevestigt dat $\Delta H \approx \Delta U$ voor de meeste reacties, maar het teken van $\Delta n_\text{gas}$ bepaalt in welke richting de arbeid loopt.
 \end{voorbeeld}
 
-\noindent Hoe je zulke reactie-enthalpie\"en uit getabelleerde vormingsenthalpie\"en berekent, volgt in \S\ref{sec:hess}. (Bron kalksteen: $\Delta H_f^\circ$ uit Atkins \& de Paula, \emph{Elements of Physical Chemistry}; de waarde voor tristearine is afgerond.)
-
 \section{Warmtecapaciteiten}
 \label{sec:warmtecapaciteiten}
+
+Om een stof op te warmen is warmte nodig. De \emph{warmtecapaciteit} geeft aan hoeveel energie moet worden toegevoerd om de temperatuur van een systeem met \'e\'en kelvin te verhogen:
+\begin{equation}
+C = \frac{\dd Q}{\dd T}
+\end{equation}
 
 De \emph{warmtecapaciteit} is de warmte die nodig is om de temperatuur met \'e\'en kelvin te verhogen. Omdat warmte een padfunctie is, zijn er twee versies:
 \begin{equation}
@@ -615,7 +618,7 @@ Lucht van \SI{20}{\celsius} wordt van \SI{1}{\bar} naar \SI{8}{\bar} gebracht, e
 \[
 T_2 = (293.15)\,(8)^{0.286} = \SI{531}{\kelvin} = \SI{258}{\celsius}.
 \]
-Een re\"ele compressor heeft bovendien wrijving en verliezen, waardoor de lucht nog warmer wordt. Bij die temperatuur ontleedt smeerolie en vormt ze afzettingen, en in het ergste geval ontsteekt de oliedamp. De eindtemperatuur is daarom een harde ontwerpgrens.
+Een re\"ele compressor heeft bovendien wrijving en verliezen, waardoor de lucht nog warmer wordt. Bij die temperatuur ontleedt smeerolie en vormt ze afzettingen, en in het ergste geval ontvlamt de oliedamp. De eindtemperatuur is daarom een harde ontwerpgrens.
 
 \paragraph{Stap 4: hoeveel arbeid?}
 Een compressor is een open systeem. Volgens \S~\ref{sec:enthalpie} is $\dd H = \delta Q + V\,\dd p$; zonder warmte-uitwisseling is de arbeid die de compressor per mol levert dus gelijk aan de enthalpiestijging van het gas:
@@ -663,7 +666,7 @@ met co\"effici\"enten zoals in tabel~\ref{tab:cp_coeff}. Processimulatoren (Aspe
 
 \begin{table}[htb]
 \centering
-\caption{Benaderende co\"effici\"enten voor $C_{p,\mathrm{m}} = a + bT + cT^2$ (in \si{\joule\per\mole\per\kelvin}, $T$ in \si{\kelvin}), geldig tussen \SI{300}{\kelvin} en \SI{1000}{\kelvin} (afwijking kleiner dan \SI{1}{\joule\per\mole\per\kelvin}). Bron: gefit op de Shomate-vergelijkingen van het NIST Chemistry WebBook.}
+\caption{Benaderende co\"effici\"enten voor $C_{p,\mathrm{m}} = a + bT + cT^2$ (in \si{\joule\per\mole\per\kelvin}, $T$ in \si{\kelvin}), geldig tussen \SI{300}{\kelvin} en \SI{1000}{\kelvin} (afwijking kleiner dan \SI{1}{\joule\per\mole\per\kelvin}).
 \label{tab:cp_coeff}
 \begin{tabular}{lccc}
 \toprule
