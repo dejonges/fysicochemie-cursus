@@ -77,6 +77,7 @@ div.callout-tip       { --k-bg: var(--tip-bg);  --k-rand: var(--tip-rand);  --k-
 div.callout-warning   { --k-bg: var(--let-bg);  --k-rand: var(--let-rand);  --k-tekst: var(--let-tekst); }
 div.callout-important { --k-bg: var(--bes-bg);  --k-rand: var(--bes-rand);  --k-tekst: var(--bes-tekst); }
 div.callout-caution   { --k-bg: var(--ref-bg);  --k-rand: var(--ref-rand);  --k-tekst: var(--ref-tekst); }
+div.callout.casus     { --k-bg: color-mix(in srgb, var(--accent) 7%, transparent); --k-rand: var(--accent); --k-tekst: var(--accent); }
 
 // ----- Opsommingen -----
 $lijst-afstand: 0.3rem;      // ruimte tussen twee items in een opsomming

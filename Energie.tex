@@ -3,15 +3,36 @@
 \label{ch:energie}
 %==============================================================================
 
-\section{Waarom thermodynamica?}
+\section{Waarom thermodynamica? Een ammoniakfabriek}
+\label{sec:ammoniakfabriek}
 
-Een procesingenieur moet een gascompressor dimensioneren. Al bij de eerste simulaties blijkt dat het gas tijdens de compressie sterk opwarmt. Dat verkort de levensduur van de machine, stelt hogere eisen aan de materialen en kost extra energie. Daarom bouwt men industri\"ele compressoren op uit meerdere trappen met tussenkoeling. Waarom warmt een gas op bij compressie? Hoeveel arbeid kost het? Waarom bespaart tussenkoeling vermogen? En wanneer mag je het gas nog als ideaal beschouwen?
+Ongeveer de helft van de stikstof in je lichaam is ooit door een ammoniakfabriek gegaan. Zonder kunstmest op basis van ammoniak zou de landbouw maar een fractie van de huidige wereldbevolking kunnen voeden. Wereldwijd wordt jaarlijks ongeveer 180 miljoen ton \ce{NH3} gemaakt, en daarvoor gaat 1 tot \SI{2}{\percent} van al het energieverbruik op aarde naar \'e\'en enkel proces: de synthese van Haber en Bosch,
+\[
+\ce{N2 + 3 H2 -> 2 NH3}.
+\]
+Figuur~\ref{fig:ammoniakfabriek} toont het hart van zo'n fabriek. Een mengsel van stikstof en waterstof (het \emph{synthesegas}) wordt gecomprimeerd tot ongeveer \SI{200}{\bar} en reageert in een reactor met een ijzerkatalysator bij 400 tot \SI{500}{\celsius}. Het gas dat de reactor verlaat, bevat slechts 15 tot \SI{20}{\percent} ammoniak. In een condensor wordt het afgekoeld tot onder \SI{0}{\celsius}, zodat de ammoniak condenseert en als vloeistof wordt afgetapt. Het niet-omgezette gas gaat terug naar het begin.
 
-Al deze vragen worden beantwoord door de \emph{thermodynamica}: de leer van hoe energie wordt opgeslagen, uitgewisseld en omgezet. Zonder thermodynamica kan je geen warmtewisselaar, destillatiekolom, reactor of koelinstallatie rationeel ontwerpen. Het bijzondere is dat ze geen kennis van individuele moleculen vereist: een handvol macroscopische grootheden (temperatuur, druk, volume, samenstelling) volstaat om zeer complexe processen nauwkeurig te voorspellen.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/ammoniakfabriek}
+    \caption{Vereenvoudigde syntheselus van een ammoniakfabriek. De compressor brengt het synthesegas op druk, de reactor zet een deel ervan om tot \ce{NH3}, de condensor haalt de ammoniak als vloeistof uit het gas. Bij elk toestel gaat energie als arbeid of warmte over de grens.}
+    \label{fig:ammoniakfabriek}
+\end{figure}
+
+Wie zo'n installatie ontwerpt of bedient, botst meteen op vragen over energie.
+Waarom wordt het gas in de compressor zo heet, en waarom koelt men het tussen de trappen? Hoeveel arbeid kost de compressie (\S\ref{sec:compressor})?
+Mag je bij \SI{200}{\bar} nog rekenen met $pV = nRT$, of zit je er dan naast (\S\ref{sec:toestandsvergelijkingen})?
+Hoeveel warmte komt er vrij in de reactor, en hoe warm wordt een katalysatorbed als je die warmte niet afvoert (\S\ref{sec:kirchhoff} en \S\ref{sec:warmte-effecten})?
+Hoeveel koeling vraagt de condensor (\S\ref{sec:faseovergangen})?
+
+Al die vragen worden beantwoord door de \emph{thermodynamica}, de leer van hoe energie wordt opgeslagen, uitgewisseld en omgezet. Het bijzondere is dat je daarvoor de individuele moleculen niet hoeft te volgen. Een handvol macroscopische grootheden, zoals temperatuur, druk, volume en samenstelling, volstaat om het gedrag van een installatie met $10^{30}$ moleculen nauwkeurig te voorspellen. In dit hoofdstuk bouwen we die begrippen stap voor stap op, en we keren telkens terug naar de fabriek om ze toe te passen. Dezelfde begrippen gebruik je later voor elke warmtewisselaar, destillatiekolom, koelinstallatie of bioreactor.
 
 \section{Het thermodynamisch systeem}
+\label{sec:systeem}
 
-Elke analyse begint met het afbakenen van het \emph{systeem}. Alles daarbuiten is de \emph{omgeving}; de scheiding is de \emph{systeemgrens}. Die keuze lijkt triviaal, maar alle massa- en energiebalansen hangen ervan af. Figuur~\ref{fig:systemen} toont de vier types, ingedeeld volgens wat de grens mag oversteken.
+Elke analyse begint met het afbakenen van het \emph{systeem}: het deel van de werkelijkheid dat je bestudeert. Alles daarbuiten is de \emph{omgeving}, en de scheiding tussen beide is de \emph{systeemgrens}. Die keuze lijkt triviaal, maar alle massa- en energiebalansen hangen ervan af. Neem de compressor uit figuur~\ref{fig:ammoniakfabriek}. Kies je enkel de compressor als systeem, dan stroomt er gas in en uit, komt er mechanische arbeid binnen via de as en gaat er wat warmte naar buiten. Neem je de elektromotor mee in het systeem, dan verdwijnt de asarbeid uit de balans en komt er elektrische energie voor in de plaats. Beide beschrijvingen zijn juist, zolang je de gekozen grens consequent volhoudt.
+
+Systemen worden ingedeeld volgens wat de grens mag oversteken (figuur~\ref{fig:systemen}). Een \emph{open systeem} wisselt massa en energie uit met de omgeving. Bijna elk industrieel toestel is open: de compressor, de reactor en de condensor van de ammoniakfabriek, maar ook pompen, warmtewisselaars en kolommen. Omdat de stromen energie meevoeren, zullen we daarvoor een nieuwe grootheid nodig hebben, de \emph{enthalpie} (\S\ref{sec:enthalpie}). Een \emph{gesloten systeem} wisselt geen massa uit, wel warmte en arbeid. Het schoolvoorbeeld is een gas in een cilinder met een zuiger. Omdat er geen massa over de grens gaat, zijn de basiswetten daar het eenvoudigst, en daarom leiden we ze eerst voor gesloten systemen af.
 
 \begin{figure}[htb]
     \centering
@@ -20,28 +41,19 @@ Elke analyse begint met het afbakenen van het \emph{systeem}. Alles daarbuiten i
     \label{fig:systemen}
 \end{figure}
 
-\begin{itemize}
-\item Een \emph{gesloten systeem}, zoals gas in een zuiger-cilinder, wisselt geen massa uit, wel warmte en arbeid. De basiswetten leiden we eerst af voor gesloten systemen.
-\item Een \emph{open systeem} laat ook massa door. Bijna elk industrieel toestel is open: pompen, compressoren, warmtewisselaars, kolommen, reactoren. De stromen voeren energie mee, en daarvoor zullen we de \emph{enthalpie} nodig hebben (\S~\ref{sec:enthalpie}).
-\item Een \emph{adiabatisch systeem} heeft een grens die geen warmte doorlaat ($Q = 0$), maar wel arbeid. Dat gebeurt bij goede isolatie, maar ook als een proces zo snel verloopt dat er geen tijd is voor warmte-uitwisseling: de compressie in een fietspomp of dieselmotor, of een gas dat door een compressor stroomt. Alle arbeid blijft dan in het systeem en verhoogt de temperatuur (figuur~\ref{fig:compressie}). Hetzelfde geldt voor een goed ge\"isoleerde reactor, die opwarmt door zijn eigen reactiewarmte (\S~\ref{sec:warmte-effecten}). Adiabatisch zegt enkel iets over warmte: een adiabatisch systeem kan zowel open als gesloten zijn.
-\item Een \emph{ge\"isoleerd systeem} wisselt helemaal niets uit. Het universum als geheel is het enige echte voorbeeld; een thermosfles of een calorimeter benadert het.
-\end{itemize}
-
+Laat de grens geen warmte door ($Q = 0$), dan noemen we het systeem \emph{adiabatisch}. Dat gebeurt bij goede isolatie, maar ook wanneer een proces zo snel verloopt dat er geen tijd is voor warmte-uitwisseling. Een gaspakketje doorloopt een compressor in een fractie van een seconde, en een katalysatorbed in de ammoniakreactor is zo groot en zo goed ge\"isoleerd dat de reactiewarmte niet naar buiten kan. In beide gevallen blijft de energie in het gas en stijgt de temperatuur, zoals we in \S\ref{sec:compressor} en \S\ref{sec:warmte-effecten} zullen berekenen. Adiabatisch zegt enkel iets over warmte: een adiabatisch systeem kan zowel open als gesloten zijn. Een \emph{ge\"isoleerd systeem}, ten slotte, wisselt helemaal niets uit. Een thermosfles of een calorimeter benadert het; het universum als geheel is het enige echte voorbeeld.
 
 \section{Thermodynamisch evenwicht}
 
-Een systeem laat zich pas eenduidig beschrijven als het in \emph{thermodynamisch evenwicht} is: na verloop van tijd zijn alle lokale verschillen in druk, temperatuur en samenstelling verdwenen. Daarvoor zijn drie voorwaarden nodig.
-\begin{itemize}
-\item \textbf{Thermisch evenwicht}: geen netto warmtestroom meer, dus overal dezelfde temperatuur.
-\item \textbf{Mechanisch evenwicht}: geen netto kracht, bv.\ een zuiger staat stil als $p = p_\text{ext}$.
-\item \textbf{Chemisch evenwicht}: de samenstelling verandert niet meer. Bij \ce{N2 + 3H2 <=> 2NH3} lopen heen- en terugreactie even snel; op moleculaire schaal gaat de reactie door, macroscopisch staat alles stil (\emph{dynamisch evenwicht}).
-\end{itemize}
+Een systeem laat zich pas eenduidig beschrijven als het in \emph{thermodynamisch evenwicht} is. Stel dat je een vat snel met gas vult. Vlak daarna is de druk dicht bij de inlaat hoger dan achteraan, en het gas dat samengedrukt werd, is warmer dan het gas dat al in het vat zat. Na enige tijd verdwijnen die verschillen vanzelf, en meet je overal dezelfde druk en temperatuur. Pas dan heeft het zin om van ``de'' druk of ``de'' temperatuur van het gas te spreken.
+
+Volledig evenwicht vraagt dat drie dingen tegelijk tot rust komen. Er mag geen netto warmtestroom meer zijn, dus de temperatuur is overal dezelfde: \emph{thermisch evenwicht}. Er mag geen netto kracht meer zijn, zodat bijvoorbeeld een zuiger stilstaat wanneer $p = p_\text{ext}$: \emph{mechanisch evenwicht}. En de samenstelling mag niet meer veranderen: \emph{chemisch evenwicht}. Dat laatste is subtieler dan het lijkt. Laat je stikstof en waterstof lang genoeg over de katalysator stromen, dan stopt de vorming van ammoniak niet omdat de moleculen stilvallen, maar omdat de omgekeerde reactie \ce{2 NH3 -> N2 + 3 H2} even snel gaat als de heenreactie. Op moleculaire schaal gaat de reactie door, macroscopisch staat alles stil: een \emph{dynamisch evenwicht}. Waar dat evenwicht ligt, en waarom de reactor van figuur~\ref{fig:ammoniakfabriek} daarom maar 15 tot \SI{20}{\percent} omzet, is het onderwerp van hoofdstuk~\ref{ch:reagerend}.
 
 \begin{definitie}{Nulde hoofdwet van de thermodynamica}
 Als systeem $A$ in thermisch evenwicht is met $C$, en $B$ ook met $C$, dan zijn $A$ en $B$ onderling in thermisch evenwicht.
 \end{definitie}
 
-Deze vanzelfsprekende uitspraak is de basis van elke temperatuurmeting: de thermometer speelt de rol van $C$.
+Deze vanzelfsprekende uitspraak is de basis van elke temperatuurmeting: de thermometer speelt de rol van $C$. Ze laat toe twee systemen te vergelijken zonder ze met elkaar in contact te brengen.
 
 \section{Toestandsvariabelen}
 
@@ -68,8 +80,13 @@ Je kan ook toepassen op zeer alledaagse situaties. Rij met de auto van een bergt
 
 
 \section{Toestandsvergelijkingen}
+\label{sec:toestandsvergelijkingen}
 
-Toestandsvariabelen zijn niet onafhankelijk: een \emph{toestandsvergelijking} verbindt ze. De eenvoudigste toestandsvergelijk is de ideale gaswet.
+\begin{casus}{hoeveel gas zit er in de reactor?}
+De reactor van de ammoniakfabriek staat op \SI{200}{\bar} en 400 tot \SI{500}{\celsius}. Hoeveel mol synthesegas zit er in een kubieke meter? Hoe groot moet de reactor zijn voor een gegeven debiet, en welk volume neemt het gas in na elke compressortrap? Daarvoor heb je een relatie nodig tussen $p$, $V$, $T$ en $n$, die ook bij hoge druk klopt.
+\end{casus}
+
+Toestandsvariabelen zijn niet onafhankelijk: een \emph{toestandsvergelijking} verbindt ze. De eenvoudigste is de ideale gaswet. We bekijken eerst waarom ze werkt, dan wanneer ze faalt, en ten slotte hoe je dat corrigeert. Je zal in je verdere opleiding overal gassen tegenkomen, van perslucht tot stoom en koelmiddel, en dit is de plaats waar je leert inschatten hoe ver je met $pV = nRT$ komt.
 
 \subsection{De ideale gaswet}
 
@@ -359,6 +376,18 @@ Zet je $Z$ uit tegen de \emph{gereduceerde druk} $p_r = p/p_c$ bij een vaste \em
     \label{fig:compchart}
 \end{figure}
 
+\begin{voorbeeld}{Synthesegas en waterstof onder hoge druk}
+\emph{Synthesegas bij \SI{200}{\bar}.} Na de compressor van figuur~\ref{fig:ammoniakfabriek} heeft het gas \SI{200}{\bar} en ongeveer \SI{40}{\celsius}. Voor de zuivere componenten geeft de toestandsvergelijking van Peng--Robinson (\S\ref{sec:andere-toestandsvgl}) $Z = 1.04$ voor \ce{N2} en $Z = 1.08$ voor \ce{H2}. Beide liggen ver boven hun kritische temperatuur ($T_r = 2.5$ voor \ce{N2}, bijna 10 voor \ce{H2}), zodat de aantrekking nauwelijks meetelt en het eigen volume van de moleculen $Z$ boven 1 duwt. Voor het mengsel is $Z \approx 1.07$: het gas neemt \SI{7}{\percent} meer plaats in dan de ideale gaswet voorspelt. Wie leidingen, compressortrappen en de reactor met $pV = nRT$ dimensioneert, maakt ze \SI{7}{\percent} te klein.
+
+\emph{Een waterstoftank in een auto.} Een brandstofcelwagen slaat waterstof op bij \SI{700}{\bar} in tanks van samen ongeveer \SI{142}{\litre}. De ideale gaswet voorspelt bij \SI{15}{\celsius}
+\[
+n = \frac{pV}{RT} = \frac{(700\times10^{5})(0.142)}{(8.314)(288)} = \SI{4150}{\mole} \;=\; \SI{8.4}{\kilo\gram}.
+\]
+Bij \SI{700}{\bar} is de compressibiliteitsfactor van waterstof echter $Z \approx 1.47$ (NIST), zodat er maar $8.4/1.47 = \SI{5.7}{\kilo\gram}$ in past. Dat komt overeen met wat fabrikanten opgeven. Een fout van \SI{50}{\percent} op de actieradius: hier is de ideale gaswet onbruikbaar.
+
+\emph{Ammoniak in de condensor.} Het gas dat de reactor verlaat, bevat ongeveer \SI{18}{\percent} \ce{NH3}, een partieeldruk van zo'n \SI{36}{\bar}. Ammoniak heeft een kritische temperatuur van \SI{132}{\celsius} (tabel~\ref{tab:kritiek}). Koel je het gas af tot kamertemperatuur, dan ligt die partieeldruk ver boven de dampdruk van ammoniak (\SI{8.6}{\bar} bij \SI{20}{\celsius}) en condenseert het. Daar faalt de ideale gaswet volledig, en precies dat gedrag gebruikt de fabriek om het product af te scheiden.
+\end{voorbeeld}
+
 \subsection{Andere toestandsvergelijkingen}
 \label{sec:andere-toestandsvgl}
 
@@ -405,6 +434,10 @@ Het teken van $B$ vertelt wat domineert. Een negatieve $B$ (\ce{CO2}, en \ce{N2}
 De viriaalvergelijking is vooral een \emph{fitvergelijking}. Ze vertrekt niet van een fysisch beeld van de moleculen zoals Van der Waals, en de co\"effici\"enten volgen niet uit een theorie maar uit metingen. Dat is meteen haar sterkte: met genoeg termen beschrijft ze experimentele gegevens zo nauwkeurig als je wil. Bij lage tot matige dichtheid volstaat vaak de term in $B$ alleen. Haar zwakte is dat ze enkel geldt in het gebied waarop gefit werd: bij hoge dichtheid en in de buurt van condensatie convergeert de reeks niet meer, en een vloeistof beschrijft ze niet.
 
 \section{Warmte en arbeid}
+
+\begin{casus}{energie over de grens}
+De compressor van de fabriek duwt met een as op het gas; de tussenkoelers onttrekken het gas energie via koelwater. In beide gevallen verandert de energie van het gas. Zijn dat twee vormen van hetzelfde, of verschillen ze fundamenteel?
+\end{casus}
 
 Tijdens compressie, expansie, opwarming of afkoeling wisselt een systeem energie uit met zijn omgeving. Dat kan op twee manieren: als \emph{arbeid} of als \emph{warmte}. Beide zijn padfuncties, maar ze verschillen fundamenteel van aard (figuur~\ref{fig:arbeid-warmte}).
 
@@ -453,19 +486,33 @@ Zuiver isotherm en reversibel bestaat in de industrie niet: het zou oneindig tra
 
 \section{De eerste hoofdwet van de thermodynamica}
 
-Energie ontstaat niet en verdwijnt niet; ze verandert enkel van vorm of wordt uitgewisseld. Om de energie \emph{in} een systeem te beschrijven, voeren we de \emph{interne energie} $U$ in. Ze omvat de translatie-, rotatie- en vibratie-energie van de moleculen, de potenti\"ele energie van de intermoleculaire krachten en de energie in chemische bindingen. De kinetische en potenti\"ele energie van het systeem als geheel tellen niet mee. $U$ is een toestandsfunctie.
+\begin{casus}{waarom wordt het gas heet?}
+Na de eerste compressortrap is het synthesegas ongeveer \SI{70}{\kelvin} warmer dan aan de inlaat, hoewel er geen brander of verwarming in de compressor zit. Waar komt die energie vandaan, en waar is ze gebleven?
+\end{casus}
+
+Warmte en arbeid zijn twee manieren waarop energie de systeemgrens oversteekt. Wanneer je een gas verwarmt, neemt het energie op; wanneer het uitzet en een zuiger wegduwt, geeft het energie af. Hoewel de twee mechanismen heel verschillend zijn, gaat het telkens om energie. Dat roept de vraag op: hoe beschrijf je de energie \emph{in} het systeem, los van de manier waarop ze binnenkwam?
+
+\paragraph{De interne energie.} Daarvoor voeren we een nieuwe grootheid in, de \emph{interne energie} $U$. Ze omvat alle energie die op moleculaire schaal in het systeem zit: de translatie-energie van de moleculen die door elkaar vliegen, hun rotatie- en vibratie-energie, de potenti\"ele energie van de krachten tussen de moleculen, en de energie in de chemische bindingen. De kinetische en potenti\"ele energie van het systeem als geheel tellen niet mee: een gasfles in een rijdende vrachtwagen heeft dezelfde interne energie als een fles die stilstaat. Wat $U$ precies is op moleculair niveau, en waarom de energie in sommige vormen wel en in andere niet kan worden opgeslagen, zien we in hoofdstuk~\ref{ch:kwantum}.
+
+Het belangrijkste kenmerk van $U$ is dat ze een \emph{toestandsfunctie} is. Breng je een systeem van toestand 1 naar toestand 2, dan is $\Delta U = U_2 - U_1$, welke combinatie van warmte en arbeid je daarvoor ook gebruikt. Dat is een experimenteel feit: Joule toonde rond 1845 aan dat je water evengoed kan opwarmen met een roerder (arbeid) als met een vlam (warmte), en dat een vaste hoeveelheid arbeid altijd dezelfde temperatuurstijging geeft.
 
 \begin{definitie}{Eerste hoofdwet van de thermodynamica}
 De verandering van de interne energie van een gesloten systeem is de som van de ontvangen warmte en de op het systeem verrichte arbeid:
 \begin{equation}
-\boxed{\dd U = \delta Q + \delta W}
+\boxed{\Delta U = Q + W \qquad\text{of}\qquad \dd U = \delta Q + \delta W}
 \end{equation}
 Met enkel reversibele volumearbeid wordt dit $\dd U = \delta Q - p\,\dd V$.
 \end{definitie}
 
-Bij een ideaal gas zijn er geen intermoleculaire krachten. De interne energie in dit geval is dus enkel de kinetische energie van de moleculen, en hangt enkel af van de temperatuur: $U = U(T)$ (\S~\ref{sec:kinetische-gastheorie}). Bij een re\"eel gas hangt $U$ ook af van de afstand tussen de moleculen, dus van het volume; dat is precies wat het Joule--Thomson-effect toont.
+Energie ontstaat dus niet en verdwijnt niet; ze verandert enkel van vorm of wordt uitgewisseld. $Q$ en $W$ zijn elk afzonderlijk padfuncties, maar hun som is dat niet: die hangt enkel af van begin- en eindtoestand. Voor een ge\"isoleerd systeem zijn $Q$ en $W$ allebei nul, zodat $\Delta U = 0$: de energie van een ge\"isoleerd systeem is constant.
 
-Een bekend gevolg merk je aan een fietspomp of een compressor: bij een snelle compressie wordt arbeid op het gas verricht ($W > 0$), terwijl er nauwelijks warmte weggaat ($Q \approx 0$). Dan is $\Delta U = W > 0$, en omdat $U$ van een (bijna) ideaal gas enkel van $T$ afhangt, stijgt de temperatuur. Hoeveel precies, werken we uit in \S~\ref{sec:compressor} zodra we de warmtecapaciteit kennen.
+\paragraph{De interne energie van een ideaal gas.} Bij een ideaal gas oefenen de moleculen geen krachten op elkaar uit, dus is er geen potenti\"ele energie tussen de moleculen. Zolang er geen reactie plaatsvindt, verandert ook de energie in de bindingen niet. Wat overblijft, is de energie van de beweging van de moleculen: translatie, rotatie en vibratie. Die hangt enkel af van de temperatuur; voor de translatie zagen we dat al in de kinetische gastheorie, $\tfrac12 M\langle v^2\rangle = \tfrac32 RT$ (vergelijking~\eqref{eq:vrms}). Daarom geldt voor een ideaal gas
+\[
+U = U(T).
+\]
+Een ideaal gas heeft bij een gegeven temperatuur dus dezelfde interne energie per mol, ongeacht zijn druk of volume. Bij een re\"eel gas hangt $U$ ook af van de afstand tussen de moleculen, dus van het volume. Laat je een re\"eel gas uitzetten, dan moeten de moleculen tegen hun onderlinge aantrekking in uit elkaar worden getrokken; dat kost energie, die van de beweging komt, en het gas koelt af. Dat is het Joule--Thomson-effect uit \S\ref{sec:toestandsvergelijkingen}.
+
+\paragraph{Waarom wordt een gas warm bij compressie?} Duw je snel op een fietspomp, dan wordt het uiteinde warm. De eerste hoofdwet verklaart waarom. Bij een snelle compressie wordt arbeid op het gas verricht ($W > 0$), terwijl er nauwelijks tijd is om warmte af te geven ($Q \approx 0$). Dan is $\Delta U = W > 0$, en omdat $U$ van een (bijna) ideaal gas enkel van $T$ afhangt, moet de temperatuur stijgen. Merk op: het gas wordt niet warm \emph{omdat} het volume kleiner wordt, maar omdat de arbeid van de zuiger als interne energie in het gas terechtkomt. Moleculair bekeken krijgen de moleculen die tegen de naderende zuiger botsen telkens wat extra snelheid mee. Comprimeer je hetzelfde gas heel traag in een koud bad, dan wordt het volume even klein, maar blijft de temperatuur gelijk: de arbeid vloeit dan als warmte weg. Hoe warm het gas in de compressor van de ammoniakfabriek wordt, rekenen we uit in \S\ref{sec:compressor}, zodra we de warmtecapaciteit kennen.
 
 \begin{voorbeeld}{Arbeid bij isotherme compressie van een ideaal gas}
 \SI{1}{\mole} ideaal gas wordt reversibel en isotherm gecomprimeerd bij \SI{300}{\kelvin} van \SI{1}{\bar} naar \SI{10}{\bar}. Omdat $T$ constant is, is $\Delta U = 0$: alle arbeid moet als warmte naar de omgeving. Met $V_2/V_1 = p_1/p_2$:
@@ -476,6 +523,10 @@ W = -RT\ln\frac{V_2}{V_1} = RT\ln\frac{p_2}{p_1} = (8.314)(300)\ln 10 = \SI{5.74
 
 \section{Enthalpie}
 \label{sec:enthalpie}
+
+\begin{casus}{wat draagt een stroom mee?}
+Compressor, reactor en condensor zijn open systemen: er stroomt voortdurend gas in en uit. Om de energiebalans van zo'n toestel op te stellen, moet je weten hoeveel energie elke stroom meevoert. Is dat enkel zijn interne energie?
+\end{casus}
 
 In een open systeem, zoals een pomp, een turbine of een warmtewisselaar, stroomt materie in en uit. Dat in- en uitstromen kost arbeid. Bekijk een pakketje flu\"idum vlak v\'o\'or de inlaat van een toestel, in een leiding met doorsnede $A$ (figuur~\ref{fig:stromingsarbeid}). Het heeft druk $p_1$ en volume $V_1$, en dus lengte $L_1 = V_1/A$. Het pakketje gaat niet vanzelf naar binnen: het flu\"idum dat erop volgt (stroomopwaarts, links in de figuur) duwt het voor zich uit, net als een zuiger. Die denkbeeldige zuiger oefent een kracht $F = p_1A$ uit en verschuift het pakketje over zijn hele lengte $L_1$, tot het volledig in het toestel zit. De arbeid die zo aan het toestel geleverd wordt, is
 \[
@@ -549,6 +600,10 @@ De vrijgekomen warmte ($|Q_p| = \SI{35700}{\kilo\joule}$) is dus \emph{groter} d
 
 \section{Warmtecapaciteiten}
 \label{sec:warmtecapaciteiten}
+
+\begin{casus}{hoe warm precies?}
+Hoeveel stijgt de temperatuur van het synthesegas als de compressor er per mol \SI{2}{\kilo\joule} arbeid in steekt? Daarvoor moet je weten hoeveel energie het gas nodig heeft per kelvin.
+\end{casus}
 
 Om een stof op te warmen is warmte nodig. De \emph{warmtecapaciteit} geeft aan hoeveel energie moet worden toegevoerd om de temperatuur van een systeem met \'e\'en kelvin te verhogen:
 \begin{equation}
@@ -634,6 +689,8 @@ T = (293.15)\,(2.83)^{0.286} = \SI{395}{\kelvin} = \SI{121}{\celsius},
 \]
 en de totale arbeid daalt tot $2 \cdot \tfrac{7}{2}(8.314)(395 - 293) = \SI{5.90}{\kilo\joule\per\mole}$: \SI{15}{\percent} minder dan zonder tussenkoeling. De groene weg in figuur~\ref{fig:compressie} benadert de isotherm des te beter naarmate er meer trappen zijn. Daarom hebben compressoren voor hoge drukken, zoals die voor het vullen van duikflessen (\SI{200}{\bar}) of voor de ammoniaksynthese (150 tot \SI{300}{\bar}), drie tot vijf trappen met telkens een tussenkoeler.
 
+\paragraph{Terug naar de ammoniakfabriek.} Het synthesegas komt binnen op ongeveer \SI{25}{\bar} en \SI{40}{\celsius} en moet naar \SI{200}{\bar}: opnieuw een drukverhouding 8. Stikstof en waterstof zijn tweeatomig, dus ook hier is $R/C_{p,\mathrm{m}} \approx 0.286$. In \'e\'en trap zou het gas \SI{294}{\celsius} bereiken, te heet voor de afdichtingen en de smering. In drie trappen met elk een drukverhouding 2 en tussenkoeling tot \SI{40}{\celsius} blijft elke trap onder \SI{110}{\celsius}, en daalt de arbeid van \SI{7.4}{} naar \SI{6.0}{\kilo\joule} per mol gas (isotherm zou \SI{5.4}{\kilo\joule\per\mole} zijn). Per mol \ce{NH3} moet je 2 mol synthesegas comprimeren. Een fabriek van \SI{1000}{\tonne} ammoniak per dag vraagt zo ongeveer \SI{8}{\mega\watt} aan compressiearbeid, en een echte compressor met wrijving en lekverliezen nog een derde meer. Dat is het vermogen van enkele grote windturbines, enkel om het gas op druk te brengen. (Bij \SI{200}{\bar} is $Z \approx 1.07$; voor deze schatting verwaarlozen we dat.)
+
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.75\linewidth]{Figuren/compressie_pv}
@@ -646,6 +703,10 @@ Hetzelfde effect benut men in een dieselmotor. Daar wordt lucht snel samengedruk
 
 
 \section{Enthalpie bij opwarmen en faseovergangen}
+
+\begin{casus}{de condensor}
+In de condensor wordt het gas van de reactor afgekoeld tot \SI{-10}{\celsius}. Eerst daalt de temperatuur van het gas, daarna condenseert de ammoniak. Hoeveel warmte moet de condensor afvoeren om de ammoniak vloeibaar te maken?
+\end{casus}
 
 Bij opwarmen bij constante druk neemt de enthalpie toe volgens
 \begin{equation}
@@ -712,8 +773,24 @@ Zolang een stof in dezelfde fase blijft, stijgt de enthalpie geleidelijk met $\i
 Om \SI{1}{\mole} water op te warmen van \SI{0}{\celsius} tot \SI{100}{\celsius} is $C_p\Delta T = (75.3)(100) = \SI{7.53}{\kilo\joule}$ nodig. Om het daarna te verdampen: \SI{40.7}{\kilo\joule}, 5.4 keer meer. Van de totale \SI{48.2}{\kilo\joule} gaat dus meer dan \SI{80}{\percent} naar de faseovergang. Daarom verbruikt de reboiler van een destillatiekolom zoveel meer energie dan een gewone vloeistofverwarmer.
 \end{voorbeeld}
 
+\begin{voorbeeld}{De condensor van de ammoniakfabriek}
+In de condensor van figuur~\ref{fig:ammoniakfabriek} gebeurt het omgekeerde van verdampen: gasvormige ammoniak condenseert en geeft daarbij zijn verdampingsenthalpie af. Bij het normale kookpunt (\SI{-33}{\celsius}) is $\Delta H_\text{vap}(\ce{NH3}) = \SI{23.3}{\kilo\joule\per\mole}$ (Atkins \& de Paula); bij de condensortemperatuur van ongeveer \SI{-10}{\celsius} is ze iets kleiner, ongeveer \SI{22}{\kilo\joule\per\mole}, omdat de verdampingsenthalpie daalt naarmate je de kritische temperatuur nadert.
+
+Hoeveel koelvermogen vraagt een fabriek van \SI{1000}{\tonne} \ce{NH3} per dag?
+\[
+\dot n = \frac{10^{9}\ \si{\gram}}{(17.03\ \si{\gram\per\mole})(86\,400\ \si{\second})} = \SI{680}{\mole\per\second},
+\qquad
+\dot Q = \dot n\,\Delta H_\text{vap} = (680)(22\times10^{3}) = \SI{15}{\mega\watt}.
+\]
+Dat is enkel de faseovergang; het afkoelen van het hete gas komt er nog bij. Omdat de condensor onder \SI{0}{\celsius} werkt, kan gewoon koelwater dit niet: er is een koelmachine nodig, en die verbruikt zelf weer elektrische energie. Waarom warmte niet vanzelf van koud naar warm stroomt en hoeveel arbeid een koelmachine daarvoor minstens nodig heeft, is een vraag voor hoofdstuk~\ref{ch:spontaniteit}.
+\end{voorbeeld}
+
 \section{Standaardtoestanden en de wet van Hess}
 \label{sec:hess}
+
+\begin{casus}{hoeveel warmte geeft de reactie?}
+Per mol ammoniak die in de reactor ontstaat, komt warmte vrij. Hoeveel, en hoe bereken je dat voor een reactie die je nooit zelf in een calorimeter hebt gemeten?
+\end{casus}
 
 Enthalpie\"en worden altijd opgegeven ten opzichte van een \emph{standaardtoestand}: zuivere stof bij \SI{1}{\bar}, meestal getabelleerd bij \SI{298.15}{\kelvin}. De \emph{standaardvormingsenthalpie} $\Delta H_f^\circ$ is de enthalpieverandering wanneer \'e\'en mol van een stof gevormd wordt uit de elementen in hun standaardtoestand. Voor die elementen zelf is $\Delta H_f^\circ = 0$. Omdat $H$ een toestandsfunctie is, mag je elke reactie opsplitsen in ``ontbinden tot elementen'' en ``opbouwen tot producten'' (figuur~\ref{fig:hess}). Dat is de \emph{wet van Hess}:
 \begin{equation}
@@ -736,10 +813,16 @@ Voor \ce{CH4(g) + 2 O2(g) -> CO2(g) + 2 H2O(l)} met $\Delta H_f^\circ$ = $-74.8$
 Per mol methaan komt \SI{890.3}{\kilo\joule} vrij: de basis voor het ontwerp van elke aardgasbrander.
 \end{voorbeeld}
 
+Voor de ammoniaksynthese is de rekening nog eenvoudiger, omdat \ce{N2} en \ce{H2} elementen zijn met $\Delta H_f^\circ = 0$: $\Delta_r H^\circ = 2\,\Delta H_f^\circ(\ce{NH3}) = 2(\SI{-46.1}{\kilo\joule\per\mole}) = \SI{-92.2}{\kilo\joule}$ per 2 mol \ce{NH3}, bij \SI{25}{\celsius}. In de reactor is het echter 400 tot \SI{500}{\celsius}; hoe je daarvoor corrigeert, is het onderwerp van de volgende sectie.
+
 \section{Temperatuurafhankelijkheid van reactie-enthalpie\"en: de wet van Kirchhoff}
 \label{sec:kirchhoff}
 
-Tabellen geven reactie- en vormingsenthalpie\"en bij \SI{298}{\kelvin}, maar reacties lopen zelden bij kamertemperatuur. Ammoniak wordt gemaakt bij ongeveer \SI{450}{\celsius}, methanol bij \SI{250}{\celsius}, kalk bij \SI{900}{\celsius}. Hoe reken je de reactie-enthalpie om naar de procestemperatuur?
+\begin{casus}{tabellen bij 25 \textdegree{}C, reactor bij 450 \textdegree{}C}
+Tabellen geven de reactie-enthalpie bij \SI{298}{\kelvin}, maar de katalysator werkt pas bij 400 tot \SI{500}{\celsius}. Komt er bij die temperatuur evenveel warmte vrij?
+\end{casus}
+
+Niet enkel ammoniak: methanol wordt gemaakt bij ongeveer \SI{250}{\celsius}, kalk bij \SI{900}{\celsius}, en in je lichaam verlopen reacties bij \SI{37}{\celsius}. Hoe reken je een getabelleerde reactie-enthalpie om naar de procestemperatuur?
 
 \paragraph{Afleiding met een kringloop.} Omdat $H$ een toestandsfunctie is, mag je van reagentia bij $T_0 = \SI{298}{\kelvin}$ naar producten bij een andere temperatuur $T$ gaan langs elke weg die je wil. Vergelijk twee wegen:
 \begin{enumerate}
@@ -822,6 +905,10 @@ Bij de procestemperatuur komt dus \SI{15}{\percent} meer warmte vrij dan de tabe
 \section{Warmte-effecten van reacties: de adiabatische temperatuur}
 \label{sec:warmte-effecten}
 
+\begin{casus}{hoe warm wordt een katalysatorbed?}
+Een katalysatorbed is zo groot en zo goed ge\"isoleerd dat de reactiewarmte er niet uit kan. Het gas komt binnen op \SI{400}{\celsius}. Hoe warm is het aan de uitgang, en waarom heeft de reactor drie bedden in plaats van \'e\'en?
+\end{casus}
+
 In het voorbeeld van de ammoniaksynthese moest de koeling de reactiewarmte afvoeren bij een vaste temperatuur. Wat als er niet (of onvoldoende) gekoeld wordt? Dan blijft de vrijgekomen warmte in het reactiemengsel en stijgt de temperatuur. In een brander is dat precies de bedoeling, in een chemische reactor is het een veiligheidsrisico. In beide gevallen is de vraag voor de ingenieur dezelfde: \emph{hoe warm wordt het mengsel als alle reactiewarmte erin blijft?}
 
 \subsection{De energiebalans over een reactor}
@@ -869,6 +956,39 @@ Merk op dat bijna twee derde van de warmtecapaciteit van het rookgas afkomstig i
     \label{fig:vlamtemperatuur}
 \end{figure}
 
+\subsection{Temperatuurstijging in een katalysatorbed}
+\label{sec:katalysatorbed}
+
+Terug naar de reactor van de ammoniakfabriek. Elk katalysatorbed is groot en goed ge\"isoleerd, zodat het zich gedraagt als een adiabatische reactor: alle reactiewarmte blijft in het gas. Hoe warm wordt het?
+
+\begin{voorbeeld}{Adiabatische temperatuurstijging in het eerste bed}
+Het gas komt het eerste bed binnen op \SI{400}{\celsius} met \SI{3}{\percent} \ce{NH3} (de rest die de condensor niet heeft opgevangen) en voor de rest \ce{N2} en \ce{H2} in de verhouding 1:3. We rekenen per \SI{100}{\mole} voeding: \SI{3}{\mole} \ce{NH3}, \SI{24.25}{\mole} \ce{N2} en \SI{72.75}{\mole} \ce{H2}. Stel dat in het bed \SI{8}{\mole} \ce{NH3} gevormd wordt. Dan verbruik je \SI{4}{\mole} \ce{N2} en \SI{12}{\mole} \ce{H2}, en verlaat het bed
+\[
+\SI{11}{\mole}\ \ce{NH3} + \SI{20.25}{\mole}\ \ce{N2} + \SI{60.75}{\mole}\ \ce{H2} = \SI{92}{\mole},
+\qquad y_{\ce{NH3}} = 11/92 = \SI{12.0}{\percent}.
+\]
+\emph{Vrijgekomen warmte.} Bij deze temperaturen is $\Delta_r H \approx \SI{-53.1}{\kilo\joule}$ per mol \ce{NH3} (de helft van de \SI{-106.2}{\kilo\joule} uit het voorbeeld bij de wet van Kirchhoff), dus komt er $8 \times 53.1 = \SI{425}{\kilo\joule}$ vrij.
+
+\emph{Warmtecapaciteit van het uitgaande gas.} Met tabel~\ref{tab:cp_coeff} bij ongeveer \SI{740}{\kelvin}: \ce{H2} \SI{29.6}{}, \ce{N2} \SI{31.0}{} en \ce{NH3} \SI{49.6}{\joule\per\mole\per\kelvin}, zodat
+\[
+\sum_i n_i\overline{C}_{p,i} = 60.75(29.6) + 20.25(31.0) + 11(49.6) = \SI{2970}{\joule\per\kelvin}.
+\]
+\emph{Temperatuurstijging} (vergelijking~\eqref{eq:adiabatische-temperatuur-cp}):
+\[
+\Delta T_\mathrm{ad} = \frac{425\,000}{2970} = \SI{143}{\kelvin}, \qquad T_\text{uit} \approx \SI{543}{\celsius}.
+\]
+Elke procent ammoniak die gevormd wordt, verhoogt de temperatuur dus met ongeveer \SI{16}{\kelvin}.
+\end{voorbeeld}
+
+Waarom stopt men dan niet gewoon na \'e\'en lang bed? Figuur~\ref{fig:ammoniak-bedden} toont het antwoord. In elk bed loopt de toestand langs een rechte: meer ammoniak betekent een hogere temperatuur, met de helling die we net berekenden. Maar bij hogere temperatuur ligt het chemisch evenwicht bij minder ammoniak (de gestippelde curve, hoofdstuk~\ref{ch:reagerend}). Rond \SI{530}{\celsius} botst de rechte op die curve en stopt de omzetting, hoe groot het bed ook is. Daarom koelt men het gas tussen de bedden terug tot ongeveer \SI{400}{\celsius} en laat het daarna verder reageren. Drie bedden met tussenkoeling brengen het gehalte zo van \SI{3}{} naar ongeveer \SI{20}{\percent}. De tussenkoeling is bovendien nuttig: de warmte die men daar afvoert, wordt gebruikt om stoom te maken, die op zijn beurt de compressoren aandrijft.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/ammoniak_bedden}
+    \caption{Temperatuur en ammoniakgehalte in een reactor met drie adiabatische katalysatorbedden bij \SI{200}{\bar} (voeding \SI{400}{\celsius}, \SI{3}{\percent} \ce{NH3}). In elk bed stijgt de temperatuur langs een rechte, zoals de eerste hoofdwet voorschrijft, tot dicht bij het evenwicht. Tussenkoeling brengt het gas terug naar \SI{400}{\celsius}. Berekend met tabel~\ref{tab:cp_coeff} en, voor het evenwicht, met de ideale gaswet en standaardwaarden uit Atkins \& de Paula, zonder inerte gassen; in een echte reactor ligt het eindgehalte iets lager.}
+    \label{fig:ammoniak-bedden}
+\end{figure}
+
 \subsection{Adiabatische temperatuurstijging in een vloeistofreactor}
 
 In een vloeistofreactor is het oplosmiddel (vaak water) de grootste warmtebuffer. Per liter reactiemengsel met beginconcentratie $c_{A,0}$ van de reagens en volumieke warmtecapaciteit $\rho c_p$ wordt vergelijking~(\ref{eq:adiabatische-temperatuur-cp}) bij volledige omzetting:
@@ -891,8 +1011,20 @@ Een vuistregel uit de procesveiligheid: bij $\Delta T_\mathrm{ad}$ kleiner dan o
 
 \section{De beperkingen van de eerste hoofdwet}
 
-Een hete kop koffie koelt af tot kamertemperatuur; nooit warmt lauwe koffie spontaan op door warmte uit de kamer te halen. Beide processen respecteren de eerste hoofdwet: energie blijft behouden. De eerste hoofdwet zegt dus niets over de \emph{richting} van een proces. Daarvoor is een tweede grootheid nodig, de entropie. Haar moleculaire oorsprong (hoofdstuk~\ref{ch:kwantum}) en haar gevolgen (hoofdstuk~\ref{ch:spontaniteit}) zijn het onderwerp van de volgende twee hoofdstukken.
+De eerste hoofdwet is een boekhouding: ze vertelt je hoeveel energie waar naartoe gaat, maar niet wat er \emph{kan} gebeuren. Een hete kop koffie koelt af tot kamertemperatuur; nooit warmt lauwe koffie spontaan op door warmte uit de kamer te halen. Beide processen respecteren de eerste hoofdwet, want in beide gevallen blijft de energie behouden. Toch gebeurt maar \'e\'en van de twee.
 
+Hetzelfde zie je in de ammoniakfabriek. De eerste hoofdwet vertelde ons hoe warm een katalysatorbed wordt per procent gevormde ammoniak, maar niet waarom de omzetting rond \SI{530}{\celsius} stopt (figuur~\ref{fig:ammoniak-bedden}). Ze verklaarde hoeveel warmte de condensor moet afvoeren, maar niet waarom je daarvoor een koelmachine nodig hebt die zelf energie verbruikt. Om de \emph{richting} van een proces te voorspellen, en de grens van wat haalbaar is, is een tweede grootheid nodig: de entropie. Haar moleculaire oorsprong (hoofdstuk~\ref{ch:kwantum}) en haar gevolgen (hoofdstuk~\ref{ch:spontaniteit}) zijn het onderwerp van de volgende twee hoofdstukken; het evenwicht van de ammoniaksynthese zelf komt terug in hoofdstuk~\ref{ch:reagerend}.
+
+\section{De fabriek opnieuw bekeken}
+
+Met de begrippen uit dit hoofdstuk kan je de energiehuishouding van de syntheselus nu volledig doorrekenen:
+\begin{itemize}
+\item \emph{Compressor} (\S\ref{sec:compressor}): de arbeid wordt interne energie van het gas, $\Delta U = W$. In drie trappen met tussenkoeling blijft het gas onder \SI{110}{\celsius} en kost de compressie ongeveer \SI{6}{\kilo\joule} per mol gas, zo'n \SI{8}{\mega\watt} voor \SI{1000}{\tonne} \ce{NH3} per dag.
+\item \emph{Gas bij \SI{200}{\bar}} (\S\ref{sec:toestandsvergelijkingen}): synthesegas wijkt \SI{7}{\percent} af van de ideale gaswet ($Z \approx 1.07$), ammoniak condenseert zelfs.
+\item \emph{Reactor} (\S\ref{sec:kirchhoff} en \S\ref{sec:katalysatorbed}): bij \SI{450}{\celsius} komt \SI{53}{\kilo\joule} per mol \ce{NH3} vrij; in een adiabatisch bed stijgt de temperatuur ongeveer \SI{16}{\kelvin} per procent gevormde ammoniak, en daarom zijn er tussenkoelers.
+\item \emph{Condensor} (\S\ref{sec:faseovergangen}): het condenseren van de ammoniak vraagt zo'n \SI{15}{\mega\watt} koeling onder \SI{0}{\celsius}.
+\end{itemize}
+Dezelfde redeneringen gelden voor elke installatie: een warmtepomp, een stoomketel, een fermentor of een koelkast.
 
 \section{Samenvatting en reflectie}
 
@@ -917,6 +1049,8 @@ Een hete kop koffie koelt af tot kamertemperatuur; nooit warmt lauwe koffie spon
 \item Waarom loopt een heliumballon sneller leeg dan een ballon gevuld met lucht?
 \item Een oven verbrandt aardgas met \SI{100}{\percent} luchtovermaat in plaats van \SI{10}{\percent}. Wat gebeurt er met de vlamtemperatuur, en waarom is dat nadelig voor het rendement van de oven?
 \item Twee reacties hebben dezelfde $\Delta_r H$, maar de ene loopt in een verdunde oplossing en de andere in een geconcentreerde. Welke is gevaarlijker bij uitval van de koeling?
+\item Waarom koelt men het synthesegas tussen de compressortrappen? Wat zou er met de eindtemperatuur en met het compressorvermogen gebeuren zonder tussenkoeling?
+\item Waarom bestaat de ammoniakreactor uit drie bedden met tussenkoeling in plaats van \'e\'en groot bed? Welke vraag kan de eerste hoofdwet hier niet beantwoorden?
 \item Waarom kan de eerste hoofdwet niet voorspellen of een kop koffie spontaan afkoelt of opwarmt?
 \end{enumerate}
 \end{reflectie}
