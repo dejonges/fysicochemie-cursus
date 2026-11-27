@@ -161,9 +161,8 @@ def hess():
 
 
 # ------------------------------------------------------------------ Boyle
-def boyle():
+def _boyle(ax):
     """Isothermen van een ideaal gas (1 mol)."""
-    fig, ax = figuur(6.4, 4.6)
     T = [200, 400, 600, 800]
     V = np.linspace(0.3, 6, 400)  # L
     for i, Ti in enumerate(T):
@@ -178,13 +177,17 @@ def boyle():
     ax.set_ylim(0, 60)
     ax.set_xlabel(r"volume $V$ (L)")
     ax.set_ylabel(r"druk $p$ (bar)")
+
+
+def boyle():
+    fig, ax = figuur(6.4, 4.6)
+    _boyle(ax)
     return kader(fig)
 
 
 # ------------------------------------------------- CO2-isothermen (reëel gas)
-def isothermen_co2():
+def _isothermen_co2(ax):
     """Isothermen van CO2 met condensatiegebied (Peng-Robinson)."""
-    fig, ax = figuur(6.6, 4.8)
     gas = "CO2"
     Tc = ts.GASSEN[gas][0]
     V = np.linspace(4.2e-5, 6.2e-4, 1500)  # m3/mol
@@ -248,6 +251,21 @@ def isothermen_co2():
     ax.set_ylim(0, 140)
     ax.set_xlabel(r"molair volume $V_m$ (L mol$^{-1}$)")
     ax.set_ylabel(r"druk $p$ (bar)")
+
+
+def isothermen_co2():
+    fig, ax = figuur(6.6, 4.8)
+    _isothermen_co2(ax)
+    return kader(fig)
+
+
+def isothermen_vergelijking():
+    """Ideaal gas (links) naast CO2 (rechts): waar de ideale gaswet faalt."""
+    fig, (ax1, ax2) = figuur(12.4, 4.8, ncols=2)
+    _boyle(ax1)
+    _isothermen_co2(ax2)
+    ax1.set_title("ideaal gas", fontsize=12.5)
+    ax2.set_title("reëel gas: CO$_2$", fontsize=12.5)
     return kader(fig)
 
 
