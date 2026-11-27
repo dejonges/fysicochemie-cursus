@@ -767,22 +767,32 @@ def _cilinder(ax, x0, titel, reactie, h_voor, hoogte_gas, warmte_in, arbeid_uit,
     label(ax, x0 + b / 2, 6.8, reactie, K.tekst, ha="center", fontsize=10.5)
 
 
-def enthalpie_arbeid():
-    """Energieboekhouding bij constante druk, per mol: thermolyse van CaCO3 (298 K, gas ontstaat,
-    systeem levert arbeid) en verbranding van tristearine (310 K, gas verdwijnt, omgeving levert
-    arbeid). Pijlen niet op schaal."""
-    fig, ax = figuur(9.0, 3.4)
+def _enthalpie_paneel():
+    fig, ax = figuur(5.2, 3.6)
     ax.set_axis_off()
-    ax.set_xlim(-1.2, 20.2)
+    ax.set_xlim(-1.2, 9.6)
     ax.set_ylim(-0.1, 7.7)
     ax.set_aspect("equal")
+    return fig, ax
+
+
+def enthalpie_thermolyse():
+    """Thermolyse van CaCO3 bij constante druk (298 K, per mol): gas ontstaat, de zuiger schuift op
+    en een deel van de toegevoerde warmte verlaat het systeem als arbeid. Pijlen niet op schaal."""
+    fig, ax = _enthalpie_paneel()
     _cilinder(ax, 0.3, "thermolyse van kalksteen (298 K)", "CaCO$_3$(s) $\\to$ CaO(s) + CO$_2$(g)",
               0.4, 3.0, True, True, "+178.3 kJ", "$-$2.5 kJ", "+175.8 kJ", "CaO(s)")
-    _cilinder(ax, 11.0, "verbranding van vet (310 K)",
+    return kader(fig)
+
+
+def enthalpie_vet():
+    """Verbranding van tristearine bij constante druk (310 K, per mol): gas verdwijnt, de atmosfeer
+    duwt de zuiger in en levert arbeid. Volume na/voor = 57/81.5. Pijlen niet op schaal."""
+    fig, ax = _enthalpie_paneel()
+    _cilinder(ax, 0.3, "verbranding van vet (310 K)",
               "C$_{57}$H$_{110}$O$_6$(s) + 81.5 O$_2$ $\\to$ 57 CO$_2$ + 55 H$_2$O(l)",
               2.6, 1.82, False, False, "$-$35 700 kJ", "+63 kJ", "$-$35 640 kJ", "H$_2$O(l)")
     return kader(fig)
-
 
 def stromingsarbeid():
     """Stromingsarbeid: aan de inlaat duwt het fluïdum stroomopwaarts (denkbeeldige zuiger) een pakketje
