@@ -1,7 +1,7 @@
 """Figuren hoofdstuk 3 – Spontaniteit."""
 import numpy as np
 
-from huisstijl import K, figuur, kader, label  # noqa: F401
+from huisstijl import K, figuur, kader, label, pijl, schema, achter  # noqa: F401
 
 
 def entropie_opwarming_water():
@@ -112,4 +112,98 @@ def carnotfactor():
     ax.set_ylim(0, 0.8)
     ax.set_xlabel("temperatuur van de warmte (°C)")
     ax.set_ylabel(r"$W_\mathrm{max}/Q = 1 - T_0/T$")
+    return kader(fig)
+
+
+# ================================================================ CASE: DE WARMTEPOMP
+def warmtepomp_schema():
+    """Kringloop van een warmtepomp: verdamper buiten, compressor, condensor binnen, expansieventiel."""
+    import matplotlib.pyplot as plt
+    fig, ax = figuur(7.6, 4.6)
+    schema(fig, ax)
+    # zones
+    ax.add_patch(plt.Rectangle((-0.2, -0.3), 3.2, 4.6, fc=K.vlak_blauw, ec="none", zorder=0))
+    ax.add_patch(plt.Rectangle((5.0, -0.3), 3.2, 4.6, fc=K.vlak_rood, ec="none", zorder=0))
+    label(ax, 1.4, 4.05, "buiten, 5 °C", K.blauw, ha="center", fontsize=12)
+    label(ax, 6.6, 4.05, "woning, 20 °C", K.rood, ha="center", fontsize=12)
+    # toestellen
+    def blok(x, y, w, h, tekst, k, fc):
+        ax.add_patch(plt.Rectangle((x, y), w, h, fc=fc, ec=k, lw=1.8, zorder=2))
+        label(ax, x + w / 2, y + h / 2, tekst, k, ha="center", va="center", fontsize=10.5, zorder=3)
+    blok(1.9, 0.9, 1.0, 1.6, "verdamper\n−5 °C", K.blauw, K.achtergrond)
+    blok(5.1, 0.9, 1.0, 1.6, "condensor\n35 °C", K.rood, K.achtergrond)
+    blok(3.55, 2.95, 0.9, 0.6, "compressor", K.paars, K.achtergrond)
+    blok(3.6, -0.05, 0.8, 0.5, "ventiel", K.oker, K.achtergrond)
+    # leidingen
+    k = K.zacht
+    ax.plot([2.4, 2.4, 3.55], [2.5, 3.25, 3.25], color=k, lw=2)
+    ax.plot([4.45, 5.6, 5.6], [3.25, 3.25, 2.5], color=k, lw=2)
+    ax.plot([5.6, 5.6, 4.4], [0.9, 0.2, 0.2], color=k, lw=2)
+    ax.plot([3.6, 2.4, 2.4], [0.2, 0.2, 0.9], color=k, lw=2)
+    for xy0, xy1 in [((2.4, 2.9), (2.4, 3.15)), ((5.6, 2.9), (5.6, 2.6)), ((5.0, 0.2), (4.7, 0.2)),
+                     ((3.2, 0.2), (2.9, 0.2))]:
+        pijl(ax, xy0, xy1, k, lw=2)
+    label(ax, 2.95, 3.35, "damp", K.zacht, ha="center", va="bottom", fontsize=9.5)
+    label(ax, 5.05, 3.35, "hete damp", K.zacht, ha="center", va="bottom", fontsize=9.5)
+    label(ax, 4.95, 0.3, "vloeistof", K.zacht, ha="center", va="bottom", fontsize=9.5)
+    label(ax, 3.05, 0.3, "koude\nnevel", K.zacht, ha="center", va="bottom", fontsize=9.5)
+    # energiestromen
+    pijl(ax, (0.3, 1.7), (1.85, 1.7), K.blauw, lw=3)
+    label(ax, 1.05, 1.85, r"$Q_\mathrm{c}$", K.blauw, ha="center", va="bottom", fontsize=13)
+    label(ax, 1.05, 1.5, "uit de\nbuitenlucht", K.blauw, ha="center", va="top", fontsize=9.5)
+    pijl(ax, (6.15, 1.7), (7.7, 1.7), K.rood, lw=3)
+    label(ax, 6.95, 1.85, r"$Q_\mathrm{h}$", K.rood, ha="center", va="bottom", fontsize=13)
+    label(ax, 6.95, 1.5, "naar de\nvloerverwarming", K.rood, ha="center", va="top", fontsize=9.5)
+    pijl(ax, (4.0, 4.3), (4.0, 3.6), K.paars, lw=3)
+    label(ax, 4.12, 4.05, r"$W$ (elektriciteit)", K.paars, va="center", fontsize=11)
+    label(ax, 4.0, 1.55, r"$Q_\mathrm{h} = Q_\mathrm{c} + W$", K.tekst, ha="center", fontsize=12)
+    ax.set_xlim(-0.3, 8.3)
+    ax.set_ylim(-0.4, 4.6)
+    return kader(fig)
+
+
+def twee_blokken():
+    """Aantal microtoestanden van twee blokken die 100 energiekwanta delen."""
+    from math import comb, log10
+    fig, ax = figuur(6.8, 4.4)
+    NA, NB, q = 300, 200, 100
+    qa = np.arange(q + 1)
+    lg = np.array([log10(comb(int(a) + NA - 1, int(a))) + log10(comb(q - int(a) + NB - 1, q - int(a))) for a in qa])
+    ax.fill_between(qa, lg, lg.min() - 5, color=K.vlak_accent, lw=0)
+    ax.plot(qa, lg, color=K.accent)
+    m = int(qa[np.argmax(lg)])
+    ax.plot(m, lg.max(), "o", color=K.accent, ms=8, zorder=5)
+    label(ax, m, lg.max() + 1.2, f"meest waarschijnlijk: {m} kwanta in A\n(evenveel energie per oscillator)",
+          K.accent, ha="center", va="bottom", fontsize=10.5)
+    ax.plot(90, lg[90], "o", color=K.rood, ms=8, zorder=5)
+    label(ax, 88, lg[90] - 1.5, "start: A heet\n(90 kwanta)", K.rood, ha="right", va="top", fontsize=10.5)
+    pijl(ax, (89, lg[90] + 0.8), (66, lg[66] + 0.6), K.rood, lw=1.4, connectionstyle="arc3,rad=0.25")
+    label(ax, 79, lg[78] + 2.2, r"$\times 10^{8}$", K.rood, ha="center", fontsize=11)
+    ax.set_xlim(0, 100)
+    ax.set_ylim(lg[0] - 3, lg.max() + 7)
+    ax.set_xlabel("aantal energiekwanta in blok A (van de 100)")
+    ax.set_ylabel(r"$\log_{10}\,\Omega_\mathrm{totaal}$")
+    label(ax, 2, lg.max() + 5.5, "blok A: 300 oscillatoren, blok B: 200", K.zacht, fontsize=10.5)
+    return kader(fig)
+
+
+def cop_warmtepomp():
+    """Maximale COP (Carnot) van een warmtepomp tegenover de afgiftetemperatuur."""
+    fig, ax = figuur(6.8, 4.4)
+    th = np.linspace(25, 70, 300)
+    for tc, k, y in [(7, K.accent, 0), (-7, K.blauw, 0)]:
+        cop = (th + 273.15) / (th - tc)
+        ax.plot(th, cop, color=k)
+        ax.fill_between(th, 0.40 * cop, 0.50 * cop, color=k, alpha=0.18, lw=0)
+    label(ax, 70.6, 343.15 / 63, "Carnot,\nbuiten 7 °C", K.accent, fontsize=10, va="center")
+    label(ax, 70.6, 343.15 / 77 - 0.5, "Carnot,\nbuiten −7 °C", K.blauw, fontsize=10, va="top")
+    label(ax, 26, 0.7, "gekleurde banden: echte toestellen (40 tot 50 % van Carnot)", K.zacht, fontsize=10.5, bbox=achter(), zorder=6)
+    for t, naam in [(35, "vloerverwarming"), (55, "radiatoren")]:
+        ax.axvline(t, color=K.zacht, lw=1, ls=(0, (3, 3)))
+        label(ax, t + 0.5, 13.5, naam, K.zacht, fontsize=10.5)
+    ax.set_xlim(25, 80)
+    ax.set_xticks(range(25, 75, 5))
+    ax.set_ylim(0, 19)
+    ax.set_xlabel("afgiftetemperatuur in de woning (°C)")
+    ax.set_ylabel(r"COP = $Q_\mathrm{h}/W$")
     return kader(fig)
