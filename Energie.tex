@@ -25,9 +25,6 @@ Elke analyse begint met het afbakenen van het \emph{systeem}. Alles daarbuiten i
 \item Een \emph{open systeem} laat ook massa door. Bijna elk industrieel toestel is open: pompen, compressoren, warmtewisselaars, kolommen, reactoren. De stromen voeren energie mee, en daarvoor zullen we de \emph{enthalpie} nodig hebben (\S~\ref{sec:enthalpie}).
 \end{itemize}
 
-\begin{toepassing}{Compressor}
-Twee ingenieurs analyseren dezelfde compressor. De ene kiest enkel de compressor als systeem: gas stroomt in en uit, mechanische arbeid komt binnen via de as, er gaat wat warmte verloren. De andere neemt ook de elektromotor mee: de asarbeid verdwijnt uit de balans en wordt vervangen door elektrisch vermogen. Beide balansen zijn correct, zolang de gekozen grens consequent wordt gebruikt.
-\end{toepassing}
 
 \section{Thermodynamisch evenwicht}
 
@@ -46,15 +43,17 @@ Deze vanzelfsprekende uitspraak is de basis van elke temperatuurmeting: de therm
 
 \section{Toestandsvariabelen}
 
-Een industri\"ele reactor van $100~\mathrm{m^3}$ bevat meer dan $10^{30}$ moleculen, maar zijn toestand ligt vast door enkele \emph{toestandsvariabelen}: druk, temperatuur, volume en samenstelling.
+Een industri\"ele reactor van $100~\mathrm{m^3}$ bevat meer dan $10^{30}$ moleculen, maar zijn toestand ligt vast door enkele \emph{toestandsvariabelen}: druk, temperatuur, volume en samenstelling. We moeten dus niet de toestand van iedere molecule individueel bestuderen.
 
 \subsection{Intensieve en extensieve grootheden}
 
-Een \emph{extensieve grootheid} verdubbelt als je twee identieke systemen samenvoegt: massa $m$, volume $V$, hoeveelheid stof $n$, interne energie $U$, enthalpie $H$, entropie $S$. Een \emph{intensieve grootheid} hangt niet af van de grootte: temperatuur $T$, druk $p$, dichtheid $\rho$, concentratie, en elke molaire grootheid zoals $V_\mathrm{m} = V/n$. In een warmtewisselaar is het temperatuurverschil (intensief) de drijvende kracht, terwijl de overgedragen warmte (extensief) schaalt met het debiet.
+Een \emph{extensieve grootheid} verdubbelt als je twee identieke systemen samenvoegt: massa $m$, volume $V$, hoeveelheid stof $n$, interne energie $U$, enthalpie $H$, entropie $S$. 
+
+Een \emph{intensieve grootheid} hangt niet af van de grootte: temperatuur $T$, druk $p$, dichtheid $\rho$, concentratie, en elke molaire grootheid zoals $V_\mathrm{m} = V/n$. In een warmtewisselaar is het temperatuurverschil (intensief) de drijvende kracht, terwijl de overgedragen warmte (extensief) schaalt met het debiet.
 
 \subsection{Toestandsfuncties en padfuncties}
 
-Een \emph{toestandsfunctie} hangt enkel af van de toestand van het systeem, niet van de weg waarlangs die bereikt werd. De interne energie is er een: $\Delta U = U_2 - U_1$, welke weg je ook volgt. Hetzelfde geldt voor $H$, $S$ en $G$. Warmte en arbeid zijn daarentegen \emph{padfuncties}: hun waarde hangt af van het proces (figuur~\ref{fig:padfunctie}). Daarom schrijven we $\dd U$ (exacte differentiaal) maar $\delta Q$ en $\delta W$.
+Een \emph{toestandsfunctie} hangt enkel af van de toestand van het systeem, niet van de weg waarlangs die bereikt werd. De interne energie is er een voorbeeld hiervan: $\Delta U = U_2 - U_1$, welke weg je ook volgt. Hetzelfde geldt voor $H$, $S$ en $G$. Warmte en arbeid zijn daarentegen \emph{padfuncties}: hun waarde hangt af van het proces (figuur~\ref{fig:padfunctie}). Daarom schrijven we $\dd U$ (exacte differentiaal) maar $\delta Q$ en $\delta W$.
 
 \begin{figure}[htb]
     \centering
@@ -63,12 +62,12 @@ Een \emph{toestandsfunctie} hangt enkel af van de toestand van het systeem, niet
     \label{fig:padfunctie}
 \end{figure}
 
-Een vergelijking uit het dagelijks leven: rij met de auto van een bergtop A naar het dal B en terug. De barometer toont in A voor en na de rit dezelfde druk: de luchtdruk is een toestandsfunctie. De brandstofmeter niet: hoeveel benzine je verbruikt hebt, hangt af van de gekozen route.
+Je kan ook toepassen op zeer alledaagse situaties. Rij met de auto van een bergtop A naar het dal B en terug. De barometer toont in A voor en na de rit dezelfde druk: de luchtdruk is een toestandsfunctie. De brandstofmeter niet: hoeveel benzine je verbruikt hebt, hangt af van de gekozen route.
 
 
 \section{Toestandsvergelijkingen}
 
-Toestandsvariabelen zijn niet onafhankelijk: een \emph{toestandsvergelijking} verbindt ze. De eenvoudigste is de ideale gaswet.
+Toestandsvariabelen zijn niet onafhankelijk: een \emph{toestandsvergelijking} verbindt ze. De eenvoudigste toestandsvergelijk is de ideale gaswet.
 
 \subsection{De ideale gaswet}
 
@@ -76,7 +75,7 @@ Voor een verdund gas geldt
 \begin{equation}
 pV = nRT,
 \end{equation}
-met $R = \SI{8.314}{\joule\per\mole\per\kelvin}$ (in SI-eenheden; met bar en liter wordt dat \SI{0.08314}{\litre\bar\per\mole\per\kelvin}). De ideale gaswet is een \emph{limietwet}: elk gas volgt ze in de limiet $p \to 0$, en elke betere toestandsvergelijking moet in die limiet tot $pV = nRT$ herleiden.
+met $R = \SI{8.314}{\joule\per\mole\per\kelvin}$ (in SI-eenheden; met bar en liter wordt dat \SI{0.08314}{\litre\bar\per\mole\per\kelvin}). De ideale gaswet is een \emph{limietwet}: elk gas voldoet aan deze toestandsvergelijk in de limiet $p \to 0$, en elke betere toestandsvergelijking moet in die limiet tot $pV = nRT$ herleiden.
 
 
 \subsection{De ideale gaswet vanuit de moleculen: kinetische gastheorie}
