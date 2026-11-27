@@ -477,7 +477,18 @@ W = -RT\ln\frac{V_2}{V_1} = RT\ln\frac{p_2}{p_1} = (8.314)(300)\ln 10 = \SI{5.74
 \section{Enthalpie}
 \label{sec:enthalpie}
 
-In een open systeem stroomt materie in en uit. Om een pakketje flu\"idum (druk $p$, volume $V$) in een toestel te duwen, moet de stroming erachter arbeid leveren: kracht $pA$ maal verplaatsing $\dd x$, dus $p\,A\,\dd x = p\,\dd V$, of in totaal $pV$. Elke stroom draagt dus naast zijn interne energie ook deze \emph{stromingsarbeid} mee. Het is handig beide samen te nemen.
+In een open systeem, zoals een pomp, een turbine of een warmtewisselaar, stroomt materie in en uit. Dat in- en uitstromen kost arbeid. Bekijk een pakketje flu\"idum vlak v\'o\'or de inlaat van een toestel, in een leiding met doorsnede $A$ (figuur~\ref{fig:stromingsarbeid}). Het heeft druk $p_1$ en volume $V_1$, en dus lengte $L_1 = V_1/A$. Het pakketje gaat niet vanzelf naar binnen: het flu\"idum dat erop volgt (stroomopwaarts, links in de figuur) duwt het voor zich uit, net als een zuiger. Die denkbeeldige zuiger oefent een kracht $F = p_1A$ uit en verschuift het pakketje over zijn hele lengte $L_1$, tot het volledig in het toestel zit. De arbeid die zo aan het toestel geleverd wordt, is
+\[
+W_\text{in} = F\,L_1 = p_1A\cdot\frac{V_1}{A} = p_1V_1 .
+\]
+Aan de uitlaat gebeurt het omgekeerde. Het pakketje dat het toestel verlaat (druk $p_2$, volume $V_2$) moet het flu\"idum stroomafwaarts opzij duwen en levert daarbij arbeid $p_2V_2$ aan de omgeving. Elke stroom draagt dus naast zijn interne energie $U$ ook deze \emph{stromingsarbeid} $pV$ mee. Het is handig beide samen te nemen.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figuren/stromingsarbeid}
+    \caption{Stromingsarbeid. Aan de inlaat duwt het flu\"idum stroomopwaarts als een denkbeeldige zuiger een pakketje met kracht $p_1A$ over zijn lengte $L_1 = V_1/A$ naar binnen: het toestel ontvangt arbeid $p_1V_1$. Aan de uitlaat duwt het uittredende pakketje het flu\"idum stroomafwaarts weg: het toestel levert arbeid $p_2V_2$.}
+    \label{fig:stromingsarbeid}
+\end{figure}
 
 \begin{definitie}{Enthalpie}
 \begin{equation}
