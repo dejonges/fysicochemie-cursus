@@ -720,3 +720,65 @@ def arbeid_weg():
     label(ax2, 4.2, p2 + 0.8, "$p_\\mathrm{ext}$ = 2.49 bar", K.rood, ha="center", fontsize=10.5)
     ax2.set_title("in één ruk tegen $p_\\mathrm{ext} = p_2$", fontsize=12.5)
     return kader(fig)
+
+
+
+def _cilinder(ax, x0, titel, reactie, h_voor, hoogte_gas, warmte_in, arbeid_uit, Q, W, dU, rest):
+    """Cilinder met zuiger bij constante druk; warmte door de bodem, arbeid via de zuiger.
+    Gestippeld = zuigerstand voor de reactie (hoogte h_voor)."""
+    from matplotlib.patches import Rectangle
+    b, y0 = 4.0, 1.4
+    yz = y0 + hoogte_gas
+    ax.add_patch(Rectangle((x0, y0), b, hoogte_gas, facecolor=K.vlak_accent, edgecolor="none"))
+    ax.plot([x0, x0, x0 + b, x0 + b], [y0 + 4.4, y0, y0, y0 + 4.4], color=K.as_, lw=1.8)
+    if rest == "CaO(s)":
+        ax.add_patch(Rectangle((x0 + 1.2, y0), 1.6, 0.35, facecolor=K.vlak_grijs, edgecolor=K.zacht, lw=1.0))
+    else:
+        ax.add_patch(Rectangle((x0, y0), b, 0.22, facecolor=K.vlak_blauw, edgecolor="none"))
+    label(ax, x0 + 2.95, y0 + 0.04, rest, K.zacht, va="bottom", fontsize=9)
+    ax.plot([x0, x0 + b], [y0 + h_voor, y0 + h_voor], color=K.zacht, lw=1.3, ls="--")
+    label(ax, x0 - 0.15, y0 + h_voor, "voor", K.zacht, ha="right", va="center", fontsize=9.5)
+    ax.add_patch(Rectangle((x0, yz), b, 0.35, facecolor=K.vlak_grijs, edgecolor=K.as_, lw=1.4))
+    label(ax, x0 - 0.15, yz + 0.17, "na", K.as_, ha="right", va="center", fontsize=9.5)
+    ytop = max(yz + 0.35, y0 + h_voor)
+    for dx in (0.8, 2.0, 3.2):
+        pijl(ax, (x0 + dx, ytop + 0.9), (x0 + dx, yz + 0.42), K.zacht, lw=1.2)
+    label(ax, x0 + 2.0, ytop + 1.05, "atmosfeer, 1 bar", K.zacht, ha="center", fontsize=9.5)
+    # beweging van de zuiger = richting van de arbeid
+    xa = x0 + b + 0.7
+    if arbeid_uit:
+        pijl(ax, (xa, y0 + h_voor), (xa, yz + 0.35), K.oker, lw=2.6)
+        tekst = f"systeem duwt\natmosfeer weg\n$W$ = {W}"
+    else:
+        pijl(ax, (xa, y0 + h_voor + 0.35), (xa, yz + 0.1), K.oker, lw=2.6)
+        tekst = f"atmosfeer duwt\nzuiger in\n$W$ = {W}"
+    label(ax, xa + 0.3, (y0 + h_voor + yz) / 2 + 0.2, tekst, K.oker, va="center",
+          fontsize=10.5, fontweight="bold")
+    for dx in (0.9, 2.0, 3.1):
+        if warmte_in:
+            pijl(ax, (x0 + dx, y0 - 1.1), (x0 + dx, y0 - 0.1), K.rood, lw=2.2)
+        else:
+            pijl(ax, (x0 + dx, y0 - 0.1), (x0 + dx, y0 - 1.1), K.rood, lw=2.2)
+    label(ax, x0 + b + 0.3, y0 - 0.6, f"warmte {'in' if warmte_in else 'uit'}\n$Q_p = \\Delta H$ = {Q}",
+          K.rood, va="center", fontsize=10.5, fontweight="bold")
+    label(ax, x0 + b / 2, y0 + 0.85 if hoogte_gas > 1.5 else y0 - 1.9, f"$\\Delta U$ = {dU}", K.tekst, ha="center",
+          fontsize=11, fontweight="bold")
+    label(ax, x0 + b / 2, 7.35, titel, K.tekst, ha="center", fontsize=12.5, fontweight="bold")
+    label(ax, x0 + b / 2, 6.8, reactie, K.tekst, ha="center", fontsize=10.5)
+
+
+def enthalpie_arbeid():
+    """Energieboekhouding bij constante druk, per mol: thermolyse van CaCO3 (298 K, gas ontstaat,
+    systeem levert arbeid) en verbranding van tristearine (310 K, gas verdwijnt, omgeving levert
+    arbeid). Pijlen niet op schaal."""
+    fig, ax = figuur(9.0, 3.4)
+    ax.set_axis_off()
+    ax.set_xlim(-1.2, 20.2)
+    ax.set_ylim(-0.1, 7.7)
+    ax.set_aspect("equal")
+    _cilinder(ax, 0.3, "thermolyse van kalksteen (298 K)", "CaCO$_3$(s) $\\to$ CaO(s) + CO$_2$(g)",
+              0.4, 3.0, True, True, "+178.3 kJ", "$-$2.5 kJ", "+175.8 kJ", "CaO(s)")
+    _cilinder(ax, 11.0, "verbranding van vet (310 K)",
+              "C$_{57}$H$_{110}$O$_6$(s) + 81.5 O$_2$ $\\to$ 57 CO$_2$ + 55 H$_2$O(l)",
+              2.6, 1.82, False, False, "$-$35 700 kJ", "+63 kJ", "$-$35 640 kJ", "H$_2$O(l)")
+    return kader(fig)
