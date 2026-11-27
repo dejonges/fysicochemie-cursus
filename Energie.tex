@@ -440,6 +440,15 @@ Figuur~\ref{fig:arbeid-weg} maakt dat zichtbaar. De arbeid is de oppervlakte ond
     \caption{Isotherme expansie van \SI{1}{\mole} ideaal gas van \SI{1}{\litre} naar \SI{10}{\litre} bij \SI{300}{\kelvin}. Links reversibel, rechts in \'e\'en ruk tegen $p_\text{ext} = p_2$. De gekleurde oppervlakte is $|W|$.}
     \label{fig:arbeid-weg}
 \end{figure}
+
+\textbf{Hoe doe je dit in de praktijk?} De reversibele isotherme expansie van links vraagt twee dingen tegelijk.
+\begin{itemize}
+\item \emph{Reversibel:} de uitwendige druk mag op elk ogenblik maar een fractie lager zijn dan de gasdruk. Het klassieke gedachte-experiment: belast een wrijvingsloze zuiger met een hoopje fijn zand en neem de korrels er \'e\'en voor \'e\'en af. Elke stap is een kleine expansie; hoe kleiner de stappen, hoe dichter de weg bij de isotherm ligt en hoe meer arbeid het gas levert.
+\item \emph{Isotherm:} een gas dat arbeid levert, koelt af: het omgekeerde van de compressor die opwarmt (\S~\ref{sec:compressor}). Om $T$ constant te houden moet de omgeving tijdens de expansie warmte toevoeren, hier $Q = -W = \SI{5.74}{\kilo\joule}$. Dat lukt met een cilinder met dunne, goed geleidende wand in een groot thermostaatbad op \SI{300}{\kelvin}, en door zo traag te werken dat de warmte telkens kan bijbenen.
+\end{itemize}
+De vuistregel is dus: een proces is (bijna) isotherm als het veel trager verloopt dan de tijd die warmte nodig heeft om het gas te bereiken, en (bijna) adiabatisch als het veel sneller verloopt. Merk op dat ``isotherm'' alleen niet volstaat voor de maximale arbeid. Ook bij de expansie in \'e\'en ruk (rechts) kan het gas op het einde weer \SI{300}{\kelvin} hebben, maar de weg was niet reversibel.
+
+Zuiver isotherm en reversibel bestaat in de industrie niet: het zou oneindig traag gaan. Wel benadert men het. Een gasexpander of stoomturbine wordt in trappen opgedeeld met \emph{tussenverwarming} ertussen, het spiegelbeeld van de tussenkoeling bij de compressor. Ook in de natuur zie je bijna isotherme expansie: een kleine luchtbel die in water opstijgt, verdubbelt van volume tussen \SI{10}{\metre} diepte en het oppervlak, maar blijft door het goede warmtecontact op watertemperatuur.
 \end{voorbeeld}
 
 \section{De eerste hoofdwet van de thermodynamica}
