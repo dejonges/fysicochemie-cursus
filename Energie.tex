@@ -555,7 +555,7 @@ Om een stof op te warmen is warmte nodig. De \emph{warmtecapaciteit} geeft aan h
 C = \frac{\dd Q}{\dd T}
 \end{equation}
 
-De \emph{warmtecapaciteit} is de warmte die nodig is om de temperatuur met \'e\'en kelvin te verhogen. Omdat warmte een padfunctie is, zijn er twee versies:
+Omdat warmte een padfunctie is, hangt $C$ af van de manier waarop je opwarmt. Er zijn twee versies:
 \begin{equation}
 C_V = \left(\frac{\partial U}{\partial T}\right)_V
 \qquad\qquad
@@ -645,7 +645,7 @@ Hetzelfde effect benut men in een dieselmotor. Daar wordt lucht snel samengedruk
 
 
 
-\section{Temperatuurafhankelijkheid van de enthalpie}
+\section{Enthalpie bij opwarmen en faseovergangen}
 
 Bij opwarmen bij constante druk neemt de enthalpie toe volgens
 \begin{equation}
@@ -694,6 +694,22 @@ Lucht wordt bij constante druk opgewarmd van \SI{300}{\kelvin} naar \SI{600}{\ke
 &= 8350 + 421 + 147 = \SI{8.92}{\kilo\joule\per\mole}.
 \end{align*}
 Met een constante $C_{p,\mathrm{m}} = \SI{29.7}{\joule\per\mole\per\kelvin}$ (de waarde bij \SI{450}{\kelvin}, halfweg) vind je \SI{8.90}{\kilo\joule\per\mole}; met de waarde bij \SI{300}{\kelvin} (\SI{29.0}{\joule\per\mole\per\kelvin}) \SI{8.70}{\kilo\joule\per\mole}, nog geen \SI{3}{\percent} te weinig. Een gemiddelde $C_p$ volstaat dus vaak; de veelterm wordt belangrijk bij grote temperatuursprongen, zoals in een vlam (\S~\ref{sec:warmte-effecten}).
+\end{voorbeeld}
+
+\subsection{Faseovergangen: enthalpie zonder temperatuurstijging}
+\label{sec:faseovergangen}
+
+Zolang een stof in dezelfde fase blijft, stijgt de enthalpie geleidelijk met $\int C_p\,\dd T$. Bij smelten, verdampen of sublimeren wordt echter warmte opgenomen zonder dat de temperatuur verandert: de enthalpie maakt een sprong (figuur~\ref{fig:opwarmcurve}). De warmte per mol bij constante druk is de \emph{overgangsenthalpie}: $\Delta H_\text{fus}$ (smelten), $\Delta H_\text{vap}$ (verdampen) en $\Delta H_\text{sub} = \Delta H_\text{fus} + \Delta H_\text{vap}$ (sublimeren). Voor water is $\Delta H_\text{fus} = \SI{6.0}{\kilo\joule\per\mole}$ bij \SI{0}{\celsius} en $\Delta H_\text{vap} = \SI{40.7}{\kilo\joule\per\mole}$ bij \SI{100}{\celsius}. De energie gaat naar het verbreken van intermoleculaire bindingen (hoofdstuk~\ref{ch:intermoleculair}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/opwarmcurve_water}
+    \caption{Temperatuur van \SI{1}{\kilogram} water bij gelijkmatige warmtetoevoer, van ijs bij \SI{-20}{\celsius} tot stoom bij \SI{120}{\celsius}. Tijdens smelten en verdampen blijft de temperatuur constant.}
+    \label{fig:opwarmcurve}
+\end{figure}
+
+\begin{voorbeeld}{Verdampen van water}
+Om \SI{1}{\mole} water op te warmen van \SI{0}{\celsius} tot \SI{100}{\celsius} is $C_p\Delta T = (75.3)(100) = \SI{7.53}{\kilo\joule}$ nodig. Om het daarna te verdampen: \SI{40.7}{\kilo\joule}, 5.4 keer meer. Van de totale \SI{48.2}{\kilo\joule} gaat dus meer dan \SI{80}{\percent} naar de faseovergang. Daarom verbruikt de reboiler van een destillatiekolom zoveel meer energie dan een gewone vloeistofverwarmer.
 \end{voorbeeld}
 
 \section{Standaardtoestanden en de wet van Hess}
@@ -806,11 +822,11 @@ Bij de procestemperatuur komt dus \SI{15}{\percent} meer warmte vrij dan de tabe
 \section{Warmte-effecten van reacties: de adiabatische temperatuur}
 \label{sec:warmte-effecten}
 
-Een reactie-enthalpie uit een tabel lijkt een abstract getal. In een reactor wordt ze heel concreet: de vrijgekomen warmte moet ergens heen. Ofwel wordt ze afgevoerd via een koelmantel of warmtewisselaar, ofwel blijft ze in het reactiemengsel en stijgt de temperatuur. Een belangrijke vraag voor een ingenieur is: \emph{hoe warm wordt het mengsel als er niet gekoeld wordt?}
+In het voorbeeld van de ammoniaksynthese moest de koeling de reactiewarmte afvoeren bij een vaste temperatuur. Wat als er niet (of onvoldoende) gekoeld wordt? Dan blijft de vrijgekomen warmte in het reactiemengsel en stijgt de temperatuur. In een brander is dat precies de bedoeling, in een chemische reactor is het een veiligheidsrisico. In beide gevallen is de vraag voor de ingenieur dezelfde: \emph{hoe warm wordt het mengsel als alle reactiewarmte erin blijft?}
 
 \subsection{De energiebalans over een reactor}
 
-Omdat enthalpie een toestandsfunctie is, mogen we de weg van reagentia naar producten zelf kiezen. De eenvoudigste weg bestaat uit twee stappen:
+We gebruiken dezelfde kringloop als bij de wet van Kirchhoff (\S\ref{sec:kirchhoff}): omdat enthalpie een toestandsfunctie is, mogen we de weg van reagentia naar producten zelf kiezen. Nu kiezen we de weg ``eerst reageren bij \SI{298}{\kelvin}, dan de producten opwarmen'':
 \begin{enumerate}
 \item de reactie laten verlopen bij \SI{298}{\kelvin}: de enthalpie verandert met $\xi\,\Delta_r H^\circ(\SI{298}{\kelvin})$, met $\xi$ het aantal mol omgezet;
 \item het productmengsel opwarmen van \SI{298}{\kelvin} tot de eindtemperatuur $T$: de enthalpie verandert met $\sum_i n_i \int_{298}^{T} C_{p,i}\,\dd T$, gesommeerd over alle stoffen die de reactor verlaten (ook inerte stoffen zoals stikstof).
@@ -832,7 +848,7 @@ Methaan verbrandt met de stoichiometrische hoeveelheid lucht (\SI{21}{\percent} 
 \[
 \ce{CH4 + 2 O2 + 7.52 N2 -> CO2 + 2 H2O(g) + 7.52 N2}
 \]
-Het water verlaat de vlam als damp, dus gebruiken we $\Delta_r H^\circ = \SI{-802.3}{\kilo\joule\per\mole}$ (en niet $-890.3$, dat geldt voor vloeibaar water; het verschil is $2\times\SI{44.0}{\kilo\joule\per\mole}$ verdampingsenthalpie).
+Het water verlaat de vlam als damp, dus gebruiken we $\Delta_r H^\circ = \SI{-802.3}{\kilo\joule\per\mole}$ (en niet $-890.3$, dat geldt voor vloeibaar water; het verschil is $2\times\SI{44.0}{\kilo\joule\per\mole}$, de verdampingsenthalpie van water bij \SI{25}{\celsius}, zie \S\ref{sec:faseovergangen}).
 
 Als gemiddelde warmtecapaciteiten tussen \SI{298}{\kelvin} en \SI{2300}{\kelvin} nemen we \ce{CO2}: \SI{54.8}{}, \ce{H2O}: \SI{44.2}{} en \ce{N2}: \SI{33.5}{\joule\per\mole\per\kelvin}. Per mol methaan:
 \[
@@ -873,21 +889,6 @@ Een vuistregel uit de procesveiligheid: bij $\Delta T_\mathrm{ad}$ kleiner dan o
 \end{voorbeeld}
 
 
-\section{Faseovergangen en overgangsenthalpie\"en}
-
-Bij smelten, verdampen of sublimeren wordt warmte opgenomen zonder dat de temperatuur verandert (figuur~\ref{fig:opwarmcurve}). De warmte per mol bij constante druk is de \emph{overgangsenthalpie}: $\Delta H_\text{fus}$ (smelten), $\Delta H_\text{vap}$ (verdampen) en $\Delta H_\text{sub} = \Delta H_\text{fus} + \Delta H_\text{vap}$ (sublimeren). Voor water is $\Delta H_\text{fus} = \SI{6.0}{\kilo\joule\per\mole}$ bij \SI{0}{\celsius} en $\Delta H_\text{vap} = \SI{40.7}{\kilo\joule\per\mole}$ bij \SI{100}{\celsius}. De energie gaat naar het verbreken van intermoleculaire bindingen (hoofdstuk~\ref{ch:intermoleculair}).
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.7\linewidth]{Figuren/opwarmcurve_water}
-    \caption{Temperatuur van \SI{1}{\kilogram} water bij gelijkmatige warmtetoevoer, van ijs bij \SI{-20}{\celsius} tot stoom bij \SI{120}{\celsius}. Tijdens smelten en verdampen blijft de temperatuur constant.}
-    \label{fig:opwarmcurve}
-\end{figure}
-
-\begin{voorbeeld}{Verdampen van water}
-Om \SI{1}{\mole} water op te warmen van \SI{0}{\celsius} tot \SI{100}{\celsius} is $C_p\Delta T = (75.3)(100) = \SI{7.53}{\kilo\joule}$ nodig. Om het daarna te verdampen: \SI{40.7}{\kilo\joule}, 5.4 keer meer. Van de totale \SI{48.2}{\kilo\joule} gaat dus meer dan \SI{80}{\percent} naar de faseovergang. Daarom verbruikt de reboiler van een destillatiekolom zoveel meer energie dan een gewone vloeistofverwarmer.
-\end{voorbeeld}
-
 \section{De beperkingen van de eerste hoofdwet}
 
 Een hete kop koffie koelt af tot kamertemperatuur; nooit warmt lauwe koffie spontaan op door warmte uit de kamer te halen. Beide processen respecteren de eerste hoofdwet: energie blijft behouden. De eerste hoofdwet zegt dus niets over de \emph{richting} van een proces. Daarvoor is een tweede grootheid nodig, de entropie. Haar moleculaire oorsprong (hoofdstuk~\ref{ch:kwantum}) en haar gevolgen (hoofdstuk~\ref{ch:spontaniteit}) zijn het onderwerp van de volgende twee hoofdstukken.
@@ -902,9 +903,9 @@ Een hete kop koffie koelt af tot kamertemperatuur; nooit warmt lauwe koffie spon
 \item Eerste hoofdwet: $\Delta U = Q + W$. Energie gaat nooit verloren, ze verandert enkel van vorm.
 \item Enthalpie $H = U + pV$ is de natuurlijke grootheid voor processen bij constante druk en voor stromende systemen: $\Delta H = Q_p$.
 \item Warmtecapaciteit: $\Delta H = \int C_p\,\dd T$. Voor een ideaal gas geldt $C_p - C_V = R$.
+\item Faseovergangen vragen veel energie bij constante temperatuur: verdampen van water kost ruim vijf keer meer dan opwarmen van 0 tot \SI{100}{\celsius}.
 \item Reactie-enthalpie\"en volgen uit vormingsenthalpie\"en (wet van Hess) en worden met de wet van Kirchhoff naar andere temperaturen omgerekend.
 \item De adiabatische temperatuur volgt uit $0 = \xi\Delta_r H^\circ + \sum n_i\int C_{p,i}\,\dd T$. Ze bepaalt vlamtemperaturen en is de eerste veiligheidscontrole voor exotherme reactoren.
-\item Faseovergangen vragen veel energie bij constante temperatuur: verdampen van water kost ruim vijf keer meer dan opwarmen van 0 tot \SI{100}{\celsius}.
 \end{itemize}
 \end{samenvatting}
 
