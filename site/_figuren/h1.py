@@ -259,12 +259,26 @@ def isothermen_co2():
     return kader(fig)
 
 
+def _co2_ideaal(ax):
+    """Dezelfde isothermen als in _isothermen_co2, maar berekend met de ideale gaswet."""
+    V = np.linspace(0.005, 0.62, 800)  # L/mol
+    for T, k, naam in [(323.15, K.oker, "50 °C"), (313.15, K.rood, "40 °C"),
+                       (304.19, K.paars, "31.04 °C"), (293.15, K.blauw, "20 °C")]:
+        ax.plot(V, 0.08314 * T / V, color=k, label=naam)
+    ax.legend(loc="upper right", title="isotherm", title_fontsize=11)
+    label(ax, 0.2, 34, "$p = RT/V_m$: geen condensatie,\ngeen kritisch punt", K.tekst, fontsize=10.5)
+    ax.set_xlim(0, 0.62)
+    ax.set_ylim(0, 140)
+    ax.set_xlabel(r"molair volume $V_m$ (L mol$^{-1}$)")
+    ax.set_ylabel(r"druk $p$ (bar)")
+
+
 def isothermen_vergelijking():
-    """Ideaal gas (links) naast CO2 (rechts): waar de ideale gaswet faalt."""
+    """CO2 berekend als ideaal gas (links) naast reëel CO2 (rechts), met dezelfde assen."""
     fig, (ax1, ax2) = figuur(12.4, 4.8, ncols=2)
-    _boyle(ax1)
+    _co2_ideaal(ax1)
     _isothermen_co2(ax2)
-    ax1.set_title("ideaal gas", fontsize=12.5)
+    ax1.set_title("CO$_2$ als ideaal gas", fontsize=12.5)
     ax2.set_title("reëel gas: CO$_2$", fontsize=12.5)
     return kader(fig)
 
