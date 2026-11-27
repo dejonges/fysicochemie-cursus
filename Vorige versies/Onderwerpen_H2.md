@@ -61,3 +61,6 @@ Ontbrekend: 0
 - Bijdrage van een trilling tot Cv, Cp van CO2 en N2 berekend, figuur cp_co2_n2
 - Bezetting buigingstrilling CO2 bij 15 °C (7 %)
 - Slotsectie 'Het broeikaseffect opnieuw bekeken'
+
+## Uitbreiding na feedback Stijn (27/11, avond)
+Niets geschrapt; toegevoegd: trillingsmodi in een holte, wet van Planck (formule), betekenis Wien en Stefan-Boltzmann met de gloeiende staaf, emissiviteit, voorbeeld stralende staaf; opstelling foto-elektrisch effect (tegenspanning, stopspanning), klassieke verwachting tegenover waarnemingen, Millikan; casus zon/aarde met gegevens, fotosfeer 5800 K en controle met Stefan-Boltzmann, stralingsbalans met figuur; opstelling waterstofspectrum, formule van Balmer, postulaten en afleiding van Bohr in 5 stappen (a0, snelheid, energie, Rydbergconstante), toepassingen lijnenspectra; waarnemingen dualiteit (Young, Compton, Davisson-Germer, Thomson); betekenis golffunctie, complexe getallen, psi*psi, fase en interferentie, onzekerheid; Schrödingervergelijking aannemelijk gemaakt vanuit De Broglie, kromming en tunneleffect, drie voorwaarden, stabiliteit atoom; deeltje in doos stap voor stap met normering, knopen, nulpuntsenergie, voorbeeld quantum dots; 1s-orbitaal en radiale verdeling (maximum bij a0). "Van golffunctie naar orbitaal" opgenomen in de subsectie over het waterstofatoom.
