@@ -366,7 +366,7 @@ Deze vergelijkingen behouden de structuur van Van der Waals, een afstotingsterm 
 \end{align*}
 Soave--Redlich--Kwong (1972) vervangt in Redlich--Kwong de factor $1/\sqrt{T}$ door een functie $\alpha(T)$, zoals ook Peng--Robinson doet. Die $\alpha(T)$ hangt af van de \emph{acentrische factor} $\omega$, een getal uit tabellen dat meet hoe sterk een stof afwijkt van een eenvoudige, bolvormige molecule zoals argon. De parameters $a$ en $b$ volgen, net als bij Van der Waals, uit $T_c$ en $p_c$.
 
-Ze heten \emph{kubisch} omdat ze, uitgewerkt naar $V_m$, een derdegraadsvergelijking geven. Onder $T_c$ heeft die drie wortels: de kleinste is het molair volume van de vloeistof, de grootste dat van de damp, de middelste heeft geen fysische betekenis (het midden van de lus in figuur~\ref{fig:vdw-isothermen}). Zo beschrijft \'e\'en vergelijking zowel gas als vloeistof. Soave--Redlich--Kwong en Peng--Robinson zijn de standaard in processimulatoren zoals Aspen Plus en HYSYS; ook figuur~\ref{fig:Z} is met Peng--Robinson berekend.
+Ze heten \emph{kubisch} omdat ze, uitgewerkt naar $V_m$, een derdegraadsvergelijking opleveren. Onder de kritieke temperatuur ($T_c$) zijn die drie wortels: de kleinste is het molair volume van de vloeistof, de grootste dat van de damp, de middelste heeft geen fysische betekenis. Zo beschrijft \'e\'en vergelijking zowel de toestand van de gas- als vloeistoffase. Soave--Redlich--Kwong en Peng--Robinson zijn de standaard in processimulatoren zoals Aspen Plus en HYSYS; ook figuur~\ref{fig:Z} is met Peng--Robinson berekend.
 
 \subsubsection{De viriaalvergelijking}
 
@@ -379,7 +379,7 @@ $B$ en $C$ heten de tweede en derde \emph{viriaalco\"effici\"ent}. Ze hangen enk
 
 \begin{table}[htb]
 \centering
-\caption{Tweede viriaalco\"effici\"ent $B$ (\si{\centi\metre\cubed\per\mole}). Bron: P.~Atkins, J.~de Paula, \emph{Physical Chemistry}, Oxford University Press (tabel tweede viriaalco\"effici\"enten, gebaseerd op J.\,H.~Dymond, E.\,B.~Smith, \emph{The Virial Coefficients of Pure Gases and Mixtures}, 1980).}
+\caption{Tweede viriaalco\"effici\"ent $B$ (\si{\centi\metre\cubed\per\mole}).}
 \label{tab:viriaal}
 \begin{tabular}{lcc}
 \toprule
@@ -396,13 +396,6 @@ Ar & $-21.7$ & 11.9 \\
 Het teken van $B$ vertelt wat domineert. Een negatieve $B$ (\ce{CO2}, en \ce{N2} bij \SI{273}{\kelvin}) betekent $Z < 1$: de aantrekking wint. Bij hogere temperatuur wordt $B$ positief, omdat de moleculen dan zo snel bewegen dat de aantrekking weinig uitmaakt en enkel het eigen volume overblijft. De temperatuur waarbij $B = 0$ heet de \emph{Boyle-temperatuur}: daar gedraagt het gas zich bij lage druk opvallend ideaal.
 
 De viriaalvergelijking is vooral een \emph{fitvergelijking}. Ze vertrekt niet van een fysisch beeld van de moleculen zoals Van der Waals, en de co\"effici\"enten volgen niet uit een theorie maar uit metingen. Dat is meteen haar sterkte: met genoeg termen beschrijft ze experimentele gegevens zo nauwkeurig als je wil. Bij lage tot matige dichtheid volstaat vaak de term in $B$ alleen. Haar zwakte is dat ze enkel geldt in het gebied waarop gefit werd: bij hoge dichtheid en in de buurt van condensatie convergeert de reeks niet meer, en een vloeistof beschrijft ze niet.
-
-Je kan de vergelijking van Van der Waals zelf als viriaalreeks schrijven. Ontwikkel $1/(1 - b/V_m) \approx 1 + b/V_m + \dots$, dan volgt
-\[
-Z = \frac{V_m}{V_m - b} - \frac{a}{RTV_m} \approx 1 + \left(b - \frac{a}{RT}\right)\frac{1}{V_m} + \dots,
-\qquad\text{dus}\qquad B = b - \frac{a}{RT}.
-\]
-Dat toont waarom $B$ van teken wisselt: bij lage $T$ domineert $-a/RT$, bij hoge $T$ de constante $b$. Van der Waals voorspelt een Boyle-temperatuur $T_B = a/(Rb)$. Voor stikstof geeft dat \SI{426}{\kelvin}, terwijl de gemeten waarde \SI{327}{\kelvin} is: opnieuw kwalitatief juist, kwantitatief niet.
 
 \section{Warmte en arbeid}
 
