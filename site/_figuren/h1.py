@@ -10,35 +10,35 @@ R = ts.R
 
 # --------------------------------------------------------- soorten systemen
 def systemen():
-    """Open, gesloten en geïsoleerd systeem: wat steekt de systeemgrens over?"""
+    """Open, gesloten, adiabatisch en geïsoleerd systeem: wat steekt de systeemgrens over?"""
     from matplotlib.patches import FancyBboxPatch
-    fig, ax = figuur(7.6, 3.2)
+    fig, ax = figuur(9.2, 3.2)
     ax.set_axis_off()
-    ax.set_xlim(0, 15)
+    ax.set_xlim(0, 20)
     ax.set_ylim(0, 6)
-    titels = ["open", "gesloten", "geïsoleerd"]
+    titels = ["open", "gesloten", "adiabatisch", "geïsoleerd"]
+    voorbeelden = ["bv. reactor, compressor", "bv. zuiger-cilinder", "bv. snelle compressie", "bv. ideale thermosfles"]
     for i, t in enumerate(titels):
         x0 = 0.9 + 5 * i
         ax.add_patch(FancyBboxPatch((x0, 1.4), 3.2, 2.9, boxstyle="round,pad=0.02,rounding_size=0.3",
-                                    facecolor=K.vlak_accent, edgecolor=K.accent,
-                                    lw=2.4 if i == 2 else 1.6, ls="-" if i < 2 else "-"))
+                                    facecolor=K.vlak_accent, edgecolor=K.accent, lw=3.2 if i >= 2 else 1.6))
         label(ax, x0 + 1.6, 4.75, t, K.accent, ha="center", fontsize=13, fontweight="bold")
+        label(ax, x0 + 1.6, 5.45, voorbeelden[i], K.zacht, ha="center", fontsize=9.5)
         label(ax, x0 + 1.6, 2.85, "systeem", K.zacht, ha="center", va="center", fontsize=11)
         if i == 0:  # massa in en uit
             pijl(ax, (x0 - 0.8, 3.6), (x0 + 0.6, 3.6), K.blauw, lw=2)
             pijl(ax, (x0 + 2.6, 3.6), (x0 + 4.0, 3.6), K.blauw, lw=2)
             label(ax, x0 + 1.6, 3.6, "massa", K.blauw, ha="center", va="center", fontsize=11)
-        if i < 2:  # warmte en arbeid
+        if i < 2:  # warmte
             pijl(ax, (x0 + 0.9, 0.2), (x0 + 0.9, 1.9), K.rood, lw=2)
             label(ax, x0 + 0.75, 0.55, "$Q$", K.rood, ha="right", fontsize=13)
+        if i < 3:  # arbeid
             pijl(ax, (x0 + 2.3, 1.9), (x0 + 2.3, 0.2), K.oker, lw=2)
             label(ax, x0 + 2.45, 0.55, "$W$", K.oker, ha="left", fontsize=13)
-        else:
-            label(ax, x0 + 1.6, 0.7, "geen massa, geen $Q$, geen $W$", K.zacht,
-                  ha="center", fontsize=10.5)
-    label(ax, 3.4 - 0.9, 5.45, "bv. reactor, kolom, compressor", K.zacht, ha="center", fontsize=10)
-    label(ax, 8.4 - 0.9, 5.45, "bv. zuiger-cilinder", K.zacht, ha="center", fontsize=10)
-    label(ax, 13.4 - 0.9, 5.45, "bv. ideale thermosfles", K.zacht, ha="center", fontsize=10)
+        if i == 2:
+            label(ax, x0 + 1.1, 0.7, "$Q = 0$", K.rood, ha="center", fontsize=11)
+        if i == 3:
+            label(ax, x0 + 1.6, 0.7, "geen massa, $Q$ of $W$", K.zacht, ha="center", fontsize=10.5)
     return kader(fig)
 
 
