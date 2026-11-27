@@ -514,14 +514,12 @@ def kmt_botsing():
 
 
 # ------------------------------------------------ Van der Waals: twee correcties
-def vdw_correcties():
-    """Links (stap 1): het uitgesloten volume rond een paar harde bollen.
-    Rechts (stap 2): een molecule aan de wand wordt netto naar binnen getrokken."""
-    from matplotlib.patches import Circle, Rectangle
-    fig, (ax, ax2) = figuur(11.0, 4.9, ncols=2)
-    for a in (ax, ax2):
-        a.set_axis_off()
-        a.set_aspect("equal")
+def vdw_uitgesloten():
+    """Stap 1 van Van der Waals: het uitgesloten volume rond een paar harde bollen."""
+    from matplotlib.patches import Circle
+    fig, ax = figuur(6.0, 4.9)
+    ax.set_axis_off()
+    ax.set_aspect("equal")
     # --- links: uitgesloten volume
     ax.set_xlim(-3.4, 5.0)
     ax.set_ylim(-3.2, 3.3)
@@ -545,6 +543,15 @@ def vdw_correcties():
     label(ax, 3.15, -1.2, "die bol hoort bij\néén paar: per molecule\n$4\\cdot\\frac{4}{3}\\pi r^3$ kwijt", K.tekst,
           fontsize=10.5, va="center")
     label(ax, 0.8, 3.15, "stap 1: uitgesloten volume $b$", K.accent, ha="center", fontsize=12.5, fontweight="bold")
+    return kader(fig)
+
+
+def vdw_aantrekking():
+    """Stap 2 van Van der Waals: een molecule aan de wand wordt netto naar binnen getrokken."""
+    from matplotlib.patches import Circle, Rectangle
+    fig, ax2 = figuur(6.4, 4.9)
+    ax2.set_axis_off()
+    ax2.set_aspect("equal")
     # --- rechts: aantrekking aan de wand
     ax2.set_xlim(-0.4, 8.4)
     ax2.set_ylim(-1.3, 5.2)
