@@ -525,3 +525,67 @@ def kmt_botsing():
     ax2.set_ylabel("fractie moleculen (per km/s)")
     ax2.set_title("verdeling van $v_x$ voor N$_2$ bij 25 °C", fontsize=12)
     return kader(fig)
+
+
+# ------------------------------------------------ Van der Waals: twee correcties
+def vdw_correcties():
+    """Links (stap 1): het uitgesloten volume rond een paar harde bollen.
+    Rechts (stap 2): een molecule aan de wand wordt netto naar binnen getrokken."""
+    from matplotlib.patches import Circle, Rectangle
+    fig, (ax, ax2) = figuur(11.0, 4.9, ncols=2)
+    for a in (ax, ax2):
+        a.set_axis_off()
+        a.set_aspect("equal")
+    # --- links: uitgesloten volume
+    ax.set_xlim(-3.4, 5.0)
+    ax.set_ylim(-3.2, 3.3)
+    r = 1.0
+    ax.add_patch(Circle((0, 0), 2 * r, facecolor=K.vlak_rood, edgecolor=K.rood, lw=1.6, ls="--", zorder=1))
+    ax.add_patch(Circle((0, 0), r, facecolor=K.blauw, edgecolor=K.tekst, lw=1.2, zorder=3, alpha=0.85))
+    ax.add_patch(Circle((2 * r, 0), r, facecolor=K.oker, edgecolor=K.tekst, lw=1.2, zorder=3, alpha=0.85))
+    ax.plot([0, 2 * r], [0, 0], "o", color=K.tekst, ms=4, zorder=4)
+    label(ax, 0, 0.25, "A", "white", ha="center", fontsize=12, fontweight="bold")
+    label(ax, 2 * r, 0.25, "B", "white", ha="center", fontsize=12, fontweight="bold")
+    # maataanduiding r en 2r
+    ax.annotate("", xy=(2 * r, 0), xytext=(2 * r, -r), arrowprops=dict(arrowstyle="<->", color=K.tekst, lw=1.1), zorder=5)
+    label(ax, 2 * r + 0.12, -0.55, "$r$", K.tekst, ha="left", va="center", fontsize=12)
+    ax.annotate("", xy=(0, 0), xytext=(-1.414 * r, 1.414 * r),
+                arrowprops=dict(arrowstyle="<->", color=K.rood, lw=1.3), zorder=5)
+    label(ax, -1.25, 0.6, "$2r$", K.rood, ha="right", fontsize=12)
+    label(ax, 0, -2.45, "uitgesloten bol: $\\frac{4}{3}\\pi(2r)^3 = 8\\cdot\\frac{4}{3}\\pi r^3$", K.rood,
+          ha="center", va="top", fontsize=11)
+    label(ax, 3.15, 1.75, "het middelpunt van B\nkomt nooit dichter\ndan $2r$ bij dat van A", K.tekst,
+          fontsize=10.5, va="center")
+    label(ax, 3.15, -1.2, "die bol hoort bij\néén paar: per molecule\n$4\\cdot\\frac{4}{3}\\pi r^3$ kwijt", K.tekst,
+          fontsize=10.5, va="center")
+    label(ax, 0.8, 3.15, "stap 1: uitgesloten volume $b$", K.accent, ha="center", fontsize=12.5, fontweight="bold")
+    # --- rechts: aantrekking aan de wand
+    ax2.set_xlim(-0.4, 8.4)
+    ax2.set_ylim(-1.3, 5.2)
+    ax2.add_patch(Rectangle((0, 0), 7.2, 4.4, facecolor=K.vlak_accent, edgecolor="none", zorder=0))
+    ax2.add_patch(Rectangle((7.2, 0), 0.22, 4.4, facecolor=K.accent, edgecolor="none", zorder=1))
+    label(ax2, 7.75, 2.2, "wand", K.accent, rotation=90, ha="center", va="center", fontsize=11)
+    rng = np.random.default_rng(3)
+
+    def buren(xc, yc, hoeken):
+        for h in hoeken:
+            x, y = xc + 1.15 * np.cos(h), yc + 1.15 * np.sin(h)
+            ax2.add_patch(Circle((x, y), 0.25, facecolor=K.zacht, edgecolor="none", alpha=0.55, zorder=2))
+            pijl(ax2, (xc + 0.33 * np.cos(h), yc + 0.33 * np.sin(h)),
+                 (xc + 0.8 * np.cos(h), yc + 0.8 * np.sin(h)), K.groen, lw=1.6)
+    # molecule in het midden: buren rondom, krachten heffen elkaar op
+    xa, ya = 2.0, 2.4
+    buren(xa, ya, np.linspace(0, 2 * np.pi, 7)[:-1] + 0.3)
+    ax2.add_patch(Circle((xa, ya), 0.3, facecolor=K.blauw, edgecolor=K.tekst, lw=1.1, zorder=3))
+    label(ax2, xa, 0.6, "in het midden:\nnetto kracht nul", K.tekst, ha="center", va="top", fontsize=10.5)
+    # molecule aan de wand: buren enkel links
+    xb, yb = 6.6, 2.4
+    buren(xb, yb, np.array([110, 150, 180, 210, 250]) * np.pi / 180)
+    ax2.add_patch(Circle((xb, yb), 0.3, facecolor=K.blauw, edgecolor=K.tekst, lw=1.1, zorder=3))
+    pijl(ax2, (xb - 0.2, yb + 1.55), (xb - 1.6, yb + 1.55), K.rood, lw=2.6)
+    label(ax2, xb - 0.9, yb + 1.75, "netto naar binnen", K.rood, ha="center", fontsize=10.5)
+    label(ax2, xb - 0.3, 0.6, "aan de wand:\nbotst zachter", K.tekst, ha="center", va="top", fontsize=10.5)
+    label(ax2, 3.6, -0.75, "effect $\\propto$ (moleculen aan de wand) $\\times$ (buren) $\\propto (n/V)^2$", K.tekst,
+          ha="center", va="top", fontsize=10.5)
+    label(ax2, 3.8, 4.95, "stap 2: aantrekking $a$", K.accent, ha="center", fontsize=12.5, fontweight="bold")
+    return kader(fig)
