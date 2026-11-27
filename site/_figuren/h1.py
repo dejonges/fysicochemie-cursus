@@ -894,3 +894,141 @@ def kirchhoff():
     ax2.set_ylabel("$\\Delta_r H$ (kJ per 2 mol NH$_3$)")
     ax2.set_title("reactie-enthalpie $\\Delta_r H(T)$", fontsize=12)
     return kader(fig)
+
+
+def ammoniakfabriek():
+    """Vereenvoudigde syntheselus van een ammoniakfabriek (Haber-Bosch): compressor met tussenkoeling,
+    reactor met drie katalysatorbedden en tussenkoeling, condensor, recycle. Bij elk toestel de vraag
+    die het hoofdstuk beantwoordt."""
+    from matplotlib.patches import FancyBboxPatch, Polygon, Rectangle
+    fig, ax = figuur(10.0, 4.6)
+    ax.set_axis_off()
+    ax.set_xlim(-0.5, 25.5)
+    ax.set_ylim(-0.6, 12.4)
+    ax.set_aspect("equal")
+    lijn = dict(color=K.as_, lw=1.8)
+    # voeding
+    pijl(ax, (-0.4, 5.0), (2.3, 5.0), K.blauw, lw=2.2)
+    label(ax, 0.9, 5.45, "N$_2$ + 3 H$_2$\n25 bar", K.blauw, ha="center", va="bottom", fontsize=10)
+    # compressor (trapezium)
+    ax.add_patch(Polygon([(2.4, 3.6), (2.4, 6.4), (5.6, 5.6), (5.6, 4.4)], closed=True,
+                         facecolor=K.vlak_oker, edgecolor=K.oker, lw=1.8))
+    label(ax, 4.0, 2.9, "compressor\n25 $\\to$ 200 bar", K.oker, ha="center", va="top", fontsize=10.5,
+          fontweight="bold")
+    pijl(ax, (4.0, 8.0), (4.0, 6.1), K.oker, lw=2.0)
+    label(ax, 4.0, 8.15, "arbeid $W$", K.oker, ha="center", va="bottom", fontsize=10)
+    # leiding naar reactor
+    ax.plot([5.6, 8.0], [5.0, 5.0], **lijn)
+    ax.plot([8.0, 8.0], [5.0, 10.0], **lijn)
+    pijl(ax, (8.0, 10.0), (9.4, 10.0), K.as_, lw=1.8)
+    # reactor met drie bedden
+    ax.add_patch(FancyBboxPatch((9.5, 0.6), 3.0, 9.8, boxstyle="round,pad=0.05,rounding_size=0.6",
+                                facecolor=K.achtergrond, edgecolor=K.rood, lw=1.8))
+    for y0 in (7.4, 4.3, 1.2):
+        ax.add_patch(Rectangle((9.8, y0), 2.4, 2.2, facecolor=K.vlak_rood, edgecolor=K.rood, lw=1.0))
+    for yk in (6.85, 3.75):
+        pijl(ax, (12.3, yk), (13.3, yk), K.rood, lw=1.8)
+    label(ax, 12.55, 5.3, "tussen-\nkoeling:\n$Q$ uit", K.rood, va="center", fontsize=9.5)
+    label(ax, 11.0, -0.3, "reactor 400–500 °C\n3 katalysatorbedden", K.rood, ha="center", va="top",
+          fontsize=10.5, fontweight="bold")
+    # naar condensor
+    ax.plot([11.0, 11.0], [0.6, 0.0], **lijn)
+    ax.plot([11.0, 15.0], [0.0, 0.0], **lijn)
+    ax.plot([15.0, 15.0], [0.0, 4.6], **lijn)
+    pijl(ax, (15.0, 4.6), (16.4, 4.6), K.as_, lw=1.8)
+    # condensor
+    ax.add_patch(FancyBboxPatch((16.5, 3.4), 3.0, 3.2, boxstyle="round,pad=0.05,rounding_size=0.4",
+                                facecolor=K.vlak_blauw, edgecolor=K.blauw, lw=1.8))
+    label(ax, 18.0, 5.0, "condensor\n$-$10 °C", K.blauw, ha="center", va="center", fontsize=10.5,
+          fontweight="bold")
+    pijl(ax, (18.0, 3.3), (18.0, 1.4), K.blauw, lw=2.2)
+    label(ax, 18.0, 1.2, "vloeibaar NH$_3$", K.blauw, ha="center", va="top", fontsize=10.5)
+    pijl(ax, (19.6, 4.2), (21.4, 4.2), K.rood, lw=1.8)
+    label(ax, 21.6, 4.2, "warmte $Q$", K.rood, va="center", fontsize=10)
+    # recycle
+    ax.plot([18.0, 18.0], [6.6, 11.4], **lijn)
+    ax.plot([18.0, 1.8], [11.4, 11.4], **lijn)
+    ax.plot([1.8, 1.8], [11.4, 5.0], **lijn)
+    label(ax, 10.0, 11.6, "recycle: niet-omgezet gas (ongeveer 80 %)", K.zacht, ha="center", va="bottom",
+          fontsize=9.5)
+    pijl(ax, (6.0, 11.4), (5.0, 11.4), K.as_, lw=1.8)
+    return kader(fig)
+
+
+_DHF = {"NH3": -46.1e3, "N2": 0.0, "H2": 0.0}       # Atkins, J/mol bij 298 K
+_S298 = {"NH3": 192.45, "N2": 191.61, "H2": 130.68}  # Atkins, J/(mol K)
+
+
+def _H_mengsel(n, T):
+    return sum(v * (_DHF[s] + _H_tab(s, T)) for s, v in n.items())
+
+
+def _samenstelling(y0, x):
+    """Per 100 mol voeding (3:1 H2/N2 + y0 NH3), na x mol gevormd NH3."""
+    n0 = 100 * (1 - y0)
+    return {"N2": n0 / 4 - x / 2, "H2": 3 * n0 / 4 - 1.5 * x, "NH3": 100 * y0 + x}
+
+
+def _y(n):
+    return n["NH3"] / sum(n.values())
+
+
+def _T_adiabatisch(n_in, T_in, n_uit):
+    H0 = _H_mengsel(n_in, T_in)
+    lo, hi = 300.0, 1500.0
+    for _ in range(60):
+        T = (lo + hi) / 2
+        if _H_mengsel(n_uit, T) > H0:
+            hi = T
+        else:
+            lo = T
+    return T
+
+
+def _y_evenwicht(T, p=200.0):
+    """Ideaal gas, 3:1 voeding zonder inerten, p in bar; K uit ΔH, ΔS en Cp-tabel."""
+    d = [_CP_TAB["NH3"][i] - 0.5 * _CP_TAB["N2"][i] - 1.5 * _CP_TAB["H2"][i] for i in range(3)]
+    T0 = 298.15
+    dH = _DHF["NH3"] + d[0] * (T - T0) + d[1] / 2 * (T**2 - T0**2) + d[2] / 3 * (T**3 - T0**3)
+    dS = (_S298["NH3"] - 0.5 * _S298["N2"] - 1.5 * _S298["H2"]
+          + d[0] * np.log(T / T0) + d[1] * (T - T0) + d[2] / 2 * (T**2 - T0**2))
+    K = np.exp(-(dH - T * dS) / (R * T))
+    lo, hi = 0.0, 0.99
+    for _ in range(60):
+        y = (lo + hi) / 2
+        f = y / (((1 - y) / 4) ** 0.5 * (3 * (1 - y) / 4) ** 1.5) / p - K
+        lo, hi = (lo, y) if f > 0 else (y, hi)
+    return y
+
+
+def ammoniak_bedden():
+    """Temperatuur en NH3-gehalte in een reactor met drie adiabatische katalysatorbedden en
+    tussenkoeling (200 bar, voeding 400 °C met 3 % NH3). In elk bed stijgt T langs een rechte
+    (eerste hoofdwet) tot dicht bij het evenwicht; koelen brengt het gas terug naar 400 °C."""
+    fig, ax = figuur(7.2, 4.6)
+    Tc = np.linspace(380, 620, 200)
+    ax.plot(Tc, [100 * _y_evenwicht(t + 273.15) for t in Tc], color=K.zacht, lw=2.0, ls="--")
+    label(ax, 545, 21, "evenwicht\n(hoofdstuk 6)", K.zacht, fontsize=10.5)
+    T_in, y = 673.15, 0.03
+    for bed in range(3):
+        n_in = _samenstelling(y, 0.0)
+        xs, Ts, ys = np.linspace(0, 60, 1201), [], []
+        for x in xs:
+            n = _samenstelling(y, x)
+            T = _T_adiabatisch(n_in, T_in, n)
+            if _y(n) >= _y_evenwicht(T) - 0.02:
+                break
+            Ts.append(T - 273.15); ys.append(100 * _y(n))
+        ax.plot(Ts, ys, color=K.rood, lw=2.6)
+        label(ax, Ts[-1] - 4, ys[-1] + 0.5, f"bed {bed + 1}", K.rood, va="bottom", ha="right",
+              fontsize=10.5, fontweight="bold")
+        y = ys[-1] / 100
+        if bed < 2:
+            ax.plot([Ts[-1], T_in - 273.15], [ys[-1], ys[-1]], color=K.blauw, lw=2.0)
+            pijl(ax, (Ts[-1] - 30, ys[-1]), (Ts[-1] - 60, ys[-1]), K.blauw, lw=2.0)
+    label(ax, 485, 10.9, "tussenkoeling", K.blauw, ha="center", va="top", fontsize=10.5)
+    ax.set_xlim(380, 620)
+    ax.set_ylim(0, 30)
+    ax.set_xlabel("temperatuur (°C)")
+    ax.set_ylabel("NH$_3$ in het gas (mol %)")
+    return kader(fig)
