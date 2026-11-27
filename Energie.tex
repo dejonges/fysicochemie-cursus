@@ -92,11 +92,33 @@ We maken drie aannames:
     \item Er werken geen krachten tussen de moleculen; ze botsen enkel elastisch tegen de wand.
 \end{enumerate}
 
-Bekijk \'e\'en molecule in een kubus met ribbe $L$. Zijn snelheid in de $x$-richting is $v_x$. Bij een botsing tegen de wand loodrecht op $x$ keert $v_x$ om, zodat de impuls verandert met $2mv_x$. De molecule komt na een heen-en-terugreis $2L$ opnieuw bij dezelfde wand, dus $v_x/(2L)$ keer per seconde. De kracht (impulsverandering per seconde) van deze ene molecule op de wand is dus
+De afleiding verloopt in drie stappen (figuur~\ref{fig:kmt-botsing}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/kmt_botsing}
+    \caption{Links: \'e\'en molecule in een kubus met ribbe $L$. Bij elke botsing keert $v_x$ om en krijgt de wand een impuls $2mv_x$; na een heen-en-terugreis $2L$ komt de molecule terug. Rechts: de verdeling van $v_x$ over alle moleculen van stikstof bij \SI{25}{\celsius}. Het gemiddelde $\langle v_x\rangle$ is nul, maar het gemiddelde kwadraat niet.}
+    \label{fig:kmt-botsing}
+\end{figure}
+
+\textbf{Stap 1: \'e\'en botsing.} Een molecule met snelheidscomponent $v_x$ botst elastisch tegen de wand loodrecht op $x$. Alleen $v_x$ keert om; $v_y$ en $v_z$ blijven gelijk. De impuls in de $x$-richting gaat van $+mv_x$ naar $-mv_x$, dus de wand krijgt een stoot $2mv_x$.
+
+\textbf{Stap 2: hoe vaak?} Na de botsing moet de molecule naar de overkant en terug, een afstand $2L$. Dat duurt $2L/v_x$, dus ze botst $v_x/(2L)$ keer per seconde tegen dezelfde wand. De gemiddelde kracht van deze ene molecule is stoot maal frequentie:
 \[
 F_1 = 2mv_x \cdot \frac{v_x}{2L} = \frac{m v_x^2}{L}.
 \]
-Voor $N$ moleculen tellen we de krachten op en delen we door de wandoppervlakte $L^2$. Met $L^3 = V$ volgt $p = Nm\langle v_x^2\rangle/V$, waarin $\langle v_x^2\rangle$ het gemiddelde over alle moleculen is. Omdat geen enkele richting bevoordeeld is, geldt $\langle v_x^2\rangle = \langle v_y^2\rangle = \langle v_z^2\rangle = \tfrac{1}{3}\langle v^2\rangle$, en dus
+Merk op dat $v_x$ hier \emph{twee keer} meetelt: een snellere molecule botst harder \'en vaker. Daarom verschijnt het kwadraat.
+
+\textbf{Stap 3: alle moleculen samen.} Niet alle moleculen zijn even snel: hun snelheden zijn verdeeld zoals in figuur~\ref{fig:kmt-botsing} (rechts). We tellen de krachten van alle $N$ moleculen op en delen door de wandoppervlakte $L^2$. Met $L^3 = V$ wordt dat
+\[
+p = \frac{Nm\langle v_x^2\rangle}{V},
+\]
+met $\langle v_x^2\rangle$ het gemiddelde van $v_x^2$ over alle moleculen.
+
+\paragraph{Waarom $\langle v^2\rangle$ en niet de gemiddelde snelheid?}
+Je zou kunnen proberen te rekenen met \'e\'en ``gemiddelde'' snelheid, maar dat werkt niet. Het gemiddelde van $v_x$ zelf is nul: er bewegen evenveel moleculen naar links als naar rechts. Toch oefenen ze allemaal druk uit, elk op de wand waar ze naartoe vliegen. Wat telt is $v_x^2$, en dat is altijd positief. Het gemiddelde van een kwadraat is bovendien niet het kwadraat van een gemiddelde: wie $\langle v_x^2\rangle$ vervangt door $\langle |v_x|\rangle^2$, onderschat de druk, omdat de snelle moleculen in het kwadraat zwaarder doorwegen.
+
+Rest nog de stap van $v_x$ naar de volledige snelheid. Voor elke molecule is $v^2 = v_x^2 + v_y^2 + v_z^2$ (Pythagoras). In een gas is geen enkele richting bevoordeeld (het gas is \emph{isotroop}), zodat de drie gemiddelden gelijk zijn: $\langle v_x^2\rangle = \langle v_y^2\rangle = \langle v_z^2\rangle = \tfrac{1}{3}\langle v^2\rangle$. Dus
 \begin{equation}
 pV = \tfrac{1}{3}\,N m \langle v^2\rangle .
 \label{eq:kmt-druk}
@@ -110,7 +132,7 @@ Vergelijken we dit met $pV = nRT$, dan volgt met $Nm = nM$ (molaire massa $M$):
 \boxed{v_\mathrm{rms} = \sqrt{\langle v^2\rangle} = \sqrt{\frac{3RT}{M}}}
 \label{eq:vrms}
 \end{equation}
-De temperatuur is dus een rechtstreekse maat voor de gemiddelde kinetische energie van de moleculen: $\tfrac{3}{2}RT$ per mol, of $\tfrac{3}{2}k_\mathrm{B}T$ per molecule. Voor een \'e\'enatomig ideaal gas is dat meteen de volledige interne energie, $U_\mathrm{m} = \tfrac{3}{2}RT$, zodat $C_{V,\mathrm{m}} = \tfrac{3}{2}R$ (zie \S~\ref{sec:warmtecapaciteiten}).
+De wortel uit het gemiddelde kwadraat heet de \emph{rms-snelheid} (root mean square). Ze is iets groter dan de gemiddelde snelheid $\bar v = \sqrt{8RT/\pi M}$, die we in hoofdstuk~\ref{ch:kinetiek} gebruiken voor botsingen tussen moleculen: $\bar v = 0.92\,v_\mathrm{rms}$. Voor de druk en de energie is $v_\mathrm{rms}$ de juiste grootheid, omdat beide met $v^2$ gaan. De temperatuur is dus een rechtstreekse maat voor de gemiddelde kinetische energie van de moleculen: $\tfrac{3}{2}RT$ per mol, of $\tfrac{3}{2}k_\mathrm{B}T$ per molecule. Voor een \'e\'enatomig ideaal gas is dat meteen de volledige interne energie, $U_\mathrm{m} = \tfrac{3}{2}RT$, zodat $C_{V,\mathrm{m}} = \tfrac{3}{2}R$ (zie \S~\ref{sec:warmtecapaciteiten}).
 
 \begin{voorbeeld}{Hoe snel bewegen luchtmoleculen?}
 Voor stikstof bij \SI{25}{\celsius} ($M = \SI{0.028}{\kilo\gram\per\mole}$):
