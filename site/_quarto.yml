@@ -31,6 +31,7 @@ book:
           - elektrochemie.qmd
           - grensvlakken.qmd
           - kinetica.qmd
+          - tabellen.qmd
     right:
       - text: "PDF"
         href: fysicochemie.pdf
@@ -49,6 +50,8 @@ book:
     - elektrochemie.qmd
     - grensvlakken.qmd
     - kinetica.qmd
+  appendices:
+    - tabellen.qmd
   page-footer:
     center: "Fysicochemie · KU Leuven · Faculteit Industriële Ingenieurswetenschappen"
 

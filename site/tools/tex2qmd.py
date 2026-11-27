@@ -401,7 +401,7 @@ def convert_chapter(texname, slug, chapnum):
     md = re.sub(r'QLAB(\d+)Q', other_lab, md)
 
     # hoofdstuktitel: eerste kop wordt niveau 1
-    md = md.replace('\\\n', '\n')
+    md = re.sub(r'(?<!\\)\\\n', '\n', md)  # harde regeleinden weg, \\\\ in wiskunde behouden
     if pyfigs:  # figuren uit _figuren/ beschikbaar maken als fig.naam
         kop = ('```{python}\n#| include: false\n# Figuren: zie _figuren/ (h1.py, h2.py, ...)\n'
                'import sys\nsys.path.insert(0, "_figuren")\nimport alle as fig\n```\n\n')

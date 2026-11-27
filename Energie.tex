@@ -96,8 +96,8 @@ De afleiding verloopt in drie stappen (figuur~\ref{fig:kmt-botsing}).
 
 \begin{figure}[htb]
     \centering
-    \includegraphics[width=\linewidth]{Figuren/kmt_botsing}
-    \caption{Links: \'e\'en molecule in een kubus met ribbe $L$. Bij elke botsing keert $v_x$ om en krijgt de wand een impuls $2mv_x$; na een heen-en-terugreis $2L$ komt de molecule terug. Rechts: de verdeling van $v_x$ over alle moleculen van stikstof bij \SI{25}{\celsius}. Het gemiddelde $\langle v_x\rangle$ is nul, maar het gemiddelde kwadraat niet.}
+    \includegraphics[width=0.85\linewidth]{Figuren/kmt_botsing}
+    \caption{\'E\'en molecule in een kubus met ribbe $L$, die in de $x$-richting heen en weer beweegt. Bij elke botsing keert $v_x$ om en krijgt de wand een impuls $2mv_x$; na een heen-en-terugreis $2L$ komt de molecule terug.}
     \label{fig:kmt-botsing}
 \end{figure}
 
@@ -109,7 +109,7 @@ F_1 = 2mv_x \cdot \frac{v_x}{2L} = \frac{m v_x^2}{L}.
 \]
 Merk op dat $v_x$ hier \emph{twee keer} meetelt: een snellere molecule botst harder \'en vaker. Daarom verschijnt het kwadraat.
 
-\textbf{Stap 3: alle moleculen samen.} Niet alle moleculen zijn even snel: hun snelheden zijn verdeeld zoals in figuur~\ref{fig:kmt-botsing} (rechts). We tellen de krachten van alle $N$ moleculen op en delen door de wandoppervlakte $L^2$. Met $L^3 = V$ wordt dat
+\textbf{Stap 3: alle moleculen samen.} Niet alle moleculen zijn even snel: sommige hebben een grote $v_x$, andere een kleine. We tellen de krachten van alle $N$ moleculen op en delen door de wandoppervlakte $L^2$. Met $L^3 = V$ wordt dat
 \[
 p = \frac{Nm\langle v_x^2\rangle}{V},
 \]
@@ -215,49 +215,70 @@ Vervang in de ideale gaswet $p_{\mathrm{ideaal}} \to p + a n^2/V^2$ en $V_{\math
 \boxed{\;\left(p + \frac{a n^2}{V^2}\right)(V - nb) = nRT\;}
 \qquad\text{of per mol}\qquad
 \boxed{\;\left(p + \frac{a}{V_m^2}\right)(V_m - b) = RT\;}
+\label{eq:vdw}
 \end{equation}
 
-\begin{voorbeeld}{Vergelijking van het gedrag van \ce{CO2} en He}
-We vergelijken beide gassen bij $T=\SI{300}{\kelvin}$ en $V_m=\SI{1.00e-3}{\metre\cubed\per\mole}$, met $p = RT/(V_m-b) - a/V_m^2$ en $Z = pV_m/RT$. 
+De parameters $a$ en $b$ zijn stofconstanten: je hoeft ze niet zelf te bepalen, maar zoekt ze op in tabellen. Tabel~\ref{tab:vdw-kort} geeft ze voor enkele veelgebruikte gassen; tabel~\ref{tab:kritiek} in bijlage~\ref{ch:tabellen} bevat een uitgebreidere lijst. De waarden tonen het fysische beeld van hierboven: kleine, apolaire moleculen (He, \ce{H2}) hebben een kleine $a$, polaire moleculen (\ce{NH3}, \ce{H2O}) en grotere moleculen (\ce{CO2}) een grote. De parameter $b$ volgt de grootte van de molecule.
 
-Een ideaal gas geeft $p = RT/V_m = \SI{2.49}{\mega\pascal}$.
+\begin{table}[htb]
+\centering
+\caption{Van der Waals-parameters van enkele gassen, berekend uit de kritieke constanten met vergelijking~\eqref{eq:vdw-ab}. Bron kritieke constanten: zie tabel~\ref{tab:kritiek}.}
+\label{tab:vdw-kort}
+\begin{tabular}{lcc}
+\toprule
+gas & $a$ (\si{\pascal\metre\tothe{6}\per\mole\squared}) & $b$ ($10^{-5}$ \si{\metre\cubed\per\mole}) \\
+\midrule
+He & 0.0035 & 2.38 \\
+\ce{H2} & 0.0248 & 2.66 \\
+\ce{N2} & 0.137 & 3.86 \\
+\ce{CH4} & 0.230 & 4.31 \\
+\ce{CO2} & 0.366 & 4.29 \\
+\ce{NH3} & 0.425 & 3.74 \\
+\ce{H2O} & 0.553 & 3.05 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-\textbf{\ce{CO2}} ($a = \SI{0.364}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{4.27e-5}{\metre\cubed\per\mole}$):
-\[
-p = \frac{(8.314)(300)}{1.00\times10^{-3} - 4.27\times10^{-5}} - \frac{0.364}{(1.00\times10^{-3})^2} = 2.61 - 0.364 = \SI{2.24}{\mega\pascal},
-\]
-zodat $Z = 0.899$.
+\subsubsection{Het kritiek punt}
 
-\textbf{He} ($a = \SI{0.0035}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{2.38e-5}{\metre\cubed\per\mole}$):
-\[
-p = 2.56 - 0.0035 = \SI{2.55}{\mega\pascal}, \qquad Z = 1.023.
-\]
-Beide gassen wijken in tegengestelde richting af. Bij \ce{CO2} wint de aantrekking ($Z<1$), bij helium het eigen volume van de moleculen ($Z>1$).
-\end{voorbeeld}
+Een groot succes van de vergelijking is dat ze het \emph{kritiek punt} voorspelt. Wat is dat precies? Verwarm een vloeistof met haar damp in een gesloten, stevig vat. De vloeistof zet uit en wordt minder dicht; tegelijk verdampt er meer, zodat de damp erboven dichter wordt. Bij een bepaalde temperatuur worden beide dichtheden gelijk. Het scheidingsvlak (de meniscus) verdwijnt, en er is nog maar \'e\'en homogene fase. Die temperatuur is de \emph{kritieke temperatuur} $T_c$, de bijbehorende druk de \emph{kritieke druk} $p_c$ en het molair volume het \emph{kritieke volume} $V_{m,c}$.
 
-Een groot succes van deze vergelijking is dat ze het \emph{kritiek punt} voorspelt. Daar verdwijnt het onderscheid tussen vloeistof en gas; in het $p$-$V$-diagram scheidt de kritieke isotherm de isothermen met een lus (condensatie) van de monotone. Wiskundig is het kritiek punt een buigpunt van die isotherm:
+Daaruit volgen twee praktische gevolgen:
+\begin{itemize}
+\item Boven $T_c$ kan je een gas \emph{niet} meer vloeibaar maken, hoe hoog je de druk ook opdrijft. Wie een gas wil vloeibaar maken (\ce{N2} of aardgas), moet het dus eerst onder $T_c$ afkoelen: voor stikstof onder \SI{126}{\kelvin}.
+\item Boven $T_c$ \'en $p_c$ spreken we van een \emph{superkritisch fluïdum}. Het is zo dicht als een vloeistof en lost dus goed op, maar het stroomt en diffundeert als een gas. Superkritisch \ce{CO2} ($T_c = \SI{31}{\celsius}$, $p_c = \SI{74}{\bar}$) wordt zo gebruikt om cafe\"ine uit koffiebonen te extraheren, zonder resten van organische solventen.
+\end{itemize}
+
+Figuur~\ref{fig:vdw-isothermen} toont hoe de vergelijking van Van der Waals dit weergeeft. Boven $T_c$ daalt de druk monotoon met het volume: er is maar \'e\'en fase. Onder $T_c$ vertoont de isotherm een S-vormige lus. In werkelijkheid volgt het systeem die lus niet: het gas condenseert bij constante druk, langs het horizontale stuk (vergelijk met figuur~\ref{fig:Boyle}, rechts). Alle horizontale stukken samen vormen het tweefasengebied. Het kritiek punt is de top ervan: de isotherm bij $T_c$ is daar net horizontaal \'en verandert van kromming. Wiskundig is het dus een buigpunt met horizontale raaklijn:
 \begin{equation*}
 \left.\frac{\partial p}{\partial V_m}\right|_{T_c} = -\frac{RT_c}{(V_{m,c} - b)^2} + \frac{2a}{V_{m,c}^3} = 0,
 \qquad
 \left.\frac{\partial^2 p}{\partial V_m^2}\right|_{T_c} = \frac{2RT_c}{(V_{m,c} - b)^3} - \frac{6a}{V_{m,c}^4} = 0.
 \end{equation*}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/vdw_isothermen}
+    \caption{Isothermen van Van der Waals in gereduceerde vorm ($p/p_c$ tegen $V_m/V_{m,c}$). Boven $T_c$ is er \'e\'en fase. Onder $T_c$ wordt de lus (stippellijn) in werkelijkheid vervangen door een horizontaal stuk: het gas condenseert bij constante druk. Het gekleurde gebied is het tweefasengebied, het kritiek punt de top ervan.}
+    \label{fig:vdw-isothermen}
+\end{figure}
 Samen met de vergelijking zelf levert dit
 \begin{equation}
 V_{m,c} = 3b, \qquad T_c = \frac{8a}{27Rb}, \qquad p_c = \frac{a}{27b^2}
 \qquad\Longleftrightarrow\qquad
 a = \frac{27 R^2 T_c^2}{64 p_c}, \qquad b = \frac{R T_c}{8 p_c}.
+\label{eq:vdw-ab}
 \end{equation}
+Zo bepaalt men $a$ en $b$ ook in de praktijk: de kritieke temperatuur en druk zijn nauwkeurig meetbaar, en daaruit volgen de parameters.
 
 \begin{voorbeeld}{$a$ en $b$ voor $\mathrm{CO_2}$ uit het kritiek punt}
-Met $T_c = \SI{304.1}{\kelvin}$ en $p_c = \SI{73.8}{\bar}$:
+Met $T_c = \SI{304.2}{\kelvin}$ en $p_c = \SI{73.8}{\bar}$ (tabel~\ref{tab:kritiek}):
 \begin{align*}
-a &= \frac{27(8.314)^2(304.1)^2}{64(7.38\times10^{6})} = \SI{0.365}{\pascal\metre\tothe{6}\per\mole\squared},\\
-b &= \frac{(8.314)(304.1)}{8(7.38\times10^{6})} = \SI{4.28e-5}{\metre\cubed\per\mole},
+a &= \frac{27(8.314)^2(304.2)^2}{64(7.38\times10^{6})} = \SI{0.366}{\pascal\metre\tothe{6}\per\mole\squared},\\
+b &= \frac{(8.314)(304.2)}{8(7.38\times10^{6})} = \SI{4.29e-5}{\metre\cubed\per\mole}.
 \end{align*}
-Deze waarden zijn in uitstekende overeenstemming met de tabelwaarden. De parameters zijn dus berekenbaar uit het kritieke gedrag; hetgeen experimenteel kan gedaan worden.
+Dit zijn precies de waarden van tabel~\ref{tab:vdw-kort}: zo zijn die tabelwaarden ook berekend.
 \end{voorbeeld}
-
-De theorie voorspelt ook een universele kritieke compressibiliteitsfactor $Z_c = p_c V_{m,c}/RT_c = 3/8 = 0.375$. Gemeten waarden liggen lager: 0.305 (He), 0.287 (\ce{N2}), 0.275 (\ce{CO2}), 0.242 (\ce{NH3}) en 0.229 (\ce{H2O}). Van der Waals is dus kwalitatief juist maar kwantitatief beperkt, vooral voor polaire stoffen: $a$ hangt in werkelijkheid af van $T$, moleculen zijn geen harde bollen, en vloeistofdichtheden worden onderschat. Verbeterde \emph{kubische toestandsvergelijkingen} behouden dezelfde structuur maar verfijnen de correctietermen: Redlich--Kwong (1949), Soave--Redlich--Kwong (1972) en Peng--Robinson (1976). Die laatste twee zitten in procesimulatoren zoals Aspen en HYSYS.
 
 \subsection{De compressibiliteitsfactor}
 
@@ -290,6 +311,38 @@ $p$ (\si{\bar}) & $V_\mathrm{m}$ (\si{\litre\per\mole}) & $Z$ \\
     \label{fig:Z}
 \end{figure}
 
+De vergelijking van Van der Waals verklaart beide richtingen. Je berekent $Z$ door eerst de druk uit vergelijking~\eqref{eq:vdw} te halen en die dan in de definitie van $Z$ in te vullen.
+
+\begin{voorbeeld}{Vergelijking van het gedrag van \ce{CO2} en He}
+We vergelijken beide gassen bij $T = \SI{300}{\kelvin}$ en $V_m = \SI{1.00e-3}{\metre\cubed\per\mole}$ (\SI{1.00}{\litre\per\mole}). De parameters $a$ en $b$ komen uit tabel~\ref{tab:vdw-kort}. Herschreven naar $p$ luidt de vergelijking van Van der Waals
+\[
+p = \frac{RT}{V_m - b} - \frac{a}{V_m^2},
+\qquad\text{met}\qquad RT = (8.314)(300) = \SI{2494}{\joule\per\mole}.
+\]
+\textbf{Ideaal gas.} $p = RT/V_m = 2494/(1.00\times10^{-3}) = \SI{2.49}{\mega\pascal}$, en per definitie $Z = 1$.
+
+\textbf{\ce{CO2}} ($a = \SI{0.366}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{4.29e-5}{\metre\cubed\per\mole}$):
+\begin{align*}
+p &= \frac{2494}{1.00\times10^{-3} - 0.0429\times10^{-3}} - \frac{0.366}{(1.00\times10^{-3})^2}
+   = \frac{2494}{0.957\times10^{-3}} - 0.366\times10^{6}\\
+  &= 2.606\times10^{6} - 0.366\times10^{6} = \SI{2.24e6}{\pascal},\\
+Z &= \frac{pV_m}{RT} = \frac{(2.24\times10^{6})(1.00\times10^{-3})}{2494} = 0.898.
+\end{align*}
+\textbf{He} ($a = \SI{0.0035}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{2.38e-5}{\metre\cubed\per\mole}$):
+\begin{align*}
+p &= \frac{2494}{0.976\times10^{-3}} - \frac{0.0035}{(1.00\times10^{-3})^2}
+   = 2.555\times10^{6} - 0.0035\times10^{6} = \SI{2.55e6}{\pascal},\\
+Z &= \frac{(2.55\times10^{6})(1.00\times10^{-3})}{2494} = 1.023.
+\end{align*}
+Beide gassen wijken in tegengestelde richting af. Bij \ce{CO2} is de aantrekkingsterm groot ($a/V_m^2$ is ongeveer \SI{15}{\percent} van de druk): de aantrekking wint en $Z < 1$. Bij helium is de aantrekking verwaarloosbaar en verhoogt alleen het eigen volume de druk: $Z > 1$.
+\end{voorbeeld}
+
+Ook in het kritiek punt kan je $Z$ berekenen. Van der Waals voorspelt voor elk gas dezelfde waarde: met $V_{m,c} = 3b$, $T_c = 8a/(27Rb)$ en $p_c = a/(27b^2)$ volgt
+\[
+Z_c = \frac{p_c V_{m,c}}{RT_c} = \frac{3}{8} = 0.375.
+\]
+Gemeten waarden liggen lager en verschillen van stof tot stof: 0.301 (He), 0.290 (\ce{N2}), 0.274 (\ce{CO2}), 0.242 (\ce{NH3}) en 0.229 (\ce{H2O}) (tabel~\ref{tab:kritiek}). Van der Waals is dus kwalitatief juist, maar kwantitatief beperkt, vooral voor polaire stoffen.
+
 Zet je $Z$ uit tegen de \emph{gereduceerde druk} $p_r = p/p_c$ bij een vaste \emph{gereduceerde temperatuur} $T_r = T/T_c$, dan vallen de curves van heel verschillende gassen nagenoeg samen (figuur~\ref{fig:compchart}). Dit is de \emph{wet van de corresponderende toestanden}. Ingenieurs gebruiken zulke algemene compressibiliteitskaarten wanneer geen specifieke toestandsvergelijking beschikbaar is.
 
 \begin{figure}[htb]
@@ -298,6 +351,58 @@ Zet je $Z$ uit tegen de \emph{gereduceerde druk} $p_r = p/p_c$ bij een vaste \em
     \caption{Algemene compressibiliteitskaart: $Z$ tegen $p_r$ voor verschillende gassen bij dezelfde $T_r$.}
     \label{fig:compchart}
 \end{figure}
+
+\subsection{Andere toestandsvergelijkingen}
+\label{sec:andere-toestandsvgl}
+
+De vergelijking van Van der Waals schiet om drie redenen tekort: moleculen zijn geen harde bollen, de aantrekking $a$ hangt in werkelijkheid van de temperatuur af, en vloeistofdichtheden worden slecht voorspeld. Voor nauwkeurig ontwerpwerk gebruiken ingenieurs daarom andere toestandsvergelijkingen. Er zijn twee families.
+
+\subsubsection{Kubische toestandsvergelijkingen}
+
+Deze vergelijkingen behouden de structuur van Van der Waals, een afstotingsterm min een aantrekkingsterm, maar verfijnen beide. De belangrijkste zijn
+\begin{align*}
+\text{Redlich--Kwong (1949):}\quad & p = \frac{RT}{V_m - b} - \frac{a}{\sqrt{T}\,V_m(V_m + b)},\\
+\text{Peng--Robinson (1976):}\quad & p = \frac{RT}{V_m - b} - \frac{a\,\alpha(T)}{V_m(V_m + b) + b(V_m - b)}.
+\end{align*}
+Soave--Redlich--Kwong (1972) vervangt in Redlich--Kwong de factor $1/\sqrt{T}$ door een functie $\alpha(T)$, zoals ook Peng--Robinson doet. Die $\alpha(T)$ hangt af van de \emph{acentrische factor} $\omega$, een getal uit tabellen dat meet hoe sterk een stof afwijkt van een eenvoudige, bolvormige molecule zoals argon. De parameters $a$ en $b$ volgen, net als bij Van der Waals, uit $T_c$ en $p_c$.
+
+Ze heten \emph{kubisch} omdat ze, uitgewerkt naar $V_m$, een derdegraadsvergelijking geven. Onder $T_c$ heeft die drie wortels: de kleinste is het molair volume van de vloeistof, de grootste dat van de damp, de middelste heeft geen fysische betekenis (het midden van de lus in figuur~\ref{fig:vdw-isothermen}). Zo beschrijft \'e\'en vergelijking zowel gas als vloeistof. Soave--Redlich--Kwong en Peng--Robinson zijn de standaard in processimulatoren zoals Aspen Plus en HYSYS; ook figuur~\ref{fig:Z} is met Peng--Robinson berekend.
+
+\subsubsection{De viriaalvergelijking}
+
+Een heel andere aanpak schrijft de afwijking van het ideaal gas als een machtreeks in $1/V_m$:
+\begin{equation}
+Z = \frac{pV_m}{RT} = 1 + \frac{B(T)}{V_m} + \frac{C(T)}{V_m^2} + \dots
+\label{eq:viriaal}
+\end{equation}
+$B$ en $C$ heten de tweede en derde \emph{viriaalco\"effici\"ent}. Ze hangen enkel van de temperatuur af en worden per stof bepaald door de reeks te fitten op gemeten $p$-$V$-$T$-gegevens (tabel~\ref{tab:viriaal}).
+
+\begin{table}[htb]
+\centering
+\caption{Tweede viriaalco\"effici\"ent $B$ (\si{\centi\metre\cubed\per\mole}). Bron: P.~Atkins, J.~de Paula, \emph{Physical Chemistry}, Oxford University Press (tabel tweede viriaalco\"effici\"enten, gebaseerd op J.\,H.~Dymond, E.\,B.~Smith, \emph{The Virial Coefficients of Pure Gases and Mixtures}, 1980).}
+\label{tab:viriaal}
+\begin{tabular}{lcc}
+\toprule
+gas & \SI{273}{\kelvin} & \SI{600}{\kelvin} \\
+\midrule
+He & 12.0 & 10.4 \\
+\ce{N2} & $-10.5$ & 21.7 \\
+Ar & $-21.7$ & 11.9 \\
+\ce{CO2} & $-149.7$ & $-12.4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Het teken van $B$ vertelt wat domineert. Een negatieve $B$ (\ce{CO2}, en \ce{N2} bij \SI{273}{\kelvin}) betekent $Z < 1$: de aantrekking wint. Bij hogere temperatuur wordt $B$ positief, omdat de moleculen dan zo snel bewegen dat de aantrekking weinig uitmaakt en enkel het eigen volume overblijft. De temperatuur waarbij $B = 0$ heet de \emph{Boyle-temperatuur}: daar gedraagt het gas zich bij lage druk opvallend ideaal.
+
+De viriaalvergelijking is vooral een \emph{fitvergelijking}. Ze vertrekt niet van een fysisch beeld van de moleculen zoals Van der Waals, en de co\"effici\"enten volgen niet uit een theorie maar uit metingen. Dat is meteen haar sterkte: met genoeg termen beschrijft ze experimentele gegevens zo nauwkeurig als je wil. Bij lage tot matige dichtheid volstaat vaak de term in $B$ alleen. Haar zwakte is dat ze enkel geldt in het gebied waarop gefit werd: bij hoge dichtheid en in de buurt van condensatie convergeert de reeks niet meer, en een vloeistof beschrijft ze niet.
+
+Je kan de vergelijking van Van der Waals zelf als viriaalreeks schrijven. Ontwikkel $1/(1 - b/V_m) \approx 1 + b/V_m + \dots$, dan volgt
+\[
+Z = \frac{V_m}{V_m - b} - \frac{a}{RTV_m} \approx 1 + \left(b - \frac{a}{RT}\right)\frac{1}{V_m} + \dots,
+\qquad\text{dus}\qquad B = b - \frac{a}{RT}.
+\]
+Dat toont waarom $B$ van teken wisselt: bij lage $T$ domineert $-a/RT$, bij hoge $T$ de constante $b$. Van der Waals voorspelt een Boyle-temperatuur $T_B = a/(Rb)$. Voor stikstof geeft dat \SI{426}{\kelvin}, terwijl de gemeten waarde \SI{327}{\kelvin} is: opnieuw kwalitatief juist, kwantitatief niet.
 
 \section{Warmte en arbeid}
 
