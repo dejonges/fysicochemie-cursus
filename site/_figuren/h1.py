@@ -381,7 +381,7 @@ def opwarmcurve_water():
 
 
 def compressie_pv():
-    """Isotherme vs. adiabatische compressie van lucht van 1 naar 8 bar."""
+    """Isotherme vs. adiabatische compressie van lucht van 1 naar 8 bar, en tweetrapscompressie met tussenkoeling."""
     fig, ax = figuur(6.8, 4.7)
     gamma = 1.4
     T1, p1 = 293.15, 1.0
@@ -397,11 +397,25 @@ def compressie_pv():
     label(ax, V1 + 0.4, p1 + 0.15, f"start: 1 bar, {T1 - 273.15:.0f} °C", K.tekst, fontsize=11)
     ax.plot(V_iso[-1], 8, "o", color=K.blauw, zorder=5)
     ax.plot(V_ad[-1], 8, "o", color=K.rood, zorder=5)
-    label(ax, V_iso[-1] - 0.25, 8.25, f"{T1 - 273.15:.0f} °C", K.blauw, ha="center", fontsize=11)
-    label(ax, V_ad[-1] + 0.25, 8.25, f"{T2 - 273.15:.0f} °C", K.rood, ha="center", fontsize=11)
-    label(ax, 10.5, 4.6, "extra arbeid die als warmte\nin het gas terechtkomt", K.oker,
+    label(ax, V_iso[-1] - 0.35, 8, f"{T1 - 273.15:.0f} °C", K.blauw, ha="right", va="center", fontsize=11)
+    label(ax, V_ad[-1] + 0.35, 8, f"{T2 - 273.15:.0f} °C", K.rood, ha="left", va="center", fontsize=11)
+    # tweetrapscompressie met tussenkoeling tot T1
+    pm = np.sqrt(8 * p1)
+    pa = np.linspace(p1, pm, 100)
+    Va = V1 * (p1 / pa) ** (1 / gamma)
+    Vm_iso = p1 * V1 / pm
+    pb = np.linspace(pm, 8, 100)
+    Vb = Vm_iso * (pm / pb) ** (1 / gamma)
+    Tm = T1 * (pm / p1) ** ((gamma - 1) / gamma)
+    ax.plot(Va, pa, color=K.groen, lw=1.8, ls="--")
+    ax.plot([Va[-1], Vm_iso], [pm, pm], color=K.groen, lw=1.8, ls="--")
+    ax.plot(Vb, pb, color=K.groen, lw=1.8, ls="--", label="2 trappen + tussenkoeling")
+    ax.plot(Vb[-1], 8, "o", color=K.groen, zorder=5)
+    label(ax, Va[-1] + 0.3, pm + 0.1, f"{Tm - 273.15:.0f} °C", K.groen, fontsize=10.5, va="bottom")
+    label(ax, Vb[-1], 8.3, f"{Tm - 273.15:.0f} °C", K.groen, ha="center", fontsize=11)
+    label(ax, 10.5, 5.2, "extra arbeid bij\nadiabatische compressie", K.oker,
           fontsize=11, ha="left", va="center")
-    pijl(ax, (10.3, 4.45), (7.6, 3.5), K.oker, lw=1.3)
+    pijl(ax, (10.3, 5.0), (7.6, 3.6), K.oker, lw=1.3)
     ax.legend(loc="upper right")
     ax.set_xlim(0, V1 * 1.12)
     ax.set_ylim(0, 9.2)
@@ -655,4 +669,40 @@ def vdw_isothermen():
     ax.set_ylim(0, 1.8)
     ax.set_xlabel(r"gereduceerd volume $V_\mathrm{m}/V_{\mathrm{m},c}$")
     ax.set_ylabel(r"gereduceerde druk $p/p_c$")
+    return kader(fig)
+
+
+# ------------------------------------- arbeid hangt af van de weg (voorbeeld)
+def arbeid_weg():
+    """Isotherme expansie 1 -> 10 L bij 300 K: reversibel (links) en in één ruk tegen p_ext = p2 (rechts).
+    De oppervlakte onder de weg is |W|."""
+    fig, (ax1, ax2) = figuur(11.0, 4.4, ncols=2, sharey=True)
+    n, T = 1.0, 300.0
+    V = np.linspace(1, 10, 300)
+    p = n * 8.314 * T / (V * 1e-3) / 1e5  # bar
+    p1, p2 = p[0], p[-1]
+    for ax in (ax1, ax2):
+        ax.plot([1, 10], [p1, p2], "o", color=K.tekst, ms=7, zorder=6)
+        label(ax, 1.25, p1, "1", K.tekst, va="center", fontsize=12, fontweight="bold")
+        label(ax, 10, p2 + 1.6, "2", K.tekst, ha="center", fontsize=12, fontweight="bold")
+        ax.set_xlim(0, 11)
+        ax.set_ylim(0, 28)
+        ax.set_xlabel("volume $V$ (L)")
+    # links: reversibel
+    ax1.fill_between(V, p, color=K.vlak_blauw, lw=0)
+    ax1.plot(V, p, color=K.blauw, lw=2.4)
+    label(ax1, 5.0, 1.6, "$|W|$ = 5.74 kJ", K.blauw, ha="center", fontsize=13, fontweight="bold")
+    label(ax1, 3.0, 12, "$p_\\mathrm{ext} = p = nRT/V$\n(telkens in evenwicht)", K.blauw, fontsize=10.5)
+    ax1.set_title("reversibel", fontsize=12.5)
+    ax1.set_ylabel("druk $p$ (bar)")
+    # rechts: in één ruk tegen p2
+    ax2.plot(V, p, color=K.zacht, lw=1.3, ls="--")
+    label(ax2, 2.6, 11, "isotherm\n(ter vergelijking)", K.zacht, fontsize=10)
+    ax2.fill_between([1, 10], [p2, p2], color=K.vlak_rood, lw=0)
+    ax2.plot([1, 10], [p2, p2], color=K.rood, lw=2.4)
+    pijl(ax2, (1, p1 - 0.6), (1, p2 + 0.4), K.rood, lw=1.6)
+    label(ax2, 1.25, 16, "$p_\\mathrm{ext}$ valt\nmeteen naar $p_2$", K.rood, fontsize=10)
+    label(ax2, 5.5, 1.2, "$|W|$ = 2.24 kJ", K.rood, ha="center", va="center", fontsize=12, fontweight="bold")
+    label(ax2, 4.2, p2 + 0.8, "$p_\\mathrm{ext}$ = 2.49 bar", K.rood, ha="center", fontsize=10.5)
+    ax2.set_title("in één ruk tegen $p_\\mathrm{ext} = p_2$", fontsize=12.5)
     return kader(fig)
