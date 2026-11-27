@@ -656,3 +656,39 @@ def vdw_isothermen():
     ax.set_xlabel(r"gereduceerd volume $V_\mathrm{m}/V_{\mathrm{m},c}$")
     ax.set_ylabel(r"gereduceerde druk $p/p_c$")
     return kader(fig)
+
+
+# ------------------------------------- arbeid hangt af van de weg (voorbeeld)
+def arbeid_weg():
+    """Isotherme expansie 1 -> 10 L bij 300 K: reversibel (links) en in één ruk tegen p_ext = p2 (rechts).
+    De oppervlakte onder de weg is |W|."""
+    fig, (ax1, ax2) = figuur(11.0, 4.4, ncols=2, sharey=True)
+    n, T = 1.0, 300.0
+    V = np.linspace(1, 10, 300)
+    p = n * 8.314 * T / (V * 1e-3) / 1e5  # bar
+    p1, p2 = p[0], p[-1]
+    for ax in (ax1, ax2):
+        ax.plot([1, 10], [p1, p2], "o", color=K.tekst, ms=7, zorder=6)
+        label(ax, 1.25, p1, "1", K.tekst, va="center", fontsize=12, fontweight="bold")
+        label(ax, 10, p2 + 1.6, "2", K.tekst, ha="center", fontsize=12, fontweight="bold")
+        ax.set_xlim(0, 11)
+        ax.set_ylim(0, 28)
+        ax.set_xlabel("volume $V$ (L)")
+    # links: reversibel
+    ax1.fill_between(V, p, color=K.vlak_blauw, lw=0)
+    ax1.plot(V, p, color=K.blauw, lw=2.4)
+    label(ax1, 5.0, 1.6, "$|W|$ = 5.74 kJ", K.blauw, ha="center", fontsize=13, fontweight="bold")
+    label(ax1, 3.0, 12, "$p_\\mathrm{ext} = p = nRT/V$\n(telkens in evenwicht)", K.blauw, fontsize=10.5)
+    ax1.set_title("reversibel", fontsize=12.5)
+    ax1.set_ylabel("druk $p$ (bar)")
+    # rechts: in één ruk tegen p2
+    ax2.plot(V, p, color=K.zacht, lw=1.3, ls="--")
+    label(ax2, 2.6, 11, "isotherm\n(ter vergelijking)", K.zacht, fontsize=10)
+    ax2.fill_between([1, 10], [p2, p2], color=K.vlak_rood, lw=0)
+    ax2.plot([1, 10], [p2, p2], color=K.rood, lw=2.4)
+    pijl(ax2, (1, p1 - 0.6), (1, p2 + 0.4), K.rood, lw=1.6)
+    label(ax2, 1.25, 16, "$p_\\mathrm{ext}$ valt\nmeteen naar $p_2$", K.rood, fontsize=10)
+    label(ax2, 5.5, 1.2, "$|W|$ = 2.24 kJ", K.rood, ha="center", va="center", fontsize=12, fontweight="bold")
+    label(ax2, 4.2, p2 + 0.8, "$p_\\mathrm{ext}$ = 2.49 bar", K.rood, ha="center", fontsize=10.5)
+    ax2.set_title("in één ruk tegen $p_\\mathrm{ext} = p_2$", fontsize=12.5)
+    return kader(fig)
