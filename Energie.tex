@@ -175,11 +175,18 @@ Bij hoge druk en lage temperatuur gaan aannames (2) en (3) niet meer op. Dat zie
 \subsection{De vergelijking van Van der Waals}
 \label{sec:vdw-afleiding}
 
-Aannames (2) en (3) uit de ideale gaswet zijn niet exact: moleculen hebben wel een eigen volume en trekken elkaar wel aan. In 1873 corrigeerde Johannes Diderik van der Waals de ideale gaswet voor beide effecten, niet met een empirische fit maar vanuit hun fysische oorsprong. Hij verkreeg hiervoor de  Nobelprijs in 1910. Hieronder bespreken we zijn redenering in drie stappen.
+Aannames (2) en (3) uit de ideale gaswet zijn niet exact: moleculen hebben wel een eigen volume en trekken elkaar wel aan. In 1873 corrigeerde Johannes Diderik van der Waals de ideale gaswet voor beide effecten, niet met een empirische fit maar vanuit hun fysische oorsprong. Hij verkreeg hiervoor de  Nobelprijs in 1910. Hieronder bespreken we zijn redenering in drie stappen. Figuur~\ref{fig:vdw-correcties} toont de fysische beelden achter de eerste twee.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/vdw_correcties}
+    \caption{De twee correcties van Van der Waals. Links: rond molecule A ligt een bol met straal $2r$ waarin het middelpunt van B niet kan komen; dat volume is niet beschikbaar voor de beweging. Rechts: een molecule in het midden van het gas wordt in alle richtingen even sterk aangetrokken, een molecule aan de wand enkel naar binnen. Ze botst daardoor zachter tegen de wand.}
+    \label{fig:vdw-correcties}
+\end{figure}
 
 \subsubsection{Stap 1: het uitgesloten volume}
 
-Moleculen zijn geen puntmassa's. Twee harde bollen met straal $r$ kunnen elkaars middelpunt niet dichter naderen dan $2r$. Rond elke molecule ligt dus een uitgesloten bol met volume $\tfrac{4}{3}\pi(2r)^3 = 8\cdot\tfrac{4}{3}\pi r^3$. Die bol wordt gedeeld door twee moleculen, zodat per molecule $4\cdot\tfrac{4}{3}\pi r^3$ is uitgesloten. Per mol is dat het \emph{co-volume} gelijk aan:
+Moleculen zijn geen puntmassa's (figuur~\ref{fig:vdw-correcties}, links). Twee harde bollen met straal $r$ kunnen elkaars middelpunt niet dichter naderen dan $2r$. Rond elke molecule ligt dus een uitgesloten bol met volume $\tfrac{4}{3}\pi(2r)^3 = 8\cdot\tfrac{4}{3}\pi r^3$. Die bol is geen eigenschap van A alleen, maar van het paar A--B: hij beschrijft hoe dicht die twee elkaar kunnen naderen. Per molecule rekenen we hem dus maar half aan, zodat per molecule $4\cdot\tfrac{4}{3}\pi r^3$ is uitgesloten. Per mol is dat het \emph{co-volume} gelijk aan:
 \begin{equation*}
 b = 4 N_\mathrm{A} \cdot \tfrac{4}{3}\pi r^3 
 \end{equation*}
@@ -191,7 +198,7 @@ p(V - nb) = nRT.
 
 \subsubsection{Stap 2: de drukcorrectie - intermoleculaire aantrekkingskrachten}
 
-Reële moleculen trekken elkaar bovendien aan. Een molecule die naar de wand beweegt, wordt door de moleculen achter haar teruggetrokken. Ze botst daardoor met een kleinere impuls tegen de wand, en de gemeten druk is lager dan bij een ideaal gas. Van der Waals schreef daarom
+Reële moleculen trekken elkaar bovendien aan (figuur~\ref{fig:vdw-correcties}, rechts). Midden in het gas is een molecule langs alle kanten omringd door buren; hun aantrekkingskrachten heffen elkaar gemiddeld op. Een molecule die de wand nadert, heeft echter enkel nog buren aan de binnenkant en wordt dus netto teruggetrokken. Ze botst daardoor met een kleinere impuls tegen de wand, en de gemeten druk is lager dan bij een ideaal gas. Van der Waals schreef daarom
 \begin{equation*}
 p_{\mathrm{ideaal}} = p + p_{\mathrm{correctie}}.
 \end{equation*}
