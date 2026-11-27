@@ -371,3 +371,223 @@ def morse_h2():
     ax.set_xlabel("afstand tussen de kernen $r$ (pm)")
     ax.set_ylabel(r"potentiële energie (kJ mol$^{-1}$)")
     return kader(fig)
+
+
+# ================================================================ CASE: CO2 EN HET BROEIKASEFFECT
+_C2 = h * c / kB * 100  # tweede stralingsconstante in cm K
+
+
+def _planck(lam_um, T):
+    """Wet van Planck: uitgestraald vermogen per golflengte-eenheid (willekeurige eenheid)."""
+    lam = lam_um * 1e-6
+    x = h * c / (lam * kB * T)
+    with np.errstate(over="ignore"):
+        return lam**-5 / np.expm1(x)
+
+
+def zon_aarde_spectrum():
+    """Straling van de zon (5800 K) en van de aarde (15 °C), met de absorptiebanden van CO2."""
+    fig, ax = figuur(7.4, 4.6)
+    lam = np.geomspace(0.1, 100, 800)
+    for T, naam, k, x, y in [(5772, "zon\n(5800 K)", K.oker, 0.27, 0.80),
+                             (288, "aarde\n(15 °C)", K.rood, 32, 0.80)]:
+        B = _planck(lam, T)
+        B = B / B.max()
+        ax.fill_between(lam, B, color=k, alpha=0.18, lw=0)
+        ax.plot(lam, B, color=k)
+        label(ax, x, y, naam, k, ha="center", fontsize=11.5)
+        lmax = 2897.8 / T
+        ax.plot([lmax, lmax], [0, 1.0], color=k, lw=1.0, ls=(0, (2, 2)))
+        label(ax, lmax, 1.03, rf"$\lambda_{{\max}}$ = {lmax:.1f} µm" if lmax > 1 else
+              rf"$\lambda_{{\max}}$ = {lmax:.2f} µm", k, ha="center", va="bottom", fontsize=10.5)
+    _regenboog(ax, 0.38, 0.75, -0.075, -0.02)
+    for a, b, t in [(4.2, 4.45, "4.3 µm"), (13.5, 17.0, "15 µm")]:
+        ax.axvspan(a, b, color=K.accent, alpha=0.28, lw=0, zorder=1)
+        label(ax, np.sqrt(a * b), 1.20, t, K.accent, ha="center", va="bottom", fontsize=10.5)
+    label(ax, 8.0, 1.36, r"absorptie door CO$_2$", K.accent, ha="center", va="bottom", fontsize=11)
+    ax.set_xscale("log")
+    ax.set_xlim(0.1, 100)
+    ax.set_ylim(-0.09, 1.5)
+    ax.set_yticks([])
+    ax.spines["left"].set_visible(False)
+    ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda v, p: f"{v:g}"))
+    ax.set_xlabel(r"golflengte $\lambda$ (µm)")
+    ax.set_ylabel("uitgestraald vermogen\n(elk geschaald op zijn maximum)")
+    return kader(fig)
+
+
+def ndir_sensor():
+    """Principe van een CO2-meter: infrarood licht door een gascel, filter bij 4.26 µm, detector."""
+    fig, ax = figuur(7.6, 2.9)
+    schema(fig, ax)
+    # lamp
+    ax.add_patch(Circle((0.6, 1.0), 0.35, fc=K.vlak_rood, ec=K.rood, lw=1.6))
+    label(ax, 0.6, 0.35, "IR-lamp", K.rood, ha="center", va="top", fontsize=10.5)
+    # gascel
+    ax.add_patch(plt.Rectangle((1.5, 0.45), 4.0, 1.1, fc=K.vlak_accent, ec=K.accent, lw=1.6))
+    label(ax, 3.5, 0.35, "gascel met lucht uit de klas", K.accent, ha="center", va="top", fontsize=10.5)
+    rng = np.random.default_rng(3)
+    for x, y in zip(rng.uniform(1.75, 5.25, 26), rng.uniform(0.6, 1.4, 26)):
+        ax.add_patch(Circle((x, y), 0.035, fc=K.zacht, ec="none"))
+    for x, y in [(2.3, 1.22), (3.3, 0.72), (4.4, 1.15)]:
+        ax.add_patch(Circle((x, y), 0.05, fc=K.tekst, ec="none"))
+        ax.add_patch(Circle((x - 0.11, y), 0.055, fc=K.rood, ec="none"))
+        ax.add_patch(Circle((x + 0.11, y), 0.055, fc=K.rood, ec="none"))
+    label(ax, 4.4, 1.32, r"CO$_2$", K.tekst, ha="center", va="bottom", fontsize=10)
+    # stralen
+    for y, a in [(0.85, 1.0), (1.0, 1.0), (1.15, 1.0)]:
+        pijl(ax, (0.98, y), (1.5, y), K.rood, lw=1.4)
+    for y, lw in [(0.85, 1.0), (1.15, 1.0)]:
+        pijl(ax, (5.5, y), (6.05, y), K.rood, lw=lw)
+    # filter
+    ax.add_patch(plt.Rectangle((6.1, 0.55), 0.14, 0.9, fc=K.vlak_oker, ec=K.oker, lw=1.6))
+    label(ax, 6.17, 1.55, "filter\n4.26 µm", K.oker, ha="center", va="bottom", fontsize=10.5)
+    pijl(ax, (6.26, 1.0), (6.85, 1.0), K.rood, lw=1.0)
+    # detector
+    ax.add_patch(plt.Rectangle((6.9, 0.7), 0.45, 0.6, fc=K.vlak_paars, ec=K.paars, lw=1.6))
+    label(ax, 7.12, 0.6, "detector", K.paars, ha="center", va="top", fontsize=10.5)
+    label(ax, 3.5, 1.68, "hoe meer CO$_2$, hoe minder licht van 4.26 µm de detector bereikt",
+          K.tekst, ha="center", va="bottom", fontsize=10.5)
+    ax.set_xlim(0.1, 7.6)
+    ax.set_ylim(-0.05, 2.05)
+    return kader(fig)
+
+
+def mo_stikstof():
+    """Molecuulorbitaaldiagram van N2 (valentie-elektronen): bindingsorde 3."""
+    fig, ax = figuur(7.0, 5.6)
+    schema(fig, ax)
+    ax.set_aspect("auto")
+    xa, xb, xm = (0.0, 1.1), (4.9, 6.0), (2.35, 3.65)
+    y2s, y2p = -2.2, 0.6
+    mo = [("σ2s", -2.9, 1, K.accent), ("σ*2s", -1.5, 1, K.rood), ("π2p", -0.1, 2, K.accent),
+          ("σ2p", 0.35, 1, K.accent), ("π*2p", 1.5, 2, K.rood), ("σ*2p", 2.4, 1, K.rood)]
+    bezetting = {"σ2s": 2, "σ*2s": 2, "π2p": 4, "σ2p": 2, "π*2p": 0, "σ*2p": 0}
+
+    def niveau(x0, x1, y, n, k=K.tekst):
+        if n == 1:
+            ax.plot([x0, x1], [y, y], color=k, lw=2.4, solid_capstyle="butt")
+            return [(x0 + x1) / 2]
+        w = (x1 - x0 - 0.15) / 2
+        ax.plot([x0, x0 + w], [y, y], color=k, lw=2.4, solid_capstyle="butt")
+        ax.plot([x1 - w, x1], [y, y], color=k, lw=2.4, solid_capstyle="butt")
+        return [x0 + w / 2, x1 - w / 2]
+
+    def pijltjes(xm_, y, n):
+        for i in range(n):
+            dx = -0.09 if i == 0 else 0.09
+            y0, y1 = (y - 0.22, y + 0.22) if i == 0 else (y + 0.22, y - 0.22)
+            ax.annotate("", xy=(xm_ + dx, y1), xytext=(xm_ + dx, y0),
+                        arrowprops=dict(arrowstyle="-|>", color=K.blauw, lw=1.4, mutation_scale=9,
+                                        shrinkA=0, shrinkB=0))
+
+    for xs in (xa, xb):
+        c0 = niveau(*xs, y2s, 1)
+        pijltjes(c0[0], y2s, 2)
+        w = (xs[1] - xs[0]) / 3
+        for j in range(3):
+            xx = (xs[0] + j * w + 0.04, xs[0] + (j + 1) * w - 0.04)
+            ax.plot(xx, [y2p, y2p], color=K.tekst, lw=2.4, solid_capstyle="butt")
+            pijltjes((xx[0] + xx[1]) / 2, y2p, 1)
+    label(ax, 0.55, y2s - 0.45, "2$s$", K.zacht, ha="center", va="top", fontsize=10.5)
+    label(ax, 0.55, y2p - 0.42, "2$p$", K.zacht, ha="center", va="top", fontsize=10.5)
+    label(ax, 5.45, y2s - 0.45, "2$s$", K.zacht, ha="center", va="top", fontsize=10.5)
+    label(ax, 5.45, y2p - 0.42, "2$p$", K.zacht, ha="center", va="top", fontsize=10.5)
+    for naam, y, n, k in mo:
+        xs = niveau(*xm, y, n, k)
+        e = bezetting[naam]
+        if n == 1:
+            pijltjes(xs[0], y, e)
+        else:
+            for x in xs:
+                pijltjes(x, y, e // 2)
+        label(ax, xm[1] + 0.12, y, naam, k, va="center", fontsize=11)
+    for y_at, ys in [(y2s, [-2.9, -1.5]), (y2p, [-0.1, 0.35, 1.5, 2.4])]:
+        for y in ys:
+            ax.plot([xa[1], xm[0]], [y_at, y], color=K.zacht, lw=0.9, ls=(0, (3, 3)))
+            ax.plot([xb[0], xm[1]], [y_at, y], color=K.zacht, lw=0.9, ls=(0, (3, 3)))
+    label(ax, 0.55, 3.0, "N", K.tekst, ha="center", fontsize=14)
+    label(ax, 5.45, 3.0, "N", K.tekst, ha="center", fontsize=14)
+    label(ax, 3.0, 3.0, r"N$_2$", K.tekst, ha="center", fontsize=14)
+    label(ax, 3.0, -3.75, "bindingsorde = (8 − 2)/2 = 3", K.paars, ha="center", fontsize=12,
+          bbox=dict(boxstyle="round,pad=0.35", fc=K.vlak_paars, ec="none"))
+    pijl(ax, (-0.45, -3.3), (-0.45, 2.8), K.as_, lw=1.3)
+    label(ax, -0.62, -0.2, "energie", K.tekst, rotation=90, ha="center", va="center", fontsize=11)
+    ax.set_xlim(-0.8, 6.3)
+    ax.set_ylim(-4.2, 3.4)
+    return kader(fig)
+
+
+def trillingen_co2():
+    """De drie trillingen van CO2 en de trilling van N2: welke veranderen het dipoolmoment?"""
+    fig, assen = plt.subplots(1, 4, figsize=(9.6, 3.6))
+    gevallen = [
+        (r"N$_2$", "strek", 2330, False, "dipool blijft 0"),
+        (r"CO$_2$", "symmetrische strek", 1333, False, "dipool blijft 0"),
+        (r"CO$_2$", "buiging", 667, True, "dipool verandert"),
+        (r"CO$_2$", "asymmetrische strek", 2349, True, "dipool verandert"),
+    ]
+    for ax, (mol, naam, nu, actief, dip) in zip(assen, gevallen):
+        schema(fig, ax)
+        if mol == r"N$_2$":
+            atomen = [(-0.45, 0, K.blauw, 0.22), (0.45, 0, K.blauw, 0.22)]
+            pijlen = [((-0.45, 0), (-0.85, 0)), ((0.45, 0), (0.85, 0))]
+        elif naam == "symmetrische strek":
+            atomen = [(-0.75, 0, K.rood, 0.2), (0, 0, K.tekst, 0.17), (0.75, 0, K.rood, 0.2)]
+            pijlen = [((-0.75, 0), (-1.12, 0)), ((0.75, 0), (1.12, 0))]
+        elif naam == "buiging":
+            atomen = [(-0.75, 0, K.rood, 0.2), (0, 0, K.tekst, 0.17), (0.75, 0, K.rood, 0.2)]
+            pijlen = [((-0.75, 0), (-0.75, 0.4)), ((0.75, 0), (0.75, 0.4)), ((0, 0), (0, -0.4))]
+        else:
+            atomen = [(-0.75, 0, K.rood, 0.2), (0, 0, K.tekst, 0.17), (0.75, 0, K.rood, 0.2)]
+            pijlen = [((-0.75, 0), (-0.4, 0)), ((0.75, 0), (1.1, 0)), ((0, 0), (-0.38, -0.0))]
+        x = [a[0] for a in atomen]
+        ax.plot([min(x), max(x)], [0, 0], color=K.zacht, lw=3, zorder=1)
+        for xx, yy, k, r in atomen:
+            ax.add_patch(Circle((xx, yy), r, fc=k, ec="none", zorder=3))
+        for van, naar in pijlen:
+            if naam == "asymmetrische strek" and van == (0, 0):
+                pijl(ax, (0, 0.33), (-0.4, 0.33), K.groen, lw=2.0)
+                continue
+            pijl(ax, van, naar, K.groen, lw=2.0, zorder=4)
+        label(ax, 0, 1.05, mol, K.tekst, ha="center", fontsize=13)
+        label(ax, 0, 0.78, naam, K.zacht, ha="center", fontsize=10.5)
+        label(ax, 0, -0.72, rf"{nu} cm$^{{-1}}$  ({1e4 / nu:.1f} µm)", K.tekst, ha="center", fontsize=10.5)
+        k = K.accent if actief else K.rood
+        label(ax, 0, -1.02, dip, k, ha="center", fontsize=10.5)
+        label(ax, 0, -1.34, "IR-actief" if actief else "IR-inactief", k, ha="center", fontsize=12,
+              fontweight="bold")
+        ax.set_xlim(-1.25, 1.25)
+        ax.set_ylim(-1.55, 1.3)
+    return kader(fig)
+
+
+def cp_co2_n2():
+    """Warmtecapaciteit van N2 en CO2: model met gekwantiseerde trillingen tegenover metingen."""
+    fig, ax = figuur(6.8, 4.5)
+    R = 8.314
+    T = np.linspace(100, 1500, 400)
+
+    def cv_vib(nu, T):
+        x = _C2 * nu / T
+        return x**2 * np.exp(x) / np.expm1(x) ** 2
+
+    cp_n2 = R * (3.5 + cv_vib(2330, T))
+    cp_co2 = R * (3.5 + cv_vib(1333, T) + 2 * cv_vib(667, T) + cv_vib(2349, T))
+    for cp, k, naam, ywaarde in [(cp_n2, K.blauw, r"N$_2$", 31.5), (cp_co2, K.rood, r"CO$_2$", 51)]:
+        ax.plot(T, cp, color=k)
+    # metingen (correlaties tabel H1, NIST, 300-1000 K)
+    Tm = np.array([300, 400, 500, 600, 700, 800, 900, 1000])
+    for (a, b, cc), k in [((28.5, 3.6e-4, 4.00e-6), K.blauw), ((23.9, 5.21e-2, -2.20e-5), K.rood)]:
+        ax.plot(Tm, a + b * Tm + cc * Tm**2, "o", color=k, ms=6, mfc=K.achtergrond, mew=1.6, zorder=5)
+    label(ax, 1480, 34.8, r"N$_2$", K.blauw, ha="right", fontsize=12)
+    label(ax, 1480, 56.5, r"CO$_2$", K.rood, ha="right", fontsize=12)
+    ax.axhline(3.5 * R, color=K.zacht, lw=1.0, ls=(0, (4, 3)))
+    label(ax, 110, 3.5 * R - 0.6, r"$\frac{7}{2}R$: enkel translatie en rotatie", K.zacht, va="top", fontsize=10.5)
+    label(ax, 560, 42.5, "lijnen: model met gekwantiseerde trillingen\nbolletjes: metingen (NIST)",
+          K.tekst, fontsize=10.5, va="top")
+    ax.set_xlim(100, 1500)
+    ax.set_ylim(26, 60)
+    ax.set_xlabel(r"temperatuur $T$ (K)")
+    ax.set_ylabel(r"$C_{p,\mathrm{m}}$ (J mol$^{-1}$ K$^{-1}$)")
+    return kader(fig)

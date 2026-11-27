@@ -4,3 +4,8 @@ Terugkeren naar een vorige versie van H1: kopieer de inhoud van het gewenste bes
 
 Energie_origineel_2026-11-26.tex  : oorspronkelijke versie van Stijn (eerste import uit Overleaf)
 Energie_2026-11-27.tex            : versie van 27/11 voor de herwerking rond de ammoniakfabriek
+Energie_2026-11-27b_met_samenvatting.tex : H1 na de casus-kaders, nog met samenvatting en reflectie (27/11 avond)
+
+H2 (Kwantum_uitgebreid.tex):
+Kwantum_2026-11-27.tex            : versie van 27/11 voor de herwerking rond het broeikaseffect en de CO2-sensor
+Onderwerpen_H2.md                 : lijst van alle onderwerpen uit die versie en waar ze in de nieuwe tekst staan

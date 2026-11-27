@@ -3,15 +3,40 @@
 \label{ch:kwantum}
 %==============================================================================
 
-\section{Van de eerste hoofdwet naar de moleculaire schaal}
+\section{Waarom kwantummechanica? Het broeikaseffect en de CO$_2$-meter}
+\label{sec:broeikas}
 
-In hoofdstuk~\ref{ch:energie} behandelden we energie als een macroscopische, continue grootheid: we telden warmte en arbeid op, definieerden $U$ en $H$, en gebruikten $C_p$ en $C_V$. Die aanpak is krachtig maar \emph{fenomenologisch}. De thermodynamica zegt \emph{hoeveel} energie een proces vrijzet, niet \emph{waarom}. Waarom komt bij de verbranding van waterstof zoveel energie vrij? Waarom heeft een tweeatomig gas een grotere warmtecapaciteit dan een eenatomig gas, en waarom stijgt die met de temperatuur?
+Sinds de coronapandemie hangt in veel klaslokalen, vergaderzalen en cafés een CO$_2$-meter. Hij toont hoeveel uitgeademde lucht zich ophoopt: buitenlucht bevat ongeveer \SI{420}{ppm} CO$_2$, en boven \SI{800}{} tot \SI{1000}{ppm} is het tijd om te verluchten. Zo'n meter is verrassend eenvoudig (figuur~\ref{fig:ndir}). Een lampje stuurt infrarood licht door een buisje met lucht, een filter laat enkel licht met een golflengte van \SI{4.26}{\micro\metre} door, en een detector meet hoeveel daarvan overblijft. Hoe meer CO$_2$, hoe minder licht. Dezelfde techniek bewaakt de rookgassen van ketels en ovens, de lucht in serres en de gisting in brouwerijen.
 
-De antwoorden liggen op de schaal van atomen en moleculen. Daar blijkt energie niet continu maar \emph{gekwantiseerd}: enkel bepaalde waarden zijn toegelaten. Dat geldt voor de elektronen in een atoom, wat de chemische binding en de reactie-enthalpie verklaart, maar ook voor de translatie, rotatie en vibratie van een molecule als geheel. Zodra we die energieniveaus kennen, rijst de vraag hoe een groot aantal moleculen zich erover verdeelt. Het antwoord, de Boltzmannverdeling, leidt naar de entropie van hoofdstuk~\ref{ch:spontaniteit}.
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/ndir_sensor}
+    \caption{Principe van een CO$_2$-meter (niet-dispersieve infraroodsensor). Enkel CO$_2$ absorbeert het licht van \SI{4.26}{\micro\metre}; stikstof, zuurstof en argon, samen meer dan \SI{99.9}{\percent} van de lucht, laten het door.}
+    \label{fig:ndir}
+\end{figure}
 
-Het doel is geen volledige cursus kwantummechanica, maar de fundamenten die later terugkomen: de elektronenstructuur bepaalt hoe sterk een molecule aan een katalysator bindt (hoofdstuk~\ref{ch:grensvlakken}), en vibratie- en rotatieniveaus zijn de basis van de spectroscopie die je in latere vakken gebruikt.
+Hetzelfde verschijnsel bepaalt het klimaat. Lucht bestaat voor \SI{78}{\percent} uit stikstof en voor \SI{21}{\percent} uit zuurstof, maar die gassen laten infrarood licht ongehinderd door. Het zijn sporengassen, vooral waterdamp en CO$_2$, die de warmtestraling van de aarde tegenhouden. Zonder hen zou de gemiddelde temperatuur aan het aardoppervlak ongeveer \SI{-18}{\celsius} zijn in plaats van \SI{15}{\celsius}.
 
-\section{Van klassieke fysica naar kwantummechanica}
+Wie dit wil begrijpen, botst op vragen die de thermodynamica van hoofdstuk~\ref{ch:energie} niet kan beantwoorden:
+\begin{itemize}
+\item De zon straalt vooral zichtbaar licht uit, de aarde infrarood. Waar komt dat verschil vandaan, en wat kan elk soort licht met een molecule doen (\S\ref{sec:licht-pakketjes})?
+\item Waarom absorbeert een gas enkel bij welbepaalde golflengten, zoals \SI{4.26}{\micro\metre}, en niet ertussen (\S\ref{sec:lijnenspectra})?
+\item Stikstof is het hoofdbestanddeel van de lucht, en toch reageert het bijna nergens mee. Waarom is die molecule zo stabiel (\S\ref{sec:molecuulorbitalen})?
+\item Waarom absorbeert CO$_2$ infrarood en stikstof niet, hoewel beide moleculen trillen (\S\ref{sec:moleculaire-beweging})?
+\item Waarom heeft CO$_2$ een veel grotere warmtecapaciteit dan stikstof, en waarom stijgt die met de temperatuur (\S\ref{sec:kwantum-thermo})?
+\end{itemize}
+De antwoorden liggen op de schaal van atomen en moleculen. Daar blijkt energie niet continu maar \emph{gekwantiseerd}: enkel bepaalde waarden zijn toegelaten. Dat geldt voor de elektronen in een atoom, wat de chemische binding en de reactie-enthalpie verklaart, en voor de rotatie en de trilling van een molecule als geheel, wat de absorptie van infrarood en de warmtecapaciteit verklaart.
+
+Net als in hoofdstuk~\ref{ch:energie} start elke sectie met een concreet probleem, bouwt ze de theorie op die nodig is om het op te lossen, en werkt ze het probleem op het einde uit. Het doel is geen volledige cursus kwantummechanica, maar de fundamenten die later terugkomen: de elektronenstructuur bepaalt hoe sterk een molecule aan een katalysator bindt (hoofdstuk~\ref{ch:grensvlakken}), de verdeling van moleculen over hun energieniveaus leidt naar de entropie (hoofdstuk~\ref{ch:spontaniteit}), en vibratie- en rotatieniveaus zijn de basis van de spectroscopie die je in latere vakken gebruikt.
+
+\section{Licht komt in pakketjes}
+\label{sec:licht-pakketjes}
+
+\begin{casus}{zon en aarde}
+De zon straalt vooral zichtbaar licht uit, de aarde vooral infrarood. Waarom hebben beide een andere ``kleur''? En wat betekent dat voor wat het licht met een molecule kan doen: kan het een binding breken, of enkel opwarmen?
+
+\emph{Schat eerst zelf:} heeft een foton zichtbaar licht meer of minder energie dan een foton infrarood? Ligt die energie in de buurt van een bindingsenergie, zoals \SI{348}{\kilo\joule\per\mole} voor een C--C-binding?
+\end{casus}
 
 Rond 1900 leek de natuurkunde bijna af, maar enkele waarnemingen bleven onverklaarbaar. Volgens de klassieke fysica kan een atoom zelfs niet stabiel zijn: een elektron dat rond een kern draait, is een versnelde lading en zou binnen een fractie van een seconde al stralend in de kern storten. Drie experimenten toonden waar het misliep: de straling van een gloeiend voorwerp, het foto-elektrisch effect en de lijnenspectra van atomen. De klassieke fysica is daarmee niet fout, maar ze is een benadering die enkel voor grote voorwerpen geldt.
 
@@ -33,6 +58,25 @@ E=h\nu=h\frac{c}{\lambda}
 }
 \end{equation}
 met $h=\SI{6.626e-34}{\joule\second}$ de constante van Planck, $\nu$ de frequentie en $\lambda$ de golflengte. Bij hoge frequentie is één kwantum zo groot dat de trillende deeltjes het zelden kunnen leveren, waardoor de uitstraling daar vanzelf wegvalt. Op macroscopische schaal zijn de kwanta zo klein dat energie continu \emph{lijkt}; op atomaire schaal bepalen ze het gedrag van materie.
+
+De wet van Planck beschrijft de straling van elk warm voorwerp, en twee eenvoudige gevolgen ervan gebruik je voortdurend. De golflengte waarbij het meeste licht wordt uitgestraald, schuift naar kortere golflengten naarmate het voorwerp warmer is (\emph{verschuivingswet van Wien}):
+\begin{equation}
+\lambda_{\max}\,T = \SI{2898}{\micro\metre\kelvin}.
+\label{eq:wien}
+\end{equation}
+Het totale uitgestraalde vermogen per oppervlakte stijgt met de vierde macht van de temperatuur (\emph{wet van Stefan--Boltzmann}):
+\begin{equation}
+\frac{P}{A} = \sigma T^4, \qquad \sigma = \SI{5.67e-8}{\watt\per\metre\squared\per\kelvin\tothe{4}}.
+\label{eq:stefan-boltzmann}
+\end{equation}
+Een gloeiende staaf verkleurt daarom van rood naar wit, en een thermische camera ``ziet'' mensen en lekkende isolatie in het infrarood rond \SI{10}{\micro\metre}.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figuren/zon_aarde_spectrum}
+    \caption{Straling van de zon (oppervlak \SI{5800}{\kelvin}) en van de aarde (\SI{15}{\celsius}) volgens de wet van Planck, elk geschaald op zijn maximum. De twee spectra overlappen nauwelijks. De gekleurde banden zijn de sterkste absorptiebanden van CO$_2$: ze vallen in het infrarood van de aarde, niet in het zonlicht.}
+    \label{fig:zon-aarde}
+\end{figure}
 
 \begin{voorbeeld}{Fotonenergie over het elektromagnetisch spectrum}
 Met $E=hc/\lambda$ en $c=\SI{3.00e8}{\meter\per\second}$:
@@ -87,6 +131,43 @@ E=\frac{hc}{\lambda}=\frac{(6.626\times10^{-34})(3.00\times10^{8})}{250\times10^
 zodat $E_{\mathrm{kin,max}}=4.96-2.30=\SI{2.66}{eV}$.
 \end{voorbeeld}
 
+Het foto-elektrisch effect is ook technisch belangrijk. Een fotocel of lichtsensor werkt op dit principe, en een zonnecel is er een variant van: daar wordt het elektron niet uit het materiaal gestoten, maar naar een hogere energieband gebracht, waar het als stroom kan wegvloeien. Ook dan geldt de drempel: silicium reageert enkel op fotonen boven ongeveer \SI{1.1}{\electronvolt}, dus golflengten korter dan \SI{1.1}{\micro\metre}.
+
+\begin{casusuitgewerkt}{zon en aarde}
+\emph{Stap 1: de kleur.} Met de wet van Wien~\eqref{eq:wien}:
+\[
+\lambda_{\max,\text{zon}} = \frac{2898}{5800} = \SI{0.50}{\micro\metre}, \qquad
+\lambda_{\max,\text{aarde}} = \frac{2898}{288} = \SI{10.1}{\micro\metre}.
+\]
+De zon straalt het meest in het groen, de aarde in het verre infrarood (figuur~\ref{fig:zon-aarde}). Het verschil komt enkel van de temperatuur.
+
+\emph{Stap 2: de energie per foton.} Per mol fotonen is $E_\mathrm{m} = N_\mathrm{A}hc/\lambda$:
+\[
+E_\mathrm{m}(\SI{0.50}{\micro\metre}) = \SI{239}{\kilo\joule\per\mole}, \qquad
+E_\mathrm{m}(\SI{10}{\micro\metre}) = \SI{12}{\kilo\joule\per\mole}.
+\]
+Zichtbaar licht komt in de buurt van bindingsenergieën; UV-licht ($\lambda < \SI{0.35}{\micro\metre}$, meer dan \SI{340}{\kilo\joule\per\mole}) gaat erover en kan C--C-bindingen breken. Een infraroodfoton van de aarde heeft dertig keer te weinig energie om een binding te breken. Het kan een molecule enkel sneller laten trillen of draaien (figuur~\ref{fig:spectrum-bindingen}).
+
+\emph{Stap 3: hoe koud zou de aarde zijn zonder broeikasgassen?} De aarde ontvangt van de zon \SI{1361}{\watt\per\metre\squared} op haar doorsnede $\pi r^2$ en weerkaatst daarvan \SI{30}{\percent}. Ze straalt zelf uit over haar volledige oppervlak $4\pi r^2$. In evenwicht is
+\[
+\sigma T^4 = \frac{(1-0.30)(1361)}{4}
+\quad\Longrightarrow\quad
+T = \left(\frac{238}{5.67\times10^{-8}}\right)^{1/4} = \SI{255}{\kelvin} = \SI{-18}{\celsius}.
+\]
+De werkelijke gemiddelde temperatuur is \SI{15}{\celsius}. Het verschil van \SI{33}{\kelvin} is het broeikaseffect: een deel van het infrarood van de aarde wordt in de atmosfeer geabsorbeerd en gedeeltelijk teruggestraald.
+
+\emph{Volgende vraag.} Figuur~\ref{fig:zon-aarde} toont dat CO$_2$ niet het hele infrarood absorbeert, maar enkel smalle banden rond \SI{4.3}{} en \SI{15}{\micro\metre}. Waarom absorbeert een gas enkel bij welbepaalde golflengten?
+\end{casusuitgewerkt}
+
+\section{Discrete energieniveaus en lijnenspectra}
+\label{sec:lijnenspectra}
+
+\begin{casus}{scherpe lijnen}
+De CO$_2$-meter van figuur~\ref{fig:ndir} gebruikt een filter van \SI{4.26}{\micro\metre}. Bij \SI{4.0}{} of \SI{4.6}{\micro\metre} zou hij niets meten: daar absorbeert CO$_2$ niet. Een gas absorbeert dus niet geleidelijk over het hele spectrum, maar bij scherpe golflengten. Hoe kan dat, en welke energie hoort bij \SI{4.26}{\micro\metre}?
+
+\emph{Schat eerst zelf:} als een molecule enkel bepaalde energieën kan hebben, wat betekent dat voor de fotonen die ze kan opnemen?
+\end{casus}
+
 \subsection{Het model van Bohr}
 \label{sec:bohr}
 
@@ -109,6 +190,53 @@ Dit is exact het energiespectrum dat de Schr\"odingervergelijking later geeft (\
 \end{figure}
 
 Toch schiet het model tekort. Het werkt enkel voor systemen met één elektron (H, He$^+$, Li$^{2+}$). De kwantisatievoorwaarde wordt opgelegd zonder verklaring. En het beschrijft het elektron als een klassiek deeltje op een baan, wat onverenigbaar is met het golfkarakter van materie (\S~\ref{sec:dubbelspleet}).
+
+\subsection{Atomaire spectra}
+\label{sec:atomaire-spectra}
+
+Valt een elektron terug naar een lager niveau, dan wordt het energieverschil uitgezonden als een foton met $h\nu = \Delta E$. Omgekeerd absorbeert een atoom enkel fotonen waarvan de energie precies overeenkomt met het verschil tussen twee niveaus. Daarom heeft elk element een eigen \emph{lijnenspectrum} (figuur~\ref{fig:waterstofspectrum}). Voor waterstof vat de \emph{Rydberg-formule} alle overgangen samen:
+\begin{equation}
+\boxed{
+\frac{1}{\lambda} = R_H\left(\frac{1}{n_i^2}-\frac{1}{n_j^2}\right), \qquad n_j > n_i
+}
+\end{equation}
+met $R_H = \SI{1.097e7}{\per\meter}$. Overgangen naar $n_i=1$ vormen de Lyman-reeks (UV), naar $n_i=2$ de Balmer-reeks (deels zichtbaar) en naar $n_i=3$ de Paschen-reeks (infrarood).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.62\linewidth]{Figuren/waterstof}
+    \caption{Lijnenspectrum van waterstof (boven) en de overgangen tussen energieniveaus die het veroorzaken (onder): Lyman (naar $n=1$), Balmer (naar $n=2$) en Paschen (naar $n=3$).}
+    \label{fig:waterstofspectrum}
+\end{figure}
+
+\begin{voorbeeld}{Twee lijnen van waterstof}
+De overgang $n=2 \to n=1$ geeft $\Delta E = -3.40 - (-13.6) = \SI{10.2}{eV}$, dus
+\[
+\lambda = \frac{hc}{\Delta E} = \frac{(6.626\times 10^{-34})(2.998\times 10^{8})}{(10.2)(1.602\times 10^{-19})} = \SI{122}{\nano\meter},
+\]
+de eerste Lyman-lijn in het UV. De rode H$_\alpha$-lijn is de overgang $3 \to 2$:
+\[
+\frac{1}{\lambda} = (1.097\times10^{7})\left(\frac{1}{4}-\frac{1}{9}\right) = \SI{1.524e6}{\per\meter} \quad\Rightarrow\quad \lambda = \SI{656}{\nano\meter}.
+\]
+Sterrenkundigen herkennen waterstof in verre sterrenstelsels aan precies deze lijn.
+\end{voorbeeld}
+
+\begin{casusuitgewerkt}{scherpe lijnen}
+Een atoom of molecule kan enkel bepaalde energieën hebben. Het absorbeert dus enkel fotonen waarvan de energie precies overeenkomt met het verschil tussen twee toegelaten niveaus, $h\nu = \Delta E$. Daarom bestaat een spectrum uit scherpe lijnen.
+
+Bij \SI{4.26}{\micro\metre} hoort
+\[
+\Delta E = \frac{hc}{\lambda} = \frac{(6.626\times10^{-34})(2.998\times10^{8})}{4.26\times10^{-6}} = \SI{4.66e-20}{\joule} = \SI{0.29}{\electronvolt} = \SI{28}{\kilo\joule\per\mole}.
+\]
+Dat is veel kleiner dan de elektronische overgangen van waterstof, die enkele elektronvolt bedragen (\SI{10.2}{\electronvolt} voor de eerste Lyman-lijn, \SI{1.9}{\electronvolt} voor H$_\alpha$). Bij de lijn van CO$_2$ verandert dus geen elektron van orbitaal. Er moeten nog andere, kleinere energietrappen bestaan: die van de molecule als geheel (\S\ref{sec:moleculaire-beweging}).
+
+\emph{Volgende vraag.} Het model van Bohr legt de kwantisatie op zonder te verklaren waar ze vandaan komt. Waarom zijn de energieniveaus discreet?
+\end{casusuitgewerkt}
+
+\section{Materie als golf}
+\label{sec:materiegolf}
+
+Het antwoord op die vraag begint met een verrassende vaststelling: niet enkel licht, ook materie gedraagt zich als een golf.
 
 \subsection{Het golfkarakter van materie}
 
@@ -199,8 +327,6 @@ E_n = \frac{n^2h^2}{8mL^2}, \qquad n=1,2,3,\ldots
 \end{equation}
 De kwantisatie volgt hier uitsluitend uit de randvoorwaarden; er is geen extra postulaat nodig zoals bij Bohr. We gebruiken dit resultaat verderop voor de translatie van een molecule (\S~\ref{sec:translatie}).
 
-\section{Het waterstofatoom en atomaire spectra}
-
 \subsection{Het waterstofatoom en zijn energieniveaus}
 \label{sec:waterstofatoom}
 
@@ -209,36 +335,7 @@ Voor het waterstofatoom, met de Coulombpotentiaal $V(r)= -e^2/(4\pi\varepsilon_0
 E_n = -\frac{\SI{13.6}{eV}}{n^2}, \qquad n = 1,2,3,\ldots
 \end{equation}
 Het minteken betekent dat het elektron gebonden is. De grondtoestand heeft $E_1 = \SI{-13.6}{eV}$, dan volgen $E_2 = \SI{-3.40}{eV}$ en $E_3 = \SI{-1.51}{eV}$; voor grote $n$ nadert de energie nul.
-
-\subsection{Atomaire spectra}
-\label{sec:atomaire-spectra}
-
-Valt een elektron terug naar een lager niveau, dan wordt het energieverschil uitgezonden als een foton met $h\nu = \Delta E$. Omgekeerd absorbeert een atoom enkel fotonen waarvan de energie precies overeenkomt met het verschil tussen twee niveaus. Daarom heeft elk element een eigen \emph{lijnenspectrum} (figuur~\ref{fig:waterstofspectrum}). Voor waterstof vat de \emph{Rydberg-formule} alle overgangen samen:
-\begin{equation}
-\boxed{
-\frac{1}{\lambda} = R_H\left(\frac{1}{n_i^2}-\frac{1}{n_j^2}\right), \qquad n_j > n_i
-}
-\end{equation}
-met $R_H = \SI{1.097e7}{\per\meter}$. Overgangen naar $n_i=1$ vormen de Lyman-reeks (UV), naar $n_i=2$ de Balmer-reeks (deels zichtbaar) en naar $n_i=3$ de Paschen-reeks (infrarood).
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.62\linewidth]{Figuren/waterstof}
-    \caption{Lijnenspectrum van waterstof (boven) en de overgangen tussen energieniveaus die het veroorzaken (onder): Lyman (naar $n=1$), Balmer (naar $n=2$) en Paschen (naar $n=3$).}
-    \label{fig:waterstofspectrum}
-\end{figure}
-
-\begin{voorbeeld}{Twee lijnen van waterstof}
-De overgang $n=2 \to n=1$ geeft $\Delta E = -3.40 - (-13.6) = \SI{10.2}{eV}$, dus
-\[
-\lambda = \frac{hc}{\Delta E} = \frac{(6.626\times 10^{-34})(2.998\times 10^{8})}{(10.2)(1.602\times 10^{-19})} = \SI{122}{\nano\meter},
-\]
-de eerste Lyman-lijn in het UV. De rode H$_\alpha$-lijn is de overgang $3 \to 2$:
-\[
-\frac{1}{\lambda} = (1.097\times10^{7})\left(\frac{1}{4}-\frac{1}{9}\right) = \SI{1.524e6}{\per\meter} \quad\Rightarrow\quad \lambda = \SI{656}{\nano\meter}.
-\]
-Sterrenkundigen herkennen waterstof in verre sterrenstelsels aan precies deze lijn.
-\end{voorbeeld}
+Dat zijn precies de niveaus van Bohr, maar nu volgt de kwantisatie uit de randvoorwaarden van de golffunctie. Het model van Bohr was dus een gelukkige gok; de Schr\"odingervergelijking verklaart ook atomen met meer elektronen en moleculen.
 
 Moleculen hebben naast elektronische ook gekwantiseerde rotatie- en vibratieniveaus (\S~\ref{sec:moleculaire-beweging}). Daarom heeft elke stof een eigen ``vingerafdruk''-spectrum, de basis van de spectroscopie in kwaliteitscontrole en procesanalyse.
 
@@ -279,6 +376,12 @@ De opvulvolgorde is $1s \to 2s \to 2p \to 3s \to 3p \to 4s \to 3d \to 4p \to 5s 
 De buitenste elektronen, de \emph{valentie-elektronen}, bepalen grotendeels de chemie. Elementen met hetzelfde aantal valentie-elektronen gedragen zich gelijkaardig en staan in dezelfde groep. Het periodiek systeem is dus geen toevallige ordening: de Schr\"odingervergelijking, het uitsluitingsprincipe, het Aufbauprincipe en de regel van Hund verklaren samen de elektronenconfiguratie van elk element.
 
 \section{Chemische bindingen}
+
+\begin{casus}{waarom doet stikstof niets?}
+Stikstof is het hoofdbestanddeel van de lucht, en toch reageert het bij kamertemperatuur met bijna niets. In hoofdstuk~\ref{ch:energie} zagen we dat de ammoniaksynthese \SI{200}{\bar}, \SI{450}{\celsius} en een katalysator nodig heeft. Wat maakt de stikstofmolecule zo stabiel?
+
+\emph{Schat eerst zelf:} stikstof heeft vijf valentie-elektronen. Hoeveel bindingen verwacht je tussen twee stikstofatomen, en waarom?
+\end{casus}
 
 \subsection{Molecuulorbitalen}
 \label{sec:molecuulorbitalen}
@@ -321,8 +424,31 @@ Te ver uit elkaar overlappen de golffuncties niet genoeg; te dicht bij elkaar st
     \label{fig:morse-h2}
 \end{figure}
 
+\begin{casusuitgewerkt}{waarom doet stikstof niets?}
+Elk stikstofatoom brengt vijf valentie-elektronen mee ($2s^2\,2p^3$). Uit de acht atomaire orbitalen ($2s$ en drie $2p$ per atoom) ontstaan acht molecuulorbitalen (figuur~\ref{fig:mo-N2}). De tien valentie-elektronen vullen ze van onder naar boven: acht komen in bindende orbitalen ($\sigma_{2s}$, twee $\pi_{2p}$, $\sigma_{2p}$), twee in het antibindende $\sigma^*_{2s}$. De bindingsorde is
+\[
+\text{bindingsorde} = \frac{8 - 2}{2} = 3:
+\]
+een drievoudige binding, \'e\'en $\sigma$ en twee $\pi$. Ze is kort (\SI{110}{\pico\metre}) en zeer sterk: \SI{945}{\kilo\joule\per\mole}, bijna drie keer een C--C-binding. Om ze met licht te breken, is een foton van minstens $N_\mathrm{A}hc/\lambda = \SI{945}{\kilo\joule\per\mole}$ nodig, dus $\lambda < \SI{127}{\nano\metre}$: ver ultraviolet, dat de onderste atmosfeer niet bereikt. Bovendien ligt het hoogst bezette orbitaal laag en het laagste lege orbitaal ($\pi^*_{2p}$) hoog, zodat de molecule elektronen moeilijk afgeeft of opneemt. Daarom heeft de ammoniaksynthese een katalysator nodig die de binding helpt verzwakken (hoofdstukken~\ref{ch:grensvlakken} en~\ref{ch:kinetiek}).
+
+\emph{Volgende vraag.} Een binding is geen starre staaf: ze kan trillen, zoals de niveaus in figuur~\ref{fig:morse-h2} tonen. Zowel \ce{N2} als \ce{CO2} heeft sterke bindingen die trillen. Waarom absorbeert dan enkel CO$_2$ infrarood?
+\end{casusuitgewerkt}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/mo_stikstof}
+    \caption{Molecuulorbitaaldiagram van \ce{N2} (enkel de valentie-elektronen). Acht elektronen in bindende orbitalen, twee in een antibindend orbitaal: een drievoudige binding. Bij \ce{N2} ligt $\sigma_{2p}$ net boven $\pi_{2p}$; bij \ce{O2} en \ce{F2} is die volgorde omgekeerd.}
+    \label{fig:mo-N2}
+\end{figure}
+
 \section{Moleculaire beweging en moleculaire spectra}
 \label{sec:moleculaire-beweging}
+
+\begin{casus}{CO$_2$ tegenover stikstof}
+De drievoudige binding van \ce{N2} trilt, net als de bindingen in CO$_2$. Toch laat stikstof het infrarood van de aarde volledig door, terwijl CO$_2$ het bij \SI{4.3}{} en \SI{15}{\micro\metre} absorbeert. Wat bepaalt of een molecule infrarood licht kan opnemen?
+
+\emph{Schat eerst zelf:} licht is een elektrisch veld dat heen en weer schommelt. Waaraan kan zo'n veld ``trekken'' in een molecule? Is er een verschil tussen \ce{N2}, waarin beide atomen gelijk zijn, en CO$_2$?
+\end{casus}
 
 Een molecule kan als geheel door de ruimte bewegen (\emph{translatie}), rond zijn zwaartepunt tollen (\emph{rotatie}) en zijn kernen laten trillen rond de evenwichtsafstand (\emph{vibratie}). Ook die bewegingen volgen de Schr\"odingervergelijking en zijn dus gekwantiseerd, elk met een eigen kwantumgetal. Zo kan een molecule energie opnemen zonder dat een elektron van toestand verandert. Dit verklaart de warmtecapaciteit en vormt de basis van infrarood- en microgolfspectroscopie.
 
@@ -405,28 +531,44 @@ Bij stijgende temperatuur worden de bewegingen daarom ``na elkaar'' geactiveerd:
 Elke overgang tussen twee niveaus absorbeert of zendt een foton uit met $\Delta E = h\nu$. Omdat de energieschalen zo verschillen, vallen de spectra in gescheiden gebieden:
 \begin{itemize}
 \item \textbf{Rotatiespectra} (microgolf, selectieregel $\Delta J=\pm1$) vereisen een permanent dipoolmoment. \ce{N2} en \ce{O2} hebben dat niet en zijn microgolf-inactief.
-\item \textbf{Vibratiespectra} (infrarood, $\Delta v=\pm1$) vereisen dat het dipoolmoment \emph{verandert} tijdens de trilling. Daarom absorberen \ce{CO2}, \ce{H2O} en \ce{CH4} infrarood (broeikasgassen) en \ce{N2} en \ce{O2} niet. Elke functionele groep heeft een eigen IR-band, wat infraroodspectroscopie het standaardinstrument voor procesanalyse maakt.
+\item \textbf{Vibratiespectra} (infrarood, $\Delta v=\pm1$) vereisen dat het dipoolmoment \emph{verandert} tijdens de trilling; waarom, zie je in de casus hieronder. Elke functionele groep heeft een eigen IR-band, wat infraroodspectroscopie het standaardinstrument voor procesanalyse maakt.
 \item \textbf{Elektronische spectra} (zichtbaar en UV), bijvoorbeeld een $\pi\to\pi^*$-overgang tussen het hoogst bezette (HOMO) en laagst onbezette molecuulorbitaal (LUMO), verklaren kleur: een stof die een bepaalde golflengte absorbeert, toont de complementaire kleur. UV-Vis-spectroscopie meet zo concentraties via de wet van Lambert--Beer.
 \end{itemize}
 
-\section{Van kwantumtoestanden naar thermodynamica}
+\begin{casusuitgewerkt}{CO$_2$ tegenover stikstof}
+\emph{Stap 1: wat trekt het licht?} Het elektrisch veld van een lichtgolf duwt positieve en negatieve ladingen in tegengestelde richting. Het kan dus enkel energie overdragen aan een trilling als die trilling de ladingsverdeling, het \emph{dipoolmoment}, heen en weer laat schommelen in hetzelfde ritme.
 
-\subsection{Warmtecapaciteit}
+\emph{Stap 2: stikstof.} In \ce{N2} zijn beide atomen gelijk; de elektronen zitten altijd symmetrisch verdeeld. Hoe ver de atomen ook uit elkaar gaan, het dipoolmoment blijft nul. De trilling bestaat (bij \SI{2330}{\per\centi\metre}, ongeveer \SI{4.3}{\micro\metre}), maar het licht kan er niet aan trekken: \ce{N2} is IR-inactief. Hetzelfde geldt voor \ce{O2}.
 
-In hoofdstuk~\ref{ch:energie} was $C_{V,m}$ een experimenteel gegeven: ongeveer $\tfrac{3}{2}R$ voor een eenatomig gas en $\tfrac{5}{2}R$ voor een tweeatomig gas bij kamertemperatuur. Nu kunnen we dat verklaren. Volgens de \emph{equipartitiestelling} draagt elke bewegingsrichting die klassiek toegankelijk is ($\Delta E \ll k_BT$) $\tfrac{1}{2}R$ per mol bij.
+\emph{Stap 3: CO$_2$.} Een lineaire molecule met drie atomen heeft vier trillingen (figuur~\ref{fig:trillingen-co2}). Zuurstof trekt elektronen sterker aan dan koolstof, zodat elke C=O-binding een eigen dipool heeft. In de rechte molecule heffen beide dipolen elkaar op.
 \begin{itemize}
-\item Een eenatomig gas transleert in drie richtingen: $C_{V,m}=\tfrac{3}{2}R$.
-\item Een lineair tweeatomig gas roteert bovendien rond twee assen (rotatie rond de bindingsas telt niet): $C_{V,m}=\tfrac{5}{2}R = \SI{20.8}{J/(mol\,K)}$. Voor CO is de gemeten waarde \SI{20.2}{J/(mol\,K)}.
-\item Vibratie draagt pas bij als $k_BT$ vergelijkbaar wordt met $h\nu$, en dan met $R$ per trilling (kinetische plus potentiële energie). $C_{V,m}$ stijgt daardoor geleidelijk naar $\tfrac{7}{2}R$.
+\item Bij de \emph{symmetrische strek} bewegen beide zuurstofatomen tegelijk naar buiten: de dipolen blijven elkaar opheffen. IR-inactief.
+\item Bij de \emph{asymmetrische strek} wordt de ene binding langer en de andere korter: er ontstaat een schommelende dipool langs de as. IR-actief bij \SI{2349}{\per\centi\metre}, of $\lambda = 1/\tilde\nu = \SI{4.26}{\micro\metre}$: de lijn van de CO$_2$-meter.
+\item Bij de \emph{buiging} (in twee loodrechte richtingen, dus twee keer) knikt de molecule: er ontstaat een dipool loodrecht op de as. IR-actief bij \SI{667}{\per\centi\metre}, of \SI{15.0}{\micro\metre}.
 \end{itemize}
-Daarom stijgt $C_p$ met de temperatuur en wordt hij in tabellen als polynoom in $T$ gegeven: bij hogere temperatuur komen meer vibraties vrij. Die temperatuurafhankelijkheid is geen toevallige curve-fit, maar een gevolg van gekwantiseerde energieniveaus.
 
-\subsection{Activeringsenergie en overgangstoestand}
-\label{sec:activeringsenergie-kwantum}
+\emph{Stap 4: waarom de buiging het klimaat bepaalt.} De buiging absorbeert bij \SI{15}{\micro\metre}, vlak naast het maximum van de straling van de aarde (\SI{10}{\micro\metre}, figuur~\ref{fig:zon-aarde}). De asymmetrische strek bij \SI{4.3}{\micro\metre} valt in een gebied waar de aarde nauwelijks straalt; ze is ideaal voor een meettoestel, maar speelt in het klimaat een kleine rol. De energie van een buigingsfoton is $N_\mathrm{A}hc\tilde\nu = \SI{8.0}{\kilo\joule\per\mole}$, slechts drie keer $RT$ bij \SI{15}{\celsius}.
 
-Tijdens een reactie verdwijnen oude bindingen niet op hetzelfde ogenblik dat nieuwe ontstaan. Het systeem passeert tussentoestanden waarvan sommige een hogere energie hebben dan zowel reagentia als producten. De minimale energie om die \emph{overgangstoestand} te bereiken, is de \emph{activeringsenergie}. Ze verklaart waarom een reactie thermodynamisch gunstig maar toch traag kan zijn: de thermodynamica bepaalt de eindtoestand, de kinetiek hoe snel die bereikt wordt. Enkel moleculen die toevallig genoeg energie bezitten, halen de overgangstoestand. Hoeveel dat er zijn, zegt de Boltzmannverdeling.
+\emph{Volgende vraag.} Bij \SI{15}{\celsius} is $RT = \SI{2.4}{\kilo\joule\per\mole}$, niet zo veel kleiner dan de \SI{8.0}{\kilo\joule\per\mole} van de buiging. Trillen sommige CO$_2$-moleculen dan al vanzelf, zonder licht? En wat betekent dat voor de warmte die het gas opneemt?
+\end{casusuitgewerkt}
 
-\section{De Boltzmannverdeling}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/trillingen_co2}
+    \caption{De trilling van \ce{N2} en de trillingen van CO$_2$ (de buiging komt twee keer voor, in twee loodrechte vlakken). Enkel trillingen die het dipoolmoment doen veranderen, absorberen infrarood. Golfgetallen: NIST; de symmetrische strek van CO$_2$ is een gemiddelde van twee gekoppelde banden (1285 en \SI{1388}{\per\centi\metre}).}
+    \label{fig:trillingen-co2}
+\end{figure}
+
+\section{Van kwantumtoestanden naar thermodynamica}
+\label{sec:kwantum-thermo}
+
+\begin{casus}{waarom neemt CO$_2$ meer warmte op?}
+Bij \SI{25}{\celsius} is $C_{p,\mathrm{m}} = \SI{29.1}{\joule\per\mole\per\kelvin}$ voor stikstof en \SI{37.1}{\joule\per\mole\per\kelvin} voor CO$_2$ (tabel~\ref{tab:cp_coeff}). Beide zijn lineaire moleculen die even vrij bewegen en draaien. Waar komt het verschil van \SI{8}{\joule\per\mole\per\kelvin} vandaan? En hoeveel CO$_2$-moleculen in de atmosfeer trillen al bij \SI{15}{\celsius}?
+
+\emph{Schat eerst zelf:} welke beweging heeft CO$_2$ die stikstof bij kamertemperatuur niet kan aanslaan? Kijk naar de golfgetallen in figuur~\ref{fig:trillingen-co2}.
+\end{casus}
+
+\subsection{De Boltzmannverdeling}
 \label{sec:boltzmannverdeling}
 
 Een mol gas bevat $6\times10^{23}$ moleculen. De vraag is dus niet in welk niveau \emph{één} molecule zit, maar hoeveel moleculen gemiddeld in elk niveau zitten. In thermisch evenwicht geldt voor twee niveaus met energieverschil $\Delta E = E_i - E_j$ de \emph{Boltzmannverdeling}:
@@ -453,6 +595,64 @@ p(h) = p_0 \exp\!\left(-\frac{Mgh}{RT}\right).
 Met $M = \SI{0.029}{\kilo\gram\per\mole}$ en $T \approx \SI{273}{\kelvin}$ daalt de druk met een factor $\mathrm{e}$ per \SI{8}{\kilo\metre}. Op de Mont Blanc (\SI{4808}{\metre}) is de druk ongeveer \SI{0.55}{\bar}, op de Everest (\SI{8849}{\metre}) \SI{0.33}{\bar}. Water kookt daar al bij ongeveer \SI{70}{\celsius} (hoofdstuk~\ref{ch:niet-reagerend}).
 \end{toepassing}
 
+\subsection{Warmtecapaciteit}
+
+In hoofdstuk~\ref{ch:energie} was $C_{V,m}$ een experimenteel gegeven: ongeveer $\tfrac{3}{2}R$ voor een eenatomig gas en $\tfrac{5}{2}R$ voor een tweeatomig gas bij kamertemperatuur. Nu kunnen we dat verklaren. Volgens de \emph{equipartitiestelling} draagt elke bewegingsrichting die klassiek toegankelijk is ($\Delta E \ll k_BT$) $\tfrac{1}{2}R$ per mol bij.
+\begin{itemize}
+\item Een eenatomig gas transleert in drie richtingen: $C_{V,m}=\tfrac{3}{2}R$.
+\item Een lineair tweeatomig gas roteert bovendien rond twee assen (rotatie rond de bindingsas telt niet): $C_{V,m}=\tfrac{5}{2}R = \SI{20.8}{J/(mol\,K)}$. Voor CO is de gemeten waarde \SI{20.2}{J/(mol\,K)}.
+\item Vibratie draagt pas bij als $k_BT$ vergelijkbaar wordt met $h\nu$, en dan met $R$ per trilling (kinetische plus potentiële energie). $C_{V,m}$ stijgt daardoor geleidelijk naar $\tfrac{7}{2}R$.
+\end{itemize}
+
+Hoe groot die bijdrage van een trilling precies is, volgt uit de Boltzmannverdeling. We geven het resultaat zonder afleiding; het hangt enkel af van de verhouding $x = h\nu/k_\mathrm{B}T$:
+\begin{equation}
+C_{V,\mathrm{vib}} = R\,\frac{x^2\,\mathrm{e}^{x}}{(\mathrm{e}^{x}-1)^2}, \qquad x = \frac{h\nu}{k_\mathrm{B}T} = \frac{hc\tilde\nu}{k_\mathrm{B}T}.
+\label{eq:cv-vib}
+\end{equation}
+Bij lage temperatuur ($x \gg 1$) is de bijdrage nul, bij hoge temperatuur ($x \ll 1$) nadert ze $R$. Figuur~\ref{fig:cp-co2-n2} toont dat dit eenvoudige model de gemeten warmtecapaciteit van \ce{N2} en CO$_2$ over het hele temperatuurbereik volgt.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/cp_co2_n2}
+    \caption{Warmtecapaciteit van \ce{N2} en CO$_2$. Lijnen: $\tfrac72R$ plus de bijdrage~\eqref{eq:cv-vib} van elke trilling (golfgetallen uit figuur~\ref{fig:trillingen-co2}). Bolletjes: correlaties uit tabel~\ref{tab:cp_coeff} (NIST).}
+    \label{fig:cp-co2-n2}
+\end{figure}
+
+\begin{casusuitgewerkt}{waarom neemt CO$_2$ meer warmte op?}
+\emph{Stap 1: hoeveel CO$_2$ trilt?} Voor de buiging ($\tilde\nu = \SI{667}{\per\centi\metre}$) is bij \SI{288}{\kelvin}
+\[
+x = \frac{hc\tilde\nu}{k_\mathrm{B}T} = \frac{(6.626\times10^{-34})(2.998\times10^{10})(667)}{(1.381\times10^{-23})(288)} = 3.33,
+\qquad
+\frac{N_1}{N_0} = 2\,\mathrm{e}^{-3.33} = 0.071.
+\]
+De factor 2 is de ontaarding: de molecule kan in twee loodrechte vlakken buigen. Zeven procent van de CO$_2$-moleculen buigt dus al door de botsingen met andere moleculen. Zo'n trillende molecule kan haar energie als infraroodfoton uitzenden, in elke richting, ook terug naar de aarde. Daarom houdt CO$_2$ de warmte vast: het absorbeert de straling van de aarde, geeft de energie bij botsingen door aan de lucht, en straalt een deel terug naar beneden. Voor de asymmetrische strek is $x = 11.7$ en trilt slechts \'e\'en molecule op honderdduizend.
+
+\emph{Stap 2: de warmtecapaciteit.} Bij \SI{298}{\kelvin} geeft vergelijking~\eqref{eq:cv-vib} per trilling:
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Trilling & $\tilde\nu$ (\si{\per\centi\metre}) & $x$ & $C_{V,\mathrm{vib}}$ (\si{\joule\per\mole\per\kelvin}) \\
+\midrule
+CO$_2$ buiging ($2\times$) & 667 & 3.22 & $2 \times 3.74 = 7.48$ \\
+CO$_2$ symmetrische strek & 1333 & 6.43 & 0.56 \\
+CO$_2$ asymmetrische strek & 2349 & 11.3 & 0.01 \\
+\ce{N2} strek & 2330 & 11.2 & 0.01 \\
+\bottomrule
+\end{tabular}
+\end{center}
+Translatie en rotatie geven samen $\tfrac52R$, en $C_p = C_V + R$ (hoofdstuk~\ref{ch:energie}), dus $\tfrac72R = \SI{29.10}{\joule\per\mole\per\kelvin}$ voor elke lineaire molecule. Daarbij komt de bijdrage van de trillingen:
+\begin{align*}
+C_{p,\mathrm{m}}(\ce{N2}) &= 29.10 + 0.01 = \SI{29.1}{\joule\per\mole\per\kelvin},\\
+C_{p,\mathrm{m}}(\ce{CO2}) &= 29.10 + 7.48 + 0.56 + 0.01 = \SI{37.2}{\joule\per\mole\per\kelvin}.
+\end{align*}
+Gemeten: 29.1 en \SI{37.1}{\joule\per\mole\per\kelvin}. Het hele verschil komt van de zachte buiging van CO$_2$, die als enige trilling al bij kamertemperatuur energie opneemt. Bij hogere temperatuur komen ook de andere trillingen vrij, en daarom stijgt $C_p$ met $T$ (figuur~\ref{fig:cp-co2-n2}): de veelterm uit tabel~\ref{tab:cp_coeff} is geen toevallige curve-fit, maar een gevolg van gekwantiseerde trillingsniveaus.
+\end{casusuitgewerkt}
+
+\subsection{Activeringsenergie en overgangstoestand}
+\label{sec:activeringsenergie-kwantum}
+
+Tijdens een reactie verdwijnen oude bindingen niet op hetzelfde ogenblik dat nieuwe ontstaan. Het systeem passeert tussentoestanden waarvan sommige een hogere energie hebben dan zowel reagentia als producten. De minimale energie om die \emph{overgangstoestand} te bereiken, is de \emph{activeringsenergie}. Ze verklaart waarom een reactie thermodynamisch gunstig maar toch traag kan zijn: de thermodynamica bepaalt de eindtoestand, de kinetiek hoe snel die bereikt wordt. Enkel moleculen die toevallig genoeg energie bezitten, halen de overgangstoestand. Hoeveel dat er zijn, zegt opnieuw de Boltzmannverdeling.
+
 \subsection{Waarom reacties sneller gaan bij hogere temperatuur}
 
 Een reactie verloopt enkel als botsende moleculen minstens de activeringsenergie $E_\mathrm{a}$ bezitten. Die fractie volgt uit dezelfde Boltzmannfactor, $\exp(-E_\mathrm{a}/RT)$. Voor $E_\mathrm{a} = \SI{50}{\kilo\joule\per\mole}$ is ze bij \SI{35}{\celsius} een factor
@@ -461,34 +661,20 @@ Een reactie verloopt enkel als botsende moleculen minstens de activeringsenergie
 \]
 groter dan bij \SI{25}{\celsius}. Dat is de oorsprong van de vuistregel ``twee keer sneller per \SI{10}{\celsius}'' en van de wet van Arrhenius (hoofdstuk~\ref{ch:kinetiek}). Een koelkast vertraagt bederfreacties volgens hetzelfde principe.
 
+\section{Het broeikaseffect opnieuw bekeken}
+
+Met de begrippen uit dit hoofdstuk kan je de vragen uit het begin beantwoorden:
+\begin{itemize}
+\item \emph{Zon en aarde} (\S\ref{sec:licht-pakketjes}): de kleur van de straling volgt uit de temperatuur (wet van Wien). Zonlicht heeft fotonen van zo'n \SI{240}{\kilo\joule\per\mole}, het infrarood van de aarde slechts \SI{12}{\kilo\joule\per\mole}: genoeg om moleculen te laten trillen, niet om bindingen te breken. Zonder broeikasgassen zou de aarde \SI{-18}{\celsius} zijn.
+\item \emph{Scherpe lijnen} (\S\ref{sec:lijnenspectra}): een molecule absorbeert enkel fotonen met $h\nu = \Delta E$ tussen twee toegelaten niveaus. Bij \SI{4.26}{\micro\metre} hoort \SI{28}{\kilo\joule\per\mole}, te weinig voor een elektronische overgang.
+\item \emph{Stikstof} (\S\ref{sec:molecuulorbitalen}): een drievoudige binding met bindingsorde 3 en \SI{945}{\kilo\joule\per\mole}; daarom is stikstof zo inert en heeft de ammoniaksynthese een katalysator nodig.
+\item \emph{CO$_2$ tegenover stikstof} (\S\ref{sec:moleculaire-beweging}): enkel trillingen die het dipoolmoment doen veranderen, absorberen infrarood. \ce{N2} en \ce{O2} hebben er geen, CO$_2$ heeft er twee: de buiging bij \SI{15}{\micro\metre} (klimaat) en de asymmetrische strek bij \SI{4.26}{\micro\metre} (CO$_2$-meter).
+\item \emph{Warmtecapaciteit} (\S\ref{sec:kwantum-thermo}): de zachte buiging van CO$_2$ wordt al bij kamertemperatuur aangeslagen; ze verklaart \SI{8}{\joule\per\mole\per\kelvin} extra warmtecapaciteit en de \SI{7}{\percent} trillende CO$_2$-moleculen die infrarood terugstralen.
+\end{itemize}
+Dezelfde redeneringen gelden voor elk molecule: waterdamp en methaan zijn broeikasgassen om dezelfde reden als CO$_2$, en de infraroodbanden van functionele groepen maken infraroodspectroscopie tot een standaardinstrument in labo en procescontrole.
+
 Eén vraag blijft open: waarom verlopen sommige processen spontaan in één richting, ook als de energie geen uitsluitsel geeft? Het antwoord ligt in het \emph{aantal manieren} waarop energie en moleculen over de toestanden verdeeld kunnen worden: de entropie van hoofdstuk~\ref{ch:spontaniteit}.
 
-\section{Samenvatting en reflectie}
-
-\begin{samenvatting}{Kwantummechanica en moleculaire energie}
-\begin{itemize}
-\item Energie wordt uitgewisseld in kwanta: $E = h\nu = hc/\lambda$. Licht gedraagt zich als deeltjes (foto-elektrisch effect), materie als golven ($\lambda = h/p$).
-\item De golffunctie $\psi$ beschrijft een deeltje; $|\psi|^2$ is de waarschijnlijkheid om het op een plaats te vinden. Een opgesloten deeltje heeft enkel discrete energieën.
-\item Waterstofatoom: $E_n = -\SI{13.6}{\electronvolt}/n^2$. Vier kwantumgetallen ($n$, $l$, $m_l$, $m_s$) en het uitsluitingsprincipe van Pauli verklaren het periodiek systeem.
-\item Molecuulorbitalen zijn bindend (lagere energie) of antibindend (hogere energie). De bindingsorde verklaart waarom \ce{H2} bestaat en \ce{He2} niet.
-\item Een molecule heeft gekwantiseerde translatie-, rotatie- en vibratieniveaus: translatie $\ll$ rotatie $\ll$ vibratie $\ll$ elektronisch. Overgangen geven microgolf-, infrarood- en UV/Vis-spectra.
-\item Boltzmannverdeling: $N_i/N_j = (g_i/g_j)\exp(-\Delta E/k_\mathrm{B}T)$. Zij verklaart de warmtecapaciteit, de stijging van $C_p$ met $T$ en de temperatuurafhankelijkheid van reactiesnelheden.
-\end{itemize}
-\end{samenvatting}
-
-\begin{reflectie}{Kwantummechanica en moleculaire energie}
-\begin{enumerate}
-\item Waarom zie je het golfkarakter van een tennisbal nooit, maar dat van een elektron wel?
-\item Waarom kan rood licht, hoe intens ook, geen elektronen uit natrium vrijmaken, terwijl zwak UV-licht dat wel kan?
-\item Wat betekent het fysisch dat een elektron in een orbitaal ``zit''? Waarom is het beeld van een elektron op een baan zoals een planeet fout?
-\item Waarom absorberen \ce{CO2} en \ce{H2O} infraroodstraling, maar \ce{N2} en \ce{O2} niet? Wat betekent dit voor het broeikaseffect?
-\item Waarom is de warmtecapaciteit van \ce{CO2} groter dan die van \ce{N2}, en waarom stijgt ze sterker met de temperatuur?
-\item Een reactie gaat twee keer sneller bij \SI{35}{\celsius} dan bij \SI{25}{\celsius}. Leg uit met de Boltzmannfactor waarom zo'n kleine temperatuurstijging zo'n groot effect heeft.
-\item Waarom is het laagste energieniveau altijd het sterkst bezet? Wat zou er moeten gebeuren om meer moleculen in een hoger niveau te krijgen dan in een lager (denk aan een laser)?
-\end{enumerate}
-\end{reflectie}
-
-\newpage
 \section{Oefeningen}
 
 \input{Oefeningen_H2}
