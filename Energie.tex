@@ -68,6 +68,22 @@ Een \emph{extensieve grootheid} verdubbelt als je twee identieke systemen samenv
 
 Een \emph{intensieve grootheid} hangt niet af van de grootte: temperatuur $T$, druk $p$, dichtheid $\rho$, concentratie, en elke molaire grootheid zoals $V_\mathrm{m} = V/n$. In een warmtewisselaar is het temperatuurverschil (intensief) de drijvende kracht, terwijl de overgedragen warmte (extensief) schaalt met het debiet.
 
+\subsection{Temperatuur en druk}
+
+Twee toestandsvariabelen komen in elke berekening terug en verdienen een woordje uitleg: temperatuur en druk.
+
+\paragraph{Temperatuur.} De temperatuur is de grootheid die gelijk is voor twee systemen in thermisch evenwicht. Een thermometer steunt op de nulde hoofdwet: hij komt in evenwicht met het voorwerp en toont daarna zijn eigen temperatuur, bijvoorbeeld via de uitzetting van een vloeistof of de weerstand van een draad.
+
+De celsiusschaal legt haar nulpunt willekeurig bij smeltend ijs. In de thermodynamica rekenen we altijd met de \emph{absolute} of \emph{kelvinschaal}:
+\begin{equation}
+T/\si{\kelvin} = t/\si{\celsius} + 273.15 .
+\end{equation}
+Een graad kelvin is even groot als een graad celsius; enkel het nulpunt verschilt. Dat het absolute nulpunt bij \SI{-273.15}{\celsius} ligt, is geen afspraak maar een meetresultaat, dat we in \S\ref{sec:ideale-gaswet} uit het gedrag van gassen afleiden. Een temperatuur\emph{verschil} is in kelvin en in graden celsius hetzelfde getal; in een formule zoals $pV = nRT$ moet $T$ wel altijd in kelvin staan.
+
+\paragraph{Druk.} Druk is kracht per oppervlakte, $p = F/A$, met als SI-eenheid de pascal, $\SI{1}{\pascal} = \SI{1}{\newton\per\metre\squared}$. Dat is een kleine eenheid; in de praktijk gebruik je de bar ($\SI{1}{\bar} = \SI{e5}{\pascal}$) en soms de atmosfeer ($\SI{1}{atm} = \SI{1.01325}{\bar}$). In een gas ontstaat de druk door de botsingen van de moleculen tegen de wand; hoe dat precies tot $pV = nRT$ leidt, zie je in \S\ref{sec:kinetische-gastheorie}.
+
+Let op het onderscheid tussen \emph{absolute druk} en \emph{overdruk}. Een manometer op een fietsband of een gasfles meet meestal het verschil met de buitenlucht. Toont de bandenpomp \SI{2.2}{\bar}, dan is de absolute druk in de band ongeveer $2.2 + 1.0 = \SI{3.2}{\bar}$. In de industrie schrijft men daarom vaak barg (\emph{gauge}, overdruk) of bara (absoluut). Thermodynamische formules gebruiken altijd de absolute druk.
+
 \subsection{Toestandsfuncties en padfuncties}
 
 Een \emph{toestandsfunctie} hangt enkel af van de toestand van het systeem, niet van de weg waarlangs die bereikt werd. De interne energie is er een voorbeeld hiervan: $\Delta U = U_2 - U_1$, welke weg je ook volgt. Hetzelfde geldt voor $H$, $S$ en $G$. Warmte en arbeid zijn daarentegen \emph{padfuncties}: hun waarde hangt af van het proces (figuur~\ref{fig:padfunctie}). Daarom schrijven we $\dd U$ (exacte differentiaal) maar $\delta Q$ en $\delta W$.
@@ -93,14 +109,48 @@ De reactor van de ammoniakfabriek staat op \SI{200}{\bar} en ongeveer \SI{450}{\
 
 Toestandsvariabelen zijn niet onafhankelijk: een \emph{toestandsvergelijking} verbindt ze. De eenvoudigste is de ideale gaswet. We bekijken eerst waarom ze werkt, dan wanneer ze faalt, en ten slotte hoe je dat corrigeert. Je zal in je verdere opleiding overal gassen tegenkomen, van perslucht tot stoom en koelmiddel, en dit is de plaats waar je leert inschatten hoe ver je met $pV = nRT$ komt.
 
-\subsection{De ideale gaswet}
+\subsection{De ideale gaswet: drie experimentele wetten}
+\label{sec:ideale-gaswet}
 
-Voor een verdund gas geldt
+De ideale gaswet is niet uit theorie ontstaan, maar uit metingen. Tussen 1660 en 1810 ontdekte men drie eenvoudige verbanden, elk door \'e\'en variabele vast te houden en te kijken hoe de andere twee samen veranderen.
+
+\paragraph{Wet van Boyle (1662): druk en volume bij vaste temperatuur.} Robert Boyle sloot lucht op in het korte, gesloten been van een J-vormige glazen buis en goot kwik in het open been. Hoe hoger de kwikkolom, hoe groter de druk op de opgesloten lucht, en hoe kleiner haar volume. Verdubbelde hij de druk, dan halveerde het volume:
 \begin{equation}
-pV = nRT,
+pV = \text{constant} \qquad (\text{vaste } n \text{ en } T).
 \end{equation}
-met $R = \SI{8.314}{\joule\per\mole\per\kelvin}$ (in SI-eenheden; met bar en liter wordt dat \SI{0.08314}{\litre\bar\per\mole\per\kelvin}). De ideale gaswet is een \emph{limietwet}: elk gas voldoet aan deze toestandsvergelijk in de limiet $p \to 0$, en elke betere toestandsvergelijking moet in die limiet tot $pV = nRT$ herleiden.
+Zet je de druk uit tegen $1/V$, dan krijg je een rechte door de oorsprong (figuur~\ref{fig:gaswetten}a). Bij een hogere temperatuur is de helling groter: hetzelfde gas in hetzelfde volume oefent dan een grotere druk uit. Je merkt de wet van Boyle wanneer je het uiteinde van een fietspomp dichthoudt en de zuiger induwt: halveer je het volume, dan voel je de tegendruk verdubbelen.
 
+\paragraph{Wet van Charles en Gay-Lussac (1787--1802): volume en temperatuur bij vaste druk.} Verwarm je een gas in een cilinder met een vrij bewegende zuiger, zodat de druk constant blijft, dan zet het uit. Het volume blijkt \emph{lineair} toe te nemen met de temperatuur in graden celsius (figuur~\ref{fig:gaswetten}b). De opmerkelijke vaststelling komt wanneer je die rechten naar lagere temperaturen doortrekt: voor elk gas en elke hoeveelheid snijden ze de temperatuuras in hetzelfde punt, bij \SI{-273.15}{\celsius}. Daar zou het volume nul worden. Een negatief volume bestaat niet, dus kan geen enkele temperatuur lager zijn: dat punt is het \emph{absolute nulpunt}. Kies je het als nulpunt van een nieuwe temperatuurschaal, de kelvinschaal, dan wordt het verband een eenvoudige evenredigheid:
+\begin{equation}
+V \propto T \qquad (\text{vaste } n \text{ en } p).
+\end{equation}
+Een echt gas condenseert natuurlijk lang voor het zo koud is; de extrapolatie is een gedachte-experiment, maar het nulpunt dat ze oplevert is wel echt. Een hete-luchtballon steunt op deze wet: lucht van \SI{100}{\celsius} neemt bij dezelfde druk $373/293 = 1.27$ keer meer volume in dan lucht van \SI{20}{\celsius}, en is dus 27\,\% lichter per kubieke meter.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/gaswetten}
+    \caption{(a) Wet van Boyle voor \SI{1}{\mole} gas: bij vaste temperatuur is de druk evenredig met $1/V$. (b) Wet van Charles bij \SI{1}{\bar}: het volume stijgt lineair met de temperatuur. Doorgetrokken naar lagere temperaturen (stippellijnen) snijden alle rechten de as bij \SI{-273.15}{\celsius}, het absolute nulpunt.}
+    \label{fig:gaswetten}
+\end{figure}
+
+\paragraph{Wet van Avogadro (1811): volume en hoeveelheid stof.} Gay-Lussac merkte dat gassen reageren in eenvoudige volumeverhoudingen: \'e\'en volume stikstof en drie volumes waterstof geven twee volumes ammoniak. Avogadro verklaarde dat met de hypothese dat gelijke volumes gas bij dezelfde druk en temperatuur evenveel moleculen bevatten, welk gas het ook is:
+\begin{equation}
+V \propto n \qquad (\text{vaste } p \text{ en } T).
+\end{equation}
+
+\paragraph{Samenvoegen tot \'e\'en wet.} De drie wetten zeggen elk iets over \'e\'en paar variabelen. We combineren ze in drie stappen.
+\begin{enumerate}
+\item Boyle en Charles samen: $V$ is evenredig met $T$ en omgekeerd evenredig met $p$, dus $V \propto T/p$, of $pV/T$ is constant voor een vaste hoeveelheid gas.
+\item Avogadro: die constante is evenredig met de hoeveelheid stof, dus $pV/T = n \times (\text{een constante})$.
+\item Omdat de wet van Avogadro voor elk gas geldt, is die laatste constante dezelfde voor alle gassen. Men noemt ze de \emph{gasconstante} $R$.
+\end{enumerate}
+Het resultaat is de \emph{ideale gaswet}:
+\begin{equation}
+\boxed{pV = nRT}
+\end{equation}
+met $R = \SI{8.314}{\joule\per\mole\per\kelvin}$ (in SI-eenheden; met bar en liter wordt dat \SI{0.08314}{\litre\bar\per\mole\per\kelvin}). Controleer daarom altijd of je eenheden bij de gekozen waarde van $R$ passen. Een handig ijkpunt: \'e\'en mol ideaal gas neemt bij \SI{0}{\celsius} en \SI{1}{\bar} \SI{22.7}{\litre} in, bij \SI{25}{\celsius} \SI{24.8}{\litre}.
+
+De ideale gaswet is een \emph{limietwet}. De metingen van Boyle en Charles gebeurden bij lage druk, en hoe nauwkeuriger men later mat, hoe duidelijker bleek dat echte gassen er een beetje van afwijken. In de limiet $p \to 0$ voldoet elk gas er wel exact aan, en elke betere toestandsvergelijking moet in die limiet tot $pV = nRT$ herleiden. Waarom gassen zich zo eenvoudig gedragen, en wanneer dat ophoudt, verklaart de kinetische gastheorie.
 
 \subsection{De ideale gaswet vanuit de moleculen: kinetische gastheorie}
 \label{sec:kinetische-gastheorie}
@@ -180,12 +230,22 @@ Wanneer een gas door een zeer klein gaatje ontsnapt (\emph{effusie}), is de snel
 
 \subsection{Afwijkingen van ideaal gedrag}
 
-Bij hoge druk en lage temperatuur gaan aannames (2) en (3) niet meer op. Dat zie je op drie manieren.
-\begin{itemize}
-\item \textbf{$pV$ is niet constant.} Volgens Boyle is $pV$ bij constante $T$ onafhankelijk van de druk (figuur~\ref{fig:Boyle}, links). Vergelijk je beide panelen van figuur~\ref{fig:Boyle}, dan zie je hoe groot de afwijking voor \ce{CO2} wordt: bij \SI{20}{\celsius} en \SI{0.5}{\litre\per\mole} voorspelt de ideale gaswet \SI{48.7}{\bar}, terwijl de werkelijke druk ongeveer \SI{37}{\bar} is, bijna een kwart lager. Voor een gas als stikstof bij kamertemperatuur blijft de afwijking onder \SI{10}{\bar} kleiner dan \SI{1}{\percent}, maar bij enkele honderden bar loopt ze op tot tientallen procenten.
-\item \textbf{Joule--Thomson-effect.} Een gas dat zonder warmte-uitwisseling door een ventiel expandeert, koelt bij kamertemperatuur meestal af. Bij een ideaal gas zou $T$ constant blijven. De interne energie van een re\"eel gas hangt dus af van het volume: de moleculen trekken elkaar aan.
-\item \textbf{Condensatie.} Volgens de ideale gaswet kan je een gas tot een willekeurig klein volume samenpersen. In werkelijkheid condenseert elk gas onder zijn \emph{kritische temperatuur} $T_c$ tot een vloeistof met een nagenoeg vast volume (figuur~\ref{fig:Boyle}, rechts). Boven $T_c$ (voor \ce{CO2} \SI{31.0}{\celsius}) condenseert het nooit, hoe hoog de druk ook wordt.
-\end{itemize}
+Bij hoge druk en lage temperatuur gaan aannames (2) en (3) niet meer op. Dat blijkt uit drie soorten metingen, die elk een ander aspect van het re\"ele gas blootleggen.
+
+\paragraph{Eerste waarneming: $pV$ is niet constant.} Regnault (1845) en later Amagat (1870--1890) herhaalden de proef van Boyle met veel grotere nauwkeurigheid en tot drukken van \SI{3000}{\bar}. Ze maten het product $pV$ bij constante temperatuur. Voor een ideaal gas blijft dat constant, hoe hoog de druk ook wordt. Voor echte gassen daalt $pV$ eerst wat bij stijgende druk, en stijgt het bij nog hogere druk sterk. Vergelijk je beide panelen van figuur~\ref{fig:Boyle}, dan zie je hoe groot de afwijking voor \ce{CO2} wordt: bij \SI{20}{\celsius} en \SI{0.5}{\litre\per\mole} voorspelt de ideale gaswet \SI{48.7}{\bar}, terwijl de werkelijke druk ongeveer \SI{37}{\bar} is, bijna een kwart lager. Voor stikstof bij kamertemperatuur blijft de afwijking onder \SI{10}{\bar} kleiner dan \SI{1}{\percent}, maar bij enkele honderden bar loopt ze op tot tientallen procenten. Precies in dat gebied werkt de ammoniakreactor.
+
+\paragraph{Tweede waarneming: het Joule--Thomson-effect.} Joule en Thomson (de latere Lord Kelvin) persten rond 1852 een gas door een poreuze prop in een goed ge\"isoleerde buis (figuur~\ref{fig:joule-thomson}). Links van de prop houdt een zuiger de druk op $p_1$, rechts staat het gas op de lagere druk $p_2$. Er wordt geen warmte uitgewisseld; ze maten enkel de temperatuur aan beide kanten. Voor een ideaal gas verwacht je geen temperatuurverschil: de moleculen merken elkaar niet, dus het maakt hen niet uit hoe ver ze uit elkaar staan. Toch vonden ze dat lucht en de meeste andere gassen bij kamertemperatuur \emph{afkoelen}: ongeveer \SI{0.2}{\kelvin} per bar drukval. De interne energie van een re\"eel gas hangt dus af van de afstand tussen de moleculen. Bij het uitzetten moeten de moleculen tegen hun onderlinge aantrekking in uit elkaar worden getrokken, en die energie gaat ten koste van hun beweging.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figuren/joule_thomson}
+    \caption{Proef van Joule en Thomson. Een gas wordt zonder warmte-uitwisseling door een poreuze prop geperst, van hoge druk $p_1$ naar lage druk $p_2$. De meeste gassen komen er bij kamertemperatuur kouder uit; voor een ideaal gas zou $T_2 = T_1$ zijn.}
+    \label{fig:joule-thomson}
+\end{figure}
+
+Dat effect is geen curiositeit. Je voelt het wanneer je een duikfles of een perslucht\-leiding laat leeglopen: het ventiel wordt koud. Carl von Linde bouwde er in 1895 de eerste installatie mee om lucht vloeibaar te maken: lucht van \SI{200}{\bar} expandeert door een ventiel en koelt daarbij ongeveer \SI{40}{\kelvin} af; die koude lucht koelt in een tegenstroomwarmtewisselaar de toestromende lucht voor, zodat de volgende expansie bij een lagere temperatuur begint. Na enkele cycli condenseert de lucht. Zo wordt vandaag nog altijd de stikstof gemaakt voor de ammoniakfabriek. Waterstof en helium gedragen zich bij kamertemperatuur omgekeerd: ze worden bij expansie een beetje \emph{warmer}, omdat bij hun zwakke aantrekking de afstoting de bovenhand haalt. Pas onder ongeveer \SI{200}{\kelvin} (waterstof) of \SI{40}{\kelvin} (helium) koelen ook zij af; daarom moet waterstof eerst met vloeibare stikstof worden voorgekoeld voor je het met een Linde-proces vloeibaar kan maken.
+
+\paragraph{Derde waarneming: condensatie en het kritiek punt.} Thomas Andrews mat in 1869 de isothermen van \ce{CO2} in een dikwandige glazen capillair, afgesloten met kwik, zodat hij tegelijk de druk kon instellen en kon \emph{zien} wat er in de buis gebeurde. Bij \SI{13}{\celsius} verscheen bij ongeveer \SI{50}{\bar} een vloeistof onderaan de buis. Terwijl hij verder comprimeerde, bleef de druk constant en groeide de vloeistoflaag, tot alle gas gecondenseerd was; daarna steeg de druk heel steil, want een vloeistof laat zich nauwelijks samendrukken. Bij hogere temperaturen werd het horizontale stuk korter, en boven \SI{31.0}{\celsius} verdween het helemaal: hoe hoog hij de druk ook opdreef, er verscheen geen meniscus meer. Die temperatuur noemde hij de \emph{kritische temperatuur} $T_c$ (figuur~\ref{fig:Boyle}, rechts). Volgens de ideale gaswet kan je een gas tot een willekeurig klein volume samenpersen; het bestaan van een vloeistof, en van een temperatuur waarboven die niet meer kan bestaan, valt er helemaal buiten.
 
 \begin{figure}[htb]
     \centering
@@ -291,14 +351,21 @@ Figuur~\ref{fig:vdw-isothermen} toont hoe de vergelijking van Van der Waals dit 
     \caption{Isothermen van Van der Waals in gereduceerde vorm ($p/p_c$ tegen $V_m/V_{m,c}$). Boven $T_c$ is er \'e\'en fase. Onder $T_c$ wordt de lus (stippellijn) in werkelijkheid vervangen door een horizontaal stuk: het gas condenseert bij constante druk. Het gekleurde gebied is het tweefasengebied, het kritiek punt de top ervan.}
     \label{fig:vdw-isothermen}
 \end{figure}
-Samen met de vergelijking zelf levert dit
+Samen met de vergelijking van Van der Waals zelf zijn dat drie vergelijkingen voor de drie onbekenden $V_{m,c}$, $T_c$ en $p_c$. We lossen ze in vier stappen op.
+\begin{enumerate}
+\item \emph{Herschrijf beide voorwaarden.} De eerste geeft $\dfrac{RT_c}{(V_{m,c}-b)^2} = \dfrac{2a}{V_{m,c}^3}$, de tweede (gedeeld door 2) $\dfrac{RT_c}{(V_{m,c}-b)^3} = \dfrac{3a}{V_{m,c}^4}$.
+\item \emph{Deel de eerste door de tweede.} Links blijft $V_{m,c}-b$ over, rechts $\tfrac23 V_{m,c}$. Dus $V_{m,c} - b = \tfrac23 V_{m,c}$, of $V_{m,c} = 3b$: in het kritiek punt neemt een mol gas drie keer het uitgesloten volume in.
+\item \emph{Vul $V_{m,c} = 3b$ in de eerste voorwaarde in.} Dat geeft $\dfrac{RT_c}{4b^2} = \dfrac{2a}{27b^3}$, zodat $T_c = \dfrac{8a}{27Rb}$. Hoe sterker de aantrekking ($a$ groot), hoe hoger de kritische temperatuur: sterk aantrekkende moleculen condenseren ook nog bij hoge temperatuur.
+\item \emph{Vul beide in de vergelijking van Van der Waals in.} $p_c = \dfrac{RT_c}{V_{m,c}-b} - \dfrac{a}{V_{m,c}^2} = \dfrac{4a}{27b^2} - \dfrac{3a}{27b^2} = \dfrac{a}{27b^2}$.
+\end{enumerate}
+Samengevat, en omgekeerd opgelost naar $a$ en $b$ (deel $T_c$ door $p_c$: $T_c/p_c = 8b/R$):
 \begin{equation}
 V_{m,c} = 3b, \qquad T_c = \frac{8a}{27Rb}, \qquad p_c = \frac{a}{27b^2}
 \qquad\Longleftrightarrow\qquad
 a = \frac{27 R^2 T_c^2}{64 p_c}, \qquad b = \frac{R T_c}{8 p_c}.
 \label{eq:vdw-ab}
 \end{equation}
-Zo bepaalt men $a$ en $b$ ook in de praktijk: de kritieke temperatuur en druk zijn nauwkeurig meetbaar, en daaruit volgen de parameters.
+Zo bepaalt men $a$ en $b$ ook in de praktijk: de kritieke temperatuur en druk zijn nauwkeurig meetbaar, en daaruit volgen de parameters. Je kan het model ook toetsen. Volgens Van der Waals is de compressibiliteitsfactor in het kritiek punt $p_cV_{m,c}/(RT_c) = 3/8 = 0.375$, voor elk gas. Gemeten waarden liggen voor de meeste gassen tussen 0.27 en 0.30: de vergelijking vangt het kritiek punt kwalitatief, maar niet exact. Dat is een van de redenen waarom men in de praktijk betere toestandsvergelijkingen gebruikt (\S\ref{sec:andere-toestandsvgl}).
 
 \begin{voorbeeld}{$a$ en $b$ voor $\mathrm{CO_2}$ uit het kritiek punt}
 Met $T_c = \SI{304.2}{\kelvin}$ en $p_c = \SI{73.8}{\bar}$ (tabel~\ref{tab:kritiek}):
@@ -533,7 +600,33 @@ Warmte en arbeid zijn twee manieren waarop energie de systeemgrens oversteekt. W
 
 \paragraph{De interne energie.} Daarvoor voeren we een nieuwe grootheid in, de \emph{interne energie} $U$. Ze omvat alle energie die op moleculaire schaal in het systeem zit: de translatie-energie van de moleculen die door elkaar vliegen, hun rotatie- en vibratie-energie, de potenti\"ele energie van de krachten tussen de moleculen, en de energie in de chemische bindingen. De kinetische en potenti\"ele energie van het systeem als geheel tellen niet mee: een gasfles in een rijdende vrachtwagen heeft dezelfde interne energie als een fles die stilstaat. Wat $U$ precies is op moleculair niveau, en waarom de energie in sommige vormen wel en in andere niet kan worden opgeslagen, zien we in hoofdstuk~\ref{ch:kwantum}.
 
-Het belangrijkste kenmerk van $U$ is dat ze een \emph{toestandsfunctie} is. Breng je een systeem van toestand 1 naar toestand 2, dan is $\Delta U = U_2 - U_1$, welke combinatie van warmte en arbeid je daarvoor ook gebruikt. Dat is een experimenteel feit: Joule toonde rond 1845 aan dat je water evengoed kan opwarmen met een roerder (arbeid) als met een vlam (warmte), en dat een vaste hoeveelheid arbeid altijd dezelfde temperatuurstijging geeft.
+Het belangrijkste kenmerk van $U$ is dat ze een \emph{toestandsfunctie} is. Breng je een systeem van toestand 1 naar toestand 2, dan is $\Delta U = U_2 - U_1$, welke combinatie van warmte en arbeid je daarvoor ook gebruikt. Dat is geen definitie maar een experimenteel feit, en het experiment dat het aantoonde, verdient een plaats.
+
+\paragraph{De proef van Joule.} James Prescott Joule, brouwerszoon uit Manchester, liet tussen 1845 en 1850 een gewicht langzaam zakken over een hoogte $h$ (figuur~\ref{fig:joule-proef}). Het touw draaide een as rond met een schoepenrad in een goed ge\"isoleerd vat water. De schoepen roerden het water, en door de wrijving steeg de temperatuur een fractie van een graad. De arbeid die het gewicht leverde, $W = mgh$, is precies bekend; warmte kon er niet in of uit.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/joule_proef}
+    \caption{De proef van Joule. Een dalend gewicht drijft een schoepenrad aan in een ge\"isoleerd vat water. De arbeid $mgh$ verschijnt volledig als een temperatuurstijging van het water.}
+    \label{fig:joule-proef}
+\end{figure}
+
+Joule vond drie dingen.
+\begin{enumerate}
+\item \emph{Dezelfde arbeid geeft altijd dezelfde temperatuurstijging}, hoe je die arbeid ook levert: met een schoepenrad, door twee ijzeren ringen tegen elkaar te wrijven of met een elektrische stroom door een weerstand. Om een ge\"isoleerd systeem van toestand 1 naar toestand 2 te brengen, is dus altijd evenveel arbeid nodig, langs welke weg ook. Een grootheid waarvan de verandering niet van de weg afhangt, is een toestandsfunctie: dat is de interne energie, met $\Delta U = W$ in een ge\"isoleerd vat.
+\item \emph{Arbeid en warmte zijn uitwisselbaar.} Dezelfde temperatuurstijging kan je ook met een vlam bereiken. Een calorie, de warmte die \SI{1}{\gram} water \SI{1}{\kelvin} opwarmt, komt overeen met een vaste hoeveelheid arbeid. Joule vond \SI{4.16}{\joule}; de huidige waarde is $\SI{1}{cal} = \SI{4.184}{\joule}$.
+\item \emph{Gebeurt er beide}, arbeid \'en warmte, dan is de verandering van $U$ de som van beide. Wat er bij een gegeven $\Delta U$ niet als arbeid binnenkomt, moet als warmte binnenkomen: $Q = \Delta U - W$. Zo wordt warmte gedefinieerd als energie die de grens oversteekt omdat er een temperatuurverschil is.
+\end{enumerate}
+
+Een rekenvoorbeeld maakt duidelijk waarom Joule zo nauwkeurig moest meten. Laat een gewicht van \SI{10}{\kilogram} twintig keer over \SI{2}{\metre} zakken in een vat met \SI{1}{\kilogram} water:
+\[
+W = 20\,mgh = 20\,(10)(9.81)(2) = \SI{3924}{\joule},
+\qquad
+\Delta T = \frac{W}{m_\text{water}\,c_\text{water}} = \frac{3924}{(1)(4184)} = \SI{0.94}{\kelvin}.
+\]
+Al dat werk geeft nog geen graad opwarming. Dezelfde \SI{3.9}{\kilo\joule} krijg je uit ongeveer \SI{0.1}{\gram} aardgas. Mechanische arbeid is een `dure' vorm van energie, warmte een `goedkope': een inzicht dat in hoofdstuk~\ref{ch:spontaniteit} een precieze betekenis krijgt.
+
+De resultaten van Joule samengevat in \'e\'en wet:
 
 \begin{definitie}{Eerste hoofdwet van de thermodynamica}
 De verandering van de interne energie van een gesloten systeem is de som van de ontvangen warmte en de op het systeem verrichte arbeid:
@@ -880,7 +973,7 @@ Dat is enkel de faseovergang; het afkoelen van het hete gas komt er nog bij. Omd
 \emph{Volgende vraag.} Die ammoniak ontstaat in de reactor, en daar komt bij de vorming zelf warmte vrij. Hoeveel?
 \end{casusuitgewerkt}
 
-\section{Standaardtoestanden en de wet van Hess}
+\section{Reactiewarmte: calorimetrie en de wet van Hess}
 \label{sec:hess}
 
 \begin{casus}{hoeveel warmte geeft de reactie?}
@@ -889,7 +982,53 @@ Per mol ammoniak die in de reactor ontstaat, komt warmte vrij. Hoeveel, en hoe b
 \emph{Schat eerst zelf:} is de vorming van ammoniak sterk exotherm, zoals de verbranding van aardgas, of eerder bescheiden?
 \end{casus}
 
-Enthalpie\"en worden altijd opgegeven ten opzichte van een \emph{standaardtoestand}: zuivere stof bij \SI{1}{\bar}, meestal getabelleerd bij \SI{298.15}{\kelvin}. De \emph{standaardvormingsenthalpie} $\Delta H_f^\circ$ is de enthalpieverandering wanneer \'e\'en mol van een stof gevormd wordt uit de elementen in hun standaardtoestand. Voor die elementen zelf is $\Delta H_f^\circ = 0$. Omdat $H$ een toestandsfunctie is, mag je elke reactie opsplitsen in ``ontbinden tot elementen'' en ``opbouwen tot producten'' (figuur~\ref{fig:hess}). Dat is de \emph{wet van Hess}:
+\subsection{Reactiewarmte meten: calorimetrie}
+
+Hoe weet men hoeveel warmte een reactie afgeeft? Door ze te laten verlopen in een \emph{calorimeter} en de temperatuurstijging te meten. Voor verbrandingen gebruikt men een \emph{bomcalorimeter} (figuur~\ref{fig:bomcalorimeter}). Een afgewogen staal ligt in een stalen vat, de bom, gevuld met zuivere zuurstof onder ongeveer \SI{30}{\bar}. De bom staat in een gekende hoeveelheid water, met een roerder en een nauwkeurige thermometer, en het geheel is van de omgeving ge\"isoleerd. Een korte stroomstoot door een gloeidraad ontsteekt het staal; de verbranding is in enkele seconden volledig, en de vrijgekomen warmte verdeelt zich over de bom en het water.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/bomcalorimeter}
+    \caption{Bomcalorimeter. Het staal verbrandt in zuurstof in een gesloten stalen bom, dus bij constant volume. De warmte gaat naar de bom en het omringende water; uit de temperatuurstijging volgt $\Delta U$ van de reactie.}
+    \label{fig:bomcalorimeter}
+\end{figure}
+
+De meting gebeurt in drie stappen.
+\begin{enumerate}
+\item \emph{IJken.} Men verbrandt eerst een stof waarvan de verbrandingswarmte nauwkeurig gekend is, meestal benzoëzuur (\SI{26.43}{\kilo\joule\per\gram}). Uit de gemeten temperatuurstijging volgt de warmtecapaciteit van het hele toestel, $C_\text{cal}$, typisch zo'n \SI{10}{\kilo\joule\per\kelvin}.
+\item \emph{Meten.} Daarna verbrandt men het staal en meet $\Delta T$. De warmte die de reactie afgaf is $q = -C_\text{cal}\,\Delta T$.
+\item \emph{Omrekenen naar $\Delta H$.} De bom is gesloten: het volume is constant en er wordt geen volumearbeid geleverd. De gemeten warmte is dus $\Delta U$, niet $\Delta H$. Met $\Delta H = \Delta U + \Delta n_\text{gas}RT$ (\S\ref{sec:enthalpie}) reken je om.
+\end{enumerate}
+
+\begin{voorbeeld}{De verbrandingsenthalpie van octaan}
+Men verbrandt \SI{1.000}{\gram} octaan (\ce{C8H18}, $M = \SI{114.2}{\gram\per\mole}$, dus \SI{8.757}{\milli\mole}) in een bomcalorimeter met $C_\text{cal} = \SI{10.00}{\kilo\joule\per\kelvin}$. De temperatuur stijgt \SI{4.78}{\kelvin}.
+\begin{align*}
+q &= -C_\text{cal}\,\Delta T = -(10.00)(4.78) = \SI{-47.8}{\kilo\joule},\\
+\Delta_c U &= \frac{-47.8}{0.008757} = \SI{-5460}{\kilo\joule\per\mole}.
+\end{align*}
+Voor \ce{C8H18(l) + 25/2 O2(g) -> 8 CO2(g) + 9 H2O(l)} is $\Delta n_\text{gas} = 8 - 12.5 = -4.5$, zodat
+\[
+\Delta_c H = \Delta_c U + \Delta n_\text{gas} RT = -5460 + (-4.5)(8.314\times10^{-3})(298) = \SI{-5471}{\kilo\joule\per\mole}.
+\]
+Het verschil is \SI{0.2}{\percent}: voor een verbranding is $\Delta U \approx \Delta H$, maar wie nauwkeurig werkt, rekent het door. Per kilogram is dat \SI{47.9}{\mega\joule}, de stookwaarde van benzine.
+\end{voorbeeld}
+
+Voor reacties in oplossing (neutralisaties, oplossen van zouten) volstaat een eenvoudiger toestel: een ge\"isoleerde beker bij atmosferische druk, in het labo vaak niet meer dan twee in elkaar geschoven piepschuimen bekers met een deksel. Daar is de druk constant, en meet je dus rechtstreeks $\Delta H$.
+
+\subsection{Standaardtoestanden en de wet van Hess}
+
+Niet elke reactie laat zich in een calorimeter meten. Verbrand je koolstof met te weinig zuurstof, dan krijg je altijd een mengsel van \ce{CO} en \ce{CO2}; de reactie \ce{C + 1/2 O2 -> CO} zuiver laten verlopen lukt niet. Twee andere reacties zijn wel netjes meetbaar:
+\begin{align*}
+\ce{C(s) + O2(g) &-> CO2(g)} & \Delta H &= \SI{-393.5}{\kilo\joule\per\mole},\\
+\ce{CO(g) + 1/2 O2(g) &-> CO2(g)} & \Delta H &= \SI{-283.0}{\kilo\joule\per\mole}.
+\end{align*}
+Ga je van koolstof naar \ce{CO2}, dan kan dat rechtstreeks of via \ce{CO}. Omdat $H$ een toestandsfunctie is, moet de totale enthalpieverandering langs beide wegen gelijk zijn. Dus is
+\[
+\Delta H(\ce{C + 1/2 O2 -> CO}) = -393.5 - (-283.0) = \SI{-110.5}{\kilo\joule\per\mole}.
+\]
+Germain Hess stelde in 1840, nog voor de eerste hoofdwet geformuleerd was, experimenteel vast dat reactiewarmtes zich zo laten optellen. Zijn wet is een rechtstreeks gevolg van het feit dat enthalpie een toestandsfunctie is. Je kan er reactie-enthalpie\"en mee berekenen die niemand ooit gemeten heeft.
+
+Om dat systematisch te doen, zijn twee afspraken nodig. Enthalpie\"en worden altijd opgegeven ten opzichte van een \emph{standaardtoestand}: zuivere stof bij \SI{1}{\bar}, meestal getabelleerd bij \SI{298.15}{\kelvin}. De \emph{standaardvormingsenthalpie} $\Delta H_f^\circ$ is de enthalpieverandering wanneer \'e\'en mol van een stof gevormd wordt uit de elementen in hun standaardtoestand. Voor die elementen zelf is $\Delta H_f^\circ = 0$. Omdat $H$ een toestandsfunctie is, mag je elke reactie opsplitsen in ``ontbinden tot elementen'' en ``opbouwen tot producten'' (figuur~\ref{fig:hess}). Dat is de \emph{wet van Hess}:
 \begin{equation}
 \Delta_r H^\circ = \sum_i \nu_i\, \Delta H_{f,i}^\circ ,
 \end{equation}

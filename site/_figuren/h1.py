@@ -1032,3 +1032,139 @@ def ammoniak_bedden():
     ax.set_xlabel("temperatuur (°C)")
     ax.set_ylabel("NH$_3$ in het gas (mol %)")
     return kader(fig)
+
+
+# ================================================= experimentele vertrekpunten (H1)
+def _schema(fig, ax):
+    ax.set_axis_off()
+    ax.set_aspect("equal")
+
+
+def gaswetten():
+    """(a) Wet van Boyle: p tegen 1/V is een rechte. (b) Wet van Charles: V tegen t, extrapolatie naar -273.15 °C."""
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(9.4, 4.0))
+    fig.get_layout_engine().set(w_pad=0.3)
+    inv = np.linspace(0, 1.0, 50)  # 1/V in L^-1
+    for i, T in enumerate([273, 373, 473]):
+        k = K.warmte(i / 2)
+        a1.plot(inv, 0.08314 * T * inv, color=k, lw=2)
+        label(a1, 1.02, 0.08314 * T, f"{T} K", k, va="center", fontsize=10.5)
+    a1.set_xlim(0, 1.2)
+    a1.set_ylim(0, 42)
+    a1.set_xlabel(r"$1/V$ (L$^{-1}$)")
+    a1.set_ylabel(r"druk $p$ (bar)")
+    a1.set_title(r"(a) Boyle: bij vaste $T$ is $p \propto 1/V$", fontsize=11.5, color=K.tekst)
+    label(a1, 0.05, 37, r"1 mol gas", K.zacht, fontsize=10.5)
+    t_m = np.linspace(0, 300, 50)
+    t_x = np.linspace(-273.15, 0, 50)
+    for n, k in [(1.0, K.blauw), (0.5, K.groen), (0.25, K.oker)]:
+        a2.plot(t_m, 0.08314 * n * (t_m + 273.15), color=k, lw=2)
+        a2.plot(t_x, 0.08314 * n * (t_x + 273.15), color=k, lw=1.2, ls=(0, (3, 2)))
+        label(a2, 305, 0.08314 * n * 573.15, f"{n:g} mol", k, va="center", fontsize=10.5)
+    a2.axvspan(0, 300, color=K.vlak_grijs, lw=0, zorder=0)
+    label(a2, 150, 50, "gemeten", K.zacht, ha="center", fontsize=10.5)
+    label(a2, -140, 50, "geëxtrapoleerd", K.zacht, ha="center", fontsize=10.5)
+    a2.plot([-273.15], [0], "o", color=K.rood, ms=7, zorder=5)
+    pijl(a2, (-200, 30), (-271, 1.5), K.rood, lw=1.2)
+    label(a2, -200, 31, r"$-273.15$ °C = 0 K", K.rood, ha="center", va="bottom", fontsize=10.5)
+    a2.set_xlim(-300, 370)
+    a2.set_ylim(0, 54)
+    a2.set_xlabel(r"temperatuur $t$ (°C)")
+    a2.set_ylabel(r"volume $V$ (L) bij 1 bar")
+    a2.set_title("(b) Charles: bij vaste $p$ is $V \\propto T$", fontsize=11.5, color=K.tekst)
+    return kader(fig)
+
+
+def joule_thomson():
+    """Proef van Joule en Thomson: gas wordt door een poreuze prop geperst; de temperatuur daalt."""
+    fig, ax = figuur(8.4, 3.0)
+    _schema(fig, ax)
+    ax.set_aspect("auto")
+    ax.add_patch(plt.Rectangle((0.3, 0.55), 9.4, 1.5, fc=K.vlak_grijs, ec=K.zacht, lw=1, hatch="///", alpha=0.6))
+    ax.add_patch(plt.Rectangle((0.5, 0.75), 9.0, 1.1, fc=K.achtergrond, ec=K.as_, lw=1.6))
+    label(ax, 5.0, 2.12, "isolatie: geen warmte-uitwisseling ($Q = 0$)", K.zacht, ha="center", va="bottom",
+          fontsize=10.5)
+    ax.add_patch(plt.Rectangle((4.7, 0.75), 0.6, 1.1, fc=K.vlak_oker, ec=K.oker, lw=1.4, hatch="..."))
+    label(ax, 5.0, 0.62, "poreuze prop\n(of ventiel)", K.oker, ha="center", va="top", fontsize=10.5)
+    ax.add_patch(plt.Rectangle((1.1, 0.75), 0.18, 1.1, fc=K.zacht, ec=K.as_))
+    ax.add_patch(plt.Rectangle((8.6, 0.75), 0.18, 1.1, fc=K.zacht, ec=K.as_))
+    pijl(ax, (0.6, 1.3), (1.05, 1.3), K.tekst, lw=1.6)
+    pijl(ax, (8.85, 1.3), (9.4, 1.3), K.tekst, lw=1.6)
+    rng = np.random.default_rng(4)
+    for x, y in zip(rng.uniform(1.45, 4.55, 34), rng.uniform(0.85, 1.75, 34)):
+        ax.add_patch(plt.Circle((x, y), 0.04, fc=K.rood, ec="none"))
+    for x, y in zip(rng.uniform(5.45, 8.45, 12), rng.uniform(0.85, 1.75, 12)):
+        ax.add_patch(plt.Circle((x, y), 0.04, fc=K.blauw, ec="none"))
+    label(ax, 2.9, 2.5, r"hoge druk $p_1$, temperatuur $T_1$", K.rood, ha="center", fontsize=11)
+    label(ax, 7.0, 2.5, r"lage druk $p_2$, temperatuur $T_2$", K.blauw, ha="center", fontsize=11)
+    label(ax, 5.0, -0.25, r"luchtvoorbeeld: van 200 naar 1 bar koelt het gas ongeveer 40 K af",
+          K.tekst, ha="center", fontsize=10.5)
+    ax.set_xlim(0, 10)
+    ax.set_ylim(-0.5, 2.9)
+    return kader(fig)
+
+
+def joule_proef():
+    """Proef van Joule: een dalend gewicht drijft een schoepenrad aan in geïsoleerd water."""
+    fig, ax = figuur(6.4, 4.4)
+    _schema(fig, ax)
+    # vat
+    ax.add_patch(plt.Rectangle((0.6, 0.4), 3.6, 2.6, fc=K.vlak_grijs, ec=K.zacht, lw=1, hatch="///", alpha=0.6))
+    ax.add_patch(plt.Rectangle((0.8, 0.6), 3.2, 2.2, fc=K.vlak_blauw, ec=K.as_, lw=1.6))
+    label(ax, 2.4, 0.15, "geïsoleerd vat met water", K.blauw, ha="center", va="top", fontsize=10.5)
+    # as en schoepen
+    ax.plot([2.4, 2.4], [1.0, 4.1], color=K.as_, lw=2.4)
+    for y in (1.2, 1.7, 2.2):
+        ax.add_patch(plt.Rectangle((1.6, y - 0.08), 1.6, 0.16, fc=K.zacht, ec=K.as_, lw=1))
+    pijl(ax, (4.5, 2.5), (3.15, 2.2), K.tekst, lw=1.0)
+    label(ax, 4.55, 2.5, "schoepenrad", K.tekst, va="center", fontsize=10)
+    # trommel en touw
+    ax.add_patch(plt.Rectangle((2.15, 3.7), 0.5, 0.4, fc=K.vlak_oker, ec=K.oker, lw=1.4))
+    ax.plot([2.65, 5.6], [4.05, 4.05], color=K.as_, lw=1.2)
+    ax.add_patch(plt.Circle((5.75, 3.9), 0.18, fc="none", ec=K.as_, lw=1.4))
+    ax.plot([5.93, 5.93], [3.9, 2.2], color=K.as_, lw=1.2)
+    ax.add_patch(plt.Rectangle((5.6, 1.5), 0.66, 0.7, fc=K.vlak_rood, ec=K.rood, lw=1.6))
+    label(ax, 5.93, 1.85, "$m$", K.rood, ha="center", va="center", fontsize=12)
+    pijl(ax, (6.6, 2.2), (6.6, 0.9), K.rood, lw=1.8)
+    label(ax, 6.75, 1.55, "valt over\nhoogte $h$", K.rood, va="center", fontsize=10.5)
+    # thermometer
+    ax.add_patch(plt.Rectangle((1.05, 1.0), 0.14, 2.6, fc=K.achtergrond, ec=K.as_, lw=1.2))
+    ax.add_patch(plt.Rectangle((1.07, 1.0), 0.10, 1.4, fc=K.rood, ec="none"))
+    label(ax, 1.12, 3.7, "thermometer", K.tekst, ha="center", va="bottom", fontsize=10)
+    label(ax, 3.0, 4.45, r"arbeid $W = mgh$  $\rightarrow$  $\Delta T\,$ van het water", K.tekst, fontsize=10.5)
+    ax.set_xlim(0.3, 8.0)
+    ax.set_ylim(-0.2, 4.7)
+    return kader(fig)
+
+
+def bomcalorimeter():
+    """Bomcalorimeter: verbranding bij constant volume in een stalen bom, omringd door water."""
+    fig, ax = figuur(6.6, 4.6)
+    _schema(fig, ax)
+    ax.add_patch(plt.Rectangle((0.3, 0.3), 5.4, 4.0, fc=K.vlak_grijs, ec=K.zacht, lw=1, hatch="///", alpha=0.6))
+    label(ax, 3.0, 4.38, "isolerende mantel", K.zacht, ha="center", va="bottom", fontsize=10)
+    ax.add_patch(plt.Rectangle((0.6, 0.6), 4.8, 3.3, fc=K.vlak_blauw, ec=K.as_, lw=1.6))
+    label(ax, 4.6, 0.8, "water", K.blauw, ha="center", fontsize=10.5)
+    # bom
+    from matplotlib.patches import FancyBboxPatch
+    ax.add_patch(FancyBboxPatch((2.0, 0.9), 1.8, 2.2, boxstyle="round,pad=0,rounding_size=0.25",
+                                fc=K.vlak_accent, ec=K.as_, lw=2.4))
+    label(ax, 2.9, 3.2, "stalen bom\n(O$_2$, 30 bar)", K.accent, ha="center", va="bottom", fontsize=10)
+    ax.add_patch(plt.Rectangle((2.55, 1.3), 0.7, 0.2, fc=K.zacht, ec=K.as_))
+    ax.add_patch(plt.Rectangle((2.65, 1.5), 0.5, 0.18, fc=K.vlak_oker, ec=K.oker))
+    label(ax, 2.9, 1.15, "staal", K.oker, ha="center", va="top", fontsize=9.5)
+    ax.plot([2.35, 2.35, 2.75], [3.1, 1.85, 1.62], color=K.rood, lw=1.2)
+    ax.plot([3.45, 3.45, 3.05], [3.1, 1.85, 1.62], color=K.rood, lw=1.2)
+    label(ax, 3.55, 2.4, "ontstekings-\ndraad", K.rood, fontsize=9.5, va="center")
+    # roerder en thermometer
+    ax.plot([1.2, 1.2], [1.0, 4.6], color=K.as_, lw=1.8)
+    ax.add_patch(plt.Rectangle((0.95, 1.0), 0.5, 0.12, fc=K.zacht, ec=K.as_))
+    label(ax, 1.2, 4.65, "roerder", K.tekst, ha="center", va="bottom", fontsize=10)
+    ax.add_patch(plt.Rectangle((4.75, 1.4), 0.14, 3.2, fc=K.achtergrond, ec=K.as_, lw=1.2))
+    ax.add_patch(plt.Rectangle((4.77, 1.4), 0.10, 1.6, fc=K.rood, ec="none"))
+    label(ax, 4.82, 4.65, "thermometer", K.tekst, ha="center", va="bottom", fontsize=10)
+    label(ax, 6.0, 2.6, "constant volume:\n" + r"$q_V = \Delta U$" + "\n\n" + r"$q_V = C_\mathrm{cal}\,\Delta T$",
+          K.tekst, va="center", fontsize=11)
+    ax.set_xlim(0.1, 8.0)
+    ax.set_ylim(0.1, 5.1)
+    return kader(fig)
