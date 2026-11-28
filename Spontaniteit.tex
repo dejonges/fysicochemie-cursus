@@ -32,15 +32,40 @@ Zet een warme kop koffie in een koude kamer en ze koelt af tot kamertemperatuur.
 \emph{Schat eerst zelf:} denk aan de energiekwanta van hoofdstuk~\ref{ch:kwantum}. Als je een handvol kwanta willekeurig verdeelt over de moleculen van twee voorwerpen, waar komen ze dan vooral terecht?
 \end{casus}
 
-Hete koffie die afkoelt, parfum dat zich verspreidt, melk die mengt met koffie, een ijsblokje dat smelt in een warm drankje: deze heel verschillende processen hebben \'e\'en ding gemeen. Ze evolueren naar een toestand die veel \emph{waarschijnlijker} is dan de begintoestand. Om dat te begrijpen, moeten we tellen op moleculair niveau.
+Hete koffie die afkoelt, parfum dat zich door een kamer verspreidt, melk die zich mengt met koffie, een ijsblokje dat smelt in een warm drankje: het zijn heel verschillende processen, gedreven door warmteoverdracht, diffusie of een faseovergang. Toch hebben ze \'e\'en ding gemeen: ze verlopen vanzelf in \'e\'en richting, en nooit in de omgekeerde. Lauwe koffie warmt zichzelf nooit op, een mengsel ontmengt nooit vanzelf, en een glas water vormt nooit spontaan een ijsblokje op kamertemperatuur.
 
+\subsection{Spontane processen: energie is niet het criterium}
+
+Het ligt voor de hand om te denken dat een proces vanzelf verloopt omdat de energie daalt, zoals een bal die van een helling rolt. De eerste hoofdwet laat echter geen onderscheid toe. Stroomt \SI{1}{\kilo\joule} warmte van de koffie naar de kamer, dan verliest de koffie \SI{1}{\kilo\joule} en wint de kamer \SI{1}{\kilo\joule}. Stroomt dezelfde \SI{1}{\kilo\joule} omgekeerd, dan klopt de energiebalans evengoed. De eerste hoofdwet verbiedt geen van beide richtingen.
+
+Twee proeven tonen dat een daling van de energie ook geen voorwaarde is.
+
+\paragraph{De vrije expansie van Joule.} Joule plaatste in 1845 twee koperen vaten, verbonden door een kraan, in een waterbad (figuur~\ref{fig:vrije-expansie}). Het ene vat bevatte lucht onder \SI{22}{\bar}, het andere was luchtledig. Hij opende de kraan: de lucht verspreidde zich over beide vaten, en hij mat de temperatuur van het bad. Die veranderde niet. Het gas verrichtte geen arbeid (het expandeerde in het vacu\"um, tegen geen enkele tegendruk), en het wisselde geen warmte uit met het bad, dus $\Delta U = 0$. Toch verloopt de expansie vanzelf, en nooit kruipt het gas vanzelf terug in \'e\'en vat.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figuren/vrije_expansie}
+    \caption{De vrije expansie van Joule. Na het openen van de kraan vult het gas beide vaten, terwijl de temperatuur van het bad gelijk blijft: de interne energie van het gas verandert niet, en toch verloopt het proces vanzelf in \'e\'en richting.}
+    \label{fig:vrije-expansie}
+\end{figure}
+
+\paragraph{Endotherme processen die vanzelf verlopen.} Een ijsblokje in een glas limonade smelt en neemt daarbij warmte op: de enthalpie van het water stijgt. Ammoniumnitraat lost vanzelf op in water, terwijl de oplossing zo sterk afkoelt dat men er koude kompressen mee maakt. De energie van het systeem stijgt hier, en toch verloopt het proces vanzelf.
+
+Er is dus een tweede principe nodig, naast het behoud van energie, om de richting van een proces te voorspellen. De sleutel ligt in een vaststelling die alle voorbeelden gemeen hebben: het systeem evolueert telkens naar een toestand die op moleculair niveau veel \emph{waarschijnlijker} is dan de begintoestand. Om dat te begrijpen, moeten we leren tellen.
 
 \subsection{Microtoestanden en macrotoestanden}
 \label{sec:waarschijnlijkheid-entropie}
 
-Druk, volume en temperatuur beschrijven een gas als geheel: dat is een \emph{macrotoestand}. Op moleculair niveau heeft elke molecule op elk ogenblik een eigen positie en snelheid. Elke mogelijke schikking heet een \emph{microtoestand}. Bij \'e\'en macrotoestand horen ontelbaar veel microtoestanden.
+Druk, volume, temperatuur en samenstelling beschrijven een gas als geheel. Zo'n beschrijving heet een \emph{macrotoestand}. Op moleculair niveau heeft elke molecule op elk ogenblik een eigen positie en een eigen energie. Een volledige opgave van alle posities en energie\"en heet een \emph{microtoestand}. Bij \'e\'en macrotoestand horen ontelbaar veel microtoestanden: de moleculen bewegen voortdurend en wisselen van plaats, maar de druk en temperatuur die je meet, blijven dezelfde.
 
-Neem een vat met een tussenschot, met alle moleculen links. Haal je het schot weg, dan verspreiden ze zich over het hele vat. Geen kracht duwt ze naar rechts; er zijn gewoon veel meer schikkingen met de moleculen gelijk verdeeld dan met alle moleculen links (figuur~\ref{fig:microtoestanden}). Met vier moleculen is ``alles links'' nog \'e\'en kans op zestien. Met duizend moleculen is het $2^{-1000} \approx 10^{-301}$, en een mol gas bevat $6\times10^{23}$ moleculen. Het systeem gaat dus naar de macrotoestand met de meeste microtoestanden, omdat die overweldigend waarschijnlijker is.
+Neem opnieuw het vat van Joule, maar nu met slechts vier moleculen, die we a, b, c en d noemen. Elke molecule kan zich in de linker- of de rechterhelft bevinden, onafhankelijk van de andere. Er zijn dus $2 \times 2 \times 2 \times 2 = 2^4 = 16$ microtoestanden, en omdat de moleculen voortdurend bewegen, is elk ervan even waarschijnlijk. Groeperen we ze volgens het aantal moleculen links (de macrotoestand), dan vinden we:
+\begin{itemize}
+\item alle vier links: 1 microtoestand (abcd);
+\item drie links: 4 microtoestanden (abc, abd, acd, bcd);
+\item twee links: 6 microtoestanden (ab, ac, ad, bc, bd, cd);
+\item \'e\'en links: 4, en geen enkele links: 1.
+\end{itemize}
+De gelijkmatige verdeling is het waarschijnlijkst (6 kansen op 16), maar ``alles links'' is met 1 kans op 16 nog heel goed mogelijk (figuur~\ref{fig:microtoestanden}, links). Met duizend moleculen ligt dat helemaal anders. Het aantal microtoestanden met $n$ moleculen links is dan $1000!/(n!\,(1000-n)!)$, en de verdeling wordt een smalle piek rond de helft (figuur~\ref{fig:microtoestanden}, rechts). De kans dat alle moleculen links zitten, is $2^{-1000} \approx 10^{-301}$. Een mol gas bevat $6\times10^{23}$ moleculen: de kans op een merkbare afwijking van de gelijkmatige verdeling is daar zo klein dat je ze in de hele levensduur van het heelal nooit zou zien.
 
 \begin{figure}[htb]
     \centering
@@ -49,32 +74,97 @@ Neem een vat met een tussenschot, met alle moleculen links. Haal je het schot we
     \label{fig:microtoestanden}
 \end{figure}
 
+Dat verklaart de proef van Joule. Geen kracht duwt het gas naar het lege vat. De moleculen bewegen willekeurig, en daardoor belandt het systeem in de macrotoestand met de meeste microtoestanden, gewoon omdat die overweldigend waarschijnlijker is. De terugweg is niet verboden, maar zo onwaarschijnlijk dat hij in de praktijk nooit voorkomt.
+
 \subsection{De formule van Boltzmann}
 
-Boltzmann verbond het aantal microtoestanden $\Omega$ van een macrotoestand met de \emph{entropie}:
+Ludwig Boltzmann gaf in 1877 een naam aan dit getal: hij verbond het aantal microtoestanden $\Omega$ van een macrotoestand met de \emph{entropie} $S$,
 \begin{equation}
 \boxed{S = k_B \ln \Omega}
+\label{eq:boltzmann}
 \end{equation}
-met $k_B = \SI{1.381e-23}{\joule\per\kelvin}$. Waarom een logaritme? Entropie moet extensief zijn: twee identieke systemen samen hebben dubbel zoveel entropie. Het aantal microtoestanden \emph{vermenigvuldigt} echter: voor elke microtoestand van $A$ kan $B$ in elk van zijn microtoestanden zitten, dus $\Omega_\text{tot} = \Omega_A\Omega_B$ (zoals twee dobbelstenen niet $6 + 6$ maar $6 \times 6 = 36$ uitkomsten hebben). De logaritme zet dat product om in een som: $\ln(\Omega_A\Omega_B) = \ln\Omega_A + \ln\Omega_B$. De constante $k_B$ zorgt dat de eenheid aansluit bij de klassieke entropie in \si{\joule\per\kelvin}.
+met de constante van Boltzmann $k_B = R/N_A = \SI{1.381e-23}{\joule\per\kelvin}$. De formule staat op zijn grafsteen in Wenen.
 
-Entropie is dus een maat voor het aantal manieren waarop een macrotoestand kan worden gerealiseerd. Mengen, warmte die van warm naar koud stroomt, een gas dat expandeert: telkens gaat het systeem naar een toestand met meer microtoestanden.
+\paragraph{Waarom een logaritme?} Waarom niet gewoon $S \propto \Omega$? Het antwoord volgt uit een eigenschap die we van entropie verwachten: ze moet \emph{extensief} zijn, zoals volume of massa. Voeg je twee identieke, onafhankelijke systemen samen, dan moet de entropie verdubbelen: $S_\text{tot} = S_A + S_B$. We volgen de redenering in drie stappen.
+\begin{enumerate}
+\item \emph{Microtoestanden vermenigvuldigen.} Voor elk van de $\Omega_A$ microtoestanden van systeem A kan systeem B zich in elk van zijn $\Omega_B$ microtoestanden bevinden. Het totale aantal combinaties is dus het \emph{product} $\Omega_\text{tot} = \Omega_A\,\Omega_B$. Zo hebben twee dobbelstenen niet $6 + 6 = 12$, maar $6 \times 6 = 36$ mogelijke uitkomsten.
+\item \emph{Entropie moet optellen.} Met $S \propto \Omega$ zou het samenvoegen van twee identieke systemen de entropie niet verdubbelen maar kwadrateren. Hebben A en B elk $\Omega = 10^3$ microtoestanden, dan heeft het geheel er $10^6$: niet twee keer, maar duizend keer zoveel.
+\item \emph{De logaritme zet een product om in een som.} We hebben een functie nodig met $f(\Omega_A\Omega_B) = f(\Omega_A) + f(\Omega_B)$. Dat is precies de eigenschap van de logaritme, en ze is de enige functie die eraan voldoet. In het voorbeeld: $\ln(10^6) = 6\ln 10 = 2 \times (3\ln 10) = 2\ln(10^3)$. De logaritme van het geheel is wel precies het dubbele van die van elk deel.
+\end{enumerate}
+De logaritme blijft bovendien stijgen met $\Omega$: een macrotoestand met meer microtoestanden heeft een hogere entropie. De constante $k_B$ is enkel een schaalfactor, zo gekozen dat de statistische entropie dezelfde waarde en eenheid (\si{\joule\per\kelvin}) heeft als de klassieke entropie die Clausius al eerder uit warmtemetingen had afgeleid (\S\ref{sec:tweedehoofdwet}).
+
+Entropie is dus een maat voor het aantal manieren waarop een macrotoestand kan worden gerealiseerd. Mengen, warmte die van warm naar koud stroomt, een gas dat expandeert: telkens gaat het systeem naar een toestand met meer microtoestanden, dus met een hogere entropie. We maken dat nu kwantitatief voor twee situaties die je als ingenieur steeds tegenkomt: een gas dat uitzet, en twee stoffen die mengen.
 
 \subsubsection{Entropieverandering bij isotherme expansie}
 
-Verdeel het volume $V$ in denkbeeldige cellen met volume $v_0$. Elke molecule heeft dan $V/v_0$ plaatsen, en $N$ onafhankelijke moleculen samen $\Omega \propto (V/v_0)^N$ schikkingen. Bij expansie van $V_1$ naar $V_2$ is $\Omega_2/\Omega_1 = (V_2/V_1)^N$, zodat $\Delta S = k_B N\ln(V_2/V_1)$. Met $N = nN_A$ en $k_BN_A = R$:
+We berekenen hoeveel de entropie stijgt wanneer een ideaal gas bij constante temperatuur uitzet van $V_1$ naar $V_2$, zoals in de proef van Joule.
+\begin{enumerate}
+\item \emph{Tel de plaatsen voor \'e\'en molecule.} Verdeel het volume, louter als rekenhulp, in kleine cellen met volume $v_0$. Een molecule heeft dan $V/v_0$ mogelijke plaatsen (figuur~\ref{fig:expansie-cellen}).
+\item \emph{Tel de schikkingen voor $N$ moleculen.} In een ideaal gas be\"invloeden de moleculen elkaar niet, dus elke molecule kiest onafhankelijk. Net als bij de dobbelstenen vermenigvuldigen de mogelijkheden: $\Omega \propto (V/v_0)^N$.
+\item \emph{Neem de verhouding.} Bij constante temperatuur verandert de verdeling van de energie niet, enkel het aantal plaatsen. Dus $\Omega_2/\Omega_1 = (V_2/V_1)^N$; de willekeurige celgrootte $v_0$ valt weg.
+\item \emph{Pas Boltzmann toe.} $\Delta S = k_B\ln\Omega_2 - k_B\ln\Omega_1 = k_B\ln(\Omega_2/\Omega_1) = Nk_B\ln(V_2/V_1)$. Met $N = nN_A$ en $k_BN_A = R$:
+\end{enumerate}
 \begin{equation}
 \boxed{\Delta S = nR\ln\frac{V_2}{V_1} \qquad \text{(isotherme expansie van een ideaal gas)}}
 \label{eq:dS-expansie}
 \end{equation}
-Verdubbelt het volume van \SI{1}{\mole} gas, dan is $\Delta S = R\ln 2 = \SI{5.76}{\joule\per\kelvin}$. Dezelfde formule volgt ook uit de klassieke definitie van Clausius (\S~\ref{sec:tweedehoofdwet}), zonder ooit moleculen te tellen.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/expansie_cellen}
+    \caption{Verdubbelt het volume, dan verdubbelt het aantal plaatsen voor elke molecule. Voor drie moleculen stijgt het aantal schikkingen met een factor $2^3 = 8$, voor $N$ moleculen met $2^N$.}
+    \label{fig:expansie-cellen}
+\end{figure}
+
+\begin{voorbeeld}{Entropie bij een volumeverdubbeling}
+\SI{1}{\mole} ideaal gas zet bij constante temperatuur uit van \SI{10}{\litre} naar \SI{20}{\litre}:
+\[
+\Delta S = nR\ln\frac{V_2}{V_1} = (1)(8.314)\ln 2 = \SI{5.76}{\joule\per\kelvin}.
+\]
+Een klein getal, maar achter die \SI{5.76}{\joule\per\kelvin} zit een gigantische toename van het aantal microtoestanden: $\Omega_2/\Omega_1 = 2^{6\times10^{23}}$. De logaritme maakt er een hanteerbaar getal van.
+\end{voorbeeld}
+
+Merk op dat in deze afleiding nergens warmte of arbeid voorkomt: het resultaat volgt enkel uit tellen. In \S\ref{sec:tweedehoofdwet} zullen we dezelfde formule terugvinden langs een heel andere weg, uit een warmtemeting.
 
 \subsubsection{Entropieverandering bij mengen}
 
-Verdeel $N_A$ moleculen $A$ en $N_B$ moleculen $B$ willekeurig over $N = N_A + N_B$ plaatsen. Dat kan op $\Omega = N!/(N_A!\,N_B!)$ manieren. Met de benadering van Stirling ($\ln x! \approx x\ln x - x$) en de molfracties $x_i = N_i/N$ wordt $\ln\Omega = -N_A\ln x_A - N_B\ln x_B$. Per mol mengsel:
+Bij mengen gaat het niet om meer plaatsen, maar om meer manieren om twee soorten moleculen over dezelfde plaatsen te verdelen. Verdeel $N_A$ moleculen A en $N_B$ moleculen B over $N = N_A + N_B$ plaatsen van een rooster.
+\begin{enumerate}
+\item \emph{Tel de schikkingen.} Zolang A en B gescheiden zijn, elk in hun eigen deel, is er voor het patroon maar \'e\'en schikking: $\Omega = 1$. Na het mengen kies je welke $N_A$ van de $N$ plaatsen door A worden ingenomen; de rest is voor B. Dat kan op
+\[
+\Omega = \frac{N!}{N_A!\,N_B!}
+\]
+manieren. Voor een klein rooster met 8 moleculen A en 8 moleculen B is dat al $16!/(8!\,8!) = 12\,870$ (figuur~\ref{fig:menging-rooster}).
+\item \emph{Vereenvoudig met Stirling.} Voor grote getallen geldt $\ln x! \approx x\ln x - x$ (de benadering van Stirling, al op een procent nauwkeurig vanaf $x = 100$). Zo wordt
+\[
+\ln\Omega \approx N\ln N - N_A\ln N_A - N_B\ln N_B ,
+\]
+waarbij de termen $-N + N_A + N_B$ wegvallen.
+\item \emph{Schrijf in molfracties.} Splits $N\ln N = N_A\ln N + N_B\ln N$ en groepeer: $\ln\Omega = -N_A\ln(N_A/N) - N_B\ln(N_B/N) = -N_A\ln x_A - N_B\ln x_B$.
+\item \emph{Pas Boltzmann toe en reken per mol.} Met $\Delta S = k_B\ln\Omega$, $N_i = n_iN_A$ en $k_BN_A = R$ volgt, gedeeld door het totale aantal mol:
+\end{enumerate}
 \begin{equation}
 \boxed{\Delta S_{\text{meng}} = -R\bigl(x_A\ln x_A + x_B\ln x_B\bigr) > 0 .}
+\label{eq:mengentropie}
 \end{equation}
-Omdat elke $\ln x_i < 0$, is mengen altijd gunstig voor de entropie. Voor lucht als 50/50-mengsel van \ce{N2} en \ce{O2} is $\Delta S_\text{meng} = R\ln 2 = \SI{5.76}{\joule\per\mole\per\kelvin}$: precies dezelfde waarde als bij de volumeverdubbeling, omdat elke molecule na het mengen ook twee keer zoveel ruimte heeft. Omgekeerd kost scheiden altijd arbeid (oefening~\ref{oef:meng-scheiden}).
+Omdat elke molfractie kleiner is dan 1, is elke $\ln x_i$ negatief, en is de mengentropie altijd positief: mengen verhoogt altijd het aantal microtoestanden. Ze is maximaal bij een 50/50-mengsel.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/menging_rooster}
+    \caption{Mengen op een rooster. Gescheiden is er \'e\'en schikking van A en B; gemengd zijn er voor dit kleine rooster al 12\,870. Bij een mol moleculen loopt dat op tot een getal met $10^{23}$ cijfers.}
+    \label{fig:menging-rooster}
+\end{figure}
+
+\begin{voorbeeld}{Mengentropie van lucht, en de minimale arbeid om ze te scheiden}
+Voor een 50/50-mengsel van \ce{N2} en \ce{O2} is $\Delta S_\text{meng} = -R(0.5\ln 0.5 + 0.5\ln 0.5) = R\ln 2 = \SI{5.76}{\joule\per\mole\per\kelvin}$: precies dezelfde waarde als bij de volumeverdubbeling. Dat is geen toeval: na het mengen heeft elke molecule twee keer zoveel ruimte, net als bij de expansie.
+
+Echte lucht bevat \SI{79}{\percent} \ce{N2} en \SI{21}{\percent} \ce{O2} (argon rekenen we bij de stikstof):
+\[
+\Delta S_\text{meng} = -R(0.79\ln 0.79 + 0.21\ln 0.21) = (8.314)(0.186 + 0.328) = \SI{4.27}{\joule\per\mole\per\kelvin}.
+\]
+Omgekeerd verloopt het scheiden van lucht nooit vanzelf: het kost arbeid. Hoeveel minstens, zie je in oefening~\ref{oef:meng-scheiden}: het komt neer op $T\Delta S_\text{meng} \approx (298)(4.27) = \SI{1.3}{\kilo\joule}$ per mol lucht. Een echte luchtscheidingsinstallatie, die de stikstof voor de ammoniakfabriek levert, verbruikt vijf tot tien keer meer. Waar die extra arbeid verloren gaat, is een vraag voor de scheidingstechnologie.
+\end{voorbeeld}
 
 \begin{figure}[htb]
     \centering
@@ -111,90 +201,155 @@ Een warmtepomp levert \SI{10}{\kilo\watt} warmte aan een vloerverwarming van \SI
 
 \subsection{De tweede hoofdwet van de thermodynamica}
 
+De tweede hoofdwet werd niet ontdekt door moleculen te tellen, maar door naar stoommachines te kijken. Sadi Carnot vroeg zich in 1824 af hoeveel arbeid een stoommachine maximaal uit een hoeveelheid steenkool kan halen. Hij en later Kelvin en Clausius stelden vast dat elke warmtemachine een deel van de opgenomen warmte moet afgeven aan een koudere omgeving, hoe goed ze ook gebouwd is. Uit die ervaring formuleerden ze twee gelijkwaardige uitspraken:
+\begin{itemize}
+\item \emph{Kelvin (1851):} geen enkele machine die een kringloop doorloopt, kan warmte uit \'e\'en reservoir volledig omzetten in arbeid.
+\item \emph{Clausius (1850):} warmte stroomt nooit vanzelf van een koud naar een warm lichaam.
+\end{itemize}
+Beide uitspraken zijn veralgemeningen van ontelbare waarnemingen; niemand heeft ooit een tegenvoorbeeld gevonden. Boltzmann toonde later waarom: ze zijn het macroscopische gevolg van het tellen van microtoestanden. Een ge\"isoleerd systeem gaat naar de macrotoestand met de meeste microtoestanden, dus met de hoogste entropie. Dat geeft de algemeenste vorm van de wet.
+
 \begin{definitie}{Tweede hoofdwet van de thermodynamica}
-De totale entropie van een ge\"isoleerd systeem (het systeem plus zijn omgeving, ``het universum'') neemt bij elk spontaan proces toe:
+De totale entropie van een ge\"isoleerd systeem neemt bij elk spontaan proces toe:
 \begin{equation}
 \Delta S_{\text{univ}} \geq 0,
 \end{equation}
 met het gelijkheidsteken enkel voor een reversibel proces.
 \end{definitie}
 
-De eerste hoofdwet gaat over de \emph{hoeveelheid} energie, de tweede over de \emph{richting}. Clausius formuleerde ze zo: warmte stroomt nooit vanzelf van koud naar warm.
+Het woord ``universum'' klinkt groots, maar betekent hier gewoon: het systeem samen met alles waarmee het energie uitwisselt, zodat het geheel ge\"isoleerd is. Voor een kop koffie op tafel is dat de koffie plus de kamer. De eerste hoofdwet gaat over de \emph{hoeveelheid} energie, de tweede over de \emph{richting} waarin processen lopen.
 
-\subsection{De Clausius-definitie}
+\subsection{De Clausius-definitie: entropie uit warmte}
 
-Clausius definieerde entropie zonder moleculen te tellen, via de reversibel uitgewisselde warmte:
+Microtoestanden tellen lukt voor een ideaal gas of een eenvoudig model, maar niet voor de stoom in een turbine of het koelmiddel in een warmtepomp. Voor de ingenieur is een tweede, gelijkwaardige definitie veel bruikbaarder. Clausius vond al in 1865, nog v\'o\'or Boltzmann, dat je de entropieverandering kan \emph{meten} via de warmte die een systeem reversibel opneemt:
 \begin{equation}
-\dd S = \frac{\delta Q_{\text{rev}}}{T}, \qquad\text{en algemeen}\qquad \dd S \geq \frac{\delta Q}{T}\quad\text{(ongelijkheid van Clausius).}
+\boxed{\dd S = \frac{\delta Q_{\text{rev}}}{T}}
+\label{eq:clausius}
 \end{equation}
-Dezelfde warmte doet de entropie meer stijgen bij lage temperatuur dan bij hoge: een koud systeem is ``geordender'', dus maakt dezelfde energie er relatief meer verschil. Omdat $S$ een toestandsfunctie is, mag je voor de berekening altijd een denkbeeldige reversibele weg kiezen tussen dezelfde begin- en eindtoestand.
+
+\paragraph{Waarom warmte gedeeld door temperatuur?} Twee vaststellingen maken die vorm aannemelijk.
+\begin{enumerate}
+\item \emph{Warmte verhoogt het aantal microtoestanden.} Voeg je energie toe aan een systeem, dan zijn er meer kwanta om over de moleculen te verdelen, en dus meer manieren om dat te doen. Arbeid die reversibel een zuiger verplaatst, doet dat niet: ze verandert enkel het volume of de positie, op een ordelijke manier. Daarom staat in de teller warmte, geen arbeid.
+\item \emph{Dezelfde warmte doet meer bij lage temperatuur.} Een koud systeem heeft weinig energie, verdeeld over weinig kwanta. Wat extra energie zet daar relatief veel nieuwe verdelingen open. Een warm systeem bevat al veel energie; dezelfde portie verandert er relatief weinig. Vergelijk het met niezen: in een stille bibliotheek valt het op, op een drukke markt niemand. Daarom staat $T$ in de noemer.
+\end{enumerate}
+
+\paragraph{Toets 1: warmte van warm naar koud.} Laat \SI{1000}{\joule} warmte stromen van koffie van \SI{80}{\celsius} naar een kamer van \SI{20}{\celsius} (figuur~\ref{fig:warmtestroom-entropie}). Beide zijn zo groot dat hun temperatuur nauwelijks verandert. De koffie verliest $1000/353 = \SI{2.83}{\joule\per\kelvin}$ entropie, de kamer wint $1000/293 = \SI{3.41}{\joule\per\kelvin}$. Samen is $\Delta S_\text{univ} = \SI{+0.58}{\joule\per\kelvin}$: het proces verloopt vanzelf. De omgekeerde richting zou $\SI{-0.58}{\joule\per\kelvin}$ geven, en is dus onmogelijk. De definitie van Clausius levert zo precies de uitspraak van Clausius op, en de tweeblokkenproef van de casus in getallen.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figuren/warmtestroom_entropie}
+    \caption{Entropiebalans voor \SI{1}{\kilo\joule} warmte die van hete koffie naar de kamer stroomt. Dezelfde warmte verhoogt de entropie van de koude kamer meer dan ze die van de warme koffie verlaagt.}
+    \label{fig:warmtestroom-entropie}
+\end{figure}
+
+\paragraph{Toets 2: dezelfde formule als Boltzmann.} Laat \SI{1}{\mole} ideaal gas reversibel en isotherm uitzetten van $V_1$ naar $V_2$, door een zuiger heel langzaam te laten wijken terwijl het gas in contact staat met een warmtebad. In hoofdstuk~\ref{ch:energie} zagen we twee dingen: bij constante temperatuur is $\Delta U = 0$ voor een ideaal gas, en de arbeid is $W = -nRT\ln(V_2/V_1)$. Uit de eerste hoofdwet volgt $Q_\text{rev} = -W = nRT\ln(V_2/V_1)$, en met Clausius
+\[
+\Delta S = \frac{Q_\text{rev}}{T} = nR\ln\frac{V_2}{V_1}.
+\]
+Dat is exact vergelijking~\eqref{eq:dS-expansie}, die we uit het tellen van cellen haalden. Twee volledig verschillende redeneringen, de ene met warmte en temperatuur, de andere met microtoestanden, leveren dezelfde entropie. Dat is de sterkste aanwijzing dat beide over dezelfde grootheid gaan.
+
+\paragraph{Toets 3: een irreversibel proces.} Nu de vrije expansie van Joule, tussen dezelfde begin- en eindtoestand. Het gas neemt geen warmte op ($Q = 0$). Toch is de entropie gestegen met $nR\ln(V_2/V_1)$, want entropie is een toestandsfunctie: ze hangt enkel af van begin- en eindtoestand, en die zijn dezelfde als bij de reversibele expansie. Bij een irreversibel proces is de entropietoename dus \emph{groter} dan $Q/T$. Dat geeft de \emph{ongelijkheid van Clausius}:
+\begin{equation}
+\dd S \geq \frac{\delta Q}{T},
+\end{equation}
+met het gelijkheidsteken enkel voor een reversibel proces. Het verschil is de entropie die door het proces zelf wordt \emph{geproduceerd}: door wrijving, door warmte die over een eindig temperatuurverschil stroomt, door menging, of zoals hier door een gas dat ongeremd uitzet.
+
+Uit toets 3 volgt ook de praktische werkwijze om een entropieverandering te berekenen: omdat $S$ een toestandsfunctie is, kies je altijd een \emph{denkbeeldige reversibele weg} tussen dezelfde begin- en eindtoestand, ook als het echte proces irreversibel was, en berekent daarlangs $\int\delta Q_\text{rev}/T$. Twee zulke wegen komen in de praktijk telkens terug: een faseovergang en het opwarmen van een stof.
 
 \subsubsection{Entropie bij faseovergangen}
 \label{sec:entropie-faseovergangen}
 
-Een faseovergang bij constante druk verloopt bij constante temperatuur, zodat
+In hoofdstuk~\ref{ch:energie} (figuur~\ref{fig:opwarmcurve}) zagen we dat de temperatuur tijdens het smelten of koken constant blijft: alle toegevoerde warmte gaat naar het verbreken van intermoleculaire bindingen, niet naar snellere beweging. Bij constante druk is die warmte de faseovergangsenthalpie, en ze wordt bij \'e\'en vaste temperatuur opgenomen. In vergelijking~\eqref{eq:clausius} is $T$ dan constant, en de integratie is onmiddellijk:
 \begin{equation}
 \Delta S_{\text{trans}} = \frac{\Delta H_{\text{trans}}}{T_{\text{trans}}} .
 \label{eq:entropie_fase}
 \end{equation}
-Voor verdampend water is $\Delta S_\text{vap} = 40\,700/373.15 = \SI{109}{\joule\per\mole\per\kelvin}$. Deze relatie is de basis van de vergelijking van Clapeyron (hoofdstuk~\ref{ch:niet-reagerend}).
+Voor water vind je
+\[
+\Delta S_\text{fus} = \frac{6010}{273.15} = \SI{22.0}{\joule\per\mole\per\kelvin},
+\qquad
+\Delta S_\text{vap} = \frac{40\,700}{373.15} = \SI{109}{\joule\per\mole\per\kelvin}.
+\]
+De verdampingsentropie is vijf keer groter dan de smeltentropie. Moleculair is dat logisch: bij smelten blijven de moleculen dicht op elkaar, ze krijgen enkel vrijheid om langs elkaar te bewegen en te draaien. Bij verdampen neemt elke molecule ongeveer 1700 keer meer volume in, en met $nR\ln(V_2/V_1)$ is dat alleen al $R\ln 1700 = \SI{62}{\joule\per\mole\per\kelvin}$. Vergelijking~\eqref{eq:entropie_fase} is ook de basis van de vergelijking van Clapeyron (hoofdstuk~\ref{ch:niet-reagerend}).
 
 \subsubsection{Entropieverandering bij opwarming}
 \label{sec:entropie-opwarming}
 
-Bij opwarmen bij constante druk is $\delta Q_\text{rev} = nC_p\,\dd T$, dus
+Warm je een stof op zonder dat ze van fase verandert, dan stijgt de temperatuur tijdens het opnemen van de warmte. We leiden de entropieverandering af in drie stappen.
+\begin{enumerate}
+\item \emph{Een klein stapje.} Bij constante druk is de warmte om de temperatuur met $\dd T$ te verhogen $\delta Q_\text{rev} = nC_p\,\dd T$ (hoofdstuk~\ref{ch:energie}). Langzaam opwarmen, telkens met een bad dat net iets warmer is, maakt dat reversibel.
+\item \emph{Deel door $T$.} Volgens Clausius is $\dd S = nC_p\,\dd T/T$.
+\item \emph{Tel alle stapjes op.} Integreer van $T_1$ tot $T_2$. Voor constante $C_p$:
+\end{enumerate}
 \begin{equation}
 \boxed{\Delta S = \int_{T_1}^{T_2}\frac{nC_p}{T}\,\dd T = nC_p\ln\frac{T_2}{T_1}}
 \qquad\text{(constante $C_p$)}.
 \label{eq:dS-opwarming}
 \end{equation}
-Waar de enthalpie lineair stijgt met $T$, stijgt de entropie logaritmisch. Over een traject met faseovergangen tel je gewoon alle stukken op (figuur~\ref{fig:entropie-opwarming}).
+Waar de enthalpie lineair stijgt met de temperatuur, $\Delta H = nC_p\,\Delta T$, stijgt de entropie logaritmisch: elke volgende joule wordt bij een hogere temperatuur toegevoegd en levert dus minder entropie op. Bij constant volume geldt dezelfde formule met $C_V$. Over een traject met faseovergangen tel je de stukken gewoon op: opwarmen met vergelijking~\eqref{eq:dS-opwarming}, faseovergangen met vergelijking~\eqref{eq:entropie_fase} (figuur~\ref{fig:entropie-opwarming}).
 
 \begin{figure}[htb]
     \centering
     \includegraphics[width=0.75\linewidth]{Figuren/entropie_opwarming_water}
-    \caption{Entropie van \SI{1}{\mole} water bij \SI{1}{\bar}, van ijs bij \SI{-10}{\celsius} tot stoom bij \SI{120}{\celsius}. Elke opwarmfase volgt vergelijking~\eqref{eq:dS-opwarming}; bij smelten en verdampen springt de entropie verticaal omhoog. De sprong bij verdampen is vijf keer groter dan die bij smelten: een gas is veel wanordelijker dan een vloeistof.}
+    \caption{Entropie van \SI{1}{\mole} water bij \SI{1}{\bar}, van ijs bij \SI{-10}{\celsius} tot stoom bij \SI{120}{\celsius}. Elke opwarmfase volgt vergelijking~\eqref{eq:dS-opwarming}; bij smelten en verdampen springt de entropie verticaal omhoog. De sprong bij verdampen is vijf keer groter dan die bij smelten: een gas heeft veel meer microtoestanden dan een vloeistof.}
     \label{fig:entropie-opwarming}
 \end{figure}
 
 \begin{voorbeeld}{Van ijs bij $-10\,^\circ$C tot stoom bij $120\,^\circ$C}
-Met $C_p$ = 38.0 (ijs), 75.3 (water) en 33.6 (stoom) \si{\joule\per\mole\per\kelvin}, $\Delta H_\text{fus} = \SI{6.01}{\kilo\joule\per\mole}$ en $\Delta H_\text{vap} = \SI{40.7}{\kilo\joule\per\mole}$:
-\begin{center}
-\begin{tabular}{lr}
-\toprule
-stap & $\Delta S$ (\si{\joule\per\mole\per\kelvin}) \\
-\midrule
-ijs opwarmen: $38.0\ln(273.15/263.15)$ & 1.42 \\
-smelten: $6010/273.15$ & 22.00 \\
-water opwarmen: $75.3\ln(373.15/273.15)$ & 23.51 \\
-verdampen: $40\,700/373.15$ & 109.07 \\
-stoom opwarmen: $33.6\ln(393.15/373.15)$ & 1.75 \\
-\midrule
-totaal & 157.7 \\
-\bottomrule
-\end{tabular}
-\end{center}
-De faseovergangen, vooral het verdampen, leveren veruit de grootste bijdrage.
-\end{voorbeeld}
+We berekenen de entropieverandering wanneer \SI{1}{\mole} water bij \SI{1}{\bar} wordt opgewarmd van ijs bij \SI{263.15}{\kelvin} tot stoom bij \SI{393.15}{\kelvin}. Gegevens: $C_p$ = 38.0 (ijs), 75.3 (water) en 33.6 (stoom) \si{\joule\per\mole\per\kelvin}; $\Delta H_\text{fus} = \SI{6.01}{\kilo\joule\per\mole}$ bij \SI{273.15}{\kelvin}; $\Delta H_\text{vap} = \SI{40.7}{\kilo\joule\per\mole}$ bij \SI{373.15}{\kelvin}. Het traject bestaat uit vijf stappen.
 
+\textbf{1. IJs opwarmen} van 263.15 naar \SI{273.15}{\kelvin}: $\Delta S_1 = 38.0\ln(273.15/263.15) = (38.0)(0.0373) = \SI{1.42}{\joule\per\mole\per\kelvin}$.
+
+\textbf{2. Smelten} bij \SI{273.15}{\kelvin}: $\Delta S_2 = 6010/273.15 = \SI{22.00}{\joule\per\mole\per\kelvin}$.
+
+\textbf{3. Water opwarmen} van 273.15 naar \SI{373.15}{\kelvin}: $\Delta S_3 = 75.3\ln(373.15/273.15) = (75.3)(0.3120) = \SI{23.49}{\joule\per\mole\per\kelvin}$.
+
+\textbf{4. Verdampen} bij \SI{373.15}{\kelvin}: $\Delta S_4 = 40\,700/373.15 = \SI{109.07}{\joule\per\mole\per\kelvin}$.
+
+\textbf{5. Stoom opwarmen} van 373.15 naar \SI{393.15}{\kelvin}: $\Delta S_5 = 33.6\ln(393.15/373.15) = (33.6)(0.0522) = \SI{1.75}{\joule\per\mole\per\kelvin}$.
+
+\textbf{Totaal:} $\Delta S = 1.42 + 22.00 + 23.49 + 109.07 + 1.75 = \SI{157.7}{\joule\per\mole\per\kelvin}$.
+
+Verdampen alleen levert bijna 70\,\% van het totaal. Het opwarmen van vloeibaar water over \SI{100}{\kelvin} kost veel meer warmte (\SI{7.5}{\kilo\joule}) dan het smelten (\SI{6.0}{\kilo\joule}), maar levert ongeveer evenveel entropie, omdat die warmte bij hogere temperatuur wordt opgenomen.
+\end{voorbeeld}
 
 \subsection{Lokale entropieafname}
 
-De tweede hoofdwet gaat over het \emph{totaal}. De entropie van het systeem zelf mag dalen, als de omgeving meer wint. Een systeem dat warmte afgeeft aan een omgeving op temperatuur $T$, verhoogt de entropie van die omgeving met $\Delta S_\text{omg} = -\Delta H/T$. Zo kan een koelkast de binnenkant kouder maken: hij verbruikt arbeid en dumpt nog meer warmte (en entropie) in de keuken.
+De tweede hoofdwet gaat over het \emph{totaal}. De entropie van het systeem zelf mag best dalen, als de omgeving meer wint. Water dat bevriest, een eiwit dat zich opvouwt, een koelkast die haar binnenkant afkoelt: telkens wordt het systeem geordender. Om na te gaan of zo'n proces toch vanzelf kan verlopen, moet je ook de omgeving meerekenen. Dat gaat in drie stappen.
+\begin{enumerate}
+\item \emph{Het systeem.} De entropieverandering van het systeem bereken je zoals hierboven, of voor een reactie met getabelleerde standaardentropie\"en (\S\ref{sec:derde-hoofdwet}).
+\item \emph{De omgeving.} De omgeving is groot (de lucht, het koelwater, het labo) en blijft op een vaste temperatuur $T$. Voor zo'n reservoir is elke warmte-uitwisseling reversibel, dus is haar entropieverandering gewoon de ontvangen warmte gedeeld door $T$. Bij constante druk geeft het systeem $-\Delta H$ aan warmte af, dus
+\[
+\Delta S_\text{omg} = -\frac{\Delta H}{T}.
+\]
+Een exotherme reactie ($\Delta H < 0$) verhoogt de entropie van de omgeving.
+\item \emph{De som.} Het proces verloopt vanzelf als $\Delta S_\text{univ} = \Delta S + \Delta S_\text{omg} > 0$.
+\end{enumerate}
 
-\begin{voorbeeld}{Vorming van water}
-Voor $2\,\mathrm{H_2(g)} + \mathrm{O_2(g)} \rightarrow 2\,\mathrm{H_2O(l)}$ bij \SI{298}{\kelvin}, met $S_m^\circ$ = 130.7 (\ce{H2}), 205.2 (\ce{O2}) en 70.0 (\ce{H2O(l)}) \si{\joule\per\mole\per\kelvin}:
+\begin{voorbeeld}{De vorming van water}
+Waterstof en zuurstof reageren explosief tot water: \ce{2 H2(g) + O2(g) -> 2 H2O(l)} bij \SI{298}{\kelvin} en \SI{1}{\bar}. Gegevens: $S_m^\circ$ = 130.7 (\ce{H2}), 205.2 (\ce{O2}) en 70.0 (\ce{H2O(l)}) \si{\joule\per\mole\per\kelvin}; $\Delta_fH^\circ(\ce{H2O(l)}) = \SI{-285.8}{\kilo\joule\per\mole}$.
+
+\textbf{1. Het systeem.} 
 \[
-\Delta_r S^\circ = 2(70.0) - [2(130.7) + 205.2] = \SI{-326.6}{\joule\per\mole\per\kelvin}.
+\Delta_r S^\circ = 2(70.0) - [2(130.7) + 205.2] = \SI{-326.6}{\joule\per\kelvin}.
 \]
-Drie mol gas worden twee mol vloeistof: de entropie van het systeem daalt sterk. Toch is dit een van de meest spontane reacties die bestaan. De verklaring: $\Delta_r H^\circ = \SI{-571.6}{\kilo\joule\per\mole}$ komt als warmte in de omgeving terecht, en
+Sterk negatief: drie mol gas, met veel bewegingsvrijheid, worden twee mol vloeistof. Op basis van het systeem alleen zou je besluiten dat de reactie niet vanzelf kan verlopen, terwijl ze een van de heftigste reacties is die we kennen.
+
+\textbf{2. De omgeving.} De reactie is sterk exotherm, $\Delta_r H^\circ = 2(-285.8) = \SI{-571.6}{\kilo\joule}$. Die warmte komt in de omgeving terecht:
 \[
-\Delta S_\text{omg} = -\frac{\Delta_r H^\circ}{T} = \frac{571\,600}{298} = \SI{+1917}{\joule\per\mole\per\kelvin},
+\Delta S_\text{omg} = -\frac{\Delta_r H^\circ}{T} = \frac{571\,600}{298} = \SI{+1917}{\joule\per\kelvin}.
 \]
-\[
-\Delta S_\text{univ} = -326.6 + 1917 = \SI{+1590}{\joule\per\mole\per\kelvin} > 0 .
-\]
+
+\textbf{3. De som.} $\Delta S_\text{univ} = -326.6 + 1917 = \SI{+1590}{\joule\per\kelvin} > 0$ (figuur~\ref{fig:entropiebalans-water}). De orde die in het systeem ontstaat, wordt ruimschoots betaald door de warmte die de omgeving opwarmt. Bij een exotherme reactie wint de omgeving bijna altijd, zeker bij lage temperatuur, waar $-\Delta H/T$ groot is.
 \end{voorbeeld}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Figuren/entropiebalans_water}
+    \caption{Entropiebalans voor de vorming van 2 mol vloeibaar water bij \SI{298}{\kelvin}. De entropie van het systeem daalt, maar die van de omgeving stijgt bijna zes keer meer door de vrijgekomen warmte.}
+    \label{fig:entropiebalans-water}
+\end{figure}
+
+Hetzelfde principe verklaart een koelkast of warmtepomp: ze maakt een ruimte kouder (lagere entropie), maar verbruikt daarvoor arbeid en dumpt meer warmte, met meer entropie, in de keuken. Hoeveel arbeid minstens nodig is, volgt uit precies zo'n balans.
 
 \subsection{Warmtemachines, koelmachines en warmtepompen}
 \label{sec:carnot}
@@ -254,12 +409,17 @@ Met \SI{1}{\kilo\watt\hour} aardgas levert een condenserende gasketel ongeveer \
 \end{casus}
 
 
-De eerste hoofdwet telt energie, de tweede zegt hoeveel ervan bruikbaar is. Warmte $Q$ bij temperatuur $T$, in een omgeving op $T_0$, levert hoogstens
+De eerste hoofdwet telt energie, de tweede zegt hoeveel ervan bruikbaar is. Hoeveel arbeid kan je maximaal halen uit warmte $Q$ die beschikbaar is bij temperatuur $T$, als de omgeving op $T_0$ staat? We stellen de balansen op voor een machine die die warmte opneemt, arbeid $W$ levert en de rest, $Q_0$, aan de omgeving afgeeft.
+\begin{enumerate}
+\item \emph{Energiebalans.} Over een kringloop verandert de machine zelf niet, dus $W = Q - Q_0$.
+\item \emph{Entropiebalans.} De warme bron verliest $Q/T$ aan entropie, de omgeving wint $Q_0/T_0$. De tweede hoofdwet eist $Q_0/T_0 - Q/T \geq 0$, dus $Q_0 \geq Q\,T_0/T$: de machine \emph{moet} een minimum aan warmte kwijt, om de entropie die met $Q$ binnenkwam af te voeren.
+\item \emph{Combineer.} $W = Q - Q_0 \leq Q - Q\,T_0/T$, of
+\end{enumerate}
 \begin{equation}
-W_{\max} = Q\left(1-\frac{T_0}{T}\right)
+W_{\max} = Q\left(1-\frac{T_0}{T}\right).
 \label{eq:exergie-warmte}
 \end{equation}
-aan arbeid (het rendement van Carnot): een deel van de warmte, met haar entropie, moet altijd naar de koude omgeving. Het bruikbare deel heet de \emph{exergie}. Figuur~\ref{fig:carnotfactor} toont hoe snel de waarde van warmte daalt met haar temperatuur. Een rivier van \SI{15}{\celsius} bevat enorm veel energie, maar verwarmt geen huis van \SI{20}{\celsius}; daarvoor heb je een warmtepomp nodig, en die verbruikt arbeid.
+Dat is het rendement van Carnot uit \S\ref{sec:carnot}. Het bruikbare deel heet de \emph{exergie} van de warmte, de factor $1 - T_0/T$ de \emph{Carnotfactor}. Figuur~\ref{fig:carnotfactor} toont hoe snel de waarde van warmte daalt met haar temperatuur. Een rivier van \SI{15}{\celsius} bevat enorm veel energie, maar verwarmt geen huis van \SI{20}{\celsius}; daarvoor heb je een warmtepomp nodig, en die verbruikt arbeid. Elektriciteit en arbeid zijn daarentegen zuivere exergie: ze kunnen volledig in elke andere vorm worden omgezet.
 
 Energie gaat nooit verloren, exergie wel: elke irreversibiliteit (wrijving, warmte over een groot temperatuurverschil, menging) vernietigt exergie. Daarom gebruikt men hoogwaardige warmte eerst voor stoom of arbeid, en restwarmte van \SI{80}{\celsius} in een warmtenet. Een warmtewisselaar met een klein temperatuurverschil vernietigt minder exergie, maar vraagt een groter oppervlak: een klassieke ontwerpafweging.
 
@@ -285,15 +445,27 @@ Energie gaat nooit verloren, exergie wel: elke irreversibiliteit (wrijving, warm
 \section{De derde hoofdwet van de thermodynamica}
 \label{sec:derde-hoofdwet}
 
+Om de entropie van een reactie te berekenen zoals in het voorbeeld van de waterbalans, heb je de entropie van elke stof nodig. Bij de enthalpie konden we enkel verschillen meten, en kozen we een nulpunt per afspraak: $\Delta_fH^\circ = 0$ voor de elementen. Voor entropie blijkt dat niet nodig.
+
+\paragraph{De waarneming.} Walther Nernst mat rond 1906 reacties tussen vaste stoffen bij steeds lagere temperaturen, en stelde vast dat hun reactie-entropie naar nul ging naarmate $T$ naar het absolute nulpunt daalde. Planck trok daaruit de conclusie dat de entropie van elke zuivere, perfect kristallijne stof zelf naar nul gaat.
+
 \begin{definitie}{Derde hoofdwet van de thermodynamica}
 De entropie van een perfect kristal van een zuivere stof nadert nul als $T \to \SI{0}{\kelvin}$.
 \end{definitie}
 
-Dit volgt rechtstreeks uit Boltzmann: een perfect kristal bij \SI{0}{\kelvin} heeft precies \'e\'en microtoestand, dus $S = k_B\ln 1 = 0$. Anders dan voor de enthalpie bestaat er voor entropie dus een \emph{absolute} schaal. Door een stof vanaf \SI{0}{\kelvin} op te warmen, kan je haar absolute entropie berekenen; bij \SI{298.15}{\kelvin} en \SI{1}{\bar} heet dat de \emph{standaardmolaire entropie} $S_m^\circ$ (tabel~\ref{tab:standaardentropie}). Let op: ook een element heeft bij kamertemperatuur een positieve $S_m^\circ$, door translatie, rotatie en vibratie (\S~\ref{sec:moleculaire-beweging}), terwijl zijn $\Delta_fH^\circ$ per afspraak nul is.
+Met Boltzmann is dat onmiddellijk duidelijk: in een perfect kristal bij \SI{0}{\kelvin} zit elk atoom op zijn vaste plaats in de laagste energietoestand. Er is precies \'e\'en microtoestand, dus $S = k_B\ln 1 = 0$.
+
+\paragraph{Absolute entropie meten.} Daarmee bestaat er voor entropie een \emph{absolute} schaal. Om de entropie van een stof bij \SI{298}{\kelvin} te kennen, meet men in een calorimeter haar warmtecapaciteit van enkele kelvin tot kamertemperatuur, en telt men alle stukken op, zoals in het voorbeeld van ijs tot stoom:
+\[
+S_m(T) = \int_0^{T}\frac{C_p}{T}\,\dd T + \sum \frac{\Delta H_\text{trans}}{T_\text{trans}} .
+\]
+Het allerlaatste stukje, onder de laagste meettemperatuur, wordt geschat met de wet van Debye, $C_p \propto T^3$. De waarde bij \SI{298.15}{\kelvin} en \SI{1}{\bar} heet de \emph{standaardmolaire entropie} $S_m^\circ$ (tabel~\ref{tab:standaardentropie}). Let op: ook een element heeft bij kamertemperatuur een positieve $S_m^\circ$, door translatie, rotatie en vibratie van zijn moleculen (\S~\ref{sec:moleculaire-beweging}), terwijl zijn $\Delta_fH^\circ$ per afspraak nul is.
+
+Niet elke stof is bij \SI{0}{\kelvin} een perfect kristal. In vast koolstofmonoxide kan elke molecule als CO of als OC in het rooster liggen, omdat beide uiteinden bijna even groot zijn. Met twee keuzes per molecule blijft er bij \SI{0}{\kelvin} een \emph{restentropie} $R\ln 2 = \SI{5.8}{\joule\per\mole\per\kelvin}$ over; gemeten wordt \SI{4.6}{\joule\per\mole\per\kelvin}, omdat de ori\"entaties niet helemaal willekeurig zijn. Een mooie bevestiging dat de entropie van Clausius en die van Boltzmann dezelfde grootheid zijn.
 
 \begin{table}[htb]
 \centering
-\caption{Standaardmolaire entropie $S_m^\circ$ (\SI{298.15}{\kelvin}, \SI{1}{\bar}) voor de stoffen van de ammoniaksynthese.}
+\caption{Standaardmolaire entropie $S_m^\circ$ (\SI{298.15}{\kelvin}, \SI{1}{\bar}) voor de stoffen van de ammoniaksynthese. Bron: NIST Chemistry WebBook, NIST Standard Reference Database 69.}
 \label{tab:standaardentropie}
 \begin{tabular}{lc}
 \toprule
@@ -306,12 +478,20 @@ $\mathrm{NH_3(g)}$ & 192.8 \\
 \end{tabular}
 \end{table}
 
-De reactie-entropie volgt, net als de reactie-enthalpie, uit
+De reactie-entropie volgt, net als de reactie-enthalpie met de wet van Hess, uit
 \begin{equation}
 \boxed{\Delta_r S^\circ = \sum_i \nu_i\,S_{m,i}^\circ}
 \label{eq:reactie-entropie}
 \end{equation}
-Voor $\mathrm{N_2 + 3\,H_2 \rightleftharpoons 2\,NH_3}$: $\Delta_r S^\circ = 2(192.8) - [191.6 + 3(130.7)] = \SI{-198.1}{\joule\per\mole\per\kelvin}$. Vier mol gas worden er twee: veel minder bewegingsvrijheid.
+met $\nu_i$ positief voor producten en negatief voor reagentia.
+
+\begin{voorbeeld}{Reactie-entropie van de ammoniaksynthese}
+Voor \ce{N2(g) + 3 H2(g) <=> 2 NH3(g)} geeft tabel~\ref{tab:standaardentropie}:
+\[
+\Delta_r S^\circ = 2(192.8) - [191.6 + 3(130.7)] = 385.6 - 583.7 = \SI{-198.1}{\joule\per\mole\per\kelvin}.
+\]
+Sterk negatief: vier mol gas worden er twee, met veel minder bewegingsvrijheid. Een vuistregel die je hier ziet: de entropieverandering van een reactie wordt bijna volledig bepaald door de verandering van het aantal mol gas. Elke mol gas die verdwijnt, kost ongeveer \SI{100}{\joule\per\kelvin}. In de volgende sectie zien we wat dat betekent voor de temperatuur waarbij de ammoniakreactor kan werken.
+\end{voorbeeld}
 
 \section{De Gibbs-vrije energie en het thermodynamisch evenwicht}
 \label{sec:gibbs}
@@ -325,7 +505,9 @@ Moderne warmtepompen gebruiken propaan (R290) als koelmiddel. Bij \SI{1}{\bar} i
 
 \subsection{De ingenieursvisie: het systeem en zijn omgeving}
 
-De tweede hoofdwet gaat over het universum, maar een ingenieur kent enkel zijn reactor of kolom goed, niet de hele omgeving. We zoeken dus een grootheid die enkel uit eigenschappen van het \emph{systeem} de richting van een proces geeft.
+Bij de tweede hoofdwet moesten we telkens de entropie van het universum berekenen: het systeem plus de omgeving. Voor de natuur bestaat er geen grens tussen beide, maar voor een ingenieur wel. Hij kent zijn reactor, kolom of warmtewisselaar goed: de samenstelling, de temperatuur, de druk. Van de omgeving weet hij veel minder: waar gaat de warmte precies heen, en wat gebeurt er daar mee?
+
+Daar zit een praktisch probleem. De richting van een proces wordt bepaald door een grootheid van het hele universum, terwijl de ingenieur enkel het systeem kent. De vraag is dus of er een grootheid bestaat die je volledig uit eigenschappen van het \emph{systeem} kan berekenen, maar die toch zegt in welke richting het proces loopt. Josiah Willard Gibbs toonde in 1876 dat dat kan, voor het geval dat in de chemie en procestechniek bijna altijd geldt: constante temperatuur en constante druk.
 
 \subsection{De Gibbs-vrije energie}
 
@@ -333,40 +515,76 @@ De tweede hoofdwet gaat over het universum, maar een ingenieur kent enkel zijn r
 \begin{equation}
 G = H - TS.
 \end{equation}
-Bij constante temperatuur en druk geldt: $\Delta G < 0$ spontaan, $\Delta G = 0$ evenwicht, $\Delta G > 0$ niet spontaan.
+Bij constante temperatuur en druk geldt: $\Delta G < 0$ spontaan, $\Delta G = 0$ evenwicht, $\Delta G > 0$ niet spontaan (de omgekeerde richting is dan spontaan).
 \end{definitie}
+
+$G$ is geen nieuwe vorm van energie. Het is een slim gekozen combinatie van grootheden die we al kennen, die de omgeving ongemerkt meerekent. Dat zien we in de afleiding.
 
 \subsubsection{Afleiding uit de tweede hoofdwet}
 
-Bij constante druk is de warmte naar de omgeving $-\dd H$, zodat bij constante $T$ geldt $\dd S_\text{omg} = -\dd H/T$. De tweede hoofdwet wordt dan
+We vertrekken van de tweede hoofdwet en werken de omgeving weg, in vier stappen.
+\begin{enumerate}
+\item \emph{Splits het universum.} Voor een klein stapje van het proces eist de tweede hoofdwet
 \[
-\dd S_\text{univ} = \dd S - \frac{\dd H}{T} \geq 0
-\quad\Longleftrightarrow\quad
-\dd H - T\,\dd S \leq 0
-\quad\Longleftrightarrow\quad
-\dd G \leq 0 .
+\dd S_\text{univ} = \dd S + \dd S_\text{omg} \geq 0,
 \]
-$G$ is dus geen nieuwe natuurwet, maar de tweede hoofdwet herschreven in eigenschappen van het systeem, met de omgeving ingebakken. $-\Delta G$ is bovendien de maximale nuttige arbeid (bv.\ elektrische, hoofdstuk~\ref{ch:elektrochemie}) die het proces kan leveren.
+met $\dd S$ de entropieverandering van het systeem.
+\item \emph{Druk de omgeving uit in het systeem.} Bij constante druk is de warmte die het systeem opneemt gelijk aan $\dd H$ (hoofdstuk~\ref{ch:energie}). De omgeving ontvangt dus $-\dd H$. Ze is een groot reservoir op temperatuur $T$, zodat $\dd S_\text{omg} = -\dd H/T$, zoals bij de lokale entropieafname.
+\item \emph{Vul in.} $\dd S - \dd H/T \geq 0$. Nu staan er enkel nog eigenschappen van het systeem.
+\item \emph{Vermenigvuldig met $-T$.} Omdat $T > 0$ keert het ongelijkheidsteken om: $\dd H - T\,\dd S \leq 0$. Bij constante temperatuur is $\dd H - T\,\dd S$ precies $\dd(H - TS) = \dd G$, dus
+\[
+\dd G \leq 0 \qquad (\text{constante } T \text{ en } p).
+\]
+\end{enumerate}
+Een daling van $G$ van het systeem is dus hetzelfde als een stijging van de entropie van het universum: $\Delta G = -T\Delta S_\text{univ}$. De Gibbs-vrije energie is geen nieuwe natuurwet, maar de tweede hoofdwet, herschreven in eigenschappen van het systeem. De term $\Delta H$ staat voor wat er in de omgeving gebeurt, de term $T\Delta S$ voor wat er in het systeem gebeurt.
 
+Het woord ``vrij'' heeft ook een concrete betekenis: $-\Delta G$ is de maximale nuttige arbeid, naast de volumearbeid tegen de atmosfeer, die een proces bij constante $T$ en $p$ kan leveren. Een brandstofcel of batterij zet $-\Delta G$ om in elektrische arbeid (hoofdstuk~\ref{ch:elektrochemie}), niet $-\Delta H$.
 
-\subsubsection{De fundamentele differentiaalvergelijking}
+\begin{voorbeeld}{Werkt de ammoniakreactor bij elke temperatuur?}
+Voor \ce{N2 + 3 H2 -> 2 NH3} is $\Delta_r H^\circ = \SI{-92.2}{\kilo\joule\per\mole}$ (hoofdstuk~\ref{ch:energie}) en $\Delta_r S^\circ = \SI{-198.1}{\joule\per\mole\per\kelvin}$. Bij \SI{298}{\kelvin}:
+\[
+\Delta_r G^\circ = \Delta_r H^\circ - T\Delta_r S^\circ = -92.2 - (298)(-0.1981) = -92.2 + 59.0 = \SI{-33.2}{\kilo\joule\per\mole}.
+\]
+De reactie is bij kamertemperatuur spontaan. De twee termen werken echter tegen elkaar: de enthalpie is gunstig, de entropie ongunstig. Bij hogere temperatuur weegt de entropieterm zwaarder, en bij
+\[
+T^* = \frac{\Delta_r H^\circ}{\Delta_r S^\circ} = \frac{-92\,200}{-198.1} = \SI{465}{\kelvin} \approx \SI{190}{\celsius}
+\]
+wordt $\Delta_r G^\circ$ nul. De katalysator werkt pas goed bij 400 tot \SI{500}{\celsius}, ruim boven $T^*$: daar is $\Delta_r G^\circ$ positief. Dat de fabriek toch ammoniak maakt, komt door de hoge druk van \SI{200}{\bar}. Hoe druk en temperatuur samen de opbrengst bepalen, is het onderwerp van hoofdstuk~\ref{ch:reagerend}.
+\end{voorbeeld}
+
+\subsubsection{De fundamentele vergelijkingen}
 \label{sec:fundamentele-vgl}
 
-Combineer de eerste hoofdwet ($\dd U = \delta Q_\text{rev} - p\,\dd V$) met Clausius ($\delta Q_\text{rev} = T\,\dd S$):
+Hoe verandert $G$ als je de temperatuur of de druk verandert? Dat volgt uit de combinatie van de eerste en de tweede hoofdwet. We bouwen het op in drie stappen, telkens met de productregel.
+
+\paragraph{Stap 1: de interne energie.} Voor een gesloten systeem dat enkel volumearbeid uitwisselt, geeft de eerste hoofdwet voor een reversibele verandering $\dd U = \delta Q_\text{rev} - p\,\dd V$. Met Clausius is $\delta Q_\text{rev} = T\,\dd S$:
 \begin{equation}
 \boxed{\dd U = T\,\dd S - p\,\dd V}
 \label{eq:fundU}
 \end{equation}
-Omdat $U$ een toestandsfunctie is, geldt dit voor elk proces, niet enkel reversibele. Met de productregel op $H = U + pV$ en daarna op $G = H - TS$ volgt
+We leidden dit af langs een reversibele weg, maar het geldt voor elke verandering: $U$, $S$ en $V$ zijn toestandsfuncties, en het verband tussen hun veranderingen hangt niet af van hoe je van de ene toestand naar de andere gaat.
+
+\paragraph{Stap 2: de enthalpie.} Met $H = U + pV$ geeft de productregel $\dd H = \dd U + p\,\dd V + V\,\dd p$. Vul vergelijking~\eqref{eq:fundU} in:
 \begin{equation}
-\dd H = T\,\dd S + V\,\dd p
+\dd H = (T\,\dd S - p\,\dd V) + p\,\dd V + V\,\dd p = T\,\dd S + V\,\dd p.
 \label{eq:fundH}
 \end{equation}
+
+\paragraph{Stap 3: de Gibbs-vrije energie.} Met $G = H - TS$ geeft de productregel $\dd G = \dd H - T\,\dd S - S\,\dd T$. Vul vergelijking~\eqref{eq:fundH} in:
+\[
+\dd G = (T\,\dd S + V\,\dd p) - T\,\dd S - S\,\dd T,
+\]
+zodat
 \begin{equation}\label{eq:fundG}
 \boxed{\dd G = V\,\dd p - S\,\dd T}
 \end{equation}
-$G$ verandert dus enkel met druk en temperatuur; bij constante $p$ en $T$ is $\dd G = 0$ in evenwicht. Vergelijking~\eqref{eq:fundG} geeft in hoofdstuk~\ref{ch:niet-reagerend} de chemische potentiaal als functie van druk en samenstelling, en in hoofdstuk~\ref{ch:reagerend} de vergelijking van Van 't Hoff.
 
+\paragraph{Wat zegt deze vergelijking?} Ze geeft twee concrete regels.
+\begin{itemize}
+\item Bij constante druk is $(\partial G/\partial T)_p = -S$. Warm je een stof op, dan daalt haar $G$, en sneller naarmate haar entropie groter is. Een gas daalt dus sneller dan een vloeistof, en een vloeistof sneller dan een vaste stof. Daarom wint bij hoge temperatuur altijd de fase met de hoogste entropie (\S\ref{sec:mu-p-T}).
+\item Bij constante temperatuur is $(\partial G/\partial p)_T = V$. Verhoog je de druk, dan stijgt $G$, en sterker naarmate het volume groter is. Voor een gas is dat effect groot, voor een vloeistof of vaste stof klein. Daarom verschuift hoge druk een evenwicht naar de kant met minder mol gas, zoals bij de ammoniaksynthese.
+\end{itemize}
+In hoofdstuk~\ref{ch:niet-reagerend} levert vergelijking~\eqref{eq:fundG} de chemische potentiaal als functie van druk en samenstelling, en in hoofdstuk~\ref{ch:reagerend} de vergelijking van Van 't Hoff.
 
 \subsection{De competitie tussen enthalpie en entropie}
 
@@ -386,11 +604,13 @@ In $\Delta G = \Delta H - T\Delta S$ trekken twee tendensen aan het systeem. Het
 \end{figure}
 
 \begin{voorbeeld}{De smelttemperatuur van water}
-IJs smelten kost energie ($\Delta H_\text{fus} = \SI{6.0}{\kilo\joule\per\mole}$, waterstofbruggen breken) maar levert bewegingsvrijheid op ($\Delta S_\text{fus} = \SI{22.0}{\joule\per\mole\per\kelvin}$). Beide zijn positief: smelten is spontaan boven
-\[
-T_\text{fus} = \frac{\Delta H_\text{fus}}{\Delta S_\text{fus}} = \frac{6000}{22.0} = \SI{273}{\kelvin}.
-\]
-Het smeltpunt is dus precies de temperatuur waar enthalpie en entropie elkaar in evenwicht houden.
+Bij het smelten van ijs moeten waterstofbruggen gedeeltelijk worden verbroken. Dat kost energie: $\Delta H_\text{fus} = \SI{6.01}{\kilo\joule\per\mole}$, de omgeving moet warmte leveren en haar entropie daalt. Tegelijk krijgen de watermoleculen in de vloeistof veel meer bewegingsvrijheid: $\Delta S_\text{fus} = \SI{22.0}{\joule\per\mole\per\kelvin}$. Welke tendens wint, hangt af van de temperatuur:
+\begin{itemize}
+\item bij \SI{-10}{\celsius}: $\Delta G_\text{fus} = 6010 - (263)(22.0) = \SI{+224}{\joule\per\mole}$, ijs blijft ijs;
+\item bij \SI{+10}{\celsius}: $\Delta G_\text{fus} = 6010 - (283)(22.0) = \SI{-216}{\joule\per\mole}$, ijs smelt;
+\item het kantelpunt ligt waar $\Delta G_\text{fus} = 0$: $T_\text{fus} = \Delta H_\text{fus}/\Delta S_\text{fus} = 6010/22.0 = \SI{273}{\kelvin}$.
+\end{itemize}
+Het smeltpunt is dus precies de temperatuur waar enthalpie en entropie elkaar in evenwicht houden. Bij lage temperatuur weegt de entropiewinst te licht om de smeltwarmte te betalen; bij hoge temperatuur wint ze.
 \end{voorbeeld}
 
 \subsection{Spontaniteit is niet snelheid}
@@ -415,22 +635,34 @@ De verdampingsentropie van \SI{82}{\joule\per\mole\per\kelvin} is geen toeval: b
 \section{De chemische potentiaal}
 \label{sec:chemische-potentiaal}
 
-Processen bevatten zelden \'e\'en zuivere stof. In reactoren, kolommen en absorbers verandert de hoeveelheid van elke component afzonderlijk. We hebben dus een drijvende kracht \emph{per component} nodig.
+Tot nu toe bekeken we een systeem als geheel. Processen bevatten echter zelden \'e\'en zuivere stof. In een reactor, een destillatiekolom of een absorber verandert de hoeveelheid van elke component afzonderlijk: ammoniak ontstaat, ethanol verdampt sneller dan water, \ce{CO2} lost op in een solvent. We hebben dus een drijvende kracht \emph{per component} nodig.
 
-\subsection{Een algemene drijvende kracht}
+\paragraph{Een potentiaal voor materie.} Elke spontane stroom in de natuur wordt gedreven door een verschil in een potentiaal, en stopt wanneer dat verschil verdwijnt:
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+wat stroomt & drijvende kracht & evenwicht als \\
+\midrule
+water in een rivier & hoogteverschil & gelijke hoogte \\
+elektrische lading & spanningsverschil & gelijke potentiaal \\
+warmte & temperatuurverschil & gelijke $T$ \\
+een fluïdum & drukverschil & gelijke $p$ \\
+materie (diffusie, faseovergang, reactie) & verschil in chemische potentiaal & gelijke $\mu$ \\
+\bottomrule
+\end{tabular}
+\end{center}
 
-Spontane stromen worden telkens gedreven door een verschil in een potentiaal: water door een hoogteverschil, elektrische stroom door een spanningsverschil, warmte door een temperatuurverschil, een flu\"idum door een drukverschil. Voor materie (diffusie, faseovergangen, reacties) is dat een verschil in \emph{chemische potentiaal}.
-
-\subsection{Definitie van de chemische potentiaal}
-
+\paragraph{Definitie.} De chemische potentiaal van component $i$ is
 \begin{equation}
-\mu_i = \left(\frac{\partial G}{\partial n_i}\right)_{T,p,n_{j\neq i}}
+\mu_i = \left(\frac{\partial G}{\partial n_i}\right)_{T,p,n_{j\neq i}} .
 \end{equation}
-is de toename van $G$ per mol component $i$ die je toevoegt, bij constante $T$, $p$ en hoeveelheden van de andere componenten. Voor een zuivere stof is $\mu = G_m$. Een component beweegt spontaan van hoge naar lage $\mu_i$.
+In woorden: met hoeveel stijgt de Gibbs-vrije energie van het systeem als je een kleine hoeveelheid van component $i$ toevoegt, bij constante temperatuur, druk en hoeveelheden van de andere componenten? Voor een zuivere stof is dat gewoon de molaire Gibbs-vrije energie, $\mu = G_m$.
 
-\subsection{Het criterium voor evenwicht}
+\paragraph{Waarom stroomt materie naar lage $\mu$?} Stel dat \SI{1}{\milli\mole} van component $i$ overgaat van fase $\alpha$ naar fase $\beta$, bijvoorbeeld van vloeistof naar damp. De Gibbs-vrije energie van fase $\alpha$ daalt met $\mu_i^\alpha \times \SI{1}{\milli\mole}$, die van fase $\beta$ stijgt met $\mu_i^\beta \times \SI{1}{\milli\mole}$. Samen is $\dd G = (\mu_i^\beta - \mu_i^\alpha)\,\dd n_i$. Volgens het criterium $\dd G < 0$ gebeurt dat enkel vanzelf als $\mu_i^\beta < \mu_i^\alpha$. Een component verplaatst zich dus spontaan van hoge naar lage chemische potentiaal, net zoals warmte van hoge naar lage temperatuur.
 
-In evenwicht is $\mu_i$ overal gelijk. Water in een gesloten vat is in evenwicht met zijn damp als $\mu^\text{vloeistof} = \mu^\text{damp}$; een opgeloste stof diffundeert tot $\mu$ overal gelijk is; een reactie loopt tot de $\mu$'s van reagentia en producten in balans zijn. Hoe je $\mu$ uitdrukt in druk, samenstelling en activiteit, volgt in hoofdstuk~\ref{ch:niet-reagerend} (fase-evenwichten en mengsels) en hoofdstuk~\ref{ch:reagerend} (de evenwichtsconstante).
+\paragraph{Het criterium voor evenwicht.} De overgang stopt wanneer $\mu_i^\alpha = \mu_i^\beta$: dan levert een verschuiving geen daling van $G$ meer op. In evenwicht is de chemische potentiaal van elke component overal gelijk. Water in een gesloten vat is in evenwicht met zijn damp als $\mu^\text{vloeistof} = \mu^\text{damp}$; een opgeloste stof diffundeert tot $\mu$ overal gelijk is; een reactie loopt tot de chemische potentialen van reagentia en producten, gewogen met hun stoichiometrische co\"effici\"enten, in balans zijn.
+
+Hoe $\mu$ verandert met de temperatuur, de druk en de samenstelling van een mengsel, waarom het smeltpunt en het kookpunt precies de punten zijn waar twee fasen dezelfde $\mu$ hebben, en hoe je zo dampdrukken, oplosbaarheden en evenwichtsconstanten berekent, volgt in hoofdstuk~\ref{ch:niet-reagerend} (fase-evenwichten en mengsels) en hoofdstuk~\ref{ch:reagerend} (chemische evenwichten).
 
 \section{De warmtepomp opnieuw bekeken}
 

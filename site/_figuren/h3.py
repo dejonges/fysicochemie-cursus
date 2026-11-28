@@ -207,3 +207,134 @@ def cop_warmtepomp():
     ax.set_xlabel("afgiftetemperatuur in de woning (°C)")
     ax.set_ylabel(r"COP = $Q_\mathrm{h}/W$")
     return kader(fig)
+
+
+def expansie_cellen():
+    """Isotherme expansie: met het dubbele volume heeft elke molecule twee keer zoveel plaatsen."""
+    import matplotlib.pyplot as plt
+    fig, ax = figuur(8.0, 3.4)
+    schema(fig, ax)
+
+    def vat(x0, nx, kleur, titel, posities):
+        for i in range(nx):
+            for j in range(4):
+                ax.add_patch(plt.Rectangle((x0 + i * 0.5, j * 0.5), 0.5, 0.5, fc="none", ec=K.zacht, lw=0.6))
+        ax.add_patch(plt.Rectangle((x0, 0), nx * 0.5, 2.0, fc="none", ec=K.as_, lw=1.8))
+        for (i, j) in posities:
+            ax.add_patch(plt.Circle((x0 + i * 0.5 + 0.25, j * 0.5 + 0.25), 0.15, fc=kleur, ec="none"))
+        label(ax, x0 + nx * 0.25, 2.2, titel, K.tekst, ha="center", va="bottom", fontsize=11)
+
+    vat(0.0, 4, K.blauw, "volume $V_1$: 16 cellen", [(0, 3), (2, 1), (3, 2)])
+    vat(3.6, 8, K.rood, "volume $V_2 = 2V_1$: 32 cellen", [(1, 0), (4, 3), (6, 1)])
+    pijl(ax, (2.2, 1.0), (3.4, 1.0), K.tekst, lw=1.8)
+    label(ax, 1.0, -0.3, r"3 moleculen: $16^3 = 4096$ schikkingen", K.blauw, ha="center", va="top", fontsize=10.5)
+    label(ax, 5.6, -0.3, r"3 moleculen: $32^3 = 32\,768$ schikkingen ($\times 2^3$)", K.rood, ha="center",
+          va="top", fontsize=10.5)
+    label(ax, 3.8, -0.95, r"algemeen: $\Omega \propto (V/v_0)^N$, dus $\Omega_2/\Omega_1 = (V_2/V_1)^N$",
+          K.tekst, ha="center", va="top", fontsize=11)
+    ax.set_xlim(-0.2, 7.8)
+    ax.set_ylim(-1.5, 2.7)
+    return kader(fig)
+
+
+def menging_rooster():
+    """Mengen op een rooster: 8 A en 8 B, eerst gescheiden (1 schikking), daarna gemengd (12 870 schikkingen)."""
+    import matplotlib.pyplot as plt
+    fig, ax = figuur(8.0, 3.4)
+    schema(fig, ax)
+    rng = np.random.default_rng(3)
+
+    def rooster(x0, kleuren, titel):
+        for idx, k in enumerate(kleuren):
+            i, j = idx % 4, idx // 4
+            ax.add_patch(plt.Rectangle((x0 + i * 0.5, j * 0.5), 0.5, 0.5, fc="none", ec=K.zacht, lw=0.6))
+            ax.add_patch(plt.Circle((x0 + i * 0.5 + 0.25, j * 0.5 + 0.25), 0.17, fc=k, ec="none"))
+        ax.add_patch(plt.Rectangle((x0, 0), 2.0, 2.0, fc="none", ec=K.as_, lw=1.8))
+        label(ax, x0 + 1.0, 2.2, titel, K.tekst, ha="center", va="bottom", fontsize=11)
+
+    voor = [K.blauw if (idx % 4) < 2 else K.oker for idx in range(16)]
+    na = [K.blauw] * 8 + [K.oker] * 8
+    rng.shuffle(na)
+    rooster(0.4, voor, "voor: A links, B rechts")
+    ax.plot([1.4, 1.4], [0, 2.0], color=K.as_, lw=2.2)
+    rooster(4.4, na, "na: willekeurig gemengd")
+    pijl(ax, (2.7, 1.0), (4.1, 1.0), K.tekst, lw=1.8)
+    label(ax, 1.4, -0.3, r"$\Omega = 1$", K.tekst, ha="center", va="top", fontsize=11.5)
+    label(ax, 5.4, -0.3, r"$\Omega = \dfrac{16!}{8!\,8!} = 12\,870$", K.tekst, ha="center", va="top", fontsize=11.5)
+    label(ax, 6.7, 1.45, "A", K.blauw, fontsize=12, fontweight="bold")
+    label(ax, 6.7, 0.95, "B", K.oker, fontsize=12, fontweight="bold")
+    ax.set_xlim(0.2, 7.2)
+    ax.set_ylim(-1.3, 2.7)
+    return kader(fig)
+
+
+def warmtestroom_entropie():
+    """1 kJ warmte van koffie (80 °C) naar de kamer (20 °C): entropiebalans."""
+    import matplotlib.pyplot as plt
+    fig, ax = figuur(7.4, 3.2)
+    schema(fig, ax)
+    ax.add_patch(plt.Rectangle((0.0, 0.3), 2.4, 1.6, fc=K.vlak_rood, ec=K.rood, lw=1.8))
+    ax.add_patch(plt.Rectangle((5.0, 0.3), 2.4, 1.6, fc=K.vlak_blauw, ec=K.blauw, lw=1.8))
+    label(ax, 1.2, 1.35, "koffie\n$T_\\mathrm{h}$ = 353 K", K.rood, ha="center", va="center", fontsize=11)
+    label(ax, 6.2, 1.35, "kamer\n$T_\\mathrm{c}$ = 293 K", K.blauw, ha="center", va="center", fontsize=11)
+    pijl(ax, (2.5, 1.1), (4.9, 1.1), K.oker, lw=3)
+    label(ax, 3.7, 1.25, r"$q$ = 1000 J", K.oker, ha="center", va="bottom", fontsize=11.5)
+    label(ax, 1.2, 0.6, r"$\Delta S = -\dfrac{1000}{353} = -2.83$ J/K", K.rood, ha="center", va="center",
+          fontsize=10)
+    label(ax, 6.2, 0.6, r"$\Delta S = +\dfrac{1000}{293} = +3.41$ J/K", K.blauw, ha="center", va="center",
+          fontsize=10)
+    label(ax, 3.7, -0.15, r"totaal: $\Delta S_\mathrm{univ} = +0.58$ J/K $> 0$: spontaan", K.tekst,
+          ha="center", va="top", fontsize=11.5)
+    label(ax, 3.7, -0.65, "omgekeerd (kamer → koffie) zou −0.58 J/K geven: onmogelijk", K.zacht,
+          ha="center", va="top", fontsize=10.5)
+    ax.set_xlim(-0.1, 7.5)
+    ax.set_ylim(-1.0, 2.1)
+    return kader(fig)
+
+
+def entropiebalans_water():
+    """Entropiebalans voor 2 H2 + O2 -> 2 H2O(l) bij 298 K: systeem, omgeving, universum."""
+    fig, ax = figuur(6.4, 4.0)
+    namen = ["systeem\n(de reactie)", "omgeving\n(ontvangt de warmte)", "universum\n(som)"]
+    waarden = [-326.6, 1917, 1590]
+    kleuren = [K.blauw, K.rood, K.accent]
+    ax.bar(range(3), waarden, color=kleuren, width=0.55)
+    ax.axhline(0, color=K.as_, lw=1)
+    for i, v in enumerate(waarden):
+        label(ax, i, v + (60 if v > 0 else -60), f"{v:+.0f}", kleuren[i], ha="center",
+              va="bottom" if v > 0 else "top", fontsize=11.5)
+    ax.set_xticks(range(3))
+    ax.set_xticklabels(namen)
+    ax.set_ylabel(r"$\Delta S$ (J K$^{-1}$, per 2 mol H$_2$O)")
+    ax.set_ylim(-600, 2250)
+    return kader(fig)
+
+
+def vrije_expansie():
+    """Proef van Joule (vrije expansie): twee koperen vaten in een waterbad, één gevuld, één vacuüm."""
+    import matplotlib.pyplot as plt
+    fig, ax = figuur(7.0, 3.6)
+    schema(fig, ax)
+    ax.add_patch(plt.Rectangle((0.2, 0.2), 6.6, 2.6, fc=K.vlak_blauw, ec=K.as_, lw=1.6))
+    label(ax, 3.5, 0.05, "waterbad", K.blauw, ha="center", va="top", fontsize=10.5)
+    rng = np.random.default_rng(7)
+    for xc, gevuld, tekst in [(1.7, True, "gas, 22 bar"), (5.3, False, "vacuüm")]:
+        ax.add_patch(plt.Circle((xc, 1.5), 0.95, fc=K.achtergrond, ec=K.oker, lw=2.2))
+        if gevuld:
+            for x, y in zip(rng.uniform(-0.6, 0.6, 40), rng.uniform(-0.6, 0.6, 40)):
+                if x * x + y * y < 0.62:
+                    ax.add_patch(plt.Circle((xc + x, 1.5 + y), 0.04, fc=K.rood, ec="none"))
+        label(ax, xc, 2.62, tekst, K.tekst, ha="center", va="bottom", fontsize=10.5,
+              bbox=achter(fc=K.vlak_blauw))
+    ax.add_patch(plt.Rectangle((2.65, 1.42), 1.7, 0.16, fc=K.oker, ec="none"))
+    ax.add_patch(plt.Circle((3.5, 1.5), 0.17, fc=K.achtergrond, ec=K.as_, lw=1.6))
+    ax.plot([3.38, 3.62], [1.38, 1.62], color=K.as_, lw=1.6)
+    label(ax, 3.5, 1.15, "kraan", K.tekst, ha="center", va="top", fontsize=10)
+    ax.add_patch(plt.Rectangle((6.3, 0.5), 0.12, 2.8, fc=K.achtergrond, ec=K.as_, lw=1.2))
+    ax.add_patch(plt.Rectangle((6.32, 0.5), 0.08, 1.3, fc=K.rood, ec="none"))
+    label(ax, 6.36, 3.38, "thermometer", K.tekst, ha="center", va="bottom", fontsize=10)
+    label(ax, 7.1, 1.5, "kraan open:\ngas vult beide vaten,\n$T$ van het bad\nverandert niet", K.tekst,
+          va="center", fontsize=10.5)
+    ax.set_xlim(0.0, 9.3)
+    ax.set_ylim(-0.3, 3.8)
+    return kader(fig)
