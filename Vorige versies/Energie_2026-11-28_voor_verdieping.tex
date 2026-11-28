@@ -1,0 +1,1148 @@
+%==============================================================================
+\chapter{Energie en de eerste hoofdwet van de thermodynamica}
+\label{ch:energie}
+%==============================================================================
+
+\section{Waarom thermodynamica? Een ammoniakfabriek}
+\label{sec:ammoniakfabriek}
+
+Ongeveer de helft van de stikstof in je lichaam is ooit door een ammoniakfabriek gegaan. Zonder kunstmest op basis van ammoniak zou de landbouw maar een fractie van de huidige wereldbevolking kunnen voeden. Wereldwijd wordt jaarlijks ongeveer 180 miljoen ton \ce{NH3} gemaakt, en daarvoor gaat 1 tot \SI{2}{\percent} van al het energieverbruik op aarde naar \'e\'en enkel proces: de synthese van Haber en Bosch,
+\[
+\ce{N2 + 3 H2 -> 2 NH3}.
+\]
+Figuur~\ref{fig:ammoniakfabriek} toont het hart van zo'n fabriek. Een mengsel van stikstof en waterstof (het \emph{synthesegas}) wordt gecomprimeerd tot ongeveer \SI{200}{\bar} en reageert in een reactor met een ijzerkatalysator bij 400 tot \SI{500}{\celsius}. Het gas dat de reactor verlaat, bevat slechts 15 tot \SI{20}{\percent} ammoniak. In een condensor wordt het afgekoeld tot onder \SI{0}{\celsius}, zodat de ammoniak condenseert en als vloeistof wordt afgetapt. Het niet-omgezette gas gaat terug naar het begin.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/ammoniakfabriek}
+    \caption{Vereenvoudigde syntheselus van een ammoniakfabriek. De compressor brengt het synthesegas op druk, de reactor zet een deel ervan om tot \ce{NH3}, de condensor haalt de ammoniak als vloeistof uit het gas. Bij elk toestel gaat energie als arbeid of warmte over de grens.}
+    \label{fig:ammoniakfabriek}
+\end{figure}
+
+Wie zo'n installatie ontwerpt of bedient, botst meteen op vragen over energie. Volg het gas door de lus van figuur~\ref{fig:ammoniakfabriek}:
+\begin{itemize}
+\item Het synthesegas moet van ongeveer \SI{25}{\bar} naar \SI{200}{\bar}. Wat gebeurt er met het gas als je het samenperst, welke problemen levert dat op, en hoeveel energie kost het (\S\ref{sec:compressor})?
+\item Hoeveel gas past er bij die druk in de reactor, en mag je daarvoor nog rekenen met $pV = nRT$ (\S\ref{sec:toestandsvergelijkingen})?
+\item In de reactor komt warmte vrij. Hoeveel, en wat doet die warmte met het gas en met de omzetting (\S\ref{sec:hess} tot \S\ref{sec:katalysatorbed})?
+\item Wat kost het om de ammoniak als vloeistof uit het gas te halen (\S\ref{sec:faseovergangen})?
+\end{itemize}
+We beantwoorden die vragen niet meteen. Elke sectie start met een concreet probleem uit de fabriek, een \emph{casus}. Daarna bouwen we de theorie op die nodig is om het op te lossen, en op het einde van de sectie werken we de casus volledig uit. Vaak roept dat antwoord meteen de volgende vraag op, zodat het hoofdstuk het gas stap voor stap door de fabriek volgt.
+
+Al die vragen worden beantwoord door de \emph{thermodynamica}, de leer van hoe energie wordt opgeslagen, uitgewisseld en omgezet. Het bijzondere is dat je daarvoor de individuele moleculen niet hoeft te volgen. Een handvol macroscopische grootheden, zoals temperatuur, druk, volume en samenstelling, volstaat om het gedrag van een installatie met $10^{30}$ moleculen nauwkeurig te voorspellen. In dit hoofdstuk bouwen we die begrippen stap voor stap op, en we keren telkens terug naar de fabriek om ze toe te passen. Dezelfde begrippen gebruik je later voor elke warmtewisselaar, destillatiekolom, koelinstallatie of bioreactor.
+
+\section{Het thermodynamisch systeem}
+\label{sec:systeem}
+
+Elke analyse begint met het afbakenen van het \emph{systeem}: het deel van de werkelijkheid dat je bestudeert. Alles daarbuiten is de \emph{omgeving}, en de scheiding tussen beide is de \emph{systeemgrens}. Die keuze lijkt triviaal, maar alle massa- en energiebalansen hangen ervan af. Neem de compressor uit figuur~\ref{fig:ammoniakfabriek}. Kies je enkel de compressor als systeem, dan stroomt er gas in en uit, komt er mechanische arbeid binnen via de as en gaat er wat warmte naar buiten. Neem je de elektromotor mee in het systeem, dan verdwijnt de asarbeid uit de balans en komt er elektrische energie voor in de plaats. Beide beschrijvingen zijn juist, zolang je de gekozen grens consequent volhoudt.
+
+Systemen worden ingedeeld volgens wat de grens mag oversteken (figuur~\ref{fig:systemen}). Een \emph{open systeem} wisselt massa en energie uit met de omgeving. Bijna elk industrieel toestel is open: de compressor, de reactor en de condensor van de ammoniakfabriek, maar ook pompen, warmtewisselaars en kolommen. Omdat de stromen energie meevoeren, zullen we daarvoor een nieuwe grootheid nodig hebben, de \emph{enthalpie} (\S\ref{sec:enthalpie}). Een \emph{gesloten systeem} wisselt geen massa uit, wel warmte en arbeid. Het schoolvoorbeeld is een gas in een cilinder met een zuiger. Omdat er geen massa over de grens gaat, zijn de basiswetten daar het eenvoudigst, en daarom leiden we ze eerst voor gesloten systemen af.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.9\linewidth]{Figuren/systemen}
+    \caption{Open, gesloten, adiabatisch en ge\"isoleerd systeem. Een open systeem wisselt massa en energie uit, een gesloten systeem enkel energie (warmte $Q$ en arbeid $W$), een adiabatisch systeem enkel arbeid, een ge\"isoleerd systeem niets.}
+    \label{fig:systemen}
+\end{figure}
+
+Laat de grens geen warmte door ($Q = 0$), dan noemen we het systeem \emph{adiabatisch}. Dat gebeurt bij goede isolatie, maar ook wanneer een proces zo snel verloopt dat er geen tijd is voor warmte-uitwisseling. Een gaspakketje doorloopt een compressor in een fractie van een seconde, en een katalysatorbed in de ammoniakreactor is zo groot en zo goed ge\"isoleerd dat de reactiewarmte niet naar buiten kan. In beide gevallen blijft de energie in het gas en stijgt de temperatuur, zoals we in \S\ref{sec:compressor} en \S\ref{sec:warmte-effecten} zullen berekenen. Adiabatisch zegt enkel iets over warmte: een adiabatisch systeem kan zowel open als gesloten zijn. Een \emph{ge\"isoleerd systeem}, ten slotte, wisselt helemaal niets uit. Een thermosfles of een calorimeter benadert het; het universum als geheel is het enige echte voorbeeld.
+
+\section{Thermodynamisch evenwicht}
+
+Een systeem laat zich pas eenduidig beschrijven als het in \emph{thermodynamisch evenwicht} is. Stel dat je een vat snel met gas vult. Vlak daarna is de druk dicht bij de inlaat hoger dan achteraan, en het gas dat samengedrukt werd, is warmer dan het gas dat al in het vat zat. Na enige tijd verdwijnen die verschillen vanzelf, en meet je overal dezelfde druk en temperatuur. Pas dan heeft het zin om van ``de'' druk of ``de'' temperatuur van het gas te spreken.
+
+Volledig evenwicht vraagt dat drie dingen tegelijk tot rust komen. Er mag geen netto warmtestroom meer zijn, dus de temperatuur is overal dezelfde: \emph{thermisch evenwicht}. Er mag geen netto kracht meer zijn, zodat bijvoorbeeld een zuiger stilstaat wanneer $p = p_\text{ext}$: \emph{mechanisch evenwicht}. En de samenstelling mag niet meer veranderen: \emph{chemisch evenwicht}. Dat laatste is subtieler dan het lijkt. Laat je stikstof en waterstof lang genoeg over de katalysator stromen, dan stopt de vorming van ammoniak niet omdat de moleculen stilvallen, maar omdat de omgekeerde reactie \ce{2 NH3 -> N2 + 3 H2} even snel gaat als de heenreactie. Op moleculaire schaal gaat de reactie door, macroscopisch staat alles stil: een \emph{dynamisch evenwicht}. Waar dat evenwicht ligt, en waarom de reactor van figuur~\ref{fig:ammoniakfabriek} daarom maar 15 tot \SI{20}{\percent} omzet, is het onderwerp van hoofdstuk~\ref{ch:reagerend}.
+
+\begin{definitie}{Nulde hoofdwet van de thermodynamica}
+Als systeem $A$ in thermisch evenwicht is met $C$, en $B$ ook met $C$, dan zijn $A$ en $B$ onderling in thermisch evenwicht.
+\end{definitie}
+
+Deze vanzelfsprekende uitspraak is de basis van elke temperatuurmeting: de thermometer speelt de rol van $C$. Ze laat toe twee systemen te vergelijken zonder ze met elkaar in contact te brengen.
+
+\section{Toestandsvariabelen}
+
+Een industri\"ele reactor van $100~\mathrm{m^3}$ bevat meer dan $10^{30}$ moleculen, maar zijn toestand ligt vast door enkele \emph{toestandsvariabelen}: druk, temperatuur, volume en samenstelling. We moeten dus niet de toestand van iedere molecule individueel bestuderen.
+
+\subsection{Intensieve en extensieve grootheden}
+
+Een \emph{extensieve grootheid} verdubbelt als je twee identieke systemen samenvoegt: massa $m$, volume $V$, hoeveelheid stof $n$, interne energie $U$, enthalpie $H$, entropie $S$. 
+
+Een \emph{intensieve grootheid} hangt niet af van de grootte: temperatuur $T$, druk $p$, dichtheid $\rho$, concentratie, en elke molaire grootheid zoals $V_\mathrm{m} = V/n$. In een warmtewisselaar is het temperatuurverschil (intensief) de drijvende kracht, terwijl de overgedragen warmte (extensief) schaalt met het debiet.
+
+\subsection{Toestandsfuncties en padfuncties}
+
+Een \emph{toestandsfunctie} hangt enkel af van de toestand van het systeem, niet van de weg waarlangs die bereikt werd. De interne energie is er een voorbeeld hiervan: $\Delta U = U_2 - U_1$, welke weg je ook volgt. Hetzelfde geldt voor $H$, $S$ en $G$. Warmte en arbeid zijn daarentegen \emph{padfuncties}: hun waarde hangt af van het proces (figuur~\ref{fig:padfunctie}). Daarom schrijven we $\dd U$ (exacte differentiaal) maar $\delta Q$ en $\delta W$.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/padfunctie}
+    \caption{Twee wegen van toestand 1 naar toestand 2. De arbeid die het gas levert, is de oppervlakte onder de curve en is langs weg A veel groter. Omdat $\Delta U$ voor beide wegen gelijk is, moet ook de uitgewisselde warmte verschillen.}
+    \label{fig:padfunctie}
+\end{figure}
+
+Je kan ook toepassen op zeer alledaagse situaties. Rij met de auto van een bergtop A naar het dal B en terug. De barometer toont in A voor en na de rit dezelfde druk: de luchtdruk is een toestandsfunctie. De brandstofmeter niet: hoeveel benzine je verbruikt hebt, hangt af van de gekozen route.
+
+
+\section{Toestandsvergelijkingen}
+\label{sec:toestandsvergelijkingen}
+
+\begin{casus}{hoeveel gas zit er in de reactor?}
+De reactor van de ammoniakfabriek staat op \SI{200}{\bar} en ongeveer \SI{450}{\celsius}. Hoeveel mol synthesegas zit er in \'e\'en kubieke meter reactor? Het antwoord bepaalt hoe groot de reactor moet zijn voor een gegeven productie.
+
+\emph{Schat eerst zelf:} reken met $pV = nRT$. Zit er in werkelijkheid meer of minder gas in? Denk aan wat er gebeurt als moleculen zo dicht op elkaar zitten.
+\end{casus}
+
+Toestandsvariabelen zijn niet onafhankelijk: een \emph{toestandsvergelijking} verbindt ze. De eenvoudigste is de ideale gaswet. We bekijken eerst waarom ze werkt, dan wanneer ze faalt, en ten slotte hoe je dat corrigeert. Je zal in je verdere opleiding overal gassen tegenkomen, van perslucht tot stoom en koelmiddel, en dit is de plaats waar je leert inschatten hoe ver je met $pV = nRT$ komt.
+
+\subsection{De ideale gaswet}
+
+Voor een verdund gas geldt
+\begin{equation}
+pV = nRT,
+\end{equation}
+met $R = \SI{8.314}{\joule\per\mole\per\kelvin}$ (in SI-eenheden; met bar en liter wordt dat \SI{0.08314}{\litre\bar\per\mole\per\kelvin}). De ideale gaswet is een \emph{limietwet}: elk gas voldoet aan deze toestandsvergelijk in de limiet $p \to 0$, en elke betere toestandsvergelijking moet in die limiet tot $pV = nRT$ herleiden.
+
+
+\subsection{De ideale gaswet vanuit de moleculen: kinetische gastheorie}
+\label{sec:kinetische-gastheorie}
+
+De ideale gaswet werd experimenteel gevonden, maar ze laat zich ook afleiden uit een eenvoudig beeld van bewegende moleculen. Die afleiding is de moeite waard: ze toont wat druk en temperatuur op moleculair niveau \emph{betekenen}.
+
+We maken drie aannames: 
+\begin{enumerate}
+    \item Het gas bestaat uit $N$ moleculen met massa $m$ die vrij en willekeurig door elkaar bewegen.
+    \item De moleculen zelf nemen geen volume in.
+    \item Er werken geen krachten tussen de moleculen; ze botsen enkel elastisch tegen de wand.
+\end{enumerate}
+
+De afleiding verloopt in drie stappen (figuur~\ref{fig:kmt-botsing}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/kmt_botsing}
+    \caption{\'E\'en molecule in een kubus met ribbe $L$, die in de $x$-richting heen en weer beweegt. Bij elke botsing keert $v_x$ om en krijgt de wand een impuls $2mv_x$; na een heen-en-terugreis $2L$ komt de molecule terug.}
+    \label{fig:kmt-botsing}
+\end{figure}
+
+\textbf{Stap 1: \'e\'en botsing.} Een molecule met snelheidscomponent $v_x$ botst elastisch tegen de wand loodrecht op $x$. Alleen $v_x$ keert om; $v_y$ en $v_z$ blijven gelijk. De impuls in de $x$-richting gaat van $+mv_x$ naar $-mv_x$, dus de wand krijgt een stoot $2mv_x$.
+
+\textbf{Stap 2: hoe vaak?} Na de botsing moet de molecule naar de overkant en terug, een afstand $2L$. Dat duurt $2L/v_x$, dus ze botst $v_x/(2L)$ keer per seconde tegen dezelfde wand. De gemiddelde kracht van deze ene molecule is stoot maal frequentie:
+\[
+F_1 = 2mv_x \cdot \frac{v_x}{2L} = \frac{m v_x^2}{L}.
+\]
+Merk op dat $v_x$ hier \emph{twee keer} meetelt: een snellere molecule botst harder \'en vaker. Daarom verschijnt het kwadraat.
+
+\textbf{Stap 3: alle moleculen samen.} Niet alle moleculen zijn even snel: sommige hebben een grote $v_x$, andere een kleine. We tellen de krachten van alle $N$ moleculen op en delen door de wandoppervlakte $L^2$. Met $L^3 = V$ wordt dat
+\[
+p = \frac{Nm\langle v_x^2\rangle}{V},
+\]
+met $\langle v_x^2\rangle$ het gemiddelde van $v_x^2$ over alle moleculen.
+
+\paragraph{Waarom $\langle v^2\rangle$ en niet de gemiddelde snelheid?}
+Je zou kunnen proberen te rekenen met \'e\'en ``gemiddelde'' snelheid, maar dat werkt niet. Het gemiddelde van $v_x$ zelf is nul: er bewegen evenveel moleculen naar links als naar rechts. Toch oefenen ze allemaal druk uit, elk op de wand waar ze naartoe vliegen. Wat telt is $v_x^2$, en dat is altijd positief. Het gemiddelde van een kwadraat is bovendien niet het kwadraat van een gemiddelde: wie $\langle v_x^2\rangle$ vervangt door $\langle |v_x|\rangle^2$, onderschat de druk, omdat de snelle moleculen in het kwadraat zwaarder doorwegen.
+
+Rest nog de stap van $v_x$ naar de volledige snelheid. Voor elke molecule is $v^2 = v_x^2 + v_y^2 + v_z^2$ (Pythagoras). In een gas is geen enkele richting bevoordeeld (het gas is \emph{isotroop}), zodat de drie gemiddelden gelijk zijn: $\langle v_x^2\rangle = \langle v_y^2\rangle = \langle v_z^2\rangle = \tfrac{1}{3}\langle v^2\rangle$. Dus
+\begin{equation}
+pV = \tfrac{1}{3}\,N m \langle v^2\rangle .
+\label{eq:kmt-druk}
+\end{equation}
+Druk is dus niets anders dan het gevolg van ontelbare kleine botsingen tegen de wand.
+
+Vergelijken we dit met $pV = nRT$, dan volgt met $Nm = nM$ (molaire massa $M$):
+\begin{equation}
+\boxed{\tfrac{1}{2}M\langle v^2\rangle = \tfrac{3}{2}RT}
+\qquad\text{of}\qquad
+\boxed{v_\mathrm{rms} = \sqrt{\langle v^2\rangle} = \sqrt{\frac{3RT}{M}}}
+\label{eq:vrms}
+\end{equation}
+De wortel uit het gemiddelde kwadraat heet de \emph{rms-snelheid} (root mean square). Ze is iets groter dan de gemiddelde snelheid $\bar v = \sqrt{8RT/\pi M}$, die we in hoofdstuk~\ref{ch:kinetiek} gebruiken voor botsingen tussen moleculen: $\bar v = 0.92\,v_\mathrm{rms}$. Voor de druk en de energie is $v_\mathrm{rms}$ de juiste grootheid, omdat beide met $v^2$ gaan. De temperatuur is dus een rechtstreekse maat voor de gemiddelde kinetische energie van de moleculen: $\tfrac{3}{2}RT$ per mol, of $\tfrac{3}{2}k_\mathrm{B}T$ per molecule. Voor een \'e\'enatomig ideaal gas is dat meteen de volledige interne energie, $U_\mathrm{m} = \tfrac{3}{2}RT$, zodat $C_{V,\mathrm{m}} = \tfrac{3}{2}R$ (zie \S~\ref{sec:warmtecapaciteiten}).
+
+\begin{voorbeeld}{Hoe snel bewegen luchtmoleculen?}
+Voor stikstof bij \SI{25}{\celsius} ($M = \SI{0.028}{\kilo\gram\per\mole}$):
+\[
+v_\mathrm{rms} = \sqrt{\frac{3(8.314)(298)}{0.028}} = \SI{515}{\metre\per\second}.
+\]
+Dat is sneller dan het geluid (\SI{346}{\metre\per\second}), wat logisch is: geluid wordt doorgegeven door botsende moleculen en kan dus niet sneller gaan dan de moleculen zelf. Helium ($M = \SI{0.004}{\kilo\gram\per\mole}$) is $\sqrt{28/4}\approx 2.6$ keer sneller: \SI{1360}{\metre\per\second}.
+
+Toch ruik je een geopende parfumfles pas na enkele seconden aan de andere kant van de kamer. Een molecule vliegt immers niet rechtdoor: bij atmosferische druk botst ze ongeveer $10^{10}$ keer per seconde met andere moleculen. Botsingen tussen moleculen komen terug in hoofdstuk~\ref{ch:kinetiek}, waar ze de basis vormen van de reactiesnelheid.
+\end{voorbeeld}
+
+\begin{toepassing}{Effusie: de wet van Graham}
+Wanneer een gas door een zeer klein gaatje ontsnapt (\emph{effusie}), is de snelheid waarmee dat gebeurt evenredig met de molecuulsnelheid, en dus met $1/\sqrt{M}$. Voor twee gassen bij dezelfde $T$ en $p$ geldt de \emph{wet van Graham}:
+\begin{equation}
+\frac{\text{effusiesnelheid A}}{\text{effusiesnelheid B}} = \sqrt{\frac{M_\mathrm{B}}{M_\mathrm{A}}}.
+\end{equation}
+\begin{itemize}
+\item Een heliumballon loopt sneller leeg dan een luchtballon: helium ontsnapt $\sqrt{29/4}\approx 2.7$ keer sneller door de microporiën van het rubber.
+\item Bij de verrijking van uranium wordt het verschil tussen \ce{^{235}UF6} en \ce{^{238}UF6} benut. De verhouding van de effusiesnelheden is slechts $\sqrt{352.0/349.0} = 1.0043$. Daarom waren duizenden diffusietrappen achter elkaar nodig; vandaag gebruikt men gascentrifuges.
+\item Lekdetectie in vacu\"umsystemen gebeurt met helium: het lichte, snelle heliumatoom vindt zelfs de kleinste lekken.
+\end{itemize}
+\end{toepassing}
+
+\subsection{Afwijkingen van ideaal gedrag}
+
+Bij hoge druk en lage temperatuur gaan aannames (2) en (3) niet meer op. Dat zie je op drie manieren.
+\begin{itemize}
+\item \textbf{$pV$ is niet constant.} Volgens Boyle is $pV$ bij constante $T$ onafhankelijk van de druk (figuur~\ref{fig:Boyle}, links). Vergelijk je beide panelen van figuur~\ref{fig:Boyle}, dan zie je hoe groot de afwijking voor \ce{CO2} wordt: bij \SI{20}{\celsius} en \SI{0.5}{\litre\per\mole} voorspelt de ideale gaswet \SI{48.7}{\bar}, terwijl de werkelijke druk ongeveer \SI{37}{\bar} is, bijna een kwart lager. Voor een gas als stikstof bij kamertemperatuur blijft de afwijking onder \SI{10}{\bar} kleiner dan \SI{1}{\percent}, maar bij enkele honderden bar loopt ze op tot tientallen procenten.
+\item \textbf{Joule--Thomson-effect.} Een gas dat zonder warmte-uitwisseling door een ventiel expandeert, koelt bij kamertemperatuur meestal af. Bij een ideaal gas zou $T$ constant blijven. De interne energie van een re\"eel gas hangt dus af van het volume: de moleculen trekken elkaar aan.
+\item \textbf{Condensatie.} Volgens de ideale gaswet kan je een gas tot een willekeurig klein volume samenpersen. In werkelijkheid condenseert elk gas onder zijn \emph{kritische temperatuur} $T_c$ tot een vloeistof met een nagenoeg vast volume (figuur~\ref{fig:Boyle}, rechts). Boven $T_c$ (voor \ce{CO2} \SI{31.0}{\celsius}) condenseert het nooit, hoe hoog de druk ook wordt.
+\end{itemize}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/isothermen_vergelijking}
+    \caption{Isothermen van \ce{CO2} bij dezelfde temperaturen en op dezelfde assen. Links berekend met de ideale gaswet: $p \propto 1/V_m$ over het volledige bereik. Rechts het werkelijke gedrag (berekend met de toestandsvergelijking van Peng--Robinson, \S~\ref{sec:andere-toestandsvgl}). Bij groot molair volume liggen beide dicht bij elkaar; bij kleiner volume ligt de werkelijke druk lager. Onder de kritische temperatuur verschijnt een horizontaal stuk (C $\to$ E): daar condenseert het gas bij constante druk.}
+    \label{fig:Boyle}
+\end{figure}
+
+\subsection{De vergelijking van Van der Waals}
+\label{sec:vdw-afleiding}
+
+Aannames (2) en (3) uit de ideale gaswet zijn niet exact: moleculen hebben wel een eigen volume en trekken elkaar wel aan. In 1873 corrigeerde Johannes Diderik van der Waals de ideale gaswet voor beide effecten, niet met een empirische fit maar vanuit hun fysische oorsprong. Hij verkreeg hiervoor de  Nobelprijs in 1910. Hieronder bespreken we zijn redenering in drie stappen.
+
+\subsubsection{Stap 1: het uitgesloten volume}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.6\linewidth]{Figuren/vdw_uitgesloten}
+    \caption{Het uitgesloten volume. Rond molecule A ligt een bol met straal $2r$ waarin het middelpunt van B niet kan komen; dat volume is niet beschikbaar voor de beweging.}
+    \label{fig:vdw-uitgesloten}
+\end{figure}
+
+Moleculen zijn geen puntmassa's (figuur~\ref{fig:vdw-uitgesloten}). Twee harde bollen met straal $r$ kunnen elkaars middelpunt niet dichter naderen dan $2r$. Rond elke molecule ligt dus een uitgesloten bol met volume $\tfrac{4}{3}\pi(2r)^3 = 8\cdot\tfrac{4}{3}\pi r^3$. Die bol is geen eigenschap van A alleen, maar van het paar A--B: hij beschrijft hoe dicht die twee elkaar kunnen naderen. Per molecule rekenen we hem dus maar half aan, zodat per molecule $4\cdot\tfrac{4}{3}\pi r^3$ is uitgesloten. Per mol is dat het \emph{co-volume} gelijk aan:
+\begin{equation*}
+b = 4 N_\mathrm{A} \cdot \tfrac{4}{3}\pi r^3 
+\end{equation*}
+Dit is viermaal het eigenlijke volume van de moleculen. Hierdoor is het vrije volume in de ruimte gelijk aan $V - nb$, en dus
+\begin{equation}
+p(V - nb) = nRT.
+\end{equation}
+
+
+\subsubsection{Stap 2: de drukcorrectie - intermoleculaire aantrekkingskrachten}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.65\linewidth]{Figuren/vdw_aantrekking}
+    \caption{De aantrekking tussen moleculen. Een molecule in het midden van het gas wordt in alle richtingen even sterk aangetrokken, een molecule aan de wand enkel naar binnen. Ze botst daardoor zachter tegen de wand.}
+    \label{fig:vdw-aantrekking}
+\end{figure}
+
+Reële moleculen trekken elkaar bovendien aan (figuur~\ref{fig:vdw-aantrekking}). Midden in het gas is een molecule langs alle kanten omringd door buren; hun aantrekkingskrachten heffen elkaar gemiddeld op. Een molecule die de wand nadert, heeft echter enkel nog buren aan de binnenkant en wordt dus netto teruggetrokken. Ze botst daardoor met een kleinere impuls tegen de wand, en de gemeten druk is lager dan bij een ideaal gas. Van der Waals schreef daarom
+\begin{equation*}
+p_{\mathrm{ideaal}} = p + p_{\mathrm{correctie}}.
+\end{equation*}
+Die correctie hangt af van het aantal paren moleculen dat elkaar aantrekt. Zowel het aantal moleculen nabij de wand als het aantal buren dat aan elk ervan trekt, is evenredig met de dichtheid $n/V$. De correctie is dus evenredig met het kwadraat: verdubbel je de dichtheid, dan wordt het effect vier keer groter.
+\begin{equation}
+p_{\mathrm{correctie}} = a\frac{n^2}{V^2}
+\end{equation}
+De stofconstante $a$ meet de sterkte van de aantrekking: groot voor \ce{CO2} en \ce{NH3}, klein voor He en \ce{H2}.
+
+\subsubsection{Stap 3: combinatie van beide correcties}
+
+Vervang in de ideale gaswet $p_{\mathrm{ideaal}} \to p + a n^2/V^2$ en $V_{\mathrm{ideaal}} \to V - nb$:
+\begin{equation}
+\boxed{\;\left(p + \frac{a n^2}{V^2}\right)(V - nb) = nRT\;}
+\qquad\text{of per mol}\qquad
+\boxed{\;\left(p + \frac{a}{V_m^2}\right)(V_m - b) = RT\;}
+\label{eq:vdw}
+\end{equation}
+
+De parameters $a$ en $b$ zijn stofconstanten: je hoeft ze niet zelf te bepalen, maar zoekt ze op in tabellen. Tabel~\ref{tab:vdw-kort} geeft ze voor enkele veelgebruikte gassen; tabel~\ref{tab:kritiek} in bijlage~\ref{ch:tabellen} bevat een uitgebreidere lijst. De waarden tonen het fysische beeld van hierboven: kleine, apolaire moleculen (He, \ce{H2}) hebben een kleine $a$, polaire moleculen (\ce{NH3}, \ce{H2O}) en grotere moleculen (\ce{CO2}) een grote. De parameter $b$ volgt de grootte van de molecule.
+
+\begin{table}[htb]
+\centering
+\caption{Van der Waals-parameters van enkele gassen, berekend uit de kritieke constanten met vergelijking~\eqref{eq:vdw-ab}. Bron kritieke constanten: zie tabel~\ref{tab:kritiek}.}
+\label{tab:vdw-kort}
+\begin{tabular}{lcc}
+\toprule
+gas & $a$ (\si{\pascal\metre\tothe{6}\per\mole\squared}) & $b$ ($10^{-5}$ \si{\metre\cubed\per\mole}) \\
+\midrule
+He & 0.0035 & 2.38 \\
+\ce{H2} & 0.0248 & 2.66 \\
+\ce{N2} & 0.137 & 3.86 \\
+\ce{CH4} & 0.230 & 4.31 \\
+\ce{CO2} & 0.366 & 4.29 \\
+\ce{NH3} & 0.425 & 3.74 \\
+\ce{H2O} & 0.553 & 3.05 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsubsection{Het kritiek punt}
+
+Een groot succes van de vergelijking is dat ze het \emph{kritiek punt} voorspelt. Wat is dat precies? Verwarm een vloeistof met haar damp in een gesloten, stevig vat. De vloeistof zet uit en wordt minder dicht; tegelijk verdampt er meer, zodat de damp erboven dichter wordt. Bij een bepaalde temperatuur worden beide dichtheden gelijk. Het scheidingsvlak (de meniscus) verdwijnt, en er is nog maar \'e\'en homogene fase. Die temperatuur is de \emph{kritieke temperatuur} $T_c$, de bijbehorende druk de \emph{kritieke druk} $p_c$ en het molair volume het \emph{kritieke volume} $V_{m,c}$.
+
+Daaruit volgen twee praktische gevolgen:
+\begin{itemize}
+\item Boven $T_c$ kan je een gas \emph{niet} meer vloeibaar maken, hoe hoog je de druk ook opdrijft. Wie een gas wil vloeibaar maken (\ce{N2} of aardgas), moet het dus eerst onder $T_c$ afkoelen: voor stikstof onder \SI{126}{\kelvin}.
+\item Boven $T_c$ \'en $p_c$ spreken we van een \emph{superkritisch fluïdum}. Het is zo dicht als een vloeistof en lost dus goed op, maar het stroomt en diffundeert als een gas. Superkritisch \ce{CO2} ($T_c = \SI{31}{\celsius}$, $p_c = \SI{74}{\bar}$) wordt zo gebruikt om cafe\"ine uit koffiebonen te extraheren, zonder resten van organische solventen.
+\end{itemize}
+
+Figuur~\ref{fig:vdw-isothermen} toont hoe de vergelijking van Van der Waals dit weergeeft. Boven $T_c$ daalt de druk monotoon met het volume: er is maar \'e\'en fase. Onder $T_c$ vertoont de isotherm een S-vormige lus. In werkelijkheid volgt het systeem die lus niet: het gas condenseert bij constante druk, langs het horizontale stuk (vergelijk met figuur~\ref{fig:Boyle}, rechts). Alle horizontale stukken samen vormen het tweefasengebied. Het kritiek punt is de top ervan: de isotherm bij $T_c$ is daar net horizontaal \'en verandert van kromming. Wiskundig is het dus een buigpunt met horizontale raaklijn:
+\begin{equation*}
+\left.\frac{\partial p}{\partial V_m}\right|_{T_c} = -\frac{RT_c}{(V_{m,c} - b)^2} + \frac{2a}{V_{m,c}^3} = 0,
+\qquad
+\left.\frac{\partial^2 p}{\partial V_m^2}\right|_{T_c} = \frac{2RT_c}{(V_{m,c} - b)^3} - \frac{6a}{V_{m,c}^4} = 0.
+\end{equation*}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/vdw_isothermen}
+    \caption{Isothermen van Van der Waals in gereduceerde vorm ($p/p_c$ tegen $V_m/V_{m,c}$). Boven $T_c$ is er \'e\'en fase. Onder $T_c$ wordt de lus (stippellijn) in werkelijkheid vervangen door een horizontaal stuk: het gas condenseert bij constante druk. Het gekleurde gebied is het tweefasengebied, het kritiek punt de top ervan.}
+    \label{fig:vdw-isothermen}
+\end{figure}
+Samen met de vergelijking zelf levert dit
+\begin{equation}
+V_{m,c} = 3b, \qquad T_c = \frac{8a}{27Rb}, \qquad p_c = \frac{a}{27b^2}
+\qquad\Longleftrightarrow\qquad
+a = \frac{27 R^2 T_c^2}{64 p_c}, \qquad b = \frac{R T_c}{8 p_c}.
+\label{eq:vdw-ab}
+\end{equation}
+Zo bepaalt men $a$ en $b$ ook in de praktijk: de kritieke temperatuur en druk zijn nauwkeurig meetbaar, en daaruit volgen de parameters.
+
+\begin{voorbeeld}{$a$ en $b$ voor $\mathrm{CO_2}$ uit het kritiek punt}
+Met $T_c = \SI{304.2}{\kelvin}$ en $p_c = \SI{73.8}{\bar}$ (tabel~\ref{tab:kritiek}):
+\begin{align*}
+a &= \frac{27(8.314)^2(304.2)^2}{64(7.38\times10^{6})} = \SI{0.366}{\pascal\metre\tothe{6}\per\mole\squared},\\
+b &= \frac{(8.314)(304.2)}{8(7.38\times10^{6})} = \SI{4.29e-5}{\metre\cubed\per\mole}.
+\end{align*}
+Dit zijn precies de waarden van tabel~\ref{tab:vdw-kort}: zo zijn die tabelwaarden ook berekend.
+\end{voorbeeld}
+
+\subsection{De compressibiliteitsfactor}
+
+De afwijking wordt gemeten met de \emph{compressibiliteitsfactor}
+\begin{equation}
+\boxed{\;Z = \frac{V_\mathrm{m}}{V_\mathrm{m}^\text{ideaal}} = \frac{pV_\mathrm{m}}{RT}\;}
+\end{equation}
+Voor een ideaal gas is $Z = 1$. Bij $Z < 1$ is het gas compacter dan ideaal: de \emph{aantrekking} tussen de moleculen domineert (matige druk, lage $T$). Bij $Z > 1$ is het gas minder samendrukbaar: het \emph{eigen volume} van de moleculen domineert (zeer hoge druk). Voor $p \to 0$ of $T \to \infty$ gaat $Z \to 1$. Tabel~\ref{table:Z} en figuur~\ref{fig:Z} tonen dat verloop.
+
+\begin{table}[htb]
+\centering
+\caption{Compressibiliteitsfactor $Z$ voor \ce{CO2} bij \SI{350}{\kelvin}.}
+\label{table:Z}
+\begin{tabular}{ccc}
+\toprule
+$p$ (\si{\bar}) & $V_\mathrm{m}$ (\si{\litre\per\mole}) & $Z$ \\
+\midrule
+1 & 24.5 & 1.00 \\
+50 & 0.41 & 0.70 \\
+200 & 0.15 & 1.03 \\
+1000 & 0.045 & 2.16 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/compressiefactor}
+    \caption{Compressibiliteitsfactor in functie van de druk. Bij lage druk domineert de aantrekking ($Z<1$), bij hoge druk het eigen volume ($Z>1$).}
+    \label{fig:Z}
+\end{figure}
+
+De vergelijking van Van der Waals verklaart beide richtingen. Je berekent $Z$ door eerst de druk uit vergelijking~\eqref{eq:vdw} te halen en die dan in de definitie van $Z$ in te vullen.
+
+\begin{voorbeeld}{Vergelijking van het gedrag van \ce{CO2} en He}
+We vergelijken beide gassen bij $T = \SI{300}{\kelvin}$ en $V_m = \SI{1.00e-3}{\metre\cubed\per\mole}$ (\SI{1.00}{\litre\per\mole}). De parameters $a$ en $b$ komen uit tabel~\ref{tab:vdw-kort}. Herschreven naar $p$ luidt de vergelijking van Van der Waals
+\[
+p = \frac{RT}{V_m - b} - \frac{a}{V_m^2},
+\qquad\text{met}\qquad RT = (8.314)(300) = \SI{2494}{\joule\per\mole}.
+\]
+\textbf{Ideaal gas.} $p = RT/V_m = 2494/(1.00\times10^{-3}) = \SI{2.49}{\mega\pascal}$, en per definitie $Z = 1$.
+
+\textbf{\ce{CO2}} ($a = \SI{0.366}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{4.29e-5}{\metre\cubed\per\mole}$):
+\begin{align*}
+p &= \frac{2494}{1.00\times10^{-3} - 0.0429\times10^{-3}} - \frac{0.366}{(1.00\times10^{-3})^2}
+   = \frac{2494}{0.957\times10^{-3}} - 0.366\times10^{6}\\
+  &= 2.606\times10^{6} - 0.366\times10^{6} = \SI{2.24e6}{\pascal},\\
+Z &= \frac{pV_m}{RT} = \frac{(2.24\times10^{6})(1.00\times10^{-3})}{2494} = 0.898.
+\end{align*}
+\textbf{He} ($a = \SI{0.0035}{\pascal\metre\tothe{6}\per\mole\squared}$, $b = \SI{2.38e-5}{\metre\cubed\per\mole}$):
+\begin{align*}
+p &= \frac{2494}{0.976\times10^{-3}} - \frac{0.0035}{(1.00\times10^{-3})^2}
+   = 2.555\times10^{6} - 0.0035\times10^{6} = \SI{2.55e6}{\pascal},\\
+Z &= \frac{(2.55\times10^{6})(1.00\times10^{-3})}{2494} = 1.023.
+\end{align*}
+Beide gassen wijken in tegengestelde richting af. Bij \ce{CO2} is de aantrekkingsterm groot ($a/V_m^2$ is ongeveer \SI{15}{\percent} van de druk): de aantrekking wint en $Z < 1$. Bij helium is de aantrekking verwaarloosbaar en verhoogt alleen het eigen volume de druk: $Z > 1$.
+\end{voorbeeld}
+
+Ook in het kritiek punt kan je $Z$ berekenen. Van der Waals voorspelt voor elk gas dezelfde waarde: met $V_{m,c} = 3b$, $T_c = 8a/(27Rb)$ en $p_c = a/(27b^2)$ volgt
+\[
+Z_c = \frac{p_c V_{m,c}}{RT_c} = \frac{3}{8} = 0.375.
+\]
+Gemeten waarden liggen lager en verschillen van stof tot stof: 0.301 (He), 0.290 (\ce{N2}), 0.274 (\ce{CO2}), 0.242 (\ce{NH3}) en 0.229 (\ce{H2O}) (tabel~\ref{tab:kritiek}). Van der Waals is dus kwalitatief juist, maar kwantitatief beperkt, vooral voor polaire stoffen.
+
+Zet je $Z$ uit tegen de \emph{gereduceerde druk} $p_r = p/p_c$ bij een vaste \emph{gereduceerde temperatuur} $T_r = T/T_c$, dan vallen de curves van heel verschillende gassen nagenoeg samen (figuur~\ref{fig:compchart}). Dit is de \emph{wet van de corresponderende toestanden}. Ingenieurs gebruiken zulke algemene compressibiliteitskaarten wanneer geen specifieke toestandsvergelijking beschikbaar is.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/compressibiliteitskaart}
+    \caption{Algemene compressibiliteitskaart: $Z$ tegen $p_r$ voor verschillende gassen bij dezelfde $T_r$.}
+    \label{fig:compchart}
+\end{figure}
+
+\begin{voorbeeld}{Synthesegas en waterstof onder hoge druk}
+\emph{Synthesegas bij \SI{200}{\bar}.} Na de compressor van figuur~\ref{fig:ammoniakfabriek} heeft het gas \SI{200}{\bar} en ongeveer \SI{40}{\celsius}. Voor de zuivere componenten geeft de toestandsvergelijking van Peng--Robinson (\S\ref{sec:andere-toestandsvgl}) $Z = 1.04$ voor \ce{N2} en $Z = 1.08$ voor \ce{H2}. Beide liggen ver boven hun kritische temperatuur ($T_r = 2.5$ voor \ce{N2}, bijna 10 voor \ce{H2}), zodat de aantrekking nauwelijks meetelt en het eigen volume van de moleculen $Z$ boven 1 duwt. Voor het mengsel is $Z \approx 1.07$: het gas neemt \SI{7}{\percent} meer plaats in dan de ideale gaswet voorspelt. Wie leidingen, compressortrappen en de reactor met $pV = nRT$ dimensioneert, maakt ze \SI{7}{\percent} te klein.
+
+\emph{Een waterstoftank in een auto.} Een brandstofcelwagen slaat waterstof op bij \SI{700}{\bar} in tanks van samen ongeveer \SI{142}{\litre}. De ideale gaswet voorspelt bij \SI{15}{\celsius}
+\[
+n = \frac{pV}{RT} = \frac{(700\times10^{5})(0.142)}{(8.314)(288)} = \SI{4150}{\mole} \;=\; \SI{8.4}{\kilo\gram}.
+\]
+Bij \SI{700}{\bar} is de compressibiliteitsfactor van waterstof echter $Z \approx 1.47$ (NIST), zodat er maar $8.4/1.47 = \SI{5.7}{\kilo\gram}$ in past. Dat komt overeen met wat fabrikanten opgeven. Een fout van \SI{50}{\percent} op de actieradius: hier is de ideale gaswet onbruikbaar.
+
+\emph{Ammoniak in de condensor.} Het gas dat de reactor verlaat, bevat ongeveer \SI{18}{\percent} \ce{NH3}, een partieeldruk van zo'n \SI{36}{\bar}. Ammoniak heeft een kritische temperatuur van \SI{132}{\celsius} (tabel~\ref{tab:kritiek}). Koel je het gas af tot kamertemperatuur, dan ligt die partieeldruk ver boven de dampdruk van ammoniak (\SI{8.6}{\bar} bij \SI{20}{\celsius}) en condenseert het. Daar faalt de ideale gaswet volledig, en precies dat gedrag gebruikt de fabriek om het product af te scheiden.
+\end{voorbeeld}
+
+\subsection{Andere toestandsvergelijkingen}
+\label{sec:andere-toestandsvgl}
+
+De vergelijking van Van der Waals schiet om drie redenen tekort: moleculen zijn geen harde bollen, de aantrekking $a$ hangt in werkelijkheid van de temperatuur af, en vloeistofdichtheden worden slecht voorspeld. Voor nauwkeurig ontwerpwerk gebruiken ingenieurs daarom andere toestandsvergelijkingen. Er zijn twee families.
+
+\subsubsection{Kubische toestandsvergelijkingen}
+
+Deze vergelijkingen behouden de structuur van Van der Waals, een afstotingsterm min een aantrekkingsterm, maar verfijnen beide. De belangrijkste zijn
+\begin{align*}
+\text{Redlich--Kwong (1949):}\quad & p = \frac{RT}{V_m - b} - \frac{a}{\sqrt{T}\,V_m(V_m + b)},\\
+\text{Peng--Robinson (1976):}\quad & p = \frac{RT}{V_m - b} - \frac{a\,\alpha(T)}{V_m(V_m + b) + b(V_m - b)}.
+\end{align*}
+Soave--Redlich--Kwong (1972) vervangt in Redlich--Kwong de factor $1/\sqrt{T}$ door een functie $\alpha(T)$, zoals ook Peng--Robinson doet. Die $\alpha(T)$ hangt af van de \emph{acentrische factor} $\omega$, een getal uit tabellen dat meet hoe sterk een stof afwijkt van een eenvoudige, bolvormige molecule zoals argon. De parameters $a$ en $b$ volgen, net als bij Van der Waals, uit $T_c$ en $p_c$.
+
+Ze heten \emph{kubisch} omdat ze, uitgewerkt naar $V_m$, een derdegraadsvergelijking opleveren. Onder de kritieke temperatuur ($T_c$) zijn die drie wortels: de kleinste is het molair volume van de vloeistof, de grootste dat van de damp, de middelste heeft geen fysische betekenis. Zo beschrijft \'e\'en vergelijking zowel de toestand van de gas- als vloeistoffase. Soave--Redlich--Kwong en Peng--Robinson zijn de standaard in processimulatoren zoals Aspen Plus en HYSYS; ook figuur~\ref{fig:Z} is met Peng--Robinson berekend.
+
+\subsubsection{De viriaalvergelijking}
+
+Een heel andere aanpak schrijft de afwijking van het ideaal gas als een machtreeks in $1/V_m$:
+\begin{equation}
+Z = \frac{pV_m}{RT} = 1 + \frac{B(T)}{V_m} + \frac{C(T)}{V_m^2} + \dots
+\label{eq:viriaal}
+\end{equation}
+$B$ en $C$ heten de tweede en derde \emph{viriaalco\"effici\"ent}. Ze hangen enkel van de temperatuur af en worden per stof bepaald door de reeks te fitten op gemeten $p$-$V$-$T$-gegevens (tabel~\ref{tab:viriaal}).
+
+\begin{table}[htb]
+\centering
+\caption{Tweede viriaalco\"effici\"ent $B$ (\si{\centi\metre\cubed\per\mole}).}
+\label{tab:viriaal}
+\begin{tabular}{lcc}
+\toprule
+gas & \SI{273}{\kelvin} & \SI{600}{\kelvin} \\
+\midrule
+He & 12.0 & 10.4 \\
+\ce{N2} & $-10.5$ & 21.7 \\
+Ar & $-21.7$ & 11.9 \\
+\ce{CO2} & $-149.7$ & $-12.4$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Het teken van $B$ vertelt wat domineert. Een negatieve $B$ (\ce{CO2}, en \ce{N2} bij \SI{273}{\kelvin}) betekent $Z < 1$: de aantrekking wint. Bij hogere temperatuur wordt $B$ positief, omdat de moleculen dan zo snel bewegen dat de aantrekking weinig uitmaakt en enkel het eigen volume overblijft. De temperatuur waarbij $B = 0$ heet de \emph{Boyle-temperatuur}: daar gedraagt het gas zich bij lage druk opvallend ideaal.
+
+De viriaalvergelijking is vooral een \emph{fitvergelijking}. Ze vertrekt niet van een fysisch beeld van de moleculen zoals Van der Waals, en de co\"effici\"enten volgen niet uit een theorie maar uit metingen. Dat is meteen haar sterkte: met genoeg termen beschrijft ze experimentele gegevens zo nauwkeurig als je wil. Bij lage tot matige dichtheid volstaat vaak de term in $B$ alleen. Haar zwakte is dat ze enkel geldt in het gebied waarop gefit werd: bij hoge dichtheid en in de buurt van condensatie convergeert de reeks niet meer, en een vloeistof beschrijft ze niet.
+
+\begin{casusuitgewerkt}{hoeveel gas zit er in de reactor?}
+
+\emph{Stap 1: ideaal gas.} Bij \SI{200}{\bar} en \SI{723}{\kelvin} is
+\[
+\frac{n}{V} = \frac{p}{RT} = \frac{200\times10^{5}}{(8.314)(723)} = \SI{3330}{\mole\per\metre\cubed}.
+\]
+
+\emph{Stap 2: re\"eel gas.} Voor het mengsel (\SI{75}{\percent} \ce{H2}, \SI{25}{\percent} \ce{N2}) geeft Peng--Robinson bij deze temperatuur $Z = 1.05$, zodat
+\[
+\frac{n}{V} = \frac{p}{ZRT} = \frac{3330}{1.05} = \SI{3170}{\mole\per\metre\cubed}.
+\]
+
+\emph{Besluit.} Er zit \SI{5}{\percent} minder gas in de reactor dan de ideale gaswet voorspelt. De moleculen nemen zelf plaats in, en bij deze hoge temperatuur is hun onderlinge aantrekking te zwak om dat te compenseren ($Z > 1$). Na de compressor, bij \SI{40}{\celsius}, is de afwijking groter ($Z = 1.07$), en in een waterstoftank bij \SI{700}{\bar} loopt ze op tot \SI{50}{\percent}. Wie een reactor of een opslagtank dimensioneert, moet $Z$ dus kennen.
+
+\emph{Volgende vraag.} Om het gas op \SI{200}{\bar} te krijgen, moet een compressor het samenpersen. Daarbij wisselt het gas energie uit met zijn omgeving. Op welke manieren kan dat?
+\end{casusuitgewerkt}
+
+\section{Warmte en arbeid}
+
+\begin{casus}{energie over de grens}
+De compressor duwt met een draaiende as op het gas. Na de compressor gaat het gas door een koeler, waar koelwater er energie uit haalt. In beide gevallen verandert de energie van het gas. Is dat twee keer hetzelfde, of is er een wezenlijk verschil? En hoeveel energie moet de compressor minstens leveren om \SI{1}{\mole} gas van \SI{25}{\bar} naar \SI{200}{\bar} te brengen?
+
+\emph{Schat eerst zelf:} de koeler voert energie af naar het koelwater. Zou je die energie kunnen terugwinnen om de compressor mee aan te drijven?
+\end{casus}
+
+Tijdens compressie, expansie, opwarming of afkoeling wisselt een systeem energie uit met zijn omgeving. Dat kan op twee manieren: als \emph{arbeid} of als \emph{warmte}. Beide zijn padfuncties, maar ze verschillen fundamenteel van aard (figuur~\ref{fig:arbeid-warmte}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.85\linewidth]{Figuren/arbeid_warmte}
+    \caption{Arbeid is geordende energieoverdracht: de zuiger geeft alle moleculen die hij raakt een duw in dezelfde richting. Warmte is ongeordend: een warme wand geeft moleculen een extra snelheid in willekeurige richtingen.}
+    \label{fig:arbeid-warmte}
+\end{figure}
+
+\emph{Arbeid} is energieoverdracht door een macroscopische, gerichte kracht: een zuiger die een gas samendrukt, een gewicht dat wordt opgetild, elektronen die samen door een draad bewegen. Arbeid kan in principe volledig worden omgezet in een andere vorm van geordende energie. 
+
+\emph{Warmte} is energieoverdracht die enkel door een temperatuurverschil wordt gedreven. De snelle moleculen van een warme wand stoten tegen de tragere gasmoleculen, die daarna in willekeurige richtingen sneller bewegen. Die wanorde maakt dat warmte niet volledig in arbeid kan worden omgezet; dat is het onderwerp van hoofdstuk~\ref{ch:spontaniteit}.
+
+In chemische processen is de belangrijkste vorm van arbeid de \emph{volumearbeid}, verricht wanneer het volume verandert tegen een uitwendige druk:
+\begin{equation}
+\boxed{\;\delta W = -p_{\text{ext}}\,\dd V\;}
+\end{equation}
+We beschouwen energie die het systeem \emph{ontvangt} als positief. Bij expansie ($\dd V > 0$) levert het gas arbeid aan de omgeving, dus $W < 0$. In een $pV$-diagram is $|W|$ de oppervlakte onder de curve (figuur~\ref{fig:padfunctie}).
+
+\begin{voorbeeld}{Arbeid bij isotherme expansie van een ideaal gas}
+\SI{1}{\mole} ideaal gas expandeert reversibel en isotherm bij \SI{300}{\kelvin} van \SI{1}{\litre} naar \SI{10}{\litre}. Reversibel betekent $p_\text{ext} = p = nRT/V$, zodat
+\[
+W = -\int_{V_1}^{V_2} \frac{nRT}{V}\,\dd V = -nRT \ln\frac{V_2}{V_1} = -(1)(8.314)(300)\ln 10 = -\SI{5.74}{\kilo\joule}.
+\]
+Het gas levert \SI{5.74}{\kilo\joule} arbeid. Laat je het gas in \'e\'en ruk expanderen tegen de constante einddruk $p_\text{ext} = nRT/V_2 = \SI{2.49}{\bar}$, dan is $W = -p_\text{ext}\Delta V = -(2.49\times10^{5})(0.009) = -\SI{2.24}{\kilo\joule}$. Zelfde begin- en eindtoestand, minder dan de helft van de arbeid: arbeid hangt af van de weg.
+
+Figuur~\ref{fig:arbeid-weg} maakt dat zichtbaar. De arbeid is de oppervlakte onder de weg in het $pV$-diagram. Bij de reversibele expansie volgt de uitwendige druk de gasdruk langs de isotherm, en die oppervlakte is groot. In \'e\'en ruk valt de uitwendige druk meteen naar $p_2$, en het gas duwt de hele weg tegen die lage druk: de oppervlakte is enkel de rechthoek onder $p_2$.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{Figuren/arbeid_weg}
+    \caption{Isotherme expansie van \SI{1}{\mole} ideaal gas van \SI{1}{\litre} naar \SI{10}{\litre} bij \SI{300}{\kelvin}. Links reversibel, rechts in \'e\'en ruk tegen $p_\text{ext} = p_2$. De gekleurde oppervlakte is $|W|$.}
+    \label{fig:arbeid-weg}
+\end{figure}
+
+\textbf{Hoe doe je dit in de praktijk?} De reversibele isotherme expansie van links vraagt twee dingen tegelijk.
+\begin{itemize}
+\item \emph{Reversibel:} de uitwendige druk mag op elk ogenblik maar een fractie lager zijn dan de gasdruk. Het klassieke gedachte-experiment: belast een wrijvingsloze zuiger met een hoopje fijn zand en neem de korrels er \'e\'en voor \'e\'en af. Elke stap is een kleine expansie; hoe kleiner de stappen, hoe dichter de weg bij de isotherm ligt en hoe meer arbeid het gas levert.
+\item \emph{Isotherm:} een gas dat arbeid levert, koelt af: het omgekeerde van de compressor die opwarmt (\S~\ref{sec:compressor}). Om $T$ constant te houden moet de omgeving tijdens de expansie warmte toevoeren, hier $Q = -W = \SI{5.74}{\kilo\joule}$. Dat lukt met een cilinder met dunne, goed geleidende wand in een groot thermostaatbad op \SI{300}{\kelvin}, en door zo traag te werken dat de warmte telkens kan bijbenen.
+\end{itemize}
+De vuistregel is dus: een proces is (bijna) isotherm als het veel trager verloopt dan de tijd die warmte nodig heeft om het gas te bereiken, en (bijna) adiabatisch als het veel sneller verloopt. Merk op dat ``isotherm'' alleen niet volstaat voor de maximale arbeid. Ook bij de expansie in \'e\'en ruk (rechts) kan het gas op het einde weer \SI{300}{\kelvin} hebben, maar de weg was niet reversibel.
+
+Zuiver isotherm en reversibel bestaat in de industrie niet: het zou oneindig traag gaan. Wel benadert men het. Een gasexpander of stoomturbine wordt in trappen opgedeeld met \emph{tussenverwarming} ertussen, het spiegelbeeld van de tussenkoeling bij de compressor. Ook in de natuur zie je bijna isotherme expansie: een kleine luchtbel die in water opstijgt, verdubbelt van volume tussen \SI{10}{\metre} diepte en het oppervlak, maar blijft door het goede warmtecontact op watertemperatuur.
+\end{voorbeeld}
+
+\begin{casusuitgewerkt}{energie over de grens}
+
+\emph{Twee soorten overdracht.} De as van de compressor levert \emph{arbeid}: een geordende duw van schoepen of zuiger op alle moleculen in dezelfde richting. De koeler wisselt \emph{warmte} uit: ongeordende botsingen met een koudere wand. Beide veranderen de energie van het gas, maar ze zijn niet gelijkwaardig. Arbeid kan je volledig in warmte omzetten, omgekeerd lukt dat nooit volledig (hoofdstuk~\ref{ch:spontaniteit}). De warmte uit de koeler, op een lage temperatuur, is als aandrijving zo goed als waardeloos.
+
+\emph{Minimale arbeid.} Arbeid hangt af van de weg. De minste arbeid vraagt een reversibele, isotherme compressie: het spiegelbeeld van de isotherme expansie hierboven. Bij \SI{40}{\celsius} is dat per mol
+\[
+W = RT\ln\frac{p_2}{p_1} = (8.314)(313)\ln 8 = \SI{5.41}{\kilo\joule\per\mole}.
+\]
+Elke echte compressor heeft meer nodig.
+
+\emph{Volgende vraag.} Een echte compressor werkt veel te snel om isotherm te zijn: het gas komt er heet uit. Waar blijft de arbeid dan?
+\end{casusuitgewerkt}
+
+\section{De eerste hoofdwet van de thermodynamica}
+
+\begin{casus}{waarom wordt het gas heet?}
+Een compressor verdubbelt de druk van het synthesegas, van \SI{25}{\bar} naar \SI{50}{\bar}. Het gas komt er ongeveer \SI{70}{\kelvin} warmer uit, hoewel er geen brander of verwarming in de compressor zit. Waar komt die energie vandaan, en waar is ze gebleven?
+
+\emph{Schat eerst zelf:} wordt het gas warm omdat het volume kleiner wordt? Wat zou er gebeuren als je even ver comprimeert, maar heel traag, in een koud waterbad?
+\end{casus}
+
+Warmte en arbeid zijn twee manieren waarop energie de systeemgrens oversteekt. Wanneer je een gas verwarmt, neemt het energie op; wanneer het uitzet en een zuiger wegduwt, geeft het energie af. Hoewel de twee mechanismen heel verschillend zijn, gaat het telkens om energie. Dat roept de vraag op: hoe beschrijf je de energie \emph{in} het systeem, los van de manier waarop ze binnenkwam?
+
+\paragraph{De interne energie.} Daarvoor voeren we een nieuwe grootheid in, de \emph{interne energie} $U$. Ze omvat alle energie die op moleculaire schaal in het systeem zit: de translatie-energie van de moleculen die door elkaar vliegen, hun rotatie- en vibratie-energie, de potenti\"ele energie van de krachten tussen de moleculen, en de energie in de chemische bindingen. De kinetische en potenti\"ele energie van het systeem als geheel tellen niet mee: een gasfles in een rijdende vrachtwagen heeft dezelfde interne energie als een fles die stilstaat. Wat $U$ precies is op moleculair niveau, en waarom de energie in sommige vormen wel en in andere niet kan worden opgeslagen, zien we in hoofdstuk~\ref{ch:kwantum}.
+
+Het belangrijkste kenmerk van $U$ is dat ze een \emph{toestandsfunctie} is. Breng je een systeem van toestand 1 naar toestand 2, dan is $\Delta U = U_2 - U_1$, welke combinatie van warmte en arbeid je daarvoor ook gebruikt. Dat is een experimenteel feit: Joule toonde rond 1845 aan dat je water evengoed kan opwarmen met een roerder (arbeid) als met een vlam (warmte), en dat een vaste hoeveelheid arbeid altijd dezelfde temperatuurstijging geeft.
+
+\begin{definitie}{Eerste hoofdwet van de thermodynamica}
+De verandering van de interne energie van een gesloten systeem is de som van de ontvangen warmte en de op het systeem verrichte arbeid:
+\begin{equation}
+\boxed{\Delta U = Q + W \qquad\text{of}\qquad \dd U = \delta Q + \delta W}
+\end{equation}
+Met enkel reversibele volumearbeid wordt dit $\dd U = \delta Q - p\,\dd V$.
+\end{definitie}
+
+Energie ontstaat dus niet en verdwijnt niet; ze verandert enkel van vorm of wordt uitgewisseld. $Q$ en $W$ zijn elk afzonderlijk padfuncties, maar hun som is dat niet: die hangt enkel af van begin- en eindtoestand. Voor een ge\"isoleerd systeem zijn $Q$ en $W$ allebei nul, zodat $\Delta U = 0$: de energie van een ge\"isoleerd systeem is constant.
+
+\paragraph{De interne energie van een ideaal gas.} Bij een ideaal gas oefenen de moleculen geen krachten op elkaar uit, dus is er geen potenti\"ele energie tussen de moleculen. Zolang er geen reactie plaatsvindt, verandert ook de energie in de bindingen niet. Wat overblijft, is de energie van de beweging van de moleculen: translatie, rotatie en vibratie. Die hangt enkel af van de temperatuur; voor de translatie zagen we dat al in de kinetische gastheorie, $\tfrac12 M\langle v^2\rangle = \tfrac32 RT$ (vergelijking~\eqref{eq:vrms}). Daarom geldt voor een ideaal gas
+\[
+U = U(T).
+\]
+Een ideaal gas heeft bij een gegeven temperatuur dus dezelfde interne energie per mol, ongeacht zijn druk of volume. Bij een re\"eel gas hangt $U$ ook af van de afstand tussen de moleculen, dus van het volume. Laat je een re\"eel gas uitzetten, dan moeten de moleculen tegen hun onderlinge aantrekking in uit elkaar worden getrokken; dat kost energie, die van de beweging komt, en het gas koelt af. Dat is het Joule--Thomson-effect uit \S\ref{sec:toestandsvergelijkingen}.
+
+\paragraph{Waarom wordt een gas warm bij compressie?} Duw je snel op een fietspomp, dan wordt het uiteinde warm. De eerste hoofdwet verklaart waarom. Bij een snelle compressie wordt arbeid op het gas verricht ($W > 0$), terwijl er nauwelijks tijd is om warmte af te geven ($Q \approx 0$). Dan is $\Delta U = W > 0$, en omdat $U$ van een (bijna) ideaal gas enkel van $T$ afhangt, moet de temperatuur stijgen. Merk op: het gas wordt niet warm \emph{omdat} het volume kleiner wordt, maar omdat de arbeid van de zuiger als interne energie in het gas terechtkomt. Moleculair bekeken krijgen de moleculen die tegen de naderende zuiger botsen telkens wat extra snelheid mee. Comprimeer je hetzelfde gas heel traag in een koud bad, dan wordt het volume even klein, maar blijft de temperatuur gelijk: de arbeid vloeit dan als warmte weg. Hoe warm het gas in de compressor van de ammoniakfabriek wordt, rekenen we uit in \S\ref{sec:compressor}, zodra we de warmtecapaciteit kennen.
+
+\begin{voorbeeld}{Arbeid bij isotherme compressie van een ideaal gas}
+\SI{1}{\mole} ideaal gas wordt reversibel en isotherm gecomprimeerd bij \SI{300}{\kelvin} van \SI{1}{\bar} naar \SI{10}{\bar}. Omdat $T$ constant is, is $\Delta U = 0$: alle arbeid moet als warmte naar de omgeving. Met $V_2/V_1 = p_1/p_2$:
+\[
+W = -RT\ln\frac{V_2}{V_1} = RT\ln\frac{p_2}{p_1} = (8.314)(300)\ln 10 = \SI{5.74}{\kilo\joule\per\mole}, \qquad Q = -W.
+\]
+\end{voorbeeld}
+
+\begin{casusuitgewerkt}{waarom wordt het gas heet?}
+De energie komt van de as van de compressor, die arbeid verricht op het gas. Een gaspakketje is in een fractie van een seconde door de compressor, veel te snel om warmte af te geven. Dus is $Q \approx 0$ en
+\[
+\Delta U = W.
+\]
+De arbeid blijft als interne energie in het gas. Omdat $U$ van een (bijna) ideaal gas enkel van $T$ afhangt, kan die extra energie maar op \'e\'en manier zichtbaar worden: als een hogere temperatuur. Het kleinere volume is dus niet de oorzaak. Comprimeer je even ver maar heel traag in een koud bad, dan krijg je hetzelfde eindvolume bij de begintemperatuur: dezelfde soort arbeid vloeit dan als warmte naar het bad, zoals in het voorbeeld hierboven.
+
+\emph{Volgende vraag.} Een compressor is geen gesloten cilinder: het gas stroomt er voortdurend in en uit. Geldt $\Delta U = W$ dan nog, of telt er nog iets mee?
+\end{casusuitgewerkt}
+
+\section{Enthalpie}
+\label{sec:enthalpie}
+
+\begin{casus}{wat draagt een stroom mee?}
+Compressor, reactor en condensor zijn open systemen: er stroomt voortdurend gas in en uit. Om de energiebalans van zo'n toestel op te stellen, moet je weten hoeveel energie elke stroom meevoert. Is dat enkel zijn interne energie?
+
+\emph{Schat eerst zelf:} het gas komt de compressor binnen tegen een druk van \SI{25}{\bar} in. Gaat het vanzelf naar binnen, of moet iets het duwen?
+\end{casus}
+
+In een open systeem, zoals een pomp, een turbine of een warmtewisselaar, stroomt materie in en uit. Dat in- en uitstromen kost arbeid. Bekijk een pakketje flu\"idum vlak v\'o\'or de inlaat van een toestel, in een leiding met doorsnede $A$ (figuur~\ref{fig:stromingsarbeid}). Het heeft druk $p_1$ en volume $V_1$, en dus lengte $L_1 = V_1/A$. Het pakketje gaat niet vanzelf naar binnen: het flu\"idum dat erop volgt (stroomopwaarts, links in de figuur) duwt het voor zich uit, net als een zuiger. Die denkbeeldige zuiger oefent een kracht $F = p_1A$ uit en verschuift het pakketje over zijn hele lengte $L_1$, tot het volledig in het toestel zit. De arbeid die zo aan het toestel geleverd wordt, is
+\[
+W_\text{in} = F\,L_1 = p_1A\cdot\frac{V_1}{A} = p_1V_1 .
+\]
+Aan de uitlaat gebeurt het omgekeerde. Het pakketje dat het toestel verlaat (druk $p_2$, volume $V_2$) moet het flu\"idum stroomafwaarts opzij duwen en levert daarbij arbeid $p_2V_2$ aan de omgeving. Elke stroom draagt dus naast zijn interne energie $U$ ook deze \emph{stromingsarbeid} $pV$ mee. Het is handig beide samen te nemen.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\textwidth]{Figuren/stromingsarbeid}
+    \caption{Stromingsarbeid. Aan de inlaat duwt het flu\"idum stroomopwaarts als een denkbeeldige zuiger een pakketje met kracht $p_1A$ over zijn lengte $L_1 = V_1/A$ naar binnen: het toestel ontvangt arbeid $p_1V_1$. Aan de uitlaat duwt het uittredende pakketje het flu\"idum stroomafwaarts weg: het toestel levert arbeid $p_2V_2$.}
+    \label{fig:stromingsarbeid}
+\end{figure}
+
+\begin{definitie}{Enthalpie}
+\begin{equation}
+H = U + pV
+\end{equation}
+\end{definitie}
+
+Differenti\"eren en de eerste hoofdwet invullen geeft $\dd H = \delta Q + V\,\dd p$. Bij \emph{constante druk} valt de laatste term weg:
+\begin{equation}
+\dd H = \delta Q_p .
+\end{equation}
+De enthalpieverandering is dus de warmte bij constante druk. Omdat de meeste processen bij (nagenoeg) constante druk lopen, rekenen ingenieurs bijna altijd met $H$: warmtewisselaars, kolommen en reactoren worden ontworpen met enthalpiebalansen. Voor vaste stoffen en vloeistoffen is $pV$ klein, zodat $\Delta H \approx \Delta U$; voor gassen is het verschil $\Delta(pV) = \Delta n_\text{gas}RT$.
+
+Waar gaat dat verschil naartoe? Stel dat een reactie bij constante druk $p$ in een cilinder met een vrij bewegende zuiger loopt (figuren~\ref{fig:enthalpie-thermolyse} en~\ref{fig:enthalpie-vet}). Ontstaat er gas, dan schuift de zuiger op en duwt het systeem de atmosfeer weg: het levert arbeid $W = -p\,\Delta V$. Verdwijnt er gas, dan duwt de atmosfeer de zuiger in en krijgt het systeem arbeid. Met de ideale gaswet is $p\,\Delta V = \Delta n_\text{gas}RT$ (het volume van vaste stoffen en vloeistoffen verwaarlozen we), zodat de eerste hoofdwet $\Delta U = Q_p + W$ wordt
+\begin{equation}
+\Delta U = \Delta H - \Delta n_\text{gas}RT .
+\label{eq:dU-dH}
+\end{equation}
+De warmte $Q_p = \Delta H$ en de verandering van de interne energie verschillen dus precies met de volumearbeid tegen de atmosfeer. Twee reacties uit het dagelijks leven tonen beide richtingen.
+
+\begin{voorbeeld}{Thermolyse van kalksteen: warmte erin, arbeid eruit}
+In een kalkoven wordt kalksteen ontbonden tot ongebluste kalk, de grondstof voor cement en mortel:
+\[
+\mathrm{CaCO_3(s)} \;\longrightarrow\; \mathrm{CaO(s)} + \mathrm{CO_2(g)}, \qquad \Delta H^\circ = +\SI{178.3}{\kilo\joule\per\mole} \quad (\SI{298}{\kelvin}).
+\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Figuren/enthalpie_thermolyse}
+    \caption{Thermolyse van kalksteen bij constante druk, per mol. Er ontstaat CO$_2$; de zuiger schuift op en een deel van de toegevoerde warmte verlaat het systeem weer als arbeid. Pijlen niet op schaal.}
+    \label{fig:enthalpie-thermolyse}
+\end{figure}
+De reactie is endotherm: je moet \SI{178.3}{\kilo\joule} warmte toevoeren per mol. Er ontstaat \'e\'en mol gas uit niets dan vaste stof, dus $\Delta n_\text{gas} = +1$ en
+\begin{align*}
+W &= -\Delta n_\text{gas}RT = -(1)(8.314)(298) = \SI{-2.48}{\kilo\joule\per\mole},\\
+\Delta U &= Q_p + W = 178.3 - 2.5 = \SI{175.8}{\kilo\joule\per\mole}.
+\end{align*}
+Van de toegevoerde warmte blijft dus \SI{175.8}{\kilo\joule} in het systeem (om de bindingen te herschikken) en lekt \SI{2.5}{\kilo\joule} weer weg als arbeid om de atmosfeer opzij te duwen voor het gevormde CO$_2$. In de oven, bij ongeveer \SI{900}{\celsius}, is die arbeid $RT \approx \SI{9.8}{\kilo\joule\per\mole}$: viermaal groter, maar nog steeds slechts enkele procent van de reactie-enthalpie.
+\end{voorbeeld}
+
+\begin{voorbeeld}{Verbranding van vet: warmte eruit, arbeid erin}
+Je lichaam verbrandt vet, bijvoorbeeld tristearine, bij lichaamstemperatuur (\SI{310}{\kelvin}) en constante druk tot CO$_2$ en vloeibaar water:
+\[
+\mathrm{C_{57}H_{110}O_6(s)} + 81.5\,\mathrm{O_2(g)} \;\longrightarrow\; 57\,\mathrm{CO_2(g)} + 55\,\mathrm{H_2O(l)}, \qquad \Delta H \approx \SI{-35700}{\kilo\joule\per\mole}.
+\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Figuren/enthalpie_vet}
+    \caption{Verbranding van tristearine bij constante druk, per mol. Er verdwijnt gas; de atmosfeer duwt de zuiger in en levert arbeid, zodat er meer warmte vrijkomt dan de interne energie daalt. Pijlen niet op schaal.}
+    \label{fig:enthalpie-vet}
+\end{figure}
+Dat is ongeveer \SI{40}{\kilo\joule} per gram vet ($M = \SI{891.5}{\gram\per\mole}$). Hier \emph{verdwijnt} gas: $\Delta n_\text{gas} = 57 - 81.5 = -24.5$. De atmosfeer duwt het volume dus samen en levert arbeid aan het systeem:
+\begin{align*}
+W &= -\Delta n_\text{gas}RT = -(-24.5)(8.314)(310) = \SI{+63}{\kilo\joule\per\mole},\\
+\Delta U &= Q_p + W = -35\,700 + 63 = \SI{-35640}{\kilo\joule\per\mole}.
+\end{align*}
+De vrijgekomen warmte ($|Q_p| = \SI{35700}{\kilo\joule}$) is dus \emph{groter} dan de daling van de interne energie ($\SI{35640}{\kilo\joule}$): de \SI{63}{\kilo\joule} arbeid die de omgeving levert, komt er als warmte bij. Er lekt hier niets weg; het is precies omgekeerd als bij de kalkoven. Het effect is klein (\SI{0.2}{\percent}), wat bevestigt dat $\Delta H \approx \Delta U$ voor de meeste reacties, maar het teken van $\Delta n_\text{gas}$ bepaalt in welke richting de arbeid loopt.
+\end{voorbeeld}
+
+\begin{casusuitgewerkt}{wat draagt een stroom mee?}
+Een stroom draagt niet enkel zijn interne energie $U$ mee, maar ook de stromingsarbeid $pV$ die nodig is om hem het toestel in en uit te duwen. Samen is dat de enthalpie $H = U + pV$. Voor de compressor, die stationair werkt en geen warmte uitwisselt, volgt uit $\dd H = \delta Q + V\,\dd p$ met $\delta Q = 0$:
+\[
+W_\text{as} = \Delta H = H_\text{uit} - H_\text{in}.
+\]
+De asarbeid is dus gelijk aan de enthalpiestijging van het gas, niet aan de stijging van zijn interne energie. Hetzelfde geldt voor elke pomp of turbine. Voor de reactor en de condensor, waar warmte wordt uitgewisseld bij nagenoeg constante druk, wordt de balans $Q = \Delta H$.
+
+\emph{Volgende vraag.} Als de compressor de enthalpie van het gas met een gegeven bedrag verhoogt, hoeveel stijgt dan de temperatuur?
+\end{casusuitgewerkt}
+
+\section{Warmtecapaciteiten}
+\label{sec:warmtecapaciteiten}
+
+\begin{casus}{hoe warm precies?}
+Bij de verdubbeling van de druk (van \SI{25}{\bar} naar \SI{50}{\bar}) steekt de compressor ongeveer \SI{2}{\kilo\joule} arbeid in elke mol synthesegas. Verklaart dat de \SI{70}{\kelvin} temperatuurstijging? En wat gebeurt er als je het gas in \'e\'en keer van \SI{25}{\bar} naar \SI{200}{\bar} brengt?
+
+\emph{Schat eerst zelf:} de druk stijgt nu met een factor 8 in plaats van 2. Wordt de temperatuurstijging dan ook vier keer groter?
+\end{casus}
+
+Om een stof op te warmen is warmte nodig. De \emph{warmtecapaciteit} geeft aan hoeveel energie moet worden toegevoerd om de temperatuur van een systeem met \'e\'en kelvin te verhogen:
+\begin{equation}
+C = \frac{\dd Q}{\dd T}
+\end{equation}
+
+Omdat warmte een padfunctie is, hangt $C$ af van de manier waarop je opwarmt. Er zijn twee versies:
+\begin{equation}
+C_V = \left(\frac{\partial U}{\partial T}\right)_V
+\qquad\qquad
+C_p = \left(\frac{\partial H}{\partial T}\right)_p
+\end{equation}
+Bij constante druk zet het systeem bij opwarming uit en levert het arbeid, dus is meer warmte nodig: $C_p > C_V$. Hoeveel meer, volgt voor een ideaal gas rechtstreeks uit de definitie van enthalpie.
+
+\begin{enumerate}
+\item Vertrek van $H = U + pV$ en vul de ideale gaswet $pV = nRT$ in:
+\[
+H = U + nRT .
+\]
+\item Bij een ideaal gas oefenen de moleculen geen krachten op elkaar uit. De interne energie hangt dan enkel van de temperatuur af, niet van het volume of de druk: $U = U(T)$. Daardoor is ook $H = U(T) + nRT$ enkel een functie van $T$, en mag je de parti\"ele afgeleiden in de definities van $C_V$ en $C_p$ vervangen door gewone afgeleiden:
+\[
+C_V = \frac{\dd U}{\dd T}, \qquad C_p = \frac{\dd H}{\dd T}.
+\]
+\item Leid $H = U + nRT$ af naar $T$ ($n$ en $R$ zijn constant):
+\[
+\frac{\dd H}{\dd T} = \frac{\dd U}{\dd T} + nR
+\qquad\Longrightarrow\qquad
+C_p = C_V + nR .
+\]
+\item Deel door $n$ voor de molaire grootheden. Dat is de \emph{wet van Mayer}:
+\begin{equation}
+C_{p,\mathrm{m}} - C_{V,\mathrm{m}} = R .
+\label{eq:mayer}
+\end{equation}
+\end{enumerate}
+De term $nR$ heeft een eenvoudige betekenis: het is de arbeid die het gas per kelvin levert wanneer het bij constante druk uitzet, want $p\,\Delta V = nR\,\Delta T$. Voor \SI{1}{\mole} gas is dat \SI{8.314}{\joule} per kelvin, die je bij constante druk extra moet toevoeren bovenop wat naar de interne energie gaat. Voor vaste stoffen en vloeistoffen is de uitzetting zo klein dat $C_p \approx C_V$.
+Een \'e\'enatomig gas heeft $C_{V,\mathrm{m}} = \tfrac{3}{2}R$ (enkel translatie); twee- en meeratomige gassen hebben meer, omdat ook rotatie en vibratie energie opnemen (\S~\ref{sec:moleculaire-beweging}).
+
+\begin{voorbeeld}{Opwarmen van water versus lucht}
+Om \SI{1}{\kilogram} op te warmen van \SI{20}{\celsius} naar \SI{30}{\celsius} heeft water ($c_p = \SI{4.18}{\kilo\joule\per\kilogram\per\kelvin}$) \SI{41.8}{\kilo\joule} nodig, lucht ($c_p = \SI{1.00}{\kilo\joule\per\kilogram\per\kelvin}$) slechts \SI{10.0}{\kilo\joule}. Per kilogram neemt water dus vier keer meer warmte op: daarom is het zo'n goede koelvloeistof.
+\end{voorbeeld}
+
+\subsection{Toepassing: waarom wordt een compressor warm?}
+\label{sec:compressor}
+
+Persluchtinstallaties, koelmachines en warmtepompen, de aardgastransportleiding: overal wordt gas gecomprimeerd. De gecomprimeerde lucht van een werkplaatscompressor verlaat de compressor gloeiend heet. Met de eerste hoofdwet en de warmtecapaciteit kunnen we nu berekenen hoe heet, en waarom dat ingenieurs zorgen baart.
+
+\paragraph{Stap 1: de compressie is adiabatisch.}
+Een gaspakketje doorloopt een compressor in een fractie van een seconde. Warmteoverdracht naar de wand is daarvoor veel te traag, zodat $Q \approx 0$. De eerste hoofdwet voor dat pakketje wordt dan $\dd U = \delta W = -p\,\dd V$: alle arbeid blijft als interne energie in het gas.
+
+\paragraph{Stap 2: van arbeid naar temperatuur.}
+Voor een ideaal gas is $\dd U = nC_{V,\mathrm{m}}\,\dd T$ en $p = nRT/V$. Invullen en scheiden van de veranderlijken geeft
+\[
+C_{V,\mathrm{m}}\,\frac{\dd T}{T} = -R\,\frac{\dd V}{V}
+\qquad\Longrightarrow\qquad
+\ln\frac{T_2}{T_1} = -\frac{R}{C_{V,\mathrm{m}}}\ln\frac{V_2}{V_1}.
+\]
+Het volume is in een compressor moeilijk te meten, de druk wel. Vervang daarom $V_2/V_1 = (T_2/T_1)(p_1/p_2)$ en gebruik $C_{V,\mathrm{m}} + R = C_{p,\mathrm{m}}$:
+\begin{equation}
+\boxed{\;\frac{T_2}{T_1} = \left(\frac{p_2}{p_1}\right)^{R/C_{p,\mathrm{m}}}\;}
+\label{eq:adiabatische-compressie}
+\end{equation}
+De temperatuurstijging hangt dus enkel af van de \emph{drukverhouding}, niet van de absolute druk. Lucht bestaat uit tweeatomige moleculen met $C_{p,\mathrm{m}} \approx \tfrac{7}{2}R$, zodat $R/C_{p,\mathrm{m}} = 2/7 = 0.286$.
+
+\paragraph{Stap 3: hoe warm?}
+Lucht van \SI{20}{\celsius} wordt van \SI{1}{\bar} naar \SI{8}{\bar} gebracht, een gewone werkplaatsdruk:
+\[
+T_2 = (293.15)\,(8)^{0.286} = \SI{531}{\kelvin} = \SI{258}{\celsius}.
+\]
+Een re\"ele compressor heeft bovendien wrijving en verliezen, waardoor de lucht nog warmer wordt. Bij die temperatuur ontleedt smeerolie en vormt ze afzettingen, en in het ergste geval ontvlamt de oliedamp. De eindtemperatuur is daarom een harde ontwerpgrens.
+
+\paragraph{Stap 4: hoeveel arbeid?}
+Een compressor is een open systeem. Volgens \S~\ref{sec:enthalpie} is $\dd H = \delta Q + V\,\dd p$; zonder warmte-uitwisseling is de arbeid die de compressor per mol levert dus gelijk aan de enthalpiestijging van het gas:
+\[
+W_\text{adiabatisch} = \Delta H_\mathrm{m} = C_{p,\mathrm{m}}(T_2 - T_1) = \tfrac{7}{2}(8.314)(531 - 293) = \SI{6.92}{\kilo\joule\per\mole}.
+\]
+Zou je het gas tijdens de compressie perfect koelen (isotherm), dan is $W = \int V\,\dd p = RT\ln(p_2/p_1) = (8.314)(293)\ln 8 = \SI{5.07}{\kilo\joule\per\mole}$. De adiabatische compressie kost dus \SI{37}{\percent} meer arbeid. De reden zie je in $\int V\,\dd p$: het opgewarmde gas neemt bij elke druk een groter volume in, en dat volume moet de compressor verder samendrukken. In figuur~\ref{fig:compressie} is dat het gekleurde vlak tussen beide curven.
+
+\paragraph{Stap 5: de oplossing is tussenkoeling.}
+Perfect koelen tijdens de compressie lukt niet, maar je kan de compressie wel in stukken hakken. Een tweetrapscompressor brengt de lucht eerst van \SI{1}{\bar} naar \SI{2.83}{\bar} (drukverhouding $\sqrt{8}$), koelt ze in een \emph{tussenkoeler} terug tot \SI{20}{\celsius}, en comprimeert dan verder naar \SI{8}{\bar}. Elke trap haalt nu
+\[
+T = (293.15)\,(2.83)^{0.286} = \SI{395}{\kelvin} = \SI{121}{\celsius},
+\]
+en de totale arbeid daalt tot $2 \cdot \tfrac{7}{2}(8.314)(395 - 293) = \SI{5.90}{\kilo\joule\per\mole}$: \SI{15}{\percent} minder dan zonder tussenkoeling. De groene weg in figuur~\ref{fig:compressie} benadert de isotherm des te beter naarmate er meer trappen zijn. Daarom hebben compressoren voor hoge drukken, zoals die voor het vullen van duikflessen (\SI{200}{\bar}) of voor de ammoniaksynthese (150 tot \SI{300}{\bar}), drie tot vijf trappen met telkens een tussenkoeler.
+
+\begin{casusuitgewerkt}{hoe warm precies?}
+
+\emph{Stap 1: de \SI{70}{\kelvin} verklaard.} Synthesegas is tweeatomig, dus $C_{p,\mathrm{m}} \approx \tfrac72 R = \SI{29.1}{\joule\per\mole\per\kelvin}$. Met $W_\text{as} = \Delta H = C_{p,\mathrm{m}}\Delta T$:
+\[
+\Delta T = \frac{2000}{29.1} = \SI{69}{\kelvin}.
+\]
+Controle met vergelijking~\eqref{eq:adiabatische-compressie}: $T_2 = (313)(2)^{0.286} = \SI{382}{\kelvin}$, ook \SI{69}{\kelvin} warmer dan de inlaat op \SI{40}{\celsius}.
+
+\emph{Stap 2: in \'e\'en keer naar \SI{200}{\bar}.} De drukverhouding is 8:
+\[
+T_2 = (313)(8)^{0.286} = \SI{567}{\kelvin} = \SI{294}{\celsius}, \qquad W = (29.1)(567 - 313) = \SI{7.4}{\kilo\joule\per\mole}.
+\]
+De temperatuurstijging is \SI{254}{\kelvin}: 3.7 keer zoveel als bij de verdubbeling, niet 4 keer. De temperatuur groeit met een macht van de drukverhouding, niet evenredig ermee. Het probleem is de eindtemperatuur: bij \SI{294}{\celsius} lijden afdichtingen en smering, en de arbeid ligt \SI{37}{\percent} boven het isotherme minimum van \SI{5.41}{\kilo\joule\per\mole}.
+
+\emph{Stap 3: de oplossing.} Comprimeer in drie trappen met elk een drukverhouding 2 ($2^3 = 8$) en koel het gas na elke trap terug tot \SI{40}{\celsius}. Elke trap eindigt dan op \SI{382}{\kelvin} (\SI{109}{\celsius}), en de totale arbeid is
+\[
+W = 3\,(29.1)(382 - 313) = \SI{6.0}{\kilo\joule\per\mole},
+\]
+al veel dichter bij het minimum.
+
+\emph{Stap 4: wat betekent dat voor de fabriek?} Een fabriek van \SI{1000}{\tonne} \ce{NH3} per dag maakt $10^{9}\,\mathrm{g}/(17.03\,\mathrm{g\,mol^{-1}} \times 86\,400\,\mathrm{s}) = \SI{680}{\mole\per\second}$ ammoniak en moet daarvoor het dubbele aan synthesegas comprimeren:
+\[
+P = (2)(680)(6.0\times10^{3}) = \SI{8.2}{\mega\watt},
+\]
+en met wrijving en lekverliezen nog een derde meer. Dat is het vermogen van enkele grote windturbines, enkel om het gas op druk te brengen. (Bij \SI{200}{\bar} is $Z \approx 1.07$; voor deze schatting verwaarlozen we dat.)
+
+\emph{Volgende vraag.} De tussenkoelers moeten na elke trap \SI{2}{\kilo\joule} per mol afvoeren. Verderop in de lus moet de condensor het gas zelfs tot onder \SI{0}{\celsius} afkoelen en de ammoniak vloeibaar maken. Hoeveel warmte is dat?
+\end{casusuitgewerkt}
+
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/compressie_pv}
+    \caption{Compressie van \SI{1}{\mole} lucht van \SI{1}{\bar} naar \SI{8}{\bar}, vertrekkend van \SI{20}{\celsius}. Isotherm: het gas wordt perfect gekoeld. Adiabatisch: alle arbeid blijft als interne energie in het gas. Tweetraps: adiabatisch tot \SI{2.83}{\bar}, terugkoelen tot \SI{20}{\celsius}, opnieuw adiabatisch. Het gekleurde vlak is de extra arbeid van de adiabatische compressie ten opzichte van de isotherme.}
+    \label{fig:compressie}
+\end{figure}
+
+Hetzelfde effect benut men in een dieselmotor. Daar wordt lucht snel samengedrukt tot een twintigste van haar volume. Met vergelijking~\eqref{eq:adiabatische-compressie} herschreven naar volumes, $T_2/T_1 = (V_1/V_2)^{R/C_{V,\mathrm{m}}}$, loopt ze op van \SI{20}{\celsius} tot bijna \SI{700}{\celsius}, heet genoeg om de ingespoten diesel zonder bougie te ontsteken. Het omgekeerde voel je wanneer je lucht uit een fietsband laat ontsnappen: bij een snelle (adiabatische) expansie levert het gas arbeid, en daalt zijn temperatuur.
+
+
+
+\section{Enthalpie bij opwarmen en faseovergangen}
+
+\begin{casus}{de condensor}
+In de condensor wordt het gas van de reactor afgekoeld tot \SI{-10}{\celsius}. Eerst daalt de temperatuur van het gas, daarna condenseert de ammoniak. Hoeveel warmte moet de condensor afvoeren om de ammoniak van een fabriek van \SI{1000}{\tonne} per dag vloeibaar te maken, en waarmee koel je dat?
+
+\emph{Schat eerst zelf:} bij water kost verdampen veel meer energie dan opwarmen van 0 tot \SI{100}{\celsius}. Waarom zou dat zo zijn, en verwacht je bij ammoniak hetzelfde?
+\end{casus}
+
+Bij opwarmen bij constante druk neemt de enthalpie toe volgens
+\begin{equation}
+\Delta H = \int_{T_1}^{T_2} C_p(T)\,\dd T \;\approx\; C_p\,(T_2-T_1) \quad\text{(als $C_p$ ongeveer constant is).}
+\end{equation}
+Over een groot temperatuurbereik is $C_p$ niet constant: hoe warmer, hoe meer vibraties worden aangeslagen, zodat $C_p$ stijgt (figuur~\ref{fig:cp-temperatuur}). Eenatomige gassen zoals helium hebben geen vibraties en dus een constante $C_p = \tfrac{5}{2}R$. Voor nauwkeurige berekeningen gebruikt men een empirische veelterm,
+\begin{equation}
+C_{p,\mathrm{m}} = a+bT+cT^2 ,
+\end{equation}
+met co\"effici\"enten zoals in tabel~\ref{tab:cp_coeff}. Processimulatoren (Aspen Plus, CHEMCAD) bevatten uitgebreide databanken van zulke correlaties.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/cp_temperatuur}
+    \caption{Molaire warmtecapaciteit van enkele gassen tussen \SI{300}{\kelvin} en \SI{1000}{\kelvin} (correlaties uit tabel~\ref{tab:cp_coeff}, bron NIST). Hoe meer atomen, hoe meer vibraties en hoe sterker $C_p$ stijgt; helium blijft vlak op $\tfrac{5}{2}R$.}
+    \label{fig:cp-temperatuur}
+\end{figure}
+
+\begin{table}[htb]
+\centering
+\caption{Benaderende co\"effici\"enten voor $C_{p,\mathrm{m}} = a + bT + cT^2$ (in \si{\joule\per\mole\per\kelvin}, $T$ in \si{\kelvin}), geldig tussen \SI{300}{\kelvin} en \SI{1000}{\kelvin} (afwijking kleiner dan \SI{1}{\joule\per\mole\per\kelvin}).}
+\label{tab:cp_coeff}
+\begin{tabular}{lccc}
+\toprule
+Component & $a$ & $b$ & $c$ \\
+\midrule
+\ce{N2}     & 28.5 & $3.6\times10^{-4}$  & $4.00\times10^{-6}$ \\
+\ce{O2}     & 25.4 & $1.35\times10^{-2}$ & $-3.95\times10^{-6}$ \\
+Lucht       & 27.8 & $3.12\times10^{-3}$ & $2.33\times10^{-6}$ \\
+\ce{H2}     & 29.1 & $-6.1\times10^{-4}$ & $1.65\times10^{-6}$ \\
+\ce{CO}     & 27.7 & $3.12\times10^{-3}$ & $2.47\times10^{-6}$ \\
+\ce{CO2}    & 23.9 & $5.21\times10^{-2}$ & $-2.20\times10^{-5}$ \\
+\ce{CH4}    & 14.9 & $6.96\times10^{-2}$ & $-1.23\times10^{-5}$ \\
+\ce{H2O(g)} & 31.3 & $5.99\times10^{-3}$ & $4.12\times10^{-6}$ \\
+\ce{NH3}    & 24.4 & $3.86\times10^{-2}$ & $-6.40\times10^{-6}$ \\
+He          & 20.8 & 0                   & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{voorbeeld}{Enthalpieverandering van lucht}
+Lucht wordt bij constante druk opgewarmd van \SI{300}{\kelvin} naar \SI{600}{\kelvin}. Term per term integreren:
+\begin{align*}
+\Delta H_\mathrm{m} &= a(T_2-T_1) + \frac{b}{2}(T_2^2-T_1^2) + \frac{c}{3}(T_2^3-T_1^3)\\
+&= 27.8(300) + \frac{3.12\times10^{-3}}{2}(600^2-300^2) + \frac{2.33\times10^{-6}}{3}(600^3-300^3)\\
+&= 8350 + 421 + 147 = \SI{8.92}{\kilo\joule\per\mole}.
+\end{align*}
+Met een constante $C_{p,\mathrm{m}} = \SI{29.7}{\joule\per\mole\per\kelvin}$ (de waarde bij \SI{450}{\kelvin}, halfweg) vind je \SI{8.90}{\kilo\joule\per\mole}; met de waarde bij \SI{300}{\kelvin} (\SI{29.0}{\joule\per\mole\per\kelvin}) \SI{8.70}{\kilo\joule\per\mole}, nog geen \SI{3}{\percent} te weinig. Een gemiddelde $C_p$ volstaat dus vaak; de veelterm wordt belangrijk bij grote temperatuursprongen, zoals in een vlam (\S~\ref{sec:warmte-effecten}).
+\end{voorbeeld}
+
+\subsection{Faseovergangen: enthalpie zonder temperatuurstijging}
+\label{sec:faseovergangen}
+
+Zolang een stof in dezelfde fase blijft, stijgt de enthalpie geleidelijk met $\int C_p\,\dd T$. Bij smelten, verdampen of sublimeren wordt echter warmte opgenomen zonder dat de temperatuur verandert: de enthalpie maakt een sprong (figuur~\ref{fig:opwarmcurve}). De warmte per mol bij constante druk is de \emph{overgangsenthalpie}: $\Delta H_\text{fus}$ (smelten), $\Delta H_\text{vap}$ (verdampen) en $\Delta H_\text{sub} = \Delta H_\text{fus} + \Delta H_\text{vap}$ (sublimeren). Voor water is $\Delta H_\text{fus} = \SI{6.0}{\kilo\joule\per\mole}$ bij \SI{0}{\celsius} en $\Delta H_\text{vap} = \SI{40.7}{\kilo\joule\per\mole}$ bij \SI{100}{\celsius}. De energie gaat naar het verbreken van intermoleculaire bindingen (hoofdstuk~\ref{ch:intermoleculair}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/opwarmcurve_water}
+    \caption{Temperatuur van \SI{1}{\kilogram} water bij gelijkmatige warmtetoevoer, van ijs bij \SI{-20}{\celsius} tot stoom bij \SI{120}{\celsius}. Tijdens smelten en verdampen blijft de temperatuur constant.}
+    \label{fig:opwarmcurve}
+\end{figure}
+
+\begin{voorbeeld}{Verdampen van water}
+Om \SI{1}{\mole} water op te warmen van \SI{0}{\celsius} tot \SI{100}{\celsius} is $C_p\Delta T = (75.3)(100) = \SI{7.53}{\kilo\joule}$ nodig. Om het daarna te verdampen: \SI{40.7}{\kilo\joule}, 5.4 keer meer. Van de totale \SI{48.2}{\kilo\joule} gaat dus meer dan \SI{80}{\percent} naar de faseovergang. Daarom verbruikt de reboiler van een destillatiekolom zoveel meer energie dan een gewone vloeistofverwarmer.
+\end{voorbeeld}
+
+\begin{casusuitgewerkt}{de condensor}
+In de condensor van figuur~\ref{fig:ammoniakfabriek} gebeurt het omgekeerde van verdampen: gasvormige ammoniak condenseert en geeft daarbij zijn verdampingsenthalpie af. Bij het normale kookpunt (\SI{-33}{\celsius}) is $\Delta H_\text{vap}(\ce{NH3}) = \SI{23.3}{\kilo\joule\per\mole}$ (Atkins \& de Paula); bij de condensortemperatuur van ongeveer \SI{-10}{\celsius} is ze iets kleiner, ongeveer \SI{22}{\kilo\joule\per\mole}, omdat de verdampingsenthalpie daalt naarmate je de kritische temperatuur nadert.
+
+Hoeveel koelvermogen vraagt een fabriek van \SI{1000}{\tonne} \ce{NH3} per dag?
+\[
+\dot n = \frac{10^{9}\ \si{\gram}}{(17.03\ \si{\gram\per\mole})(86\,400\ \si{\second})} = \SI{680}{\mole\per\second},
+\qquad
+\dot Q = \dot n\,\Delta H_\text{vap} = (680)(22\times10^{3}) = \SI{15}{\mega\watt}.
+\]
+Dat is enkel de faseovergang; het afkoelen van het hete gas komt er nog bij. Omdat de condensor onder \SI{0}{\celsius} werkt, kan gewoon koelwater dit niet: er is een koelmachine nodig, en die verbruikt zelf weer elektrische energie. Waarom warmte niet vanzelf van koud naar warm stroomt en hoeveel arbeid een koelmachine daarvoor minstens nodig heeft, is een vraag voor hoofdstuk~\ref{ch:spontaniteit}.
+
+\emph{Volgende vraag.} Die ammoniak ontstaat in de reactor, en daar komt bij de vorming zelf warmte vrij. Hoeveel?
+\end{casusuitgewerkt}
+
+\section{Standaardtoestanden en de wet van Hess}
+\label{sec:hess}
+
+\begin{casus}{hoeveel warmte geeft de reactie?}
+Per mol ammoniak die in de reactor ontstaat, komt warmte vrij. Hoeveel, en hoe bereken je dat voor een reactie die je nooit zelf in een calorimeter hebt gemeten?
+
+\emph{Schat eerst zelf:} is de vorming van ammoniak sterk exotherm, zoals de verbranding van aardgas, of eerder bescheiden?
+\end{casus}
+
+Enthalpie\"en worden altijd opgegeven ten opzichte van een \emph{standaardtoestand}: zuivere stof bij \SI{1}{\bar}, meestal getabelleerd bij \SI{298.15}{\kelvin}. De \emph{standaardvormingsenthalpie} $\Delta H_f^\circ$ is de enthalpieverandering wanneer \'e\'en mol van een stof gevormd wordt uit de elementen in hun standaardtoestand. Voor die elementen zelf is $\Delta H_f^\circ = 0$. Omdat $H$ een toestandsfunctie is, mag je elke reactie opsplitsen in ``ontbinden tot elementen'' en ``opbouwen tot producten'' (figuur~\ref{fig:hess}). Dat is de \emph{wet van Hess}:
+\begin{equation}
+\Delta_r H^\circ = \sum_i \nu_i\, \Delta H_{f,i}^\circ ,
+\end{equation}
+met $\nu_i$ positief voor producten en negatief voor reagentia. Op dezelfde manier worden standaardentropie\"en $S^\circ$ en vormings-Gibbsenergie\"en $\Delta G_f^\circ$ getabelleerd (hoofdstuk~\ref{ch:spontaniteit}).
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/hess}
+    \caption{Enthalpiediagram voor de verbranding van methaan. De elementen liggen per definitie op nul. De reactie-enthalpie is het verschil tussen het niveau van de producten en dat van de reagentia, welke weg je ook volgt.}
+    \label{fig:hess}
+\end{figure}
+
+\begin{voorbeeld}{Reactie-enthalpie via de wet van Hess}
+Voor \ce{CH4(g) + 2 O2(g) -> CO2(g) + 2 H2O(l)} met $\Delta H_f^\circ$ = $-74.8$ (\ce{CH4}), $-393.5$ (\ce{CO2}) en $-285.8$ (\ce{H2O(l)}) \si{\kilo\joule\per\mole}:
+\[
+\Delta_r H^\circ = (-393.5) + 2(-285.8) - (-74.8) = \SI{-890.3}{\kilo\joule\per\mole}.
+\]
+Per mol methaan komt \SI{890.3}{\kilo\joule} vrij: de basis voor het ontwerp van elke aardgasbrander.
+\end{voorbeeld}
+
+\begin{casusuitgewerkt}{hoeveel warmte geeft de reactie?}
+Voor de ammoniaksynthese is de rekening eenvoudig, omdat \ce{N2} en \ce{H2} elementen zijn met $\Delta H_f^\circ = 0$:
+\[
+\Delta_r H^\circ = 2\,\Delta H_f^\circ(\ce{NH3}) = 2(\SI{-46.1}{\kilo\joule\per\mole}) = \SI{-92.2}{\kilo\joule}
+\]
+per 2 mol \ce{NH3}, bij \SI{25}{\celsius}.
+Per mol ammoniak is dat \SI{46.1}{\kilo\joule}, bijna twintig keer minder dan bij de verbranding van een mol methaan: de reactie is exotherm, maar bescheiden. Voor een fabriek van \SI{1000}{\tonne} per dag (\SI{680}{\mole\per\second}) is het toch $(680)(46.1) = \SI{31}{\mega\watt}$ aan warmte.
+
+\emph{Volgende vraag.} Dat getal geldt bij \SI{25}{\celsius}, maar de katalysator werkt pas bij 400 tot \SI{500}{\celsius}. Komt er daar evenveel warmte vrij?
+\end{casusuitgewerkt}
+
+\section{Temperatuurafhankelijkheid van reactie-enthalpie\"en: de wet van Kirchhoff}
+\label{sec:kirchhoff}
+
+\begin{casus}{tabellen bij 25 \textdegree{}C, reactor bij 450 \textdegree{}C}
+Tabellen geven de reactie-enthalpie bij \SI{298}{\kelvin}, maar de katalysator werkt pas bij 400 tot \SI{500}{\celsius}. Komt er bij die temperatuur evenveel warmte vrij?
+
+\emph{Schat eerst zelf:} bij \SI{450}{\celsius} bevatten zowel de reagentia als de producten meer enthalpie dan bij \SI{25}{\celsius}. Welke van de twee wint het meest bij het opwarmen: 4 mol gas of 2 mol gas?
+\end{casus}
+
+Niet enkel ammoniak: methanol wordt gemaakt bij ongeveer \SI{250}{\celsius}, kalk bij \SI{900}{\celsius}, en in je lichaam verlopen reacties bij \SI{37}{\celsius}. Hoe reken je een getabelleerde reactie-enthalpie om naar de procestemperatuur?
+
+\paragraph{Afleiding met een kringloop.} Omdat $H$ een toestandsfunctie is, mag je van reagentia bij $T_0 = \SI{298}{\kelvin}$ naar producten bij een andere temperatuur $T$ gaan langs elke weg die je wil. Vergelijk twee wegen:
+\begin{enumerate}
+\item \emph{Eerst reageren, dan opwarmen.} Laat de reactie verlopen bij $T_0$ en warm daarna de producten op van $T_0$ tot $T$:
+\[
+\Delta H_\text{weg 1} = \Delta_r H^\circ(T_0) + \int_{T_0}^{T} C_{p,\text{producten}}\,\dd T .
+\]
+\item \emph{Eerst opwarmen, dan reageren.} Warm de reagentia op van $T_0$ tot $T$ en laat de reactie daar verlopen:
+\[
+\Delta H_\text{weg 2} = \int_{T_0}^{T} C_{p,\text{reagentia}}\,\dd T + \Delta_r H^\circ(T) .
+\]
+\item Begin- en eindtoestand zijn dezelfde, dus $\Delta H_\text{weg 1} = \Delta H_\text{weg 2}$. Oplossen naar $\Delta_r H^\circ(T)$ geeft de \emph{wet van Kirchhoff}:
+\begin{equation}
+\boxed{\;\Delta_r H^\circ(T) = \Delta_r H^\circ(T_0) + \int_{T_0}^{T} \Delta_r C_p^\circ\,\dd T\;}
+\label{eq:kirchhoff}
+\end{equation}
+met
+\[
+\Delta_r C_p^\circ = \sum_\text{producten} \nu\, C_{p,\mathrm{m}}^\circ - \sum_\text{reagentia} \nu\, C_{p,\mathrm{m}}^\circ .
+\]
+\end{enumerate}
+In differentiaalvorm staat er $\dd(\Delta_r H^\circ)/\dd T = \Delta_r C_p^\circ$: de reactie-enthalpie verandert met de temperatuur precies zo snel als het verschil in warmtecapaciteit tussen producten en reagentia.
+
+\paragraph{Grafisch.} Teken de enthalpie van de reagentia en van de producten als functie van $T$ (figuur~\ref{fig:kirchhoff}, links). Elke lijn stijgt met een helling gelijk aan de totale warmtecapaciteit, en de verticale afstand tussen beide lijnen is $\Delta_r H^\circ(T)$. De twee wegen uit de afleiding zijn de twee manieren om van het blauwe punt linksboven naar het rode punt rechtsonder te gaan: eerst omlaag en dan langs de rode lijn, of eerst langs de blauwe lijn en dan omlaag. Lopen de lijnen evenwijdig ($\Delta_r C_p = 0$), dan hangt $\Delta_r H$ niet van de temperatuur af. Hebben de reagentia de grotere warmtecapaciteit, zoals bij de ammoniaksynthese, dan gaan de lijnen uit elkaar en wordt de reactie bij hogere temperatuur sterker exotherm.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{Figuren/kirchhoff}
+    \caption{De wet van Kirchhoff voor de ammoniaksynthese \ce{N2 + 3 H2 -> 2 NH3}. Links: enthalpie van reagentia en producten (ten opzichte van de reagentia bij \SI{298}{\kelvin}); de helling van elke lijn is zijn warmtecapaciteit, de verticale afstand is $\Delta_r H$. Rechts: $\Delta_r H(T)$ met de temperatuurafhankelijke $C_p$ uit tabel~\ref{tab:cp_coeff} en met de constante waarde $\Delta_r C_p(\SI{298}{\kelvin})$.}
+    \label{fig:kirchhoff}
+\end{figure}
+
+\paragraph{Constante $\Delta_r C_p$.} Over een beperkt temperatuurinterval mag je $\Delta_r C_p^\circ$ constant nemen, en dan wordt de integraal eenvoudig:
+\begin{equation}
+\Delta_r H^\circ(T) \approx \Delta_r H^\circ(T_0) + \Delta_r C_p^\circ\,(T - T_0).
+\label{eq:kirchhoff-constant}
+\end{equation}
+Dat is een rechte in figuur~\ref{fig:kirchhoff} (rechts). Hoe groter het temperatuurverschil, hoe meer ze afwijkt van de echte kromme, omdat de warmtecapaciteiten zelf met $T$ veranderen (figuur~\ref{fig:cp-temperatuur}).
+
+\begin{voorbeeld}{Vormingsenthalpie van waterdamp bij \SI{100}{\celsius}}
+De standaardvormingsenthalpie van waterdamp bij \SI{25}{\celsius} is \SI{-241.82}{\kilo\joule\per\mole}. Hoeveel is ze bij \SI{100}{\celsius}? De vormingsreactie is
+\[
+\ce{H2(g) + 1/2 O2(g) -> H2O(g)}.
+\]
+Met $C_{p,\mathrm{m}}^\circ$ bij \SI{298}{\kelvin} (\ce{H2O(g)} 33.58, \ce{H2} 28.82, \ce{O2} \SI{29.36}{\joule\per\mole\per\kelvin}; Atkins \& de Paula):
+\[
+\Delta_r C_p^\circ = 33.58 - 28.82 - \tfrac12(29.36) = \SI{-9.92}{\joule\per\mole\per\kelvin}.
+\]
+Over \SI{75}{\kelvin} is $\Delta_r C_p$ zeker constant, dus
+\[
+\Delta_f H^\circ(\SI{373}{\kelvin}) = -241.82 + (-9.92\times10^{-3})(75) = \SI{-242.56}{\kilo\joule\per\mole}.
+\]
+Een verschuiving van amper \SI{0.3}{\percent}: over enkele tientallen kelvin mag je de tabelwaarde meestal gewoon gebruiken.
+\end{voorbeeld}
+
+\begin{casusuitgewerkt}{tabellen bij 25 \textdegree{}C, reactor bij 450 \textdegree{}C}
+In de reactor reageert \ce{N2 + 3 H2 -> 2 NH3} bij ongeveer \SI{723}{\kelvin}. Bij \SI{298}{\kelvin} is $\Delta_r H^\circ = \SI{-92.2}{\kilo\joule}$ per 2 mol \ce{NH3}.
+
+\emph{Stap 1: $\Delta_r C_p$ als veelterm.} Met $C_p = a + bT + cT^2$ uit tabel~\ref{tab:cp_coeff} combineer je de co\"effici\"enten zoals de stoffen in de reactie:
+\begin{align*}
+\Delta a &= 2(24.4) - 28.5 - 3(29.1) = -67.0,\\
+\Delta b &= 2(3.86\times10^{-2}) - 3.6\times10^{-4} - 3(-6.1\times10^{-4}) = 7.87\times10^{-2},\\
+\Delta c &= 2(-6.40\times10^{-6}) - 4.00\times10^{-6} - 3(1.65\times10^{-6}) = -2.18\times10^{-5}.
+\end{align*}
+Bij \SI{298}{\kelvin} is $\Delta_r C_p = \SI{-45.5}{\joule\per\kelvin}$, bij \SI{723}{\kelvin} nog maar \SI{-21.5}{\joule\per\kelvin}.
+
+\emph{Stap 2: integreren} van \SI{298}{\kelvin} tot \SI{723}{\kelvin}, term per term zoals bij de opwarming van lucht:
+\begin{align*}
+\int_{298}^{723} \Delta_r C_p\,\dd T &= \Delta a\,(425) + \frac{\Delta b}{2}(723^2 - 298^2) + \frac{\Delta c}{3}(723^3 - 298^3)\\
+&= -28.5 + 17.1 - 2.5 = \SI{-14.0}{\kilo\joule}.
+\end{align*}
+
+\emph{Stap 3: optellen.}
+\[
+\Delta_r H^\circ(\SI{723}{\kelvin}) = -92.2 - 14.0 = \SI{-106.2}{\kilo\joule}.
+\]
+Bij de procestemperatuur komt dus \SI{15}{\percent} meer warmte vrij dan de tabelwaarde doet vermoeden, en dat moet de koeling aankunnen. Had je $\Delta_r C_p$ constant op zijn waarde bij \SI{298}{\kelvin} gehouden, dan vond je $-92.2 + (-45.5\times10^{-3})(425) = \SI{-111.5}{\kilo\joule}$: de fout van \SI{5}{\kilo\joule} is ruim een derde van de correctie zelf (figuur~\ref{fig:kirchhoff}, rechts). Over honderden kelvin gebruik je dus beter de temperatuurafhankelijke $C_p$.
+
+Ook de schatting klopt: 4 mol reagentia hebben samen een grotere warmtecapaciteit dan 2 mol product ($\Delta_r C_p < 0$). Bij het opwarmen stijgt de enthalpie van de reagentia dus het meest, en het verschil met de producten wordt groter.
+
+\emph{Volgende vraag.} In de reactor wordt die warmte niet meteen afgevoerd. Wat gebeurt er dan met het gas?
+\end{casusuitgewerkt}
+
+
+\section{Warmte-effecten van reacties: de adiabatische temperatuur}
+\label{sec:warmte-effecten}
+
+\begin{casus}{hoe warm wordt een katalysatorbed?}
+Het gas komt het katalysatorbed binnen op \SI{400}{\celsius}. Het bed is zo groot en zo goed ge\"isoleerd dat de reactiewarmte er niet uit kan. Hoe warm is het gas aan de uitgang, en wat betekent dat voor de omzetting?
+
+\emph{Schat eerst zelf:} hoe meer ammoniak er ontstaat, hoe warmer het gas wordt. Kan een bed dat maar lang genoeg is, dan al het synthesegas omzetten?
+\end{casus}
+
+In het voorbeeld van de ammoniaksynthese moest de koeling de reactiewarmte afvoeren bij een vaste temperatuur. Wat als er niet (of onvoldoende) gekoeld wordt? Dan blijft de vrijgekomen warmte in het reactiemengsel en stijgt de temperatuur. In een brander is dat precies de bedoeling, in een chemische reactor is het een veiligheidsrisico. In beide gevallen is de vraag voor de ingenieur dezelfde: \emph{hoe warm wordt het mengsel als alle reactiewarmte erin blijft?}
+
+\subsection{De energiebalans over een reactor}
+
+We gebruiken dezelfde kringloop als bij de wet van Kirchhoff (\S\ref{sec:kirchhoff}): omdat enthalpie een toestandsfunctie is, mogen we de weg van reagentia naar producten zelf kiezen. Nu kiezen we de weg ``eerst reageren bij \SI{298}{\kelvin}, dan de producten opwarmen'':
+\begin{enumerate}
+\item de reactie laten verlopen bij \SI{298}{\kelvin}: de enthalpie verandert met $\xi\,\Delta_r H^\circ(\SI{298}{\kelvin})$, met $\xi$ het aantal mol omgezet;
+\item het productmengsel opwarmen van \SI{298}{\kelvin} tot de eindtemperatuur $T$: de enthalpie verandert met $\sum_i n_i \int_{298}^{T} C_{p,i}\,\dd T$, gesommeerd over alle stoffen die de reactor verlaten (ook inerte stoffen zoals stikstof).
+\end{enumerate}
+Bij een \emph{adiabatische} reactor ($Q = 0$, geen asarbeid) is de totale enthalpieverandering nul. De eindtemperatuur, de \emph{adiabatische temperatuur} $T_\mathrm{ad}$, volgt dus uit
+\begin{equation}
+\boxed{\;0 = \xi\,\Delta_r H^\circ(\SI{298}{\kelvin}) + \sum_{i,\,\mathrm{uit}} n_i \int_{298}^{T_\mathrm{ad}} C_{p,i}\,\dd T\;}
+\label{eq:adiabatische-temperatuur}
+\end{equation}
+Bij een exotherme reactie is de eerste term negatief; de tweede term moet die compenseren door een temperatuurstijging. Met een gemiddelde, constante warmtecapaciteit van het productmengsel wordt dit eenvoudig:
+\begin{equation}
+T_\mathrm{ad} - 298 \approx \frac{\xi\,(-\Delta_r H^\circ)}{\sum_i n_i \overline{C}_{p,i}}.
+\label{eq:adiabatische-temperatuur-cp}
+\end{equation}
+Komt de voeding niet binnen op \SI{298}{\kelvin}, dan voeg je een derde stap toe: de voeding eerst afkoelen (of opwarmen) tot \SI{298}{\kelvin}.
+
+\begin{voorbeeld}{Adiabatische vlamtemperatuur van aardgas}
+Methaan verbrandt met de stoichiometrische hoeveelheid lucht (\SI{21}{\percent} \ce{O2}, \SI{79}{\percent} \ce{N2}, dus 3.76 mol \ce{N2} per mol \ce{O2}). Voeding en lucht komen binnen op \SI{25}{\celsius}:
+\[
+\ce{CH4 + 2 O2 + 7.52 N2 -> CO2 + 2 H2O(g) + 7.52 N2}
+\]
+Het water verlaat de vlam als damp, dus gebruiken we $\Delta_r H^\circ = \SI{-802.3}{\kilo\joule\per\mole}$ (en niet $-890.3$, dat geldt voor vloeibaar water; het verschil is $2\times\SI{44.0}{\kilo\joule\per\mole}$, de verdampingsenthalpie van water bij \SI{25}{\celsius}, zie \S\ref{sec:faseovergangen}).
+
+Als gemiddelde warmtecapaciteiten tussen \SI{298}{\kelvin} en \SI{2300}{\kelvin} nemen we \ce{CO2}: \SI{54.8}{}, \ce{H2O}: \SI{44.2}{} en \ce{N2}: \SI{33.5}{\joule\per\mole\per\kelvin}. Per mol methaan:
+\[
+\sum_i n_i\overline{C}_{p,i} = 54.8 + 2(44.2) + 7.52(33.5) = \SI{395}{\joule\per\kelvin}
+\]
+\[
+T_\mathrm{ad} = 298 + \frac{802\,300}{395} = \SI{2330}{\kelvin}\;(\approx\SI{2060}{\celsius}).
+\]
+Gemeten vlamtemperaturen liggen iets lager, rond \SI{2220}{\kelvin}. Bij zulke hoge temperaturen valt een klein deel van \ce{CO2} en \ce{H2O} terug uiteen in \ce{CO}, \ce{H2} en \ce{O2} (een evenwicht, hoofdstuk~\ref{ch:reagerend}); die ontbinding slorpt warmte op.
+
+Merk op dat bijna twee derde van de warmtecapaciteit van het rookgas afkomstig is van stikstof, dat niet eens deelneemt aan de reactie. Verbranden met zuivere zuurstof geeft daarom veel hogere temperaturen: een snijbrander met acetyleen en zuurstof haalt meer dan \SI{3300}{\kelvin}.
+\end{voorbeeld}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=0.7\linewidth]{Figuren/vlamtemperatuur}
+    \caption{Adiabatische vlamtemperatuur van methaan als functie van de luchtovermaat, berekend met temperatuurafhankelijke warmtecapaciteiten (NIST). Elke extra kilogram lucht moet mee opgewarmd worden en verlaagt de eindtemperatuur. Ovens werken meestal met 10 tot 20\,\% luchtovermaat: genoeg om volledige verbranding te verzekeren, niet zoveel dat de vlam te sterk afkoelt.}
+    \label{fig:vlamtemperatuur}
+\end{figure}
+
+\subsection{Temperatuurstijging in een katalysatorbed}
+\label{sec:katalysatorbed}
+
+Terug naar de reactor van de ammoniakfabriek. Elk katalysatorbed is groot en goed ge\"isoleerd, zodat het zich gedraagt als een adiabatische reactor: alle reactiewarmte blijft in het gas. Hoe warm wordt het?
+
+\begin{casusuitgewerkt}{hoe warm wordt een katalysatorbed?}
+Het gas komt het eerste bed binnen op \SI{400}{\celsius} met \SI{3}{\percent} \ce{NH3} (de rest die de condensor niet heeft opgevangen) en voor de rest \ce{N2} en \ce{H2} in de verhouding 1:3. We rekenen per \SI{100}{\mole} voeding: \SI{3}{\mole} \ce{NH3}, \SI{24.25}{\mole} \ce{N2} en \SI{72.75}{\mole} \ce{H2}. Stel dat in het bed \SI{8}{\mole} \ce{NH3} gevormd wordt. Dan verbruik je \SI{4}{\mole} \ce{N2} en \SI{12}{\mole} \ce{H2}, en verlaat het bed
+\[
+\SI{11}{\mole}\ \ce{NH3} + \SI{20.25}{\mole}\ \ce{N2} + \SI{60.75}{\mole}\ \ce{H2} = \SI{92}{\mole},
+\qquad y_{\ce{NH3}} = 11/92 = \SI{12.0}{\percent}.
+\]
+\emph{Vrijgekomen warmte.} Bij deze temperaturen is $\Delta_r H \approx \SI{-53.1}{\kilo\joule}$ per mol \ce{NH3} (de helft van de \SI{-106.2}{\kilo\joule} uit het voorbeeld bij de wet van Kirchhoff), dus komt er $8 \times 53.1 = \SI{425}{\kilo\joule}$ vrij.
+
+\emph{Warmtecapaciteit van het uitgaande gas.} Met tabel~\ref{tab:cp_coeff} bij ongeveer \SI{740}{\kelvin}: \ce{H2} \SI{29.6}{}, \ce{N2} \SI{31.0}{} en \ce{NH3} \SI{49.6}{\joule\per\mole\per\kelvin}, zodat
+\[
+\sum_i n_i\overline{C}_{p,i} = 60.75(29.6) + 20.25(31.0) + 11(49.6) = \SI{2970}{\joule\per\kelvin}.
+\]
+\emph{Temperatuurstijging} (vergelijking~\eqref{eq:adiabatische-temperatuur-cp}):
+\[
+\Delta T_\mathrm{ad} = \frac{425\,000}{2970} = \SI{143}{\kelvin}, \qquad T_\text{uit} \approx \SI{543}{\celsius}.
+\]
+Elke procent ammoniak die gevormd wordt, verhoogt de temperatuur dus met ongeveer \SI{16}{\kelvin}.
+
+\emph{En de omzetting?} Hoe hoger de temperatuur, hoe minder ammoniak er bij evenwicht kan bestaan. Daardoor stopt de omzetting in een bed lang voordat al het gas is omgezet, zoals figuur~\ref{fig:ammoniak-bedden} hieronder toont.
+\end{casusuitgewerkt}
+
+Kan een langer bed dan meer ammoniak maken? Figuur~\ref{fig:ammoniak-bedden} toont het antwoord. In elk bed loopt de toestand langs een rechte: meer ammoniak betekent een hogere temperatuur, met de helling die we net berekenden. Maar bij hogere temperatuur ligt het chemisch evenwicht bij minder ammoniak (de gestippelde curve, hoofdstuk~\ref{ch:reagerend}). Rond \SI{530}{\celsius} botst de rechte op die curve en stopt de omzetting, hoe groot het bed ook is. Daarom koelt men het gas tussen de bedden terug tot ongeveer \SI{400}{\celsius} en laat het daarna verder reageren. Drie bedden met tussenkoeling brengen het gehalte zo van \SI{3}{} naar ongeveer \SI{20}{\percent}. De tussenkoeling is bovendien nuttig: de warmte die men daar afvoert, wordt gebruikt om stoom te maken, die op zijn beurt de compressoren aandrijft.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{Figuren/ammoniak_bedden}
+    \caption{Temperatuur en ammoniakgehalte in een reactor met drie adiabatische katalysatorbedden bij \SI{200}{\bar} (voeding \SI{400}{\celsius}, \SI{3}{\percent} \ce{NH3}). In elk bed stijgt de temperatuur langs een rechte, zoals de eerste hoofdwet voorschrijft, tot dicht bij het evenwicht. Tussenkoeling brengt het gas terug naar \SI{400}{\celsius}. Berekend met tabel~\ref{tab:cp_coeff} en, voor het evenwicht, met de ideale gaswet en standaardwaarden uit Atkins \& de Paula, zonder inerte gassen; in een echte reactor ligt het eindgehalte iets lager.}
+    \label{fig:ammoniak-bedden}
+\end{figure}
+
+\subsection{Adiabatische temperatuurstijging in een vloeistofreactor}
+
+In een vloeistofreactor is het oplosmiddel (vaak water) de grootste warmtebuffer. Per liter reactiemengsel met beginconcentratie $c_{A,0}$ van de reagens en volumieke warmtecapaciteit $\rho c_p$ wordt vergelijking~(\ref{eq:adiabatische-temperatuur-cp}) bij volledige omzetting:
+\begin{equation}
+\boxed{\Delta T_\mathrm{ad} = \frac{c_{A,0}\,(-\Delta_r H)}{\rho\,c_p}}
+\label{eq:delta-T-ad}
+\end{equation}
+Dit getal is een eerste veiligheidscontrole voor elke exotherme reactie: het is de temperatuurstijging die optreedt als de koeling volledig uitvalt.
+
+\begin{voorbeeld}{Wat als de koeling uitvalt?}
+In een batchreactor verloopt een hydrogenering in waterig midden met $c_{A,0} = \SI{2.0}{\mole\per\litre}$ en $\Delta_r H = \SI{-100}{\kilo\joule\per\mole}$. Met $\rho c_p \approx \SI{4.18}{\kilo\joule\per\litre\per\kelvin}$:
+\[
+\Delta T_\mathrm{ad} = \frac{(2.0)(100)}{4.18} = \SI{48}{\kelvin}.
+\]
+Start de reactor op \SI{60}{\celsius}, dan kan het mengsel bij uitval van de koeling tot \SI{108}{\celsius} opwarmen: boven het kookpunt van water. De druk in de reactor loopt op, en bovendien versnelt de reactie sterk bij hogere temperatuur. In hoofdstuk~\ref{ch:kinetiek} zien we hoe die combinatie kan leiden tot een \emph{thermal runaway}.
+
+Een vuistregel uit de procesveiligheid: bij $\Delta T_\mathrm{ad}$ kleiner dan ongeveer \SI{50}{\kelvin} is het risico beperkt; bij meer dan \SI{200}{\kelvin} is een grondige veiligheidsstudie nodig.
+\end{voorbeeld}
+
+
+\section{De beperkingen van de eerste hoofdwet}
+
+De eerste hoofdwet is een boekhouding: ze vertelt je hoeveel energie waar naartoe gaat, maar niet wat er \emph{kan} gebeuren. Een hete kop koffie koelt af tot kamertemperatuur; nooit warmt lauwe koffie spontaan op door warmte uit de kamer te halen. Beide processen respecteren de eerste hoofdwet, want in beide gevallen blijft de energie behouden. Toch gebeurt maar \'e\'en van de twee.
+
+Hetzelfde zie je in de ammoniakfabriek. De eerste hoofdwet vertelde ons hoe warm een katalysatorbed wordt per procent gevormde ammoniak, maar niet waarom de omzetting rond \SI{530}{\celsius} stopt (figuur~\ref{fig:ammoniak-bedden}). Ze verklaarde hoeveel warmte de condensor moet afvoeren, maar niet waarom je daarvoor een koelmachine nodig hebt die zelf energie verbruikt. Om de \emph{richting} van een proces te voorspellen, en de grens van wat haalbaar is, is een tweede grootheid nodig: de entropie. Haar moleculaire oorsprong (hoofdstuk~\ref{ch:kwantum}) en haar gevolgen (hoofdstuk~\ref{ch:spontaniteit}) zijn het onderwerp van de volgende twee hoofdstukken; het evenwicht van de ammoniaksynthese zelf komt terug in hoofdstuk~\ref{ch:reagerend}.
+
+\section{De fabriek opnieuw bekeken}
+
+Met de begrippen uit dit hoofdstuk kan je de energiehuishouding van de syntheselus nu volledig doorrekenen:
+\begin{itemize}
+\item \emph{Compressor} (\S\ref{sec:compressor}): de arbeid wordt interne energie van het gas, $\Delta U = W$. In drie trappen met tussenkoeling blijft het gas onder \SI{110}{\celsius} en kost de compressie ongeveer \SI{6}{\kilo\joule} per mol gas, zo'n \SI{8}{\mega\watt} voor \SI{1000}{\tonne} \ce{NH3} per dag.
+\item \emph{Gas bij \SI{200}{\bar}} (\S\ref{sec:toestandsvergelijkingen}): synthesegas wijkt \SI{7}{\percent} af van de ideale gaswet ($Z \approx 1.07$), ammoniak condenseert zelfs.
+\item \emph{Reactor} (\S\ref{sec:kirchhoff} en \S\ref{sec:katalysatorbed}): bij \SI{450}{\celsius} komt \SI{53}{\kilo\joule} per mol \ce{NH3} vrij; in een adiabatisch bed stijgt de temperatuur ongeveer \SI{16}{\kelvin} per procent gevormde ammoniak, en daarom zijn er tussenkoelers.
+\item \emph{Condensor} (\S\ref{sec:faseovergangen}): het condenseren van de ammoniak vraagt zo'n \SI{15}{\mega\watt} koeling onder \SI{0}{\celsius}.
+\end{itemize}
+Dezelfde redeneringen gelden voor elke installatie: een warmtepomp, een stoomketel, een fermentor of een koelkast.
+
+\section{Oefeningen}
+
+\input{Oefeningen_H1}

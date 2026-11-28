@@ -94,8 +94,18 @@ Vergeleken: versie van 27/11 (`Vorige versies/Energie_2026-11-27.tex`) met de ni
 | verdieping | eerste hoofdwet: samenstelling van U, U(T) voor ideaal gas, waarom compressie opwarmt (uit de originele versie) | §1.7 De eerste hoofdwet van de thermodynamica |
 | herschreven | systeem, evenwicht: opsommingen omgezet in doorlopende tekst, systeemgrens-voorbeeld compressor/motor (uit de originele versie) terug | §1.2, §1.3 |
 
+## Verdieping 28/11 (niveau H2: proef als vertrekpunt)
+
+| status | onderwerp | waar |
+|---|---|---|
+| terug | Temperatuur en druk: kelvinschaal, druk F/A, absolute druk vs overdruk | §1.4.2 |
+| nieuw | Ideale gaswet opgebouwd uit Boyle, Charles (extrapolatie naar 0 K) en Avogadro, figuur gaswetten | §1.5.1 |
+| verdieping | Afwijkingen als drie waarnemingen: Regnault/Amagat, proef van Joule-Thomson (figuur, Linde, inversie H2/He), Andrews 1869 | §1.5.3 |
+| verdieping | Kritiek punt: algebra in vier stappen, Z_c = 3/8 vs gemeten 0.27-0.30 | §1.5.4 |
+| nieuw | Proef van Joule (figuur, rekenvoorbeeld 0.94 K, 1 cal = 4.184 J) als experimentele basis voor U | §1.7 |
+| nieuw | Calorimetrie: bomcalorimeter (figuur), ijken, octaanvoorbeeld ΔU naar ΔH; Hess experimenteel via C naar CO | §1.11 |
+
 ## Uit de originele versie (26/11) en nog niet terug
 
 - Toepassing *Destillatiekolom* als voorbeeld van een open systeem (nu enkel vermeld).
-- Subsectie *Temperatuur en druk* (definitie druk als kracht per oppervlak, meting met manometer): niet apart, wel impliciet.
 - Figuren `boyle` en `isothermen_co2`: vervangen door `isothermen_vergelijking` (ideaal vs reëel CO2 op dezelfde assen).
